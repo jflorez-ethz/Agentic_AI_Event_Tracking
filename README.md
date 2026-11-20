@@ -4,11 +4,12 @@ Repo for Agentic AI Event Tracking
 
 Project division:
 
-1. Input data collection
-2. Model creation-part of it
-3. Model creation-part of it
-4. Validation/post-processing
-5. Policy/case study examples, more story
+1. Input data collection, research on what's best/how to get it-Roy
+2. Model creation-part of it-Chris
+3. Model creation-part of it-Julian
+4. Model creation-part of it-Joshua
+5. Post-training-data results-Julian
+6. Policy/case study examples, more story-Ziyi, Roy
 
 
 KPIs:
