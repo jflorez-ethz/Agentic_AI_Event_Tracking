@@ -50,8 +50,10 @@ def run(index: str, delay_s: float = 10.0, triage_fn=None) -> dict:
     store = AlertStore(work)
     detector = OracleDetector(site, delay_s=delay_s)
 
-    for label in sorted(site.labels, key=lambda l: l.start):
-        clock.jump(min(label.start + detector.delay, site.end))
+    # In detection order: the clock can jump backwards, and an unattended object that starts
+    # first fires last (detector.KIND_DELAYS), so start order would triage later alerts too late.
+    for label in sorted(site.labels, key=lambda l: (l.start + detector.delay_for(l.type), l.start)):
+        clock.jump(min(label.start + detector.delay_for(label.type), site.end))
         for candidate in detector.poll(clock.now()):
             tools = AgentTools(recorder, context)
             verdict = triage_fn(candidate, tools, store.open_alerts())

@@ -120,3 +120,55 @@ Stopped after Task 5 Step 4. Task 5 Step 5 (run 1) is for the user; Task 6 is no
   `evaluate.run_dir_for(now)`, so the test checks it without going through `make_agent` (which
   loads `.env`). Run 1's folder `20261121-1535` keeps its old name.
 - Test: `test_run_folders_are_named_to_the_second`.
+
+## Task 6
+Built as planned, with these changes (agreed in plan mode, 21 Nov):
+
+- **Detector order.** `OracleDetector` has `KIND_DELAYS = {"unattended_object": 30.0}`,
+  `kind_delays=None` (→ `KIND_DELAYS`) and `delay_for(kind)`; `self.delay` stays as the default
+  delay, so `run_replay.py` works unchanged. `poll` now returns candidates in detection order
+  (detected_at, then start), not start order.
+- **`evaluate.run` replays in detection order** and jumps to `label.start + delay_for(type)`.
+  `ReplayClock.jump` can go backwards, and an unattended object that starts first fires last;
+  in start order a person label due earlier would be triaged and timestamped at the object's
+  later time (too-long time to alert, footage past its real detection time). The real site's
+  timings do not hit this, but it would be a silent KPI error. Test:
+  `test_evaluate_creates_each_alert_at_its_detection_time` (hand-written index, no footage).
+- **Sequences get a 30 s lead-in as well as the 10 s tail.** Each clip in a sequence is its
+  first frame held 30 s, the clip, then its last frame held 10 s. The CAUCAFall clips are
+  5.9–11 s long; with only the tail, the agent's usual first clip (first seen −20 s) for the
+  Kneel, Pickup and SitDown look-alikes would have contained the previous real fall and its
+  lying-still hold. The tail stays: each fall alert fires 1–7 s after its clip ends, so the
+  fallen person is still on screen at "now". Signatures:
+  `sequence_offsets(durations, gap_s=10.0, lead_s=0.0)`, `make_sequence(paths, out, gap_s=10.0,
+  lead_s=0.0)`; `main()` passes `lead_s=30`. The plan's test values still hold at `lead_s=0`.
+  **An offset is where that clip's own first frame lands** (segment start + lead-in), and the
+  labels are shifted by it. Result: CAUCAFall clips start at [30, 79.5, 130.45, 176.7, 222.55,
+  271.65] s, G421 at [30, 132] s; CAM-04 is on site 13:56:00–14:00:51, CAM-06 14:00:00–14:03:26.
+- **`make_sequence` normalises in one ffmpeg call**: every part is scaled/padded to the first
+  clip's size, set to its frame rate, padded with `tpad` (`start_mode=clone` and
+  `stop_mode=clone`), then joined with the `concat` filter; no audio. It probes the output and
+  stops if the length differs from the expected total by more than 1.5 frames, since the label
+  offsets assume it. Test: `test_make_sequence_matches_its_offsets` (two lavfi clips of
+  different sizes).
+- **Labels are read from `labels.csv`** (by file, `none` rows skipped) instead of retyped; the
+  two context look-alikes (G336 at 259 s, G330 at 0 s) are set to `real: false` with the plan's
+  notes through `CONTEXT_LOOKALIKES`. A used file with no labels stops the script.
+- **Procedures rule 2** reads "Unexpected activity while the site is closed" (was "after hours",
+  which may read as not applying at 13:50 on a closed Sunday). The script copies the kit's
+  procedures, replaces rules 1 and 2, and stops if "22:00", "06:00", "night" or "after hours"
+  is left. 11 Mar 2018 is a Sunday.
+- **Committed:** the script, the tests, and its outputs `site.real.yaml` and `context/real/`
+  (small text, so the reviewer can read the site). `clips/sequences/` and `site_real/` stay
+  gitignored.
+- Extra tests: `test_sequence_offsets_with_lead_in`, `test_make_sequence_matches_its_offsets`,
+  `test_evaluate_creates_each_alert_at_its_detection_time`.
+- **Spot check** (frames from `site_real/cams/CAM-04.mp4`): at the Kneel window start (13:57:01.5)
+  the frame is the Kneel clip's first frame (a person standing, no fall); at Kneel + 1 s
+  (13:57:22.5) the person is kneeling; at FallForward + 2 s (13:56:38) the person is lying on
+  the floor.
+- Not changed: `AlertStore` stores `created` to the whole second, so labels starting on a
+  half second show a time to alert of 9.5 s instead of 10 s (stub median 9.95 s on the real site).
+- Run 1's dismissed intruders on the placeholder site (coloured rectangles, so the video model
+  said "not a person" and the agent took no second look) are not addressed; run 2 measures the
+  agent as it is.

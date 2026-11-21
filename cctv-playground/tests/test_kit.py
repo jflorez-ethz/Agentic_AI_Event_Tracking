@@ -104,3 +104,50 @@ def test_evaluate_scores_the_stub(site_dir):
     assert verdicts == {"CAM-A-1": "dismiss", "CAM-B-1": "escalate"}
     assert result["summary"]["missed_critical_events"] == 0
     assert result["summary"]["alerts_reduction_pct"] == 50.0
+
+
+def _two_label_index(tmp_path) -> Path:
+    """An index with no footage: an unattended object at 02:00:00 and a person at 02:00:05."""
+    import json
+    cam = {"zone": "Z", "file": "none.mp4", "start": "2026-01-10T02:00:00", "duration_s": 120,
+           "fps": 5, "width": 320, "height": 180}
+    index = {"name": "Delays", "start": "2026-01-10T02:00:00", "duration_s": 120, "context": {},
+             "cameras": [{"id": "CAM-A", **cam}, {"id": "CAM-B", **cam}],
+             "labels": [
+                 {"id": "CAM-A-1", "camera_id": "CAM-A", "type": "unattended_object",
+                  "start": "2026-01-10T02:00:00", "end": "2026-01-10T02:01:00", "real": True},
+                 {"id": "CAM-B-1", "camera_id": "CAM-B", "type": "after_hours_person",
+                  "start": "2026-01-10T02:00:05", "end": "2026-01-10T02:00:20", "real": True}]}
+    path = tmp_path / "index.json"
+    path.write_text(json.dumps(index))
+    return path
+
+
+def test_detector_waits_longer_for_unattended_objects(tmp_path):
+    from fakecctv.detector import OracleDetector
+    site = load_site(_two_label_index(tmp_path))
+    det = OracleDetector(site)
+    t0 = site.start
+    assert det.delay_for("unattended_object") == timedelta(seconds=30)
+    assert det.delay_for("after_hours_person") == timedelta(seconds=10)
+    assert det.poll(t0 + timedelta(seconds=14)) == []
+    assert [c["candidate_id"] for c in det.poll(t0 + timedelta(seconds=15))] == ["CAM-B-1"]
+    assert det.poll(t0 + timedelta(seconds=29)) == []
+    fired = det.poll(t0 + timedelta(seconds=30))
+    assert [c["candidate_id"] for c in fired] == ["CAM-A-1"]
+    assert fired[0]["detected_at"] == "2026-01-10T02:00:30"
+    # both due at once: detection order, not start order
+    both = OracleDetector(site).poll(t0 + timedelta(seconds=60))
+    assert [c["candidate_id"] for c in both] == ["CAM-B-1", "CAM-A-1"]
+
+
+def test_evaluate_creates_each_alert_at_its_detection_time(tmp_path):
+    """The object starts first but fires last: the person must not wait for it."""
+    import evaluate
+
+    def no_footage(candidate, tools, open_alerts):
+        return {"verdict": "escalate", "priority": "high", "reason": "test", "evidence": [], "linked_to": None}
+
+    result = evaluate.run(str(_two_label_index(tmp_path)), triage_fn=no_footage)
+    tta = {r["event"]: r["time_to_alert_s"] for r in result["events"]}
+    assert tta == {"CAM-A-1": 30.0, "CAM-B-1": 10.0}
