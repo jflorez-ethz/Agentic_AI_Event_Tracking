@@ -289,3 +289,13 @@ def test_time_to_alert_counts_the_agents_seconds(site_dir):
         assert r["time_to_alert_s"] == pytest.approx(2 + 42)
         assert r["triage_s"] == 42.0
     assert result["summary"]["median_time_to_alert_s"] == pytest.approx(44)
+
+
+def test_run_folders_are_named_to_the_second():
+    """Two runs started in the same minute must not share a folder."""
+    from datetime import datetime
+
+    import evaluate
+    d = evaluate.run_dir_for(datetime(2026, 11, 21, 15, 35, 12))
+    assert d.name == "20261121-153512"
+    assert d.parent == evaluate.ROOT / "runs" / "triage"

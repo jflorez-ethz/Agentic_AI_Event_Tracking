@@ -113,3 +113,10 @@ Stopped after Task 5 Step 4. Task 5 Step 5 (run 1) is for the user; Task 6 is no
 - The agent table has an `agent s` column after `cost $`.
 - Test: `test_time_to_alert_counts_the_agents_seconds` (a stub wrapper whose stats say 42 s; no
   timing noise).
+
+## Fix: run folders named to the second
+- Run folders are now `runs/triage/<YYYYmmdd-HHMMSS>` (were `<YYYYmmdd-HHMM>`), so two runs started
+  in the same minute no longer write into one folder. The name comes from a new helper
+  `evaluate.run_dir_for(now)`, so the test checks it without going through `make_agent` (which
+  loads `.env`). Run 1's folder `20261121-1535` keeps its old name.
+- Test: `test_run_folders_are_named_to_the_second`.

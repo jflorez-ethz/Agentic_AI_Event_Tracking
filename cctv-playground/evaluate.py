@@ -114,8 +114,12 @@ def make_agent(model: str):
     os.environ["ANTHROPIC_API_KEY"] = key  # stray whitespace in .env breaks the provider
 
     from agentlab.triage_agent import AgentTriage
-    run_dir = ROOT / "runs" / "triage" / datetime.now().strftime("%Y%m%d-%H%M")
-    return AgentTriage(model, run_dir=run_dir)
+    return AgentTriage(model, run_dir=run_dir_for(datetime.now()))
+
+
+def run_dir_for(now: datetime) -> Path:
+    """runs/triage/<YYYYmmdd-HHMMSS>: to the second, so two runs in the same minute get their own folder."""
+    return ROOT / "runs" / "triage" / now.strftime("%Y%m%d-%H%M%S")
 
 
 def print_table(result: dict, run_dir: Path | None = None) -> None:
