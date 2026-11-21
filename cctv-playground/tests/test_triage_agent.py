@@ -18,7 +18,7 @@ from pydantic_ai import ModelResponse, ToolCallPart, ToolReturnPart, models  # n
 from pydantic_ai.models.function import AgentInfo, FunctionModel  # noqa: E402
 
 from agentlab.triage_agent import (  # noqa: E402
-    AgentTriage, TriageVerdict, apply_rules, build_agent, evidence_from_trace, task_message,
+    INSTRUCTIONS, AgentTriage, TriageVerdict, apply_rules, build_agent, evidence_from_trace, task_message,
 )
 from fakecctv.clock import ReplayClock  # noqa: E402
 from fakecctv.context import SiteContext  # noqa: E402
@@ -161,6 +161,16 @@ def test_task_message_lists_open_alerts_on_neighbours(tools):
     fake_cam = type("C", (), {"id": "CAM-A", "zone": "Yard", "doors": ("Door 1",), "neighbors": ("CAM-B",)})()
     msg = task_message(cand, "02:00:14", fake_cam, [alert("A-007", "CAM-B")])
     assert "A-007" in msg and "CAM-B" in msg and "priority high" in msg
+
+
+def _flat(text: str) -> str:
+    return " ".join(text.split())
+
+
+def test_instructions_open_with_the_roster_exception():
+    assert _flat(INSTRUCTIONS).startswith(
+        "You are the triage step in the control room of an industrial or logistics site. "
+        "The site is closed, except for the people and zones the roster lists.")
 
 
 def test_no_sampling_settings():

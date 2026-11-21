@@ -172,3 +172,25 @@ Built as planned, with these changes (agreed in plan mode, 21 Nov):
 - Run 1's dismissed intruders on the placeholder site (coloured rectangles, so the video model
   said "not a person" and the agent took no second look) are not addressed; run 2 measures the
   agent as it is.
+
+---
+
+# Session 3 (21 Nov 2026): fixes after run 2, and `--repeats`
+
+Run 2 (`runs/triage/20261121-160152/`) prompted these. Agreed in plan mode, with three additions from
+the user (the INSTRUCTIONS opening, the neighbour-clip window, the privacy sentence).
+
+## Fix: site context (public opening, CAM-04 zone)
+- Run 2 escalated both CAM-06 look-alikes (unattended objects in the Lobby) at high priority because the
+  agent saw people in a "closed" lobby. `ROSTER` in `scripts/make_real_site.py` gets the row
+  `13:00,15:00,Visitors (public opening),Visitors,Lobby; Waiting area,...` (the user's text; no commas in
+  the note, so no CSV quoting). CAM-05 and CAM-06 only carry `unattended_object` labels, so no label
+  changes; the note says an unattended object there still needs an alert.
+- CAM-04's zone is "Staff room" (was "Warehouse aisle"): the CAUCAFall clips show a small room with a
+  desk, a TV and a chair.
+- INSTRUCTIONS open with "The site is closed, except for the people and zones the roster lists."
+  (was "The site is closed."), so the opening does not contradict the roster.
+- The script's docstring mentions the public opening. Nothing else on the site changed: regenerated
+  `site.real.yaml` and `context/real/` differ only in the zone and the roster row; `site_real/` rebuilt.
+- Tests: `test_roster_has_the_public_opening`, `test_instructions_open_with_the_roster_exception`, and the
+  CAM-04 zone in `test_site_config_has_7_cameras_and_17_labels`.

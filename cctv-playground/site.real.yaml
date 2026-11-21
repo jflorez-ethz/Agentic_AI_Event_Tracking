@@ -79,7 +79,7 @@ cameras:
     real: false
     note: cleaning contractor on the roster for the hall
 - id: CAM-04
-  zone: Warehouse aisle
+  zone: Staff room
   source: clips/sequences/cam04_caucafall.mp4
   at: '13:56:00'
   labels:

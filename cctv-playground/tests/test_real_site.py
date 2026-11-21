@@ -4,6 +4,8 @@
 """
 from __future__ import annotations
 
+import csv
+import io
 import subprocess
 import sys
 from pathlib import Path
@@ -15,7 +17,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from fakecctv.media import probe  # noqa: E402
-from make_real_site import make_sequence, sequence_offsets, site_config  # noqa: E402
+from make_real_site import ROSTER, make_sequence, sequence_offsets, site_config  # noqa: E402
 
 
 def test_sequence_offsets():
@@ -65,3 +67,17 @@ def test_site_config_has_7_cameras_and_17_labels():
     assert cfg["site"]["start"] == "2018-03-11T13:50:00" and cfg["site"]["duration_s"] == 840
     assert cams["CAM-02"]["neighbors"] == ["CAM-01", "CAM-03"]
     assert cams["CAM-07"]["doors"] == ["Stairwell door"]
+    assert cams["CAM-04"]["zone"] == "Staff room"  # the CAUCAFall room: a desk, a TV and a chair
+
+
+def test_roster_has_the_public_opening():
+    """Lobby and waiting area are open to the public 13:00-15:00: people there are expected."""
+    rows = list(csv.DictReader(io.StringIO(ROSTER)))
+    assert len(rows) == 3
+    visitors = [r for r in rows if r["role"] == "Visitors"]
+    assert len(visitors) == 1
+    v = visitors[0]
+    assert (v["start"], v["end"], v["who"], v["zones"]) == ("13:00", "15:00", "Visitors (public opening)",
+                                                            "Lobby; Waiting area")
+    assert "an unattended object there still needs an alert" in v["note"]
+    assert None not in v  # no stray fields from a comma in the note

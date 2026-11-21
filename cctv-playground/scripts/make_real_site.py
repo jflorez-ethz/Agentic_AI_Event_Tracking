@@ -4,7 +4,8 @@
     python scripts/make_real_site.py
     python scripts/build_site.py site.real.yaml --out site_real
 
-Sunday 11 March 2018, 13:50 to 14:04, a school/logistics site that is closed all day.
+Sunday 11 March 2018, 13:50 to 14:04, a school/logistics site that is closed all day, except
+the lobby and waiting area, which are open to the public 13:00-15:00 (a roster row).
 CAM-01 to CAM-03 are one MEVA five-minute slot (same facility, same time, so they are each
 other's neighbours). CAM-04 and CAM-06 play several short clips one after another
 (sequences); CAM-05 and CAM-07 are single cut clips.
@@ -62,6 +63,7 @@ ACCESS_LOG = """time,door,badge,holder,result
 ROSTER = """start,end,who,role,zones,note
 13:00,15:00,Clean & Co (2 staff),Cleaning contractor,Hall,Enter through the hall door
 13:54,18:00,Weekend guard,Security,Drop-off loop; Main gate,Arrives by car at the start of the shift
+13:00,15:00,Visitors (public opening),Visitors,Lobby; Waiting area,Lobby and waiting area are open to the public on Sundays 13:00-15:00. People in these two zones are then expected; an unattended object there still needs an alert.
 """
 RULE_1_OLD = ("1. The site is closed from 22:00 to 06:00. A person or vehicle in the yard, at the loading dock "
               "or at the fence in those hours is expected only if")
@@ -153,7 +155,7 @@ def site_config(caucafall_offsets: list[float], g421_offsets: list[float]) -> di
             cam("CAM-01", "Drop-off loop", G336, _labels(by_file, [G336]), doors=["Main gate"], neighbors=["CAM-02"]),
             cam("CAM-02", "Car park", G328, _labels(by_file, [G328]), neighbors=["CAM-01", "CAM-03"]),
             cam("CAM-03", "Hall", G330, _labels(by_file, [G330]), doors=["Hall door"], neighbors=["CAM-02"]),
-            cam("CAM-04", "Warehouse aisle", CAUCAFALL_SEQ, _labels(by_file, CAUCAFALL, caucafall_offsets),
+            cam("CAM-04", "Staff room", CAUCAFALL_SEQ, _labels(by_file, CAUCAFALL, caucafall_offsets),
                 at="13:56:00"),
             cam("CAM-05", "Waiting area", G331, _labels(by_file, [G331]), at="13:58:30"),
             cam("CAM-06", "Lobby", G421_SEQ, _labels(by_file, G421, g421_offsets), at="14:00:00"),

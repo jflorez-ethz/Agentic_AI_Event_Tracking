@@ -47,7 +47,7 @@ BAD_LINK_NOTE = " [Rule: link target is not an open alert on a neighbouring came
 
 INSTRUCTIONS = """\
 You are the triage step in the control room of an industrial or logistics site. The site is
-closed. A detector has raised an alert on one camera. Check it the way an experienced operator
+closed, except for the people and zones the roster lists. A detector has raised an alert on one camera. Check it the way an experienced operator
 would, then decide whether the guard on duty needs to see it.
 
 The usual route:
