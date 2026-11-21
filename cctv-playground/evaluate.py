@@ -74,6 +74,10 @@ def run(index: str, delay_s: float = 10.0, triage_fn=None) -> dict:
         if stats is not None:
             s = stats.get(label.id) if a else None
             row.update({k: (s or {}).get(k) for k in STAT_COLUMNS})
+            # The replay clock stands still while the agent works: add its own seconds (KPI 3).
+            row["triage_s"] = (s or {}).get("seconds")
+            if row["time_to_alert_s"] is not None and row["triage_s"] is not None:
+                row["time_to_alert_s"] = round(row["time_to_alert_s"] + row["triage_s"], 2)
         rows.append(row)
 
     candidates = len(alerts)
@@ -119,13 +123,14 @@ def print_table(result: dict, run_dir: Path | None = None) -> None:
     extra = any("cost_usd" in r for r in rows)
     head = f"{'event':<10} {'type':<20} {'seen':<9} {'real':<6} {'verdict':<10} {'to person':<10} ok"
     if extra:
-        head += f"   {'cost $':>8} {'req':>4} {'tools':>5} {'err':>4}  overrides"
+        head += f"   {'cost $':>8} {'agent s':>7} {'req':>4} {'tools':>5} {'err':>4}  overrides"
     print(head)
     for r in rows:
         line = (f"{r['event']:<10} {r['type']:<20} {r['first_seen']:<9} {str(r['real']):<6} "
                 f"{r['verdict']:<10} {str(r['reached_a_person']):<10} {'yes' if r['correct'] else 'NO'}")
         if extra and r.get("cost_usd") is not None:
-            line = f"{line:<76}{r['cost_usd']:>8.4f} {r['requests']:>4} {r['tool_calls']:>5} {r['tool_errors']:>4}  " \
+            line = f"{line:<76}{r['cost_usd']:>8.4f} {r.get('triage_s') or 0:>7.1f} {r['requests']:>4} " \
+                   f"{r['tool_calls']:>5} {r['tool_errors']:>4}  " \
                    f"{', '.join(r['overrides']) or '-'}"
         print(line)
     print()

@@ -99,3 +99,17 @@ Checked on the installed 2.71.0: `Agent(..., defer_model_check=..., retries=...)
   (`fakecctv-eval-*` under the system temp directory), as the stub's evidence always did.
 
 Stopped after Task 5 Step 4. Task 5 Step 5 (run 1) is for the user; Task 6 is not started.
+
+---
+
+# Session 2 (21 Nov 2026): review fixes and Task 6
+
+## Fix: time to alert includes the agent's seconds (KPI 3)
+- `evaluate.run` jumps the in-memory replay clock to each detection time, and the clock stands
+  still while the agent works. So with a triage function that has `stats`, each row's
+  `time_to_alert_s` is now `(created - label start) + stats[cid]["seconds"]`, and the row gets a
+  separate `triage_s` (the agent's own seconds). `median_time_to_alert_s` uses the corrected value.
+  The stub path is unchanged (no `triage_s`, same table).
+- The agent table has an `agent s` column after `cost $`.
+- Test: `test_time_to_alert_counts_the_agents_seconds` (a stub wrapper whose stats say 42 s; no
+  timing noise).

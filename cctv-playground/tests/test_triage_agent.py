@@ -266,3 +266,26 @@ def test_evaluate_with_scripted_agent(site_dir, tmp_path):
     assert s["total_cost_usd"] == pytest.approx(sum(r["cost_usd"] for r in rows))
     assert s["mean_cost_per_alert_usd"] == pytest.approx(s["total_cost_usd"] / 2)
     assert sorted(p.name for p in (tmp_path / "runs").iterdir()) == ["CAM-A-1.json", "CAM-B-1.json"]
+
+
+class SlowStub:
+    """The stub's verdicts, with stats saying each alert took the agent 42 s."""
+
+    def __init__(self):
+        self.stats: dict[str, dict] = {}
+
+    def __call__(self, candidate, tools, open_alerts):
+        from fakecctv.triage_stub import triage
+        self.stats[candidate["candidate_id"]] = {"cost_usd": 0.0, "requests": 1, "tool_calls": 0, "tool_errors": 0,
+                                                 "overrides": [], "seconds": 42.0}
+        return triage(candidate, tools, open_alerts)
+
+
+def test_time_to_alert_counts_the_agents_seconds(site_dir):
+    """The replay clock stands still while the agent works, so its seconds are added (KPI 3)."""
+    import evaluate
+    result = evaluate.run(str(site_dir / "site" / "index.json"), 2, triage_fn=SlowStub())
+    for r in result["events"]:
+        assert r["time_to_alert_s"] == pytest.approx(2 + 42)
+        assert r["triage_s"] == 42.0
+    assert result["summary"]["median_time_to_alert_s"] == pytest.approx(44)
