@@ -1,0 +1,5 @@
+streamlit>=1.45
+opencv-python-headless>=4.9
+pyyaml>=6
+pytest>=8
+# also needed on the system: ffmpeg (brew install ffmpeg / apt install ffmpeg / winget install ffmpeg)

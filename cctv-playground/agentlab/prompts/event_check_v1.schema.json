@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "event_type": {
+      "type": "string",
+      "enum": ["person_down", "blocked_exit", "unattended_object", "after_hours_person", "after_hours_vehicle", "none"]
+    },
+    "start_s": { "type": "number", "description": "Seconds from clip start when the event begins" },
+    "end_s": { "type": "number", "description": "Seconds from clip start when the event ends, or clip length if ongoing" },
+    "real": { "type": "boolean", "description": "true = real event, false = look-alike (or none)" },
+    "reason": { "type": "string", "description": "One sentence, at most 25 words" }
+  },
+  "required": ["event_type", "start_s", "end_s", "real", "reason"]
+}

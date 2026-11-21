@@ -1,0 +1,4 @@
+# Agent layer and model experiments, on top of requirements.txt
+google-genai>=2.14
+anthropic
+python-dotenv>=1.0

@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "scene": {
+      "type": "string",
+      "description": "At most 12 words on what the camera shows"
+    },
+    "video_visible": {
+      "type": "boolean",
+      "description": "false if no video was received or the frames cannot be made out"
+    },
+    "events": {
+      "type": "array",
+      "description": "Real events first (highest priority first), then look-alikes; at most 5; empty if none",
+      "items": {
+        "type": "object",
+        "properties": {
+          "event_type": {
+            "type": "string",
+            "enum": ["person_down", "blocked_exit", "unattended_object", "after_hours_person", "after_hours_vehicle"]
+          },
+          "start_s": { "type": "number", "description": "Seconds from clip start when the event begins" },
+          "end_s": { "type": "number", "description": "Seconds from clip start when it ends, or the clip length if ongoing" },
+          "real": { "type": "boolean", "description": "true = real event, false = look-alike" },
+          "reason": { "type": "string", "description": "One sentence, at most 25 words" }
+        },
+        "required": ["event_type", "start_s", "end_s", "real", "reason"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["scene", "video_visible", "events"],
+  "additionalProperties": false
+}
