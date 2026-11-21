@@ -11,19 +11,25 @@ Times are site clock times: "02:10", "02:10:05" or an ISO timestamp.
 """
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Any, Callable
 
 from .context import SiteContext
 from .recorder import NotYetAvailable, Recorder
 
 
+SECOND_LOOK_HALF_S = 15  # second_look covers 15 s either side of the given time
+
+
 class AgentTools:
-    def __init__(self, recorder: Recorder, context: SiteContext):
+    def __init__(self, recorder: Recorder, context: SiteContext, video_checker=None):
         self.recorder = recorder
         self.context = context
         self.site = recorder.site
         self.trace: list[dict] = []
+        # Anything with check(clip_path, question="", *, strong=False) -> dict, for example
+        # agentlab.video_check.VideoChecker. The triage agent sets one per alert.
+        self.video_checker = video_checker
 
     def _call(self, name: str, args: dict, fn: Callable[[], Any]) -> Any:
         at = self.recorder.clock.now().strftime("%H:%M:%S")
@@ -77,10 +83,38 @@ class AgentTools:
         return self._call("procedures", {}, lambda: {"text": self.context.procedures()})
 
     def ask_video(self, clip_path: str, question: str) -> dict:
-        """Ask the video model a question about a clip. Not wired yet: task C3 connects Gemini here."""
+        """Ask the video model about a clip cut with get_clip (pass the clip's path).
+
+        It looks at 16 frames spread evenly over the clip and returns the events it sees, each with
+        a type, whether it looks real or like a look-alike, and its times in seconds from the start
+        of the clip. Clips must be 120 s or shorter. Put your specific question in `question`.
+        """
         def go():
-            raise ValueError("ask_video is not connected yet (task C3).")
+            if self.video_checker is None:
+                raise ValueError("ask_video is not connected yet (task C3).")
+            return self.video_checker.check(clip_path, question)
         return self._call("ask_video", {"clip_path": clip_path, "question": question}, go)
+
+    def second_look(self, camera_id: str, around: str, question: str) -> dict:
+        """Have the stronger video model look again at one camera, from 15 s before to 15 s after a
+        site time (never later than now). Use it only when the evidence conflicts, for example the
+        video shows no one but nobody badged in. At most twice per alert.
+        """
+        def go():
+            if self.video_checker is None:
+                raise ValueError("second_look is not connected (no video checker).")
+            cam = self.site.camera(camera_id)
+            t = self._t(around)
+            now = self.recorder.clock.now()
+            half = timedelta(seconds=SECOND_LOOK_HALF_S)
+            start, end = max(t - half, cam.start), min(t + half, now)
+            if end <= start:
+                raise NotYetAvailable(f"Nothing has been recorded around {around} yet (now {now:%H:%M:%S}).")
+            path = self.recorder.cut_clip(cam.id, start, end)
+            result = self.video_checker.check(str(path), question, strong=True)
+            return {**result, "camera_id": cam.id, "start": f"{start:%H:%M:%S}", "end": f"{end:%H:%M:%S}",
+                    "clip_path": str(path)}
+        return self._call("second_look", {"camera_id": camera_id, "around": str(around), "question": question}, go)
 
     def search_footage(self, query: str, start: str, end: str) -> dict:
         """Search all cameras for a described moment. Not wired yet: task C4 connects the search index here."""

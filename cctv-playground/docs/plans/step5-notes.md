@@ -28,3 +28,19 @@ docs (pydantic.dev/docs/ai, checked against the installed pydantic-ai-slim 2.71.
   Sonnet. Task 4 uses it to refuse second_look after that, as the spec says (see Task 4).
 - `VideoChecker.calls` counts successful model calls; `cost_usd` adds each call's
   `usage["cost_usd"]`.
+
+## Task 3
+- **`tests/conftest.py` also holds an autouse fixture** (`keep_logs_out_of_runs`) that points
+  `agentlab.usage.USAGE_LOG` and `agentlab.event_check.FRAMES_DIR` at `tmp_path` for every
+  test. Without it the Task 4 and 5 tests (which log the brain's tokens through `log_call`)
+  would append fake rows to the real `runs/usage.jsonl`, which `total_spend` reads. The
+  `site_dir` fixture moved unchanged.
+- **`second_look` reports the clip's real start.** The window start is clamped to the camera's
+  first frame (`max(around - 15 s, cam.start)`), the same clamp the recorder applies, so the
+  reported `start` matches the clip and the checker's "seconds from the start of the clip"
+  can be mapped back to site time.
+- The `ask_video` docstring no longer says "not wired yet" (the agent's tool description is
+  copied from it), and `second_look` has its own docstring for the same reason.
+- Extra test `test_second_look_without_checker_is_an_error`. `test_ask_video_without_checker_is_an_error`
+  and `test_unparseable_time_is_an_error` passed before the change (existing behaviour, kept
+  as guards).
