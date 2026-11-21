@@ -247,3 +247,31 @@ the user (the INSTRUCTIONS opening, the neighbour-clip window, the privacy sente
 - `FakeChecker` in the tests takes `events=` (default `[]`, so older tests are unchanged).
 - Tests: `test_first_video_answer`, `test_stats_record_the_first_video_answer`,
   `test_agent_table_has_a_video_column`; `test_evaluate_with_scripted_agent` checks the `video` key.
+
+## `evaluate.py --repeats N`
+- `--repeats N` (default 1). **N = 1 is unchanged**: folder `runs/triage/<stamp>`, same table, same JSON
+  (`{"summary", "events"}`).
+- N > 1: `run_repeats(index, n, make_triage, delay_s, on_run)` runs the whole replay N times;
+  `make_triage(i)` builds a **fresh** `AgentTriage` per run (`make_agent(model, run_dir)`), so stats never
+  mix across runs. All runs share one stamp: `run_dir_for(now, repeat=i)` → `<stamp>-r1 .. -rN`. Each run's
+  table prints as it finishes (progress during a paid run, with its folder), then `print_aggregate`:
+  per alert the verdicts across runs and `correct k/N`, then mean / min / max of each summary number.
+- `aggregate(runs)`: `{"repeats", "events": [{event, camera, type, first_seen, real, verdicts, correct, of}],
+  "summary": {key: {mean, min, max}}}`. None values (for example a run's median time to alert when
+  nothing reached a person) are left out; all None → all three None. Mean rounded to 4 places.
+- `--json` with N > 1 writes `{"runs": [every run's result], "aggregate": ...}`.
+- Works with the stub too (deterministic, no run folders); checked on `site_real` with `--repeats 2`.
+- If a later run crashes, the earlier runs' JSON is not written (their run files are). Each alert's
+  agent errors are already caught inside `AgentTriage`, so this needs an error outside triage.
+- Tests (scripted brain, no model requests): `test_repeats_aggregate` (dismiss / escalate / escalate →
+  1/3 and 2/3, folders `-r1..-r3`, fresh stats per run), `test_aggregate_with_no_numbers_gives_none`,
+  `test_print_aggregate`, `test_repeat_run_folders_share_one_stamp`,
+  `test_main_repeats_writes_every_run_and_the_aggregate` (stub path through `main()`, also checks the
+  N = 1 JSON shape).
+
+## End of session 3
+- 75 tests pass (59 before; one existing test's 120 s assertion changed to 60 s, see the clip fix).
+- Stub baseline on `site_real` after the site changes: 17 detector events, 12 sent to a person, 29.4 %
+  reduction, 100 % real events kept, 0 missed critical, median time to alert 9.95 s (same as session 2).
+  Wrong: the three person-down look-alikes (safety rule) and the two CAM-06 bag look-alikes.
+- Not run (paid): `python evaluate.py --triage agent --index site_real/index.json --repeats 3 --json runs/triage/run2x3.json`

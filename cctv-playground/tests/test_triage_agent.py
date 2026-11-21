@@ -416,3 +416,103 @@ def test_run_folders_are_named_to_the_second():
     d = evaluate.run_dir_for(datetime(2026, 11, 21, 15, 35, 12))
     assert d.name == "20261121-153512"
     assert d.parent == evaluate.ROOT / "runs" / "triage"
+
+
+# --- evaluate.py --repeats (session 3) ------------------------------------------------------
+class ScriptedTriage:
+    """An AgentTriage whose brain is a scripted model that always gives one verdict."""
+
+    def __init__(self, verdict: str, priority: str, run_dir: Path):
+        self.inner = AgentTriage(run_dir=run_dir, checker_factory=lambda kind, tag: FakeChecker())
+        self.model = scripted(("OUTPUT", {"verdict": verdict, "priority": priority,
+                                          "reason": f"Scripted {verdict} for the repeats test."}))
+        self.stats = self.inner.stats
+        self.run_dir = run_dir
+
+    def __call__(self, candidate, tools, open_alerts):
+        with self.inner.agent.override(model=self.model):
+            return self.inner(candidate, tools, open_alerts)
+
+
+def test_repeats_aggregate(site_dir, tmp_path):
+    """Three runs with a scripted brain: dismiss, then escalate twice. CAM-A-1 is a look-alike, CAM-B-1 real."""
+    import evaluate
+    plan = {1: ("dismiss", "low"), 2: ("escalate", "high"), 3: ("escalate", "high")}
+    made = []
+
+    def make_triage(i):
+        t = ScriptedTriage(*plan[i], run_dir=tmp_path / f"stamp-r{i}")
+        made.append(t)
+        return t
+
+    out = evaluate.run_repeats(str(site_dir / "site" / "index.json"), 3, make_triage, delay_s=2)
+    assert len(out["runs"]) == 3 and len({id(t) for t in made}) == 3  # a fresh agent per run
+    assert [len(t.stats) for t in made] == [2, 2, 2]  # stats never mix across runs
+    for i in (1, 2, 3):
+        assert sorted(p.name for p in (tmp_path / f"stamp-r{i}").iterdir()) == ["CAM-A-1.json", "CAM-B-1.json"]
+
+    agg = out["aggregate"]
+    assert agg["repeats"] == 3
+    by_event = {e["event"]: e for e in agg["events"]}
+    assert list(by_event) == ["CAM-A-1", "CAM-B-1"]
+    assert by_event["CAM-A-1"]["verdicts"] == ["dismiss", "escalate", "escalate"]
+    assert (by_event["CAM-A-1"]["correct"], by_event["CAM-A-1"]["of"]) == (1, 3)
+    assert (by_event["CAM-B-1"]["correct"], by_event["CAM-B-1"]["of"]) == (2, 3)
+    assert by_event["CAM-B-1"]["real"] is True
+
+    s = agg["summary"]
+    assert s["alerts_sent_to_a_person"] == {"mean": pytest.approx(4 / 3, abs=1e-3), "min": 0, "max": 2}
+    assert s["real_events_kept_pct"] == {"mean": pytest.approx(200 / 3, abs=1e-3), "min": 0.0, "max": 100.0}
+    assert s["detector_events"] == {"mean": 2, "min": 2, "max": 2}
+    # run 1 sent nothing to a person, so its median time to alert is None and is left out
+    assert s["median_time_to_alert_s"]["min"] == s["median_time_to_alert_s"]["max"]
+    totals = [r["summary"]["total_cost_usd"] for r in out["runs"]]
+    assert s["total_cost_usd"]["max"] == max(totals) and s["total_cost_usd"]["min"] == min(totals)
+
+
+def test_aggregate_with_no_numbers_gives_none():
+    import evaluate
+    run = {"summary": {"median_time_to_alert_s": None},
+           "events": [{"event": "E-1", "camera": "C", "type": "t", "first_seen": "02:00:00", "real": True,
+                       "verdict": "dismiss", "correct": False}]}
+    agg = evaluate.aggregate([run, run])
+    assert agg["summary"]["median_time_to_alert_s"] == {"mean": None, "min": None, "max": None}
+    assert agg["events"][0]["verdicts"] == ["dismiss", "dismiss"] and agg["events"][0]["correct"] == 0
+
+
+def test_print_aggregate(site_dir, capsys):
+    import evaluate
+    out = evaluate.run_repeats(str(site_dir / "site" / "index.json"), 2, lambda i: None, delay_s=2)  # the stub
+    evaluate.print_aggregate(out["aggregate"])
+    text = capsys.readouterr().out
+    assert "correct" in text and "2/2" in text
+    assert "mean" in text and "min" in text and "max" in text
+    assert "alerts sent to a person" in text
+
+
+def test_repeat_run_folders_share_one_stamp():
+    from datetime import datetime
+
+    import evaluate
+    now = datetime(2026, 11, 21, 15, 35, 12)
+    assert evaluate.run_dir_for(now, 2).name == "20261121-153512-r2"
+    assert evaluate.run_dir_for(now).name == "20261121-153512"  # one run keeps the old name
+
+
+def test_main_repeats_writes_every_run_and_the_aggregate(site_dir, tmp_path, monkeypatch, capsys):
+    """The stub path: free, never loads .env."""
+    import evaluate
+    out = tmp_path / "rep.json"
+    monkeypatch.setattr(sys, "argv", ["evaluate.py", "--index", str(site_dir / "site" / "index.json"),
+                                      "--delay", "2", "--repeats", "2", "--json", str(out)])
+    evaluate.main()
+    data = json.loads(out.read_text())
+    assert set(data) == {"runs", "aggregate"} and len(data["runs"]) == 2
+    assert data["aggregate"]["repeats"] == 2
+    assert "run 2/2" in capsys.readouterr().out
+
+    one = tmp_path / "one.json"
+    monkeypatch.setattr(sys, "argv", ["evaluate.py", "--index", str(site_dir / "site" / "index.json"),
+                                      "--delay", "2", "--json", str(one)])
+    evaluate.main()
+    assert set(json.loads(one.read_text())) == {"summary", "events"}  # --repeats 1: unchanged shape

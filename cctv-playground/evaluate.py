@@ -4,6 +4,7 @@
     python evaluate.py
     python evaluate.py --index site/index.json --json results.json
     python evaluate.py --triage agent          # step 5 agent (paid: Claude API, key in .env)
+    python evaluate.py --triage agent --repeats 3   # three runs, then verdicts and numbers across them
 
 An in-memory clock jumps straight to each detection time, so a 30-minute site runs in
 seconds. The tools still refuse footage after that moment, so the result is what the
@@ -20,6 +21,7 @@ import os
 import tempfile
 from datetime import datetime
 from pathlib import Path
+from typing import Callable
 
 from fakecctv.alerts import AlertStore
 from fakecctv.clock import ReplayClock
@@ -103,7 +105,58 @@ def run(index: str, delay_s: float = 10.0, triage_fn=None) -> dict:
     return {"summary": summary, "events": rows}
 
 
-def make_agent(model: str):
+def run_repeats(index: str, n: int, make_triage: Callable[[int], object], delay_s: float = 10.0,
+                on_run: Callable[[int, dict, object], None] | None = None) -> dict:
+    """The whole replay n times. make_triage(i) gives run i its own triage function (None: the stub),
+    so per-alert stats never mix. on_run(i, result, triage_fn) is called after each run."""
+    runs = []
+    for i in range(1, n + 1):
+        triage_fn = make_triage(i)
+        result = run(index, delay_s, triage_fn=triage_fn)
+        runs.append(result)
+        if on_run:
+            on_run(i, result, triage_fn)
+    return {"runs": runs, "aggregate": aggregate(runs)}
+
+
+def _spread(values: list) -> dict:
+    nums = [v for v in values if isinstance(v, (int, float)) and not isinstance(v, bool)]
+    if not nums:
+        return {"mean": None, "min": None, "max": None}
+    return {"mean": round(sum(nums) / len(nums), 4), "min": min(nums), "max": max(nums)}
+
+
+def aggregate(runs: list[dict]) -> dict:
+    """Per alert: its verdict in each run and how many runs got it right. Per summary number: mean,
+    min and max over the runs that have it (None values are left out)."""
+    events: dict[str, dict] = {}
+    for result in runs:
+        for r in result["events"]:
+            e = events.setdefault(r["event"], {k: r[k] for k in ("event", "camera", "type", "first_seen", "real")}
+                                  | {"verdicts": [], "correct": 0, "of": 0})
+            e["verdicts"].append(r["verdict"])
+            e["correct"] += bool(r["correct"])
+            e["of"] += 1
+    keys = list(dict.fromkeys(k for result in runs for k in result["summary"]))
+    summary = {k: _spread([result["summary"].get(k) for result in runs]) for k in keys}
+    return {"repeats": len(runs), "events": list(events.values()), "summary": summary}
+
+
+def print_aggregate(agg: dict) -> None:
+    n = agg["repeats"]
+    print(f"Across {n} runs")
+    print(f"{'event':<10} {'type':<20} {'seen':<9} {'real':<6} {'correct':<8} verdicts")
+    for e in agg["events"]:
+        print(f"{e['event']:<10} {e['type']:<20} {e['first_seen']:<9} {str(e['real']):<6} "
+              f"{e['correct']}/{e['of']:<6} {', '.join(e['verdicts'])}")
+    print()
+    print(f"{'':<28} {'mean':>10} {'min':>10} {'max':>10}")
+    fmt = lambda v: "-" if v is None else f"{v:g}"  # noqa: E731
+    for k, v in agg["summary"].items():
+        print(f"{k.replace('_', ' '):<28} {fmt(v['mean']):>10} {fmt(v['min']):>10} {fmt(v['max']):>10}")
+
+
+def make_agent(model: str, run_dir: Path | None = None):
     """The step 5 triage agent, with the API key from .env and a run folder for this run."""
     from dotenv import load_dotenv
 
@@ -116,12 +169,14 @@ def make_agent(model: str):
     os.environ["ANTHROPIC_API_KEY"] = key  # stray whitespace in .env breaks the provider
 
     from agentlab.triage_agent import AgentTriage
-    return AgentTriage(model, run_dir=run_dir_for(datetime.now()))
+    return AgentTriage(model, run_dir=run_dir or run_dir_for(datetime.now()))
 
 
-def run_dir_for(now: datetime) -> Path:
-    """runs/triage/<YYYYmmdd-HHMMSS>: to the second, so two runs in the same minute get their own folder."""
-    return ROOT / "runs" / "triage" / now.strftime("%Y%m%d-%H%M%S")
+def run_dir_for(now: datetime, repeat: int | None = None) -> Path:
+    """runs/triage/<YYYYmmdd-HHMMSS>: to the second, so two runs in the same minute get their own folder.
+    With --repeats, run i of one command goes to <stamp>-r<i>."""
+    name = now.strftime("%Y%m%d-%H%M%S") + (f"-r{repeat}" if repeat else "")
+    return ROOT / "runs" / "triage" / name
 
 
 def print_table(result: dict, run_dir: Path | None = None) -> None:
@@ -154,13 +209,34 @@ def main() -> None:
     ap.add_argument("--triage", choices=["stub", "agent"], default="stub",
                     help="stub: the kit's fixed rules (free); agent: the step 5 agent (paid)")
     ap.add_argument("--model", default=AGENT_MODEL, help="the agent's brain, with its provider prefix")
+    ap.add_argument("--repeats", type=int, default=1,
+                    help="run the whole replay N times (run folders <stamp>-r1..rN), then show the spread")
     args = ap.parse_args()
-    agent = make_agent(args.model) if args.triage == "agent" else None
-    result = run(args.index, args.delay, triage_fn=agent)
+    if args.repeats < 1:
+        raise SystemExit("--repeats must be 1 or more.")
 
-    print_table(result, agent.run_dir if agent else None)
+    if args.repeats == 1:
+        agent = make_agent(args.model) if args.triage == "agent" else None
+        result = run(args.index, args.delay, triage_fn=agent)
+        print_table(result, agent.run_dir if agent else None)
+        if args.json:
+            Path(args.json).write_text(json.dumps(result, indent=2))
+        return
+
+    stamp = datetime.now()
+
+    def make_triage(i: int):
+        return make_agent(args.model, run_dir_for(stamp, i)) if args.triage == "agent" else None
+
+    def show(i: int, result: dict, triage_fn) -> None:
+        print(f"=== run {i}/{args.repeats} ===")
+        print_table(result, getattr(triage_fn, "run_dir", None))
+        print()
+
+    out = run_repeats(args.index, args.repeats, make_triage, args.delay, on_run=show)
+    print_aggregate(out["aggregate"])
     if args.json:
-        Path(args.json).write_text(json.dumps(result, indent=2))
+        Path(args.json).write_text(json.dumps(out, indent=2))
 
 
 if __name__ == "__main__":
