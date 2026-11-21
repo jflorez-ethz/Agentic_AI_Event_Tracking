@@ -44,3 +44,40 @@ docs (pydantic.dev/docs/ai, checked against the installed pydantic-ai-slim 2.71.
 - Extra test `test_second_look_without_checker_is_an_error`. `test_ask_video_without_checker_is_an_error`
   and `test_unparseable_time_is_an_error` passed before the change (existing behaviour, kept
   as guards).
+
+## Task 4
+Checked on the installed 2.71.0: `Agent(..., defer_model_check=..., retries=...)`,
+`@agent.tool(sequential=...)`, `UsageLimits(request_limit=...)`, `capture_run_messages`,
+`ModelMessagesTypeAdapter.dump_python(msgs, mode="json")`, `FunctionModel`/`AgentInfo`
+(`function_tools`, `output_tools`, `allow_text_output`), `ModelResponse.usage.input_tokens` /
+`output_tokens`. The default output tool is `final_result`; the tests still read it from
+`info.output_tools[0].name`.
+
+- **`build_agent` passes `defer_model_check=True`.** In v2 a model string is resolved at
+  construction, and the Anthropic provider then needs `ANTHROPIC_API_KEY` (`UserError`
+  otherwise). Deferring lets the tests build the agent and override the model with no key.
+  The default video client is also created on first use, not in `AgentTriage.__init__`, and
+  uses the stripped `ANTHROPIC_API_KEY`.
+- **All tools run one at a time.** Pydantic AI runs sync tools in worker threads and may run
+  several tool calls from one response concurrently; `AgentTools.trace`, the recorder's ffmpeg
+  outputs and the video checker's counters are not thread-safe. Every wrapper is registered
+  with `sequential=True` and holds `deps.lock`, which is a `threading.RLock` (re-entrant, so no
+  wrapper can deadlock by taking it twice in the same thread).
+- **No sampling settings.** No `model_settings` (temperature, top_p, top_k) are set anywhere;
+  claude-haiku-5-5 rejects non-default values. Checked in pydantic-ai's Anthropic model: these
+  are only sent when set. Guarded by `test_no_sampling_settings`.
+- **Rules chain** (plan rule 1 then rule 2): after a failure (escalate medium), the safety rule
+  still applies, so a failed person-down or fire check goes out at high priority with overrides
+  `["failure", "safety rule"]`. The spec's "must never happen" list asks for this.
+- **second_look is refused after ask_video used Sonnet**, in code, not only in the
+  instructions (spec: "it is not used if ask_video already escalated to Sonnet"). The wrapper
+  reads `video_checker.ask_escalated`. Refusals (limit or Sonnet) are added to the trace as
+  `ok: False` so they show in the run file and in `tool_errors`. The second-look count only
+  goes up when the look succeeds, so a refused future time does not use up the budget.
+- `pydantic_ai.BANNER_ENABLED = False`: v2 prints a first-run banner to stdout, which would land
+  in the middle of `evaluate.py`'s table.
+- `AgentTriage.last_messages` keeps the last run's messages (the tests read tool returns from it).
+  The brain's `log_call` row also stores `requests` as an extra field.
+- Extra tests: `test_apply_rules_linked_to_cleared_unless_linked`,
+  `test_task_message_lists_open_alerts_on_neighbours`, `test_no_sampling_settings`,
+  `test_second_look_refused_after_ask_video_used_sonnet`.
