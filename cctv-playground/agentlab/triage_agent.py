@@ -40,6 +40,7 @@ pydantic_ai.BANNER_ENABLED = False  # keep evaluate.py's table output clean
 
 BRAIN_MODEL = "anthropic:claude-haiku-5-5"
 MAX_SECOND_LOOKS = 2
+NEIGHBOUR_REASON_CHARS = 200  # how much of a neighbouring alert's reason the task shows
 KEYS = ("verdict", "priority", "reason", "evidence", "linked_to")
 
 SAFETY_NOTE = " [Rule: person-down and fire alerts always go to a person, priority high.]"
@@ -47,15 +48,17 @@ BAD_LINK_NOTE = " [Rule: link target is not an open alert on a neighbouring came
 
 INSTRUCTIONS = """\
 You are the triage step in the control room of an industrial or logistics site. The site is
-closed, except for the people and zones the roster lists. A detector has raised an alert on one camera. Check it the way an experienced operator
-would, then decide whether the guard on duty needs to see it.
+closed, except for the people and zones the roster lists. A detector has raised an alert on one
+camera. Check it the way an experienced operator would, then decide whether the guard on duty
+needs to see it.
 
 The usual route:
 1. Cut a clip with get_clip from 20 s before the alert was first seen up to now.
 2. Call ask_video on that clip's path, with a question about the alert's event type.
 3. Check access_log for the doors of the alert's camera over the 10 minutes before first seen
    (up to now), and roster at the first-seen time. Read procedures when the case is unclear.
-4. Check whether an open alert on a neighbouring camera (listed in the task) covers the same event.
+4. Check whether an open alert on a neighbouring camera (listed in the task with the start of its
+   reason) covers the same event: compare its reason with what you saw.
 5. Give your verdict.
 You may leave this route when the evidence calls for it, for example to cut a neighbouring
 camera's clip or to ask a narrower question.
@@ -76,14 +79,19 @@ Your verdict:
   explains the activity (a granted badge at a door of this camera in the previous 10 minutes,
   or a roster entry for this zone at that time).
 - linked: only to an open alert on a neighbouring camera, listed in the task, that shows the
-  same event within 5 minutes. Put that alert's id in linked_to and use its priority.
+  same event within 5 minutes. Link only when the neighbouring alert's reason describes the same
+  kind of vehicle or person (type and colour match) and the timing fits. If the description
+  differs or is unclear, escalate instead of linking. Put that alert's id in linked_to and use its
+  priority.
 - escalate: everything else, and whenever you are unsure. Priority high for a person-down, a
   fire, or a person or vehicle that nothing explains; medium for a blocked exit, an unattended
   object or an unclear case.
 - person_down and fire alerts are always escalated with priority high.
 - reason: one to three sentences saying what was seen, on which camera, when (site time), and
   which context you checked (access log, roster, neighbouring alerts).
-- Never identify people or describe their face, age, gender or ethnicity; say "a person".
+- Never identify people or describe their face. The reason never mentions gender, age or
+  ethnicity, even when ask_video's answer does; write "a person". For example "a person in a blue
+  jacket", not "a woman in a blue jacket".
 """
 
 
@@ -197,6 +205,13 @@ def _hms(iso: str) -> str:
     return iso[11:19] if len(iso) >= 19 else iso
 
 
+def _reason_start(reason: str) -> str:
+    """The first NEIGHBOUR_REASON_CHARS characters of a reason, on one line."""
+    flat = " ".join(str(reason).split())
+    cut = flat[:NEIGHBOUR_REASON_CHARS]
+    return cut + "..." if len(flat) > NEIGHBOUR_REASON_CHARS else cut
+
+
 def task_message(candidate: dict, now: str, camera, open_alerts: list[dict]) -> str:
     """The task for one alert, built in code. Never includes labels or ground truth."""
     neighbors = list(camera.neighbors)
@@ -216,7 +231,8 @@ def task_message(candidate: dict, now: str, camera, open_alerts: list[dict]) -> 
     if near:
         lines.append("Open alerts on neighbouring cameras:")
         lines += [f"- {a['id']}: {a['candidate']['camera_id']}, {a['candidate']['kind']}, "
-                  f"first seen {_hms(a['candidate']['first_seen'])}, priority {a['priority']}" for a in near]
+                  f"first seen {_hms(a['candidate']['first_seen'])}, priority {a['priority']}, "
+                  f'reason: "{_reason_start(a.get("reason", ""))}"' for a in near]
     else:
         lines.append("No open alerts on neighbouring cameras.")
     return "\n".join(lines)

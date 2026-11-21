@@ -163,6 +163,35 @@ def test_task_message_lists_open_alerts_on_neighbours(tools):
     assert "A-007" in msg and "CAM-B" in msg and "priority high" in msg
 
 
+def test_task_message_shows_the_start_of_each_neighbour_reason():
+    """So the agent can compare what was seen before linking (run 2 linked a white car to a red pickup)."""
+    cand = {**CANDIDATE, "candidate_id": "CAM-A-1", "camera_id": "CAM-A", "zone": "Yard"}
+    fake_cam = type("C", (), {"id": "CAM-A", "zone": "Yard", "doors": (), "neighbors": ("CAM-B",)})()
+    reason = "A red pickup drives in\nfrom the gate. " + "x" * 160 + "TAIL-AFTER-200" + "y" * 100
+    assert len(reason) > 200
+    msg = task_message(cand, "02:00:14", fake_cam, [{**alert("A-007", "CAM-B"), "reason": reason}])
+    line = next(l for l in msg.splitlines() if "A-007" in l)
+    assert "A red pickup drives in from the gate. " in line  # newlines folded into the one line
+    assert " ".join(reason.split())[:200] in line
+    assert "TAIL-AFTER-200" not in msg
+    short = task_message(cand, "02:00:14", fake_cam, [{**alert("A-007", "CAM-B"), "reason": "A white SUV."}])
+    assert 'reason: "A white SUV."' in short
+
+
+def test_instructions_link_only_on_matching_description():
+    text = _flat(INSTRUCTIONS)
+    assert ("Link only when the neighbouring alert's reason describes the same kind of vehicle or person "
+            "(type and colour match) and the timing fits. If the description differs or is unclear, "
+            "escalate instead of linking.") in text
+
+
+def test_instructions_reason_never_mentions_gender_age_or_ethnicity():
+    """Run 2's bag alert said "a woman in a blue jacket", copied from the video check."""
+    text = _flat(INSTRUCTIONS)
+    assert ("The reason never mentions gender, age or ethnicity, even when ask_video's answer does; "
+            'write "a person".') in text
+
+
 def _flat(text: str) -> str:
     return " ".join(text.split())
 

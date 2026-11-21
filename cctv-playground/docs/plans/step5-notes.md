@@ -194,3 +194,22 @@ the user (the INSTRUCTIONS opening, the neighbour-clip window, the privacy sente
   `site.real.yaml` and `context/real/` differ only in the zone and the roster row; `site_real/` rebuilt.
 - Tests: `test_roster_has_the_public_opening`, `test_instructions_open_with_the_roster_exception`, and the
   CAM-04 zone in `test_site_config_has_7_cameras_and_17_labels`.
+
+## Fix: linking compares descriptions; reasons never mention gender, age or ethnicity
+- Run 2 linked CAM-02-2 (a white car, 13:52:24) to A-002 (CAM-01's red pickup): the task showed only
+  the neighbouring alert's id, type, first-seen time and priority. `task_message` now adds
+  `reason: "<first 200 characters>"` to each neighbour line (`NEIGHBOUR_REASON_CHARS = 200`, newlines
+  folded to spaces, `...` when cut, so each alert stays on one line).
+- INSTRUCTIONS: route step 4 says to compare the neighbour's reason with what was seen; the `linked`
+  bullet says to link only when the reason describes the same kind of vehicle or person (type and colour
+  match) and the timing fits, and to escalate instead when it differs or is unclear. Instructions only;
+  `apply_rules` is unchanged (the code still checks only that the target is an open neighbour alert).
+- Privacy (user addition): run 2's bag alert reason said "a woman in a blue jacket", copied from the
+  video check. The last bullet now reads: never identify people or describe their face; "The reason never
+  mentions gender, age or ethnicity, even when ask_video's answer does; write "a person"", with the blue
+  jacket example. Note: the reasons now shown in the task come from earlier alerts, so a slip there would
+  also reach the next alert's task.
+- The opening sentence from the previous fix is rewrapped (same words).
+- Tests: `test_task_message_shows_the_start_of_each_neighbour_reason`,
+  `test_instructions_link_only_on_matching_description`,
+  `test_instructions_reason_never_mentions_gender_age_or_ethnicity`.
