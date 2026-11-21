@@ -140,8 +140,12 @@ def extract_frames(clip: Path, duration: float, n: int = 8, width: int = 1024) -
         t = round((i + 0.5) * duration / n, 2)
         p = out_dir / f"f{i:02d}_{t:.2f}.jpg"
         if not p.exists():
-            subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", f"{t}", "-i", str(clip), "-frames:v", "1",
-                            "-vf", f"scale={width}:-2", "-q:v", "3", str(p)], check=True)
+            done = subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", f"{t}", "-i", str(clip), "-frames:v", "1",
+                                   "-vf", f"scale={width}:-2", "-q:v", "3", str(p)], capture_output=True)
+            if done.returncode != 0 or not p.exists():
+                # t is after the last decodable frame (short or low-fps clip): take the last frame
+                subprocess.run(["ffmpeg", "-y", "-v", "error", "-sseof", "-1", "-i", str(clip), "-update", "1",
+                                "-vf", f"scale={width}:-2", "-q:v", "3", str(p)], check=True)
         frames.append((t, p))
     return frames
 

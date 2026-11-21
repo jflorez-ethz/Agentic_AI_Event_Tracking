@@ -191,3 +191,12 @@ def test_frame_cache_changes_when_clip_changes(tmp_path):
     clip = _clip(tmp_path, 6)  # same name, new content
     second = event_check.extract_frames(clip, 6.0, n=2)
     assert first[0][1].parent != second[0][1].parent
+
+
+def test_extract_frames_past_the_last_frame_takes_the_last_one(tmp_path):
+    # 16 frames over a 4 s clip at 5 fps: the last sample (3.88 s) is after the last frame (3.8 s)
+    p = tmp_path / "short.mp4"
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i", "testsrc=size=160x120:rate=5:duration=4",
+                    "-pix_fmt", "yuv420p", str(p)], check=True)
+    frames = event_check.extract_frames(p, 4.0, n=16, width=160)
+    assert len(frames) == 16 and all(f.exists() and f.stat().st_size > 0 for _, f in frames)
