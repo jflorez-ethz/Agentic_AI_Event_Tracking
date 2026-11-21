@@ -34,7 +34,7 @@ def escalation_reason(alert_kind: str, events: list[dict]) -> str | None:
 
 class VideoChecker:
     def __init__(self, client, alert_kind: str, *, tag: str = "", default_model: str = DEFAULT_MODEL,
-                 strong_model: str = STRONG_MODEL, n_frames: int = 16, max_clip_s: float = 120.0):
+                 strong_model: str = STRONG_MODEL, n_frames: int = 16, max_clip_s: float = 60.0):
         self.client = client
         self.alert_kind = alert_kind
         self.tag = tag

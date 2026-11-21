@@ -213,3 +213,22 @@ the user (the INSTRUCTIONS opening, the neighbour-clip window, the privacy sente
 - Tests: `test_task_message_shows_the_start_of_each_neighbour_reason`,
   `test_instructions_link_only_on_matching_description`,
   `test_instructions_reason_never_mentions_gender_age_or_ethnicity`.
+
+## Fix: short clips (first clip, neighbour clips, 60 s limit)
+- Run 2's CAM-04-6 cut a 90 s first clip (13:59:13-14:00:43), and neighbour clips of 53 s and 105 s;
+  16 frames over 90-105 s miss short events.
+- `VideoChecker(max_clip_s=60.0)` (was 120). This covers ask_video and second_look; second_look's
+  window is at most 30 s, so it is not affected. A longer clip gets the existing error ("Clip is 70 s;
+  frame checks need 60 s or less. Ask for a shorter window.") and the agent can retry.
+- `AgentTools.ask_video` docstring (the agent's tool description): "Clips must be 60 s or shorter; the
+  usual window (20 s before first seen to now) is 30 s, or 50 s for unattended objects."
+- INSTRUCTIONS: step 1 says the first clip runs from 20 s before first seen to now, and that more context
+  comes from a neighbouring camera, not a longer clip; "ask_video takes clips of 60 s or less"; and (user
+  addition) "A neighbouring camera's clip is 60 s or less, centred on the neighbouring alert's first-seen
+  time". Added by me: "(with no alert there, on this alert's first-seen time), and never past now", since
+  a neighbour may have no open alert.
+- **Changed existing test:** `test_missing_clip_and_long_clip_raise_value_error` asserted the 120 s
+  message; it now uses a 70 s clip and expects "need 60 s or less".
+- New tests: `test_fifty_second_clip_is_accepted` (passed before the change too; kept as a guard for the
+  unattended-object window), `test_ask_video_description_gives_the_60_s_limit`,
+  `test_instructions_keep_clips_short`.

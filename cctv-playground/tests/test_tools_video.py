@@ -86,3 +86,11 @@ def test_second_look_in_the_future_is_refused(tools):
 def test_second_look_without_checker_is_an_error(tools):
     out = tools.second_look("CAM-A", "02:00:05", "q")
     assert out["error"] == "second_look is not connected (no video checker)."
+
+
+def test_ask_video_description_gives_the_60_s_limit():
+    """The agent's tool description is this docstring."""
+    doc = " ".join(AgentTools.ask_video.__doc__.split())
+    assert "Clips must be 60 s or shorter" in doc
+    assert "30 s, or 50 s for unattended objects" in doc
+    assert "120" not in doc

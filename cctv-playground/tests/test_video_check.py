@@ -108,10 +108,17 @@ def test_missing_clip_and_long_clip_raise_value_error(tmp_path):
     vc = VideoChecker(FakeClient({}), "person_down")
     with pytest.raises(ValueError, match="No clip at"):
         vc.check(str(tmp_path / "nope.mp4"))
-    long_clip = _clip(tmp_path, 130, "long.mp4")
-    with pytest.raises(ValueError, match=r"Clip is 130 s; frame checks need 120 s or less"):
+    long_clip = _clip(tmp_path, 70, "long.mp4")
+    with pytest.raises(ValueError, match=r"Clip is 70 s; frame checks need 60 s or less"):
         vc.check(str(long_clip))
     assert vc.calls == 0
+
+
+def test_fifty_second_clip_is_accepted(tmp_path):
+    """The usual unattended-object window (20 s before first seen to now, 30 s detector delay)."""
+    vc = VideoChecker(FakeClient({SONNET: [BAG]}), "unattended_object")
+    r = vc.check(str(_clip(tmp_path, 50, "fifty.mp4")))
+    assert r["model"] == SONNET and vc.calls == 2
 
 
 def test_client_failure_becomes_value_error(tmp_path):

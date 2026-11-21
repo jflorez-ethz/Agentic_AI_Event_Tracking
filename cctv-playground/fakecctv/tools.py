@@ -87,7 +87,8 @@ class AgentTools:
 
         It looks at 16 frames spread evenly over the clip and returns the events it sees, each with
         a type, whether it looks real or like a look-alike, and its times in seconds from the start
-        of the clip. Clips must be 120 s or shorter. Put your specific question in `question`.
+        of the clip. Clips must be 60 s or shorter; the usual window (20 s before first seen to now)
+        is 30 s, or 50 s for unattended objects. Put your specific question in `question`.
         """
         def go():
             if self.video_checker is None:

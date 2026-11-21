@@ -202,6 +202,15 @@ def test_instructions_open_with_the_roster_exception():
         "The site is closed, except for the people and zones the roster lists.")
 
 
+def test_instructions_keep_clips_short():
+    """Run 2 cut a 90 s first clip (CAM-04-6) and 53 s and 105 s neighbour clips."""
+    text = _flat(INSTRUCTIONS)
+    assert "The first clip runs from 20 s before first seen to now." in text
+    assert "For more context, look at a neighbouring camera, not a longer clip." in text
+    assert ("A neighbouring camera's clip is 60 s or less, centred on the neighbouring alert's "
+            "first-seen time") in text
+
+
 def test_no_sampling_settings():
     # claude-haiku-5-5 rejects non-default temperature, top_p and top_k
     settings = build_agent().model_settings or {}
