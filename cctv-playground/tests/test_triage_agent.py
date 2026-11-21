@@ -18,7 +18,8 @@ from pydantic_ai import ModelResponse, ToolCallPart, ToolReturnPart, models  # n
 from pydantic_ai.models.function import AgentInfo, FunctionModel  # noqa: E402
 
 from agentlab.triage_agent import (  # noqa: E402
-    INSTRUCTIONS, AgentTriage, TriageVerdict, apply_rules, build_agent, evidence_from_trace, task_message,
+    INSTRUCTIONS, AgentTriage, TriageVerdict, apply_rules, build_agent, evidence_from_trace, first_video_answer,
+    task_message,
 )
 from fakecctv.clock import ReplayClock  # noqa: E402
 from fakecctv.context import SiteContext  # noqa: E402
@@ -34,7 +35,8 @@ CANDIDATE = {"candidate_id": "CAM-B-1", "camera_id": "CAM-B", "zone": "Dock", "k
 
 
 class FakeChecker:
-    def __init__(self, ask_escalated: bool = False):
+    def __init__(self, ask_escalated: bool = False, events: list[dict] | None = None):
+        self.events = events or []
         self.seen: list[tuple[str, str, bool]] = []
         self.calls = 0
         self.cost_usd = 0.0
@@ -46,7 +48,8 @@ class FakeChecker:
         self.seen.append((clip_path, question, strong))
         self.calls += 1
         self.cost_usd += 0.001
-        return {"scene": "test", "video_visible": True, "events": [], "times": "seconds from the start of the clip",
+        return {"scene": "test", "video_visible": True, "events": list(self.events),
+                "times": "seconds from the start of the clip",
                 "model": "fake", "escalated": strong, "why": "second look" if strong else None}
 
 
@@ -140,6 +143,39 @@ def test_evidence_from_trace_only_successful_paths():
         {"tool": "second_look", "ok": False, "result": "Second-look limit (2) reached for this alert."},
     ]
     assert evidence_from_trace(trace) == ["/c/1.mp4", "/c/f.jpg", "/c/2.mp4"]
+
+
+def _ev(kind: str, real: bool) -> dict:
+    return {"event_type": kind, "start_s": 1.0, "end_s": 2.0, "real": real, "reason": "test"}
+
+
+def _clip_step(camera: str, path: str, ok: bool = True) -> dict:
+    return {"tool": "get_clip", "ok": ok, "args": {"camera_id": camera, "start": "02:00:00", "end": "02:00:14"},
+            "result": {"camera_id": camera, "path": path} if ok else "error"}
+
+
+def _ask_step(path: str, events: list[dict] | None, ok: bool = True) -> dict:
+    return {"tool": "ask_video", "ok": ok, "args": {"clip_path": path, "question": "q"},
+            "result": {"events": events, "model": "fake"} if ok else "video model unavailable"}
+
+
+def test_first_video_answer():
+    kind = "after_hours_person"
+    own, other = "/c/CAM-B_1.mp4", "/c/CAM-A_1.mp4"
+    base = [_clip_step("CAM-A", other), _clip_step("CAM-B", own)]
+    # a neighbour's ask comes first and an own-camera ask errors: both skipped
+    trace = base + [_ask_step(other, [_ev(kind, True)]), _ask_step(own, None, ok=False),
+                    _ask_step(own, [_ev(kind, False), _ev("after_hours_vehicle", True)]),
+                    _ask_step(own, [_ev(kind, True)])]
+    assert first_video_answer(trace, "CAM-B", kind) == "look-alike"
+    assert first_video_answer(base + [_ask_step(own, [_ev(kind, False), _ev(kind, True)])], "CAM-B", kind) == "real"
+    assert first_video_answer(base + [_ask_step(own, [_ev("person_down", True)])], "CAM-B", kind) == "none"
+    assert first_video_answer(base + [_ask_step(other, [_ev(kind, True)])], "CAM-B", kind) is None
+    assert first_video_answer([], "CAM-B", kind) is None
+    # a second look is not an ask_video answer
+    look = {"tool": "second_look", "ok": True, "args": {"camera_id": "CAM-B"},
+            "result": {"clip_path": own, "events": [_ev(kind, True)]}}
+    assert first_video_answer(base + [look], "CAM-B", kind) is None
 
 
 def test_task_message_without_doors_or_neighbours(tools):
@@ -247,6 +283,20 @@ def test_agent_recovers_from_future_clip(tools):
     assert tools.video_checker is checker
 
 
+def test_stats_record_the_first_video_answer(tools):
+    checker = FakeChecker(events=[_ev("after_hours_person", False)])
+    triage = AgentTriage(checker_factory=lambda kind, tag: checker)
+
+    def ask(messages, info):
+        return "ask_video", {"clip_path": returns(messages)[-1].content["path"], "question": "anyone?"}
+
+    model = scripted(("get_clip", {"camera_id": "CAM-B", "start": "02:00:00", "end": "02:00:14"}), ask,
+                     ("OUTPUT", {"verdict": "dismiss", "priority": "low",
+                                 "reason": "A shadow on the dock at 02:00:12, judged a look-alike."}))
+    run_scripted(triage, model, tools)
+    assert triage.stats["CAM-B-1"]["video"] == "look-alike"
+
+
 def test_budget_hit_goes_to_a_person(tools):
     triage = AgentTriage(request_limit=3, checker_factory=lambda kind, tag: FakeChecker())
     final = run_scripted(triage, scripted(("now", {})), tools)
@@ -308,8 +358,9 @@ def test_evaluate_with_scripted_agent(site_dir, tmp_path):
     rows = result["events"]
     assert [r["verdict"] for r in rows] == ["dismiss", "dismiss"]
     for r in rows:
-        assert {"cost_usd", "requests", "tool_calls", "tool_errors", "overrides"} <= set(r)
+        assert {"cost_usd", "requests", "tool_calls", "tool_errors", "overrides", "video"} <= set(r)
         assert r["requests"] == 1 and r["overrides"] == []
+        assert r["video"] is None  # this brain never asked the video model
     s = result["summary"]
     assert s["total_cost_usd"] == pytest.approx(sum(r["cost_usd"] for r in rows))
     assert s["mean_cost_per_alert_usd"] == pytest.approx(s["total_cost_usd"] / 2)
@@ -327,6 +378,24 @@ class SlowStub:
         self.stats[candidate["candidate_id"]] = {"cost_usd": 0.0, "requests": 1, "tool_calls": 0, "tool_errors": 0,
                                                  "overrides": [], "seconds": 42.0}
         return triage(candidate, tools, open_alerts)
+
+
+def test_agent_table_has_a_video_column(site_dir, capsys):
+    import evaluate
+
+    class VideoStub(SlowStub):
+        def __call__(self, candidate, tools, open_alerts):
+            out = super().__call__(candidate, tools, open_alerts)
+            self.stats[candidate["candidate_id"]]["video"] = "look-alike" if candidate["camera_id"] == "CAM-A" else None
+            return out
+
+    result = evaluate.run(str(site_dir / "site" / "index.json"), 2, triage_fn=VideoStub())
+    assert [r["video"] for r in result["events"]] == ["look-alike", None]
+    evaluate.print_table(result)
+    lines = capsys.readouterr().out.splitlines()
+    assert "video" in lines[0].split()
+    assert "look-alike" in lines[1]
+    assert "  -  " in lines[2]
 
 
 def test_time_to_alert_counts_the_agents_seconds(site_dir):

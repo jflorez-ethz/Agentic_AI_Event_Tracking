@@ -232,3 +232,18 @@ the user (the INSTRUCTIONS opening, the neighbour-clip window, the privacy sente
 - New tests: `test_fifty_second_clip_is_accepted` (passed before the change too; kept as a guard for the
   unattended-object window), `test_ask_video_description_gives_the_60_s_limit`,
   `test_instructions_keep_clips_short`.
+
+## Video column: what the video model said about the alert
+- New `first_video_answer(trace, camera_id, kind)` in `agentlab/triage_agent.py`. Clip paths are matched
+  to cameras through the successful `get_clip` steps (`args.camera_id` → `result.path`). It takes the
+  first **successful** ask_video on a clip of the alert's own camera and looks at that answer's events
+  of the alert's type: any real → `"real"`, only look-alikes → `"look-alike"`, none of that type →
+  `"none"`. No such ask_video → `None`. Errored ask_video calls, ask_video on neighbour clips, and
+  second_look are not counted. When ask_video escalated to Sonnet, this is the Sonnet answer (the one
+  the agent saw).
+- `AgentTriage.stats[cid]["video"]` holds it, so it is in each run file's `stats` too (no run-file
+  parsing). `evaluate.STAT_COLUMNS` gets `"video"`; the agent table has a `video` column before
+  `cost $` (`-` for None). The stub table is unchanged.
+- `FakeChecker` in the tests takes `events=` (default `[]`, so older tests are unchanged).
+- Tests: `test_first_video_answer`, `test_stats_record_the_first_video_answer`,
+  `test_agent_table_has_a_video_column`; `test_evaluate_with_scripted_agent` checks the `video` key.

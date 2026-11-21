@@ -254,6 +254,24 @@ def evidence_from_trace(trace: list[dict]) -> list[str]:
     return out
 
 
+def first_video_answer(trace: list[dict], camera_id: str, kind: str) -> str | None:
+    """What the first successful ask_video on a clip of `camera_id` said about events of `kind`:
+    "real" (any of them real), "look-alike" (only look-alikes), "none" (no event of that kind), or
+    None when no ask_video answered on that camera. Clips are matched to cameras through get_clip."""
+    camera_of = {step["result"]["path"]: step["args"].get("camera_id") for step in trace
+                 if step["tool"] == "get_clip" and step.get("ok") and isinstance(step.get("result"), dict)}
+    for step in trace:
+        if step["tool"] != "ask_video" or not step.get("ok") or not isinstance(step.get("result"), dict):
+            continue
+        if camera_of.get(step["args"].get("clip_path")) != camera_id:
+            continue
+        mine = [e for e in step["result"].get("events") or [] if e.get("event_type") == kind]
+        if any(e.get("real") for e in mine):
+            return "real"
+        return "look-alike" if mine else "none"
+    return None
+
+
 def apply_rules(candidate: dict, out: TriageVerdict | None, failure: str | None, open_alerts: list[dict],
                 neighbors: list[str], trace: list[dict]) -> tuple[dict, list[str]]:
     """The agent's verdict after the hard rules. Returns (verdict dict, names of the rules that fired)."""
@@ -341,6 +359,7 @@ class AgentTriage:
             "second_looks": deps.second_looks,
             "video_calls": getattr(checker, "calls", 0),
             "overrides": overrides,
+            "video": first_video_answer(tools.trace, candidate["camera_id"], candidate["kind"]),
             "cost_usd": round((row["cost_usd"] or 0.0) + getattr(checker, "cost_usd", 0.0), 6),
             "seconds": round(seconds, 2),
         }

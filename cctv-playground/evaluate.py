@@ -32,7 +32,7 @@ from fakecctv.triage_stub import NEVER_DISMISS, triage
 
 ROOT = Path(__file__).resolve().parent
 AGENT_MODEL = "anthropic:claude-haiku-5-5"
-STAT_COLUMNS = ("cost_usd", "requests", "tool_calls", "tool_errors", "overrides")
+STAT_COLUMNS = ("cost_usd", "requests", "tool_calls", "tool_errors", "overrides", "video")
 
 
 def run(index: str, delay_s: float = 10.0, triage_fn=None) -> dict:
@@ -129,14 +129,14 @@ def print_table(result: dict, run_dir: Path | None = None) -> None:
     extra = any("cost_usd" in r for r in rows)
     head = f"{'event':<10} {'type':<20} {'seen':<9} {'real':<6} {'verdict':<10} {'to person':<10} ok"
     if extra:
-        head += f"   {'cost $':>8} {'agent s':>7} {'req':>4} {'tools':>5} {'err':>4}  overrides"
+        head += f"   {'video':<10} {'cost $':>8} {'agent s':>7} {'req':>4} {'tools':>5} {'err':>4}  overrides"
     print(head)
     for r in rows:
         line = (f"{r['event']:<10} {r['type']:<20} {r['first_seen']:<9} {str(r['real']):<6} "
                 f"{r['verdict']:<10} {str(r['reached_a_person']):<10} {'yes' if r['correct'] else 'NO'}")
         if extra and r.get("cost_usd") is not None:
-            line = f"{line:<76}{r['cost_usd']:>8.4f} {r.get('triage_s') or 0:>7.1f} {r['requests']:>4} " \
-                   f"{r['tool_calls']:>5} {r['tool_errors']:>4}  " \
+            line = f"{line:<76}{r.get('video') or '-':<10} {r['cost_usd']:>8.4f} " \
+                   f"{r.get('triage_s') or 0:>7.1f} {r['requests']:>4} {r['tool_calls']:>5} {r['tool_errors']:>4}  " \
                    f"{', '.join(r['overrides']) or '-'}"
         print(line)
     print()
