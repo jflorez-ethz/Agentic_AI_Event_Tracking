@@ -81,3 +81,21 @@ Checked on the installed 2.71.0: `Agent(..., defer_model_check=..., retries=...)
 - Extra tests: `test_apply_rules_linked_to_cleared_unless_linked`,
   `test_task_message_lists_open_alerts_on_neighbours`, `test_no_sampling_settings`,
   `test_second_look_refused_after_ask_video_used_sonnet`.
+
+## Task 5
+- **The agent is imported only for `--triage agent`** (inside `make_agent`), so the stub path and
+  its existing test never import pydantic-ai.
+- **`.env` is loaded by path** (`load_dotenv(ROOT / ".env", override=True)`), so the command works
+  from any folder. The key is stripped and written back to `os.environ`, because the Pydantic AI
+  provider reads the variable as it is and `scripts/compare_models.py` already had to strip it.
+- `--model` without a provider prefix exits with a message (v2 raises `UserError` for an
+  unprefixed model name, which would otherwise turn every alert into a "could not finish").
+- The table printing moved into `print_table(result, run_dir)`, so it can be checked offline; the
+  stub table is unchanged. It was checked with a scripted brain and a fake video checker on the
+  placeholder site (no model requests, cost log redirected).
+- Totals come from the rows (`total_cost_usd`, `mean_cost_per_alert_usd` over alerts with a
+  cost), not from `AgentTriage.stats`, which keeps entries across runs.
+- Not changed: run files list evidence paths in `evaluate.py`'s temporary work folder
+  (`fakecctv-eval-*` under the system temp directory), as the stub's evidence always did.
+
+Stopped after Task 5 Step 4. Task 5 Step 5 (run 1) is for the user; Task 6 is not started.

@@ -247,3 +247,22 @@ def test_run_file_written(tools, tmp_path):
     assert data["final"]["verdict"] == "dismiss" and data["output"]["verdict"] == "dismiss"
     assert data["trace"][0]["tool"] == "now"
     assert any(m.get("kind") == "response" for m in data["messages"])
+
+
+# --- evaluate.py with the agent (task 5) ----------------------------------------------------
+def test_evaluate_with_scripted_agent(site_dir, tmp_path):
+    import evaluate
+    triage = AgentTriage(run_dir=tmp_path / "runs", checker_factory=lambda kind, tag: FakeChecker())
+    model = scripted(("OUTPUT", {"verdict": "dismiss", "priority": "low",
+                                 "reason": "Expected activity: a look-alike, nobody on the footage."}))
+    with triage.agent.override(model=model):
+        result = evaluate.run(str(site_dir / "site" / "index.json"), 2, triage_fn=triage)
+    rows = result["events"]
+    assert [r["verdict"] for r in rows] == ["dismiss", "dismiss"]
+    for r in rows:
+        assert {"cost_usd", "requests", "tool_calls", "tool_errors", "overrides"} <= set(r)
+        assert r["requests"] == 1 and r["overrides"] == []
+    s = result["summary"]
+    assert s["total_cost_usd"] == pytest.approx(sum(r["cost_usd"] for r in rows))
+    assert s["mean_cost_per_alert_usd"] == pytest.approx(s["total_cost_usd"] / 2)
+    assert sorted(p.name for p in (tmp_path / "runs").iterdir()) == ["CAM-A-1.json", "CAM-B-1.json"]
