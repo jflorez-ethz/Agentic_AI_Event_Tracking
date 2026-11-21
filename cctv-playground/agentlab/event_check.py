@@ -128,8 +128,12 @@ FRAMES_DIR = ROOT / "runs" / "frames"
 
 
 def extract_frames(clip: Path, duration: float, n: int = 8, width: int = 1024) -> list[tuple[float, Path]]:
-    """n frames evenly spread over the clip (middle of each slice), cached under runs/frames/."""
-    out_dir = FRAMES_DIR / f"{clip.stem}_{n}x{width}"
+    """n frames evenly spread over the clip (middle of each slice), cached under runs/frames/.
+
+    The cache key includes the clip's size and modification time: clip names repeat between
+    site builds, and a rebuilt clip must not reuse the old frames."""
+    stat = clip.stat()
+    out_dir = FRAMES_DIR / f"{clip.stem}_{n}x{width}_{stat.st_size}_{int(stat.st_mtime)}"
     out_dir.mkdir(parents=True, exist_ok=True)
     frames = []
     for i in range(n):
@@ -143,15 +147,18 @@ def extract_frames(clip: Path, duration: float, n: int = 8, width: int = 1024) -
 
 
 def claude_check(client, model: str, clip: Path, duration: float, *, n_frames: int = 8,
-                 prompt: dict | None = None, tag: str = "") -> dict:
+                 prompt: dict | None = None, tag: str = "", focus: str = "") -> dict:
+    """Send n_frames stills to Claude. A non-empty focus adds the operator's question as a last line."""
     prompt = prompt or load_prompt()
     content: list[dict] = []
     for t, p in extract_frames(clip, duration, n_frames):
         content.append({"type": "text", "text": f"Frame at {t:.1f} s:"})
         content.append({"type": "image", "source": {"type": "base64", "media_type": "image/jpeg",
                                                     "data": base64.b64encode(p.read_bytes()).decode()}})
-    content.append({"type": "text", "text": prompt["FRAMES_NOTE"].format(n=n_frames) + "\n"
-                    + prompt["USER"].format(duration=duration)})
+    text = prompt["FRAMES_NOTE"].format(n=n_frames) + "\n" + prompt["USER"].format(duration=duration)
+    if focus.strip():
+        text += f"\nFocus from the operator: {focus.strip()}"
+    content.append({"type": "text", "text": text})
     t0 = time.perf_counter()
     resp = client.messages.create(model=model, max_tokens=4000, system=prompt["SYSTEM"],
                                   messages=[{"role": "user", "content": content}],

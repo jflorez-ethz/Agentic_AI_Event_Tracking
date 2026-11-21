@@ -158,3 +158,36 @@ def test_summary_and_estimate():
                       "false_alarm": False, "missed_critical": False}}
     rows, md = cm.summarise([call, {**call, "item": "T02", "error": "boom", "score": None}], ["g38-low"])
     assert rows[0]["correct_%"] == 100 and rows[0]["errors"] == 1 and "1/1" in md
+
+
+def _capture_create(sent: dict):
+    def create(**kw):
+        sent.update(kw)
+        return SimpleNamespace(content=[SimpleNamespace(type="text", text=json.dumps(ANSWER))],
+                               usage=SimpleNamespace(input_tokens=7000, output_tokens=500))
+    return SimpleNamespace(messages=SimpleNamespace(create=create))
+
+
+def test_claude_check_adds_focus_line(tmp_path):
+    clip = _clip(tmp_path)
+    sent = {}
+    event_check.claude_check(_capture_create(sent), "claude-haiku-5-5", clip, 4.0, n_frames=2,
+                             focus="is anyone lying down?")
+    last = sent["messages"][0]["content"][-1]
+    assert last["type"] == "text"
+    assert "Focus from the operator: is anyone lying down?" in last["text"]
+
+
+def test_claude_check_without_focus_has_no_focus_line(tmp_path):
+    clip = _clip(tmp_path)
+    sent = {}
+    event_check.claude_check(_capture_create(sent), "claude-haiku-5-5", clip, 4.0, n_frames=2)
+    assert "Focus from the operator" not in sent["messages"][0]["content"][-1]["text"]
+
+
+def test_frame_cache_changes_when_clip_changes(tmp_path):
+    clip = _clip(tmp_path, 4)
+    first = event_check.extract_frames(clip, 4.0, n=2)
+    clip = _clip(tmp_path, 6)  # same name, new content
+    second = event_check.extract_frames(clip, 6.0, n=2)
+    assert first[0][1].parent != second[0][1].parent
