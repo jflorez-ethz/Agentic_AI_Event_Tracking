@@ -45,3 +45,16 @@ Recorded only; no code was changed for them in this session.
   byte-identical, so `site_real/` did not need a rebuild (it reads `context/real/` in place).
 - Rule 7 changes what the agent reads through `procedures`, so the next run's numbers may differ from
   run 2's for a reason other than chance.
+
+## Task 3: review
+- **`decisions.jsonl` uses the kit's words**: `approved`, `dismissed by guard`, and the new `confirmed`
+  and `reopened`. `AlertStore.open_alerts` and `app.py` read these; with the plan's `approve`, an
+  approved alert left the open alerts. The audit keeps `approve/dismiss/confirm/reopen`.
+- Write order is audit decision, then action, then `decisions.jsonl`. Action entries carry
+  `simulated: true`.
+- All `--decide` values are checked before any is applied (exit code 2 and nothing written). A decision
+  refused later (already decided, wrong verdict) prints, the rest continue, and the exit code is 1.
+- End of input and Ctrl-C leave the screen cleanly. Model text is shown on one line without control
+  characters. `o` opens the first `.mp4`, not a still. A linked alert shows its target, and closed
+  alerts show no proposed action.
+- `reports` in the summary counts alerts with a report, so a second draft is not a second report.
