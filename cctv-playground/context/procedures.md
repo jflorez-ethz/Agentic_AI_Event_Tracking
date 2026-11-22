@@ -6,3 +6,4 @@
 4. Emergency exit obstructed: alert the supervisor, priority medium, to be cleared before the next shift.
 5. Do not identify people. Describe what happened, where and when.
 6. Recordings are kept for 72 hours unless attached to an incident.
+7. Unattended object: alert the control room, priority medium. A guard checks it in person; it is not moved before it is checked.

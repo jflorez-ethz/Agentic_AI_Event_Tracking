@@ -39,3 +39,9 @@ Recorded only; no code was changed for them in this session.
   the audit hold the copies.
 - `tests/d3d5_helpers.py` is shared by the new test modules. Its autouse `no_env` fixture fails any
   test that reaches `load_dotenv`.
+
+## Task 2: actions and rule 7
+- Built as planned. Regenerating changed only rule 7: `site.real.yaml` and both sequence files are
+  byte-identical, so `site_real/` did not need a rebuild (it reads `context/real/` in place).
+- Rule 7 changes what the agent reads through `procedures`, so the next run's numbers may differ from
+  run 2's for a reason other than chance.
