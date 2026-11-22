@@ -58,3 +58,23 @@ Recorded only; no code was changed for them in this session.
   characters. `o` opens the first `.mp4`, not a still. A linked alert shows its target, and closed
   alerts show no proposed action.
 - `reports` in the summary counts alerts with a report, so a second draft is not a second report.
+
+## Task 4: facts and checker
+- **Clip camera and start come from the file name**, not from what `get_clip` returns (follow-up 1).
+- **`fact_times` comes from structured fields only**: alert times, clip windows, video events, context
+  queries and rows, and the linked alert's first-seen time. The plan's "every HH:MM:SS above" took in
+  the agent's free-text reason, so an invented time would have checked itself (follow-up 2).
+- `check_report(texts, facts, timeline_times=())`: each timeline time must be a site time, otherwise
+  "unknown" or "shortly after" passed with no flag.
+- Times match without overlaps (`13:58` is not found inside `13:58:59`; `1:58 pm` gives one flag).
+- Allowed cameras are every camera in the evidence plus the link target, as the spec says. The plan's
+  narrower rule flagged neighbour clips the agent really used. Letter ids (`CAM-A`) work too.
+- The word list gains the plurals and `young`.
+- Extra fact keys: `cameras`, `linked_alert`, `evidence_missing`, and per event `camera`, `clip`, `offset_s`.
+- An empty badge or roster lookup is a fact. A list that the trace cut at 5 rows says so.
+- **Found while building (not in the agreed plan).** A replay of the checker over the 74 existing
+  alerts showed an inverted badge window becoming a fact: in `20261121-165846-r3`, CAM-07-1 asked
+  14:52:25 to 14:02:35 and got an empty list. Such lookups are now left out, and a roster question
+  about a time after the alert adds no fact time. `AgentTools.access_log` still accepts an inverted
+  window and answers "no entries"; that is unchanged.
+- The same replay flagged the known bad times (13:49:40, 13:57:43, 13:56:55) and both "woman" reasons.
