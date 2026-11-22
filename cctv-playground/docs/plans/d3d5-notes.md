@@ -95,3 +95,24 @@ Recorded only; no code was changed for them in this session.
 - `retries=2` and `UsageLimits(request_limit=3)`. A failed draft is still logged with `log_call`.
 - `report.py` refuses before it loads `.env`, so a refusal needs no key.
 - Small refactor of Task 3's `decided_line(entry, first_seen)`, so the report can reuse it.
+
+## Task 6: walkthrough
+- Commands use `.venv/bin/python`. The walkthrough says what to do if the bag is not escalated.
+- **Dry run beyond the plan** (free): no existing run folder has `alerts.jsonl`, so run
+  `20261121-165846-r3` was replayed through a scripted brain, fake checker and scripted writer on
+  `site_real`, with network and `.env` blocked and all output outside `runs/`. Decisions, refusals, both
+  reports, the summary and both stills worked. The screen was also tried in a real terminal.
+- The fall's still shows the person going down, not yet lying: the spec takes the start of the event.
+
+## Not verified, and open
+- **The report writer has never called the real API.** Wording, flag rate, cost and seconds are
+  unknown until the first paid report. An offline build of the request shows `tool_choice: auto`
+  (Pydantic AI does not force the output tool while Haiku's thinking is on, although the profile
+  supports forcing), so a plain-text reply costs one of the two retries. This corrects the remark on
+  forced tool choice in the session plan.
+- A reopened alert has no next step in the spec: it cannot be approved and gets a report only with `--force`.
+- The checker tests times, cameras and a word list. It cannot judge whether a description is true, or
+  catch appearance and ethnicity in general. The still frames show people as recorded.
+- A fact time supports any sentence: the checker does not tie a time to the event it is written next to.
+- One reviewer at a time: there is no file lock.
+- The spec's example `A-011=approve` is the bend look-alike in detection order; the bag is A-012.
