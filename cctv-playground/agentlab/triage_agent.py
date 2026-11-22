@@ -1,6 +1,6 @@
 """The step 5 triage agent (task D2): checks each detector alert the way an operator would.
 
-Drop-in replacement for fakecctv.triage_stub.triage: an AgentTriage instance is called as
+Drop-in replacement for cctv_playground.triage_stub.triage: an AgentTriage instance is called as
 triage(candidate, tools, open_alerts) and returns {verdict, priority, reason, evidence, linked_to}.
 
 - The brain is Claude Haiku 5.5 in Pydantic AI (v2), with a typed output (TriageVerdict).
@@ -33,8 +33,8 @@ from pydantic_ai import (
 
 from agentlab.usage import log_call
 from agentlab.video_check import VideoChecker
-from fakecctv.tools import AgentTools
-from fakecctv.triage_stub import NEVER_DISMISS
+from cctv_playground.tools import AgentTools
+from cctv_playground.triage_stub import NEVER_DISMISS
 
 pydantic_ai.BANNER_ENABLED = False  # keep evaluate.py's table output clean
 

@@ -24,7 +24,7 @@ import report  # noqa: E402
 from agentlab import audit, report_writer, usage  # noqa: E402
 from agentlab import review as logic  # noqa: E402
 from d3d5_helpers import kept_run, no_env  # noqa: E402,F401
-from fakecctv.alerts import AlertStore  # noqa: E402
+from cctv_playground.alerts import AlertStore  # noqa: E402
 
 models.ALLOW_MODEL_REQUESTS = False
 

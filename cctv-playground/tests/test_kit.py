@@ -16,12 +16,12 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from fakecctv.clock import ReplayClock  # noqa: E402
-from fakecctv.context import SiteContext  # noqa: E402
-from fakecctv.media import probe  # noqa: E402
-from fakecctv.recorder import NotYetAvailable, Recorder  # noqa: E402
-from fakecctv.site import load_site, parse_site_time  # noqa: E402
-from fakecctv.tools import AgentTools  # noqa: E402
+from cctv_playground.clock import ReplayClock  # noqa: E402
+from cctv_playground.context import SiteContext  # noqa: E402
+from cctv_playground.media import probe  # noqa: E402
+from cctv_playground.recorder import NotYetAvailable, Recorder  # noqa: E402
+from cctv_playground.site import load_site, parse_site_time  # noqa: E402
+from cctv_playground.tools import AgentTools  # noqa: E402
 
 
 def test_index_places_clips_and_labels(site_dir):
@@ -124,7 +124,7 @@ def _two_label_index(tmp_path) -> Path:
 
 
 def test_detector_waits_longer_for_unattended_objects(tmp_path):
-    from fakecctv.detector import OracleDetector
+    from cctv_playground.detector import OracleDetector
     site = load_site(_two_label_index(tmp_path))
     det = OracleDetector(site)
     t0 = site.start

@@ -26,14 +26,14 @@ from datetime import datetime
 from pathlib import Path
 from typing import Callable
 
-from fakecctv.alerts import AlertStore
-from fakecctv.clock import ReplayClock
-from fakecctv.context import SiteContext
-from fakecctv.detector import OracleDetector
-from fakecctv.recorder import Recorder
-from fakecctv.site import load_site
-from fakecctv.tools import AgentTools
-from fakecctv.triage_stub import NEVER_DISMISS, triage
+from cctv_playground.alerts import AlertStore
+from cctv_playground.clock import ReplayClock
+from cctv_playground.context import SiteContext
+from cctv_playground.detector import OracleDetector
+from cctv_playground.recorder import Recorder
+from cctv_playground.site import load_site
+from cctv_playground.tools import AgentTools
+from cctv_playground.triage_stub import NEVER_DISMISS, triage
 
 ROOT = Path(__file__).resolve().parent
 AGENT_MODEL = "anthropic:claude-haiku-5-5"
@@ -57,7 +57,7 @@ def run(index: str, delay_s: float = 10.0, triage_fn=None, keep_run: bool = Fals
             raise SystemExit(f"{keep_dir} already holds a run. Use a new run folder.")
     site = load_site(index)
     clock = ReplayClock(site.start, site.end)  # in memory
-    work = Path(tempfile.mkdtemp(prefix="fakecctv-eval-"))
+    work = Path(tempfile.mkdtemp(prefix="cctv-playground-eval-"))
     recorder = Recorder(site, clock, work / "clips")
     context = SiteContext(site, clock)
     store = AlertStore(keep_dir or work)

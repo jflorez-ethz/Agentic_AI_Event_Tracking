@@ -18,7 +18,7 @@ from pathlib import Path
 
 from agentlab import review as logic
 from agentlab.audit import resolve_run_dir
-from fakecctv.alerts import AlertStore
+from cctv_playground.alerts import AlertStore
 
 ROOT = Path(__file__).resolve().parent
 PENDING_KEYS = {"a": "approve", "d": "dismiss"}

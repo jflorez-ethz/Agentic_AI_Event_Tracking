@@ -13,11 +13,11 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from fakecctv.clock import ReplayClock  # noqa: E402
-from fakecctv.context import SiteContext  # noqa: E402
-from fakecctv.recorder import Recorder  # noqa: E402
-from fakecctv.site import load_site  # noqa: E402
-from fakecctv.tools import AgentTools  # noqa: E402
+from cctv_playground.clock import ReplayClock  # noqa: E402
+from cctv_playground.context import SiteContext  # noqa: E402
+from cctv_playground.recorder import Recorder  # noqa: E402
+from cctv_playground.site import load_site  # noqa: E402
+from cctv_playground.tools import AgentTools  # noqa: E402
 
 
 class FakeChecker:

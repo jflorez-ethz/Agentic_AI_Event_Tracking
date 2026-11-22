@@ -1,4 +1,6 @@
-# Fake CCTV: recorded clips replayed as a live site
+# CCTV Playground: recorded clips replayed as a live site
+
+Earlier name: fake-cctv (Python package `fakecctv`).
 
 This kit stands in for a site's cameras and recorder during the proof of concept. Recorded clips are placed on one site timeline, a replay clock decides what time it is "now", and agents get footage only through tools that refuse anything after "now". A Streamlit screen shows the camera wall, the alert inbox and the agent's steps.
 
@@ -36,12 +38,12 @@ Press Play in the sidebar and set the speed to 8x. Over the 30-minute night you 
 | Piece | File | What it does | On a real site |
 | --- | --- | --- | --- |
 | Camera files and index | `site/cams/*.mp4`, `site/index.json`, built by `scripts/build_site.py` | One continuous video per camera covering the whole site window, with the camera name and site time burned in, plus a table saying which file holds which camera from which time | The recorder's stored footage |
-| Replay clock | `fakecctv/clock.py`, state in `runtime/clock.json` | The site's "now". The screen and the runner read the same file, so they always agree | The real clock |
-| Recorder | `fakecctv/recorder.py` | Cuts clips and frames from the camera files and refuses anything after "now" | The recorder's export function |
-| Site context | `context/`, `fakecctv/context.py` | Access log (also refused after "now"), roster (a plan, readable ahead) and procedures | Access control, roster, site rules |
-| Agent tools | `fakecctv/tools.py` | The only functions an agent can call. Errors come back as text the agent can read. Every call is logged | The same, exposed as MCP or framework tools |
-| Detector | `fakecctv/detector.py` (stand-in) | Fires a candidate 10 s after each labelled event begins, look-alikes included, and never says which is which | RF-DETR or YOLO on the camera feeds |
-| Triage | `fakecctv/triage_stub.py` (stand-in) | Fixed rules that call the tools and write a verdict with reason and evidence. It does not look at the video | The triage agent |
+| Replay clock | `cctv_playground/clock.py`, state in `runtime/clock.json` | The site's "now". The screen and the runner read the same file, so they always agree | The real clock |
+| Recorder | `cctv_playground/recorder.py` | Cuts clips and frames from the camera files and refuses anything after "now" | The recorder's export function |
+| Site context | `context/`, `cctv_playground/context.py` | Access log (also refused after "now"), roster (a plan, readable ahead) and procedures | Access control, roster, site rules |
+| Agent tools | `cctv_playground/tools.py` | The only functions an agent can call. Errors come back as text the agent can read. Every call is logged | The same, exposed as MCP or framework tools |
+| Detector | `cctv_playground/detector.py` (stand-in) | Fires a candidate 10 s after each labelled event begins, look-alikes included, and never says which is which | RF-DETR or YOLO on the camera feeds |
+| Triage | `cctv_playground/triage_stub.py` (stand-in) | Fixed rules that call the tools and write a verdict with reason and evidence. It does not look at the video | The triage agent |
 | Runner | `run_replay.py` | Every half second: clock, detector, triage, inbox | The live service |
 | Screen | `app.py` | Camera wall, clock controls, inbox, review panel, footage lookup | The control-room screen |
 | Evaluation | `evaluate.py` | The same pipeline with an in-memory clock that jumps from event to event | The KPI script |

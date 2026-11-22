@@ -9,7 +9,7 @@
 - Footage lookup: pick a camera and a time window and play it from the recorder,
   which is the same get_clip tool the agents use.
 
-The agent never looks at this screen. It works only through fakecctv/tools.py.
+The agent never looks at this screen. It works only through cctv_playground/tools.py.
 """
 from __future__ import annotations
 
@@ -18,11 +18,11 @@ from pathlib import Path
 
 import streamlit as st
 
-from fakecctv.alerts import AlertStore
-from fakecctv.clock import ReplayClock
-from fakecctv.recorder import NotYetAvailable, Recorder
-from fakecctv.site import load_site
-from fakecctv.triage_stub import KIND_LABELS
+from cctv_playground.alerts import AlertStore
+from cctv_playground.clock import ReplayClock
+from cctv_playground.recorder import NotYetAvailable, Recorder
+from cctv_playground.site import load_site
+from cctv_playground.triage_stub import KIND_LABELS
 
 ROOT = Path(__file__).resolve().parent
 RUNTIME = ROOT / "runtime"

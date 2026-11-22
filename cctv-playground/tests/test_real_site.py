@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from fakecctv.media import probe  # noqa: E402
+from cctv_playground.media import probe  # noqa: E402
 from make_real_site import ROSTER, make_sequence, sequence_offsets, site_config  # noqa: E402
 
 

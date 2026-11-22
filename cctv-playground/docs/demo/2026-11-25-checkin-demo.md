@@ -4,7 +4,7 @@
 alert ─▶ checked with evidence ─▶ a person decides ─▶ report drafted ─▶ all of it logged
 ```
 
-Run every command from the `fake-cctv` folder. Steps 1 and 3 are paid (Claude API, key in `.env`), under
+Run every command from the kit folder (`cctv-playground/` in the group repo). Steps 1 and 3 are paid (Claude API, key in `.env`), under
 $0.25 together. Steps 2 and 4 are free. Run step 1 before the meeting: it takes about 5 minutes.
 
 The expected lines come from a free dry run on 22 Nov that replayed run `20261121-165846-r3` through a

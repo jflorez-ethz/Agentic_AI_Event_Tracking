@@ -1,6 +1,6 @@
 """Step 1 check: Python, ffmpeg, .env keys, model access, and one tiny call per provider.
 
-Run from the fake-cctv folder with the venv active:
+Run from the kit folder (`cctv-playground/` in the group repo) with the venv active:
     python scripts/check_setup.py           # local checks only, no API calls
     python scripts/check_setup.py --call    # also list models and send one tiny prompt each
 

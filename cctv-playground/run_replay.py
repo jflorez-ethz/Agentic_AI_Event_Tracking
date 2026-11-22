@@ -17,14 +17,14 @@ import shutil
 import time
 from pathlib import Path
 
-from fakecctv.alerts import AlertStore
-from fakecctv.clock import ReplayClock
-from fakecctv.context import SiteContext
-from fakecctv.detector import OracleDetector
-from fakecctv.recorder import Recorder
-from fakecctv.site import load_site
-from fakecctv.tools import AgentTools
-from fakecctv.triage_stub import triage
+from cctv_playground.alerts import AlertStore
+from cctv_playground.clock import ReplayClock
+from cctv_playground.context import SiteContext
+from cctv_playground.detector import OracleDetector
+from cctv_playground.recorder import Recorder
+from cctv_playground.site import load_site
+from cctv_playground.tools import AgentTools
+from cctv_playground.triage_stub import triage
 
 ROOT = Path(__file__).resolve().parent
 

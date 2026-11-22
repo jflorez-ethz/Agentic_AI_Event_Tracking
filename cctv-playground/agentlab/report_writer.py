@@ -31,7 +31,7 @@ from agentlab import audit
 from agentlab.review import decided_line, find_alert, one_line
 from agentlab.triage_agent import evidence_from_trace
 from agentlab.usage import log_call
-from fakecctv.alerts import AlertStore
+from cctv_playground.alerts import AlertStore
 
 pydantic_ai.BANNER_ENABLED = False  # keep report.py's output clean
 
@@ -362,7 +362,7 @@ def still_frame(run_dir: Path, facts: dict) -> str | None:
     clip, offset, _ = point
     rel = f"evidence/{facts['candidate_id']}/still.jpg"
     source = str(Path(run_dir) / clip)
-    with tempfile.TemporaryDirectory(prefix="fakecctv-still-") as work:
+    with tempfile.TemporaryDirectory(prefix="cctv-playground-still-") as work:
         out = Path(work) / "still.jpg"
         # A seek past the last decodable frame writes nothing, so then take the last frame.
         for where, extra in ((["-ss", f"{offset:.2f}"], ["-frames:v", "1"]), (["-sseof", "-1"], [])):

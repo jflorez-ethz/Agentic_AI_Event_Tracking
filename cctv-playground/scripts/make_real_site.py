@@ -30,7 +30,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from fakecctv.media import probe, require_ffmpeg, run  # noqa: E402
+from cctv_playground.media import probe, require_ffmpeg, run  # noqa: E402
 
 LABELS_CSV = ROOT / "labels.csv"
 SEQ_DIR = Path("clips/sequences")

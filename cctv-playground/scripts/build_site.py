@@ -27,8 +27,8 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from fakecctv.media import find_font, font_option, has_filter, probe, require_ffmpeg, run  # noqa: E402
-from fakecctv.site import parse_site_time  # noqa: E402
+from cctv_playground.media import find_font, font_option, has_filter, probe, require_ffmpeg, run  # noqa: E402
+from cctv_playground.site import parse_site_time  # noqa: E402
 
 # MEVA files are named YYYY-MM-DD.HH-MM-SS.HH-MM-SS.location.camera.avi, with clocks synced by GPS.
 MEVA_NAME = re.compile(r"(\d{4}-\d{2}-\d{2})\.(\d{2})-(\d{2})-(\d{2})\.(\d{2})-(\d{2})-(\d{2})\.")
@@ -69,8 +69,8 @@ def main() -> None:
     font = font_option(find_font())
     # Camera name and site clock are burned in with drawtext. Some ffmpeg builds lack it
     # (Homebrew's slim ffmpeg): build the site without the overlay instead of failing.
-    # FAKECCTV_NO_TEXT=1 forces this path (used by the tests).
-    burn_text = has_filter("drawtext") and not os.environ.get("FAKECCTV_NO_TEXT")
+    # CCTV_PLAYGROUND_NO_TEXT=1 forces this path (used by the tests).
+    burn_text = has_filter("drawtext") and not os.environ.get("CCTV_PLAYGROUND_NO_TEXT")
     if not burn_text:
         print("  note: this ffmpeg has no 'drawtext' filter, so camera name and clock are not burned in. "
               "For the overlay on a Mac: brew install ffmpeg-full")

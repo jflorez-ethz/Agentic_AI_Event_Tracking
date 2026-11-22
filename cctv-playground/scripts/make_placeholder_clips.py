@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from fakecctv.media import find_font, font_option, require_ffmpeg, run  # noqa: E402
+from cctv_playground.media import find_font, font_option, require_ffmpeg, run  # noqa: E402
 
 W, H, FPS = 640, 360, 10
 

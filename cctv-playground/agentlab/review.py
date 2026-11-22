@@ -11,7 +11,7 @@ from pathlib import Path
 
 from agentlab import audit
 from agentlab.actions import proposed_action
-from fakecctv.alerts import AlertStore
+from cctv_playground.alerts import AlertStore
 
 REVIEWER = "Guard on duty"
 FOR_ESCALATED = ("approve", "dismiss")

@@ -21,11 +21,11 @@ from agentlab.triage_agent import (  # noqa: E402
     INSTRUCTIONS, AgentTriage, TriageVerdict, apply_rules, build_agent, evidence_from_trace, first_video_answer,
     task_message,
 )
-from fakecctv.clock import ReplayClock  # noqa: E402
-from fakecctv.context import SiteContext  # noqa: E402
-from fakecctv.recorder import Recorder  # noqa: E402
-from fakecctv.site import load_site  # noqa: E402
-from fakecctv.tools import AgentTools  # noqa: E402
+from cctv_playground.clock import ReplayClock  # noqa: E402
+from cctv_playground.context import SiteContext  # noqa: E402
+from cctv_playground.recorder import Recorder  # noqa: E402
+from cctv_playground.site import load_site  # noqa: E402
+from cctv_playground.tools import AgentTools  # noqa: E402
 
 models.ALLOW_MODEL_REQUESTS = False  # a test that reaches a real model fails instead of paying
 
@@ -374,7 +374,7 @@ class SlowStub:
         self.stats: dict[str, dict] = {}
 
     def __call__(self, candidate, tools, open_alerts):
-        from fakecctv.triage_stub import triage
+        from cctv_playground.triage_stub import triage
         self.stats[candidate["candidate_id"]] = {"cost_usd": 0.0, "requests": 1, "tool_calls": 0, "tool_errors": 0,
                                                  "overrides": [], "seconds": 42.0}
         return triage(candidate, tools, open_alerts)
