@@ -12,6 +12,9 @@ live replay would have produced. The labels are used only here, to score the ver
 
 This is the seed of the KPI script (task B7): add timings, report effort and cost as
 those pieces arrive.
+
+Agent runs are kept in their run folder (alerts, evidence copies, audit log) for review.py
+and report.py.
 """
 from __future__ import annotations
 
@@ -37,19 +40,27 @@ AGENT_MODEL = "anthropic:claude-haiku-5-5"
 STAT_COLUMNS = ("cost_usd", "requests", "tool_calls", "tool_errors", "overrides", "video")
 
 
-def run(index: str, delay_s: float = 10.0, triage_fn=None) -> dict:
+def run(index: str, delay_s: float = 10.0, triage_fn=None, keep_run: bool = False) -> dict:
     """Replay the detector and triage every candidate, one at a time (the open alerts depend on order).
 
     triage_fn defaults to the stub. A triage_fn with a `stats` dict (agentlab.triage_agent.AgentTriage)
-    adds cost and tool columns to the rows and cost totals to the summary."""
+    adds cost and tool columns to the rows and cost totals to the summary.
+
+    keep_run keeps the alert store, the evidence and an audit log in triage_fn.run_dir (main sets
+    it for agent runs; without a run_dir it does nothing)."""
     triage_fn = triage_fn or triage
     stats = getattr(triage_fn, "stats", None)
+    keep_dir = getattr(triage_fn, "run_dir", None) if keep_run else None
+    if keep_dir:
+        from agentlab import audit
+        if (keep_dir / "alerts.jsonl").exists():  # before any model call: ids and open alerts would mix
+            raise SystemExit(f"{keep_dir} already holds a run. Use a new run folder.")
     site = load_site(index)
     clock = ReplayClock(site.start, site.end)  # in memory
     work = Path(tempfile.mkdtemp(prefix="fakecctv-eval-"))
     recorder = Recorder(site, clock, work / "clips")
     context = SiteContext(site, clock)
-    store = AlertStore(work)
+    store = AlertStore(keep_dir or work)
     detector = OracleDetector(site, delay_s=delay_s)
 
     # In detection order: the clock can jump backwards, and an unattended object that starts
@@ -59,7 +70,13 @@ def run(index: str, delay_s: float = 10.0, triage_fn=None) -> dict:
         for candidate in detector.poll(clock.now()):
             tools = AgentTools(recorder, context)
             verdict = triage_fn(candidate, tools, store.open_alerts())
-            store.add(candidate, verdict, tools.trace, created_site_time=clock.now())
+            if keep_dir:  # the work folder is temporary: the alert points at copies in the run folder
+                cid = candidate["candidate_id"]
+                verdict = {**verdict, "evidence": audit.keep_evidence(keep_dir, cid, verdict["evidence"])}
+            alert = store.add(candidate, verdict, tools.trace, created_site_time=clock.now())
+            if keep_dir:
+                audit.append(keep_dir, audit.verdict_entry(alert, site.name, (stats or {}).get(cid),
+                                                           getattr(triage_fn, "model_id", None)))
 
     alerts = {a["candidate"]["candidate_id"]: a for a in store.all()}
     by_id = {a["id"]: a for a in alerts.values()}
@@ -106,13 +123,13 @@ def run(index: str, delay_s: float = 10.0, triage_fn=None) -> dict:
 
 
 def run_repeats(index: str, n: int, make_triage: Callable[[int], object], delay_s: float = 10.0,
-                on_run: Callable[[int, dict, object], None] | None = None) -> dict:
+                on_run: Callable[[int, dict, object], None] | None = None, keep_run: bool = False) -> dict:
     """The whole replay n times. make_triage(i) gives run i its own triage function (None: the stub),
     so per-alert stats never mix. on_run(i, result, triage_fn) is called after each run."""
     runs = []
     for i in range(1, n + 1):
         triage_fn = make_triage(i)
-        result = run(index, delay_s, triage_fn=triage_fn)
+        result = run(index, delay_s, triage_fn=triage_fn, keep_run=keep_run)
         runs.append(result)
         if on_run:
             on_run(i, result, triage_fn)
@@ -217,7 +234,7 @@ def main() -> None:
 
     if args.repeats == 1:
         agent = make_agent(args.model) if args.triage == "agent" else None
-        result = run(args.index, args.delay, triage_fn=agent)
+        result = run(args.index, args.delay, triage_fn=agent, keep_run=args.triage == "agent")
         print_table(result, agent.run_dir if agent else None)
         if args.json:
             Path(args.json).write_text(json.dumps(result, indent=2))
@@ -233,7 +250,8 @@ def main() -> None:
         print_table(result, getattr(triage_fn, "run_dir", None))
         print()
 
-    out = run_repeats(args.index, args.repeats, make_triage, args.delay, on_run=show)
+    out = run_repeats(args.index, args.repeats, make_triage, args.delay, on_run=show,
+                      keep_run=args.triage == "agent")
     print_aggregate(out["aggregate"])
     if args.json:
         Path(args.json).write_text(json.dumps(out, indent=2))
