@@ -1,25 +1,43 @@
 """Incident reports for reviewed alerts (task D5).
 
-Facts are collected in code from the run folder, and a checker compares any report text with them.
+Facts are collected in code from the run folder, Haiku drafts the text from them, a checker
+compares the text with them, and code renders the markdown.
 
 - A fact time comes only from structured fields: the alert's times, the clip windows, the video
   events and the context queries and rows. Times inside free text (the agent's reason, a video
   answer, a guard's note) are claims, so the checker does not accept them.
 - A clip's camera and start come from its file name, which the recorder writes after clamping the
   window to the recording. get_clip's result only repeats the window that was asked for.
+- The header table and "Action taken" are written by code: an approval is a simulated dispatch, and
+  a model would report it as done.
 """
 from __future__ import annotations
 
 import json
 import re
+import shutil
+import subprocess
+import tempfile
+import time
 from datetime import datetime, timedelta
 from pathlib import Path, PurePosixPath
 
+import pydantic_ai
+from pydantic import BaseModel
+from pydantic_ai import Agent, ModelResponse, UsageLimits, capture_run_messages
+from pydantic_ai.models import Model
+
 from agentlab import audit
-from agentlab.review import find_alert
+from agentlab.review import decided_line, find_alert, one_line
 from agentlab.triage_agent import evidence_from_trace
+from agentlab.usage import log_call
 from fakecctv.alerts import AlertStore
 
+pydantic_ai.BANNER_ENABLED = False  # keep report.py's output clean
+
+REPORT_MODEL = "anthropic:claude-haiku-5-5"
+TEMPLATE = Path(__file__).resolve().parents[1] / "context" / "report_template.md"
+REQUEST_LIMIT = 3  # the first try and two retries
 TOLERANCE_S = 2
 DAY_S = 24 * 3600
 GENDER_AGE_WORDS = (
@@ -37,6 +55,14 @@ AM_PM = re.compile(r"(?<![\w:])\d{1,2}(?:[:.]\d\d){0,2}\s*(?:[ap]m\b|[ap]\.m\.)"
 SITE_TIME = re.compile(r"(?<!\d)(?<!\d:)(\d{1,2}):(\d\d)(?::(\d\d))?(?!\d)(?!:\d)")
 CAMERA_ID = re.compile(r"\bCAM-[A-Z0-9]+", re.I)
 GENDER_AGE = re.compile(rf"\b(?:{'|'.join(GENDER_AGE_WORDS)})\b", re.I)
+
+# What neutral() replaces in the text the writer gets. Pronouns are left to the checker.
+ONE_PERSON = ("man", "woman", "male", "female", "boy", "girl", "lady", "gentleman", "guy", "teenager", "child", "kid")
+PEOPLE = ("men", "women", "males", "females", "boys", "girls", "ladies", "gentlemen", "guys", "teenagers",
+          "children", "kids")
+PERSON_NOUN = re.compile(rf"\b(?:{'|'.join(ONE_PERSON + PEOPLE)})\b", re.I)
+PERSON_ADJECTIVE = re.compile(
+    rf"\b(?:young|elderly|male|female)\s+(?=(?:{'|'.join(ONE_PERSON + PEOPLE)}|person|people)\b)", re.I)
 
 
 # --- facts ----------------------------------------------------------------------------------
@@ -237,3 +263,207 @@ def check_report(texts: list[str], facts: dict, timeline_times: list[str] | tupl
         if re.search(rf"\b{re.escape(phrase)}{end}", text, re.I):
             flags.append(f"filler phrase: {phrase!r}.")
     return list(dict.fromkeys(flags))
+
+
+# --- the draft ------------------------------------------------------------------------------
+class TimelineEntry(BaseModel):
+    time: str
+    what: str
+
+
+class ReportDraft(BaseModel):
+    """What the model writes. The header and the action taken are not in it: code writes those."""
+    title: str
+    summary: str
+    timeline: list[TimelineEntry]
+    context_checked: list[str]
+    open_points: list[str]
+
+
+INSTRUCTIONS = f"""\
+You draft a site incident report for a security guard to check and sign. You get the facts as JSON.
+
+- Use only the facts given. Do not guess beyond them: anything unknown goes under Open points.
+- Take times only from fact_times, written as HH:MM:SS. agent_reason, the "what" of a video event
+  and the guard's reason are free text: never take a time from them. Seconds in them, such as
+  "21.6 s", count from the start of a clip, so leave them out.
+- Write "a person". Never mention gender, age or ethnicity, and no he or she. Do not identify
+  people. Mention clothing only where it is needed to tell events apart.
+- title: a few plain words on what happened and where.
+- summary: 2 to 4 short sentences in plain words: what happened, where, when and what was decided.
+- An approved action is only approved, not carried out. Never write that someone was sent, went,
+  checked, cleared or was contacted. With no approved action, do not mention one.
+- timeline: each line is one event at one site time. "time" holds only that time, as HH:MM:SS.
+- context_checked: what the badge log and the roster showed, including that they showed nothing.
+- open_points: what is still unknown.
+- No filler, hedging or praise. Never use these phrases: {"; ".join(FILLER_PHRASES)}
+"""
+
+
+def build_writer(model: str | Model = REPORT_MODEL) -> Agent[None, ReportDraft]:
+    # defer_model_check: no key is needed until the first request. No sampling settings:
+    # claude-haiku-5-5 rejects them.
+    return Agent(model, output_type=ReportDraft, instructions=INSTRUCTIONS, retries=2, defer_model_check=True)
+
+
+def neutral(text: str) -> str:
+    """Gender and age nouns become "person" or "people"."""
+    def replace(found: re.Match) -> str:
+        word = "people" if found[0].lower() in PEOPLE else "person"
+        return word.capitalize() if found[0][0].isupper() else word
+
+    text = re.sub(r"\b([Aa])n (?=elderly\b)", r"\1 ", text)
+    return PERSON_NOUN.sub(replace, PERSON_ADJECTIVE.sub("", text))
+
+
+def writer_input(facts: dict) -> str:
+    """The facts as the writer gets them: free text neutralised, no real-clock times, no file paths."""
+    decision = facts["decision"]
+    given = {
+        **{k: facts[k] for k in ("site", "alert_id", "camera", "zone", "kind", "first_seen", "detected_at",
+                                 "created", "verdict", "priority", "linked_alert")},
+        "agent_reason": neutral(facts["reason"]),
+        "video_events": [{**{k: e[k] for k in ("time", "end", "camera", "type", "real")}, "what": neutral(e["what"])}
+                         for e in facts["video_events"]],
+        "context": [{**c, "text": neutral(c["text"])} for c in facts["context"]],
+        "decision": {"decision": decision["decision"], "reason": neutral(decision["reason"])} if decision else None,
+        "approved_action_not_carried_out": facts["action"],
+        "fact_times": facts["fact_times"],
+    }
+    return "Draft the incident report from these facts.\n\n" + json.dumps(given, indent=1)
+
+
+# --- the still frame ------------------------------------------------------------------------
+def still_point(facts: dict) -> tuple[str, float, str] | None:
+    """(clip, seconds into it, site time) of the still, on the alert's own camera: the start of the
+    first event of the alert's type (a real one before a look-alike), else the first-seen time."""
+    camera = facts["camera"].upper()
+    events = [e for e in facts["video_events"] if e["camera"] == camera and e["type"] == facts["kind"]]
+    event = next((e for e in events if e["real"]), events[0] if events else None)
+    if event and event["clip"] in facts["evidence"]:
+        return event["clip"], event["offset_s"], event["time"]
+
+    at = event["time"] if event else facts["first_seen"]
+    for path in facts["evidence"]:
+        clip = _recording(path)
+        if not clip or clip["camera"] != camera or not clip["end"]:
+            continue
+        start = _seconds(f"{clip['start']:%H:%M:%S}")
+        offset = (_seconds(at) - start) % DAY_S
+        if offset <= (_seconds(clip["end"]) - start) % DAY_S:
+            return path, offset, at
+    return None
+
+
+def still_frame(run_dir: Path, facts: dict) -> str | None:
+    point = still_point(facts)
+    if not point:
+        return None
+    clip, offset, _ = point
+    rel = f"evidence/{facts['candidate_id']}/still.jpg"
+    source = str(Path(run_dir) / clip)
+    with tempfile.TemporaryDirectory(prefix="fakecctv-still-") as work:
+        out = Path(work) / "still.jpg"
+        # A seek past the last decodable frame writes nothing, so then take the last frame.
+        for where, extra in ((["-ss", f"{offset:.2f}"], ["-frames:v", "1"]), (["-sseof", "-1"], [])):
+            done = subprocess.run(["ffmpeg", "-y", "-v", "error", *where, "-i", source, *extra,
+                                   "-update", "1", "-q:v", "3", str(out)], capture_output=True)
+            if done.returncode == 0 and out.is_file():
+                shutil.copyfile(out, Path(run_dir) / rel)
+                return rel
+    return None
+
+
+# --- the markdown ---------------------------------------------------------------------------
+def _md(text: str) -> str:
+    """One line of plain text: it cannot open a section, an image, a link or HTML."""
+    line = one_line(text).replace("<", "&lt;").replace("[", "\\[")
+    return f"\\{line}" if line.startswith("#") else line
+
+
+def _bullets(lines: list[str]) -> str:
+    return "\n".join(f"- {line}" for line in lines) or "- none"
+
+
+def render_markdown(facts: dict, draft: ReportDraft, flags: list[str], still: str | None) -> str:
+    def cell(text: str) -> str:
+        return _md(text).replace("|", "\\|")
+
+    decision, decided = facts["decision"], "not decided"
+    if decision:
+        decided = f"{decision['decision']} by {decision['reviewer']}, {decided_line(decision, facts['first_seen'])}"
+
+    evidence = [f"[{PurePosixPath(p).name}](../{p})" for p in facts["evidence"]]
+    evidence += [f"evidence clip missing: {PurePosixPath(p).name}" for p in facts["evidence_missing"]]
+    evidence_block = _bullets(evidence or ["evidence clip missing"])
+    if still:
+        point = still_point(facts)
+        at = f" at {point[2]}" if point else ""
+        evidence_block += f"\n\n![Still frame from {facts['camera']}{at}](../{still})"
+
+    action = "No action approved."
+    if facts["action"]:
+        action = ("Approved, logged as a simulated dispatch; the system contacted no one: "
+                  f"{_md(facts['action'])}")
+
+    verdict = facts["verdict"]
+    if verdict == "linked":
+        verdict += f" to {facts['linked_to']}"
+
+    return TEMPLATE.read_text(encoding="utf-8").format(
+        alert_id=facts["alert_id"], title=_md(draft.title),
+        incident_id=cell(f"{facts['alert_id']} ({facts['candidate_id']})"),
+        site=cell(facts["site"]), camera_zone=cell(f"{facts['camera']} {facts['zone']}"),
+        kind=cell(facts["kind"]), first_seen=cell(facts["first_seen"]), priority=cell(facts["priority"]),
+        verdict=cell(verdict), decision=cell(decided),
+        summary=_md(draft.summary),
+        timeline=_bullets([f"{_md(t.time)}: {_md(t.what)}" for t in draft.timeline]),
+        evidence=evidence_block,
+        context_checked=_bullets([_md(c) for c in draft.context_checked]),
+        action_taken=action,
+        open_points=_bullets([_md(o) for o in draft.open_points]),
+        checks=_bullets([_md(f) for f in flags]) if flags else "All times and cameras match the evidence.",
+    )
+
+
+# --- the report -----------------------------------------------------------------------------
+def require_approved(facts: dict, force: bool = False) -> None:
+    if not force and (facts["decision"] or {}).get("decision") != "approve":
+        raise ValueError(f"{facts['alert_id']} is not approved; approve it in review.py first, or use --force.")
+
+
+def write_report(run_dir: Path, ref: str, *, writer: Agent[None, ReportDraft] | None = None,
+                 model: str = REPORT_MODEL, force: bool = False) -> Path:
+    run_dir = Path(run_dir)
+    facts = collect_facts(run_dir, ref)
+    require_approved(facts, force)
+    writer = writer or build_writer(model)
+    model_id = model.split(":", 1)[-1]
+
+    started = time.perf_counter()
+    with capture_run_messages() as messages:
+        try:
+            draft = writer.run_sync(writer_input(facts), usage_limits=UsageLimits(request_limit=REQUEST_LIMIT)).output
+        finally:  # from the messages, so a failed draft is logged too
+            replies = [m for m in messages if isinstance(m, ModelResponse)]
+            row = log_call(provider="anthropic", model=model_id,
+                           input_tokens=sum(m.usage.input_tokens or 0 for m in replies),
+                           output_tokens=sum(m.usage.output_tokens or 0 for m in replies),
+                           seconds=time.perf_counter() - started, tag=f"report:{facts['alert_id']}",
+                           extra={"requests": len(replies)})
+
+    flags = check_report([draft.title, draft.summary, *(t.what for t in draft.timeline), *draft.context_checked,
+                          *draft.open_points], facts, timeline_times=[t.time for t in draft.timeline])
+    text = render_markdown(facts, draft, flags, still_frame(run_dir, facts))
+
+    folder = run_dir / "reports"
+    folder.mkdir(exist_ok=True)
+    path, n = folder / f"{facts['alert_id']}.md", 1
+    while path.exists():  # never over a report that a guard may have edited
+        n += 1
+        path = folder / f"{facts['alert_id']}-{n}.md"
+    path.write_text(text, encoding="utf-8")
+    audit.append(run_dir, {"type": "report", "alert_id": facts["alert_id"],
+                           "path": path.relative_to(run_dir).as_posix(), "model": model_id,
+                           "cost_usd": row["cost_usd"], "seconds": row["seconds"], "flags": flags})
+    return path

@@ -78,7 +78,7 @@ def screen(run_dir: Path, closed: bool, reviewer: str) -> None:
                 except ValueError as err:
                     print(err)
                     continue
-                print(logic.decided_line(entry, alert))
+                print(logic.decided_line(entry, alert["candidate"]["first_seen"]))
                 break
 
 
@@ -91,7 +91,8 @@ def apply(run_dir: Path, wanted: list[tuple[str, str, str]], reviewer: str) -> i
             print(err)
             code = 1
             continue
-        print(f"{entry['alert_id']} {decision}: {logic.decided_line(entry, logic.find_alert(alerts, ref))}")
+        first_seen = logic.find_alert(alerts, ref)["candidate"]["first_seen"]
+        print(f"{entry['alert_id']} {decision}: {logic.decided_line(entry, first_seen)}")
     return code
 
 

@@ -119,6 +119,7 @@ def render_alert(alert: dict, color: bool) -> str:
     return "\n".join(lines)
 
 
-def decided_line(entry: dict, alert: dict) -> str:
+def decided_line(entry: dict, first_seen: str) -> str:
+    """first_seen is the alert's site time, as HH:MM:SS or an ISO timestamp."""
     return (f"decided {entry['ts'][11:16]} (real time) for the alert first seen "
-            f"{alert['candidate']['first_seen'][11:19]} (site time)")
+            f"{first_seen.split('T')[-1][:8]} (site time)")

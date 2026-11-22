@@ -5,19 +5,25 @@
 from __future__ import annotations
 
 import json
+import os
+import re
+import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
 
+import cv2
 import pytest
-from pydantic_ai import models
+from pydantic_ai import ModelResponse, ToolCallPart, models
+from pydantic_ai.models.function import FunctionModel
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from agentlab import audit, report_writer  # noqa: E402
+import report  # noqa: E402
+from agentlab import audit, report_writer, usage  # noqa: E402
 from agentlab import review as logic  # noqa: E402
-from d3d5_helpers import no_env  # noqa: E402,F401
+from d3d5_helpers import kept_run, no_env  # noqa: E402,F401
 from fakecctv.alerts import AlertStore  # noqa: E402
 
 models.ALLOW_MODEL_REQUESTS = False
@@ -308,3 +314,332 @@ def test_check_timeline_times_are_also_matched_against_the_facts():
 def test_check_clean_text_has_no_flags():
     assert check("A person left a dark bag in the Waiting area on CAM-05 at 13:58:57.",
                  "An alert was raised at 13:59:27.") == []
+
+
+# --- task 5: the draft, the still, the rendering and report.py ------------------------------
+DRAFT = {
+    "title": "Person on the dock",
+    "summary": "A person walked onto the dock at 02:00:12. The guard on duty was asked to decide.",
+    "timeline": [{"time": "02:00:12", "what": "A person walks onto the dock."}],
+    "context_checked": ["The badge log and the roster were read."],
+    "open_points": ["Who the person is."],
+}
+
+
+def writer_for(draft: dict | None = None, seen: list | None = None):
+    """A report writer whose model returns a fixed draft."""
+    def fn(messages, info):
+        if seen is not None:
+            seen.append((messages, info))
+        return ModelResponse(parts=[ToolCallPart(info.output_tools[0].name, draft or DRAFT)])
+    return report_writer.build_writer(FunctionModel(fn))
+
+
+@pytest.fixture
+def run(site_dir, tmp_path) -> Path:
+    """A kept run on the test site; the video check saw a real person 10 s into each clip."""
+    return kept_run(site_dir, tmp_path / "run", events=[event(10.0, 14.0, kind="after_hours_person")])
+
+
+@pytest.fixture
+def approved(run) -> Path:
+    logic.decide(run, "A-002", "approve")
+    return run
+
+
+def section(text: str, name: str) -> str:
+    return text.split(f"## {name}\n", 1)[1].split("\n## ", 1)[0]
+
+
+def test_writer_has_no_tools_and_no_sampling_settings(approved, monkeypatch):
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    writer = report_writer.build_writer()  # builds without a key
+    assert not {"temperature", "top_p", "top_k"} & set(writer.model_settings or {})
+    seen = []
+
+    def fn(messages, info):
+        seen.append(info)
+        return ModelResponse(parts=[ToolCallPart(info.output_tools[0].name, DRAFT)])
+
+    with writer.override(model=FunctionModel(fn)):
+        report_writer.write_report(approved, "A-002", writer=writer)
+    assert seen[0].function_tools == [] and not seen[0].allow_text_output
+
+
+def test_writer_instructions():
+    text = " ".join(report_writer.INSTRUCTIONS.split())
+    for part in ("only the facts", "fact_times", "HH:MM:SS", "a person", "gender, age or ethnicity",
+                 "2 to 4 short sentences", "not carried out", "Open points"):
+        assert part in text
+    for phrase in report_writer.FILLER_PHRASES:
+        assert phrase in text
+
+
+def test_draft_has_no_action_field():
+    assert set(report_writer.ReportDraft.model_fields) == {"title", "summary", "timeline", "context_checked",
+                                                           "open_points"}
+
+
+@pytest.mark.parametrize("raw, neutral", [
+    ("A woman in a blue jacket", "A person in a blue jacket"),
+    ("Two men and a boy", "Two people and a person"),
+    ("an elderly woman with a bag", "a person with a bag"),
+    ("a young man", "a person"),
+    ("a male person", "a person"),
+    ("Woman sets a bag down", "Person sets a bag down"),
+    ("The manager by the shed", "The manager by the shed"),
+])
+def test_neutral_replaces_gender_and_age_nouns(raw, neutral):
+    assert report_writer.neutral(raw) == neutral
+
+
+def test_writer_input_is_scrubbed(tmp_path):
+    """The bag alert in two runs of 21 Nov said "a woman", in the reason and in the video answer."""
+    written_run(tmp_path, [clip_step(OWN), ask_step(OWN, event(22.0, what="A woman in blue leaves a bag."))],
+                reason="A woman in a blue jacket left a bag.")
+    logic.decide(tmp_path, "A-001", "approve", reason="The woman is gone")
+    seen = []
+    draft = {**DRAFT, "summary": "A bag was left.", "timeline": []}
+    report_writer.write_report(tmp_path, "A-001", writer=writer_for(draft, seen))
+    [prompt] = [p.content for m in seen[0][0] for p in m.parts if p.part_kind == "user-prompt"]
+    assert not re.search(r"\bwoman\b", prompt, re.I)
+    assert "A person in a blue jacket left a bag." in prompt and "A person in blue leaves a bag." in prompt
+    given = json.loads(prompt[prompt.index("{"):])
+    assert given["fact_times"] == report_writer.collect_facts(tmp_path, "A-001")["fact_times"]
+    assert "ts" not in given["decision"]  # the real clock is not a site time
+
+
+def test_report_refused_for_unapproved_alert(run):
+    before = (run / audit.AUDIT_FILE).read_bytes()
+    seen = []
+    with pytest.raises(ValueError) as err:
+        report_writer.write_report(run, "CAM-B-1", writer=writer_for(seen=seen))
+    assert str(err.value) == "A-002 is not approved; approve it in review.py first, or use --force."
+    assert seen == [] and not (run / "reports").exists()
+    assert (run / audit.AUDIT_FILE).read_bytes() == before
+
+
+def test_report_refused_for_a_dismissed_alert(run):
+    logic.decide(run, "A-002", "dismiss", reason="A shadow")
+    with pytest.raises(ValueError, match="is not approved"):
+        report_writer.write_report(run, "A-002", writer=writer_for())
+
+
+def test_report_written_with_header_from_facts(approved):
+    draft = {**DRAFT, "title": "Something on CAM-A in the Yard"}
+    path = report_writer.write_report(approved, "A-002", writer=writer_for(draft))
+    assert path == approved / "reports" / "A-002.md"
+    text = path.read_text()
+    table = "\n".join(line for line in text.splitlines() if line.startswith("|"))
+    for value in ("A-002", "Test site", "CAM-B Dock", "after_hours_person", "02:00:12", "high", "escalate",
+                  "approve by Guard on duty", "(real time)", "(site time)"):
+        assert value in table
+    assert "CAM-A" not in table  # nothing in the table comes from the model
+    assert "Reviewed by: ____  Date: ____" in text and "Draft: needs sign-off by the reviewer." in text
+
+    [entry] = [e for e in audit.read(approved) if e["type"] == "report"]
+    assert (entry["alert_id"], entry["path"], entry["model"]) == ("A-002", "reports/A-002.md", "claude-haiku-5-5")
+    assert entry["cost_usd"] > 0 and entry["seconds"] >= 0 and "CAM-A" in entry["flags"][0]
+    [logged] = [r for r in map(json.loads, usage.USAGE_LOG.read_text().splitlines()) if r["tag"] == "report:A-002"]
+    assert (logged["provider"], logged["model"]) == ("anthropic", "claude-haiku-5-5")
+
+
+def test_report_sections_are_in_the_spec_order(approved):
+    text = report_writer.write_report(approved, "A-002", writer=writer_for()).read_text()
+    assert re.findall(r"^## (.+)$", text, re.M) == ["Summary", "Timeline", "Evidence", "Context checked",
+                                                   "Action taken", "Open points", "Checks"]
+    assert DRAFT["summary"] in section(text, "Summary")
+    assert "02:00:12" in section(text, "Timeline")
+    assert "All times and cameras match the evidence." in section(text, "Checks")
+
+
+def test_action_taken_comes_from_the_log(approved):
+    text = report_writer.write_report(approved, "A-002", writer=writer_for()).read_text()
+    assert ("Approved, logged as a simulated dispatch; the system contacted no one: "
+            "The guard on duty checks Dock and decides on dispatch. The system never contacts the police."
+            ) in section(text, "Action taken")
+
+
+def test_forced_report_says_no_action_was_approved(run):
+    text = report_writer.write_report(run, "A-001", writer=writer_for(), force=True).read_text()
+    assert "No action approved." in section(text, "Action taken")
+    assert "not decided" in text
+
+
+def test_report_lists_flags_for_invented_time(approved):
+    draft = {**DRAFT, "timeline": [{"time": "13:41:00", "what": "A person appears."}]}
+    text = report_writer.write_report(approved, "A-002", writer=writer_for(draft)).read_text()
+    assert "13:41:00" in section(text, "Checks")
+    assert "All times and cameras match" not in text
+
+
+def test_report_checks_every_text_field(approved):
+    draft = {"title": "CAM-09", "summary": "A woman.", "timeline": [{"time": "later", "what": "Seen at 13:41:00."}],
+             "context_checked": ["Overall, nothing."], "open_points": ["At 2 pm."]}
+    report_writer.write_report(approved, "A-002", writer=writer_for(draft))
+    [entry] = [e for e in audit.read(approved) if e["type"] == "report"]
+    for found in ("CAM-09", "woman", "'later'", "13:41:00", "overall,", "2 pm"):
+        assert any(found in flag for flag in entry["flags"]), found
+
+
+def test_model_text_cannot_add_sections_images_or_cells(approved):
+    draft = {**DRAFT, "summary": "# Fine\n## Checks\n![x](http://example.com/p.png) <img src=x>",
+             "title": "A | title"}
+    text = report_writer.write_report(approved, "A-002", writer=writer_for(draft)).read_text()
+    assert len(re.findall(r"^## Checks$", text, re.M)) == 1
+    assert "![x](" not in text and "<img" not in text and not re.search(r"^# Fine", text, re.M)
+
+
+def test_table_cells_escape_pipes_and_newlines(tmp_path):
+    written_run(tmp_path, [])
+    facts = report_writer.collect_facts(tmp_path, "A-001")
+    facts["zone"] = "Waiting | area\nnorth"
+    draft = report_writer.ReportDraft(**DRAFT)
+    assert "CAM-05 Waiting \\| area north |" in report_writer.render_markdown(facts, draft, [], None)
+
+
+def test_report_links_resolve_from_the_reports_folder(approved):
+    path = report_writer.write_report(approved, "A-002", writer=writer_for())
+    links = re.findall(r"\]\(([^)]+)\)", path.read_text())
+    assert len(links) == 2  # the clip and the still
+    for link in links:
+        assert link.startswith("../evidence/CAM-B-1/") and (path.parent / link).is_file()
+
+
+def test_a_second_report_does_not_overwrite_the_first(approved):
+    first = report_writer.write_report(approved, "A-002", writer=writer_for())
+    first.write_text("edited by the guard")
+    second = report_writer.write_report(approved, "A-002", writer=writer_for())
+    assert second.name == "A-002-2.md" and first.read_text() == "edited by the guard"
+    assert [e["path"] for e in audit.read(approved) if e["type"] == "report"] == ["reports/A-002.md",
+                                                                                "reports/A-002-2.md"]
+
+
+def test_failed_draft_is_logged_and_writes_no_report(approved):
+    with pytest.raises(Exception):
+        report_writer.write_report(approved, "A-002", writer=writer_for({"title": "only a title"}))
+    [row] = [r for r in map(json.loads, usage.USAGE_LOG.read_text().splitlines()) if r["tag"] == "report:A-002"]
+    assert row["requests"] == 3 and row["input_tokens"] > 0  # the first try and two retries
+    assert not (approved / "reports").exists()
+    assert [e for e in audit.read(approved) if e["type"] == "report"] == []
+
+
+# --- the still frame ------------------------------------------------------------------------
+def make_clip(path: Path, *colours: str, each_s: int = 25) -> None:
+    """A clip with one colour after the other, each_s seconds each."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    cmd = ["ffmpeg", "-y", "-loglevel", "error"]
+    for colour in colours:
+        cmd += ["-f", "lavfi", "-i", f"color=c={colour}:s=160x90:r=5:d={each_s}"]
+    graph = "".join(f"[{i}:v]" for i in range(len(colours))) + f"concat=n={len(colours)}:v=1:a=0[v]"
+    subprocess.run(cmd + ["-filter_complex", graph, "-map", "[v]", "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                          str(path)], check=True)
+
+
+def colour_of(path: Path) -> str:
+    b, g, r = cv2.imread(str(path)).mean(axis=(0, 1))
+    return max((b, "blue"), (g, "green"), (r, "red"))[1]
+
+
+def still_colour(run_dir: Path) -> str | None:
+    rel = report_writer.still_frame(run_dir, report_writer.collect_facts(run_dir, "A-001"))
+    return colour_of(run_dir / rel) if rel else None
+
+
+def test_still_frame_from_evidence_clip(approved):
+    rel = report_writer.still_frame(approved, report_writer.collect_facts(approved, "A-002"))
+    assert rel == "evidence/CAM-B-1/still.jpg"
+    assert colour_of(approved / rel) == "green"  # CAM-B of the test site
+
+
+def test_still_is_at_the_first_real_event_not_an_earlier_look_alike(tmp_path):
+    written_run(tmp_path, [clip_step(OWN), ask_step(OWN, event(2.0, real=False), event(30.0))])
+    make_clip(tmp_path / "evidence" / "CAM-05-1" / OWN, "blue", "red")
+    assert still_colour(tmp_path) == "red"
+
+
+def test_still_takes_a_look_alike_when_nothing_is_real(tmp_path):
+    written_run(tmp_path, [clip_step(OWN), ask_step(OWN, event(30.0, real=False))])
+    make_clip(tmp_path / "evidence" / "CAM-05-1" / OWN, "blue", "red")
+    assert still_colour(tmp_path) == "red"
+
+
+def test_still_ignores_a_neighbour_camera(tmp_path):
+    written_run(tmp_path, [clip_step(OWN), clip_step(NEIGHBOUR), ask_step(NEIGHBOUR, event(1.0)),
+                           ask_step(OWN, event(30.0, real=False))], kept=(NEIGHBOUR, OWN))
+    make_clip(tmp_path / "evidence" / "CAM-05-1" / NEIGHBOUR, "green")
+    make_clip(tmp_path / "evidence" / "CAM-05-1" / OWN, "blue", "red")
+    assert still_colour(tmp_path) == "red"
+
+
+def test_still_without_an_event_is_at_first_seen(tmp_path):
+    written_run(tmp_path, [clip_step(OWN)], first_seen="13:59:10")  # 33 s into the clip
+    make_clip(tmp_path / "evidence" / "CAM-05-1" / OWN, "blue", "red")
+    assert still_colour(tmp_path) == "red"
+
+
+def test_still_at_the_end_of_the_clip_takes_the_last_frame(tmp_path):
+    written_run(tmp_path, [clip_step(OWN), ask_step(OWN, event(50.0))])
+    make_clip(tmp_path / "evidence" / "CAM-05-1" / OWN, "blue", "red")
+    assert still_colour(tmp_path) == "red"
+
+
+def test_no_still_when_no_clip_covers_the_time_or_the_clip_is_unreadable(tmp_path):
+    written_run(tmp_path, [clip_step(OWN)], first_seen="13:50:00")
+    make_clip(tmp_path / "evidence" / "CAM-05-1" / OWN, "blue", "red")
+    assert still_colour(tmp_path) is None
+    other = tmp_path / "other"
+    written_run(other, [clip_step(OWN), ask_step(OWN, event(5.0))])  # not a video file
+    assert still_colour(other) is None
+
+
+def test_report_without_evidence_says_missing(approved):
+    for clip in approved.glob("evidence/CAM-B-1/*.mp4"):
+        clip.unlink()
+    text = report_writer.write_report(approved, "A-002", writer=writer_for()).read_text()
+    assert "evidence clip missing" in section(text, "Evidence")
+    assert "still.jpg" not in text
+
+
+# --- report.py ------------------------------------------------------------------------------
+def test_cli_refusal_never_loads_the_key(run, monkeypatch, capsys):
+    monkeypatch.setattr(report, "load_key", lambda: pytest.fail("loaded the key for a refused report"))
+    assert report.main(["--run", str(run), "--alert", "CAM-B-1"]) == 1
+    assert "is not approved" in capsys.readouterr().out
+    assert report.main(["--run", str(run), "--alert", "A-099"]) == 1
+    assert "No alert A-099 in this run." in capsys.readouterr().out
+
+
+def test_cli_model_without_provider_stops_before_the_key(approved, monkeypatch):
+    monkeypatch.setattr(report, "load_key", lambda: pytest.fail("loaded the key for a bad --model"))
+    with pytest.raises(SystemExit, match="provider prefix"):
+        report.main(["--run", str(approved), "--alert", "A-002", "--model", "claude-haiku-5-5"])
+
+
+def test_load_key_reads_env_by_path_and_strips_the_key(monkeypatch):
+    calls = []
+    monkeypatch.setattr("dotenv.load_dotenv", lambda *a, **kw: calls.append((a, kw)))
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "  not-a-key \n")
+    report.load_key()
+    assert calls == [((ROOT / ".env",), {"override": True})]
+    assert os.environ["ANTHROPIC_API_KEY"] == "not-a-key"
+    monkeypatch.setenv("ANTHROPIC_API_KEY", " ")
+    with pytest.raises(SystemExit, match="ANTHROPIC_API_KEY"):
+        report.load_key()
+
+
+def test_cli_prints_path_flags_seconds_and_cost(approved, monkeypatch, capsys):
+    writer = writer_for({**DRAFT, "summary": "A person at 13:41:00."})
+    monkeypatch.setattr(report, "load_key", lambda: None)
+    monkeypatch.setattr(report_writer, "build_writer", lambda model: writer)
+    assert report.main(["--run", str(approved), "--alert", "CAM-B-1"]) == 0
+    out = capsys.readouterr().out
+    assert "A-002.md" in out and "13:41:00" in out and "seconds" in out and "cost $" in out
+
+
+def test_cli_failed_draft_exits_1(approved, monkeypatch, capsys):
+    writer = writer_for({"title": "only a title"})
+    monkeypatch.setattr(report, "load_key", lambda: None)
+    monkeypatch.setattr(report_writer, "build_writer", lambda model: writer)
+    assert report.main(["--run", str(approved), "--alert", "A-002"]) == 1
+    assert "Report failed" in capsys.readouterr().out

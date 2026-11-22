@@ -78,3 +78,20 @@ Recorded only; no code was changed for them in this session.
   about a time after the alert adds no fact time. `AgentTools.access_log` still accepts an inverted
   window and answers "no entries"; that is unchanged.
 - The same replay flagged the known bad times (13:49:40, 13:57:43, 13:56:55) and both "woman" reasons.
+
+## Task 5: report
+- **"Action taken" is written by code** (choice B; departs from spec step 4). An approval is a simulated
+  dispatch, and a model given the action text would report it as done. `action_taken` is not in
+  `ReportDraft`; without an approval the section says "No action approved."
+- **Gender and age nouns in the writer's input are neutralised** (choice C). Two runs of 21 Nov say
+  "a woman" for the demo's bag alert, in the reason and in the video answer. Pronouns are left to the
+  checker, which still runs on the draft.
+- The writer gets no real-clock times and no file paths, and is told that free text is no source of times.
+- The still uses only the alert's own camera. A seek past the last frame takes the last frame. An
+  unreadable clip gives no still.
+- Links are `../evidence/...` (reports are one folder down). Model text is rendered as one plain line,
+  so it cannot add a heading, an image or a table cell.
+- A second report is `A-012-2.md`; an earlier one is never overwritten.
+- `retries=2` and `UsageLimits(request_limit=3)`. A failed draft is still logged with `log_call`.
+- `report.py` refuses before it loads `.env`, so a refusal needs no key.
+- Small refactor of Task 3's `decided_line(entry, first_seen)`, so the report can reuse it.
