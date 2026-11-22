@@ -1,0 +1,16 @@
+__pycache__/
+.pytest_cache/
+runtime/
+site/
+clips/
+*.avi
+*.mp4
+
+# secrets and run logs
+.env
+runs/
+
+# local environment and the real-clip site build
+.venv/
+.DS_Store
+site_real/

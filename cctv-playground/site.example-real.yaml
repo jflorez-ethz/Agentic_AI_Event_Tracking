@@ -1,0 +1,78 @@
+# Example of a site built from real footage. The file names are examples: replace them
+# with the clips your team shortlisted (see "Picking the videos" in the README).
+#
+# Backbone: one MEVA five-minute slot. Its cameras were recorded at the same time at one
+# facility, so CAM-01 to CAM-03 can serve as each other's second view. Their positions on
+# the timeline come from the file names (align: meva_filename), so site.start must be on
+# the same date and close to the slot's time.
+#
+# Around it: one UCF-Crime clip as a standalone camera, and clips the team filmed with
+# phones for the look-alikes and the events no dataset covers well.
+#
+# MEVA and most of UCF-Crime were filmed in daylight. Either keep the real time on the
+# clock and describe the zone as restricted (procedures.md), or say the site is closed
+# that day. Do not print 02:00 on a sunny clip; reviewers notice.
+
+site:
+  name: Demo site (real clips)
+  start: "2018-03-07T16:50:00"
+  duration_s: 900
+  fps: 10
+  size: [640, 360]
+
+context:
+  access_log: context/access_log.csv
+  roster: context/roster.csv
+  procedures: context/procedures.md
+
+cameras:
+  # --- MEVA: same facility, same time -------------------------------------------
+  - id: CAM-01
+    zone: School entrance
+    source: clips/meva/2018-03-07.16-50-00.16-55-00.school.G336.r13.avi
+    align: meva_filename
+    doors: [Main entrance]
+    neighbors: [CAM-02]
+    labels:
+      # seconds into the file, noted while watching it
+      - {type: after_hours_person, start: 134, end: 170, real: false, note: "staff member with badge"}
+
+  - id: CAM-02
+    zone: Service yard
+    source: clips/meva/2018-03-07.16-50-06.16-55-06.school.G328.r13.avi
+    align: meva_filename
+    neighbors: [CAM-01, CAM-03]
+    labels:
+      - {type: after_hours_person, start: 201, end: 240, real: true, note: "person enters the yard, no badge"}
+
+  - id: CAM-03
+    zone: Admin car park
+    source: clips/meva/2018-03-07.16-50-00.16-55-00.admin.G329.r13.avi
+    align: meva_filename
+    neighbors: [CAM-02]
+
+  # --- UCF-Crime: a standalone camera -------------------------------------------
+  - id: CAM-04
+    zone: Warehouse rear door
+    source: clips/ucf/Burglary018_x264.mp4
+    trim: [0, 90]          # use the first 90 seconds
+    at: "16:56:00"         # place it at this site time
+    doors: [Rear door]
+    labels:
+      - {type: after_hours_person, start: 6, end: 20.5, real: true, note: "UCA: man opens the door and walks inside"}
+
+  # --- Filmed by the team ----------------------------------------------------------
+  - id: CAM-05
+    zone: Warehouse aisle
+    source: clips/staged/person_down.mp4
+    at: "16:58:30"
+    labels:
+      - {type: person_down, start: 12, end: 60, real: true}
+      - {type: person_down, start: 70, end: 78, real: false, note: "kneels to tie a shoe"}
+
+  - id: CAM-06
+    zone: Emergency exit
+    source: clips/staged/exit.mp4
+    at: "16:55:00"
+    labels:
+      - {type: blocked_exit, start: 40, end: 300, real: true, note: "trolley left in front of the exit"}

@@ -1,0 +1,75 @@
+# The demo site: which clip plays on which camera, and when.
+#
+# Times:
+#   site.start      the site clock at the first frame (the replay "starts the night" here)
+#   at_s / at       where on the site timeline the clip's first frame lands
+#                   (at_s = seconds after site.start, at = a clock time like "02:00:00")
+#   align: meva_filename   take the position from a MEVA file name instead
+#   trim            [start, end] seconds of the source to use; omit to use all of it
+#   labels          ground truth, in seconds of the SOURCE file, for the stand-in detector
+#                   and for scoring. real: false marks an innocent look-alike.
+#
+# Before and after its clip, each camera holds the clip's first and last frame,
+# so every camera has footage for the whole site window.
+
+site:
+  name: Demo logistics site (placeholder clips)
+  start: "2026-11-21T01:50:00"   # Saturday night; the site is closed from 22:00 to 06:00
+  duration_s: 1800                # 30 minutes, 01:50 to 02:20
+  fps: 10
+  size: [640, 360]
+
+context:
+  access_log: context/access_log.csv
+  roster: context/roster.csv
+  procedures: context/procedures.md
+
+cameras:
+  - id: CAM-01
+    zone: Main gate
+    source: clips/placeholder/gate.mp4
+    at_s: 360
+    doors: [Main gate]
+    neighbors: [CAM-02]
+    labels:
+      - {type: after_hours_vehicle, start: 270, end: 330, real: false, note: "scheduled delivery with badge swipe"}
+
+  - id: CAM-02
+    zone: Car park
+    source: clips/placeholder/carpark.mp4
+    at_s: 600
+    doors: [Door 4]
+    neighbors: [CAM-01, CAM-03]
+    labels:
+      - {type: after_hours_person, start: 290, end: 330, real: false, note: "cleaner on the roster, badge at Door 4"}
+
+  - id: CAM-03
+    zone: Loading dock
+    source: clips/placeholder/dock.mp4
+    at_s: 900
+    doors: [Dock door 2]
+    neighbors: [CAM-04, CAM-02]
+    labels:
+      - {type: after_hours_person, start: 305, end: 390, real: true, note: "intruder who came over the fence"}
+
+  - id: CAM-04
+    zone: Fence line
+    source: clips/placeholder/fence.mp4
+    at_s: 900
+    neighbors: [CAM-03]
+    labels:
+      - {type: after_hours_person, start: 260, end: 300, real: true, note: "intruder climbing the fence"}
+
+  - id: CAM-05
+    zone: Warehouse aisle
+    source: clips/placeholder/aisle.mp4
+    at_s: 1200
+    labels:
+      - {type: person_down, start: 320, end: 600, real: true, note: "worker falls and stays down"}
+
+  - id: CAM-06
+    zone: Emergency exit
+    source: clips/placeholder/exit.mp4
+    at_s: 900
+    labels:
+      - {type: blocked_exit, start: 420, end: 900, real: true, note: "pallet left in front of the exit"}
