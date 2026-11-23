@@ -1,0 +1,84 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "live": true,
+  "windows": {
+    "window-a": {
+      "frames": {
+        "status": "attempted",
+        "request_image_parts": 8,
+        "encoded_clip_frames": null,
+        "requested_clip_fps": null,
+        "provider_processed_video_frames": null,
+        "first_source_us": 36039700,
+        "last_source_us": 39559700,
+        "attempts": [
+          "success"
+        ]
+      },
+      "clip": {
+        "status": "attempted",
+        "request_image_parts": null,
+        "encoded_clip_frames": 100,
+        "requested_clip_fps": 2.0,
+        "provider_processed_video_frames": null,
+        "first_source_us": 36039700,
+        "last_source_us": 39999700,
+        "attempts": [
+          "failed"
+        ]
+      }
+    },
+    "window-b": {
+      "frames": {
+        "status": "attempted",
+        "request_image_parts": 2,
+        "encoded_clip_frames": null,
+        "requested_clip_fps": null,
+        "provider_processed_video_frames": null,
+        "first_source_us": 37439700,
+        "last_source_us": 37959700,
+        "attempts": [
+          "success"
+        ]
+      },
+      "clip": {
+        "status": "attempted",
+        "request_image_parts": null,
+        "encoded_clip_frames": 20,
+        "requested_clip_fps": 2.0,
+        "provider_processed_video_frames": null,
+        "first_source_us": 37439700,
+        "last_source_us": 38199700,
+        "attempts": [
+          "success"
+        ]
+      }
+    },
+    "window-c": {
+      "frames": {
+        "status": "attempted",
+        "request_image_parts": 8,
+        "encoded_clip_frames": null,
+        "requested_clip_fps": null,
+        "provider_processed_video_frames": null,
+        "first_source_us": 44039700,
+        "last_source_us": 47559700,
+        "attempts": [
+          "success"
+        ]
+      },
+      "clip": {
+        "status": "attempted",
+        "request_image_parts": null,
+        "encoded_clip_frames": 100,
+        "requested_clip_fps": 2.0,
+        "provider_processed_video_frames": null,
+        "first_source_us": 44039700,
+        "last_source_us": 47999700,
+        "attempts": [
+          "success"
+        ]
+      }
+    }
+  }
+}

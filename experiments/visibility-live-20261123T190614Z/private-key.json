@@ -1,0 +1,10 @@
+{
+  "execution_order": [
+    "specific",
+    "generic"
+  ],
+  "blind_labels": {
+    "specific": "X",
+    "generic": "Y"
+  }
+}

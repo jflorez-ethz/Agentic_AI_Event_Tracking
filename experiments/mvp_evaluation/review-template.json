@@ -1,0 +1,16 @@
+{
+  "source_sha256": "",
+  "artifact_sha256": "",
+  "annotation_sha256": "",
+  "reviewer": "",
+  "event_links": {
+    "initial": {},
+    "verified": {}
+  },
+  "caviar_unlabelled_predictions": {"initial": {}, "verified": {}},
+  "claim_reviews": [],
+  "report_checked": false,
+  "report_omitted_reference_ids": [],
+  "retrieval_checked": false,
+  "retrieval_reviews": []
+}

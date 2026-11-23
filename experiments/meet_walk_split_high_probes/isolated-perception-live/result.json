@@ -1,0 +1,688 @@
+{
+  "status": "success",
+  "inspection": {
+    "id": "inspection-9a03c2c8614970f7701823118e1c5b0b2d170f6d269af415222af63aefae7705",
+    "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+    "requested_interval": {
+      "start_us": 10000000,
+      "end_us": 13000001
+    },
+    "requested_times_us": [
+      10000000,
+      10500000,
+      11000000,
+      11500000,
+      12000000,
+      12500000,
+      13000000
+    ],
+    "modality": "frames",
+    "selection_policy": "first_at_or_after_within_interval",
+    "pixel_format": "rgb24",
+    "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+    "frames": [
+      {
+        "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+        "display_index": 250,
+        "pts": 128000,
+        "source_time_us": 10000000,
+        "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+        "display_index": 263,
+        "pts": 134656,
+        "source_time_us": 10520000,
+        "rgb24_sha256": "a2a7bc34ad481bd607b0087b299a2a238deadf8a456837ca2e1de9812090de49",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+        "display_index": 275,
+        "pts": 140800,
+        "source_time_us": 11000000,
+        "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+        "display_index": 288,
+        "pts": 147456,
+        "source_time_us": 11520000,
+        "rgb24_sha256": "501ada5b02f345a9ad65926ff00191eefdcc8d7aca2811396b79656ef99bc7f2",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+        "display_index": 300,
+        "pts": 153600,
+        "source_time_us": 12000000,
+        "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+        "display_index": 313,
+        "pts": 160256,
+        "source_time_us": 12520000,
+        "rgb24_sha256": "d561329fe5b9d259120a002a0afbec95211e3124261a2e8dfcee1335f898bc21",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+        "display_index": 325,
+        "pts": 166400,
+        "source_time_us": 13000000,
+        "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+        "schema_version": 1
+      }
+    ],
+    "frame_ids_by_request": [
+      "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+      "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+      "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+      "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+      "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+      "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+      "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4"
+    ],
+    "status": "complete",
+    "schema_version": 1,
+    "frame_size": [
+      384,
+      288
+    ]
+  },
+  "entry": {
+    "path": "provider",
+    "modality": "frames",
+    "interval": {
+      "start_us": 10000000,
+      "end_us": 13000001
+    },
+    "status": "success",
+    "findings": [
+      {
+        "observation": {
+          "id": "observation-885ad6fe69dff59483c2fce3a1f6f8cfb9ce4316a74909444335706f88aa2581",
+          "inspection_id": "inspection-9a03c2c8614970f7701823118e1c5b0b2d170f6d269af415222af63aefae7705",
+          "category": "person_moved",
+          "description": "A person wearing dark clothing moves across the floor toward the upper-left area of the lobby from frame F1 to F7.",
+          "evidence": {
+            "frame_ids": [
+              "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+              "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+              "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+              "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+              "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+              "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+              "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4"
+            ]
+          },
+          "visibility_limits": "Framing boundaries and distance from camera limit precise visibility of detail.",
+          "uncertainty": "Identity beyond the visible sequence and exact trajectory between discrete frames are unobserved.",
+          "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "inference_metadata": {
+            "provider": "google-gemini-developer-api",
+            "model_id": "gemini-3.6-flash",
+            "model_version": "gemini-3.6-flash",
+            "adapter_version": "1",
+            "prompt_version": "e1-v1",
+            "settings": [
+              [
+                "sdk_version",
+                "3.6.1"
+              ],
+              [
+                "max_output_tokens",
+                8192
+              ],
+              [
+                "thinking_level",
+                "HIGH"
+              ]
+            ],
+            "elapsed_ms": 22281,
+            "usage": [
+              [
+                "prompt_token_count",
+                7984
+              ],
+              [
+                "candidates_token_count",
+                964
+              ],
+              [
+                "thoughts_token_count",
+                4311
+              ],
+              [
+                "total_token_count",
+                13259
+              ]
+            ]
+          },
+          "schema_version": 1
+        },
+        "citation": {
+          "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "inspection_id": "inspection-9a03c2c8614970f7701823118e1c5b0b2d170f6d269af415222af63aefae7705",
+          "modality": "frames",
+          "interval": {
+            "start_us": 10000000,
+            "end_us": 13000001
+          },
+          "frames": [
+            {
+              "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+              "display_index": 250,
+              "pts": 128000,
+              "source_time_us": 10000000,
+              "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+              "display_index": 263,
+              "pts": 134656,
+              "source_time_us": 10520000,
+              "rgb24_sha256": "a2a7bc34ad481bd607b0087b299a2a238deadf8a456837ca2e1de9812090de49",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+              "display_index": 275,
+              "pts": 140800,
+              "source_time_us": 11000000,
+              "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+              "display_index": 288,
+              "pts": 147456,
+              "source_time_us": 11520000,
+              "rgb24_sha256": "501ada5b02f345a9ad65926ff00191eefdcc8d7aca2811396b79656ef99bc7f2",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+              "display_index": 300,
+              "pts": 153600,
+              "source_time_us": 12000000,
+              "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+              "display_index": 313,
+              "pts": 160256,
+              "source_time_us": 12520000,
+              "rgb24_sha256": "d561329fe5b9d259120a002a0afbec95211e3124261a2e8dfcee1335f898bc21",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+              "display_index": 325,
+              "pts": 166400,
+              "source_time_us": 13000000,
+              "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+              "schema_version": 1
+            }
+          ]
+        }
+      },
+      {
+        "observation": {
+          "id": "observation-da924a1360932e68e83654c3b593a9b8b51870bbe92fa694f5f20202ee1c8fb9",
+          "inspection_id": "inspection-9a03c2c8614970f7701823118e1c5b0b2d170f6d269af415222af63aefae7705",
+          "category": "person_moved",
+          "description": "A second person wearing dark clothing moves along a distinct path across the floor from frame F1 through F7.",
+          "evidence": {
+            "frame_ids": [
+              "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+              "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+              "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+              "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+              "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+              "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+              "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4"
+            ]
+          },
+          "visibility_limits": "Distance from camera and low image resolution constrain detailed observation.",
+          "uncertainty": "Continuous motion between individual frames cannot be directly verified.",
+          "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "inference_metadata": {
+            "provider": "google-gemini-developer-api",
+            "model_id": "gemini-3.6-flash",
+            "model_version": "gemini-3.6-flash",
+            "adapter_version": "1",
+            "prompt_version": "e1-v1",
+            "settings": [
+              [
+                "sdk_version",
+                "3.6.1"
+              ],
+              [
+                "max_output_tokens",
+                8192
+              ],
+              [
+                "thinking_level",
+                "HIGH"
+              ]
+            ],
+            "elapsed_ms": 22281,
+            "usage": [
+              [
+                "prompt_token_count",
+                7984
+              ],
+              [
+                "candidates_token_count",
+                964
+              ],
+              [
+                "thoughts_token_count",
+                4311
+              ],
+              [
+                "total_token_count",
+                13259
+              ]
+            ]
+          },
+          "schema_version": 1
+        },
+        "citation": {
+          "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "inspection_id": "inspection-9a03c2c8614970f7701823118e1c5b0b2d170f6d269af415222af63aefae7705",
+          "modality": "frames",
+          "interval": {
+            "start_us": 10000000,
+            "end_us": 13000001
+          },
+          "frames": [
+            {
+              "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+              "display_index": 250,
+              "pts": 128000,
+              "source_time_us": 10000000,
+              "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+              "display_index": 263,
+              "pts": 134656,
+              "source_time_us": 10520000,
+              "rgb24_sha256": "a2a7bc34ad481bd607b0087b299a2a238deadf8a456837ca2e1de9812090de49",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+              "display_index": 275,
+              "pts": 140800,
+              "source_time_us": 11000000,
+              "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+              "display_index": 288,
+              "pts": 147456,
+              "source_time_us": 11520000,
+              "rgb24_sha256": "501ada5b02f345a9ad65926ff00191eefdcc8d7aca2811396b79656ef99bc7f2",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+              "display_index": 300,
+              "pts": 153600,
+              "source_time_us": 12000000,
+              "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+              "display_index": 313,
+              "pts": 160256,
+              "source_time_us": 12520000,
+              "rgb24_sha256": "d561329fe5b9d259120a002a0afbec95211e3124261a2e8dfcee1335f898bc21",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+              "display_index": 325,
+              "pts": 166400,
+              "source_time_us": 13000000,
+              "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+              "schema_version": 1
+            }
+          ]
+        }
+      }
+    ],
+    "error": null,
+    "coverage": [
+      {
+        "start_us": 10000000,
+        "end_us": 10000001
+      },
+      {
+        "start_us": 10520000,
+        "end_us": 10520001
+      },
+      {
+        "start_us": 11000000,
+        "end_us": 11000001
+      },
+      {
+        "start_us": 11520000,
+        "end_us": 11520001
+      },
+      {
+        "start_us": 12000000,
+        "end_us": 12000001
+      },
+      {
+        "start_us": 12520000,
+        "end_us": 12520001
+      },
+      {
+        "start_us": 13000000,
+        "end_us": 13000001
+      }
+    ],
+    "phase": "targeted",
+    "inspection": {
+      "id": "inspection-9a03c2c8614970f7701823118e1c5b0b2d170f6d269af415222af63aefae7705",
+      "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "requested_interval": {
+        "start_us": 10000000,
+        "end_us": 13000001
+      },
+      "requested_times_us": [
+        10000000,
+        10500000,
+        11000000,
+        11500000,
+        12000000,
+        12500000,
+        13000000
+      ],
+      "modality": "frames",
+      "selection_policy": "first_at_or_after_within_interval",
+      "pixel_format": "rgb24",
+      "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+      "frames": [
+        {
+          "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+          "display_index": 250,
+          "pts": 128000,
+          "source_time_us": 10000000,
+          "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+          "display_index": 263,
+          "pts": 134656,
+          "source_time_us": 10520000,
+          "rgb24_sha256": "a2a7bc34ad481bd607b0087b299a2a238deadf8a456837ca2e1de9812090de49",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+          "display_index": 275,
+          "pts": 140800,
+          "source_time_us": 11000000,
+          "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+          "display_index": 288,
+          "pts": 147456,
+          "source_time_us": 11520000,
+          "rgb24_sha256": "501ada5b02f345a9ad65926ff00191eefdcc8d7aca2811396b79656ef99bc7f2",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+          "display_index": 300,
+          "pts": 153600,
+          "source_time_us": 12000000,
+          "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+          "display_index": 313,
+          "pts": 160256,
+          "source_time_us": 12520000,
+          "rgb24_sha256": "d561329fe5b9d259120a002a0afbec95211e3124261a2e8dfcee1335f898bc21",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+          "display_index": 325,
+          "pts": 166400,
+          "source_time_us": 13000000,
+          "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+          "schema_version": 1
+        }
+      ],
+      "frame_ids_by_request": [
+        "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+        "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+        "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+        "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+        "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+        "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+        "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4"
+      ],
+      "status": "complete",
+      "schema_version": 1,
+      "frame_size": [
+        384,
+        288
+      ]
+    },
+    "inference": {
+      "provider": "google-gemini-developer-api",
+      "model_id": "gemini-3.6-flash",
+      "model_version": "gemini-3.6-flash",
+      "adapter_version": "1",
+      "prompt_version": "e1-v1",
+      "settings": [
+        [
+          "sdk_version",
+          "3.6.1"
+        ],
+        [
+          "max_output_tokens",
+          8192
+        ],
+        [
+          "thinking_level",
+          "HIGH"
+        ]
+      ],
+      "elapsed_ms": 22281,
+      "usage": [
+        [
+          "prompt_token_count",
+          7984
+        ],
+        [
+          "candidates_token_count",
+          964
+        ],
+        [
+          "thoughts_token_count",
+          4311
+        ],
+        [
+          "total_token_count",
+          13259
+        ]
+      ]
+    },
+    "failure_stage": null,
+    "failure_diagnostics": null,
+    "relation": {
+      "claim": "visible_divergence",
+      "interval": {
+        "start_us": 10000000,
+        "end_us": 13000001
+      },
+      "views": [
+        {
+          "frame_id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+          "marks": [
+            {
+              "x": 108.0,
+              "y": 120.0,
+              "radius": 12.0
+            },
+            {
+              "x": 98.0,
+              "y": 142.0,
+              "radius": 12.0
+            }
+          ]
+        },
+        {
+          "frame_id": "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+          "marks": [
+            {
+              "x": 102.0,
+              "y": 114.0,
+              "radius": 12.0
+            },
+            {
+              "x": 93.0,
+              "y": 141.0,
+              "radius": 12.0
+            }
+          ]
+        },
+        {
+          "frame_id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+          "marks": [
+            {
+              "x": 96.0,
+              "y": 108.0,
+              "radius": 12.0
+            },
+            {
+              "x": 87.0,
+              "y": 140.0,
+              "radius": 12.0
+            }
+          ]
+        },
+        {
+          "frame_id": "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+          "marks": [
+            {
+              "x": 90.0,
+              "y": 103.0,
+              "radius": 12.0
+            },
+            {
+              "x": 81.0,
+              "y": 140.0,
+              "radius": 12.0
+            }
+          ]
+        },
+        {
+          "frame_id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+          "marks": [
+            {
+              "x": 85.0,
+              "y": 98.0,
+              "radius": 12.0
+            },
+            {
+              "x": 75.0,
+              "y": 140.0,
+              "radius": 12.0
+            }
+          ]
+        },
+        {
+          "frame_id": "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+          "marks": [
+            {
+              "x": 79.0,
+              "y": 94.0,
+              "radius": 12.0
+            },
+            {
+              "x": 69.0,
+              "y": 140.0,
+              "radius": 12.0
+            }
+          ]
+        },
+        {
+          "frame_id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+          "marks": [
+            {
+              "x": 74.0,
+              "y": 90.0,
+              "radius": 12.0
+            },
+            {
+              "x": 64.0,
+              "y": 141.0,
+              "radius": 12.0
+            }
+          ]
+        }
+      ],
+      "distinct_paths": true,
+      "nearby_frame_id": null,
+      "links": []
+    },
+    "relation_error": null,
+    "relational_raw_response": "{\n  \"observations\": [\n    {\n      \"category\": \"person_moved\",\n      \"description\": \"A person wearing dark clothing moves across the floor toward the upper-left area of the lobby from frame F1 to F7.\",\n      \"visibility_limits\": \"Framing boundaries and distance from camera limit precise visibility of detail.\",\n      \"uncertainty\": \"Identity beyond the visible sequence and exact trajectory between discrete frames are unobserved.\",\n      \"frame_labels\": [\"F1\", \"F2\", \"F3\", \"F4\", \"F5\", \"F6\", \"F7\"],\n      \"clip_interval_us\": []\n    },\n    {\n      \"category\": \"person_moved\",\n      \"description\": \"A second person wearing dark clothing moves along a distinct path across the floor from frame F1 through F7.\",\n      \"visibility_limits\": \"Distance from camera and low image resolution constrain detailed observation.\",\n      \"uncertainty\": \"Continuous motion between individual frames cannot be directly verified.\",\n      \"frame_labels\": [\"F1\", \"F2\", \"F3\", \"F4\", \"F5\", \"F6\", \"F7\"],\n      \"clip_interval_us\": []\n    }\n  ],\n  \"relation\": {\n    \"claim\": \"visible_divergence\",\n    \"interval\": {\n      \"start_us\": 10000000,\n      \"end_us\": 13000001\n    },\n    \"views\": [\n      {\n        \"frame_label\": \"F1\",\n        \"marks\": [\n          {\"x\": 108.0, \"y\": 120.0, \"radius\": 12.0},\n          {\"x\": 98.0, \"y\": 142.0, \"radius\": 12.0}\n        ]\n      },\n      {\n        \"frame_label\": \"F2\",\n        \"marks\": [\n          {\"x\": 102.0, \"y\": 114.0, \"radius\": 12.0},\n          {\"x\": 93.0, \"y\": 141.0, \"radius\": 12.0}\n        ]\n      },\n      {\n        \"frame_label\": \"F3\",\n        \"marks\": [\n          {\"x\": 96.0, \"y\": 108.0, \"radius\": 12.0},\n          {\"x\": 87.0, \"y\": 140.0, \"radius\": 12.0}\n        ]\n      },\n      {\n        \"frame_label\": \"F4\",\n        \"marks\": [\n          {\"x\": 90.0, \"y\": 103.0, \"radius\": 12.0},\n          {\"x\": 81.0, \"y\": 140.0, \"radius\": 12.0}\n        ]\n      },\n      {\n        \"frame_label\": \"F5\",\n        \"marks\": [\n          {\"x\": 85.0, \"y\": 98.0, \"radius\": 12.0},\n          {\"x\": 75.0, \"y\": 140.0, \"radius\": 12.0}\n        ]\n      },\n      {\n        \"frame_label\": \"F6\",\n        \"marks\": [\n          {\"x\": 79.0, \"y\": 94.0, \"radius\": 12.0},\n          {\"x\": 69.0, \"y\": 140.0, \"radius\": 12.0}\n        ]\n      },\n      {\n        \"frame_label\": \"F7\",\n        \"marks\": [\n          {\"x\": 74.0, \"y\": 90.0, \"radius\": 12.0},\n          {\"x\": 64.0, \"y\": 141.0, \"radius\": 12.0}\n        ]\n      }\n    ],\n    \"distinct_paths\": true,\n    \"nearby_frame_label\": null\n  }\n}"
+  },
+  "raw_response": "{\n  \"observations\": [\n    {\n      \"category\": \"person_moved\",\n      \"description\": \"A person wearing dark clothing moves across the floor toward the upper-left area of the lobby from frame F1 to F7.\",\n      \"visibility_limits\": \"Framing boundaries and distance from camera limit precise visibility of detail.\",\n      \"uncertainty\": \"Identity beyond the visible sequence and exact trajectory between discrete frames are unobserved.\",\n      \"frame_labels\": [\"F1\", \"F2\", \"F3\", \"F4\", \"F5\", \"F6\", \"F7\"],\n      \"clip_interval_us\": []\n    },\n    {\n      \"category\": \"person_moved\",\n      \"description\": \"A second person wearing dark clothing moves along a distinct path across the floor from frame F1 through F7.\",\n      \"visibility_limits\": \"Distance from camera and low image resolution constrain detailed observation.\",\n      \"uncertainty\": \"Continuous motion between individual frames cannot be directly verified.\",\n      \"frame_labels\": [\"F1\", \"F2\", \"F3\", \"F4\", \"F5\", \"F6\", \"F7\"],\n      \"clip_interval_us\": []\n    }\n  ],\n  \"relation\": {\n    \"claim\": \"visible_divergence\",\n    \"interval\": {\n      \"start_us\": 10000000,\n      \"end_us\": 13000001\n    },\n    \"views\": [\n      {\n        \"frame_label\": \"F1\",\n        \"marks\": [\n          {\"x\": 108.0, \"y\": 120.0, \"radius\": 12.0},\n          {\"x\": 98.0, \"y\": 142.0, \"radius\": 12.0}\n        ]\n      },\n      {\n        \"frame_label\": \"F2\",\n        \"marks\": [\n          {\"x\": 102.0, \"y\": 114.0, \"radius\": 12.0},\n          {\"x\": 93.0, \"y\": 141.0, \"radius\": 12.0}\n        ]\n      },\n      {\n        \"frame_label\": \"F3\",\n        \"marks\": [\n          {\"x\": 96.0, \"y\": 108.0, \"radius\": 12.0},\n          {\"x\": 87.0, \"y\": 140.0, \"radius\": 12.0}\n        ]\n      },\n      {\n        \"frame_label\": \"F4\",\n        \"marks\": [\n          {\"x\": 90.0, \"y\": 103.0, \"radius\": 12.0},\n          {\"x\": 81.0, \"y\": 140.0, \"radius\": 12.0}\n        ]\n      },\n      {\n        \"frame_label\": \"F5\",\n        \"marks\": [\n          {\"x\": 85.0, \"y\": 98.0, \"radius\": 12.0},\n          {\"x\": 75.0, \"y\": 140.0, \"radius\": 12.0}\n        ]\n      },\n      {\n        \"frame_label\": \"F6\",\n        \"marks\": [\n          {\"x\": 79.0, \"y\": 94.0, \"radius\": 12.0},\n          {\"x\": 69.0, \"y\": 140.0, \"radius\": 12.0}\n        ]\n      },\n      {\n        \"frame_label\": \"F7\",\n        \"marks\": [\n          {\"x\": 74.0, \"y\": 90.0, \"radius\": 12.0},\n          {\"x\": 64.0, \"y\": 141.0, \"radius\": 12.0}\n        ]\n      }\n    ],\n    \"distinct_paths\": true,\n    \"nearby_frame_label\": null\n  }\n}",
+  "completion": {
+    "candidate_count": 1,
+    "finish_reasons": [
+      "STOP"
+    ]
+  },
+  "proposal_status": "insufficient",
+  "relation_validation": {
+    "status": "insufficient",
+    "reason": "Increasing apparent spacing is unclear",
+    "frame_ids": [
+      "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+      "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+      "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+      "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+      "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+      "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+      "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4"
+    ],
+    "interval_us": [
+      10000000,
+      13000001
+    ],
+    "continuity": "unresolved"
+  },
+  "transport_attempts": [
+    {
+      "request_number": 1,
+      "http_status": 200
+    }
+  ],
+  "physical_http_requests": 1
+}

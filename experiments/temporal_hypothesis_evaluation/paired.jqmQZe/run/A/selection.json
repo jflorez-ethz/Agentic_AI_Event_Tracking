@@ -1,0 +1,35 @@
+{
+  "decision": {
+    "action": "inspect",
+    "reason": "Inspect the timeframe right after the two individuals finish walking across the hallway floor (after ~14.52s) to observe subsequent actions or follow-up movement.",
+    "start_us": 14520000,
+    "end_us": 19520000
+  },
+  "error": null,
+  "role_calls": [
+    {
+      "role": "investigation",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 10424,
+        "candidates_token_count": 84,
+        "total_token_count": 10508
+      },
+      "max_output_tokens": 1024,
+      "transport_attempts": [
+        {
+          "request_number": 1,
+          "http_status": 200
+        }
+      ],
+      "candidate_count": 1,
+      "finish_reasons": [
+        "FinishReason.STOP"
+      ],
+      "completed_candidate": true,
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 2526
+    }
+  ]
+}

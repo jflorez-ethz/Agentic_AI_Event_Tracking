@@ -1,0 +1,53 @@
+{
+  "status": "failed",
+  "validation": "failed",
+  "dispositions": [],
+  "delegated": [],
+  "raw_response": "{\"action\":\"delegate\",\"reason\":\"Selected four primary person movement trajectories across the atrium and corridor locations as event candidates, associating initial appearance events where appropriate and excluding secondary or brief peripheral observations.\",\"dispositions\":[{\"id\":\"observation-7347dcf6e0b900c18da31996d9bea2bd16ea85695e6cde0c7f94337c7f7ed9aa\",\"reason\":\"Brief appearance of a peripheral individual near the lower right margin.\",\"status\":\"excluded\"},{\"id\":\"observation-a0edff0f464766aa986e7a3fe672cb909e827c930036f46d0313cca1f40cdc39\",\"reason\":\"Short motion of a person immediately exiting the lower right frame border.\",\"status\":\"excluded\"},{\"id\":\"candidate_id Rhein-3bfb1c56bbe324de53281c8d55ddd7c506d3607c1ae794310badc00c1d8f80cb\",\"reason\":\"Appearance observation corresponds to the initial position of the person moving along the sunlit corridor.\",\"status\":\"associated\",\"candidate_id\":\"observation-3bfb1c56bbe324de53281c8d55ddd7c506d3607c1ae794310badc00c1d8f80cb\",\"correspondence\":{\"id\":\"observation-c7fda2e68f3f9415af4acce61be098f4d1fe1f9132e88dd901b165d8707ae194\",\"status\":\"same_event\",\"seed_quote\":\"The person wearing the dark shirt and lighter trousers moves along the sunlit aisle and advances into the central atrium space toward the upper-left corridor.\",\"other_quote\":\"A person wearing a dark shirt and lighter trousers is visible along the sunlit corridor area on the left.\",\"shared_frame_id\":\"frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4\"}},{\"id\":\"observation-2182a33cedc8afc9f08ab1a04d1d32e7e29c1301bda33a9376d195511910db0b\",\"reason\":\"Appearance event marks the initial detection of the person walking diagonally across the atrium floor.\",\"status\":\"associated\",\"candidate_id\":\"observation-da6fdebc40fca46c44b2f43c79c6f806c5bbafaca85bb693c5009fa233ab14ba\",\"correspondence\":{\"id\":\"observation-2182a33cedc8afc9f08ab1a04d1d32e7e29c1301bda33a9376d195511910db0b\",\"status\":\"same_event\",\"seed_quote\":\"The person in dark clothing walks diagonally across the atrium floor toward the upper left, joining the other walking individual.\",\"other_quote\":\"A person wearing a dark shirt and dark trousers first appears at the bottom right corner of the view.\",\"shared_frame_id\":\"frame-6975ea2366df725c470699fddaf44ad7d40c8036c458c21d057a0589316c67b0\"}},{\"id\":\"observation-ac83682fb5f7d3d5ee5c7eeacb15a97e8a0854d2a629f67175c20d78061d5390\",\"reason\":\"Secondary inspection tracking segment beyond candidate limit.\",\"status\":\"excluded\"},{\"id\":\"observation-83b23ba3dbd65521e8b8791098baf6da421ec6827c14ce5b560be5a474602aed\",\"reason\":\"Secondary movement observation toward reception seating area.\",\"status\":\"excluded\"},{\"id\":\"observation-7628163245f48993bd8e3a81c0769917e41c9f8846e5ba0d78a0534ab44d2a6e\",\"reason\":\"Initial appearance observation corresponds to the individual walking right along the lower corridor.\",\"status\":\"associated\",\"candidate_id\":\"observation-7f18178dd644fd52f9c17f79bd89b2c6fc1722d214cc2a95c8069970d2ca4b67\",\"correspondence\":{\"id\":\"observation-7628163245f48993bd8e3a81c0769917e41c9f8846e5ba0d78a0534ab44d2a6e\",\"status\":\"same_event\",\"seed_quote\":\"The person in the sunlit walkway walks towards the right along the lower corridor.\",\"other_quote\":\"A person becomes visible in the sunlit walkway at the bottom left in frame F14, where the area was vacant in frame F13.\",\"shared_frame_id\":\"frame-1244bf6e61315ee3b9bf9891394f1ef223f2f75ee2edc2926f9c16bc6063604c\"}}],\"ids\":[\"observation-3bfb1c56bbe324de53281c8d55ddd7c506d3607c1ae794310badc00c1d8f80cb\",\"observation-da6fdebc40fca46c44b2f43c79c6f806c5bbafaca85bb693c5009fa233ab14ba\",\"observation-7f18178dd644fd52f9c17f79bd89b2c6fc1722d214cc2a95c8069970d2ca4b67\",\"observation-433e1420058c2daded9fed756c8f39a86c07405e0d55adf8d4ac7a264f1ba71c\"]}",
+  "calls": [
+    {
+      "role": "investigation",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 8525,
+        "candidates_token_count": 1619,
+        "thoughts_token_count": 8638,
+        "cached_content_token_count": 6634,
+        "total_token_count": 18782
+      },
+      "max_output_tokens": 16384,
+      "thinking_level": "HIGH",
+      "model_version": "gemini-3.6-flash",
+      "candidate_count": 1,
+      "finish_reasons": [
+        "STOP"
+      ],
+      "elapsed_ms": 36413
+    }
+  ],
+  "trace": [
+    {
+      "actor": "investigation",
+      "action": "decision",
+      "reason": "delegate: Selected four primary person movement trajectories across the atrium and corridor locations as event candidates, associating initial appearance events where appropriate and excluding secondary or brief peripheral observations.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "investigation",
+      "action": "rejected",
+      "reason": "Invalid, duplicate or unknown observation disposition",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    }
+  ],
+  "transport_attempts": [
+    {
+      "request_number": 1,
+      "http_status": 200
+    }
+  ]
+}

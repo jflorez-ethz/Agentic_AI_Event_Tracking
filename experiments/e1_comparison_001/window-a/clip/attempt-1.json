@@ -1,0 +1,35 @@
+{
+  "status": "failed",
+  "error": "Gemini request failed (ServerError HTTP 503)",
+  "metadata": {
+    "provider": "google-gemini-developer-api",
+    "model_id": "gemini-3.5-flash-lite",
+    "model_version": null,
+    "adapter_version": "1",
+    "prompt_version": "e1-v1",
+    "settings": [
+      [
+        "sdk_version",
+        "3.6.1"
+      ],
+      [
+        "max_output_tokens",
+        4096
+      ],
+      [
+        "thinking_level",
+        "LOW"
+      ],
+      [
+        "requested_video_fps",
+        2.0
+      ]
+    ],
+    "elapsed_ms": 2489,
+    "usage": []
+  },
+  "raw_response": null,
+  "response_details": null,
+  "cost": null,
+  "started_utc": "2026-11-21T13:17:07.538985+00:00"
+}

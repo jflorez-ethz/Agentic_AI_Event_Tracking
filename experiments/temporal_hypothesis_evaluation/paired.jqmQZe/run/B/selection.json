@@ -1,0 +1,36 @@
+{
+  "decision": {
+    "action": "inspect",
+    "reason": "Inspect the window following the focused movement (14,520,000 to 24,520,000 us) to observe whether the two individuals continue walking down the hallway, interact with the stationary bag on the right, or exit camera view.",
+    "start_us": 14520000,
+    "end_us": 24520000
+  },
+  "error": null,
+  "role_calls": [
+    {
+      "role": "investigation",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 10463,
+        "candidates_token_count": 98,
+        "thoughts_token_count": 333,
+        "total_token_count": 10894
+      },
+      "max_output_tokens": 1024,
+      "transport_attempts": [
+        {
+          "request_number": 1,
+          "http_status": 200
+        }
+      ],
+      "candidate_count": 1,
+      "finish_reasons": [
+        "FinishReason.STOP"
+      ],
+      "completed_candidate": true,
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 3860
+    }
+  ]
+}

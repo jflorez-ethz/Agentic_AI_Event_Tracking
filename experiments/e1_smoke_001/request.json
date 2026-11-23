@@ -1,0 +1,139 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "Describe one visible action or posture in the images as visible_activity. Cite its frame labels.\nUse only visible evidence. Do not infer identity, ownership, intent or actions outside the supplied media. State visibility limits and timing uncertainty. Return an empty observations list if no category applies.\nCite one or more supplied frame labels for each observation and leave clip_interval_us empty. Discrete frames do not show continuous action."
+        },
+        {
+          "text": "F1: source time 37439700 microseconds."
+        },
+        {
+          "inline_data": {
+            "mime_type": "image/png",
+            "path": "part-2.png",
+            "bytes": 246251,
+            "sha256": "11294673b3b3d5fd644bd02dc9f36a4668f5b62db27605470f58822984b305db"
+          }
+        },
+        {
+          "text": "F2: source time 37919700 microseconds."
+        },
+        {
+          "inline_data": {
+            "mime_type": "image/png",
+            "path": "part-4.png",
+            "bytes": 244898,
+            "sha256": "65aa1dbadf72958ceb5a96ffcf1e391c2c7e9061774b7c25268922d85321a5c8"
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "response_mime_type": "application/json",
+    "response_json_schema": {
+      "type": "object",
+      "required": [
+        "observations"
+      ],
+      "properties": {
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "category",
+              "description",
+              "visibility_limits",
+              "uncertainty",
+              "frame_labels",
+              "clip_interval_us"
+            ],
+            "properties": {
+              "category": {
+                "type": "string",
+                "enum": [
+                  "visible_activity"
+                ]
+              },
+              "description": {
+                "type": "string"
+              },
+              "visibility_limits": {
+                "type": "string"
+              },
+              "uncertainty": {
+                "type": "string"
+              },
+              "frame_labels": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "clip_interval_us": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "maxItems": 2
+              }
+            }
+          }
+        }
+      }
+    },
+    "max_output_tokens": 4096,
+    "thinking_config": {
+      "thinking_level": "LOW"
+    }
+  },
+  "inspection": {
+    "id": "inspection-2bede3b9eee1436f4959be49f214c2ebb0abaf33cad3482a3af93ec5f884e0d5",
+    "video_id": "video-5ccee870c2f89fc169832abf3aa4c82892d02562c2fd80c2e30ffd776780a723",
+    "requested_interval": {
+      "start_us": 37400000,
+      "end_us": 38200000
+    },
+    "requested_times_us": [
+      37400000,
+      37900000
+    ],
+    "modality": "frames",
+    "selection_policy": "first_at_or_after_within_interval",
+    "pixel_format": "rgb24",
+    "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+    "frames": [
+      {
+        "id": "frame-a54c839dad8bf2e98dc635a9ef8ba4fbc46c580a570218eeab3f01689b2ad0f6",
+        "display_index": 930,
+        "pts": 3369573,
+        "source_time_us": 37439700,
+        "rgb24_sha256": "d1c98ed46acf7c08ce4f308262f2ded2e5b5f58cce6981b3045644e15763d644",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-b7239eb0aedda21ea1550459750c2114a7cf11120d6871a27e574e487159b0d7",
+        "display_index": 942,
+        "pts": 3412773,
+        "source_time_us": 37919700,
+        "rgb24_sha256": "f8b0eac83add6f5906c16ba9e03f13286674889eb4e1539d94e6f3664dd2a32a",
+        "schema_version": 1
+      }
+    ],
+    "frame_ids_by_request": [
+      "frame-a54c839dad8bf2e98dc635a9ef8ba4fbc46c580a570218eeab3f01689b2ad0f6",
+      "frame-b7239eb0aedda21ea1550459750c2114a7cf11120d6871a27e574e487159b0d7"
+    ],
+    "status": "complete",
+    "schema_version": 1,
+    "frame_size": [
+      384,
+      288
+    ],
+    "ffmpeg_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "status": "failed",
+  "delegated": [],
+  "raw_response": "{\"action\":\"search\",\"reason\":\"Searching for additional observations in the remaining video interval from 15.52s to 24.96s.\",\"end_us\":24960000,\"start_us\":15520000}",
+  "calls": [
+    {
+      "role": "investigation",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 5649,
+        "candidates_token_count": 60,
+        "thoughts_token_count": 1933,
+        "total_token_count": 7642
+      },
+      "max_output_tokens": 8192,
+      "thinking_level": "HIGH",
+      "model_version": "gemini-3.6-flash",
+      "candidate_count": 1,
+      "finish_reasons": [
+        "STOP"
+      ],
+      "elapsed_ms": 11650
+    }
+  ],
+  "trace": [
+    {
+      "actor": "investigation",
+      "action": "decision",
+      "reason": "search: Searching for additional observations in the remaining video interval from 15.52s to 24.96s.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "investigation",
+      "action": "search",
+      "reason": "Search the requested source interval.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "start_us": 15520000,
+        "end_us": 24960000
+      }
+    },
+    {
+      "actor": "investigation",
+      "action": "tool_result",
+      "reason": "Additional stored frame observations.",
+      "observation_ids": [
+        "observation-9be1bdbba690e7451eb3c8afe8f0934948c22e519e488854efe324138805eb80",
+        "observation-21ae1a35c14d882e7678474ed5fd7b147dd6d93ac62c4998ce6fbfcd93688641",
+        "observation-b59eb4c2e24099968ee7a5bef241dfeb86a3160f4b3b387bd390b15cfae20b64"
+      ],
+      "recipient": null,
+      "details": {
+        "status": "found",
+        "ids": [
+          "observation-9be1bdbba690e7451eb3c8afe8f0934948c22e519e488854efe324138805eb80",
+          "observation-21ae1a35c14d882e7678474ed5fd7b147dd6d93ac62c4998ce6fbfcd93688641",
+          "observation-b59eb4c2e24099968ee7a5bef241dfeb86a3160f4b3b387bd390b15cfae20b64"
+        ]
+      }
+    },
+    {
+      "actor": "investigation",
+      "action": "model_failure",
+      "reason": "The role model did not provide a completed decision.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    }
+  ],
+  "transport_attempts": [
+    {
+      "request_number": 1,
+      "http_status": 200
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "case": "walk_split",
+  "source_sha256": "f5290c0107a7d5e2bca9c324d1e2f15929ce7df86ea755613229f18af5c554a0",
+  "reviewers": [],
+  "review_complete": false,
+  "events": [],
+  "questions": [
+    {
+      "id": "Q1",
+      "text": "What visible activities occur between 5 and 10 seconds?",
+      "expectation": null,
+      "expected_event_ids": [],
+      "reason": "",
+      "supporting_frames": []
+    },
+    {
+      "id": "Q2",
+      "text": "What visible movement, if any, occurs between 10 and 15 seconds?",
+      "expectation": null,
+      "expected_event_ids": [],
+      "reason": "",
+      "supporting_frames": []
+    },
+    {
+      "id": "Q3",
+      "text": "If two people are visible near one another, can the footage establish that they continued together later?",
+      "expectation": null,
+      "expected_event_ids": [],
+      "reason": "",
+      "supporting_frames": []
+    }
+  ]
+}

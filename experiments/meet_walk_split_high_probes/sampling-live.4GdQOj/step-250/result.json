@@ -1,0 +1,563 @@
+{
+  "status": "success",
+  "validation": "passed",
+  "metadata": {
+    "provider": "google-gemini-developer-api",
+    "model_id": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "adapter_version": "1",
+    "prompt_version": "e1-v1",
+    "settings": [
+      [
+        "sdk_version",
+        "3.6.1"
+      ],
+      [
+        "max_output_tokens",
+        8192
+      ],
+      [
+        "thinking_level",
+        "HIGH"
+      ]
+    ],
+    "elapsed_ms": 41582,
+    "usage": [
+      [
+        "prompt_token_count",
+        65038
+      ],
+      [
+        "candidates_token_count",
+        1306
+      ],
+      [
+        "thoughts_token_count",
+        4657
+      ],
+      [
+        "total_token_count",
+        71001
+      ]
+    ]
+  },
+  "completion": {
+    "candidate_count": 1,
+    "finish_reasons": [
+      "STOP"
+    ]
+  },
+  "observations": [
+    {
+      "id": "observation-0b3e59bae14ff14a74452b9849580d5c5a9a7633487142917485c7b8ba379ec0",
+      "inspection_id": "inspection-3426f400ac3c888c3583c88434f04cd49fc4654a27f97b196a8a7b62912be202",
+      "category": "person_appeared",
+      "description": "A person wearing a black shirt and dark pants is first visible near the center of the lobby floor in frame F1.",
+      "evidence": {
+        "frame_ids": [
+          "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3"
+        ]
+      },
+      "visibility_limits": "Visible in the main lobby atrium floor area.",
+      "uncertainty": "Timing of entry prior to F1 is unobserved.",
+      "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            8192
+          ],
+          [
+            "thinking_level",
+            "HIGH"
+          ]
+        ],
+        "elapsed_ms": 41582,
+        "usage": [
+          [
+            "prompt_token_count",
+            65038
+          ],
+          [
+            "candidates_token_count",
+            1306
+          ],
+          [
+            "thoughts_token_count",
+            4657
+          ],
+          [
+            "total_token_count",
+            71001
+          ]
+        ]
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "observation-fb681e7207e851d644fcbe8963bfcbfe8e871e9e5c5f2dfb2857348a44be1a07",
+      "inspection_id": "inspection-3426f400ac3c888c3583c88434f04cd49fc4654a27f97b196a8a7b62912be202",
+      "category": "person_appeared",
+      "description": "A person wearing a dark top and pants is first visible on the left side of the lobby floor in frame F1.",
+      "evidence": {
+        "frame_ids": [
+          "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3"
+        ]
+      },
+      "visibility_limits": "Visible in the main lobby atrium floor area.",
+      "uncertainty": "Timing of entry prior to F1 is unobserved.",
+      "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            8192
+          ],
+          [
+            "thinking_level",
+            "HIGH"
+          ]
+        ],
+        "elapsed_ms": 41582,
+        "usage": [
+          [
+            "prompt_token_count",
+            65038
+          ],
+          [
+            "candidates_token_count",
+            1306
+          ],
+          [
+            "thoughts_token_count",
+            4657
+          ],
+          [
+            "total_token_count",
+            71001
+          ]
+        ]
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "observation-1d7ed16ba2e94741fa1952180e517a82d6c22e60a6d38966460dbca605572195",
+      "inspection_id": "inspection-3426f400ac3c888c3583c88434f04cd49fc4654a27f97b196a8a7b62912be202",
+      "category": "person_moved",
+      "description": "The person in the black shirt walks across the lobby floor toward the upper-left corridor area from frame F1 to frame F40.",
+      "evidence": {
+        "frame_ids": [
+          "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+          "frame-d7df3bf8bb51345b905c60f3f745507fb9289ef984c836c48558b948c296293a",
+          "frame-fc6cdf36874aaee549f25ecca3f4d81b8c243569dcc21bcb5073dd83b7fdfd07",
+          "frame-2c3f910bd8007c8a70b1ef234f8ebf3ace58f321d4742ffbcc7814fc03b7a7a8",
+          "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+          "frame-bf78555bcd79556276c30450816074fc521381c2441c4cf02be1f9704417763d",
+          "frame-bc4674074514a6291d20741efd6f15e5097ba2469b63aa766045ec6f8d4d71c0",
+          "frame-55377cfc6195a44f9e57acfb979bfab0ca083061111153f5179f24ef445b99da",
+          "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+          "frame-80788bdf430fba52a40457cd3eec35fb1f8b47237644346e8c23f0cf485206a7",
+          "frame-7f27dea900e5862a195c853d744cc9398c745740d45e6c3d30d85bc5787b2b1a",
+          "frame-050b4bc8afe6153ca8fe2c2d9d0c2748e2619a1fa19343df14ba72650d68232d",
+          "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+          "frame-30aa40fd1abd2c11d9dae57533664e025b77a16f6ed204595e0c5a2628d6d4f8",
+          "frame-64025c8deb5a20df19295d00aa0e70cf0e7b300c69a657f722975fc45b5a4a13",
+          "frame-157e6f258fe263008b6d6762f784ae180935f0be64338dcc11e62723da452e37",
+          "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+          "frame-eaa4e00f9bbaf519d126c315adb8b42ed1fe3c4de21622d07833efc60542da86",
+          "frame-70c092b0f9e14a36486f332cd9e8e0810ece04d77079a08075f3574b866ecbfc",
+          "frame-5bdef44463607c5ee734f3a55dfc5e676a17670b349e6cfa9571ba20f178d804",
+          "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+          "frame-fdb37d6a699ca26944e547a8b8a83379353951910b8d9520bb79e0453fb50945",
+          "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+          "frame-2598c2b137e14997f98bcb3ada1bd6a29ee75934645192d5f0e2f492208467fc",
+          "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+          "frame-8eb5db68ea755d5f98577488ffabe055495247dfa4c74f0081e449a242052a2c",
+          "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+          "frame-f1591520748944fa17699264fcccfcab04a2a468a3d5d87d4a9735db6391d41c",
+          "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+          "frame-7c648310c353ab0093fb179b553d3c8ff874deb488a3241fd826c407d17d2294",
+          "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+          "frame-ef48e3b662006d29d6a18fa631c979f8275d40972a51831f47a7a3ad5ae17b90",
+          "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+          "frame-10bdae0a25d162fd89fee84531b4b8217f260c7af7a1e6083455ebb33cf77f8e",
+          "frame-7d01e523cdffab0fca101856f91ad31c36da1ac429a140ec3e9692f392e3e0b4",
+          "frame-675aad44e3f3b83a644ad678f1d6663603826347c690f8cadbd9371420f6d8df",
+          "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+          "frame-098b37d4cd0464b29161cf03752c463637bca986345da089530a574cec910976",
+          "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+          "frame-1e0bd2a3719a80e1a5353f44a4ac9fd334cab0bfcfc19e49c99e7fb15866b71b"
+        ]
+      },
+      "visibility_limits": "Visible walking across the open tiled lobby floor until reaching the upper-left corridor.",
+      "uncertainty": "Continuous motion between discrete frame samples is unobserved.",
+      "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            8192
+          ],
+          [
+            "thinking_level",
+            "HIGH"
+          ]
+        ],
+        "elapsed_ms": 41582,
+        "usage": [
+          [
+            "prompt_token_count",
+            65038
+          ],
+          [
+            "candidates_token_count",
+            1306
+          ],
+          [
+            "thoughts_token_count",
+            4657
+          ],
+          [
+            "total_token_count",
+            71001
+          ]
+        ]
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "observation-99dc8e1de19de3db9e5531302bc84ae0f20d46d061ee59297676b71523da5232",
+      "inspection_id": "inspection-3426f400ac3c888c3583c88434f04cd49fc4654a27f97b196a8a7b62912be202",
+      "category": "person_moved",
+      "description": "The person in the dark top moves across the lobby floor to meet the other person and walk together toward the upper-left corridor area from frame F1 to frame F40.",
+      "evidence": {
+        "frame_ids": [
+          "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+          "frame-d7df3bf8bb51345b905c60f3f745507fb9289ef984c836c48558b948c296293a",
+          "frame-fc6cdf36874aaee549f25ecca3f4d81b8c243569dcc21bcb5073dd83b7fdfd07",
+          "frame-2c3f910bd8007c8a70b1ef234f8ebf3ace58f321d4742ffbcc7814fc03b7a7a8",
+          "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+          "frame-bf78555bcd79556276c30450816074fc521381c2441c4cf02be1f9704417763d",
+          "frame-bc4674074514a6291d20741efd6f15e5097ba2469b63aa766045ec6f8d4d71c0",
+          "frame-55377cfc6195a44f9e57acfb979bfab0ca083061111153f5179f24ef445b99da",
+          "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+          "frame-80788bdf430fba52a40457cd3eec35fb1f8b47237644346e8c23f0cf485206a7",
+          "frame-7f27dea900e5862a195c853d744cc9398c745740d45e6c3d30d85bc5787b2b1a",
+          "frame-050b4bc8afe6153ca8fe2c2d9d0c2748e2619a1fa19343df14ba72650d68232d",
+          "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+          "frame-30aa40fd1abd2c11d9dae57533664e025b77a16f6ed204595e0c5a2628d6d4f8",
+          "frame-64025c8deb5a20df19295d00aa0e70cf0e7b300c69a657f722975fc45b5a4a13",
+          "frame-157e6f258fe263008b6d6762f784ae180935f0be64338dcc11e62723da452e37",
+          "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+          "frame-eaa4e00f9bbaf519d126c315adb8b42ed1fe3c4de21622d07833efc60542da86",
+          "frame-70c092b0f9e14a36486f332cd9e8e0810ece04d77079a08075f3574b866ecbfc",
+          "frame-5bdef44463607c5ee734f3a55dfc5e676a17670b349e6cfa9571ba20f178d804",
+          "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+          "frame-fdb37d6a699ca26944e547a8b8a83379353951910b8d9520bb79e0453fb50945",
+          "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+          "frame-2598c2b137e14997f98bcb3ada1bd6a29ee75934645192d5f0e2f492208467fc",
+          "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+          "frame-8eb5db68ea755d5f98577488ffabe055495247dfa4c74f0081e449a242052a2c",
+          "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+          "frame-f1591520748944fa17699264fcccfcab04a2a468a3d5d87d4a9735db6391d41c",
+          "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+          "frame-7c648310c353ab0093fb179b553d3c8ff874deb488a3241fd826c407d17d2294",
+          "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+          "frame-ef48e3b662006d29d6a18fa631c979f8275d40972a51831f47a7a3ad5ae17b90",
+          "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+          "frame-10bdae0a25d162fd89fee84531b4b8217f260c7af7a1e6083455ebb33cf77f8e",
+          "frame-7d01e523cdffab0fca101856f91ad31c36da1ac429a140ec3e9692f392e3e0b4",
+          "frame-675aad44e3f3b83a644ad678f1d6663603826347c690f8cadbd9371420f6d8df",
+          "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+          "frame-098b37d4cd0464b29161cf03752c463637bca986345da089530a574cec910976",
+          "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+          "frame-1e0bd2a3719a80e1a5353f44a4ac9fd334cab0bfcfc19e49c99e7fb15866b71b"
+        ]
+      },
+      "visibility_limits": "Visible moving across the lobby floor until reaching the upper-left area.",
+      "uncertainty": "Continuous motion between discrete frame samples is unobserved.",
+      "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            8192
+          ],
+          [
+            "thinking_level",
+            "HIGH"
+          ]
+        ],
+        "elapsed_ms": 41582,
+        "usage": [
+          [
+            "prompt_token_count",
+            65038
+          ],
+          [
+            "candidates_token_count",
+            1306
+          ],
+          [
+            "thoughts_token_count",
+            4657
+          ],
+          [
+            "total_token_count",
+            71001
+          ]
+        ]
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "observation-e4feb5cefb159d42d0b090167463ff7568c13f8fa6b85b00fec2c0bee76b108b",
+      "inspection_id": "inspection-3426f400ac3c888c3583c88434f04cd49fc4654a27f97b196a8a7b62912be202",
+      "category": "insufficient_evidence",
+      "description": "In frames F5 through F7, two people stand close together in the lobby, but high camera angle and resolution limit visibility of hand movements, providing insufficient evidence to determine if an item was exchanged or touched.",
+      "evidence": {
+        "frame_ids": [
+          "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+          "frame-bf78555bcd79556276c30450816074fc521381c2441c4cf02be1f9704417763d",
+          "frame-bc4674074514a6291d20741efd6f15e5097ba2469b63aa766045ec6f8d4d71c0"
+        ]
+      },
+      "visibility_limits": "Distance and camera orientation obscure fine hand movements.",
+      "uncertainty": "Physical contact or object transfer cannot be confirmed.",
+      "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            8192
+          ],
+          [
+            "thinking_level",
+            "HIGH"
+          ]
+        ],
+        "elapsed_ms": 41582,
+        "usage": [
+          [
+            "prompt_token_count",
+            65038
+          ],
+          [
+            "candidates_token_count",
+            1306
+          ],
+          [
+            "thoughts_token_count",
+            4657
+          ],
+          [
+            "total_token_count",
+            71001
+          ]
+        ]
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "observation-ee3c5f15c67e459986ffade8582c4aee2b6524d17e9a7b8370b57705f76d9c8d",
+      "inspection_id": "inspection-3426f400ac3c888c3583c88434f04cd49fc4654a27f97b196a8a7b62912be202",
+      "category": "person_appeared",
+      "description": "A person wearing a light shirt is first visible walking along the bottom-left sunlit glass walkway in frame F38.",
+      "evidence": {
+        "frame_ids": [
+          "frame-098b37d4cd0464b29161cf03752c463637bca986345da089530a574cec910976"
+        ]
+      },
+      "visibility_limits": "Partially obscured by glare and reflections along the lower glass perimeter.",
+      "uncertainty": "Exact moment of initial appearance between F37 and F38 is unobserved.",
+      "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            8192
+          ],
+          [
+            "thinking_level",
+            "HIGH"
+          ]
+        ],
+        "elapsed_ms": 41582,
+        "usage": [
+          [
+            "prompt_token_count",
+            65038
+          ],
+          [
+            "candidates_token_count",
+            1306
+          ],
+          [
+            "thoughts_token_count",
+            4657
+          ],
+          [
+            "total_token_count",
+            71001
+          ]
+        ]
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "observation-948b50ab6796db6d51f9d3be47ad323266219bcd82eb78d3bb7237ad6e87a05e",
+      "inspection_id": "inspection-3426f400ac3c888c3583c88434f04cd49fc4654a27f97b196a8a7b62912be202",
+      "category": "person_moved",
+      "description": "The person in the light shirt walks along the bottom-left glass walkway from frame F38 to frame F60.",
+      "evidence": {
+        "frame_ids": [
+          "frame-098b37d4cd0464b29161cf03752c463637bca986345da089530a574cec910976",
+          "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+          "frame-1e0bd2a3719a80e1a5353f44a4ac9fd334cab0bfcfc19e49c99e7fb15866b71b",
+          "frame-02ddc222324dde3144dce77343baccea1c9a4b6f0640ea7fb006809be2261b53",
+          "frame-98dc38fe73ca0d04f1cd003056dbe44e2853ed24610f271a36d5d6afd5030100",
+          "frame-66e522973d288b0527224d540695138dae7fb7b129e38cee3e308ada50b014f4",
+          "frame-9b3767c5eabae3b81099954c79022deacea99d36c6a2f0583ca1110acd3b7018",
+          "frame-ab0c86834178f2449255b13f94009fb694cac634df3d7207176af03faa98cf88",
+          "frame-d94e5a32a926675803c22c0e9e541dbae1b54b44f0416a1e712bef7845f589de",
+          "frame-1244bf6e61315ee3b9bf9891394f1ef223f2f75ee2edc2926f9c16bc6063604c",
+          "frame-09f8fa14c50d8d9ea0d3d7573460ee8abf9a5bc38632eed6b1c37632149bd8a0",
+          "frame-fee60e36c03a6670eabe831a5d208ff79010e457240d3810c068d58d3357755c",
+          "frame-f67fc8c44dc13c5f3d9dc29e5bc9cf1488805795ef8c0804c976a91f75fa4700",
+          "frame-e6144b4cb75b4117f4442be05ba75d00e3c9468cbaf7626b1917bbdcc2369c0f",
+          "frame-f210bee07dba0fbea23505b8a118a06af02b92f69059955f61ade45223ab6fc8",
+          "frame-a329f3e8c0b0550183618af2afea201dcc8875ac188a237af0200a503aa9fd29",
+          "frame-51f057db95006559a4901e56f98ecc264b08233946f9d7d3c0f3864d92043883",
+          "frame-b4ac930b827db68fa0ad88611ba94fbf95fd4537d3ae8a570d528a77ea28645e",
+          "frame-360eff2b2c1f6be0facf4089ec63ea89d067b25684bb87f01122d1b639f36257",
+          "frame-d537fc86ddcdddf4440ee10124f7da1b8741c166e6e7f6f4dd9de8f489c77e43",
+          "frame-3e80680b8a6c95021a5c948287841a46e2851894fb1b43c03c42fc4be6f1acd1",
+          "frame-c81d8eeb5adfbda36173d8525c1378f4a22acda6b74f34091940848148a5e8a5",
+          "frame-b8d7801fade798797b092286e30bf175c8bcfc75c3384a6ce2fa2c0b946166d5"
+        ]
+      },
+      "visibility_limits": "Visible along the lower perimeter walkway.",
+      "uncertainty": "Continuous movement between discrete frame captures is unobserved.",
+      "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            8192
+          ],
+          [
+            "thinking_level",
+            "HIGH"
+          ]
+        ],
+        "elapsed_ms": 41582,
+        "usage": [
+          [
+            "prompt_token_count",
+            65038
+          ],
+          [
+            "candidates_token_count",
+            1306
+          ],
+          [
+            "thoughts_token_count",
+            4657
+          ],
+          [
+            "total_token_count",
+            71001
+          ]
+        ]
+      },
+      "schema_version": 1
+    }
+  ],
+  "raw_response": "{\n  \"observations\": [\n    {\n      \"category\": \"person_appeared\",\n      \"description\": \"A person wearing a black shirt and dark pants is first visible near the center of the lobby floor in frame F1.\",\n      \"visibility_limits\": \"Visible in the main lobby atrium floor area.\",\n      \"uncertainty\": \"Timing of entry prior to F1 is unobserved.\",\n      \"frame_labels\": [\"F1\"],\n      \"clip_interval_us\": []\n    },\n    {\n      \"category\": \"person_appeared\",\n      \"description\": \"A person wearing a dark top and pants is first visible on the left side of the lobby floor in frame F1.\",\n      \"visibility_limits\": \"Visible in the main lobby atrium floor area.\",\n      \"uncertainty\": \"Timing of entry prior to F1 is unobserved.\",\n      \"frame_labels\": [\"F1\"],\n      \"clip_interval_us\": []\n    },\n    {\n      \"category\": \"person_moved\",\n      \"description\": \"The person in the black shirt walks across the lobby floor toward the upper-left corridor area from frame F1 to frame F40.\",\n      \"visibility_limits\": \"Visible walking across the open tiled lobby floor until reaching the upper-left corridor.\",\n      \"uncertainty\": \"Continuous motion between discrete frame samples is unobserved.\",\n      \"frame_labels\": [\n        \"F1\", \"F2\", \"F3\", \"F4\", \"F5\", \"F6\", \"F7\", \"F8\", \"F9\", \"F10\",\n        \"F11\", \"F12\", \"F13\", \"F14\", \"F15\", \"F16\", \"F17\", \"F18\", \"F19\", \"F20\",\n        \"F21\", \"F22\", \"F23\", \"F24\", \"F25\", \"F26\", \"F27\", \"F28\", \"F29\", \"F30\",\n        \"F31\", \"F32\", \"F33\", \"F34\", \"F35\", \"F36\", \"F37\", \"F38\", \"F39\", \"F40\"\n      ],\n      \"clip_interval_us\": []\n    },\n    {\n      \"category\": \"person_moved\",\n      \"description\": \"The person in the dark top moves across the lobby floor to meet the other person and walk together toward the upper-left corridor area from frame F1 to frame F40.\",\n      \"visibility_limits\": \"Visible moving across the lobby floor until reaching the upper-left area.\",\n      \"uncertainty\": \"Continuous motion between discrete frame samples is unobserved.\",\n      \"frame_labels\": [\n        \"F1\", \"F2\", \"F3\", \"F4\", \"F5\", \"F6\", \"F7\", \"F8\", \"F9\", \"F10\",\n        \"F11\", \"F12\", \"F13\", \"F14\", \"F15\", \"F16\", \"F17\", \"F18\", \"F19\", \"F20\",\n        \"F21\", \"F22\", \"F23\", \"F24\", \"F25\", \"F26\", \"F27\", \"F28\", \"F29\", \"F30\",\n        \"F31\", \"F32\", \"F33\", \"F34\", \"F35\", \"F36\", \"F37\", \"F38\", \"F39\", \"F40\"\n      ],\n      \"clip_interval_us\": []\n    },\n    {\n      \"category\": \"insufficient_evidence\",\n      \"description\": \"In frames F5 through F7, two people stand close together in the lobby, but high camera angle and resolution limit visibility of hand movements, providing insufficient evidence to determine if an item was exchanged or touched.\",\n      \"visibility_limits\": \"Distance and camera orientation obscure fine hand movements.\",\n      \"uncertainty\": \"Physical contact or object transfer cannot be confirmed.\",\n      \"frame_labels\": [\"F5\", \"F6\", \"F7\"],\n      \"clip_interval_us\": []\n    },\n    {\n      \"category\": \"person_appeared\",\n      \"description\": \"A person wearing a light shirt is first visible walking along the bottom-left sunlit glass walkway in frame F38.\",\n      \"visibility_limits\": \"Partially obscured by glare and reflections along the lower glass perimeter.\",\n      \"uncertainty\": \"Exact moment of initial appearance between F37 and F38 is unobserved.\",\n      \"frame_labels\": [\"F38\"],\n      \"clip_interval_us\": []\n    },\n    {\n      \"category\": \"person_moved\",\n      \"description\": \"The person in the light shirt walks along the bottom-left glass walkway from frame F38 to frame F60.\",\n      \"visibility_limits\": \"Visible along the lower perimeter walkway.\",\n      \"uncertainty\": \"Continuous movement between discrete frame captures is unobserved.\",\n      \"frame_labels\": [\n        \"F38\", \"F39\", \"F40\", \"F41\", \"F42\", \"F43\", \"F44\", \"F45\", \"F46\", \"F47\",\n        \"F48\", \"F49\", \"F50\", \"F51\", \"F52\", \"F53\", \"F54\", \"F55\", \"F56\", \"F57\",\n        \"F58\", \"F59\", \"F60\"\n      ],\n      \"clip_interval_us\": []\n    }\n  ]\n}",
+  "provider_usage": {
+    "candidates_token_count": 1306,
+    "prompt_token_count": 65038,
+    "prompt_tokens_details": [
+      {
+        "modality": "IMAGE",
+        "token_count": 63840
+      },
+      {
+        "modality": "TEXT",
+        "token_count": 1198
+      }
+    ],
+    "thoughts_token_count": 4657,
+    "total_token_count": 71001
+  },
+  "transport_attempts": [
+    {
+      "request_number": 1,
+      "http_status": 200
+    }
+  ],
+  "physical_http_requests": 1
+}

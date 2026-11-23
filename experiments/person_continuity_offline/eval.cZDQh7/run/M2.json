@@ -1,0 +1,49 @@
+{
+  "status": "schema_and_references_valid",
+  "model": "gemini-3.6-flash",
+  "frame_map": {
+    "F1": {
+      "file": "0250.png",
+      "index": 250,
+      "pts": 128000,
+      "source_time_us": 10000000,
+      "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e"
+    },
+    "F2": {
+      "file": "0251.png",
+      "index": 251,
+      "pts": 128512,
+      "source_time_us": 10040000,
+      "rgb24_sha256": "36dbc136ebb318cc2714742ff63c01f915e52bb124a448656bb416fc5ad29810"
+    },
+    "F3": {
+      "file": "0325.png",
+      "index": 325,
+      "pts": 166400,
+      "source_time_us": 13000000,
+      "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865"
+    }
+  },
+  "sdk_calls": 1,
+  "model_version": "gemini-3.6-flash",
+  "usage": {
+    "prompt_token_count": 3328,
+    "candidates_token_count": 86,
+    "thoughts_token_count": 537,
+    "total_token_count": 3951
+  },
+  "finish_reasons": [
+    "FinishReason.STOP"
+  ],
+  "raw_response": "{\n  \"decision\": \"same_person\",\n  \"frame_ids\": [\"F1\", \"F2\", \"F3\"],\n  \"reason\": \"The target in F1 at (105, 120) is tracked moving continuously along a smooth trajectory to (78, 100) in F3 while maintaining consistent black clothing and posture across all frames.\"\n}",
+  "decision": {
+    "decision": "same_person",
+    "frame_ids": [
+      "F1",
+      "F2",
+      "F3"
+    ],
+    "reason": "The target in F1 at (105, 120) is tracked moving continuously along a smooth trajectory to (78, 100) in F3 while maintaining consistent black clothing and posture across all frames."
+  },
+  "elapsed_ms": 6443
+}

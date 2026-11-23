@@ -1,0 +1,32 @@
+{
+  "source_sha256": "f5290c0107a7d5e2bca9c324d1e2f15929ce7df86ea755613229f18af5c554a0",
+  "artifact_sha256": "261af2e3df5895b56b1b4df728a57f3384b58d32182ecd6e4c7340e8def03dbc",
+  "annotation_sha256": "1e77e051aa78ee06c7097a838d7636a06f8ccef216aa6e3d79006e4540808b00",
+  "reviewer": "",
+  "event_links": {
+    "initial": {
+      "observation-a0edff0f464766aa986e7a3fe672cb909e827c930036f46d0313cca1f40cdc39": null,
+      "observation-3bfb1c56bbe324de53281c8d55ddd7c506d3607c1ae794310badc00c1d8f80cb": null,
+      "observation-da6fdebc40fca46c44b2f43c79c6f806c5bbafaca85bb693c5009fa233ab14ba": null,
+      "observation-ac83682fb5f7d3d5ee5c7eeacb15a97e8a0854d2a629f67175c20d78061d5390": null,
+      "observation-83b23ba3dbd65521e8b8791098baf6da421ec6827c14ce5b560be5a474602aed": null,
+      "observation-7f18178dd644fd52f9c17f79bd89b2c6fc1722d214cc2a95c8069970d2ca4b67": null,
+      "observation-433e1420058c2daded9fed756c8f39a86c07405e0d55adf8d4ac7a264f1ba71c": null
+    },
+    "verified": {
+      "observation-3bfb1c56bbe324de53281c8d55ddd7c506d3607c1ae794310badc00c1d8f80cb": null,
+      "observation-da6fdebc40fca46c44b2f43c79c6f806c5bbafaca85bb693c5009fa233ab14ba": null,
+      "observation-ac83682fb5f7d3d5ee5c7eeacb15a97e8a0854d2a629f67175c20d78061d5390": null,
+      "observation-433e1420058c2daded9fed756c8f39a86c07405e0d55adf8d4ac7a264f1ba71c": null
+    }
+  },
+  "caviar_unlabelled_predictions": {
+    "initial": {},
+    "verified": {}
+  },
+  "claim_reviews": [],
+  "report_checked": false,
+  "report_omitted_reference_ids": [],
+  "retrieval_checked": false,
+  "retrieval_reviews": []
+}

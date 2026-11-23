@@ -1,0 +1,98 @@
+{
+  "status": "valid_delegation",
+  "delegated": [
+    "observation-5825a5ee3a0cd8baa8233d294696e25cff3dc234f6c297afacc5074a158baa87",
+    "observation-81c7ab9b22cec7a524406d8e9ced590d54e48d0975f10a02513ef758921e797c",
+    "observation-af11b0374973bbf94fca6bca64c60787aec961d4b2b3b6640101381616992957",
+    "observation-bd3673e5be4de63016f6248c069a40695f068a2cffdba8748bbaf683f9dbcd57"
+  ],
+  "raw_response": "{\n  \"action\": \"delegate\",\n  \"reason\": \"Delegating up to 4 distinct observable event candidates from the available evidence.\",\n  \"dispositions\": [\n    {\n      \"id\": \"observation-0aa005597bab7cba2071153e6624a909991635864e3a7dc14db4a3e6e52c1025\",\n      \"reason\": \"Excluding observation to respect the maximum limit of 4 delegated candidate IDs.\",\n      \"status\": \"excluded\"\n    }\n  ],\n  \"ids\": [\n    \"observation-5825a5ee3a0cd8baa8233d294696e25cff3dc234f6c297afacc5074a158baa87\",\n    \"observation-81c7ab9b22cec7a524406d8e9ced590d54e48d0975f10a02513ef758921e797c\",\n    \"observation-af11b0374973bbf94fca6bca64c60787aec961d4b2b3b6640101381616992957\",\n    \"observation-bd3673e5be4de63016f6248c069a40695f068a2cffdba8748bbaf683f9dbcd57\"\n  ]\n}",
+  "calls": [
+    {
+      "role": "investigation",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 4641,
+        "candidates_token_count": 400,
+        "total_token_count": 5041
+      },
+      "model_version": "gemini-3.6-flash",
+      "max_output_tokens": 1024,
+      "thinking_level": "LOW",
+      "candidate_count": 1,
+      "finish_reasons": [
+        "STOP"
+      ],
+      "elapsed_ms": 2885
+    }
+  ],
+  "trace": [
+    {
+      "actor": "investigation",
+      "action": "decision",
+      "reason": "delegate: Delegating up to 4 distinct observable event candidates from the available evidence.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "investigation",
+      "action": "triage",
+      "reason": "Recorded observation dispositions.",
+      "observation_ids": [
+        "observation-5825a5ee3a0cd8baa8233d294696e25cff3dc234f6c297afacc5074a158baa87",
+        "observation-81c7ab9b22cec7a524406d8e9ced590d54e48d0975f10a02513ef758921e797c",
+        "observation-af11b0374973bbf94fca6bca64c60787aec961d4b2b3b6640101381616992957",
+        "observation-bd3673e5be4de63016f6248c069a40695f068a2cffdba8748bbaf683f9dbcd57",
+        "observation-0aa005597bab7cba2071153e6624a909991635864e3a7dc14db4a3e6e52c1025"
+      ],
+      "recipient": null,
+      "details": {
+        "dispositions": [
+          {
+            "id": "observation-5825a5ee3a0cd8baa8233d294696e25cff3dc234f6c297afacc5074a158baa87",
+            "status": "delegated"
+          },
+          {
+            "id": "observation-81c7ab9b22cec7a524406d8e9ced590d54e48d0975f10a02513ef758921e797c",
+            "status": "delegated"
+          },
+          {
+            "id": "observation-af11b0374973bbf94fca6bca64c60787aec961d4b2b3b6640101381616992957",
+            "status": "delegated"
+          },
+          {
+            "id": "observation-bd3673e5be4de63016f6248c069a40695f068a2cffdba8748bbaf683f9dbcd57",
+            "status": "delegated"
+          },
+          {
+            "id": "observation-0aa005597bab7cba2071153e6624a909991635864e3a7dc14db4a3e6e52c1025",
+            "status": "excluded",
+            "reason": "Excluding observation to respect the maximum limit of 4 delegated candidate IDs."
+          }
+        ],
+        "omitted_ids": []
+      }
+    },
+    {
+      "actor": "investigation",
+      "action": "delegate",
+      "reason": "Sent candidate evidence to verification.",
+      "observation_ids": [
+        "observation-5825a5ee3a0cd8baa8233d294696e25cff3dc234f6c297afacc5074a158baa87",
+        "observation-81c7ab9b22cec7a524406d8e9ced590d54e48d0975f10a02513ef758921e797c",
+        "observation-af11b0374973bbf94fca6bca64c60787aec961d4b2b3b6640101381616992957",
+        "observation-bd3673e5be4de63016f6248c069a40695f068a2cffdba8748bbaf683f9dbcd57"
+      ],
+      "recipient": "verification",
+      "details": null
+    }
+  ],
+  "transport_attempts": [
+    {
+      "request_number": 1,
+      "http_status": 200
+    }
+  ]
+}

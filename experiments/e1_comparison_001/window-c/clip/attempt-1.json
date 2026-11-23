@@ -1,0 +1,103 @@
+{
+  "status": "success",
+  "metadata": {
+    "provider": "google-gemini-developer-api",
+    "model_id": "gemini-3.5-flash-lite",
+    "model_version": "gemini-3.5-flash-lite",
+    "adapter_version": "1",
+    "prompt_version": "e1-v1",
+    "settings": [
+      [
+        "sdk_version",
+        "3.6.1"
+      ],
+      [
+        "max_output_tokens",
+        4096
+      ],
+      [
+        "thinking_level",
+        "LOW"
+      ],
+      [
+        "requested_video_fps",
+        2.0
+      ]
+    ],
+    "elapsed_ms": 3113,
+    "usage": [
+      [
+        "prompt_token_count",
+        670
+      ],
+      [
+        "candidates_token_count",
+        5
+      ],
+      [
+        "total_token_count",
+        675
+      ]
+    ]
+  },
+  "observations": [],
+  "raw_response": "{\"observations\": []}",
+  "schema_version": 1,
+  "response_details": {
+    "sdk_http_response": {
+      "headers": {
+        "x-gemini-service-tier": "standard",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin, X-Origin, Referer",
+        "content-encoding": "gzip",
+        "date": "Sat, 21 Nov 2026 13:17:41 GMT",
+        "server": "scaffolding on HTTPServer2",
+        "x-xss-protection": "0",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "server-timing": "gfet4t7; dur=2932",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "transfer-encoding": "chunked"
+      }
+    },
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\"observations\": []}",
+              "thought_signature": "Eo4BCosBAWkUfRORDIjga1atu-PrrCh0bqgVpRbPRy4fCEmuXgZPS2Pe8HZ1QsNdbQOZ4udNLhWLbIgS6l2EwPPSLyp7_zrZeI3s8ki_wt8pKVaXahfvzwOOHIjM8qV1CXDCoyl0vj24tkOuZn3ciDB_nNNJu_6LVkG4BZQgDtFmlL7YEkWHjP6bySBGbxGs3Q=="
+            }
+          ],
+          "role": "model"
+        },
+        "finish_reason": "STOP",
+        "index": 0
+      }
+    ],
+    "model_version": "gemini-3.5-flash-lite",
+    "response_id": "8pkBa4_eO_X-vdIP4q7hoQQ",
+    "usage_metadata": {
+      "candidates_token_count": 5,
+      "prompt_token_count": 670,
+      "prompt_tokens_details": [
+        {
+          "modality": "VIDEO",
+          "token_count": 504
+        },
+        {
+          "modality": "TEXT",
+          "token_count": 166
+        }
+      ],
+      "total_token_count": 675
+    },
+    "automatic_function_calling_history": [],
+    "parsed": {
+      "observations": []
+    }
+  },
+  "replay": [],
+  "cost": null,
+  "started_utc": "2026-11-21T13:17:38.260759+00:00"
+}

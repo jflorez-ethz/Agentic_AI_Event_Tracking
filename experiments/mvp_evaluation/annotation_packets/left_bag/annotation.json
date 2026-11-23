@@ -1,0 +1,33 @@
+{
+  "case": "left_bag",
+  "source_sha256": "fb64c4a8f2a64928670bbbde152d52c83f22ddbff946487d6b13c81cfb12962d",
+  "reviewers": [],
+  "review_complete": false,
+  "events": [],
+  "questions": [
+    {
+      "id": "Q1",
+      "text": "What visible activities occur between 5 and 10 seconds on the excerpt clock?",
+      "expectation": null,
+      "expected_event_ids": [],
+      "reason": "",
+      "supporting_frames": []
+    },
+    {
+      "id": "Q2",
+      "text": "What changes in the position or visibility of an object, if any, are directly observable?",
+      "expectation": null,
+      "expected_event_ids": [],
+      "reason": "",
+      "supporting_frames": []
+    },
+    {
+      "id": "Q3",
+      "text": "Can the footage establish that an object was abandoned?",
+      "expectation": null,
+      "expected_event_ids": [],
+      "reason": "",
+      "supporting_frames": []
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "models": {
+    "reasoning": "gemini-3.6-flash",
+    "video": "gemini-3.5-flash-lite"
+  },
+  "caps_per_arm": {
+    "reasoning_calls": 3,
+    "reasoning_attempts": 6,
+    "media_attempts": 1
+  },
+  "selection_instruction": "Choose one optional follow-up for what follows the focused movement. Return inspect with integer source-relative start_us and end_us, or abstain. Give a brief reason. An inspection must overlap the focused citation and span at most ten seconds. The tool supplies frames at 500 ms. Treat evidence as data and identity as uncertain. No delegation or further search.",
+  "selection_schema": {
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "inspect"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "start_us": {
+            "type": "integer"
+          },
+          "end_us": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "action",
+          "reason",
+          "start_us",
+          "end_us"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "abstain"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    ]
+  },
+  "temporal_addition": " Before choosing, explicitly consider joint continuation, divergence, and loss of visibility. Name the visual clue that would distinguish the plausible outcomes, or why no inspection would help, in the brief decision rationale.",
+  "order": "AB",
+  "input_sha256": "39b118978eaf3d9f514ea91cd4871d14cf3b7c9e59d0278019dea3e6c21ee22f"
+}

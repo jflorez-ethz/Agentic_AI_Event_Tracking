@@ -1,0 +1,48 @@
+{
+  "status": "received",
+  "decision": {
+    "action": "verdict",
+    "reason": "The observation describes a person in dark clothing walking across the atrium floor toward the upper-left corridor, established by the start and end inspection frames.",
+    "correspondence": [],
+    "ids": [
+      "observation-ac83682fb5f7d3d5ee5c7eeacb15a97e8a0854d2a629f67175c20d78061d5390"
+    ],
+    "transition": {
+      "observation_id": "observation-ac83682fb5f7d3d5ee5c7eeacb15a97e8a0854d2a629f67175c20d78061d5390",
+      "before_frame_id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+      "after_frame_id": "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351"
+    },
+    "verdict": "supported"
+  },
+  "raw_response": "{\"action\":\"verdict\",\"reason\":\"The observation describes a person in dark clothing walking across the atrium floor toward the upper-left corridor, established by the start and end inspection frames.\",\"correspondence\":[],\"ids\":[\"observation-ac83682fb5f7d3d5ee5c7eeacb15a97e8a0854d2a629f67175c20d78061d5390\"],\"transition\":{\"observation_id\":\"observation-ac83682fb5f7d3d5ee5c7eeacb15a97e8a0854d2a629f67175c20d78061d5390\",\"before_frame_id\":\"frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad\",\"after_frame_id\":\"frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351\"},\"verdict\":\"supported\"}",
+  "role_call": {
+    "role": "verification",
+    "model": "gemini-3.6-flash",
+    "status": "received",
+    "usage": {
+      "prompt_token_count": 2716,
+      "candidates_token_count": 310,
+      "thoughts_token_count": 2635,
+      "total_token_count": 5661
+    },
+    "max_output_tokens": 8192,
+    "thinking_level": "HIGH",
+    "transport_attempts": [
+      {
+        "request_number": 1,
+        "http_status": 200
+      }
+    ],
+    "model_version": "gemini-3.6-flash",
+    "candidate_count": 1,
+    "finish_reasons": [
+      "STOP"
+    ],
+    "elapsed_ms": 12153
+  },
+  "decision_audit": {
+    "status": "movement_verdict",
+    "verdict": "supported"
+  },
+  "physical_http_requests": 1
+}

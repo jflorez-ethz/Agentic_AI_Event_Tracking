@@ -1,0 +1,291 @@
+{
+  "source_sha256": "f5290c0107a7d5e2bca9c324d1e2f15929ce7df86ea755613229f18af5c554a0",
+  "time_base": [
+    1,
+    12800
+  ],
+  "approach": [
+    {
+      "id": "frame-6975ea2366df725c470699fddaf44ad7d40c8036c458c21d057a0589316c67b0",
+      "display_index": 88,
+      "pts": 45056,
+      "source_time_us": 3520000,
+      "rgb24_sha256": "386ea2d37209599419ac1aa98c866fb62991694fefbadd1679c27417dfc9f70e",
+      "schema_version": 1,
+      "marks": [
+        {
+          "x": 250.0,
+          "y": 252.0,
+          "radius": 12.0
+        },
+        {
+          "x": 82.0,
+          "y": 178.0,
+          "radius": 12.0
+        }
+      ],
+      "distance_px": 183.5755975068582,
+      "distance_bounds_px": [
+        159.5755975068582,
+        207.5755975068582
+      ]
+    },
+    {
+      "id": "frame-cefbaba4c6827ac2ad7ba77db65d2973005107d1d9022637bb8fb37201be5ca2",
+      "display_index": 101,
+      "pts": 51712,
+      "source_time_us": 4040000,
+      "rgb24_sha256": "97c227c957da552432005917679e98b0d0e3a1b985b6d75b937d92b5b00a49c5",
+      "schema_version": 1,
+      "marks": [
+        {
+          "x": 234.0,
+          "y": 226.0,
+          "radius": 12.0
+        },
+        {
+          "x": 88.0,
+          "y": 174.0,
+          "radius": 12.0
+        }
+      ],
+      "distance_px": 154.983870128475,
+      "distance_bounds_px": [
+        130.983870128475,
+        178.983870128475
+      ]
+    },
+    {
+      "id": "frame-e5f191ad95dd31424c4571b6954ee9b529ac89947becbceca0dfb0a3771a1788",
+      "display_index": 113,
+      "pts": 57856,
+      "source_time_us": 4520000,
+      "rgb24_sha256": "62f914bee99d97224af3f6d7f2d6a3976474e5ca65e7e8924c222779f080aadf",
+      "schema_version": 1,
+      "marks": [
+        {
+          "x": 220.0,
+          "y": 206.0,
+          "radius": 12.0
+        },
+        {
+          "x": 99.0,
+          "y": 167.0,
+          "radius": 12.0
+        }
+      ],
+      "distance_px": 127.12985487288185,
+      "distance_bounds_px": [
+        103.12985487288185,
+        151.12985487288185
+      ]
+    },
+    {
+      "id": "frame-6642f1a40f5cbb0636bf53ad4be2041d7e0eb07606bfc65cd511d61520ff6059",
+      "display_index": 126,
+      "pts": 64512,
+      "source_time_us": 5040000,
+      "rgb24_sha256": "fe1c2ebd972a69e0586bc3ec0e8ea5489447fb1f95e348ce2b36bcd0971f8e10",
+      "schema_version": 1,
+      "marks": [
+        {
+          "x": 204.0,
+          "y": 182.0,
+          "radius": 12.0
+        },
+        {
+          "x": 111.0,
+          "y": 160.0,
+          "radius": 12.0
+        }
+      ],
+      "distance_px": 95.56673061269805,
+      "distance_bounds_px": [
+        71.56673061269805,
+        119.56673061269805
+      ]
+    },
+    {
+      "id": "frame-fc6cdf36874aaee549f25ecca3f4d81b8c243569dcc21bcb5073dd83b7fdfd07",
+      "display_index": 138,
+      "pts": 70656,
+      "source_time_us": 5520000,
+      "rgb24_sha256": "8845d998cb2bce32e2f72daee8889ba54ebbb7ae5807aa5b6d3d1f373e52d2f0",
+      "schema_version": 1,
+      "marks": [
+        {
+          "x": 187.0,
+          "y": 167.0,
+          "radius": 12.0
+        },
+        {
+          "x": 120.0,
+          "y": 153.0,
+          "radius": 12.0
+        }
+      ],
+      "distance_px": 68.4470598345904,
+      "distance_bounds_px": [
+        44.447059834590405,
+        92.4470598345904
+      ]
+    },
+    {
+      "id": "frame-5d759161985977a81f229c616a0214e675988944c4d645aa95bd912da603dedf",
+      "display_index": 151,
+      "pts": 77312,
+      "source_time_us": 6040000,
+      "rgb24_sha256": "021ced888718ea3d4415fcad37d7688306c2199882b4e849d6d64113e6c3f78a",
+      "schema_version": 1,
+      "marks": [
+        {
+          "x": 177.0,
+          "y": 154.0,
+          "radius": 12.0
+        },
+        {
+          "x": 132.0,
+          "y": 147.0,
+          "radius": 12.0
+        }
+      ],
+      "distance_px": 45.5411901469428,
+      "distance_bounds_px": [
+        21.541190146942803,
+        69.5411901469428
+      ]
+    },
+    {
+      "id": "frame-bc4674074514a6291d20741efd6f15e5097ba2469b63aa766045ec6f8d4d71c0",
+      "display_index": 163,
+      "pts": 83456,
+      "source_time_us": 6520000,
+      "rgb24_sha256": "43a5a5f10662c139992527e55bb1ce853cf87cc6d0d0f1bc3281818e80bc9b6d",
+      "schema_version": 1,
+      "marks": [
+        {
+          "x": 167.0,
+          "y": 151.0,
+          "radius": 12.0
+        },
+        {
+          "x": 139.0,
+          "y": 143.0,
+          "radius": 12.0
+        }
+      ],
+      "distance_px": 29.120439557122072,
+      "distance_bounds_px": [
+        5.120439557122072,
+        53.12043955712207
+      ]
+    },
+    {
+      "id": "frame-63919cfa284127f476ad50d14b8dd9a2fdc1810b209476829cbd032925d2ff38",
+      "display_index": 176,
+      "pts": 90112,
+      "source_time_us": 7040000,
+      "rgb24_sha256": "c118a953ca08dfd68160a2823399197fb55d02963f43b4bf99fa690475ace92e",
+      "schema_version": 1,
+      "marks": [
+        {
+          "x": 151.0,
+          "y": 151.0,
+          "radius": 12.0
+        },
+        {
+          "x": 141.0,
+          "y": 137.0,
+          "radius": 12.0
+        }
+      ],
+      "distance_px": 17.204650534085253,
+      "distance_bounds_px": [
+        0,
+        41.20465053408525
+      ]
+    }
+  ],
+  "divergence": [
+    {
+      "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+      "display_index": 250,
+      "pts": 128000,
+      "source_time_us": 10000000,
+      "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+      "display_index": 263,
+      "pts": 134656,
+      "source_time_us": 10520000,
+      "rgb24_sha256": "a2a7bc34ad481bd607b0087b299a2a238deadf8a456837ca2e1de9812090de49",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+      "display_index": 275,
+      "pts": 140800,
+      "source_time_us": 11000000,
+      "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+      "display_index": 288,
+      "pts": 147456,
+      "source_time_us": 11520000,
+      "rgb24_sha256": "501ada5b02f345a9ad65926ff00191eefdcc8d7aca2811396b79656ef99bc7f2",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+      "display_index": 300,
+      "pts": 153600,
+      "source_time_us": 12000000,
+      "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+      "display_index": 313,
+      "pts": 160256,
+      "source_time_us": 12520000,
+      "rgb24_sha256": "d561329fe5b9d259120a002a0afbec95211e3124261a2e8dfcee1335f898bc21",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+      "display_index": 325,
+      "pts": 166400,
+      "source_time_us": 13000000,
+      "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-7d01e523cdffab0fca101856f91ad31c36da1ac429a140ec3e9692f392e3e0b4",
+      "display_index": 338,
+      "pts": 173056,
+      "source_time_us": 13520000,
+      "rgb24_sha256": "5f7da68b42f924b215717d4ea58346380981ac558bbb8c1feaaff1064af6e0d6",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+      "display_index": 350,
+      "pts": 179200,
+      "source_time_us": 14000000,
+      "rgb24_sha256": "1328d87d39c45ad7a5bc19e7fcfecb07b196eb3dc87e73ece13daa4a7f290a93",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+      "display_index": 363,
+      "pts": 185856,
+      "source_time_us": 14520000,
+      "rgb24_sha256": "9e10b66cb9c0fda7cd687f16814cb4d5b8d2549cd436730fb5e2f54e7f667723",
+      "schema_version": 1
+    }
+  ]
+}

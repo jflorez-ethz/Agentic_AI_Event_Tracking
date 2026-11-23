@@ -1,0 +1,321 @@
+{
+  "B3": {
+    "F1": {
+      "index": 600,
+      "pts": 307200,
+      "source_time_us": 24000000,
+      "rgb24_sha256": "749f059eaba72608ce7309e4c289ec6c7c3d33eb35942ea3b925e6a490ef0065",
+      "source": "data/raw/LeftBag_PickedUp_pts.mp4",
+      "source_sha256": "d0b18910ecf6bf62c36f682834693f31d51fb0b18524833900043750643326c9",
+      "time_base": "1/12800"
+    },
+    "F2": {
+      "index": 675,
+      "pts": 345600,
+      "source_time_us": 27000000,
+      "rgb24_sha256": "9000a08cc0fc6c4479f0fbe3a10d183391493b5cde458c80b175779ba9f3119c",
+      "source": "data/raw/LeftBag_PickedUp_pts.mp4",
+      "source_sha256": "d0b18910ecf6bf62c36f682834693f31d51fb0b18524833900043750643326c9",
+      "time_base": "1/12800"
+    },
+    "F3": {
+      "index": 750,
+      "pts": 384000,
+      "source_time_us": 30000000,
+      "rgb24_sha256": "ac7ca01f0013f03db3adc5608025d8640415175d879021e3ccc416b494aa6912",
+      "source": "data/raw/LeftBag_PickedUp_pts.mp4",
+      "source_sha256": "d0b18910ecf6bf62c36f682834693f31d51fb0b18524833900043750643326c9",
+      "time_base": "1/12800"
+    }
+  },
+  "C6": {
+    "F1": {
+      "index": 600,
+      "pts": 307200,
+      "source_time_us": 24000000,
+      "rgb24_sha256": "671fc1310dc6373dd81258f2a812cd92640cb82240adf465cd8bfa92b94885ec",
+      "source": "data/raw/Walk2_pts.mp4",
+      "source_sha256": "680983f355e73f25a97adab5e83b0a6285090d4562991344f112201e70292672",
+      "time_base": "1/12800"
+    },
+    "F2": {
+      "index": 725,
+      "pts": 371200,
+      "source_time_us": 29000000,
+      "rgb24_sha256": "d85897b9c0e07902fe6556cb4363208c809dd5ad14902a5ab09ba7c92aa813ad",
+      "source": "data/raw/Walk2_pts.mp4",
+      "source_sha256": "680983f355e73f25a97adab5e83b0a6285090d4562991344f112201e70292672",
+      "time_base": "1/12800"
+    },
+    "F3": {
+      "index": 825,
+      "pts": 422400,
+      "source_time_us": 33000000,
+      "rgb24_sha256": "08a718f5af1d9e1fea754b191e330e4fabd1f523d61922ef0786497ba4c90031",
+      "source": "data/raw/Walk2_pts.mp4",
+      "source_sha256": "680983f355e73f25a97adab5e83b0a6285090d4562991344f112201e70292672",
+      "time_base": "1/12800"
+    }
+  },
+  "D4": {
+    "F1": {
+      "index": 1125,
+      "pts": 576000,
+      "source_time_us": 45000000,
+      "rgb24_sha256": "102437f66073c1ea71dc3996904bb74fc1076c340ae9b47b0c20d6c0fa5a1cde",
+      "source": "data/raw/TwoEnterShop1front_pts.mp4",
+      "source_sha256": "82fbef32481202a58d670d24840ebfec914bdfcb4170e37b566ef026aca3c637",
+      "time_base": "1/12800"
+    },
+    "F2": {
+      "index": 1200,
+      "pts": 614400,
+      "source_time_us": 48000000,
+      "rgb24_sha256": "b19771c70c3ba9ef5d66d20fb72b923086ba4f8d4184de3a83ffaeb57354f2f9",
+      "source": "data/raw/TwoEnterShop1front_pts.mp4",
+      "source_sha256": "82fbef32481202a58d670d24840ebfec914bdfcb4170e37b566ef026aca3c637",
+      "time_base": "1/12800"
+    },
+    "F3": {
+      "index": 1275,
+      "pts": 652800,
+      "source_time_us": 51000000,
+      "rgb24_sha256": "ae7b6f07d048b00e76af26640197385f318582163b2e1ba0926759114f52776e",
+      "source": "data/raw/TwoEnterShop1front_pts.mp4",
+      "source_sha256": "82fbef32481202a58d670d24840ebfec914bdfcb4170e37b566ef026aca3c637",
+      "time_base": "1/12800"
+    }
+  },
+  "G1": {
+    "F1": {
+      "index": 375,
+      "pts": 192000,
+      "source_time_us": 15000000,
+      "rgb24_sha256": "6726f5c6faeb71b3bad0cea515039ea8f02f2993f9e31c8906ee1bb108cdd6d5",
+      "source": "data/raw/TwoEnterShop1front_pts.mp4",
+      "source_sha256": "82fbef32481202a58d670d24840ebfec914bdfcb4170e37b566ef026aca3c637",
+      "time_base": "1/12800"
+    },
+    "F2": {
+      "index": 412,
+      "pts": 210944,
+      "source_time_us": 16480000,
+      "rgb24_sha256": "8d3fb5d8cbaf1b39f3c74153c891b6de179e664c98f85a3f7bff1f0048bebc4d",
+      "source": "data/raw/TwoEnterShop1front_pts.mp4",
+      "source_sha256": "82fbef32481202a58d670d24840ebfec914bdfcb4170e37b566ef026aca3c637",
+      "time_base": "1/12800"
+    },
+    "F3": {
+      "index": 450,
+      "pts": 230400,
+      "source_time_us": 18000000,
+      "rgb24_sha256": "e247caec5eed59b749e82f25405abcb42ca2d987207da433a0f368da444fa0c3",
+      "source": "data/raw/TwoEnterShop1front_pts.mp4",
+      "source_sha256": "82fbef32481202a58d670d24840ebfec914bdfcb4170e37b566ef026aca3c637",
+      "time_base": "1/12800"
+    }
+  },
+  "J8": {
+    "F1": {
+      "index": 100,
+      "pts": 51200,
+      "source_time_us": 4000000,
+      "rgb24_sha256": "aab167954aaa7ae95e84f2cffcff03904c52a2aae52b30206710ab1255012c83",
+      "source": "data/raw/Walk2_pts.mp4",
+      "source_sha256": "680983f355e73f25a97adab5e83b0a6285090d4562991344f112201e70292672",
+      "time_base": "1/12800"
+    },
+    "F2": {
+      "index": 137,
+      "pts": 70144,
+      "source_time_us": 5480000,
+      "rgb24_sha256": "68a350a1cd454bdb5645f84a53753febe0b2d689f8218c2036b1fd310ca25a5b",
+      "source": "data/raw/Walk2_pts.mp4",
+      "source_sha256": "680983f355e73f25a97adab5e83b0a6285090d4562991344f112201e70292672",
+      "time_base": "1/12800"
+    },
+    "F3": {
+      "index": 175,
+      "pts": 89600,
+      "source_time_us": 7000000,
+      "rgb24_sha256": "6e19bb0ba1228c659da236328a8f3639781f1e25168a3e131a2dade2ff61e09b",
+      "source": "data/raw/Walk2_pts.mp4",
+      "source_sha256": "680983f355e73f25a97adab5e83b0a6285090d4562991344f112201e70292672",
+      "time_base": "1/12800"
+    }
+  },
+  "L8": {
+    "F1": {
+      "index": 225,
+      "pts": 115200,
+      "source_time_us": 9000000,
+      "rgb24_sha256": "cdaacde5c1cd58a6fd380116083c971548219dc01558897d28d468df26bafac2",
+      "source": "data/raw/TwoEnterShop1front_pts.mp4",
+      "source_sha256": "82fbef32481202a58d670d24840ebfec914bdfcb4170e37b566ef026aca3c637",
+      "time_base": "1/12800"
+    },
+    "F2": {
+      "index": 262,
+      "pts": 134144,
+      "source_time_us": 10480000,
+      "rgb24_sha256": "b21efeda02b753d75c912c345d8435f9392cf0180418744465e0e52c7a89beae",
+      "source": "data/raw/TwoEnterShop1front_pts.mp4",
+      "source_sha256": "82fbef32481202a58d670d24840ebfec914bdfcb4170e37b566ef026aca3c637",
+      "time_base": "1/12800"
+    },
+    "F3": {
+      "index": 300,
+      "pts": 153600,
+      "source_time_us": 12000000,
+      "rgb24_sha256": "a46a1c393c57871d630115eb42164a24d73e876930da47b5e8fa6936840d1ce7",
+      "source": "data/raw/TwoEnterShop1front_pts.mp4",
+      "source_sha256": "82fbef32481202a58d670d24840ebfec914bdfcb4170e37b566ef026aca3c637",
+      "time_base": "1/12800"
+    }
+  },
+  "N4": {
+    "F1": {
+      "index": 375,
+      "pts": 192000,
+      "source_time_us": 15000000,
+      "rgb24_sha256": "97e5557c2ee0d3466225251fdc7dface7975a4a49243fda23e0858dabae34fbf",
+      "source": "data/raw/Walk2_pts.mp4",
+      "source_sha256": "680983f355e73f25a97adab5e83b0a6285090d4562991344f112201e70292672",
+      "time_base": "1/12800"
+    },
+    "F2": {
+      "index": 425,
+      "pts": 217600,
+      "source_time_us": 17000000,
+      "rgb24_sha256": "297bbcf8d4a4f2e1b5b86b70bf68271b8f30ceeb9fdb482a37166a39ac0ded50",
+      "source": "data/raw/Walk2_pts.mp4",
+      "source_sha256": "680983f355e73f25a97adab5e83b0a6285090d4562991344f112201e70292672",
+      "time_base": "1/12800"
+    },
+    "F3": {
+      "index": 475,
+      "pts": 243200,
+      "source_time_us": 19000000,
+      "rgb24_sha256": "c416f751b8a8babbd1a31dc486c04758f2f6090a211bae68c7d6d6f09c6d9e7d",
+      "source": "data/raw/Walk2_pts.mp4",
+      "source_sha256": "680983f355e73f25a97adab5e83b0a6285090d4562991344f112201e70292672",
+      "time_base": "1/12800"
+    }
+  },
+  "P9": {
+    "F1": {
+      "index": 0,
+      "pts": 0,
+      "source_time_us": 0,
+      "rgb24_sha256": "5c834af86649d641ea8d00b7818cd0bd40f4888728ad259c183ef0624a6da6b1",
+      "source": "data/raw/LeftBag_PickedUp_pts.mp4",
+      "source_sha256": "d0b18910ecf6bf62c36f682834693f31d51fb0b18524833900043750643326c9",
+      "time_base": "1/12800"
+    },
+    "F2": {
+      "index": 40,
+      "pts": 20480,
+      "source_time_us": 1600000,
+      "rgb24_sha256": "b5e065da1935d0015be9675b0b1d1c2dc46208f3ccc513d7ebd2278e9074df06",
+      "source": "data/raw/LeftBag_PickedUp_pts.mp4",
+      "source_sha256": "d0b18910ecf6bf62c36f682834693f31d51fb0b18524833900043750643326c9",
+      "time_base": "1/12800"
+    },
+    "F3": {
+      "index": 75,
+      "pts": 38400,
+      "source_time_us": 3000000,
+      "rgb24_sha256": "69072026d7f3adb1635cdbe9ff8a634b9c4f3ac4f1a69496ed375ebc099eccd5",
+      "source": "data/raw/LeftBag_PickedUp_pts.mp4",
+      "source_sha256": "d0b18910ecf6bf62c36f682834693f31d51fb0b18524833900043750643326c9",
+      "time_base": "1/12800"
+    }
+  },
+  "T2": {
+    "F1": {
+      "index": 900,
+      "pts": 460800,
+      "source_time_us": 36000000,
+      "rgb24_sha256": "26e1265f5297b9bb235be84d54a6bda06d389051f147cdee4d29b6427538e675",
+      "source": "data/raw/Walk2_pts.mp4",
+      "source_sha256": "680983f355e73f25a97adab5e83b0a6285090d4562991344f112201e70292672",
+      "time_base": "1/12800"
+    },
+    "F2": {
+      "index": 975,
+      "pts": 499200,
+      "source_time_us": 39000000,
+      "rgb24_sha256": "49bc1fcccee638af411e8c2f9f688ec01a628efd26cebfb3841d51547552bd28",
+      "source": "data/raw/Walk2_pts.mp4",
+      "source_sha256": "680983f355e73f25a97adab5e83b0a6285090d4562991344f112201e70292672",
+      "time_base": "1/12800"
+    },
+    "F3": {
+      "index": 1050,
+      "pts": 537600,
+      "source_time_us": 42000000,
+      "rgb24_sha256": "3fec64909a62b719553d7d3790456a0220ed41a3dfdb134047b41d504ba49e30",
+      "source": "data/raw/Walk2_pts.mp4",
+      "source_sha256": "680983f355e73f25a97adab5e83b0a6285090d4562991344f112201e70292672",
+      "time_base": "1/12800"
+    }
+  },
+  "V7": {
+    "F1": {
+      "index": 550,
+      "pts": 281600,
+      "source_time_us": 22000000,
+      "rgb24_sha256": "85e7346324169fdfb3cef40652db963fd6031db983519d388ef829281f039cb7",
+      "source": "data/raw/TwoEnterShop1front_pts.mp4",
+      "source_sha256": "82fbef32481202a58d670d24840ebfec914bdfcb4170e37b566ef026aca3c637",
+      "time_base": "1/12800"
+    },
+    "F2": {
+      "index": 612,
+      "pts": 313344,
+      "source_time_us": 24480000,
+      "rgb24_sha256": "ecb212c49d1d396138f7d1a077445fb902ee54092ee68a037140644149a305da",
+      "source": "data/raw/TwoEnterShop1front_pts.mp4",
+      "source_sha256": "82fbef32481202a58d670d24840ebfec914bdfcb4170e37b566ef026aca3c637",
+      "time_base": "1/12800"
+    },
+    "F3": {
+      "index": 675,
+      "pts": 345600,
+      "source_time_us": 27000000,
+      "rgb24_sha256": "869edfad657968d361e54bbb202efc826358d9ec9631b1f8e4ec1efa92ef23c0",
+      "source": "data/raw/TwoEnterShop1front_pts.mp4",
+      "source_sha256": "82fbef32481202a58d670d24840ebfec914bdfcb4170e37b566ef026aca3c637",
+      "time_base": "1/12800"
+    }
+  },
+  "X5": {
+    "F1": {
+      "index": 900,
+      "pts": 460800,
+      "source_time_us": 36000000,
+      "rgb24_sha256": "7042d2eaf25d03becb27f41982f38d22827bbc3569e7250962a55c350a42a8b5",
+      "source": "data/raw/LeftBag_PickedUp_pts.mp4",
+      "source_sha256": "d0b18910ecf6bf62c36f682834693f31d51fb0b18524833900043750643326c9",
+      "time_base": "1/12800"
+    },
+    "F2": {
+      "index": 975,
+      "pts": 499200,
+      "source_time_us": 39000000,
+      "rgb24_sha256": "cd17508b5c938e5eaedbd10075af92c3ef3dec456d25d2e6393f2b7aca12e628",
+      "source": "data/raw/LeftBag_PickedUp_pts.mp4",
+      "source_sha256": "d0b18910ecf6bf62c36f682834693f31d51fb0b18524833900043750643326c9",
+      "time_base": "1/12800"
+    },
+    "F3": {
+      "index": 1050,
+      "pts": 537600,
+      "source_time_us": 42000000,
+      "rgb24_sha256": "025e849659f8d7cd25ca7980bc91076356902218b0a62e695fa0ea9d88d247de",
+      "source": "data/raw/LeftBag_PickedUp_pts.mp4",
+      "source_sha256": "d0b18910ecf6bf62c36f682834693f31d51fb0b18524833900043750643326c9",
+      "time_base": "1/12800"
+    }
+  }
+}

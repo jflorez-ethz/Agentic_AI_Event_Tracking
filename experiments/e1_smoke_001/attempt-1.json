@@ -1,0 +1,188 @@
+{
+  "status": "success",
+  "metadata": {
+    "provider": "google-gemini-developer-api",
+    "model_id": "gemini-3.5-flash-lite",
+    "model_version": "gemini-3.5-flash-lite",
+    "adapter_version": "1",
+    "prompt_version": "e1-v1",
+    "settings": [
+      [
+        "sdk_version",
+        "3.6.1"
+      ],
+      [
+        "max_output_tokens",
+        4096
+      ],
+      [
+        "thinking_level",
+        "LOW"
+      ]
+    ],
+    "elapsed_ms": 1818,
+    "usage": [
+      [
+        "prompt_token_count",
+        2246
+      ],
+      [
+        "candidates_token_count",
+        117
+      ],
+      [
+        "total_token_count",
+        2363
+      ]
+    ]
+  },
+  "observations": [
+    {
+      "id": "observation-008b3a379f98851766ad36fa1519d137d6a4ff529be297775cb57f834f3d1f6a",
+      "inspection_id": "inspection-2bede3b9eee1436f4959be49f214c2ebb0abaf33cad3482a3af93ec5f884e0d5",
+      "category": "visible_activity",
+      "description": "A person in a blue shirt is bending over near objects on the floor.",
+      "evidence": {
+        "frame_ids": [
+          "frame-a54c839dad8bf2e98dc635a9ef8ba4fbc46c580a570218eeab3f01689b2ad0f6",
+          "frame-b7239eb0aedda21ea1550459750c2114a7cf11120d6871a27e574e487159b0d7"
+        ]
+      },
+      "visibility_limits": "High angle overhead view, small figures, somewhat blurry.",
+      "uncertainty": "Exact motion between frames is not continuously captured.",
+      "source_video_id": "video-5ccee870c2f89fc169832abf3aa4c82892d02562c2fd80c2e30ffd776780a723",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.5-flash-lite",
+        "model_version": "gemini-3.5-flash-lite",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            4096
+          ],
+          [
+            "thinking_level",
+            "LOW"
+          ]
+        ],
+        "elapsed_ms": 1818,
+        "usage": [
+          [
+            "prompt_token_count",
+            2246
+          ],
+          [
+            "candidates_token_count",
+            117
+          ],
+          [
+            "total_token_count",
+            2363
+          ]
+        ]
+      },
+      "schema_version": 1
+    }
+  ],
+  "raw_response": "{\n  \"observations\": [\n    {\n      \"category\": \"visible_activity\",\n      \"description\": \"A person in a blue shirt is bending over near objects on the floor.\",\n      \"visibility_limits\": \"High angle overhead view, small figures, somewhat blurry.\",\n      \"uncertainty\": \"Exact motion between frames is not continuously captured.\",\n      \"frame_labels\": [\n        \"F1\",\n        \"F2\"\n      ],\n      \"clip_interval_us\": []\n    }\n  ]\n}",
+  "schema_version": 1,
+  "response_details": {
+    "sdk_http_response": {
+      "headers": {
+        "x-gemini-service-tier": "standard",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin, X-Origin, Referer",
+        "content-encoding": "gzip",
+        "date": "Sat, 21 Nov 2026 13:11:37 GMT",
+        "server": "scaffolding on HTTPServer2",
+        "x-xss-protection": "0",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "server-timing": "gfet4t7; dur=1487",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "transfer-encoding": "chunked"
+      }
+    },
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"observations\": [\n    {\n      \"category\": \"visible_activity\",\n      \"description\": \"A person in a blue shirt is bending over near objects on the floor.\",\n      \"visibility_limits\": \"High angle overhead view, small figures, somewhat blurry.\",\n      \"uncertainty\": \"Exact motion between frames is not continuously captured.\",\n      \"frame_labels\": [\n        \"F1\",\n        \"F2\"\n      ],\n      \"clip_interval_us\": []\n    }\n  ]\n}",
+              "thought_signature": "Eo4BCosBAWkUfRPeemMUCqwUpxGnE2dZoj0xV49TfkMiuIHDAiU5QlzM5ZgqQS6Nxdu0Vno1FWuSpLujfBmq_jGWJ5SmOtbWqxa5tRZNLQS9GsmWpP3H2ORxvsC8ehelmeSB1WJaUv4TDM-D2rtilDYXZyxnWile6AWGJd57_KcmO2YA-OkE7fsnBNj6BcybWg=="
+            }
+          ],
+          "role": "model"
+        },
+        "finish_reason": "STOP",
+        "index": 0
+      }
+    ],
+    "model_version": "gemini-3.5-flash-lite",
+    "response_id": "iJgBa4qkEJahkdUPtJPJ2Ak",
+    "usage_metadata": {
+      "candidates_token_count": 117,
+      "prompt_token_count": 2246,
+      "prompt_tokens_details": [
+        {
+          "modality": "IMAGE",
+          "token_count": 2128
+        },
+        {
+          "modality": "TEXT",
+          "token_count": 118
+        }
+      ],
+      "total_token_count": 2363
+    },
+    "automatic_function_calling_history": [],
+    "parsed": {
+      "observations": [
+        {
+          "category": "visible_activity",
+          "description": "A person in a blue shirt is bending over near objects on the floor.",
+          "visibility_limits": "High angle overhead view, small figures, somewhat blurry.",
+          "uncertainty": "Exact motion between frames is not continuously captured.",
+          "frame_labels": [
+            "F1",
+            "F2"
+          ],
+          "clip_interval_us": []
+        }
+      ]
+    }
+  },
+  "replay": [
+    {
+      "observation_id": "observation-008b3a379f98851766ad36fa1519d137d6a4ff529be297775cb57f834f3d1f6a",
+      "source_video_id": "video-5ccee870c2f89fc169832abf3aa4c82892d02562c2fd80c2e30ffd776780a723",
+      "inspection_id": "inspection-2bede3b9eee1436f4959be49f214c2ebb0abaf33cad3482a3af93ec5f884e0d5",
+      "resolved_source_frames": [
+        {
+          "id": "frame-a54c839dad8bf2e98dc635a9ef8ba4fbc46c580a570218eeab3f01689b2ad0f6",
+          "display_index": 930,
+          "pts": 3369573,
+          "source_time_us": 37439700,
+          "rgb24_sha256": "d1c98ed46acf7c08ce4f308262f2ded2e5b5f58cce6981b3045644e15763d644",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-b7239eb0aedda21ea1550459750c2114a7cf11120d6871a27e574e487159b0d7",
+          "display_index": 942,
+          "pts": 3412773,
+          "source_time_us": 37919700,
+          "rgb24_sha256": "f8b0eac83add6f5906c16ba9e03f13286674889eb4e1539d94e6f3664dd2a32a",
+          "schema_version": 1
+        }
+      ]
+    }
+  ],
+  "cost": null,
+  "started_utc": "2026-11-21T13:11:35.937888+00:00"
+}

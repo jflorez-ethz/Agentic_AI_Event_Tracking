@@ -1,0 +1,24 @@
+{
+  "decision": null,
+  "error": "Gemini role did not return a completed candidate",
+  "role_calls": [
+    {
+      "role": "investigation",
+      "model": "gemini-3.6-flash",
+      "status": "invalid_output",
+      "usage": {
+        "prompt_token_count": 10578,
+        "candidates_token_count": 1009,
+        "total_token_count": 11587
+      },
+      "transport_attempts": [
+        {
+          "request_number": 1,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 6615
+    }
+  ]
+}

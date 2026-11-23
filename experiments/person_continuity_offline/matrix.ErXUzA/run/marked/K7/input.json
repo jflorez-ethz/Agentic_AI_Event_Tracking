@@ -1,0 +1,35 @@
+{
+  "F1": {
+    "file": "0250.png",
+    "index": 250,
+    "pts": 128000,
+    "source_time_us": 10000000,
+    "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+    "marker_center_xy": [
+      105,
+      120
+    ],
+    "marked_png": "experiments/person_continuity_offline/matrix.ErXUzA/run/marked/K7/F1.png",
+    "marked_png_sha256": "5c9c786a748b2e63746eafaaaa6c27f68c87816a2bd31d20c46ed827356d676e"
+  },
+  "F2": {
+    "file": "0300.png",
+    "index": 300,
+    "pts": 153600,
+    "source_time_us": 12000000,
+    "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157"
+  },
+  "F3": {
+    "file": "0325.png",
+    "index": 325,
+    "pts": 166400,
+    "source_time_us": 13000000,
+    "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+    "marker_center_xy": [
+      78,
+      100
+    ],
+    "marked_png": "experiments/person_continuity_offline/matrix.ErXUzA/run/marked/K7/F3.png",
+    "marked_png_sha256": "553e74058ef05e5266d2f515e95c8ad3890e82778b0bd74e782f47eea5ce118c"
+  }
+}

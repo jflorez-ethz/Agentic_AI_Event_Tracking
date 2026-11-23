@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CAVIAR movement review · Security, Augmented</title>
+  <link rel="stylesheet" href="review.css">
+  <script defer src="data.js"></script>
+  <script defer src="review.js"></script>
+  <script defer src="page.js"></script>
+</head>
+<body>
+  <header>
+    <div class="wrap masthead">
+      <div><div class="brand">SECURITY, AUGMENTED</div><h1>CAVIAR movement review</h1></div>
+      <div id="progress" role="status"></div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="toolbar" aria-label="Review controls">
+      <label>Video<select id="case"></select></label>
+      <label>Prediction<select id="prediction"></select></label>
+      <label>Reviewer code<input id="reviewer" autocomplete="off" placeholder="e.g. reviewer-01"></label>
+      <div class="actions">
+        <button id="import" type="button">Import review</button>
+        <button id="draft" type="button">Save draft</button>
+        <button id="export" class="primary" type="button">Export for scoring</button>
+        <input type="file" id="file" accept="application/json,.json" hidden>
+      </div>
+      <p id="status" role="status"></p>
+    </section>
+    <p id="readiness" class="meta" role="status"></p>
+    <p id="alignment" class="warning" hidden></p>
+    <nav aria-label="CAVIAR candidates" id="candidates"></nav>
+    <div id="evidence" class="grid"></div>
+    <section id="judgment" class="panel"></section>
+  </main>
+</body>
+</html>

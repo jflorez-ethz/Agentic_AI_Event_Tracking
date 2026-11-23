@@ -1,0 +1,416 @@
+{
+  "case": "walk_split",
+  "source_sha256": "f5290c0107a7d5e2bca9c324d1e2f15929ce7df86ea755613229f18af5c554a0",
+  "reference_kind": "caviar_conversion",
+  "alignment_status": "local_verified",
+  "review_complete": false,
+  "reviewers": [],
+  "events": [
+    {
+      "id": "caviar-person-0-0-27",
+      "category": "person_moved",
+      "description": "CAVIAR labels individual 0 walking.",
+      "interval": {
+        "start_us": 0,
+        "end_us": 1120000
+      },
+      "status": "supported",
+      "participants": [
+        "caviar-object:0"
+      ],
+      "supporting_frames": [
+        {
+          "display_index": 0,
+          "pts": 0,
+          "source_time_us": 0
+        },
+        {
+          "display_index": 27,
+          "pts": 13824,
+          "source_time_us": 1080000
+        }
+      ],
+      "uncertainty": "Label boundaries follow the XML, clipped to the evaluation source.",
+      "provenance": {
+        "xml": "data/annotations/mws1gt.xml",
+        "kind": "objects",
+        "entity_id": "0",
+        "members": [],
+        "hypothesis_id": "1",
+        "field": "movement",
+        "label": "walking",
+        "field_evaluation": "1.0",
+        "original_frame_interval": {
+          "start": 0,
+          "end_exclusive": 28
+        },
+        "local_interval": {
+          "start_us": 0,
+          "end_us": 1120000
+        },
+        "compatibility": "broader_person_moved"
+      }
+    },
+    {
+      "id": "caviar-person-2-1-135",
+      "category": "person_moved",
+      "description": "CAVIAR labels individual 2 walking.",
+      "interval": {
+        "start_us": 40000,
+        "end_us": 5440000
+      },
+      "status": "supported",
+      "participants": [
+        "caviar-object:2"
+      ],
+      "supporting_frames": [
+        {
+          "display_index": 1,
+          "pts": 512,
+          "source_time_us": 40000
+        },
+        {
+          "display_index": 135,
+          "pts": 69120,
+          "source_time_us": 5400000
+        }
+      ],
+      "uncertainty": "Label boundaries follow the XML, clipped to the evaluation source.",
+      "provenance": {
+        "xml": "data/annotations/mws1gt.xml",
+        "kind": "objects",
+        "entity_id": "2",
+        "members": [],
+        "hypothesis_id": "1",
+        "field": "movement",
+        "label": "walking",
+        "field_evaluation": "1.0",
+        "original_frame_interval": {
+          "start": 1,
+          "end_exclusive": 136
+        },
+        "local_interval": {
+          "start_us": 40000,
+          "end_us": 5440000
+        },
+        "compatibility": "broader_person_moved"
+      }
+    },
+    {
+      "id": "caviar-person-1-52-403",
+      "category": "person_moved",
+      "description": "CAVIAR labels individual 1 walking.",
+      "interval": {
+        "start_us": 2080000,
+        "end_us": 16160000
+      },
+      "status": "supported",
+      "participants": [
+        "caviar-object:1"
+      ],
+      "supporting_frames": [
+        {
+          "display_index": 52,
+          "pts": 26624,
+          "source_time_us": 2080000
+        },
+        {
+          "display_index": 403,
+          "pts": 206336,
+          "source_time_us": 16120000
+        }
+      ],
+      "uncertainty": "Label boundaries follow the XML, clipped to the evaluation source.",
+      "provenance": {
+        "xml": "data/annotations/mws1gt.xml",
+        "kind": "objects",
+        "entity_id": "1",
+        "members": [],
+        "hypothesis_id": "1",
+        "field": "movement",
+        "label": "walking",
+        "field_evaluation": "1.0",
+        "original_frame_interval": {
+          "start": 52,
+          "end_exclusive": 404
+        },
+        "local_interval": {
+          "start_us": 2080000,
+          "end_us": 16160000
+        },
+        "compatibility": "broader_person_moved"
+      }
+    },
+    {
+      "id": "caviar-person-3-68-433",
+      "category": "person_moved",
+      "description": "CAVIAR labels individual 3 walking.",
+      "interval": {
+        "start_us": 2720000,
+        "end_us": 17360000
+      },
+      "status": "supported",
+      "participants": [
+        "caviar-object:3"
+      ],
+      "supporting_frames": [
+        {
+          "display_index": 68,
+          "pts": 34816,
+          "source_time_us": 2720000
+        },
+        {
+          "display_index": 433,
+          "pts": 221696,
+          "source_time_us": 17320000
+        }
+      ],
+      "uncertainty": "Label boundaries follow the XML, clipped to the evaluation source.",
+      "provenance": {
+        "xml": "data/annotations/mws1gt.xml",
+        "kind": "objects",
+        "entity_id": "3",
+        "members": [],
+        "hypothesis_id": "1",
+        "field": "movement",
+        "label": "walking",
+        "field_evaluation": "1.0",
+        "original_frame_interval": {
+          "start": 68,
+          "end_exclusive": 434
+        },
+        "local_interval": {
+          "start_us": 2720000,
+          "end_us": 17360000
+        },
+        "compatibility": "broader_person_moved"
+      }
+    },
+    {
+      "id": "caviar-person-4-102-205",
+      "category": "person_moved",
+      "description": "CAVIAR labels individual 4 walking.",
+      "interval": {
+        "start_us": 4080000,
+        "end_us": 8240000
+      },
+      "status": "supported",
+      "participants": [
+        "caviar-object:4"
+      ],
+      "supporting_frames": [
+        {
+          "display_index": 102,
+          "pts": 52224,
+          "source_time_us": 4080000
+        },
+        {
+          "display_index": 205,
+          "pts": 104960,
+          "source_time_us": 8200000
+        }
+      ],
+      "uncertainty": "Label boundaries follow the XML, clipped to the evaluation source.",
+      "provenance": {
+        "xml": "data/annotations/mws1gt.xml",
+        "kind": "objects",
+        "entity_id": "4",
+        "members": [],
+        "hypothesis_id": "1",
+        "field": "movement",
+        "label": "walking",
+        "field_evaluation": "1.0",
+        "original_frame_interval": {
+          "start": 102,
+          "end_exclusive": 206
+        },
+        "local_interval": {
+          "start_us": 4080000,
+          "end_us": 8240000
+        },
+        "compatibility": "broader_person_moved"
+      }
+    },
+    {
+      "id": "caviar-person-5-130-327",
+      "category": "person_moved",
+      "description": "CAVIAR labels individual 5 walking.",
+      "interval": {
+        "start_us": 5200000,
+        "end_us": 13120000
+      },
+      "status": "supported",
+      "participants": [
+        "caviar-object:5"
+      ],
+      "supporting_frames": [
+        {
+          "display_index": 130,
+          "pts": 66560,
+          "source_time_us": 5200000
+        },
+        {
+          "display_index": 327,
+          "pts": 167424,
+          "source_time_us": 13080000
+        }
+      ],
+      "uncertainty": "Label boundaries follow the XML, clipped to the evaluation source.",
+      "provenance": {
+        "xml": "data/annotations/mws1gt.xml",
+        "kind": "objects",
+        "entity_id": "5",
+        "members": [],
+        "hypothesis_id": "1",
+        "field": "movement",
+        "label": "walking",
+        "field_evaluation": "1.0",
+        "original_frame_interval": {
+          "start": 130,
+          "end_exclusive": 328
+        },
+        "local_interval": {
+          "start_us": 5200000,
+          "end_us": 13120000
+        },
+        "compatibility": "broader_person_moved"
+      }
+    },
+    {
+      "id": "caviar-person-6-156-376",
+      "category": "person_moved",
+      "description": "CAVIAR labels individual 6 walking.",
+      "interval": {
+        "start_us": 6240000,
+        "end_us": 15080000
+      },
+      "status": "supported",
+      "participants": [
+        "caviar-object:6"
+      ],
+      "supporting_frames": [
+        {
+          "display_index": 156,
+          "pts": 79872,
+          "source_time_us": 6240000
+        },
+        {
+          "display_index": 376,
+          "pts": 192512,
+          "source_time_us": 15040000
+        }
+      ],
+      "uncertainty": "Label boundaries follow the XML, clipped to the evaluation source.",
+      "provenance": {
+        "xml": "data/annotations/mws1gt.xml",
+        "kind": "objects",
+        "entity_id": "6",
+        "members": [],
+        "hypothesis_id": "1",
+        "field": "movement",
+        "label": "walking",
+        "field_evaluation": "1.0",
+        "original_frame_interval": {
+          "start": 156,
+          "end_exclusive": 377
+        },
+        "local_interval": {
+          "start_us": 6240000,
+          "end_us": 15080000
+        },
+        "compatibility": "broader_person_moved"
+      }
+    },
+    {
+      "id": "caviar-person-7-303-478",
+      "category": "person_moved",
+      "description": "CAVIAR labels individual 7 walking.",
+      "interval": {
+        "start_us": 12120000,
+        "end_us": 19160000
+      },
+      "status": "supported",
+      "participants": [
+        "caviar-object:7"
+      ],
+      "supporting_frames": [
+        {
+          "display_index": 303,
+          "pts": 155136,
+          "source_time_us": 12120000
+        },
+        {
+          "display_index": 478,
+          "pts": 244736,
+          "source_time_us": 19120000
+        }
+      ],
+      "uncertainty": "Label boundaries follow the XML, clipped to the evaluation source.",
+      "provenance": {
+        "xml": "data/annotations/mws1gt.xml",
+        "kind": "objects",
+        "entity_id": "7",
+        "members": [],
+        "hypothesis_id": "1",
+        "field": "movement",
+        "label": "walking",
+        "field_evaluation": "1.0",
+        "original_frame_interval": {
+          "start": 303,
+          "end_exclusive": 479
+        },
+        "local_interval": {
+          "start_us": 12120000,
+          "end_us": 19160000
+        },
+        "compatibility": "broader_person_moved"
+      }
+    },
+    {
+      "id": "caviar-person-8-611-622",
+      "category": "person_moved",
+      "description": "CAVIAR labels individual 8 walking.",
+      "interval": {
+        "start_us": 24440000,
+        "end_us": 24920000
+      },
+      "status": "supported",
+      "participants": [
+        "caviar-object:8"
+      ],
+      "supporting_frames": [
+        {
+          "display_index": 611,
+          "pts": 312832,
+          "source_time_us": 24440000
+        },
+        {
+          "display_index": 622,
+          "pts": 318464,
+          "source_time_us": 24880000
+        }
+      ],
+      "uncertainty": "Label boundaries follow the XML, clipped to the evaluation source.",
+      "provenance": {
+        "xml": "data/annotations/mws1gt.xml",
+        "kind": "objects",
+        "entity_id": "8",
+        "members": [],
+        "hypothesis_id": "1",
+        "field": "movement",
+        "label": "walking",
+        "field_evaluation": "1.0",
+        "original_frame_interval": {
+          "start": 611,
+          "end_exclusive": 623
+        },
+        "local_interval": {
+          "start_us": 24440000,
+          "end_us": 24920000
+        },
+        "compatibility": "broader_person_moved"
+      }
+    }
+  ],
+  "questions": []
+}

@@ -1,0 +1,34 @@
+{
+  "case": "M2",
+  "frames": [
+    {
+      "file": "0250.png",
+      "index": 250,
+      "pts": 128000,
+      "source_time_us": 10000000,
+      "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e"
+    },
+    {
+      "file": "0251.png",
+      "index": 251,
+      "pts": 128512,
+      "source_time_us": 10040000,
+      "rgb24_sha256": "36dbc136ebb318cc2714742ff63c01f915e52bb124a448656bb416fc5ad29810"
+    },
+    {
+      "file": "0325.png",
+      "index": 325,
+      "pts": 166400,
+      "source_time_us": 13000000,
+      "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865"
+    }
+  ],
+  "start_region_xy": [
+    105,
+    120
+  ],
+  "end_region_xy": [
+    78,
+    100
+  ]
+}

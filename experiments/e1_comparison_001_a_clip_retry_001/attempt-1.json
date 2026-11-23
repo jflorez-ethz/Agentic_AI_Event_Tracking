@@ -1,0 +1,381 @@
+{
+  "status": "success",
+  "metadata": {
+    "provider": "google-gemini-developer-api",
+    "model_id": "gemini-3.5-flash-lite",
+    "model_version": "gemini-3.5-flash-lite",
+    "adapter_version": "1",
+    "prompt_version": "e1-v1",
+    "settings": [
+      [
+        "sdk_version",
+        "3.6.1"
+      ],
+      [
+        "max_output_tokens",
+        4096
+      ],
+      [
+        "thinking_level",
+        "LOW"
+      ],
+      [
+        "requested_video_fps",
+        2.0
+      ]
+    ],
+    "elapsed_ms": 1888,
+    "usage": [
+      [
+        "prompt_token_count",
+        670
+      ],
+      [
+        "candidates_token_count",
+        154
+      ],
+      [
+        "total_token_count",
+        824
+      ]
+    ]
+  },
+  "observations": [
+    {
+      "id": "observation-12b13d2ddd6df6c037a5d1df2e50093f27559b19aada710023d69e417ead9d13",
+      "inspection_id": "clip-63da2703f6b03984482acae7c07cde10be5934aeaf0c7ab288ce77920ee51d13",
+      "category": "object_placed",
+      "description": "A person sets down an object near the right wall and walks away, leaving the object in view.",
+      "evidence": {
+        "interval": {
+          "start_us": 1000000,
+          "end_us": 2000000
+        }
+      },
+      "visibility_limits": "High angle overhead view, object is partially obscured by the person while being placed.",
+      "uncertainty": "Exact timing of placement is uncertain within the 1000000us to 2000000us interval.",
+      "source_video_id": "video-5ccee870c2f89fc169832abf3aa4c82892d02562c2fd80c2e30ffd776780a723",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.5-flash-lite",
+        "model_version": "gemini-3.5-flash-lite",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            4096
+          ],
+          [
+            "thinking_level",
+            "LOW"
+          ],
+          [
+            "requested_video_fps",
+            2.0
+          ]
+        ],
+        "elapsed_ms": 1888,
+        "usage": [
+          [
+            "prompt_token_count",
+            670
+          ],
+          [
+            "candidates_token_count",
+            154
+          ],
+          [
+            "total_token_count",
+            824
+          ]
+        ]
+      },
+      "schema_version": 1
+    }
+  ],
+  "raw_response": "{\n  \"observations\": [\n    {\n      \"category\": \"object_placed\",\n      \"description\": \"A person sets down an object near the right wall and walks away, leaving the object in view.\",\n      \"visibility_limits\": \"High angle overhead view, object is partially obscured by the person while being placed.\",\n      \"uncertainty\": \"Exact timing of placement is uncertain within the 1000000us to 2000000us interval.\",\n      \"frame_labels\": [],\n      \"clip_interval_us\": [\n        1000000,\n        2000000\n      ]\n    }\n  ]\n}",
+  "schema_version": 1,
+  "response_details": {
+    "sdk_http_response": {
+      "headers": {
+        "x-gemini-service-tier": "standard",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin, X-Origin, Referer",
+        "content-encoding": "gzip",
+        "date": "Sat, 21 Nov 2026 13:37:41 GMT",
+        "server": "scaffolding on HTTPServer2",
+        "x-xss-protection": "0",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "server-timing": "gfet4t7; dur=1638",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "transfer-encoding": "chunked"
+      }
+    },
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"observations\": [\n    {\n      \"category\": \"object_placed\",\n      \"description\": \"A person sets down an object near the right wall and walks away, leaving the object in view.\",\n      \"visibility_limits\": \"High angle overhead view, object is partially obscured by the person while being placed.\",\n      \"uncertainty\": \"Exact timing of placement is uncertain within the 1000000us to 2000000us interval.\",\n      \"frame_labels\": [],\n      \"clip_interval_us\": [\n        1000000,\n        2000000\n      ]\n    }\n  ]\n}",
+              "thought_signature": "Eo4BCosBAWkUfRMRGrqTIH_4m3tt5RwjD6Ga9oB6pshm9D8_yFbqDA8Q-rP7CS3YLEqKQkZcjLXOGWNJ3pwhGsOFaR63bU589SvtdF2TwqaSSl7CSKzL81xJnlcQ-mUBTa2s1X9koUzig1r7q7TM1IdH2ovjYNOEIoSNcauOM-c4Y1ku7jXjsm-XsjDWFZ8Wjg=="
+            }
+          ],
+          "role": "model"
+        },
+        "finish_reason": "STOP",
+        "index": 0
+      }
+    ],
+    "model_version": "gemini-3.5-flash-lite",
+    "response_id": "pJ4Ba5KaHoLOnsEP3LbKwQo",
+    "usage_metadata": {
+      "candidates_token_count": 154,
+      "prompt_token_count": 670,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 166
+        },
+        {
+          "modality": "VIDEO",
+          "token_count": 504
+        }
+      ],
+      "total_token_count": 824
+    },
+    "automatic_function_calling_history": [],
+    "parsed": {
+      "observations": [
+        {
+          "category": "object_placed",
+          "description": "A person sets down an object near the right wall and walks away, leaving the object in view.",
+          "visibility_limits": "High angle overhead view, object is partially obscured by the person while being placed.",
+          "uncertainty": "Exact timing of placement is uncertain within the 1000000us to 2000000us interval.",
+          "frame_labels": [],
+          "clip_interval_us": [
+            1000000,
+            2000000
+          ]
+        }
+      ]
+    }
+  },
+  "replay": [
+    {
+      "observation_id": "observation-12b13d2ddd6df6c037a5d1df2e50093f27559b19aada710023d69e417ead9d13",
+      "source_video_id": "video-5ccee870c2f89fc169832abf3aa4c82892d02562c2fd80c2e30ffd776780a723",
+      "inspection_id": "clip-63da2703f6b03984482acae7c07cde10be5934aeaf0c7ab288ce77920ee51d13",
+      "resolved_source_frames": [
+        {
+          "id": "frame-ee41e5edc971d344c5042343dee371d3613a5d4011a6285a835747caef222e90",
+          "display_index": 920,
+          "pts": 3333573,
+          "source_time_us": 37039700,
+          "rgb24_sha256": "86a415043a307e9adc0e232d3afb158a8ecc57e7fc95ca0a47464c5c7f276ec7",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-ad476dc962ff71caaaf6f5f1d56a42532f1c41b5d4ccede162a9b8689dc7c384",
+          "display_index": 921,
+          "pts": 3337173,
+          "source_time_us": 37079700,
+          "rgb24_sha256": "df8d3e5ebe9155c9ec00cd79fa76875aadbff4c8f3d55f4e5f80a910de3c8f2e",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-2be24088a77709f3e2fa3e957e482e10ee0d82cd8607625d4396991f4ecc0948",
+          "display_index": 922,
+          "pts": 3340773,
+          "source_time_us": 37119700,
+          "rgb24_sha256": "a5001623468b0082f1a6e0fad73a919119edac690a5a23e0cd9d612c06e38622",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-4f3c8fc235f3137c29745fc0b1159df502647fc3f0719e4f2adab9f6855d285f",
+          "display_index": 923,
+          "pts": 3344373,
+          "source_time_us": 37159700,
+          "rgb24_sha256": "0cb98e9111ff377e012a45db4b9b1c6614789e7fc90b8000878fdabe471e0be4",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-6c2c5a29f2379dc0e9299b0cb4599cc1c86c5a3286cfa54565d2d8105b1f2130",
+          "display_index": 924,
+          "pts": 3347973,
+          "source_time_us": 37199700,
+          "rgb24_sha256": "fc99b46e76f7fd8bcaf3dc98bb7ceb5165ec5ab9110382d8616e03d769521d56",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-67f5d3483fada3d8e0d12748c71fed805ea7dc1727bdb7fed36eabcae5f5c34a",
+          "display_index": 925,
+          "pts": 3351573,
+          "source_time_us": 37239700,
+          "rgb24_sha256": "969e8df3eeb6f842099ff5401d9fa3436ded4df71fc596469fbdf3af6b69a08a",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-1b576ef22035cba69a4eed1c2f6288ae46766bd54708415cf7385430dd307239",
+          "display_index": 926,
+          "pts": 3355173,
+          "source_time_us": 37279700,
+          "rgb24_sha256": "6e7d6602dc966637493c88b51b049636cd8c26941f572dbd9acf76c7fabb3847",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-a2be4ff8ffc966ea8a8762ef5562eaf71ad56ac162cc3bf5c5414740f7fcea0b",
+          "display_index": 927,
+          "pts": 3358773,
+          "source_time_us": 37319700,
+          "rgb24_sha256": "01eb2b8d068b44707890d392ee72d43c6bdc8cc10b43a6fc07b25c8c978fa6fb",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-4960c4a683cb51b52cc241de24fcb4920b322f26013585725e12b89187f79a08",
+          "display_index": 928,
+          "pts": 3362373,
+          "source_time_us": 37359700,
+          "rgb24_sha256": "93d82babe0dc6c9c6639fc5f792ef7f5564df37e52ab02d269aaef2de979bb9f",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-9ce3ab9f6503325022b6db0152fab5107739ebe79aec19caa641134b72975e42",
+          "display_index": 929,
+          "pts": 3365973,
+          "source_time_us": 37399700,
+          "rgb24_sha256": "c1dd0839cb202dd219e4ad04fa00b6c84452ebf0dd2fb92366ce11736f01aa96",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-a54c839dad8bf2e98dc635a9ef8ba4fbc46c580a570218eeab3f01689b2ad0f6",
+          "display_index": 930,
+          "pts": 3369573,
+          "source_time_us": 37439700,
+          "rgb24_sha256": "d1c98ed46acf7c08ce4f308262f2ded2e5b5f58cce6981b3045644e15763d644",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-02e6c320664741c561cfd4ce4c7aa774160bb94f9d805fc58ad6e990e24b36a4",
+          "display_index": 931,
+          "pts": 3373173,
+          "source_time_us": 37479700,
+          "rgb24_sha256": "828053cc65a258127814b1efb68ab65c8390efc27196c64584dc48f513e8584c",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-8f43919a5934901c478373daa005977d7ce88b65857dd6ce1de7c7fdcc7fe031",
+          "display_index": 932,
+          "pts": 3376773,
+          "source_time_us": 37519700,
+          "rgb24_sha256": "f2b20f9e173a43b16bd2b4113bb5420d39511e8bcb5f9a8a598ed20e919cce51",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-36b5d0bd231bf70620d81fe2b6aed0c532069a44d04e7f52f5a1d447bd3e9fde",
+          "display_index": 933,
+          "pts": 3380373,
+          "source_time_us": 37559700,
+          "rgb24_sha256": "77ccd25a63bdf06eae9dab6d8561dbdf89960b0a6ebc47d4051816b566c34fe9",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-d846f75ffc47021f2f8f7c54f8e80ac5ab7de9ac4b0c5c7c2ddbd48667f269a1",
+          "display_index": 934,
+          "pts": 3383973,
+          "source_time_us": 37599700,
+          "rgb24_sha256": "ed2a16002f78682a62d099acc349edeb28a09c377c909658190c974ab604553e",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-135fbe646c55277e87865328b4a50c4ee8e9b29703b6658c0d8477b96bcccd40",
+          "display_index": 935,
+          "pts": 3387573,
+          "source_time_us": 37639700,
+          "rgb24_sha256": "16210ad6c79063ab4f3ec9ef8a978da215defc1de09b9a82f0bfcd0a1edc8f02",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-2ce1195eaa2fdeb2370497b108bf0e821ade8cc4fcf3168072a3412655622b91",
+          "display_index": 936,
+          "pts": 3391173,
+          "source_time_us": 37679700,
+          "rgb24_sha256": "5c0c9c93eab8399155d1e0614ecb8467c24efb0c22a683586321637634571ce5",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-cadc0bee4b940f64d094055f4501a801899428402ebde26d0e7c53c990ae6545",
+          "display_index": 937,
+          "pts": 3394773,
+          "source_time_us": 37719700,
+          "rgb24_sha256": "c32b889a1ac1f40443976447a9d7862dddd2029d8cc1cd912c719f1510c790b9",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-38fd996c18177c2e7751670dbed65132407a3e787feaa777e3e00abca2f61fa7",
+          "display_index": 938,
+          "pts": 3398373,
+          "source_time_us": 37759700,
+          "rgb24_sha256": "ff947d77ea0e9634e9178cd3cbd9a03e79e2ef3437ede10b9ea6c93aba043c59",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-998ee02db9b3b9c42736ffb9151bb45e296445c1145b8912000908e9706583ba",
+          "display_index": 939,
+          "pts": 3401973,
+          "source_time_us": 37799700,
+          "rgb24_sha256": "0b511112d6ac4e43ef37ce0eca0e92eedce76d2fd1811e8c3727690a59b1e2d3",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-1e4e0c263313d06bd13cbdbe13baa03db3ad3064490d0d41a3185bb7ca82bea9",
+          "display_index": 940,
+          "pts": 3405573,
+          "source_time_us": 37839700,
+          "rgb24_sha256": "169bb4ed3679e5e9d7347e3785e15ba33abf0f3126d950782782c6833c9f57e3",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-75a5d4aaf199d21cef95e6b1f6277ce4e64d953b3de648d0605196327d235431",
+          "display_index": 941,
+          "pts": 3409173,
+          "source_time_us": 37879700,
+          "rgb24_sha256": "7cfd470abc54bfd1cca71842ed37d84ad3bc4774c8b275d3101ab04a94d7dbf3",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-b7239eb0aedda21ea1550459750c2114a7cf11120d6871a27e574e487159b0d7",
+          "display_index": 942,
+          "pts": 3412773,
+          "source_time_us": 37919700,
+          "rgb24_sha256": "f8b0eac83add6f5906c16ba9e03f13286674889eb4e1539d94e6f3664dd2a32a",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-1b6c89e028d9bf65c32a0b8efdd1b18b79e31d8323f652831741f4f69f4ea584",
+          "display_index": 943,
+          "pts": 3416373,
+          "source_time_us": 37959700,
+          "rgb24_sha256": "359049604eae41ff718b6e0cd344fea5fb0ec79eaa82718f3232b8ef7503d81e",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-1ac5446229888fc69e7f6ffa64b08244f676d5ee2eb2aa396036af1975f5e89f",
+          "display_index": 944,
+          "pts": 3419973,
+          "source_time_us": 37999700,
+          "rgb24_sha256": "d10bce6c580ac680c05980eed0cd24062fbc428129364fd1ff341c757e60731d",
+          "schema_version": 1
+        }
+      ]
+    }
+  ],
+  "cost": null,
+  "placement_assessment": "placement_reported_review_required",
+  "started_utc": "2026-11-21T13:37:39.660257+00:00"
+}

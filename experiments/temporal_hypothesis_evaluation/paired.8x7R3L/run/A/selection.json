@@ -1,0 +1,62 @@
+{
+  "decision": {
+    "action": "delegate",
+    "reason": "Delegating the focus event observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6. Other observations are excluded due to non-overlapping timing intervals or lack of relevant event interaction.",
+    "dispositions": [
+      {
+        "id": "observation-99da36e3e6b4a2023c0d8fd1b07e665d3fdfd64aa6f17c0b494e70059755c787",
+        "reason": "Does not overlap in time with the delegated candidate movement.",
+        "status": "excluded"
+      },
+      {
+        "id": "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b",
+        "reason": "Does not overlap in time with the delegated candidate movement.",
+        "status": "excluded"
+      },
+      {
+        "id": "observation-6fb87d692bb39d7e7caa18e572c005f1fb39810df4562afb02fe59b349c7c96d",
+        "reason": "Does not overlap in time with the delegated candidate movement.",
+        "status": "excluded"
+      },
+      {
+        "id": "observation-187d5a18a21e80aae7a7a4de796a9cae7e7058aa4a99421ab15945667e563b06",
+        "reason": "Does not overlap in time with the delegated candidate movement.",
+        "status": "excluded"
+      },
+      {
+        "id": "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5",
+        "reason": "Does not overlap in time with the delegated candidate movement.",
+        "status": "excluded"
+      },
+      {
+        "id": "observation-250fc74388e3014c58efc8047055bf965fee49d9539edb9c3ad9c3b679683d96",
+        "reason": "Does not overlap in time with the delegated candidate movement.",
+        "status": "excluded"
+      }
+    ],
+    "ids": [
+      "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6"
+    ]
+  },
+  "error": "Invalid follow-up selection",
+  "role_calls": [
+    {
+      "role": "investigation",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 10539,
+        "candidates_token_count": 765,
+        "total_token_count": 11304
+      },
+      "transport_attempts": [
+        {
+          "request_number": 1,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 4320
+    }
+  ]
+}

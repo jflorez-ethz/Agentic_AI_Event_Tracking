@@ -1,0 +1,248 @@
+{
+  "status": "success",
+  "metadata": {
+    "provider": "google-gemini-developer-api",
+    "model_id": "gemini-3.5-flash-lite",
+    "model_version": "gemini-3.5-flash-lite",
+    "adapter_version": "1",
+    "prompt_version": "e1-v1",
+    "settings": [
+      [
+        "sdk_version",
+        "3.6.1"
+      ],
+      [
+        "max_output_tokens",
+        4096
+      ],
+      [
+        "thinking_level",
+        "LOW"
+      ]
+    ],
+    "elapsed_ms": 2857,
+    "usage": [
+      [
+        "prompt_token_count",
+        8778
+      ],
+      [
+        "candidates_token_count",
+        165
+      ],
+      [
+        "total_token_count",
+        8943
+      ]
+    ]
+  },
+  "observations": [
+    {
+      "id": "observation-7adc816f0bed29806689e49f34917a22752fc6ba87a65309bb2a5300c3c3bf4e",
+      "inspection_id": "inspection-c17e2ad9b6826ce4b2849e48f1516a21f17f5bd4bcd86568a0839fdb857977a6",
+      "category": "object_placed",
+      "description": "A person places an object on the floor and walks away, leaving it visible in place.",
+      "evidence": {
+        "frame_ids": [
+          "frame-260c30f1816bfdce39c5a369702464505426348d3e7e0b74f0f33c31ef4935f5",
+          "frame-d14fa07b8bce7dc7ed8ac785d9030be3ebbc79cb0cc022c57175a9f633624947",
+          "frame-ee41e5edc971d344c5042343dee371d3613a5d4011a6285a835747caef222e90",
+          "frame-36b5d0bd231bf70620d81fe2b6aed0c532069a44d04e7f52f5a1d447bd3e9fde",
+          "frame-ffa4030ed886eff1aeac12a856948400812052a362dbc5b3efbb6465d10abc26",
+          "frame-db1234e79f26c28e1a5524bfe632dc799e697bd9daf875719e3ff59ebfaba650",
+          "frame-1b14086491f11fa2c1b9024f86754e923d5d2d92ef167175558833268568d420",
+          "frame-bb976f370a71ec2cc12c23b8678061e65de5dcda3cf36a4b2071a37b3e4f2f35"
+        ]
+      },
+      "visibility_limits": "The full scene is visible from an overhead angle, though details are small.",
+      "uncertainty": "The exact moment of release is between frames F3 and F5.",
+      "source_video_id": "video-5ccee870c2f89fc169832abf3aa4c82892d02562c2fd80c2e30ffd776780a723",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.5-flash-lite",
+        "model_version": "gemini-3.5-flash-lite",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            4096
+          ],
+          [
+            "thinking_level",
+            "LOW"
+          ]
+        ],
+        "elapsed_ms": 2857,
+        "usage": [
+          [
+            "prompt_token_count",
+            8778
+          ],
+          [
+            "candidates_token_count",
+            165
+          ],
+          [
+            "total_token_count",
+            8943
+          ]
+        ]
+      },
+      "schema_version": 1
+    }
+  ],
+  "raw_response": "{\n  \"observations\": [\n    {\n      \"category\": \"object_placed\",\n      \"description\": \"A person places an object on the floor and walks away, leaving it visible in place.\",\n      \"visibility_limits\": \"The full scene is visible from an overhead angle, though details are small.\",\n      \"uncertainty\": \"The exact moment of release is between frames F3 and F5.\",\n      \"frame_labels\": [\n        \"F1\",\n        \"F2\",\n        \"F3\",\n        \"F4\",\n        \"F5\",\n        \"F6\",\n        \"F7\",\n        \"F8\"\n      ],\n      \"clip_interval_us\": []\n    }\n  ]\n}",
+  "schema_version": 1,
+  "response_details": {
+    "sdk_http_response": {
+      "headers": {
+        "x-gemini-service-tier": "standard",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin, X-Origin, Referer",
+        "content-encoding": "gzip",
+        "date": "Sat, 21 Nov 2026 13:17:03 GMT",
+        "server": "scaffolding on HTTPServer2",
+        "x-xss-protection": "0",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "server-timing": "gfet4t7; dur=2679",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "transfer-encoding": "chunked"
+      }
+    },
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"observations\": [\n    {\n      \"category\": \"object_placed\",\n      \"description\": \"A person places an object on the floor and walks away, leaving it visible in place.\",\n      \"visibility_limits\": \"The full scene is visible from an overhead angle, though details are small.\",\n      \"uncertainty\": \"The exact moment of release is between frames F3 and F5.\",\n      \"frame_labels\": [\n        \"F1\",\n        \"F2\",\n        \"F3\",\n        \"F4\",\n        \"F5\",\n        \"F6\",\n        \"F7\",\n        \"F8\"\n      ],\n      \"clip_interval_us\": []\n    }\n  ]\n}",
+              "thought_signature": "Eo4BCosBAWkUfRM3wanpIekK9dAQ4a27iTf0AC1693LZ04boJTY7YGUO7iq1bJqICQbftEylpPsqVE1Zty2htMlVu99yrmJZYE_HnaPYCCJ81t0DiUp4zEHNbJeBoausAEe6GE-96E9Z2928O_qxg2XoyCURe8E9sz9gtojs_ksQ0QCNahdYiQa7Wmc5CP54LA=="
+            }
+          ],
+          "role": "model"
+        },
+        "finish_reason": "STOP",
+        "index": 0
+      }
+    ],
+    "model_version": "gemini-3.5-flash-lite",
+    "response_id": "zZkBa-CjCYK-vdIP3Pe9uAE",
+    "usage_metadata": {
+      "candidates_token_count": 165,
+      "prompt_token_count": 8778,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 266
+        },
+        {
+          "modality": "IMAGE",
+          "token_count": 8512
+        }
+      ],
+      "total_token_count": 8943
+    },
+    "automatic_function_calling_history": [],
+    "parsed": {
+      "observations": [
+        {
+          "category": "object_placed",
+          "description": "A person places an object on the floor and walks away, leaving it visible in place.",
+          "visibility_limits": "The full scene is visible from an overhead angle, though details are small.",
+          "uncertainty": "The exact moment of release is between frames F3 and F5.",
+          "frame_labels": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5",
+            "F6",
+            "F7",
+            "F8"
+          ],
+          "clip_interval_us": []
+        }
+      ]
+    }
+  },
+  "replay": [
+    {
+      "observation_id": "observation-7adc816f0bed29806689e49f34917a22752fc6ba87a65309bb2a5300c3c3bf4e",
+      "source_video_id": "video-5ccee870c2f89fc169832abf3aa4c82892d02562c2fd80c2e30ffd776780a723",
+      "inspection_id": "inspection-c17e2ad9b6826ce4b2849e48f1516a21f17f5bd4bcd86568a0839fdb857977a6",
+      "resolved_source_frames": [
+        {
+          "id": "frame-260c30f1816bfdce39c5a369702464505426348d3e7e0b74f0f33c31ef4935f5",
+          "display_index": 895,
+          "pts": 3243573,
+          "source_time_us": 36039700,
+          "rgb24_sha256": "2bae8df80a645b9c73ebd5e3679759f806339883232afd28f9c892e387e2c1c7",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-d14fa07b8bce7dc7ed8ac785d9030be3ebbc79cb0cc022c57175a9f633624947",
+          "display_index": 908,
+          "pts": 3290373,
+          "source_time_us": 36559700,
+          "rgb24_sha256": "d9b1e8eaf327a3c02def7a8c71ab67cd5f1dacf97ab68872205dac6a3fef0af0",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-ee41e5edc971d344c5042343dee371d3613a5d4011a6285a835747caef222e90",
+          "display_index": 920,
+          "pts": 3333573,
+          "source_time_us": 37039700,
+          "rgb24_sha256": "86a415043a307e9adc0e232d3afb158a8ecc57e7fc95ca0a47464c5c7f276ec7",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-36b5d0bd231bf70620d81fe2b6aed0c532069a44d04e7f52f5a1d447bd3e9fde",
+          "display_index": 933,
+          "pts": 3380373,
+          "source_time_us": 37559700,
+          "rgb24_sha256": "77ccd25a63bdf06eae9dab6d8561dbdf89960b0a6ebc47d4051816b566c34fe9",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-ffa4030ed886eff1aeac12a856948400812052a362dbc5b3efbb6465d10abc26",
+          "display_index": 945,
+          "pts": 3423573,
+          "source_time_us": 38039700,
+          "rgb24_sha256": "87795d3d7815a590bef2422858c73ce504d498c55e26b9985f77df8b00d79e6f",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-db1234e79f26c28e1a5524bfe632dc799e697bd9daf875719e3ff59ebfaba650",
+          "display_index": 958,
+          "pts": 3470373,
+          "source_time_us": 38559700,
+          "rgb24_sha256": "40b8e7a10cce7bc47953a20af1e72e4325f3e2f1e1c642195ef56f7022ce5d7a",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-1b14086491f11fa2c1b9024f86754e923d5d2d92ef167175558833268568d420",
+          "display_index": 970,
+          "pts": 3513573,
+          "source_time_us": 39039700,
+          "rgb24_sha256": "21c932d1309e00b590d8d1ea35a94b1ce4475ac62fde85cb83a98c64e37806d0",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-bb976f370a71ec2cc12c23b8678061e65de5dcda3cf36a4b2071a37b3e4f2f35",
+          "display_index": 983,
+          "pts": 3560373,
+          "source_time_us": 39559700,
+          "rgb24_sha256": "02104ea1d7f519c70bcde9ebffb1aa4755cebdac432b00ce763f725c8ab6899a",
+          "schema_version": 1
+        }
+      ]
+    }
+  ],
+  "cost": null,
+  "started_utc": "2026-11-21T13:17:00.736025+00:00"
+}

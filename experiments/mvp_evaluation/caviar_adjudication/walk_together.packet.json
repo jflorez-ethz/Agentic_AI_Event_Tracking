@@ -1,0 +1,882 @@
+{
+  "case": "walk_together",
+  "source_sha256": "a9ecf0af1ed8317d62dd0e4bae117d877615f8f59ab98d1a8bd8b5afc8c629fd",
+  "artifact_sha256": "5328722ff473cc5c5734a0d878da018552dc07d00874dfc7ffc11a51ba14c6b4",
+  "annotation_sha256": "eb998c952e8bf6627ff1240dd4087a003b5d34c23ec3151e81b1196167737c60",
+  "reference_kind": "caviar_conversion",
+  "detection_excluded_categories": {
+    "initial": {
+      "person_appeared": 2
+    },
+    "verified": {
+      "person_appeared": 1
+    }
+  },
+  "execution": {
+    "models": {
+      "investigation": "gemini-3.6-flash",
+      "verification": "gemini-3.6-flash",
+      "reporting": "gemini-3.6-flash",
+      "video": "gemini-3.5-flash-lite"
+    },
+    "completion": {
+      "initial_scan": "completed",
+      "investigation": "partial",
+      "verification": "partial",
+      "intentional_empty_delegation": false,
+      "delegated": 4,
+      "completed_checks": 3,
+      "initial_observations": 5,
+      "accounted_observations": 5,
+      "triage_complete": true,
+      "open_observation_ids": [
+        "observation-1745a5f33626f75de7a9048fc019c9ca200525a31fbe92ac5192c7f6b0492cf0",
+        "observation-04cd131462020fa7aef1d5c98d6a2f2fd0716295745944dc4ead37462784b814"
+      ],
+      "observation_dispositions": [
+        {
+          "id": "observation-04cd131462020fa7aef1d5c98d6a2f2fd0716295745944dc4ead37462784b814",
+          "status": "delegated",
+          "check_completed": false
+        },
+        {
+          "id": "observation-075f06c9cb499cf97000878a30b3b03615abc2ed250176a92349d81b77cf691c",
+          "status": "delegated",
+          "check_completed": true
+        },
+        {
+          "id": "observation-229b46c51ce0ddb14dd5e484db0a8f8922a8c5903346a00f5657118e7e1fe5d9",
+          "status": "delegated",
+          "check_completed": true
+        },
+        {
+          "id": "observation-47629be9a97b36e3dc3694f87ec69a1841c4f629b198d1718bfb341e53ea2c8a",
+          "status": "delegated",
+          "check_completed": true
+        },
+        {
+          "id": "observation-1745a5f33626f75de7a9048fc019c9ca200525a31fbe92ac5192c7f6b0492cf0",
+          "status": "associated",
+          "reason": "Associated with candidate observation-47629be9a97b36e3dc3694f87ec69a1841c4f629b198d1718bfb341e53ea2c8a covering the same appearance/movement event of the two people in the upper left background at the same time frames.",
+          "candidate_id": "observation-47629be9a97b36e3dc3694f87ec69a1841c4f629b198d1718bfb341e53ea2c8a",
+          "correspondence": {
+            "id": "observation-1745a5f33626f75de7a9048fc019c9ca200525a31fbe92ac5192c7f6b0492cf0",
+            "status": "same_event",
+            "seed_quote": "Two people appear in the upper left background area near the hallway entrance.",
+            "other_quote": "The two people walk across the upper floor area from the upper left towards the center-left.",
+            "shared_frame_id": "frame-5fede5729c07598bac7546df783a37fc31986de583e57295ff5a472a71425451"
+          },
+          "resolved": false
+        }
+      ],
+      "resolved_association_ids": []
+    },
+    "role_calls": 7,
+    "role_physical_attempts": 7,
+    "targeted_media_attempts_logged": null,
+    "media_inspection_records": 4,
+    "role_usage": {
+      "records": 7,
+      "totals": {
+        "prompt_token_count": 9237,
+        "candidates_token_count": 3143,
+        "total_token_count": 12380
+      },
+      "records_with_field": {
+        "prompt_token_count": 7,
+        "candidates_token_count": 7,
+        "total_token_count": 7
+      }
+    },
+    "media_usage": {
+      "records": 4,
+      "totals": {
+        "prompt_token_count": 34292,
+        "candidates_token_count": 709,
+        "total_token_count": 35001
+      },
+      "records_with_field": {
+        "prompt_token_count": 4,
+        "candidates_token_count": 4,
+        "total_token_count": 4
+      }
+    },
+    "role_elapsed_ms": [
+      4393,
+      1741,
+      4400,
+      2842,
+      3404,
+      3378,
+      1535
+    ],
+    "media_elapsed_ms": [
+      5510,
+      4093,
+      3359,
+      2100
+    ],
+    "wall_seconds": null,
+    "media_status_counts": {
+      "success": 4
+    },
+    "media_settings": [
+      [
+        [
+          "sdk_version",
+          "3.6.1"
+        ],
+        [
+          "max_output_tokens",
+          4096
+        ],
+        [
+          "thinking_level",
+          "LOW"
+        ]
+      ],
+      [
+        [
+          "sdk_version",
+          "3.6.1"
+        ],
+        [
+          "max_output_tokens",
+          4096
+        ],
+        [
+          "thinking_level",
+          "LOW"
+        ]
+      ],
+      [
+        [
+          "sdk_version",
+          "3.6.1"
+        ],
+        [
+          "max_output_tokens",
+          4096
+        ],
+        [
+          "thinking_level",
+          "LOW"
+        ]
+      ],
+      [
+        [
+          "sdk_version",
+          "3.6.1"
+        ],
+        [
+          "max_output_tokens",
+          4096
+        ],
+        [
+          "thinking_level",
+          "LOW"
+        ]
+      ]
+    ],
+    "role_settings": [
+      {
+        "role": "investigation",
+        "model": "gemini-3.6-flash",
+        "thinking_level": null,
+        "max_output_tokens": null
+      },
+      {
+        "role": "verification",
+        "model": "gemini-3.6-flash",
+        "thinking_level": null,
+        "max_output_tokens": null
+      },
+      {
+        "role": "verification",
+        "model": "gemini-3.6-flash",
+        "thinking_level": null,
+        "max_output_tokens": null
+      },
+      {
+        "role": "verification",
+        "model": "gemini-3.6-flash",
+        "thinking_level": null,
+        "max_output_tokens": null
+      },
+      {
+        "role": "verification",
+        "model": "gemini-3.6-flash",
+        "thinking_level": null,
+        "max_output_tokens": null
+      },
+      {
+        "role": "verification",
+        "model": "gemini-3.6-flash",
+        "thinking_level": null,
+        "max_output_tokens": null
+      },
+      {
+        "role": "reporting",
+        "model": "gemini-3.6-flash",
+        "thinking_level": null,
+        "max_output_tokens": null
+      }
+    ],
+    "scan_coverage": {
+      "plan": {
+        "window_us": 10000000,
+        "frame_step_us": 1000000
+      },
+      "initial_scan": "completed",
+      "initial_scan_end_us": 28320000,
+      "examined": [
+        {
+          "start_us": 0,
+          "end_us": 1
+        },
+        {
+          "start_us": 1000000,
+          "end_us": 1000001
+        },
+        {
+          "start_us": 2000000,
+          "end_us": 2000001
+        },
+        {
+          "start_us": 3000000,
+          "end_us": 3000001
+        },
+        {
+          "start_us": 4000000,
+          "end_us": 4000001
+        },
+        {
+          "start_us": 5000000,
+          "end_us": 5000001
+        },
+        {
+          "start_us": 6000000,
+          "end_us": 6000001
+        },
+        {
+          "start_us": 7000000,
+          "end_us": 7000001
+        },
+        {
+          "start_us": 8000000,
+          "end_us": 8000001
+        },
+        {
+          "start_us": 9000000,
+          "end_us": 9000001
+        },
+        {
+          "start_us": 10000000,
+          "end_us": 10000001
+        },
+        {
+          "start_us": 11000000,
+          "end_us": 11000001
+        },
+        {
+          "start_us": 12000000,
+          "end_us": 12000001
+        },
+        {
+          "start_us": 13000000,
+          "end_us": 13000001
+        },
+        {
+          "start_us": 14000000,
+          "end_us": 14000001
+        },
+        {
+          "start_us": 15000000,
+          "end_us": 15000001
+        },
+        {
+          "start_us": 16000000,
+          "end_us": 16000001
+        },
+        {
+          "start_us": 17000000,
+          "end_us": 17000001
+        },
+        {
+          "start_us": 18000000,
+          "end_us": 18000001
+        },
+        {
+          "start_us": 19000000,
+          "end_us": 19000001
+        },
+        {
+          "start_us": 20000000,
+          "end_us": 20000001
+        },
+        {
+          "start_us": 21000000,
+          "end_us": 21000001
+        },
+        {
+          "start_us": 22000000,
+          "end_us": 22000001
+        },
+        {
+          "start_us": 23000000,
+          "end_us": 23000001
+        },
+        {
+          "start_us": 24000000,
+          "end_us": 24000001
+        },
+        {
+          "start_us": 25000000,
+          "end_us": 25000001
+        },
+        {
+          "start_us": 26000000,
+          "end_us": 26000001
+        },
+        {
+          "start_us": 27000000,
+          "end_us": 27000001
+        },
+        {
+          "start_us": 28000000,
+          "end_us": 28000001
+        }
+      ],
+      "uninspected": [
+        {
+          "start_us": 1,
+          "end_us": 1000000
+        },
+        {
+          "start_us": 1000001,
+          "end_us": 2000000
+        },
+        {
+          "start_us": 2000001,
+          "end_us": 3000000
+        },
+        {
+          "start_us": 3000001,
+          "end_us": 4000000
+        },
+        {
+          "start_us": 4000001,
+          "end_us": 5000000
+        },
+        {
+          "start_us": 5000001,
+          "end_us": 6000000
+        },
+        {
+          "start_us": 6000001,
+          "end_us": 7000000
+        },
+        {
+          "start_us": 7000001,
+          "end_us": 8000000
+        },
+        {
+          "start_us": 8000001,
+          "end_us": 9000000
+        },
+        {
+          "start_us": 9000001,
+          "end_us": 10000000
+        },
+        {
+          "start_us": 10000001,
+          "end_us": 11000000
+        },
+        {
+          "start_us": 11000001,
+          "end_us": 12000000
+        },
+        {
+          "start_us": 12000001,
+          "end_us": 13000000
+        },
+        {
+          "start_us": 13000001,
+          "end_us": 14000000
+        },
+        {
+          "start_us": 14000001,
+          "end_us": 15000000
+        },
+        {
+          "start_us": 15000001,
+          "end_us": 16000000
+        },
+        {
+          "start_us": 16000001,
+          "end_us": 17000000
+        },
+        {
+          "start_us": 17000001,
+          "end_us": 18000000
+        },
+        {
+          "start_us": 18000001,
+          "end_us": 19000000
+        },
+        {
+          "start_us": 19000001,
+          "end_us": 20000000
+        },
+        {
+          "start_us": 20000001,
+          "end_us": 21000000
+        },
+        {
+          "start_us": 21000001,
+          "end_us": 22000000
+        },
+        {
+          "start_us": 22000001,
+          "end_us": 23000000
+        },
+        {
+          "start_us": 23000001,
+          "end_us": 24000000
+        },
+        {
+          "start_us": 24000001,
+          "end_us": 25000000
+        },
+        {
+          "start_us": 25000001,
+          "end_us": 26000000
+        },
+        {
+          "start_us": 26000001,
+          "end_us": 27000000
+        },
+        {
+          "start_us": 27000001,
+          "end_us": 28000000
+        },
+        {
+          "start_us": 28000001,
+          "end_us": 28320000
+        }
+      ]
+    }
+  },
+  "temporal_candidates_for_review": {
+    "initial": {
+      "observation-075f06c9cb499cf97000878a30b3b03615abc2ed250176a92349d81b77cf691c": [
+        "caviar-person-1-137-329",
+        "caviar-person-2-221-331"
+      ],
+      "observation-229b46c51ce0ddb14dd5e484db0a8f8922a8c5903346a00f5657118e7e1fe5d9": [
+        "caviar-person-2-354-492",
+        "caviar-person-1-356-514"
+      ],
+      "observation-1745a5f33626f75de7a9048fc019c9ca200525a31fbe92ac5192c7f6b0492cf0": [
+        "caviar-person-6-625-706",
+        "caviar-person-3-687-706"
+      ]
+    },
+    "verified": {
+      "observation-075f06c9cb499cf97000878a30b3b03615abc2ed250176a92349d81b77cf691c": [
+        "caviar-person-1-137-329",
+        "caviar-person-2-221-331"
+      ],
+      "observation-229b46c51ce0ddb14dd5e484db0a8f8922a8c5903346a00f5657118e7e1fe5d9": [
+        "caviar-person-2-354-492",
+        "caviar-person-1-356-514"
+      ]
+    }
+  },
+  "predictions": {
+    "initial": [
+      {
+        "id": "observation-075f06c9cb499cf97000878a30b3b03615abc2ed250176a92349d81b77cf691c",
+        "category": "person_moved",
+        "interval": {
+          "start_us": 10000000,
+          "end_us": 13000001
+        },
+        "description": "A person wearing a blue shirt is visible walking across the floor from the upper right in F1 towards the center in F4.",
+        "citations": [
+          {
+            "video_id": "video-1c43650e931230048870a5cb1cb8ddc200732abf91309f727cf1392d20958c40",
+            "inspection_id": "inspection-1926d901572b32a225526f9bba256569f0a404299d8267d1aeb4b81cfbfe451e",
+            "modality": "frames",
+            "interval": {
+              "start_us": 10000000,
+              "end_us": 13000001
+            },
+            "frames": [
+              {
+                "id": "frame-2f85e6b207224fef34a61910e623e7ae94f3a66b136b653aef963c3bd04975d2",
+                "display_index": 250,
+                "pts": 128000,
+                "source_time_us": 10000000,
+                "rgb24_sha256": "1f6ce5652356b24ecf2f4aca73813b6c1512a9303b75846e1e950cebc5fe618e",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-f65586ace2e3da5e050201b46c42ee0ee3a5495d164057c4c893ae4060c1fe3f",
+                "display_index": 275,
+                "pts": 140800,
+                "source_time_us": 11000000,
+                "rgb24_sha256": "705ab105c8aaffbc97b76afe2cb0d09a4cade4ecfc90424ee1d7b78d65772cac",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-f4a6ee31787348c2dfb586e5714dce8b61bc99a166f45fe5777623fafc06503f",
+                "display_index": 300,
+                "pts": 153600,
+                "source_time_us": 12000000,
+                "rgb24_sha256": "0c3773e86d8e2469185167cc3938214a3837e1e97c1decbf5bf89f59983afb98",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-842fbeee56be6d12782847eb550b718d3c8ccea8b5ea69ddb9bdd5d3670b4e1e",
+                "display_index": 325,
+                "pts": 166400,
+                "source_time_us": 13000000,
+                "rgb24_sha256": "39992dc37f591d7d5fac862efc7411a9d515bb438567deb9f26b6f88e8e73131",
+                "schema_version": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "observation-229b46c51ce0ddb14dd5e484db0a8f8922a8c5903346a00f5657118e7e1fe5d9",
+        "category": "person_moved",
+        "interval": {
+          "start_us": 13000000,
+          "end_us": 19000001
+        },
+        "description": "Two people meet in the center of the area and interact briefly between F4 and F5, then walk together towards the left exit from F6 to F10.",
+        "citations": [
+          {
+            "video_id": "video-1c43650e931230048870a5cb1cb8ddc200732abf91309f727cf1392d20958c40",
+            "inspection_id": "inspection-1926d901572b32a225526f9bba256569f0a404299d8267d1aeb4b81cfbfe451e",
+            "modality": "frames",
+            "interval": {
+              "start_us": 13000000,
+              "end_us": 19000001
+            },
+            "frames": [
+              {
+                "id": "frame-842fbeee56be6d12782847eb550b718d3c8ccea8b5ea69ddb9bdd5d3670b4e1e",
+                "display_index": 325,
+                "pts": 166400,
+                "source_time_us": 13000000,
+                "rgb24_sha256": "39992dc37f591d7d5fac862efc7411a9d515bb438567deb9f26b6f88e8e73131",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-1f6c2bab1cfd296d78b65b161f6c54d4112eed09375a6a89cbc5a81934113198",
+                "display_index": 350,
+                "pts": 179200,
+                "source_time_us": 14000000,
+                "rgb24_sha256": "53c34eb07c4d2b6024d6052530d5470381f923022a85339e859fde9e7ba556e5",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-3d9e4833329c2eb6691df7670075823646bd335f2d5c50dbd475316908b40e11",
+                "display_index": 375,
+                "pts": 192000,
+                "source_time_us": 15000000,
+                "rgb24_sha256": "fb61a9f8d81c90db88d2c404233d3b829b71a081dc556fef8278ec4e3c233e37",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-67f76411f316b631e82ce356d4b17927b443f483bc7339f5d789c4c0ef523e24",
+                "display_index": 400,
+                "pts": 204800,
+                "source_time_us": 16000000,
+                "rgb24_sha256": "d0c6ff8754b54b8df6a4d4c2001b3f6816cd855b0c9e8cce95fb4d41542badf8",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-4131ee88c229c6a33566273b0d0254a420cb1cc13740b0581e0a1d89ebbfea0a",
+                "display_index": 425,
+                "pts": 217600,
+                "source_time_us": 17000000,
+                "rgb24_sha256": "2b52ff6ed92a5017d853e7ae60fce4e9313fabfae25575079973b344ebf984e1",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-5701441085004a6cc8975f08edceb5917f8adc24a30010b6ff09d2d1d0f71bd9",
+                "display_index": 450,
+                "pts": 230400,
+                "source_time_us": 18000000,
+                "rgb24_sha256": "819efbb75ca6e7e68ccfb433164b25d86a22db453a831614b4620409c1213427",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-9b2ee143c5586eab22eadd83e6a25ea6c97dbd5ae617cde3d54ba54942ec3e2e",
+                "display_index": 475,
+                "pts": 243200,
+                "source_time_us": 19000000,
+                "rgb24_sha256": "0ac20902123fc536fc02b22ab949ce7fecf5103dda53c40d91a0ee12c39efb68",
+                "schema_version": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "observation-1745a5f33626f75de7a9048fc019c9ca200525a31fbe92ac5192c7f6b0492cf0",
+        "category": "person_moved",
+        "interval": {
+          "start_us": 27000000,
+          "end_us": 28000001
+        },
+        "description": "The two people walk across the upper floor area from the upper left towards the center-left.",
+        "citations": [
+          {
+            "video_id": "video-1c43650e931230048870a5cb1cb8ddc200732abf91309f727cf1392d20958c40",
+            "inspection_id": "inspection-6a9907baa6cf93fcbeff58f8ea5e8cad51d09fe7c1b7d127a40c4a24319197cf",
+            "modality": "frames",
+            "interval": {
+              "start_us": 27000000,
+              "end_us": 28000001
+            },
+            "frames": [
+              {
+                "id": "frame-5fede5729c07598bac7546df783a37fc31986de583e57295ff5a472a71425451",
+                "display_index": 675,
+                "pts": 345600,
+                "source_time_us": 27000000,
+                "rgb24_sha256": "1c56e296a8760b22712702d9d9974a878fb1634af681b76e775867c8978590d4",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-a445a623430d64826efc82ffabd1215c029dfbb56c3b6567ed57dabd4e5dacb8",
+                "display_index": 700,
+                "pts": 358400,
+                "source_time_us": 28000000,
+                "rgb24_sha256": "95f80e75962f0dc8336ba17879c519eb36d8813823d60af337ee6363d0d9ce35",
+                "schema_version": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "verified": [
+      {
+        "id": "observation-075f06c9cb499cf97000878a30b3b03615abc2ed250176a92349d81b77cf691c",
+        "category": "person_moved",
+        "interval": {
+          "start_us": 10000000,
+          "end_us": 13000001
+        },
+        "description": "The observation describes a person in a blue shirt walking across the floor from the upper right in the first frame (10000000) towards the center in the last frame (13000000), which is directly supported by the inspected frames.",
+        "citations": [
+          {
+            "video_id": "video-1c43650e931230048870a5cb1cb8ddc200732abf91309f727cf1392d20958c40",
+            "inspection_id": "inspection-1926d901572b32a225526f9bba256569f0a404299d8267d1aeb4b81cfbfe451e",
+            "modality": "frames",
+            "interval": {
+              "start_us": 10000000,
+              "end_us": 13000001
+            },
+            "frames": [
+              {
+                "id": "frame-2f85e6b207224fef34a61910e623e7ae94f3a66b136b653aef963c3bd04975d2",
+                "display_index": 250,
+                "pts": 128000,
+                "source_time_us": 10000000,
+                "rgb24_sha256": "1f6ce5652356b24ecf2f4aca73813b6c1512a9303b75846e1e950cebc5fe618e",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-f65586ace2e3da5e050201b46c42ee0ee3a5495d164057c4c893ae4060c1fe3f",
+                "display_index": 275,
+                "pts": 140800,
+                "source_time_us": 11000000,
+                "rgb24_sha256": "705ab105c8aaffbc97b76afe2cb0d09a4cade4ecfc90424ee1d7b78d65772cac",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-f4a6ee31787348c2dfb586e5714dce8b61bc99a166f45fe5777623fafc06503f",
+                "display_index": 300,
+                "pts": 153600,
+                "source_time_us": 12000000,
+                "rgb24_sha256": "0c3773e86d8e2469185167cc3938214a3837e1e97c1decbf5bf89f59983afb98",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-842fbeee56be6d12782847eb550b718d3c8ccea8b5ea69ddb9bdd5d3670b4e1e",
+                "display_index": 325,
+                "pts": 166400,
+                "source_time_us": 13000000,
+                "rgb24_sha256": "39992dc37f591d7d5fac862efc7411a9d515bb438567deb9f26b6f88e8e73131",
+                "schema_version": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "observation-229b46c51ce0ddb14dd5e484db0a8f8922a8c5903346a00f5657118e7e1fe5d9",
+        "category": "person_moved",
+        "interval": {
+          "start_us": 17000000,
+          "end_us": 19000001
+        },
+        "description": "The observation describes two people meeting in the center and walking towards the left exit between frame-4131ee88c229c6a33566273b0d0254a420cb1cc13740b0581e0a1d89ebbfea0a and frame-9b2ee143c5586eab22eadd83e6a25ea6c97dbd5ae617cde3d54ba54942",
+        "citations": [
+          {
+            "video_id": "video-1c43650e931230048870a5cb1cb8ddc200732abf91309f727cf1392d20958c40",
+            "inspection_id": "inspection-1926d901572b32a225526f9bba256569f0a404299d8267d1aeb4b81cfbfe451e",
+            "modality": "frames",
+            "interval": {
+              "start_us": 13000000,
+              "end_us": 19000001
+            },
+            "frames": [
+              {
+                "id": "frame-842fbeee56be6d12782847eb550b718d3c8ccea8b5ea69ddb9bdd5d3670b4e1e",
+                "display_index": 325,
+                "pts": 166400,
+                "source_time_us": 13000000,
+                "rgb24_sha256": "39992dc37f591d7d5fac862efc7411a9d515bb438567deb9f26b6f88e8e73131",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-1f6c2bab1cfd296d78b65b161f6c54d4112eed09375a6a89cbc5a81934113198",
+                "display_index": 350,
+                "pts": 179200,
+                "source_time_us": 14000000,
+                "rgb24_sha256": "53c34eb07c4d2b6024d6052530d5470381f923022a85339e859fde9e7ba556e5",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-3d9e4833329c2eb6691df7670075823646bd335f2d5c50dbd475316908b40e11",
+                "display_index": 375,
+                "pts": 192000,
+                "source_time_us": 15000000,
+                "rgb24_sha256": "fb61a9f8d81c90db88d2c404233d3b829b71a081dc556fef8278ec4e3c233e37",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-67f76411f316b631e82ce356d4b17927b443f483bc7339f5d789c4c0ef523e24",
+                "display_index": 400,
+                "pts": 204800,
+                "source_time_us": 16000000,
+                "rgb24_sha256": "d0c6ff8754b54b8df6a4d4c2001b3f6816cd855b0c9e8cce95fb4d41542badf8",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-4131ee88c229c6a33566273b0d0254a420cb1cc13740b0581e0a1d89ebbfea0a",
+                "display_index": 425,
+                "pts": 217600,
+                "source_time_us": 17000000,
+                "rgb24_sha256": "2b52ff6ed92a5017d853e7ae60fce4e9313fabfae25575079973b344ebf984e1",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-5701441085004a6cc8975f08edceb5917f8adc24a30010b6ff09d2d1d0f71bd9",
+                "display_index": 450,
+                "pts": 230400,
+                "source_time_us": 18000000,
+                "rgb24_sha256": "819efbb75ca6e7e68ccfb433164b25d86a22db453a831614b4620409c1213427",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-9b2ee143c5586eab22eadd83e6a25ea6c97dbd5ae617cde3d54ba54942ec3e2e",
+                "display_index": 475,
+                "pts": 243200,
+                "source_time_us": 19000000,
+                "rgb24_sha256": "0ac20902123fc536fc02b22ab949ce7fecf5103dda53c40d91a0ee12c39efb68",
+                "schema_version": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "unresolved": [
+    {
+      "category": "person_appeared",
+      "interval": {
+        "start_us": 9000000,
+        "end_us": 9000001
+      },
+      "verdict": "insufficient",
+      "reason": "Invalid verdict or citation.",
+      "observation_ids": [
+        "observation-04cd131462020fa7aef1d5c98d6a2f2fd0716295745944dc4ead37462784b814"
+      ],
+      "citations": [
+        {
+          "video_id": "video-1c43650e931230048870a5cb1cb8ddc200732abf91309f727cf1392d20958c40",
+          "inspection_id": "inspection-057e7bfb7029878d481dede5eb6b01c6e7a82dc6b97dc6430991fcfc8c48a4b9",
+          "modality": "frames",
+          "interval": {
+            "start_us": 9000000,
+            "end_us": 9000001
+          },
+          "frames": [
+            {
+              "id": "frame-173c08bcff50b0f956f298a6fead575ad4c46d2ebab36e1439e4122d9614545d",
+              "display_index": 225,
+              "pts": 115200,
+              "source_time_us": 9000000,
+              "rgb24_sha256": "db7e25de5fc255b2226f9805cba03550c1ae9b2ecd7c1125848bc8772fa97bef",
+              "schema_version": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "person_moved",
+      "interval": {
+        "start_us": 27000000,
+        "end_us": 28000001
+      },
+      "verdict": "insufficient",
+      "reason": "Observation associated during triage.",
+      "observation_ids": [
+        "observation-1745a5f33626f75de7a9048fc019c9ca200525a31fbe92ac5192c7f6b0492cf0"
+      ],
+      "citations": [
+        {
+          "video_id": "video-1c43650e931230048870a5cb1cb8ddc200732abf91309f727cf1392d20958c40",
+          "inspection_id": "inspection-6a9907baa6cf93fcbeff58f8ea5e8cad51d09fe7c1b7d127a40c4a24319197cf",
+          "modality": "frames",
+          "interval": {
+            "start_us": 27000000,
+            "end_us": 28000001
+          },
+          "frames": [
+            {
+              "id": "frame-5fede5729c07598bac7546df783a37fc31986de583e57295ff5a472a71425451",
+              "display_index": 675,
+              "pts": 345600,
+              "source_time_us": 27000000,
+              "rgb24_sha256": "1c56e296a8760b22712702d9d9974a878fb1634af681b76e775867c8978590d4",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-a445a623430d64826efc82ffabd1215c029dfbb56c3b6567ed57dabd4e5dacb8",
+              "display_index": 700,
+              "pts": 358400,
+              "source_time_us": 28000000,
+              "rgb24_sha256": "95f80e75962f0dc8336ba17879c519eb36d8813823d60af337ee6363d0d9ce35",
+              "schema_version": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "report": "# Video investigation\n\nInitial scan: completed (scheduled through 00:28.320000 of 00:28.320000). Coverage records distinguish sampled timestamps, submitted clip spans, and uninspected time. Uninspected time provides no evidence of absence. Corroboration from two inspections using the same model is not independent semantic confirmation.\n\nSupported findings with source citations: 3.\n\nLead finding: A person moved within view.\n\nInvestigation: partial. Verification: partial (3/4 checks completed). Observation triage: 5/5 accounted for. The investigation is incomplete. Unfinished checks and open observations remain unresolved.\n\nSource: video-1c43650e931230048870a5cb1cb8ddc200732abf91309f727cf1392d20958c40  \nSHA-256: `a9ecf0af1ed8317d62dd0e4bae117d877615f8f59ab98d1a8bd8b5afc8c629fd`\n\nThis report covers only the inspected visual inputs. Citation times describe evidence. Direct visual findings use a model-assessed before/after frame pair. Action claims require corroborating observations from separate inspections.\n\n- **00:09.000000\u201300:09.000000** Finding remains unresolved. insufficient. A source-grounded before/after pair was not established.\n  - frames `inspection-057e7bfb7029878d481dede5eb6b01c6e7a82dc6b97dc6430991fcfc8c48a4b9` at 00:09.000000\u201300:09.000000 (1 source frames).\n- **00:10.000000\u201300:13.000000** A person moved within view. supported\n  - frames `inspection-1926d901572b32a225526f9bba256569f0a404299d8267d1aeb4b81cfbfe451e` at 00:10.000000\u201300:13.000000 (4 source frames).\n- **00:17.000000\u201300:19.000000** A person moved within view. supported\n  - frames `inspection-1926d901572b32a225526f9bba256569f0a404299d8267d1aeb4b81cfbfe451e` at 00:13.000000\u201300:19.000000 (7 source frames).\n- **00:27.000000\u201300:28.000000** A person became visible. supported\n  - frames `inspection-6a9907baa6cf93fcbeff58f8ea5e8cad51d09fe7c1b7d127a40c4a24319197cf` at 00:27.000000\u201300:28.000000 (2 source frames).\n- **00:27.000000\u201300:28.000000** Finding remains unresolved. insufficient. A source-grounded before/after pair was not established.\n  - frames `inspection-6a9907baa6cf93fcbeff58f8ea5e8cad51d09fe7c1b7d127a40c4a24319197cf` at 00:27.000000\u201300:28.000000 (2 source frames).\n",
+  "retrieval": []
+}

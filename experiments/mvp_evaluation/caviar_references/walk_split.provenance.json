@@ -1,0 +1,6037 @@
+{
+  "sequence": "Meet_WalkSplit",
+  "local_xml": "data/annotations/mws1gt.xml",
+  "original_filename": "mws1gt.xml",
+  "official_url": "https://homepages.inf.ed.ac.uk/rbf/CAVIARDATA1/Meet_WalkSplit/mws1gt.xml",
+  "xml_sha256": "a3f76c5f9539d9bff4730863d503ce979c5dfe5e9595689578eedd4d6bbd790b",
+  "publisher_bytes_rechecked": false,
+  "annotated_frames": 623,
+  "ids": {
+    "objects": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "groups": [
+      "0"
+    ]
+  },
+  "alignment": {
+    "method": "same-index luma comparison against local original MPEG",
+    "frames": 624,
+    "same_index_mean_absolute_luma_error": 0.428371505519943,
+    "same_index_max_absolute_luma_error": 0.6605902777777778,
+    "non_unique_or_closer_neighbor_indices": [],
+    "original_sha256": "91a5b5c2a3060a02ebd1ee4264ab78ae7681e02d17d16c2546fcc7751c91805e",
+    "original_frames": 624,
+    "missing_original_pts": [],
+    "original_time_base": "1/90000",
+    "local_time_base": "1/12800",
+    "local_frames": 624,
+    "unlabelled_original_indices": [
+      623
+    ]
+  },
+  "quality_control": {},
+  "frames": [
+    {
+      "annotation_frame": 0,
+      "original_pts": 0,
+      "display_index": 0,
+      "pts": 0,
+      "source_time_us": 0
+    },
+    {
+      "annotation_frame": 1,
+      "original_pts": 25174,
+      "display_index": 1,
+      "pts": 512,
+      "source_time_us": 40000
+    },
+    {
+      "annotation_frame": 2,
+      "original_pts": 28773,
+      "display_index": 2,
+      "pts": 1024,
+      "source_time_us": 80000
+    },
+    {
+      "annotation_frame": 3,
+      "original_pts": 32373,
+      "display_index": 3,
+      "pts": 1536,
+      "source_time_us": 120000
+    },
+    {
+      "annotation_frame": 4,
+      "original_pts": 35974,
+      "display_index": 4,
+      "pts": 2048,
+      "source_time_us": 160000
+    },
+    {
+      "annotation_frame": 5,
+      "original_pts": 39573,
+      "display_index": 5,
+      "pts": 2560,
+      "source_time_us": 200000
+    },
+    {
+      "annotation_frame": 6,
+      "original_pts": 43173,
+      "display_index": 6,
+      "pts": 3072,
+      "source_time_us": 240000
+    },
+    {
+      "annotation_frame": 7,
+      "original_pts": 46774,
+      "display_index": 7,
+      "pts": 3584,
+      "source_time_us": 280000
+    },
+    {
+      "annotation_frame": 8,
+      "original_pts": 50373,
+      "display_index": 8,
+      "pts": 4096,
+      "source_time_us": 320000
+    },
+    {
+      "annotation_frame": 9,
+      "original_pts": 53973,
+      "display_index": 9,
+      "pts": 4608,
+      "source_time_us": 360000
+    },
+    {
+      "annotation_frame": 10,
+      "original_pts": 57573,
+      "display_index": 10,
+      "pts": 5120,
+      "source_time_us": 400000
+    },
+    {
+      "annotation_frame": 11,
+      "original_pts": 61173,
+      "display_index": 11,
+      "pts": 5632,
+      "source_time_us": 440000
+    },
+    {
+      "annotation_frame": 12,
+      "original_pts": 64773,
+      "display_index": 12,
+      "pts": 6144,
+      "source_time_us": 480000
+    },
+    {
+      "annotation_frame": 13,
+      "original_pts": 68373,
+      "display_index": 13,
+      "pts": 6656,
+      "source_time_us": 520000
+    },
+    {
+      "annotation_frame": 14,
+      "original_pts": 71973,
+      "display_index": 14,
+      "pts": 7168,
+      "source_time_us": 560000
+    },
+    {
+      "annotation_frame": 15,
+      "original_pts": 75574,
+      "display_index": 15,
+      "pts": 7680,
+      "source_time_us": 600000
+    },
+    {
+      "annotation_frame": 16,
+      "original_pts": 79173,
+      "display_index": 16,
+      "pts": 8192,
+      "source_time_us": 640000
+    },
+    {
+      "annotation_frame": 17,
+      "original_pts": 82773,
+      "display_index": 17,
+      "pts": 8704,
+      "source_time_us": 680000
+    },
+    {
+      "annotation_frame": 18,
+      "original_pts": 86374,
+      "display_index": 18,
+      "pts": 9216,
+      "source_time_us": 720000
+    },
+    {
+      "annotation_frame": 19,
+      "original_pts": 89973,
+      "display_index": 19,
+      "pts": 9728,
+      "source_time_us": 760000
+    },
+    {
+      "annotation_frame": 20,
+      "original_pts": 93573,
+      "display_index": 20,
+      "pts": 10240,
+      "source_time_us": 800000
+    },
+    {
+      "annotation_frame": 21,
+      "original_pts": 97173,
+      "display_index": 21,
+      "pts": 10752,
+      "source_time_us": 840000
+    },
+    {
+      "annotation_frame": 22,
+      "original_pts": 100773,
+      "display_index": 22,
+      "pts": 11264,
+      "source_time_us": 880000
+    },
+    {
+      "annotation_frame": 23,
+      "original_pts": 104373,
+      "display_index": 23,
+      "pts": 11776,
+      "source_time_us": 920000
+    },
+    {
+      "annotation_frame": 24,
+      "original_pts": 107973,
+      "display_index": 24,
+      "pts": 12288,
+      "source_time_us": 960000
+    },
+    {
+      "annotation_frame": 25,
+      "original_pts": 111573,
+      "display_index": 25,
+      "pts": 12800,
+      "source_time_us": 1000000
+    },
+    {
+      "annotation_frame": 26,
+      "original_pts": 115174,
+      "display_index": 26,
+      "pts": 13312,
+      "source_time_us": 1040000
+    },
+    {
+      "annotation_frame": 27,
+      "original_pts": 118773,
+      "display_index": 27,
+      "pts": 13824,
+      "source_time_us": 1080000
+    },
+    {
+      "annotation_frame": 28,
+      "original_pts": 122373,
+      "display_index": 28,
+      "pts": 14336,
+      "source_time_us": 1120000
+    },
+    {
+      "annotation_frame": 29,
+      "original_pts": 125974,
+      "display_index": 29,
+      "pts": 14848,
+      "source_time_us": 1160000
+    },
+    {
+      "annotation_frame": 30,
+      "original_pts": 129573,
+      "display_index": 30,
+      "pts": 15360,
+      "source_time_us": 1200000
+    },
+    {
+      "annotation_frame": 31,
+      "original_pts": 133173,
+      "display_index": 31,
+      "pts": 15872,
+      "source_time_us": 1240000
+    },
+    {
+      "annotation_frame": 32,
+      "original_pts": 136774,
+      "display_index": 32,
+      "pts": 16384,
+      "source_time_us": 1280000
+    },
+    {
+      "annotation_frame": 33,
+      "original_pts": 140373,
+      "display_index": 33,
+      "pts": 16896,
+      "source_time_us": 1320000
+    },
+    {
+      "annotation_frame": 34,
+      "original_pts": 143973,
+      "display_index": 34,
+      "pts": 17408,
+      "source_time_us": 1360000
+    },
+    {
+      "annotation_frame": 35,
+      "original_pts": 147573,
+      "display_index": 35,
+      "pts": 17920,
+      "source_time_us": 1400000
+    },
+    {
+      "annotation_frame": 36,
+      "original_pts": 151173,
+      "display_index": 36,
+      "pts": 18432,
+      "source_time_us": 1440000
+    },
+    {
+      "annotation_frame": 37,
+      "original_pts": 154773,
+      "display_index": 37,
+      "pts": 18944,
+      "source_time_us": 1480000
+    },
+    {
+      "annotation_frame": 38,
+      "original_pts": 158373,
+      "display_index": 38,
+      "pts": 19456,
+      "source_time_us": 1520000
+    },
+    {
+      "annotation_frame": 39,
+      "original_pts": 161973,
+      "display_index": 39,
+      "pts": 19968,
+      "source_time_us": 1560000
+    },
+    {
+      "annotation_frame": 40,
+      "original_pts": 165574,
+      "display_index": 40,
+      "pts": 20480,
+      "source_time_us": 1600000
+    },
+    {
+      "annotation_frame": 41,
+      "original_pts": 169173,
+      "display_index": 41,
+      "pts": 20992,
+      "source_time_us": 1640000
+    },
+    {
+      "annotation_frame": 42,
+      "original_pts": 172773,
+      "display_index": 42,
+      "pts": 21504,
+      "source_time_us": 1680000
+    },
+    {
+      "annotation_frame": 43,
+      "original_pts": 176374,
+      "display_index": 43,
+      "pts": 22016,
+      "source_time_us": 1720000
+    },
+    {
+      "annotation_frame": 44,
+      "original_pts": 179973,
+      "display_index": 44,
+      "pts": 22528,
+      "source_time_us": 1760000
+    },
+    {
+      "annotation_frame": 45,
+      "original_pts": 183573,
+      "display_index": 45,
+      "pts": 23040,
+      "source_time_us": 1800000
+    },
+    {
+      "annotation_frame": 46,
+      "original_pts": 187173,
+      "display_index": 46,
+      "pts": 23552,
+      "source_time_us": 1840000
+    },
+    {
+      "annotation_frame": 47,
+      "original_pts": 190773,
+      "display_index": 47,
+      "pts": 24064,
+      "source_time_us": 1880000
+    },
+    {
+      "annotation_frame": 48,
+      "original_pts": 194373,
+      "display_index": 48,
+      "pts": 24576,
+      "source_time_us": 1920000
+    },
+    {
+      "annotation_frame": 49,
+      "original_pts": 197973,
+      "display_index": 49,
+      "pts": 25088,
+      "source_time_us": 1960000
+    },
+    {
+      "annotation_frame": 50,
+      "original_pts": 201573,
+      "display_index": 50,
+      "pts": 25600,
+      "source_time_us": 2000000
+    },
+    {
+      "annotation_frame": 51,
+      "original_pts": 205174,
+      "display_index": 51,
+      "pts": 26112,
+      "source_time_us": 2040000
+    },
+    {
+      "annotation_frame": 52,
+      "original_pts": 208773,
+      "display_index": 52,
+      "pts": 26624,
+      "source_time_us": 2080000
+    },
+    {
+      "annotation_frame": 53,
+      "original_pts": 212373,
+      "display_index": 53,
+      "pts": 27136,
+      "source_time_us": 2120000
+    },
+    {
+      "annotation_frame": 54,
+      "original_pts": 215974,
+      "display_index": 54,
+      "pts": 27648,
+      "source_time_us": 2160000
+    },
+    {
+      "annotation_frame": 55,
+      "original_pts": 219573,
+      "display_index": 55,
+      "pts": 28160,
+      "source_time_us": 2200000
+    },
+    {
+      "annotation_frame": 56,
+      "original_pts": 223173,
+      "display_index": 56,
+      "pts": 28672,
+      "source_time_us": 2240000
+    },
+    {
+      "annotation_frame": 57,
+      "original_pts": 226774,
+      "display_index": 57,
+      "pts": 29184,
+      "source_time_us": 2280000
+    },
+    {
+      "annotation_frame": 58,
+      "original_pts": 230373,
+      "display_index": 58,
+      "pts": 29696,
+      "source_time_us": 2320000
+    },
+    {
+      "annotation_frame": 59,
+      "original_pts": 233973,
+      "display_index": 59,
+      "pts": 30208,
+      "source_time_us": 2360000
+    },
+    {
+      "annotation_frame": 60,
+      "original_pts": 237573,
+      "display_index": 60,
+      "pts": 30720,
+      "source_time_us": 2400000
+    },
+    {
+      "annotation_frame": 61,
+      "original_pts": 241173,
+      "display_index": 61,
+      "pts": 31232,
+      "source_time_us": 2440000
+    },
+    {
+      "annotation_frame": 62,
+      "original_pts": 244773,
+      "display_index": 62,
+      "pts": 31744,
+      "source_time_us": 2480000
+    },
+    {
+      "annotation_frame": 63,
+      "original_pts": 248373,
+      "display_index": 63,
+      "pts": 32256,
+      "source_time_us": 2520000
+    },
+    {
+      "annotation_frame": 64,
+      "original_pts": 251973,
+      "display_index": 64,
+      "pts": 32768,
+      "source_time_us": 2560000
+    },
+    {
+      "annotation_frame": 65,
+      "original_pts": 255574,
+      "display_index": 65,
+      "pts": 33280,
+      "source_time_us": 2600000
+    },
+    {
+      "annotation_frame": 66,
+      "original_pts": 259173,
+      "display_index": 66,
+      "pts": 33792,
+      "source_time_us": 2640000
+    },
+    {
+      "annotation_frame": 67,
+      "original_pts": 262773,
+      "display_index": 67,
+      "pts": 34304,
+      "source_time_us": 2680000
+    },
+    {
+      "annotation_frame": 68,
+      "original_pts": 266374,
+      "display_index": 68,
+      "pts": 34816,
+      "source_time_us": 2720000
+    },
+    {
+      "annotation_frame": 69,
+      "original_pts": 269973,
+      "display_index": 69,
+      "pts": 35328,
+      "source_time_us": 2760000
+    },
+    {
+      "annotation_frame": 70,
+      "original_pts": 273573,
+      "display_index": 70,
+      "pts": 35840,
+      "source_time_us": 2800000
+    },
+    {
+      "annotation_frame": 71,
+      "original_pts": 277173,
+      "display_index": 71,
+      "pts": 36352,
+      "source_time_us": 2840000
+    },
+    {
+      "annotation_frame": 72,
+      "original_pts": 280773,
+      "display_index": 72,
+      "pts": 36864,
+      "source_time_us": 2880000
+    },
+    {
+      "annotation_frame": 73,
+      "original_pts": 284373,
+      "display_index": 73,
+      "pts": 37376,
+      "source_time_us": 2920000
+    },
+    {
+      "annotation_frame": 74,
+      "original_pts": 287973,
+      "display_index": 74,
+      "pts": 37888,
+      "source_time_us": 2960000
+    },
+    {
+      "annotation_frame": 75,
+      "original_pts": 291573,
+      "display_index": 75,
+      "pts": 38400,
+      "source_time_us": 3000000
+    },
+    {
+      "annotation_frame": 76,
+      "original_pts": 295174,
+      "display_index": 76,
+      "pts": 38912,
+      "source_time_us": 3040000
+    },
+    {
+      "annotation_frame": 77,
+      "original_pts": 298773,
+      "display_index": 77,
+      "pts": 39424,
+      "source_time_us": 3080000
+    },
+    {
+      "annotation_frame": 78,
+      "original_pts": 302373,
+      "display_index": 78,
+      "pts": 39936,
+      "source_time_us": 3120000
+    },
+    {
+      "annotation_frame": 79,
+      "original_pts": 305974,
+      "display_index": 79,
+      "pts": 40448,
+      "source_time_us": 3160000
+    },
+    {
+      "annotation_frame": 80,
+      "original_pts": 309573,
+      "display_index": 80,
+      "pts": 40960,
+      "source_time_us": 3200000
+    },
+    {
+      "annotation_frame": 81,
+      "original_pts": 313173,
+      "display_index": 81,
+      "pts": 41472,
+      "source_time_us": 3240000
+    },
+    {
+      "annotation_frame": 82,
+      "original_pts": 316774,
+      "display_index": 82,
+      "pts": 41984,
+      "source_time_us": 3280000
+    },
+    {
+      "annotation_frame": 83,
+      "original_pts": 320373,
+      "display_index": 83,
+      "pts": 42496,
+      "source_time_us": 3320000
+    },
+    {
+      "annotation_frame": 84,
+      "original_pts": 323973,
+      "display_index": 84,
+      "pts": 43008,
+      "source_time_us": 3360000
+    },
+    {
+      "annotation_frame": 85,
+      "original_pts": 327573,
+      "display_index": 85,
+      "pts": 43520,
+      "source_time_us": 3400000
+    },
+    {
+      "annotation_frame": 86,
+      "original_pts": 331173,
+      "display_index": 86,
+      "pts": 44032,
+      "source_time_us": 3440000
+    },
+    {
+      "annotation_frame": 87,
+      "original_pts": 334773,
+      "display_index": 87,
+      "pts": 44544,
+      "source_time_us": 3480000
+    },
+    {
+      "annotation_frame": 88,
+      "original_pts": 338373,
+      "display_index": 88,
+      "pts": 45056,
+      "source_time_us": 3520000
+    },
+    {
+      "annotation_frame": 89,
+      "original_pts": 341973,
+      "display_index": 89,
+      "pts": 45568,
+      "source_time_us": 3560000
+    },
+    {
+      "annotation_frame": 90,
+      "original_pts": 345574,
+      "display_index": 90,
+      "pts": 46080,
+      "source_time_us": 3600000
+    },
+    {
+      "annotation_frame": 91,
+      "original_pts": 349173,
+      "display_index": 91,
+      "pts": 46592,
+      "source_time_us": 3640000
+    },
+    {
+      "annotation_frame": 92,
+      "original_pts": 352773,
+      "display_index": 92,
+      "pts": 47104,
+      "source_time_us": 3680000
+    },
+    {
+      "annotation_frame": 93,
+      "original_pts": 356374,
+      "display_index": 93,
+      "pts": 47616,
+      "source_time_us": 3720000
+    },
+    {
+      "annotation_frame": 94,
+      "original_pts": 359973,
+      "display_index": 94,
+      "pts": 48128,
+      "source_time_us": 3760000
+    },
+    {
+      "annotation_frame": 95,
+      "original_pts": 363573,
+      "display_index": 95,
+      "pts": 48640,
+      "source_time_us": 3800000
+    },
+    {
+      "annotation_frame": 96,
+      "original_pts": 367173,
+      "display_index": 96,
+      "pts": 49152,
+      "source_time_us": 3840000
+    },
+    {
+      "annotation_frame": 97,
+      "original_pts": 370773,
+      "display_index": 97,
+      "pts": 49664,
+      "source_time_us": 3880000
+    },
+    {
+      "annotation_frame": 98,
+      "original_pts": 374373,
+      "display_index": 98,
+      "pts": 50176,
+      "source_time_us": 3920000
+    },
+    {
+      "annotation_frame": 99,
+      "original_pts": 377973,
+      "display_index": 99,
+      "pts": 50688,
+      "source_time_us": 3960000
+    },
+    {
+      "annotation_frame": 100,
+      "original_pts": 381573,
+      "display_index": 100,
+      "pts": 51200,
+      "source_time_us": 4000000
+    },
+    {
+      "annotation_frame": 101,
+      "original_pts": 385174,
+      "display_index": 101,
+      "pts": 51712,
+      "source_time_us": 4040000
+    },
+    {
+      "annotation_frame": 102,
+      "original_pts": 388773,
+      "display_index": 102,
+      "pts": 52224,
+      "source_time_us": 4080000
+    },
+    {
+      "annotation_frame": 103,
+      "original_pts": 392373,
+      "display_index": 103,
+      "pts": 52736,
+      "source_time_us": 4120000
+    },
+    {
+      "annotation_frame": 104,
+      "original_pts": 395974,
+      "display_index": 104,
+      "pts": 53248,
+      "source_time_us": 4160000
+    },
+    {
+      "annotation_frame": 105,
+      "original_pts": 399573,
+      "display_index": 105,
+      "pts": 53760,
+      "source_time_us": 4200000
+    },
+    {
+      "annotation_frame": 106,
+      "original_pts": 403173,
+      "display_index": 106,
+      "pts": 54272,
+      "source_time_us": 4240000
+    },
+    {
+      "annotation_frame": 107,
+      "original_pts": 406774,
+      "display_index": 107,
+      "pts": 54784,
+      "source_time_us": 4280000
+    },
+    {
+      "annotation_frame": 108,
+      "original_pts": 410373,
+      "display_index": 108,
+      "pts": 55296,
+      "source_time_us": 4320000
+    },
+    {
+      "annotation_frame": 109,
+      "original_pts": 413973,
+      "display_index": 109,
+      "pts": 55808,
+      "source_time_us": 4360000
+    },
+    {
+      "annotation_frame": 110,
+      "original_pts": 417573,
+      "display_index": 110,
+      "pts": 56320,
+      "source_time_us": 4400000
+    },
+    {
+      "annotation_frame": 111,
+      "original_pts": 421173,
+      "display_index": 111,
+      "pts": 56832,
+      "source_time_us": 4440000
+    },
+    {
+      "annotation_frame": 112,
+      "original_pts": 424773,
+      "display_index": 112,
+      "pts": 57344,
+      "source_time_us": 4480000
+    },
+    {
+      "annotation_frame": 113,
+      "original_pts": 428373,
+      "display_index": 113,
+      "pts": 57856,
+      "source_time_us": 4520000
+    },
+    {
+      "annotation_frame": 114,
+      "original_pts": 431973,
+      "display_index": 114,
+      "pts": 58368,
+      "source_time_us": 4560000
+    },
+    {
+      "annotation_frame": 115,
+      "original_pts": 435574,
+      "display_index": 115,
+      "pts": 58880,
+      "source_time_us": 4600000
+    },
+    {
+      "annotation_frame": 116,
+      "original_pts": 439173,
+      "display_index": 116,
+      "pts": 59392,
+      "source_time_us": 4640000
+    },
+    {
+      "annotation_frame": 117,
+      "original_pts": 442773,
+      "display_index": 117,
+      "pts": 59904,
+      "source_time_us": 4680000
+    },
+    {
+      "annotation_frame": 118,
+      "original_pts": 446374,
+      "display_index": 118,
+      "pts": 60416,
+      "source_time_us": 4720000
+    },
+    {
+      "annotation_frame": 119,
+      "original_pts": 449973,
+      "display_index": 119,
+      "pts": 60928,
+      "source_time_us": 4760000
+    },
+    {
+      "annotation_frame": 120,
+      "original_pts": 453573,
+      "display_index": 120,
+      "pts": 61440,
+      "source_time_us": 4800000
+    },
+    {
+      "annotation_frame": 121,
+      "original_pts": 457173,
+      "display_index": 121,
+      "pts": 61952,
+      "source_time_us": 4840000
+    },
+    {
+      "annotation_frame": 122,
+      "original_pts": 460773,
+      "display_index": 122,
+      "pts": 62464,
+      "source_time_us": 4880000
+    },
+    {
+      "annotation_frame": 123,
+      "original_pts": 464373,
+      "display_index": 123,
+      "pts": 62976,
+      "source_time_us": 4920000
+    },
+    {
+      "annotation_frame": 124,
+      "original_pts": 471573,
+      "display_index": 124,
+      "pts": 63488,
+      "source_time_us": 4960000
+    },
+    {
+      "annotation_frame": 125,
+      "original_pts": 471573,
+      "display_index": 125,
+      "pts": 64000,
+      "source_time_us": 5000000
+    },
+    {
+      "annotation_frame": 126,
+      "original_pts": 475174,
+      "display_index": 126,
+      "pts": 64512,
+      "source_time_us": 5040000
+    },
+    {
+      "annotation_frame": 127,
+      "original_pts": 478773,
+      "display_index": 127,
+      "pts": 65024,
+      "source_time_us": 5080000
+    },
+    {
+      "annotation_frame": 128,
+      "original_pts": 482373,
+      "display_index": 128,
+      "pts": 65536,
+      "source_time_us": 5120000
+    },
+    {
+      "annotation_frame": 129,
+      "original_pts": 485974,
+      "display_index": 129,
+      "pts": 66048,
+      "source_time_us": 5160000
+    },
+    {
+      "annotation_frame": 130,
+      "original_pts": 489573,
+      "display_index": 130,
+      "pts": 66560,
+      "source_time_us": 5200000
+    },
+    {
+      "annotation_frame": 131,
+      "original_pts": 493173,
+      "display_index": 131,
+      "pts": 67072,
+      "source_time_us": 5240000
+    },
+    {
+      "annotation_frame": 132,
+      "original_pts": 496774,
+      "display_index": 132,
+      "pts": 67584,
+      "source_time_us": 5280000
+    },
+    {
+      "annotation_frame": 133,
+      "original_pts": 500373,
+      "display_index": 133,
+      "pts": 68096,
+      "source_time_us": 5320000
+    },
+    {
+      "annotation_frame": 134,
+      "original_pts": 503973,
+      "display_index": 134,
+      "pts": 68608,
+      "source_time_us": 5360000
+    },
+    {
+      "annotation_frame": 135,
+      "original_pts": 507573,
+      "display_index": 135,
+      "pts": 69120,
+      "source_time_us": 5400000
+    },
+    {
+      "annotation_frame": 136,
+      "original_pts": 511173,
+      "display_index": 136,
+      "pts": 69632,
+      "source_time_us": 5440000
+    },
+    {
+      "annotation_frame": 137,
+      "original_pts": 514773,
+      "display_index": 137,
+      "pts": 70144,
+      "source_time_us": 5480000
+    },
+    {
+      "annotation_frame": 138,
+      "original_pts": 518373,
+      "display_index": 138,
+      "pts": 70656,
+      "source_time_us": 5520000
+    },
+    {
+      "annotation_frame": 139,
+      "original_pts": 521973,
+      "display_index": 139,
+      "pts": 71168,
+      "source_time_us": 5560000
+    },
+    {
+      "annotation_frame": 140,
+      "original_pts": 525574,
+      "display_index": 140,
+      "pts": 71680,
+      "source_time_us": 5600000
+    },
+    {
+      "annotation_frame": 141,
+      "original_pts": 529173,
+      "display_index": 141,
+      "pts": 72192,
+      "source_time_us": 5640000
+    },
+    {
+      "annotation_frame": 142,
+      "original_pts": 532773,
+      "display_index": 142,
+      "pts": 72704,
+      "source_time_us": 5680000
+    },
+    {
+      "annotation_frame": 143,
+      "original_pts": 536374,
+      "display_index": 143,
+      "pts": 73216,
+      "source_time_us": 5720000
+    },
+    {
+      "annotation_frame": 144,
+      "original_pts": 539973,
+      "display_index": 144,
+      "pts": 73728,
+      "source_time_us": 5760000
+    },
+    {
+      "annotation_frame": 145,
+      "original_pts": 543573,
+      "display_index": 145,
+      "pts": 74240,
+      "source_time_us": 5800000
+    },
+    {
+      "annotation_frame": 146,
+      "original_pts": 547173,
+      "display_index": 146,
+      "pts": 74752,
+      "source_time_us": 5840000
+    },
+    {
+      "annotation_frame": 147,
+      "original_pts": 550773,
+      "display_index": 147,
+      "pts": 75264,
+      "source_time_us": 5880000
+    },
+    {
+      "annotation_frame": 148,
+      "original_pts": 554373,
+      "display_index": 148,
+      "pts": 75776,
+      "source_time_us": 5920000
+    },
+    {
+      "annotation_frame": 149,
+      "original_pts": 557973,
+      "display_index": 149,
+      "pts": 76288,
+      "source_time_us": 5960000
+    },
+    {
+      "annotation_frame": 150,
+      "original_pts": 561573,
+      "display_index": 150,
+      "pts": 76800,
+      "source_time_us": 6000000
+    },
+    {
+      "annotation_frame": 151,
+      "original_pts": 565174,
+      "display_index": 151,
+      "pts": 77312,
+      "source_time_us": 6040000
+    },
+    {
+      "annotation_frame": 152,
+      "original_pts": 568773,
+      "display_index": 152,
+      "pts": 77824,
+      "source_time_us": 6080000
+    },
+    {
+      "annotation_frame": 153,
+      "original_pts": 572373,
+      "display_index": 153,
+      "pts": 78336,
+      "source_time_us": 6120000
+    },
+    {
+      "annotation_frame": 154,
+      "original_pts": 575974,
+      "display_index": 154,
+      "pts": 78848,
+      "source_time_us": 6160000
+    },
+    {
+      "annotation_frame": 155,
+      "original_pts": 579573,
+      "display_index": 155,
+      "pts": 79360,
+      "source_time_us": 6200000
+    },
+    {
+      "annotation_frame": 156,
+      "original_pts": 583173,
+      "display_index": 156,
+      "pts": 79872,
+      "source_time_us": 6240000
+    },
+    {
+      "annotation_frame": 157,
+      "original_pts": 586774,
+      "display_index": 157,
+      "pts": 80384,
+      "source_time_us": 6280000
+    },
+    {
+      "annotation_frame": 158,
+      "original_pts": 590373,
+      "display_index": 158,
+      "pts": 80896,
+      "source_time_us": 6320000
+    },
+    {
+      "annotation_frame": 159,
+      "original_pts": 593973,
+      "display_index": 159,
+      "pts": 81408,
+      "source_time_us": 6360000
+    },
+    {
+      "annotation_frame": 160,
+      "original_pts": 597573,
+      "display_index": 160,
+      "pts": 81920,
+      "source_time_us": 6400000
+    },
+    {
+      "annotation_frame": 161,
+      "original_pts": 601173,
+      "display_index": 161,
+      "pts": 82432,
+      "source_time_us": 6440000
+    },
+    {
+      "annotation_frame": 162,
+      "original_pts": 604773,
+      "display_index": 162,
+      "pts": 82944,
+      "source_time_us": 6480000
+    },
+    {
+      "annotation_frame": 163,
+      "original_pts": 608373,
+      "display_index": 163,
+      "pts": 83456,
+      "source_time_us": 6520000
+    },
+    {
+      "annotation_frame": 164,
+      "original_pts": 611973,
+      "display_index": 164,
+      "pts": 83968,
+      "source_time_us": 6560000
+    },
+    {
+      "annotation_frame": 165,
+      "original_pts": 615574,
+      "display_index": 165,
+      "pts": 84480,
+      "source_time_us": 6600000
+    },
+    {
+      "annotation_frame": 166,
+      "original_pts": 619173,
+      "display_index": 166,
+      "pts": 84992,
+      "source_time_us": 6640000
+    },
+    {
+      "annotation_frame": 167,
+      "original_pts": 622773,
+      "display_index": 167,
+      "pts": 85504,
+      "source_time_us": 6680000
+    },
+    {
+      "annotation_frame": 168,
+      "original_pts": 626374,
+      "display_index": 168,
+      "pts": 86016,
+      "source_time_us": 6720000
+    },
+    {
+      "annotation_frame": 169,
+      "original_pts": 629973,
+      "display_index": 169,
+      "pts": 86528,
+      "source_time_us": 6760000
+    },
+    {
+      "annotation_frame": 170,
+      "original_pts": 633573,
+      "display_index": 170,
+      "pts": 87040,
+      "source_time_us": 6800000
+    },
+    {
+      "annotation_frame": 171,
+      "original_pts": 637173,
+      "display_index": 171,
+      "pts": 87552,
+      "source_time_us": 6840000
+    },
+    {
+      "annotation_frame": 172,
+      "original_pts": 640773,
+      "display_index": 172,
+      "pts": 88064,
+      "source_time_us": 6880000
+    },
+    {
+      "annotation_frame": 173,
+      "original_pts": 644373,
+      "display_index": 173,
+      "pts": 88576,
+      "source_time_us": 6920000
+    },
+    {
+      "annotation_frame": 174,
+      "original_pts": 647973,
+      "display_index": 174,
+      "pts": 89088,
+      "source_time_us": 6960000
+    },
+    {
+      "annotation_frame": 175,
+      "original_pts": 651573,
+      "display_index": 175,
+      "pts": 89600,
+      "source_time_us": 7000000
+    },
+    {
+      "annotation_frame": 176,
+      "original_pts": 655174,
+      "display_index": 176,
+      "pts": 90112,
+      "source_time_us": 7040000
+    },
+    {
+      "annotation_frame": 177,
+      "original_pts": 658773,
+      "display_index": 177,
+      "pts": 90624,
+      "source_time_us": 7080000
+    },
+    {
+      "annotation_frame": 178,
+      "original_pts": 662373,
+      "display_index": 178,
+      "pts": 91136,
+      "source_time_us": 7120000
+    },
+    {
+      "annotation_frame": 179,
+      "original_pts": 665974,
+      "display_index": 179,
+      "pts": 91648,
+      "source_time_us": 7160000
+    },
+    {
+      "annotation_frame": 180,
+      "original_pts": 669573,
+      "display_index": 180,
+      "pts": 92160,
+      "source_time_us": 7200000
+    },
+    {
+      "annotation_frame": 181,
+      "original_pts": 673173,
+      "display_index": 181,
+      "pts": 92672,
+      "source_time_us": 7240000
+    },
+    {
+      "annotation_frame": 182,
+      "original_pts": 676774,
+      "display_index": 182,
+      "pts": 93184,
+      "source_time_us": 7280000
+    },
+    {
+      "annotation_frame": 183,
+      "original_pts": 680373,
+      "display_index": 183,
+      "pts": 93696,
+      "source_time_us": 7320000
+    },
+    {
+      "annotation_frame": 184,
+      "original_pts": 683973,
+      "display_index": 184,
+      "pts": 94208,
+      "source_time_us": 7360000
+    },
+    {
+      "annotation_frame": 185,
+      "original_pts": 687573,
+      "display_index": 185,
+      "pts": 94720,
+      "source_time_us": 7400000
+    },
+    {
+      "annotation_frame": 186,
+      "original_pts": 691173,
+      "display_index": 186,
+      "pts": 95232,
+      "source_time_us": 7440000
+    },
+    {
+      "annotation_frame": 187,
+      "original_pts": 694773,
+      "display_index": 187,
+      "pts": 95744,
+      "source_time_us": 7480000
+    },
+    {
+      "annotation_frame": 188,
+      "original_pts": 698373,
+      "display_index": 188,
+      "pts": 96256,
+      "source_time_us": 7520000
+    },
+    {
+      "annotation_frame": 189,
+      "original_pts": 701973,
+      "display_index": 189,
+      "pts": 96768,
+      "source_time_us": 7560000
+    },
+    {
+      "annotation_frame": 190,
+      "original_pts": 705574,
+      "display_index": 190,
+      "pts": 97280,
+      "source_time_us": 7600000
+    },
+    {
+      "annotation_frame": 191,
+      "original_pts": 709173,
+      "display_index": 191,
+      "pts": 97792,
+      "source_time_us": 7640000
+    },
+    {
+      "annotation_frame": 192,
+      "original_pts": 712773,
+      "display_index": 192,
+      "pts": 98304,
+      "source_time_us": 7680000
+    },
+    {
+      "annotation_frame": 193,
+      "original_pts": 716374,
+      "display_index": 193,
+      "pts": 98816,
+      "source_time_us": 7720000
+    },
+    {
+      "annotation_frame": 194,
+      "original_pts": 719973,
+      "display_index": 194,
+      "pts": 99328,
+      "source_time_us": 7760000
+    },
+    {
+      "annotation_frame": 195,
+      "original_pts": 723573,
+      "display_index": 195,
+      "pts": 99840,
+      "source_time_us": 7800000
+    },
+    {
+      "annotation_frame": 196,
+      "original_pts": 727173,
+      "display_index": 196,
+      "pts": 100352,
+      "source_time_us": 7840000
+    },
+    {
+      "annotation_frame": 197,
+      "original_pts": 730773,
+      "display_index": 197,
+      "pts": 100864,
+      "source_time_us": 7880000
+    },
+    {
+      "annotation_frame": 198,
+      "original_pts": 734373,
+      "display_index": 198,
+      "pts": 101376,
+      "source_time_us": 7920000
+    },
+    {
+      "annotation_frame": 199,
+      "original_pts": 737973,
+      "display_index": 199,
+      "pts": 101888,
+      "source_time_us": 7960000
+    },
+    {
+      "annotation_frame": 200,
+      "original_pts": 741573,
+      "display_index": 200,
+      "pts": 102400,
+      "source_time_us": 8000000
+    },
+    {
+      "annotation_frame": 201,
+      "original_pts": 745174,
+      "display_index": 201,
+      "pts": 102912,
+      "source_time_us": 8040000
+    },
+    {
+      "annotation_frame": 202,
+      "original_pts": 748773,
+      "display_index": 202,
+      "pts": 103424,
+      "source_time_us": 8080000
+    },
+    {
+      "annotation_frame": 203,
+      "original_pts": 752373,
+      "display_index": 203,
+      "pts": 103936,
+      "source_time_us": 8120000
+    },
+    {
+      "annotation_frame": 204,
+      "original_pts": 755974,
+      "display_index": 204,
+      "pts": 104448,
+      "source_time_us": 8160000
+    },
+    {
+      "annotation_frame": 205,
+      "original_pts": 759573,
+      "display_index": 205,
+      "pts": 104960,
+      "source_time_us": 8200000
+    },
+    {
+      "annotation_frame": 206,
+      "original_pts": 763173,
+      "display_index": 206,
+      "pts": 105472,
+      "source_time_us": 8240000
+    },
+    {
+      "annotation_frame": 207,
+      "original_pts": 766774,
+      "display_index": 207,
+      "pts": 105984,
+      "source_time_us": 8280000
+    },
+    {
+      "annotation_frame": 208,
+      "original_pts": 770373,
+      "display_index": 208,
+      "pts": 106496,
+      "source_time_us": 8320000
+    },
+    {
+      "annotation_frame": 209,
+      "original_pts": 773973,
+      "display_index": 209,
+      "pts": 107008,
+      "source_time_us": 8360000
+    },
+    {
+      "annotation_frame": 210,
+      "original_pts": 777573,
+      "display_index": 210,
+      "pts": 107520,
+      "source_time_us": 8400000
+    },
+    {
+      "annotation_frame": 211,
+      "original_pts": 781173,
+      "display_index": 211,
+      "pts": 108032,
+      "source_time_us": 8440000
+    },
+    {
+      "annotation_frame": 212,
+      "original_pts": 784773,
+      "display_index": 212,
+      "pts": 108544,
+      "source_time_us": 8480000
+    },
+    {
+      "annotation_frame": 213,
+      "original_pts": 788373,
+      "display_index": 213,
+      "pts": 109056,
+      "source_time_us": 8520000
+    },
+    {
+      "annotation_frame": 214,
+      "original_pts": 791973,
+      "display_index": 214,
+      "pts": 109568,
+      "source_time_us": 8560000
+    },
+    {
+      "annotation_frame": 215,
+      "original_pts": 795574,
+      "display_index": 215,
+      "pts": 110080,
+      "source_time_us": 8600000
+    },
+    {
+      "annotation_frame": 216,
+      "original_pts": 799173,
+      "display_index": 216,
+      "pts": 110592,
+      "source_time_us": 8640000
+    },
+    {
+      "annotation_frame": 217,
+      "original_pts": 802773,
+      "display_index": 217,
+      "pts": 111104,
+      "source_time_us": 8680000
+    },
+    {
+      "annotation_frame": 218,
+      "original_pts": 806374,
+      "display_index": 218,
+      "pts": 111616,
+      "source_time_us": 8720000
+    },
+    {
+      "annotation_frame": 219,
+      "original_pts": 809973,
+      "display_index": 219,
+      "pts": 112128,
+      "source_time_us": 8760000
+    },
+    {
+      "annotation_frame": 220,
+      "original_pts": 813573,
+      "display_index": 220,
+      "pts": 112640,
+      "source_time_us": 8800000
+    },
+    {
+      "annotation_frame": 221,
+      "original_pts": 817173,
+      "display_index": 221,
+      "pts": 113152,
+      "source_time_us": 8840000
+    },
+    {
+      "annotation_frame": 222,
+      "original_pts": 820773,
+      "display_index": 222,
+      "pts": 113664,
+      "source_time_us": 8880000
+    },
+    {
+      "annotation_frame": 223,
+      "original_pts": 824373,
+      "display_index": 223,
+      "pts": 114176,
+      "source_time_us": 8920000
+    },
+    {
+      "annotation_frame": 224,
+      "original_pts": 827973,
+      "display_index": 224,
+      "pts": 114688,
+      "source_time_us": 8960000
+    },
+    {
+      "annotation_frame": 225,
+      "original_pts": 831573,
+      "display_index": 225,
+      "pts": 115200,
+      "source_time_us": 9000000
+    },
+    {
+      "annotation_frame": 226,
+      "original_pts": 835174,
+      "display_index": 226,
+      "pts": 115712,
+      "source_time_us": 9040000
+    },
+    {
+      "annotation_frame": 227,
+      "original_pts": 838773,
+      "display_index": 227,
+      "pts": 116224,
+      "source_time_us": 9080000
+    },
+    {
+      "annotation_frame": 228,
+      "original_pts": 842373,
+      "display_index": 228,
+      "pts": 116736,
+      "source_time_us": 9120000
+    },
+    {
+      "annotation_frame": 229,
+      "original_pts": 845974,
+      "display_index": 229,
+      "pts": 117248,
+      "source_time_us": 9160000
+    },
+    {
+      "annotation_frame": 230,
+      "original_pts": 849573,
+      "display_index": 230,
+      "pts": 117760,
+      "source_time_us": 9200000
+    },
+    {
+      "annotation_frame": 231,
+      "original_pts": 853173,
+      "display_index": 231,
+      "pts": 118272,
+      "source_time_us": 9240000
+    },
+    {
+      "annotation_frame": 232,
+      "original_pts": 856774,
+      "display_index": 232,
+      "pts": 118784,
+      "source_time_us": 9280000
+    },
+    {
+      "annotation_frame": 233,
+      "original_pts": 860373,
+      "display_index": 233,
+      "pts": 119296,
+      "source_time_us": 9320000
+    },
+    {
+      "annotation_frame": 234,
+      "original_pts": 863973,
+      "display_index": 234,
+      "pts": 119808,
+      "source_time_us": 9360000
+    },
+    {
+      "annotation_frame": 235,
+      "original_pts": 867573,
+      "display_index": 235,
+      "pts": 120320,
+      "source_time_us": 9400000
+    },
+    {
+      "annotation_frame": 236,
+      "original_pts": 871173,
+      "display_index": 236,
+      "pts": 120832,
+      "source_time_us": 9440000
+    },
+    {
+      "annotation_frame": 237,
+      "original_pts": 874773,
+      "display_index": 237,
+      "pts": 121344,
+      "source_time_us": 9480000
+    },
+    {
+      "annotation_frame": 238,
+      "original_pts": 878373,
+      "display_index": 238,
+      "pts": 121856,
+      "source_time_us": 9520000
+    },
+    {
+      "annotation_frame": 239,
+      "original_pts": 881973,
+      "display_index": 239,
+      "pts": 122368,
+      "source_time_us": 9560000
+    },
+    {
+      "annotation_frame": 240,
+      "original_pts": 885574,
+      "display_index": 240,
+      "pts": 122880,
+      "source_time_us": 9600000
+    },
+    {
+      "annotation_frame": 241,
+      "original_pts": 889173,
+      "display_index": 241,
+      "pts": 123392,
+      "source_time_us": 9640000
+    },
+    {
+      "annotation_frame": 242,
+      "original_pts": 892773,
+      "display_index": 242,
+      "pts": 123904,
+      "source_time_us": 9680000
+    },
+    {
+      "annotation_frame": 243,
+      "original_pts": 896374,
+      "display_index": 243,
+      "pts": 124416,
+      "source_time_us": 9720000
+    },
+    {
+      "annotation_frame": 244,
+      "original_pts": 899973,
+      "display_index": 244,
+      "pts": 124928,
+      "source_time_us": 9760000
+    },
+    {
+      "annotation_frame": 245,
+      "original_pts": 903573,
+      "display_index": 245,
+      "pts": 125440,
+      "source_time_us": 9800000
+    },
+    {
+      "annotation_frame": 246,
+      "original_pts": 907173,
+      "display_index": 246,
+      "pts": 125952,
+      "source_time_us": 9840000
+    },
+    {
+      "annotation_frame": 247,
+      "original_pts": 910773,
+      "display_index": 247,
+      "pts": 126464,
+      "source_time_us": 9880000
+    },
+    {
+      "annotation_frame": 248,
+      "original_pts": 914373,
+      "display_index": 248,
+      "pts": 126976,
+      "source_time_us": 9920000
+    },
+    {
+      "annotation_frame": 249,
+      "original_pts": 917973,
+      "display_index": 249,
+      "pts": 127488,
+      "source_time_us": 9960000
+    },
+    {
+      "annotation_frame": 250,
+      "original_pts": 921573,
+      "display_index": 250,
+      "pts": 128000,
+      "source_time_us": 10000000
+    },
+    {
+      "annotation_frame": 251,
+      "original_pts": 925174,
+      "display_index": 251,
+      "pts": 128512,
+      "source_time_us": 10040000
+    },
+    {
+      "annotation_frame": 252,
+      "original_pts": 928773,
+      "display_index": 252,
+      "pts": 129024,
+      "source_time_us": 10080000
+    },
+    {
+      "annotation_frame": 253,
+      "original_pts": 932373,
+      "display_index": 253,
+      "pts": 129536,
+      "source_time_us": 10120000
+    },
+    {
+      "annotation_frame": 254,
+      "original_pts": 935974,
+      "display_index": 254,
+      "pts": 130048,
+      "source_time_us": 10160000
+    },
+    {
+      "annotation_frame": 255,
+      "original_pts": 943173,
+      "display_index": 255,
+      "pts": 130560,
+      "source_time_us": 10200000
+    },
+    {
+      "annotation_frame": 256,
+      "original_pts": 943173,
+      "display_index": 256,
+      "pts": 131072,
+      "source_time_us": 10240000
+    },
+    {
+      "annotation_frame": 257,
+      "original_pts": 946774,
+      "display_index": 257,
+      "pts": 131584,
+      "source_time_us": 10280000
+    },
+    {
+      "annotation_frame": 258,
+      "original_pts": 950373,
+      "display_index": 258,
+      "pts": 132096,
+      "source_time_us": 10320000
+    },
+    {
+      "annotation_frame": 259,
+      "original_pts": 953973,
+      "display_index": 259,
+      "pts": 132608,
+      "source_time_us": 10360000
+    },
+    {
+      "annotation_frame": 260,
+      "original_pts": 957573,
+      "display_index": 260,
+      "pts": 133120,
+      "source_time_us": 10400000
+    },
+    {
+      "annotation_frame": 261,
+      "original_pts": 961173,
+      "display_index": 261,
+      "pts": 133632,
+      "source_time_us": 10440000
+    },
+    {
+      "annotation_frame": 262,
+      "original_pts": 964773,
+      "display_index": 262,
+      "pts": 134144,
+      "source_time_us": 10480000
+    },
+    {
+      "annotation_frame": 263,
+      "original_pts": 968373,
+      "display_index": 263,
+      "pts": 134656,
+      "source_time_us": 10520000
+    },
+    {
+      "annotation_frame": 264,
+      "original_pts": 971973,
+      "display_index": 264,
+      "pts": 135168,
+      "source_time_us": 10560000
+    },
+    {
+      "annotation_frame": 265,
+      "original_pts": 975574,
+      "display_index": 265,
+      "pts": 135680,
+      "source_time_us": 10600000
+    },
+    {
+      "annotation_frame": 266,
+      "original_pts": 979173,
+      "display_index": 266,
+      "pts": 136192,
+      "source_time_us": 10640000
+    },
+    {
+      "annotation_frame": 267,
+      "original_pts": 982773,
+      "display_index": 267,
+      "pts": 136704,
+      "source_time_us": 10680000
+    },
+    {
+      "annotation_frame": 268,
+      "original_pts": 986374,
+      "display_index": 268,
+      "pts": 137216,
+      "source_time_us": 10720000
+    },
+    {
+      "annotation_frame": 269,
+      "original_pts": 989973,
+      "display_index": 269,
+      "pts": 137728,
+      "source_time_us": 10760000
+    },
+    {
+      "annotation_frame": 270,
+      "original_pts": 993573,
+      "display_index": 270,
+      "pts": 138240,
+      "source_time_us": 10800000
+    },
+    {
+      "annotation_frame": 271,
+      "original_pts": 997173,
+      "display_index": 271,
+      "pts": 138752,
+      "source_time_us": 10840000
+    },
+    {
+      "annotation_frame": 272,
+      "original_pts": 1000773,
+      "display_index": 272,
+      "pts": 139264,
+      "source_time_us": 10880000
+    },
+    {
+      "annotation_frame": 273,
+      "original_pts": 1004373,
+      "display_index": 273,
+      "pts": 139776,
+      "source_time_us": 10920000
+    },
+    {
+      "annotation_frame": 274,
+      "original_pts": 1007973,
+      "display_index": 274,
+      "pts": 140288,
+      "source_time_us": 10960000
+    },
+    {
+      "annotation_frame": 275,
+      "original_pts": 1011573,
+      "display_index": 275,
+      "pts": 140800,
+      "source_time_us": 11000000
+    },
+    {
+      "annotation_frame": 276,
+      "original_pts": 1015174,
+      "display_index": 276,
+      "pts": 141312,
+      "source_time_us": 11040000
+    },
+    {
+      "annotation_frame": 277,
+      "original_pts": 1018773,
+      "display_index": 277,
+      "pts": 141824,
+      "source_time_us": 11080000
+    },
+    {
+      "annotation_frame": 278,
+      "original_pts": 1022373,
+      "display_index": 278,
+      "pts": 142336,
+      "source_time_us": 11120000
+    },
+    {
+      "annotation_frame": 279,
+      "original_pts": 1025974,
+      "display_index": 279,
+      "pts": 142848,
+      "source_time_us": 11160000
+    },
+    {
+      "annotation_frame": 280,
+      "original_pts": 1029573,
+      "display_index": 280,
+      "pts": 143360,
+      "source_time_us": 11200000
+    },
+    {
+      "annotation_frame": 281,
+      "original_pts": 1033173,
+      "display_index": 281,
+      "pts": 143872,
+      "source_time_us": 11240000
+    },
+    {
+      "annotation_frame": 282,
+      "original_pts": 1036774,
+      "display_index": 282,
+      "pts": 144384,
+      "source_time_us": 11280000
+    },
+    {
+      "annotation_frame": 283,
+      "original_pts": 1040373,
+      "display_index": 283,
+      "pts": 144896,
+      "source_time_us": 11320000
+    },
+    {
+      "annotation_frame": 284,
+      "original_pts": 1043973,
+      "display_index": 284,
+      "pts": 145408,
+      "source_time_us": 11360000
+    },
+    {
+      "annotation_frame": 285,
+      "original_pts": 1047573,
+      "display_index": 285,
+      "pts": 145920,
+      "source_time_us": 11400000
+    },
+    {
+      "annotation_frame": 286,
+      "original_pts": 1051173,
+      "display_index": 286,
+      "pts": 146432,
+      "source_time_us": 11440000
+    },
+    {
+      "annotation_frame": 287,
+      "original_pts": 1054774,
+      "display_index": 287,
+      "pts": 146944,
+      "source_time_us": 11480000
+    },
+    {
+      "annotation_frame": 288,
+      "original_pts": 1058373,
+      "display_index": 288,
+      "pts": 147456,
+      "source_time_us": 11520000
+    },
+    {
+      "annotation_frame": 289,
+      "original_pts": 1061973,
+      "display_index": 289,
+      "pts": 147968,
+      "source_time_us": 11560000
+    },
+    {
+      "annotation_frame": 290,
+      "original_pts": 1065574,
+      "display_index": 290,
+      "pts": 148480,
+      "source_time_us": 11600000
+    },
+    {
+      "annotation_frame": 291,
+      "original_pts": 1069173,
+      "display_index": 291,
+      "pts": 148992,
+      "source_time_us": 11640000
+    },
+    {
+      "annotation_frame": 292,
+      "original_pts": 1072773,
+      "display_index": 292,
+      "pts": 149504,
+      "source_time_us": 11680000
+    },
+    {
+      "annotation_frame": 293,
+      "original_pts": 1076374,
+      "display_index": 293,
+      "pts": 150016,
+      "source_time_us": 11720000
+    },
+    {
+      "annotation_frame": 294,
+      "original_pts": 1079973,
+      "display_index": 294,
+      "pts": 150528,
+      "source_time_us": 11760000
+    },
+    {
+      "annotation_frame": 295,
+      "original_pts": 1083573,
+      "display_index": 295,
+      "pts": 151040,
+      "source_time_us": 11800000
+    },
+    {
+      "annotation_frame": 296,
+      "original_pts": 1087173,
+      "display_index": 296,
+      "pts": 151552,
+      "source_time_us": 11840000
+    },
+    {
+      "annotation_frame": 297,
+      "original_pts": 1090773,
+      "display_index": 297,
+      "pts": 152064,
+      "source_time_us": 11880000
+    },
+    {
+      "annotation_frame": 298,
+      "original_pts": 1094373,
+      "display_index": 298,
+      "pts": 152576,
+      "source_time_us": 11920000
+    },
+    {
+      "annotation_frame": 299,
+      "original_pts": 1097973,
+      "display_index": 299,
+      "pts": 153088,
+      "source_time_us": 11960000
+    },
+    {
+      "annotation_frame": 300,
+      "original_pts": 1101573,
+      "display_index": 300,
+      "pts": 153600,
+      "source_time_us": 12000000
+    },
+    {
+      "annotation_frame": 301,
+      "original_pts": 1105174,
+      "display_index": 301,
+      "pts": 154112,
+      "source_time_us": 12040000
+    },
+    {
+      "annotation_frame": 302,
+      "original_pts": 1108773,
+      "display_index": 302,
+      "pts": 154624,
+      "source_time_us": 12080000
+    },
+    {
+      "annotation_frame": 303,
+      "original_pts": 1112373,
+      "display_index": 303,
+      "pts": 155136,
+      "source_time_us": 12120000
+    },
+    {
+      "annotation_frame": 304,
+      "original_pts": 1115974,
+      "display_index": 304,
+      "pts": 155648,
+      "source_time_us": 12160000
+    },
+    {
+      "annotation_frame": 305,
+      "original_pts": 1119573,
+      "display_index": 305,
+      "pts": 156160,
+      "source_time_us": 12200000
+    },
+    {
+      "annotation_frame": 306,
+      "original_pts": 1123173,
+      "display_index": 306,
+      "pts": 156672,
+      "source_time_us": 12240000
+    },
+    {
+      "annotation_frame": 307,
+      "original_pts": 1126774,
+      "display_index": 307,
+      "pts": 157184,
+      "source_time_us": 12280000
+    },
+    {
+      "annotation_frame": 308,
+      "original_pts": 1130373,
+      "display_index": 308,
+      "pts": 157696,
+      "source_time_us": 12320000
+    },
+    {
+      "annotation_frame": 309,
+      "original_pts": 1133973,
+      "display_index": 309,
+      "pts": 158208,
+      "source_time_us": 12360000
+    },
+    {
+      "annotation_frame": 310,
+      "original_pts": 1137573,
+      "display_index": 310,
+      "pts": 158720,
+      "source_time_us": 12400000
+    },
+    {
+      "annotation_frame": 311,
+      "original_pts": 1141173,
+      "display_index": 311,
+      "pts": 159232,
+      "source_time_us": 12440000
+    },
+    {
+      "annotation_frame": 312,
+      "original_pts": 1144774,
+      "display_index": 312,
+      "pts": 159744,
+      "source_time_us": 12480000
+    },
+    {
+      "annotation_frame": 313,
+      "original_pts": 1148373,
+      "display_index": 313,
+      "pts": 160256,
+      "source_time_us": 12520000
+    },
+    {
+      "annotation_frame": 314,
+      "original_pts": 1151973,
+      "display_index": 314,
+      "pts": 160768,
+      "source_time_us": 12560000
+    },
+    {
+      "annotation_frame": 315,
+      "original_pts": 1155574,
+      "display_index": 315,
+      "pts": 161280,
+      "source_time_us": 12600000
+    },
+    {
+      "annotation_frame": 316,
+      "original_pts": 1159173,
+      "display_index": 316,
+      "pts": 161792,
+      "source_time_us": 12640000
+    },
+    {
+      "annotation_frame": 317,
+      "original_pts": 1162773,
+      "display_index": 317,
+      "pts": 162304,
+      "source_time_us": 12680000
+    },
+    {
+      "annotation_frame": 318,
+      "original_pts": 1166374,
+      "display_index": 318,
+      "pts": 162816,
+      "source_time_us": 12720000
+    },
+    {
+      "annotation_frame": 319,
+      "original_pts": 1169973,
+      "display_index": 319,
+      "pts": 163328,
+      "source_time_us": 12760000
+    },
+    {
+      "annotation_frame": 320,
+      "original_pts": 1173573,
+      "display_index": 320,
+      "pts": 163840,
+      "source_time_us": 12800000
+    },
+    {
+      "annotation_frame": 321,
+      "original_pts": 1177173,
+      "display_index": 321,
+      "pts": 164352,
+      "source_time_us": 12840000
+    },
+    {
+      "annotation_frame": 322,
+      "original_pts": 1180773,
+      "display_index": 322,
+      "pts": 164864,
+      "source_time_us": 12880000
+    },
+    {
+      "annotation_frame": 323,
+      "original_pts": 1184373,
+      "display_index": 323,
+      "pts": 165376,
+      "source_time_us": 12920000
+    },
+    {
+      "annotation_frame": 324,
+      "original_pts": 1187973,
+      "display_index": 324,
+      "pts": 165888,
+      "source_time_us": 12960000
+    },
+    {
+      "annotation_frame": 325,
+      "original_pts": 1191573,
+      "display_index": 325,
+      "pts": 166400,
+      "source_time_us": 13000000
+    },
+    {
+      "annotation_frame": 326,
+      "original_pts": 1195174,
+      "display_index": 326,
+      "pts": 166912,
+      "source_time_us": 13040000
+    },
+    {
+      "annotation_frame": 327,
+      "original_pts": 1198773,
+      "display_index": 327,
+      "pts": 167424,
+      "source_time_us": 13080000
+    },
+    {
+      "annotation_frame": 328,
+      "original_pts": 1202373,
+      "display_index": 328,
+      "pts": 167936,
+      "source_time_us": 13120000
+    },
+    {
+      "annotation_frame": 329,
+      "original_pts": 1205974,
+      "display_index": 329,
+      "pts": 168448,
+      "source_time_us": 13160000
+    },
+    {
+      "annotation_frame": 330,
+      "original_pts": 1209573,
+      "display_index": 330,
+      "pts": 168960,
+      "source_time_us": 13200000
+    },
+    {
+      "annotation_frame": 331,
+      "original_pts": 1213173,
+      "display_index": 331,
+      "pts": 169472,
+      "source_time_us": 13240000
+    },
+    {
+      "annotation_frame": 332,
+      "original_pts": 1216774,
+      "display_index": 332,
+      "pts": 169984,
+      "source_time_us": 13280000
+    },
+    {
+      "annotation_frame": 333,
+      "original_pts": 1220373,
+      "display_index": 333,
+      "pts": 170496,
+      "source_time_us": 13320000
+    },
+    {
+      "annotation_frame": 334,
+      "original_pts": 1223973,
+      "display_index": 334,
+      "pts": 171008,
+      "source_time_us": 13360000
+    },
+    {
+      "annotation_frame": 335,
+      "original_pts": 1227573,
+      "display_index": 335,
+      "pts": 171520,
+      "source_time_us": 13400000
+    },
+    {
+      "annotation_frame": 336,
+      "original_pts": 1231173,
+      "display_index": 336,
+      "pts": 172032,
+      "source_time_us": 13440000
+    },
+    {
+      "annotation_frame": 337,
+      "original_pts": 1234774,
+      "display_index": 337,
+      "pts": 172544,
+      "source_time_us": 13480000
+    },
+    {
+      "annotation_frame": 338,
+      "original_pts": 1238373,
+      "display_index": 338,
+      "pts": 173056,
+      "source_time_us": 13520000
+    },
+    {
+      "annotation_frame": 339,
+      "original_pts": 1241973,
+      "display_index": 339,
+      "pts": 173568,
+      "source_time_us": 13560000
+    },
+    {
+      "annotation_frame": 340,
+      "original_pts": 1245574,
+      "display_index": 340,
+      "pts": 174080,
+      "source_time_us": 13600000
+    },
+    {
+      "annotation_frame": 341,
+      "original_pts": 1249173,
+      "display_index": 341,
+      "pts": 174592,
+      "source_time_us": 13640000
+    },
+    {
+      "annotation_frame": 342,
+      "original_pts": 1252773,
+      "display_index": 342,
+      "pts": 175104,
+      "source_time_us": 13680000
+    },
+    {
+      "annotation_frame": 343,
+      "original_pts": 1256374,
+      "display_index": 343,
+      "pts": 175616,
+      "source_time_us": 13720000
+    },
+    {
+      "annotation_frame": 344,
+      "original_pts": 1259973,
+      "display_index": 344,
+      "pts": 176128,
+      "source_time_us": 13760000
+    },
+    {
+      "annotation_frame": 345,
+      "original_pts": 1263573,
+      "display_index": 345,
+      "pts": 176640,
+      "source_time_us": 13800000
+    },
+    {
+      "annotation_frame": 346,
+      "original_pts": 1267173,
+      "display_index": 346,
+      "pts": 177152,
+      "source_time_us": 13840000
+    },
+    {
+      "annotation_frame": 347,
+      "original_pts": 1270773,
+      "display_index": 347,
+      "pts": 177664,
+      "source_time_us": 13880000
+    },
+    {
+      "annotation_frame": 348,
+      "original_pts": 1274373,
+      "display_index": 348,
+      "pts": 178176,
+      "source_time_us": 13920000
+    },
+    {
+      "annotation_frame": 349,
+      "original_pts": 1277973,
+      "display_index": 349,
+      "pts": 178688,
+      "source_time_us": 13960000
+    },
+    {
+      "annotation_frame": 350,
+      "original_pts": 1281573,
+      "display_index": 350,
+      "pts": 179200,
+      "source_time_us": 14000000
+    },
+    {
+      "annotation_frame": 351,
+      "original_pts": 1285174,
+      "display_index": 351,
+      "pts": 179712,
+      "source_time_us": 14040000
+    },
+    {
+      "annotation_frame": 352,
+      "original_pts": 1288773,
+      "display_index": 352,
+      "pts": 180224,
+      "source_time_us": 14080000
+    },
+    {
+      "annotation_frame": 353,
+      "original_pts": 1292373,
+      "display_index": 353,
+      "pts": 180736,
+      "source_time_us": 14120000
+    },
+    {
+      "annotation_frame": 354,
+      "original_pts": 1295974,
+      "display_index": 354,
+      "pts": 181248,
+      "source_time_us": 14160000
+    },
+    {
+      "annotation_frame": 355,
+      "original_pts": 1299573,
+      "display_index": 355,
+      "pts": 181760,
+      "source_time_us": 14200000
+    },
+    {
+      "annotation_frame": 356,
+      "original_pts": 1303173,
+      "display_index": 356,
+      "pts": 182272,
+      "source_time_us": 14240000
+    },
+    {
+      "annotation_frame": 357,
+      "original_pts": 1306774,
+      "display_index": 357,
+      "pts": 182784,
+      "source_time_us": 14280000
+    },
+    {
+      "annotation_frame": 358,
+      "original_pts": 1310373,
+      "display_index": 358,
+      "pts": 183296,
+      "source_time_us": 14320000
+    },
+    {
+      "annotation_frame": 359,
+      "original_pts": 1313973,
+      "display_index": 359,
+      "pts": 183808,
+      "source_time_us": 14360000
+    },
+    {
+      "annotation_frame": 360,
+      "original_pts": 1317573,
+      "display_index": 360,
+      "pts": 184320,
+      "source_time_us": 14400000
+    },
+    {
+      "annotation_frame": 361,
+      "original_pts": 1321173,
+      "display_index": 361,
+      "pts": 184832,
+      "source_time_us": 14440000
+    },
+    {
+      "annotation_frame": 362,
+      "original_pts": 1324774,
+      "display_index": 362,
+      "pts": 185344,
+      "source_time_us": 14480000
+    },
+    {
+      "annotation_frame": 363,
+      "original_pts": 1328373,
+      "display_index": 363,
+      "pts": 185856,
+      "source_time_us": 14520000
+    },
+    {
+      "annotation_frame": 364,
+      "original_pts": 1331973,
+      "display_index": 364,
+      "pts": 186368,
+      "source_time_us": 14560000
+    },
+    {
+      "annotation_frame": 365,
+      "original_pts": 1335574,
+      "display_index": 365,
+      "pts": 186880,
+      "source_time_us": 14600000
+    },
+    {
+      "annotation_frame": 366,
+      "original_pts": 1339173,
+      "display_index": 366,
+      "pts": 187392,
+      "source_time_us": 14640000
+    },
+    {
+      "annotation_frame": 367,
+      "original_pts": 1342773,
+      "display_index": 367,
+      "pts": 187904,
+      "source_time_us": 14680000
+    },
+    {
+      "annotation_frame": 368,
+      "original_pts": 1346374,
+      "display_index": 368,
+      "pts": 188416,
+      "source_time_us": 14720000
+    },
+    {
+      "annotation_frame": 369,
+      "original_pts": 1349973,
+      "display_index": 369,
+      "pts": 188928,
+      "source_time_us": 14760000
+    },
+    {
+      "annotation_frame": 370,
+      "original_pts": 1353573,
+      "display_index": 370,
+      "pts": 189440,
+      "source_time_us": 14800000
+    },
+    {
+      "annotation_frame": 371,
+      "original_pts": 1357173,
+      "display_index": 371,
+      "pts": 189952,
+      "source_time_us": 14840000
+    },
+    {
+      "annotation_frame": 372,
+      "original_pts": 1360773,
+      "display_index": 372,
+      "pts": 190464,
+      "source_time_us": 14880000
+    },
+    {
+      "annotation_frame": 373,
+      "original_pts": 1364373,
+      "display_index": 373,
+      "pts": 190976,
+      "source_time_us": 14920000
+    },
+    {
+      "annotation_frame": 374,
+      "original_pts": 1367973,
+      "display_index": 374,
+      "pts": 191488,
+      "source_time_us": 14960000
+    },
+    {
+      "annotation_frame": 375,
+      "original_pts": 1371573,
+      "display_index": 375,
+      "pts": 192000,
+      "source_time_us": 15000000
+    },
+    {
+      "annotation_frame": 376,
+      "original_pts": 1375174,
+      "display_index": 376,
+      "pts": 192512,
+      "source_time_us": 15040000
+    },
+    {
+      "annotation_frame": 377,
+      "original_pts": 1378773,
+      "display_index": 377,
+      "pts": 193024,
+      "source_time_us": 15080000
+    },
+    {
+      "annotation_frame": 378,
+      "original_pts": 1382373,
+      "display_index": 378,
+      "pts": 193536,
+      "source_time_us": 15120000
+    },
+    {
+      "annotation_frame": 379,
+      "original_pts": 1385974,
+      "display_index": 379,
+      "pts": 194048,
+      "source_time_us": 15160000
+    },
+    {
+      "annotation_frame": 380,
+      "original_pts": 1389573,
+      "display_index": 380,
+      "pts": 194560,
+      "source_time_us": 15200000
+    },
+    {
+      "annotation_frame": 381,
+      "original_pts": 1393173,
+      "display_index": 381,
+      "pts": 195072,
+      "source_time_us": 15240000
+    },
+    {
+      "annotation_frame": 382,
+      "original_pts": 1396774,
+      "display_index": 382,
+      "pts": 195584,
+      "source_time_us": 15280000
+    },
+    {
+      "annotation_frame": 383,
+      "original_pts": 1400373,
+      "display_index": 383,
+      "pts": 196096,
+      "source_time_us": 15320000
+    },
+    {
+      "annotation_frame": 384,
+      "original_pts": 1403973,
+      "display_index": 384,
+      "pts": 196608,
+      "source_time_us": 15360000
+    },
+    {
+      "annotation_frame": 385,
+      "original_pts": 1407573,
+      "display_index": 385,
+      "pts": 197120,
+      "source_time_us": 15400000
+    },
+    {
+      "annotation_frame": 386,
+      "original_pts": 1411173,
+      "display_index": 386,
+      "pts": 197632,
+      "source_time_us": 15440000
+    },
+    {
+      "annotation_frame": 387,
+      "original_pts": 1414774,
+      "display_index": 387,
+      "pts": 198144,
+      "source_time_us": 15480000
+    },
+    {
+      "annotation_frame": 388,
+      "original_pts": 1418373,
+      "display_index": 388,
+      "pts": 198656,
+      "source_time_us": 15520000
+    },
+    {
+      "annotation_frame": 389,
+      "original_pts": 1421973,
+      "display_index": 389,
+      "pts": 199168,
+      "source_time_us": 15560000
+    },
+    {
+      "annotation_frame": 390,
+      "original_pts": 1425574,
+      "display_index": 390,
+      "pts": 199680,
+      "source_time_us": 15600000
+    },
+    {
+      "annotation_frame": 391,
+      "original_pts": 1429173,
+      "display_index": 391,
+      "pts": 200192,
+      "source_time_us": 15640000
+    },
+    {
+      "annotation_frame": 392,
+      "original_pts": 1432773,
+      "display_index": 392,
+      "pts": 200704,
+      "source_time_us": 15680000
+    },
+    {
+      "annotation_frame": 393,
+      "original_pts": 1436374,
+      "display_index": 393,
+      "pts": 201216,
+      "source_time_us": 15720000
+    },
+    {
+      "annotation_frame": 394,
+      "original_pts": 1439973,
+      "display_index": 394,
+      "pts": 201728,
+      "source_time_us": 15760000
+    },
+    {
+      "annotation_frame": 395,
+      "original_pts": 1443573,
+      "display_index": 395,
+      "pts": 202240,
+      "source_time_us": 15800000
+    },
+    {
+      "annotation_frame": 396,
+      "original_pts": 1447173,
+      "display_index": 396,
+      "pts": 202752,
+      "source_time_us": 15840000
+    },
+    {
+      "annotation_frame": 397,
+      "original_pts": 1450773,
+      "display_index": 397,
+      "pts": 203264,
+      "source_time_us": 15880000
+    },
+    {
+      "annotation_frame": 398,
+      "original_pts": 1454373,
+      "display_index": 398,
+      "pts": 203776,
+      "source_time_us": 15920000
+    },
+    {
+      "annotation_frame": 399,
+      "original_pts": 1457973,
+      "display_index": 399,
+      "pts": 204288,
+      "source_time_us": 15960000
+    },
+    {
+      "annotation_frame": 400,
+      "original_pts": 1461573,
+      "display_index": 400,
+      "pts": 204800,
+      "source_time_us": 16000000
+    },
+    {
+      "annotation_frame": 401,
+      "original_pts": 1465174,
+      "display_index": 401,
+      "pts": 205312,
+      "source_time_us": 16040000
+    },
+    {
+      "annotation_frame": 402,
+      "original_pts": 1468773,
+      "display_index": 402,
+      "pts": 205824,
+      "source_time_us": 16080000
+    },
+    {
+      "annotation_frame": 403,
+      "original_pts": 1472373,
+      "display_index": 403,
+      "pts": 206336,
+      "source_time_us": 16120000
+    },
+    {
+      "annotation_frame": 404,
+      "original_pts": 1475974,
+      "display_index": 404,
+      "pts": 206848,
+      "source_time_us": 16160000
+    },
+    {
+      "annotation_frame": 405,
+      "original_pts": 1479573,
+      "display_index": 405,
+      "pts": 207360,
+      "source_time_us": 16200000
+    },
+    {
+      "annotation_frame": 406,
+      "original_pts": 1483173,
+      "display_index": 406,
+      "pts": 207872,
+      "source_time_us": 16240000
+    },
+    {
+      "annotation_frame": 407,
+      "original_pts": 1486774,
+      "display_index": 407,
+      "pts": 208384,
+      "source_time_us": 16280000
+    },
+    {
+      "annotation_frame": 408,
+      "original_pts": 1490373,
+      "display_index": 408,
+      "pts": 208896,
+      "source_time_us": 16320000
+    },
+    {
+      "annotation_frame": 409,
+      "original_pts": 1493973,
+      "display_index": 409,
+      "pts": 209408,
+      "source_time_us": 16360000
+    },
+    {
+      "annotation_frame": 410,
+      "original_pts": 1497573,
+      "display_index": 410,
+      "pts": 209920,
+      "source_time_us": 16400000
+    },
+    {
+      "annotation_frame": 411,
+      "original_pts": 1501173,
+      "display_index": 411,
+      "pts": 210432,
+      "source_time_us": 16440000
+    },
+    {
+      "annotation_frame": 412,
+      "original_pts": 1504774,
+      "display_index": 412,
+      "pts": 210944,
+      "source_time_us": 16480000
+    },
+    {
+      "annotation_frame": 413,
+      "original_pts": 1508373,
+      "display_index": 413,
+      "pts": 211456,
+      "source_time_us": 16520000
+    },
+    {
+      "annotation_frame": 414,
+      "original_pts": 1511973,
+      "display_index": 414,
+      "pts": 211968,
+      "source_time_us": 16560000
+    },
+    {
+      "annotation_frame": 415,
+      "original_pts": 1515574,
+      "display_index": 415,
+      "pts": 212480,
+      "source_time_us": 16600000
+    },
+    {
+      "annotation_frame": 416,
+      "original_pts": 1519173,
+      "display_index": 416,
+      "pts": 212992,
+      "source_time_us": 16640000
+    },
+    {
+      "annotation_frame": 417,
+      "original_pts": 1522773,
+      "display_index": 417,
+      "pts": 213504,
+      "source_time_us": 16680000
+    },
+    {
+      "annotation_frame": 418,
+      "original_pts": 1526374,
+      "display_index": 418,
+      "pts": 214016,
+      "source_time_us": 16720000
+    },
+    {
+      "annotation_frame": 419,
+      "original_pts": 1529973,
+      "display_index": 419,
+      "pts": 214528,
+      "source_time_us": 16760000
+    },
+    {
+      "annotation_frame": 420,
+      "original_pts": 1533573,
+      "display_index": 420,
+      "pts": 215040,
+      "source_time_us": 16800000
+    },
+    {
+      "annotation_frame": 421,
+      "original_pts": 1537173,
+      "display_index": 421,
+      "pts": 215552,
+      "source_time_us": 16840000
+    },
+    {
+      "annotation_frame": 422,
+      "original_pts": 1540773,
+      "display_index": 422,
+      "pts": 216064,
+      "source_time_us": 16880000
+    },
+    {
+      "annotation_frame": 423,
+      "original_pts": 1544373,
+      "display_index": 423,
+      "pts": 216576,
+      "source_time_us": 16920000
+    },
+    {
+      "annotation_frame": 424,
+      "original_pts": 1547973,
+      "display_index": 424,
+      "pts": 217088,
+      "source_time_us": 16960000
+    },
+    {
+      "annotation_frame": 425,
+      "original_pts": 1551573,
+      "display_index": 425,
+      "pts": 217600,
+      "source_time_us": 17000000
+    },
+    {
+      "annotation_frame": 426,
+      "original_pts": 1555174,
+      "display_index": 426,
+      "pts": 218112,
+      "source_time_us": 17040000
+    },
+    {
+      "annotation_frame": 427,
+      "original_pts": 1558773,
+      "display_index": 427,
+      "pts": 218624,
+      "source_time_us": 17080000
+    },
+    {
+      "annotation_frame": 428,
+      "original_pts": 1562373,
+      "display_index": 428,
+      "pts": 219136,
+      "source_time_us": 17120000
+    },
+    {
+      "annotation_frame": 429,
+      "original_pts": 1565974,
+      "display_index": 429,
+      "pts": 219648,
+      "source_time_us": 17160000
+    },
+    {
+      "annotation_frame": 430,
+      "original_pts": 1569573,
+      "display_index": 430,
+      "pts": 220160,
+      "source_time_us": 17200000
+    },
+    {
+      "annotation_frame": 431,
+      "original_pts": 1573173,
+      "display_index": 431,
+      "pts": 220672,
+      "source_time_us": 17240000
+    },
+    {
+      "annotation_frame": 432,
+      "original_pts": 1576774,
+      "display_index": 432,
+      "pts": 221184,
+      "source_time_us": 17280000
+    },
+    {
+      "annotation_frame": 433,
+      "original_pts": 1580373,
+      "display_index": 433,
+      "pts": 221696,
+      "source_time_us": 17320000
+    },
+    {
+      "annotation_frame": 434,
+      "original_pts": 1583973,
+      "display_index": 434,
+      "pts": 222208,
+      "source_time_us": 17360000
+    },
+    {
+      "annotation_frame": 435,
+      "original_pts": 1587573,
+      "display_index": 435,
+      "pts": 222720,
+      "source_time_us": 17400000
+    },
+    {
+      "annotation_frame": 436,
+      "original_pts": 1591173,
+      "display_index": 436,
+      "pts": 223232,
+      "source_time_us": 17440000
+    },
+    {
+      "annotation_frame": 437,
+      "original_pts": 1594774,
+      "display_index": 437,
+      "pts": 223744,
+      "source_time_us": 17480000
+    },
+    {
+      "annotation_frame": 438,
+      "original_pts": 1598373,
+      "display_index": 438,
+      "pts": 224256,
+      "source_time_us": 17520000
+    },
+    {
+      "annotation_frame": 439,
+      "original_pts": 1601973,
+      "display_index": 439,
+      "pts": 224768,
+      "source_time_us": 17560000
+    },
+    {
+      "annotation_frame": 440,
+      "original_pts": 1605574,
+      "display_index": 440,
+      "pts": 225280,
+      "source_time_us": 17600000
+    },
+    {
+      "annotation_frame": 441,
+      "original_pts": 1609173,
+      "display_index": 441,
+      "pts": 225792,
+      "source_time_us": 17640000
+    },
+    {
+      "annotation_frame": 442,
+      "original_pts": 1612773,
+      "display_index": 442,
+      "pts": 226304,
+      "source_time_us": 17680000
+    },
+    {
+      "annotation_frame": 443,
+      "original_pts": 1616374,
+      "display_index": 443,
+      "pts": 226816,
+      "source_time_us": 17720000
+    },
+    {
+      "annotation_frame": 444,
+      "original_pts": 1619973,
+      "display_index": 444,
+      "pts": 227328,
+      "source_time_us": 17760000
+    },
+    {
+      "annotation_frame": 445,
+      "original_pts": 1623573,
+      "display_index": 445,
+      "pts": 227840,
+      "source_time_us": 17800000
+    },
+    {
+      "annotation_frame": 446,
+      "original_pts": 1627173,
+      "display_index": 446,
+      "pts": 228352,
+      "source_time_us": 17840000
+    },
+    {
+      "annotation_frame": 447,
+      "original_pts": 1630773,
+      "display_index": 447,
+      "pts": 228864,
+      "source_time_us": 17880000
+    },
+    {
+      "annotation_frame": 448,
+      "original_pts": 1634373,
+      "display_index": 448,
+      "pts": 229376,
+      "source_time_us": 17920000
+    },
+    {
+      "annotation_frame": 449,
+      "original_pts": 1637973,
+      "display_index": 449,
+      "pts": 229888,
+      "source_time_us": 17960000
+    },
+    {
+      "annotation_frame": 450,
+      "original_pts": 1641573,
+      "display_index": 450,
+      "pts": 230400,
+      "source_time_us": 18000000
+    },
+    {
+      "annotation_frame": 451,
+      "original_pts": 1645174,
+      "display_index": 451,
+      "pts": 230912,
+      "source_time_us": 18040000
+    },
+    {
+      "annotation_frame": 452,
+      "original_pts": 1648773,
+      "display_index": 452,
+      "pts": 231424,
+      "source_time_us": 18080000
+    },
+    {
+      "annotation_frame": 453,
+      "original_pts": 1652373,
+      "display_index": 453,
+      "pts": 231936,
+      "source_time_us": 18120000
+    },
+    {
+      "annotation_frame": 454,
+      "original_pts": 1655974,
+      "display_index": 454,
+      "pts": 232448,
+      "source_time_us": 18160000
+    },
+    {
+      "annotation_frame": 455,
+      "original_pts": 1659573,
+      "display_index": 455,
+      "pts": 232960,
+      "source_time_us": 18200000
+    },
+    {
+      "annotation_frame": 456,
+      "original_pts": 1663173,
+      "display_index": 456,
+      "pts": 233472,
+      "source_time_us": 18240000
+    },
+    {
+      "annotation_frame": 457,
+      "original_pts": 1666774,
+      "display_index": 457,
+      "pts": 233984,
+      "source_time_us": 18280000
+    },
+    {
+      "annotation_frame": 458,
+      "original_pts": 1670373,
+      "display_index": 458,
+      "pts": 234496,
+      "source_time_us": 18320000
+    },
+    {
+      "annotation_frame": 459,
+      "original_pts": 1673973,
+      "display_index": 459,
+      "pts": 235008,
+      "source_time_us": 18360000
+    },
+    {
+      "annotation_frame": 460,
+      "original_pts": 1677573,
+      "display_index": 460,
+      "pts": 235520,
+      "source_time_us": 18400000
+    },
+    {
+      "annotation_frame": 461,
+      "original_pts": 1681173,
+      "display_index": 461,
+      "pts": 236032,
+      "source_time_us": 18440000
+    },
+    {
+      "annotation_frame": 462,
+      "original_pts": 1684774,
+      "display_index": 462,
+      "pts": 236544,
+      "source_time_us": 18480000
+    },
+    {
+      "annotation_frame": 463,
+      "original_pts": 1688373,
+      "display_index": 463,
+      "pts": 237056,
+      "source_time_us": 18520000
+    },
+    {
+      "annotation_frame": 464,
+      "original_pts": 1691973,
+      "display_index": 464,
+      "pts": 237568,
+      "source_time_us": 18560000
+    },
+    {
+      "annotation_frame": 465,
+      "original_pts": 1695574,
+      "display_index": 465,
+      "pts": 238080,
+      "source_time_us": 18600000
+    },
+    {
+      "annotation_frame": 466,
+      "original_pts": 1699173,
+      "display_index": 466,
+      "pts": 238592,
+      "source_time_us": 18640000
+    },
+    {
+      "annotation_frame": 467,
+      "original_pts": 1702773,
+      "display_index": 467,
+      "pts": 239104,
+      "source_time_us": 18680000
+    },
+    {
+      "annotation_frame": 468,
+      "original_pts": 1706374,
+      "display_index": 468,
+      "pts": 239616,
+      "source_time_us": 18720000
+    },
+    {
+      "annotation_frame": 469,
+      "original_pts": 1709973,
+      "display_index": 469,
+      "pts": 240128,
+      "source_time_us": 18760000
+    },
+    {
+      "annotation_frame": 470,
+      "original_pts": 1713573,
+      "display_index": 470,
+      "pts": 240640,
+      "source_time_us": 18800000
+    },
+    {
+      "annotation_frame": 471,
+      "original_pts": 1717173,
+      "display_index": 471,
+      "pts": 241152,
+      "source_time_us": 18840000
+    },
+    {
+      "annotation_frame": 472,
+      "original_pts": 1720773,
+      "display_index": 472,
+      "pts": 241664,
+      "source_time_us": 18880000
+    },
+    {
+      "annotation_frame": 473,
+      "original_pts": 1724373,
+      "display_index": 473,
+      "pts": 242176,
+      "source_time_us": 18920000
+    },
+    {
+      "annotation_frame": 474,
+      "original_pts": 1727973,
+      "display_index": 474,
+      "pts": 242688,
+      "source_time_us": 18960000
+    },
+    {
+      "annotation_frame": 475,
+      "original_pts": 1731573,
+      "display_index": 475,
+      "pts": 243200,
+      "source_time_us": 19000000
+    },
+    {
+      "annotation_frame": 476,
+      "original_pts": 1735174,
+      "display_index": 476,
+      "pts": 243712,
+      "source_time_us": 19040000
+    },
+    {
+      "annotation_frame": 477,
+      "original_pts": 1738773,
+      "display_index": 477,
+      "pts": 244224,
+      "source_time_us": 19080000
+    },
+    {
+      "annotation_frame": 478,
+      "original_pts": 1742373,
+      "display_index": 478,
+      "pts": 244736,
+      "source_time_us": 19120000
+    },
+    {
+      "annotation_frame": 479,
+      "original_pts": 1745974,
+      "display_index": 479,
+      "pts": 245248,
+      "source_time_us": 19160000
+    },
+    {
+      "annotation_frame": 480,
+      "original_pts": 1749573,
+      "display_index": 480,
+      "pts": 245760,
+      "source_time_us": 19200000
+    },
+    {
+      "annotation_frame": 481,
+      "original_pts": 1753173,
+      "display_index": 481,
+      "pts": 246272,
+      "source_time_us": 19240000
+    },
+    {
+      "annotation_frame": 482,
+      "original_pts": 1756774,
+      "display_index": 482,
+      "pts": 246784,
+      "source_time_us": 19280000
+    },
+    {
+      "annotation_frame": 483,
+      "original_pts": 1760373,
+      "display_index": 483,
+      "pts": 247296,
+      "source_time_us": 19320000
+    },
+    {
+      "annotation_frame": 484,
+      "original_pts": 1763973,
+      "display_index": 484,
+      "pts": 247808,
+      "source_time_us": 19360000
+    },
+    {
+      "annotation_frame": 485,
+      "original_pts": 1767573,
+      "display_index": 485,
+      "pts": 248320,
+      "source_time_us": 19400000
+    },
+    {
+      "annotation_frame": 486,
+      "original_pts": 1771173,
+      "display_index": 486,
+      "pts": 248832,
+      "source_time_us": 19440000
+    },
+    {
+      "annotation_frame": 487,
+      "original_pts": 1774774,
+      "display_index": 487,
+      "pts": 249344,
+      "source_time_us": 19480000
+    },
+    {
+      "annotation_frame": 488,
+      "original_pts": 1778373,
+      "display_index": 488,
+      "pts": 249856,
+      "source_time_us": 19520000
+    },
+    {
+      "annotation_frame": 489,
+      "original_pts": 1781973,
+      "display_index": 489,
+      "pts": 250368,
+      "source_time_us": 19560000
+    },
+    {
+      "annotation_frame": 490,
+      "original_pts": 1785574,
+      "display_index": 490,
+      "pts": 250880,
+      "source_time_us": 19600000
+    },
+    {
+      "annotation_frame": 491,
+      "original_pts": 1789173,
+      "display_index": 491,
+      "pts": 251392,
+      "source_time_us": 19640000
+    },
+    {
+      "annotation_frame": 492,
+      "original_pts": 1792773,
+      "display_index": 492,
+      "pts": 251904,
+      "source_time_us": 19680000
+    },
+    {
+      "annotation_frame": 493,
+      "original_pts": 1796374,
+      "display_index": 493,
+      "pts": 252416,
+      "source_time_us": 19720000
+    },
+    {
+      "annotation_frame": 494,
+      "original_pts": 1799973,
+      "display_index": 494,
+      "pts": 252928,
+      "source_time_us": 19760000
+    },
+    {
+      "annotation_frame": 495,
+      "original_pts": 1803573,
+      "display_index": 495,
+      "pts": 253440,
+      "source_time_us": 19800000
+    },
+    {
+      "annotation_frame": 496,
+      "original_pts": 1807173,
+      "display_index": 496,
+      "pts": 253952,
+      "source_time_us": 19840000
+    },
+    {
+      "annotation_frame": 497,
+      "original_pts": 1810773,
+      "display_index": 497,
+      "pts": 254464,
+      "source_time_us": 19880000
+    },
+    {
+      "annotation_frame": 498,
+      "original_pts": 1814373,
+      "display_index": 498,
+      "pts": 254976,
+      "source_time_us": 19920000
+    },
+    {
+      "annotation_frame": 499,
+      "original_pts": 1817973,
+      "display_index": 499,
+      "pts": 255488,
+      "source_time_us": 19960000
+    },
+    {
+      "annotation_frame": 500,
+      "original_pts": 1821573,
+      "display_index": 500,
+      "pts": 256000,
+      "source_time_us": 20000000
+    },
+    {
+      "annotation_frame": 501,
+      "original_pts": 1825174,
+      "display_index": 501,
+      "pts": 256512,
+      "source_time_us": 20040000
+    },
+    {
+      "annotation_frame": 502,
+      "original_pts": 1828773,
+      "display_index": 502,
+      "pts": 257024,
+      "source_time_us": 20080000
+    },
+    {
+      "annotation_frame": 503,
+      "original_pts": 1832373,
+      "display_index": 503,
+      "pts": 257536,
+      "source_time_us": 20120000
+    },
+    {
+      "annotation_frame": 504,
+      "original_pts": 1835974,
+      "display_index": 504,
+      "pts": 258048,
+      "source_time_us": 20160000
+    },
+    {
+      "annotation_frame": 505,
+      "original_pts": 1839573,
+      "display_index": 505,
+      "pts": 258560,
+      "source_time_us": 20200000
+    },
+    {
+      "annotation_frame": 506,
+      "original_pts": 1843173,
+      "display_index": 506,
+      "pts": 259072,
+      "source_time_us": 20240000
+    },
+    {
+      "annotation_frame": 507,
+      "original_pts": 1846774,
+      "display_index": 507,
+      "pts": 259584,
+      "source_time_us": 20280000
+    },
+    {
+      "annotation_frame": 508,
+      "original_pts": 1850373,
+      "display_index": 508,
+      "pts": 260096,
+      "source_time_us": 20320000
+    },
+    {
+      "annotation_frame": 509,
+      "original_pts": 1853973,
+      "display_index": 509,
+      "pts": 260608,
+      "source_time_us": 20360000
+    },
+    {
+      "annotation_frame": 510,
+      "original_pts": 1857573,
+      "display_index": 510,
+      "pts": 261120,
+      "source_time_us": 20400000
+    },
+    {
+      "annotation_frame": 511,
+      "original_pts": 1861173,
+      "display_index": 511,
+      "pts": 261632,
+      "source_time_us": 20440000
+    },
+    {
+      "annotation_frame": 512,
+      "original_pts": 1864774,
+      "display_index": 512,
+      "pts": 262144,
+      "source_time_us": 20480000
+    },
+    {
+      "annotation_frame": 513,
+      "original_pts": 1868373,
+      "display_index": 513,
+      "pts": 262656,
+      "source_time_us": 20520000
+    },
+    {
+      "annotation_frame": 514,
+      "original_pts": 1871973,
+      "display_index": 514,
+      "pts": 263168,
+      "source_time_us": 20560000
+    },
+    {
+      "annotation_frame": 515,
+      "original_pts": 1875574,
+      "display_index": 515,
+      "pts": 263680,
+      "source_time_us": 20600000
+    },
+    {
+      "annotation_frame": 516,
+      "original_pts": 1879173,
+      "display_index": 516,
+      "pts": 264192,
+      "source_time_us": 20640000
+    },
+    {
+      "annotation_frame": 517,
+      "original_pts": 1882773,
+      "display_index": 517,
+      "pts": 264704,
+      "source_time_us": 20680000
+    },
+    {
+      "annotation_frame": 518,
+      "original_pts": 1886374,
+      "display_index": 518,
+      "pts": 265216,
+      "source_time_us": 20720000
+    },
+    {
+      "annotation_frame": 519,
+      "original_pts": 1889973,
+      "display_index": 519,
+      "pts": 265728,
+      "source_time_us": 20760000
+    },
+    {
+      "annotation_frame": 520,
+      "original_pts": 1893573,
+      "display_index": 520,
+      "pts": 266240,
+      "source_time_us": 20800000
+    },
+    {
+      "annotation_frame": 521,
+      "original_pts": 1897173,
+      "display_index": 521,
+      "pts": 266752,
+      "source_time_us": 20840000
+    },
+    {
+      "annotation_frame": 522,
+      "original_pts": 1900773,
+      "display_index": 522,
+      "pts": 267264,
+      "source_time_us": 20880000
+    },
+    {
+      "annotation_frame": 523,
+      "original_pts": 1904373,
+      "display_index": 523,
+      "pts": 267776,
+      "source_time_us": 20920000
+    },
+    {
+      "annotation_frame": 524,
+      "original_pts": 1907973,
+      "display_index": 524,
+      "pts": 268288,
+      "source_time_us": 20960000
+    },
+    {
+      "annotation_frame": 525,
+      "original_pts": 1911573,
+      "display_index": 525,
+      "pts": 268800,
+      "source_time_us": 21000000
+    },
+    {
+      "annotation_frame": 526,
+      "original_pts": 1915174,
+      "display_index": 526,
+      "pts": 269312,
+      "source_time_us": 21040000
+    },
+    {
+      "annotation_frame": 527,
+      "original_pts": 1918773,
+      "display_index": 527,
+      "pts": 269824,
+      "source_time_us": 21080000
+    },
+    {
+      "annotation_frame": 528,
+      "original_pts": 1922373,
+      "display_index": 528,
+      "pts": 270336,
+      "source_time_us": 21120000
+    },
+    {
+      "annotation_frame": 529,
+      "original_pts": 1925974,
+      "display_index": 529,
+      "pts": 270848,
+      "source_time_us": 21160000
+    },
+    {
+      "annotation_frame": 530,
+      "original_pts": 1929573,
+      "display_index": 530,
+      "pts": 271360,
+      "source_time_us": 21200000
+    },
+    {
+      "annotation_frame": 531,
+      "original_pts": 1933173,
+      "display_index": 531,
+      "pts": 271872,
+      "source_time_us": 21240000
+    },
+    {
+      "annotation_frame": 532,
+      "original_pts": 1936774,
+      "display_index": 532,
+      "pts": 272384,
+      "source_time_us": 21280000
+    },
+    {
+      "annotation_frame": 533,
+      "original_pts": 1940373,
+      "display_index": 533,
+      "pts": 272896,
+      "source_time_us": 21320000
+    },
+    {
+      "annotation_frame": 534,
+      "original_pts": 1943973,
+      "display_index": 534,
+      "pts": 273408,
+      "source_time_us": 21360000
+    },
+    {
+      "annotation_frame": 535,
+      "original_pts": 1947573,
+      "display_index": 535,
+      "pts": 273920,
+      "source_time_us": 21400000
+    },
+    {
+      "annotation_frame": 536,
+      "original_pts": 1951173,
+      "display_index": 536,
+      "pts": 274432,
+      "source_time_us": 21440000
+    },
+    {
+      "annotation_frame": 537,
+      "original_pts": 1954774,
+      "display_index": 537,
+      "pts": 274944,
+      "source_time_us": 21480000
+    },
+    {
+      "annotation_frame": 538,
+      "original_pts": 1958373,
+      "display_index": 538,
+      "pts": 275456,
+      "source_time_us": 21520000
+    },
+    {
+      "annotation_frame": 539,
+      "original_pts": 1961973,
+      "display_index": 539,
+      "pts": 275968,
+      "source_time_us": 21560000
+    },
+    {
+      "annotation_frame": 540,
+      "original_pts": 1965574,
+      "display_index": 540,
+      "pts": 276480,
+      "source_time_us": 21600000
+    },
+    {
+      "annotation_frame": 541,
+      "original_pts": 1969173,
+      "display_index": 541,
+      "pts": 276992,
+      "source_time_us": 21640000
+    },
+    {
+      "annotation_frame": 542,
+      "original_pts": 1972773,
+      "display_index": 542,
+      "pts": 277504,
+      "source_time_us": 21680000
+    },
+    {
+      "annotation_frame": 543,
+      "original_pts": 1976374,
+      "display_index": 543,
+      "pts": 278016,
+      "source_time_us": 21720000
+    },
+    {
+      "annotation_frame": 544,
+      "original_pts": 1979973,
+      "display_index": 544,
+      "pts": 278528,
+      "source_time_us": 21760000
+    },
+    {
+      "annotation_frame": 545,
+      "original_pts": 1983573,
+      "display_index": 545,
+      "pts": 279040,
+      "source_time_us": 21800000
+    },
+    {
+      "annotation_frame": 546,
+      "original_pts": 1987173,
+      "display_index": 546,
+      "pts": 279552,
+      "source_time_us": 21840000
+    },
+    {
+      "annotation_frame": 547,
+      "original_pts": 1990773,
+      "display_index": 547,
+      "pts": 280064,
+      "source_time_us": 21880000
+    },
+    {
+      "annotation_frame": 548,
+      "original_pts": 1994373,
+      "display_index": 548,
+      "pts": 280576,
+      "source_time_us": 21920000
+    },
+    {
+      "annotation_frame": 549,
+      "original_pts": 1997973,
+      "display_index": 549,
+      "pts": 281088,
+      "source_time_us": 21960000
+    },
+    {
+      "annotation_frame": 550,
+      "original_pts": 2001573,
+      "display_index": 550,
+      "pts": 281600,
+      "source_time_us": 22000000
+    },
+    {
+      "annotation_frame": 551,
+      "original_pts": 2005174,
+      "display_index": 551,
+      "pts": 282112,
+      "source_time_us": 22040000
+    },
+    {
+      "annotation_frame": 552,
+      "original_pts": 2008773,
+      "display_index": 552,
+      "pts": 282624,
+      "source_time_us": 22080000
+    },
+    {
+      "annotation_frame": 553,
+      "original_pts": 2012373,
+      "display_index": 553,
+      "pts": 283136,
+      "source_time_us": 22120000
+    },
+    {
+      "annotation_frame": 554,
+      "original_pts": 2015974,
+      "display_index": 554,
+      "pts": 283648,
+      "source_time_us": 22160000
+    },
+    {
+      "annotation_frame": 555,
+      "original_pts": 2019573,
+      "display_index": 555,
+      "pts": 284160,
+      "source_time_us": 22200000
+    },
+    {
+      "annotation_frame": 556,
+      "original_pts": 2023173,
+      "display_index": 556,
+      "pts": 284672,
+      "source_time_us": 22240000
+    },
+    {
+      "annotation_frame": 557,
+      "original_pts": 2026774,
+      "display_index": 557,
+      "pts": 285184,
+      "source_time_us": 22280000
+    },
+    {
+      "annotation_frame": 558,
+      "original_pts": 2030373,
+      "display_index": 558,
+      "pts": 285696,
+      "source_time_us": 22320000
+    },
+    {
+      "annotation_frame": 559,
+      "original_pts": 2033973,
+      "display_index": 559,
+      "pts": 286208,
+      "source_time_us": 22360000
+    },
+    {
+      "annotation_frame": 560,
+      "original_pts": 2037573,
+      "display_index": 560,
+      "pts": 286720,
+      "source_time_us": 22400000
+    },
+    {
+      "annotation_frame": 561,
+      "original_pts": 2041173,
+      "display_index": 561,
+      "pts": 287232,
+      "source_time_us": 22440000
+    },
+    {
+      "annotation_frame": 562,
+      "original_pts": 2044774,
+      "display_index": 562,
+      "pts": 287744,
+      "source_time_us": 22480000
+    },
+    {
+      "annotation_frame": 563,
+      "original_pts": 2048373,
+      "display_index": 563,
+      "pts": 288256,
+      "source_time_us": 22520000
+    },
+    {
+      "annotation_frame": 564,
+      "original_pts": 2051973,
+      "display_index": 564,
+      "pts": 288768,
+      "source_time_us": 22560000
+    },
+    {
+      "annotation_frame": 565,
+      "original_pts": 2055574,
+      "display_index": 565,
+      "pts": 289280,
+      "source_time_us": 22600000
+    },
+    {
+      "annotation_frame": 566,
+      "original_pts": 2059173,
+      "display_index": 566,
+      "pts": 289792,
+      "source_time_us": 22640000
+    },
+    {
+      "annotation_frame": 567,
+      "original_pts": 2062773,
+      "display_index": 567,
+      "pts": 290304,
+      "source_time_us": 22680000
+    },
+    {
+      "annotation_frame": 568,
+      "original_pts": 2066374,
+      "display_index": 568,
+      "pts": 290816,
+      "source_time_us": 22720000
+    },
+    {
+      "annotation_frame": 569,
+      "original_pts": 2069973,
+      "display_index": 569,
+      "pts": 291328,
+      "source_time_us": 22760000
+    },
+    {
+      "annotation_frame": 570,
+      "original_pts": 2073573,
+      "display_index": 570,
+      "pts": 291840,
+      "source_time_us": 22800000
+    },
+    {
+      "annotation_frame": 571,
+      "original_pts": 2077173,
+      "display_index": 571,
+      "pts": 292352,
+      "source_time_us": 22840000
+    },
+    {
+      "annotation_frame": 572,
+      "original_pts": 2080773,
+      "display_index": 572,
+      "pts": 292864,
+      "source_time_us": 22880000
+    },
+    {
+      "annotation_frame": 573,
+      "original_pts": 2084373,
+      "display_index": 573,
+      "pts": 293376,
+      "source_time_us": 22920000
+    },
+    {
+      "annotation_frame": 574,
+      "original_pts": 2087973,
+      "display_index": 574,
+      "pts": 293888,
+      "source_time_us": 22960000
+    },
+    {
+      "annotation_frame": 575,
+      "original_pts": 2091573,
+      "display_index": 575,
+      "pts": 294400,
+      "source_time_us": 23000000
+    },
+    {
+      "annotation_frame": 576,
+      "original_pts": 2095174,
+      "display_index": 576,
+      "pts": 294912,
+      "source_time_us": 23040000
+    },
+    {
+      "annotation_frame": 577,
+      "original_pts": 2098773,
+      "display_index": 577,
+      "pts": 295424,
+      "source_time_us": 23080000
+    },
+    {
+      "annotation_frame": 578,
+      "original_pts": 2102373,
+      "display_index": 578,
+      "pts": 295936,
+      "source_time_us": 23120000
+    },
+    {
+      "annotation_frame": 579,
+      "original_pts": 2105974,
+      "display_index": 579,
+      "pts": 296448,
+      "source_time_us": 23160000
+    },
+    {
+      "annotation_frame": 580,
+      "original_pts": 2109573,
+      "display_index": 580,
+      "pts": 296960,
+      "source_time_us": 23200000
+    },
+    {
+      "annotation_frame": 581,
+      "original_pts": 2113173,
+      "display_index": 581,
+      "pts": 297472,
+      "source_time_us": 23240000
+    },
+    {
+      "annotation_frame": 582,
+      "original_pts": 2116774,
+      "display_index": 582,
+      "pts": 297984,
+      "source_time_us": 23280000
+    },
+    {
+      "annotation_frame": 583,
+      "original_pts": 2120373,
+      "display_index": 583,
+      "pts": 298496,
+      "source_time_us": 23320000
+    },
+    {
+      "annotation_frame": 584,
+      "original_pts": 2123973,
+      "display_index": 584,
+      "pts": 299008,
+      "source_time_us": 23360000
+    },
+    {
+      "annotation_frame": 585,
+      "original_pts": 2127573,
+      "display_index": 585,
+      "pts": 299520,
+      "source_time_us": 23400000
+    },
+    {
+      "annotation_frame": 586,
+      "original_pts": 2131173,
+      "display_index": 586,
+      "pts": 300032,
+      "source_time_us": 23440000
+    },
+    {
+      "annotation_frame": 587,
+      "original_pts": 2134774,
+      "display_index": 587,
+      "pts": 300544,
+      "source_time_us": 23480000
+    },
+    {
+      "annotation_frame": 588,
+      "original_pts": 2138373,
+      "display_index": 588,
+      "pts": 301056,
+      "source_time_us": 23520000
+    },
+    {
+      "annotation_frame": 589,
+      "original_pts": 2141973,
+      "display_index": 589,
+      "pts": 301568,
+      "source_time_us": 23560000
+    },
+    {
+      "annotation_frame": 590,
+      "original_pts": 2145574,
+      "display_index": 590,
+      "pts": 302080,
+      "source_time_us": 23600000
+    },
+    {
+      "annotation_frame": 591,
+      "original_pts": 2149173,
+      "display_index": 591,
+      "pts": 302592,
+      "source_time_us": 23640000
+    },
+    {
+      "annotation_frame": 592,
+      "original_pts": 2152773,
+      "display_index": 592,
+      "pts": 303104,
+      "source_time_us": 23680000
+    },
+    {
+      "annotation_frame": 593,
+      "original_pts": 2156374,
+      "display_index": 593,
+      "pts": 303616,
+      "source_time_us": 23720000
+    },
+    {
+      "annotation_frame": 594,
+      "original_pts": 2159973,
+      "display_index": 594,
+      "pts": 304128,
+      "source_time_us": 23760000
+    },
+    {
+      "annotation_frame": 595,
+      "original_pts": 2163573,
+      "display_index": 595,
+      "pts": 304640,
+      "source_time_us": 23800000
+    },
+    {
+      "annotation_frame": 596,
+      "original_pts": 2167173,
+      "display_index": 596,
+      "pts": 305152,
+      "source_time_us": 23840000
+    },
+    {
+      "annotation_frame": 597,
+      "original_pts": 2170773,
+      "display_index": 597,
+      "pts": 305664,
+      "source_time_us": 23880000
+    },
+    {
+      "annotation_frame": 598,
+      "original_pts": 2174373,
+      "display_index": 598,
+      "pts": 306176,
+      "source_time_us": 23920000
+    },
+    {
+      "annotation_frame": 599,
+      "original_pts": 2177973,
+      "display_index": 599,
+      "pts": 306688,
+      "source_time_us": 23960000
+    },
+    {
+      "annotation_frame": 600,
+      "original_pts": 2181573,
+      "display_index": 600,
+      "pts": 307200,
+      "source_time_us": 24000000
+    },
+    {
+      "annotation_frame": 601,
+      "original_pts": 2185174,
+      "display_index": 601,
+      "pts": 307712,
+      "source_time_us": 24040000
+    },
+    {
+      "annotation_frame": 602,
+      "original_pts": 2188773,
+      "display_index": 602,
+      "pts": 308224,
+      "source_time_us": 24080000
+    },
+    {
+      "annotation_frame": 603,
+      "original_pts": 2192373,
+      "display_index": 603,
+      "pts": 308736,
+      "source_time_us": 24120000
+    },
+    {
+      "annotation_frame": 604,
+      "original_pts": 2195974,
+      "display_index": 604,
+      "pts": 309248,
+      "source_time_us": 24160000
+    },
+    {
+      "annotation_frame": 605,
+      "original_pts": 2199573,
+      "display_index": 605,
+      "pts": 309760,
+      "source_time_us": 24200000
+    },
+    {
+      "annotation_frame": 606,
+      "original_pts": 2203173,
+      "display_index": 606,
+      "pts": 310272,
+      "source_time_us": 24240000
+    },
+    {
+      "annotation_frame": 607,
+      "original_pts": 2206774,
+      "display_index": 607,
+      "pts": 310784,
+      "source_time_us": 24280000
+    },
+    {
+      "annotation_frame": 608,
+      "original_pts": 2210373,
+      "display_index": 608,
+      "pts": 311296,
+      "source_time_us": 24320000
+    },
+    {
+      "annotation_frame": 609,
+      "original_pts": 2213973,
+      "display_index": 609,
+      "pts": 311808,
+      "source_time_us": 24360000
+    },
+    {
+      "annotation_frame": 610,
+      "original_pts": 2217573,
+      "display_index": 610,
+      "pts": 312320,
+      "source_time_us": 24400000
+    },
+    {
+      "annotation_frame": 611,
+      "original_pts": 2221173,
+      "display_index": 611,
+      "pts": 312832,
+      "source_time_us": 24440000
+    },
+    {
+      "annotation_frame": 612,
+      "original_pts": 2224774,
+      "display_index": 612,
+      "pts": 313344,
+      "source_time_us": 24480000
+    },
+    {
+      "annotation_frame": 613,
+      "original_pts": 2228373,
+      "display_index": 613,
+      "pts": 313856,
+      "source_time_us": 24520000
+    },
+    {
+      "annotation_frame": 614,
+      "original_pts": 2231973,
+      "display_index": 614,
+      "pts": 314368,
+      "source_time_us": 24560000
+    },
+    {
+      "annotation_frame": 615,
+      "original_pts": 2235574,
+      "display_index": 615,
+      "pts": 314880,
+      "source_time_us": 24600000
+    },
+    {
+      "annotation_frame": 616,
+      "original_pts": 2239173,
+      "display_index": 616,
+      "pts": 315392,
+      "source_time_us": 24640000
+    },
+    {
+      "annotation_frame": 617,
+      "original_pts": 2242773,
+      "display_index": 617,
+      "pts": 315904,
+      "source_time_us": 24680000
+    },
+    {
+      "annotation_frame": 618,
+      "original_pts": 2246374,
+      "display_index": 618,
+      "pts": 316416,
+      "source_time_us": 24720000
+    },
+    {
+      "annotation_frame": 619,
+      "original_pts": 2249973,
+      "display_index": 619,
+      "pts": 316928,
+      "source_time_us": 24760000
+    },
+    {
+      "annotation_frame": 620,
+      "original_pts": 2253573,
+      "display_index": 620,
+      "pts": 317440,
+      "source_time_us": 24800000
+    },
+    {
+      "annotation_frame": 621,
+      "original_pts": 2257173,
+      "display_index": 621,
+      "pts": 317952,
+      "source_time_us": 24840000
+    },
+    {
+      "annotation_frame": 622,
+      "original_pts": 2260773,
+      "display_index": 622,
+      "pts": 318464,
+      "source_time_us": 24880000
+    }
+  ],
+  "labels_by_kind_in_scope": {
+    "objects": [
+      "appearance=appear",
+      "appearance=disappear",
+      "appearance=visible",
+      "context=browsing",
+      "context=walking",
+      "movement=active",
+      "movement=inactive",
+      "movement=walking",
+      "role=browser",
+      "role=walker",
+      "situation=browsing",
+      "situation=moving"
+    ],
+    "groups": [
+      "appearance=appear",
+      "appearance=disappear",
+      "appearance=visible",
+      "context=meeting",
+      "movement=active",
+      "movement=movement",
+      "role=meeters",
+      "role=walkers",
+      "situation=interacting",
+      "situation=joining",
+      "situation=moving",
+      "situation=split up"
+    ]
+  },
+  "label_runs": [
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "0",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 0,
+        "end_exclusive": 28
+      },
+      "local_interval": {
+        "start_us": 0,
+        "end_us": 1120000
+      },
+      "compatibility": "broader_person_moved"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "0",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "walker",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 0,
+        "end_exclusive": 28
+      },
+      "local_interval": {
+        "start_us": 0,
+        "end_us": 1120000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "0",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "context",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 0,
+        "end_exclusive": 28
+      },
+      "local_interval": {
+        "start_us": 0,
+        "end_us": 1120000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "0",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "moving",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 0,
+        "end_exclusive": 28
+      },
+      "local_interval": {
+        "start_us": 0,
+        "end_us": 1120000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "0",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "appear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 0,
+        "end_exclusive": 1
+      },
+      "local_interval": {
+        "start_us": 0,
+        "end_us": 40000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "1",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "inactive",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 0,
+        "end_exclusive": 52
+      },
+      "local_interval": {
+        "start_us": 0,
+        "end_us": 2080000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "1",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "browser",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 0,
+        "end_exclusive": 52
+      },
+      "local_interval": {
+        "start_us": 0,
+        "end_us": 2080000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "1",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "context",
+      "label": "browsing",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 0,
+        "end_exclusive": 404
+      },
+      "local_interval": {
+        "start_us": 0,
+        "end_us": 16160000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "1",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "browsing",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 0,
+        "end_exclusive": 52
+      },
+      "local_interval": {
+        "start_us": 0,
+        "end_us": 2080000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "1",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "appear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 0,
+        "end_exclusive": 1
+      },
+      "local_interval": {
+        "start_us": 0,
+        "end_us": 40000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "0",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "visible",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 1,
+        "end_exclusive": 27
+      },
+      "local_interval": {
+        "start_us": 40000,
+        "end_us": 1080000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "1",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "visible",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 1,
+        "end_exclusive": 404
+      },
+      "local_interval": {
+        "start_us": 40000,
+        "end_us": 16160000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "2",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 1,
+        "end_exclusive": 136
+      },
+      "local_interval": {
+        "start_us": 40000,
+        "end_us": 5440000
+      },
+      "compatibility": "broader_person_moved"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "2",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "walker",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 1,
+        "end_exclusive": 136
+      },
+      "local_interval": {
+        "start_us": 40000,
+        "end_us": 5440000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "2",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "context",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 1,
+        "end_exclusive": 136
+      },
+      "local_interval": {
+        "start_us": 40000,
+        "end_us": 5440000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "2",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "moving",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 1,
+        "end_exclusive": 136
+      },
+      "local_interval": {
+        "start_us": 40000,
+        "end_us": 5440000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "2",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "appear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 1,
+        "end_exclusive": 2
+      },
+      "local_interval": {
+        "start_us": 40000,
+        "end_us": 80000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "2",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "visible",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 2,
+        "end_exclusive": 135
+      },
+      "local_interval": {
+        "start_us": 80000,
+        "end_us": 5400000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "0",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "disappear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 27,
+        "end_exclusive": 28
+      },
+      "local_interval": {
+        "start_us": 1080000,
+        "end_us": 1120000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "1",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 52,
+        "end_exclusive": 404
+      },
+      "local_interval": {
+        "start_us": 2080000,
+        "end_us": 16160000
+      },
+      "compatibility": "broader_person_moved"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "1",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "walker",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 52,
+        "end_exclusive": 404
+      },
+      "local_interval": {
+        "start_us": 2080000,
+        "end_us": 16160000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "1",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "moving",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 52,
+        "end_exclusive": 404
+      },
+      "local_interval": {
+        "start_us": 2080000,
+        "end_us": 16160000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "3",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 68,
+        "end_exclusive": 434
+      },
+      "local_interval": {
+        "start_us": 2720000,
+        "end_us": 17360000
+      },
+      "compatibility": "broader_person_moved"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "3",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "walker",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 68,
+        "end_exclusive": 434
+      },
+      "local_interval": {
+        "start_us": 2720000,
+        "end_us": 17360000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "3",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "context",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 68,
+        "end_exclusive": 434
+      },
+      "local_interval": {
+        "start_us": 2720000,
+        "end_us": 17360000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "3",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "moving",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 68,
+        "end_exclusive": 434
+      },
+      "local_interval": {
+        "start_us": 2720000,
+        "end_us": 17360000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "3",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "appear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 68,
+        "end_exclusive": 69
+      },
+      "local_interval": {
+        "start_us": 2720000,
+        "end_us": 2760000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "3",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "visible",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 69,
+        "end_exclusive": 433
+      },
+      "local_interval": {
+        "start_us": 2760000,
+        "end_us": 17320000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "movement",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 100,
+        "end_exclusive": 169
+      },
+      "local_interval": {
+        "start_us": 4000000,
+        "end_us": 6760000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "movement",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 195,
+        "end_exclusive": 301
+      },
+      "local_interval": {
+        "start_us": 7800000,
+        "end_us": 12040000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "meeters",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 100,
+        "end_exclusive": 195
+      },
+      "local_interval": {
+        "start_us": 4000000,
+        "end_us": 7800000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "meeters",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 281,
+        "end_exclusive": 301
+      },
+      "local_interval": {
+        "start_us": 11240000,
+        "end_us": 12040000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "context",
+      "label": "meeting",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 100,
+        "end_exclusive": 301
+      },
+      "local_interval": {
+        "start_us": 4000000,
+        "end_us": 12040000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "joining",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 100,
+        "end_exclusive": 169
+      },
+      "local_interval": {
+        "start_us": 4000000,
+        "end_us": 6760000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "appear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 100,
+        "end_exclusive": 101
+      },
+      "local_interval": {
+        "start_us": 4000000,
+        "end_us": 4040000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "visible",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 101,
+        "end_exclusive": 300
+      },
+      "local_interval": {
+        "start_us": 4040000,
+        "end_us": 12000000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "4",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 102,
+        "end_exclusive": 206
+      },
+      "local_interval": {
+        "start_us": 4080000,
+        "end_us": 8240000
+      },
+      "compatibility": "broader_person_moved"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "4",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "walker",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 102,
+        "end_exclusive": 206
+      },
+      "local_interval": {
+        "start_us": 4080000,
+        "end_us": 8240000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "4",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "context",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 102,
+        "end_exclusive": 206
+      },
+      "local_interval": {
+        "start_us": 4080000,
+        "end_us": 8240000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "4",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "moving",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 102,
+        "end_exclusive": 206
+      },
+      "local_interval": {
+        "start_us": 4080000,
+        "end_us": 8240000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "4",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "appear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 102,
+        "end_exclusive": 103
+      },
+      "local_interval": {
+        "start_us": 4080000,
+        "end_us": 4120000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "4",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "visible",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 103,
+        "end_exclusive": 205
+      },
+      "local_interval": {
+        "start_us": 4120000,
+        "end_us": 8200000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "5",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 130,
+        "end_exclusive": 328
+      },
+      "local_interval": {
+        "start_us": 5200000,
+        "end_us": 13120000
+      },
+      "compatibility": "broader_person_moved"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "5",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "walker",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 130,
+        "end_exclusive": 328
+      },
+      "local_interval": {
+        "start_us": 5200000,
+        "end_us": 13120000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "5",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "context",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 130,
+        "end_exclusive": 328
+      },
+      "local_interval": {
+        "start_us": 5200000,
+        "end_us": 13120000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "5",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "moving",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 130,
+        "end_exclusive": 328
+      },
+      "local_interval": {
+        "start_us": 5200000,
+        "end_us": 13120000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "5",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "appear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 130,
+        "end_exclusive": 131
+      },
+      "local_interval": {
+        "start_us": 5200000,
+        "end_us": 5240000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "5",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "visible",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 131,
+        "end_exclusive": 327
+      },
+      "local_interval": {
+        "start_us": 5240000,
+        "end_us": 13080000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "2",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "disappear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 135,
+        "end_exclusive": 136
+      },
+      "local_interval": {
+        "start_us": 5400000,
+        "end_us": 5440000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "6",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 156,
+        "end_exclusive": 377
+      },
+      "local_interval": {
+        "start_us": 6240000,
+        "end_us": 15080000
+      },
+      "compatibility": "broader_person_moved"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "6",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "walker",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 156,
+        "end_exclusive": 377
+      },
+      "local_interval": {
+        "start_us": 6240000,
+        "end_us": 15080000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "6",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "context",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 156,
+        "end_exclusive": 377
+      },
+      "local_interval": {
+        "start_us": 6240000,
+        "end_us": 15080000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "6",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "moving",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 156,
+        "end_exclusive": 377
+      },
+      "local_interval": {
+        "start_us": 6240000,
+        "end_us": 15080000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "6",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "appear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 156,
+        "end_exclusive": 157
+      },
+      "local_interval": {
+        "start_us": 6240000,
+        "end_us": 6280000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "6",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "visible",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 157,
+        "end_exclusive": 376
+      },
+      "local_interval": {
+        "start_us": 6280000,
+        "end_us": 15040000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "active",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 169,
+        "end_exclusive": 195
+      },
+      "local_interval": {
+        "start_us": 6760000,
+        "end_us": 7800000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "interacting",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 169,
+        "end_exclusive": 195
+      },
+      "local_interval": {
+        "start_us": 6760000,
+        "end_us": 7800000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "walkers",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 195,
+        "end_exclusive": 281
+      },
+      "local_interval": {
+        "start_us": 7800000,
+        "end_us": 11240000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "moving",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 195,
+        "end_exclusive": 281
+      },
+      "local_interval": {
+        "start_us": 7800000,
+        "end_us": 11240000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "4",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "disappear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 205,
+        "end_exclusive": 206
+      },
+      "local_interval": {
+        "start_us": 8200000,
+        "end_us": 8240000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "split up",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 281,
+        "end_exclusive": 301
+      },
+      "local_interval": {
+        "start_us": 11240000,
+        "end_us": 12040000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "groups",
+      "entity_id": "0",
+      "members": [
+        "1",
+        "3"
+      ],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "disappear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 300,
+        "end_exclusive": 301
+      },
+      "local_interval": {
+        "start_us": 12000000,
+        "end_us": 12040000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "7",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 303,
+        "end_exclusive": 479
+      },
+      "local_interval": {
+        "start_us": 12120000,
+        "end_us": 19160000
+      },
+      "compatibility": "broader_person_moved"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "7",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "walker",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 303,
+        "end_exclusive": 479
+      },
+      "local_interval": {
+        "start_us": 12120000,
+        "end_us": 19160000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "7",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "context",
+      "label": "browsing",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 303,
+        "end_exclusive": 623
+      },
+      "local_interval": {
+        "start_us": 12120000,
+        "end_us": 24920000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "7",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "moving",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 303,
+        "end_exclusive": 479
+      },
+      "local_interval": {
+        "start_us": 12120000,
+        "end_us": 19160000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "7",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "appear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 303,
+        "end_exclusive": 304
+      },
+      "local_interval": {
+        "start_us": 12120000,
+        "end_us": 12160000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "7",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "visible",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 304,
+        "end_exclusive": 622
+      },
+      "local_interval": {
+        "start_us": 12160000,
+        "end_us": 24880000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "5",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "disappear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 327,
+        "end_exclusive": 328
+      },
+      "local_interval": {
+        "start_us": 13080000,
+        "end_us": 13120000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "6",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "disappear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 376,
+        "end_exclusive": 377
+      },
+      "local_interval": {
+        "start_us": 15040000,
+        "end_us": 15080000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "3",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "disappear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 433,
+        "end_exclusive": 434
+      },
+      "local_interval": {
+        "start_us": 17320000,
+        "end_us": 17360000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "7",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "active",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 479,
+        "end_exclusive": 623
+      },
+      "local_interval": {
+        "start_us": 19160000,
+        "end_us": 24920000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "7",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "browser",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 479,
+        "end_exclusive": 623
+      },
+      "local_interval": {
+        "start_us": 19160000,
+        "end_us": 24920000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "7",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "browsing",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 479,
+        "end_exclusive": 623
+      },
+      "local_interval": {
+        "start_us": 19160000,
+        "end_us": 24920000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "8",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "movement",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 611,
+        "end_exclusive": 623
+      },
+      "local_interval": {
+        "start_us": 24440000,
+        "end_us": 24920000
+      },
+      "compatibility": "broader_person_moved"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "8",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "role",
+      "label": "walker",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 611,
+        "end_exclusive": 623
+      },
+      "local_interval": {
+        "start_us": 24440000,
+        "end_us": 24920000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "8",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "context",
+      "label": "walking",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 611,
+        "end_exclusive": 623
+      },
+      "local_interval": {
+        "start_us": 24440000,
+        "end_us": 24920000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "8",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "situation",
+      "label": "moving",
+      "field_evaluation": "1.0",
+      "original_frame_interval": {
+        "start": 611,
+        "end_exclusive": 623
+      },
+      "local_interval": {
+        "start_us": 24440000,
+        "end_us": 24920000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "8",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "appear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 611,
+        "end_exclusive": 612
+      },
+      "local_interval": {
+        "start_us": 24440000,
+        "end_us": 24480000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "8",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "visible",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 612,
+        "end_exclusive": 622
+      },
+      "local_interval": {
+        "start_us": 24480000,
+        "end_us": 24880000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "7",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "disappear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 622,
+        "end_exclusive": 623
+      },
+      "local_interval": {
+        "start_us": 24880000,
+        "end_us": 24920000
+      },
+      "compatibility": "unmapped"
+    },
+    {
+      "xml": "data/annotations/mws1gt.xml",
+      "kind": "objects",
+      "entity_id": "8",
+      "members": [],
+      "hypothesis_id": "1",
+      "field": "appearance",
+      "label": "disappear",
+      "field_evaluation": null,
+      "original_frame_interval": {
+        "start": 622,
+        "end_exclusive": 623
+      },
+      "local_interval": {
+        "start_us": 24880000,
+        "end_us": 24920000
+      },
+      "compatibility": "unmapped"
+    }
+  ]
+}

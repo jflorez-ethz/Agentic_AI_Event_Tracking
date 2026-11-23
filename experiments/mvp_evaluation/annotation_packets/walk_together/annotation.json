@@ -1,0 +1,33 @@
+{
+  "case": "walk_together",
+  "source_sha256": "a9ecf0af1ed8317d62dd0e4bae117d877615f8f59ab98d1a8bd8b5afc8c629fd",
+  "reviewers": [],
+  "review_complete": false,
+  "events": [],
+  "questions": [
+    {
+      "id": "Q1",
+      "text": "What visible activities occur between 8 and 13 seconds?",
+      "expectation": null,
+      "expected_event_ids": [],
+      "reason": "",
+      "supporting_frames": []
+    },
+    {
+      "id": "Q2",
+      "text": "Where do people visibly move within the scene, if any?",
+      "expectation": null,
+      "expected_event_ids": [],
+      "reason": "",
+      "supporting_frames": []
+    },
+    {
+      "id": "Q3",
+      "text": "Can you establish that anyone crossed a clearly identifiable physical boundary into the area?",
+      "expectation": null,
+      "expected_event_ids": [],
+      "reason": "",
+      "supporting_frames": []
+    }
+  ]
+}

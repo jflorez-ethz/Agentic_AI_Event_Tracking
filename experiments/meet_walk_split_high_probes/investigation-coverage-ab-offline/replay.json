@@ -1,0 +1,73 @@
+{
+  "request_diff": {
+    "added_context_field": "unseen_observation_coverage",
+    "value": [
+      {
+        "start_us": 16000000,
+        "end_us": 19520001,
+        "observation_count": 2
+      },
+      {
+        "start_us": 20000000,
+        "end_us": 24520001,
+        "observation_count": 1
+      }
+    ]
+  },
+  "replay": {
+    "delegated_ids": [
+      "observation-a0edff0f464766aa986e7a3fe672cb909e827c930036f46d0313cca1f40cdc39",
+      "observation-3bfb1c56bbe324de53281c8d55ddd7c506d3607c1ae794310badc00c1d8f80cb",
+      "observation-da6fdebc40fca46c44b2f43c79c6f806c5bbafaca85bb693c5009fa233ab14ba",
+      "observation-ac83682fb5f7d3d5ee5c7eeacb15a97e8a0854d2a629f67175c20d78061d5390"
+    ],
+    "omitted_ids": [
+      "observation-433e1420058c2daded9fed756c8f39a86c07405e0d55adf8d4ac7a264f1ba71c",
+      "observation-7628163245f48993bd8e3a81c0769917e41c9f8846e5ba0d78a0534ab44d2a6e",
+      "observation-7f18178dd644fd52f9c17f79bd89b2c6fc1722d214cc2a95c8069970d2ca4b67"
+    ],
+    "scripted_search_checks": [
+      {
+        "start_us": 16000000,
+        "end_us": 19520001,
+        "observation_count": 2,
+        "result": {
+          "status": "found",
+          "ids": [
+            "observation-7628163245f48993bd8e3a81c0769917e41c9f8846e5ba0d78a0534ab44d2a6e",
+            "observation-7f18178dd644fd52f9c17f79bd89b2c6fc1722d214cc2a95c8069970d2ca4b67"
+          ]
+        }
+      },
+      {
+        "start_us": 20000000,
+        "end_us": 24520001,
+        "observation_count": 1,
+        "result": {
+          "status": "found",
+          "ids": [
+            "observation-433e1420058c2daded9fed756c8f39a86c07405e0d55adf8d4ac7a264f1ba71c"
+          ]
+        }
+      }
+    ]
+  },
+  "budget": {
+    "max_archive_attempts": 24,
+    "max_candidates": 4,
+    "max_inspections": 4,
+    "max_initial_windows": 3,
+    "max_agent_calls": 14,
+    "max_retrievals": 1,
+    "max_verification_iterations": 4,
+    "max_failures": 1,
+    "max_recoveries": 1
+  },
+  "models": {
+    "investigation": "gemini-3.6-flash",
+    "verification": "gemini-3.6-flash",
+    "reporting": "gemini-3.6-flash",
+    "video": "gemini-3.6-flash"
+  },
+  "request_source": "SDK mock transport"
+}

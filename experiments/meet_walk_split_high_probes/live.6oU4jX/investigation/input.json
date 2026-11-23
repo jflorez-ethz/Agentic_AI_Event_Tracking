@@ -1,0 +1,331 @@
+{
+  "model": "gemini-3.6-flash",
+  "thinking_level": "LOW",
+  "max_output_tokens": 1024,
+  "budget": {
+    "max_archive_attempts": 24,
+    "max_candidates": 4,
+    "max_inspections": 4,
+    "max_initial_windows": 3,
+    "max_agent_calls": 14,
+    "max_retrievals": 1,
+    "max_verification_iterations": 4,
+    "max_failures": 1,
+    "max_recoveries": 1
+  },
+  "observation_ids": [
+    "observation-5825a5ee3a0cd8baa8233d294696e25cff3dc234f6c297afacc5074a158baa87",
+    "observation-81c7ab9b22cec7a524406d8e9ced590d54e48d0975f10a02513ef758921e797c",
+    "observation-af11b0374973bbf94fca6bca64c60787aec961d4b2b3b6640101381616992957",
+    "observation-0aa005597bab7cba2071153e6624a909991635864e3a7dc14db4a3e6e52c1025",
+    "observation-bd3673e5be4de63016f6248c069a40695f068a2cffdba8748bbaf683f9dbcd57"
+  ],
+  "context": {
+    "duration_us": 24960000,
+    "max_candidates": 4,
+    "evidence": {
+      "observation-5825a5ee3a0cd8baa8233d294696e25cff3dc234f6c297afacc5074a158baa87": {
+        "category": "person_moved",
+        "description": "A person walking along the windowed corridor from the left moves toward the atrium center in frames F1 to F13, meets another person in frame F14, and walks toward the upper-left area in frames F15 to F20.",
+        "visibility_limits": "Bright sunlight along the windowed area causes glare.",
+        "uncertainty": "Movement between discrete frames is unobserved.",
+        "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+        "modality": "frames",
+        "interval": {
+          "start_us": 0,
+          "end_us": 9520001
+        },
+        "frame_ids": [
+          "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+          "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+          "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+          "frame-cfbfec091a21efabb640d08fd47feda5a8e0914509ec5cae49418d38a3ce4954",
+          "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e",
+          "frame-52faf6e0f59f4db9e3da4dee37a2b521b94770bb9d0a690cbb778490ac6c62e3",
+          "frame-cb7d7b1ad9f2c1683187b64d359f03691196eee8d64110a3a1fb78686d73bb7c",
+          "frame-6975ea2366df725c470699fddaf44ad7d40c8036c458c21d057a0589316c67b0",
+          "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+          "frame-e5f191ad95dd31424c4571b6954ee9b529ac89947becbceca0dfb0a3771a1788",
+          "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+          "frame-fc6cdf36874aaee549f25ecca3f4d81b8c243569dcc21bcb5073dd83b7fdfd07",
+          "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+          "frame-bc4674074514a6291d20741efd6f15e5097ba2469b63aa766045ec6f8d4d71c0",
+          "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+          "frame-7f27dea900e5862a195c853d744cc9398c745740d45e6c3d30d85bc5787b2b1a",
+          "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+          "frame-64025c8deb5a20df19295d00aa0e70cf0e7b300c69a657f722975fc45b5a4a13",
+          "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+          "frame-70c092b0f9e14a36486f332cd9e8e0810ece04d77079a08075f3574b866ecbfc"
+        ],
+        "frame_times_us": [
+          0,
+          520000,
+          1000000,
+          1520000,
+          2000000,
+          2520000,
+          3000000,
+          3520000,
+          4000000,
+          4520000,
+          5000000,
+          5520000,
+          6000000,
+          6520000,
+          7000000,
+          7520000,
+          8000000,
+          8520000,
+          9000000,
+          9520000
+        ]
+      },
+      "observation-81c7ab9b22cec7a524406d8e9ced590d54e48d0975f10a02513ef758921e797c": {
+        "category": "person_moved",
+        "description": "A person in a blue top moves near the bottom right area of the atrium in frames F1 and F2 before exiting the camera view.",
+        "visibility_limits": "Visible near the bottom edge of the image.",
+        "uncertainty": "Trajectory after frame F2 is unobserved.",
+        "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+        "modality": "frames",
+        "interval": {
+          "start_us": 0,
+          "end_us": 520001
+        },
+        "frame_ids": [
+          "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+          "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117"
+        ],
+        "frame_times_us": [
+          0,
+          520000
+        ]
+      },
+      "observation-af11b0374973bbf94fca6bca64c60787aec961d4b2b3b6640101381616992957": {
+        "category": "person_appeared",
+        "description": "A person wearing dark clothing becomes visible at the lower-right edge of the frame in frame F7.",
+        "visibility_limits": "Positioned at the edge of the camera view.",
+        "uncertainty": "Exact entry time between F6 and F7 is uncertain.",
+        "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+        "modality": "frames",
+        "interval": {
+          "start_us": 3000000,
+          "end_us": 3000001
+        },
+        "frame_ids": [
+          "frame-cb7d7b1ad9f2c1683187b64d359f03691196eee8d64110a3a1fb78686d73bb7c"
+        ],
+        "frame_times_us": [
+          3000000
+        ]
+      },
+      "observation-0aa005597bab7cba2071153e6624a909991635864e3a7dc14db4a3e6e52c1025": {
+        "category": "person_moved",
+        "description": "The person visible at the bottom right moves toward the center of the atrium in frames F8 through F13, joins the other person in frame F14, and walks together toward the upper left in frames F15 through F20.",
+        "visibility_limits": "Visible across the open atrium floor.",
+        "uncertainty": "Intervals between frames leave exact motion details unrecorded.",
+        "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+        "modality": "frames",
+        "interval": {
+          "start_us": 3520000,
+          "end_us": 9520001
+        },
+        "frame_ids": [
+          "frame-6975ea2366df725c470699fddaf44ad7d40c8036c458c21d057a0589316c67b0",
+          "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+          "frame-e5f191ad95dd31424c4571b6954ee9b529ac89947becbceca0dfb0a3771a1788",
+          "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+          "frame-fc6cdf36874aaee549f25ecca3f4d81b8c243569dcc21bcb5073dd83b7fdfd07",
+          "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+          "frame-bc4674074514a6291d20741efd6f15e5097ba2469b63aa766045ec6f8d4d71c0",
+          "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+          "frame-7f27dea900e5862a195c853d744cc9398c745740d45e6c3d30d85bc5787b2b1a",
+          "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+          "frame-64025c8deb5a20df19295d00aa0e70cf0e7b300c69a657f722975fc45b5a4a13",
+          "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+          "frame-70c092b0f9e14a36486f332cd9e8e0810ece04d77079a08075f3574b866ecbfc"
+        ],
+        "frame_times_us": [
+          3520000,
+          4000000,
+          4520000,
+          5000000,
+          5520000,
+          6000000,
+          6520000,
+          7000000,
+          7520000,
+          8000000,
+          8520000,
+          9000000,
+          9520000
+        ]
+      },
+      "observation-bd3673e5be4de63016f6248c069a40695f068a2cffdba8748bbaf683f9dbcd57": {
+        "category": "person_moved",
+        "description": "A person visible in the lower sunlit corridor moves along the walkway.",
+        "visibility_limits": "High glare and structural frames in the lower corridor obscure fine details of the person.",
+        "uncertainty": "Exact movement path is slightly uncertain due to distance and intense lighting glare.",
+        "inspection_id": "inspection-528f7897aa78500fa84d5fb794d2ffea0a7c8c7a2cbca815aa72e1a855c16978",
+        "modality": "frames",
+        "interval": {
+          "start_us": 20000000,
+          "end_us": 24520001
+        },
+        "frame_ids": [
+          "frame-33cf8253171403ffbcb1a7c8ac405b025adc1b8f7465f958d88af6f5118fb0fb",
+          "frame-ee1ce7b8f4ea9068fd883febdedbfc9e0d407ecd9d305c3c115a70d17faa127b",
+          "frame-e35535ed16952da30168650b24276f9ed19ab95ff65726887cd674b27ace93a1",
+          "frame-344385896ba45b32c945a562bf5360a9fd198341852b686ef989fb23fe436ac5",
+          "frame-31634321104304862602962942786f59519afc1855a724d0c255aeb725b7c6de",
+          "frame-aca03dd7e6b9bcc1f10f741bfc6bdec675d14ded687eca985a60a67f2ba2d0ee",
+          "frame-f98cb27986d40f259d1a590f52005e25eeeecaf08d9c0f5ba545f9a1b6c30b1f",
+          "frame-c9717c1e672bf84274a784f7e73141e0480013c62766fcb68b56af5f0d0a5f68",
+          "frame-f8de2ab12c4bb26fb728812a49dcea6bd213e21fb4f2a9f53f558f5ab2df2cd3",
+          "frame-951e0496213f562336d45c7958e429894c922494f30563f5124026e62e12e62b"
+        ],
+        "frame_times_us": [
+          20000000,
+          20520000,
+          21000000,
+          21520000,
+          22000000,
+          22520000,
+          23000000,
+          23520000,
+          24000000,
+          24520000
+        ]
+      }
+    },
+    "last_tool_result": null,
+    "additional_evidence_available": false,
+    "initial_observation_count": 5
+  },
+  "schema": {
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "delegate"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "dispositions": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "reason": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "deferred",
+                        "excluded"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "reason",
+                    "status"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "reason": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "associated"
+                      ]
+                    },
+                    "candidate_id": {
+                      "type": "string"
+                    },
+                    "correspondence": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "same_event",
+                            "different_events",
+                            "unresolved"
+                          ]
+                        },
+                        "seed_quote": {
+                          "type": "string"
+                        },
+                        "other_quote": {
+                          "type": "string"
+                        },
+                        "shared_frame_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "status",
+                        "seed_quote",
+                        "other_quote",
+                        "shared_frame_id"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "reason",
+                    "status",
+                    "candidate_id",
+                    "correspondence"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 4
+          }
+        },
+        "required": [
+          "action",
+          "reason",
+          "dispositions",
+          "ids"
+        ],
+        "additionalProperties": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "role_calls": [
+    {
+      "role": "verification",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 3967,
+        "candidates_token_count": 146,
+        "total_token_count": 4113
+      },
+      "max_output_tokens": 1024,
+      "transport_attempts": [
+        {
+          "request_number": 2,
+          "http_status": 200
+        }
+      ],
+      "candidate_count": 1,
+      "finish_reasons": [
+        "FinishReason.STOP"
+      ],
+      "completed_candidate": true,
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 2131
+    },
+    {
+      "role": "reporting",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 314,
+        "candidates_token_count": 86,
+        "total_token_count": 400
+      },
+      "max_output_tokens": 1024,
+      "transport_attempts": [
+        {
+          "request_number": 3,
+          "http_status": 200
+        }
+      ],
+      "candidate_count": 1,
+      "finish_reasons": [
+        "FinishReason.STOP"
+      ],
+      "completed_candidate": true,
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 1432
+    }
+  ],
+  "media_request_upper_bound": 1
+}

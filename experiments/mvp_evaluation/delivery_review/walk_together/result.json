@@ -1,0 +1,265 @@
+{
+  "source": "data/raw/Meet_WalkTogether1_pts.mp4",
+  "artifact": "experiments/meet_walk_evaluation.i2mvYw/run/analysis.json",
+  "source_sha256": "a9ecf0af1ed8317d62dd0e4bae117d877615f8f59ab98d1a8bd8b5afc8c629fd",
+  "artifact_sha256": "5328722ff473cc5c5734a0d878da018552dc07d00874dfc7ffc11a51ba14c6b4",
+  "citation_checks": {
+    "references": 5,
+    "valid": 5,
+    "invalid": []
+  },
+  "unique_frames": 13,
+  "sheet_indices": [
+    250,
+    300,
+    325,
+    425,
+    450,
+    475,
+    675,
+    700
+  ],
+  "frames": [
+    {
+      "id": "frame-173c08bcff50b0f956f298a6fead575ad4c46d2ebab36e1439e4122d9614545d",
+      "display_index": 225,
+      "pts": 115200,
+      "source_time_us": 9000000,
+      "rgb24_sha256": "db7e25de5fc255b2226f9805cba03550c1ae9b2ecd7c1125848bc8772fa97bef",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-2f85e6b207224fef34a61910e623e7ae94f3a66b136b653aef963c3bd04975d2",
+      "display_index": 250,
+      "pts": 128000,
+      "source_time_us": 10000000,
+      "rgb24_sha256": "1f6ce5652356b24ecf2f4aca73813b6c1512a9303b75846e1e950cebc5fe618e",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-f65586ace2e3da5e050201b46c42ee0ee3a5495d164057c4c893ae4060c1fe3f",
+      "display_index": 275,
+      "pts": 140800,
+      "source_time_us": 11000000,
+      "rgb24_sha256": "705ab105c8aaffbc97b76afe2cb0d09a4cade4ecfc90424ee1d7b78d65772cac",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-f4a6ee31787348c2dfb586e5714dce8b61bc99a166f45fe5777623fafc06503f",
+      "display_index": 300,
+      "pts": 153600,
+      "source_time_us": 12000000,
+      "rgb24_sha256": "0c3773e86d8e2469185167cc3938214a3837e1e97c1decbf5bf89f59983afb98",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-842fbeee56be6d12782847eb550b718d3c8ccea8b5ea69ddb9bdd5d3670b4e1e",
+      "display_index": 325,
+      "pts": 166400,
+      "source_time_us": 13000000,
+      "rgb24_sha256": "39992dc37f591d7d5fac862efc7411a9d515bb438567deb9f26b6f88e8e73131",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-1f6c2bab1cfd296d78b65b161f6c54d4112eed09375a6a89cbc5a81934113198",
+      "display_index": 350,
+      "pts": 179200,
+      "source_time_us": 14000000,
+      "rgb24_sha256": "53c34eb07c4d2b6024d6052530d5470381f923022a85339e859fde9e7ba556e5",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-3d9e4833329c2eb6691df7670075823646bd335f2d5c50dbd475316908b40e11",
+      "display_index": 375,
+      "pts": 192000,
+      "source_time_us": 15000000,
+      "rgb24_sha256": "fb61a9f8d81c90db88d2c404233d3b829b71a081dc556fef8278ec4e3c233e37",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-67f76411f316b631e82ce356d4b17927b443f483bc7339f5d789c4c0ef523e24",
+      "display_index": 400,
+      "pts": 204800,
+      "source_time_us": 16000000,
+      "rgb24_sha256": "d0c6ff8754b54b8df6a4d4c2001b3f6816cd855b0c9e8cce95fb4d41542badf8",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-4131ee88c229c6a33566273b0d0254a420cb1cc13740b0581e0a1d89ebbfea0a",
+      "display_index": 425,
+      "pts": 217600,
+      "source_time_us": 17000000,
+      "rgb24_sha256": "2b52ff6ed92a5017d853e7ae60fce4e9313fabfae25575079973b344ebf984e1",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-5701441085004a6cc8975f08edceb5917f8adc24a30010b6ff09d2d1d0f71bd9",
+      "display_index": 450,
+      "pts": 230400,
+      "source_time_us": 18000000,
+      "rgb24_sha256": "819efbb75ca6e7e68ccfb433164b25d86a22db453a831614b4620409c1213427",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-9b2ee143c5586eab22eadd83e6a25ea6c97dbd5ae617cde3d54ba54942ec3e2e",
+      "display_index": 475,
+      "pts": 243200,
+      "source_time_us": 19000000,
+      "rgb24_sha256": "0ac20902123fc536fc02b22ab949ce7fecf5103dda53c40d91a0ee12c39efb68",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-5fede5729c07598bac7546df783a37fc31986de583e57295ff5a472a71425451",
+      "display_index": 675,
+      "pts": 345600,
+      "source_time_us": 27000000,
+      "rgb24_sha256": "1c56e296a8760b22712702d9d9974a878fb1634af681b76e775867c8978590d4",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-a445a623430d64826efc82ffabd1215c029dfbb56c3b6567ed57dabd4e5dacb8",
+      "display_index": 700,
+      "pts": 358400,
+      "source_time_us": 28000000,
+      "rgb24_sha256": "95f80e75962f0dc8336ba17879c519eb36d8813823d60af337ee6363d0d9ce35",
+      "schema_version": 1
+    }
+  ],
+  "answers": [
+    {
+      "question": "What happened between 10 and 15 seconds?",
+      "text": "A person moved within view. Evidence bracket: 00:10.000000\u201300:13.000000.",
+      "events": [
+        {
+          "category": "person_moved",
+          "interval": {
+            "start_us": 10000000,
+            "end_us": 13000001
+          },
+          "verdict": "supported",
+          "reason": "The observation describes a person in a blue shirt walking across the floor from the upper right in the first frame (10000000) towards the center in the last frame (13000000), which is directly supported by the inspected frames.",
+          "observation_ids": [
+            "observation-075f06c9cb499cf97000878a30b3b03615abc2ed250176a92349d81b77cf691c"
+          ],
+          "citations": [
+            {
+              "video_id": "video-1c43650e931230048870a5cb1cb8ddc200732abf91309f727cf1392d20958c40",
+              "inspection_id": "inspection-1926d901572b32a225526f9bba256569f0a404299d8267d1aeb4b81cfbfe451e",
+              "modality": "frames",
+              "interval": {
+                "start_us": 10000000,
+                "end_us": 13000001
+              },
+              "frames": [
+                {
+                  "id": "frame-2f85e6b207224fef34a61910e623e7ae94f3a66b136b653aef963c3bd04975d2",
+                  "display_index": 250,
+                  "pts": 128000,
+                  "source_time_us": 10000000,
+                  "rgb24_sha256": "1f6ce5652356b24ecf2f4aca73813b6c1512a9303b75846e1e950cebc5fe618e",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-f65586ace2e3da5e050201b46c42ee0ee3a5495d164057c4c893ae4060c1fe3f",
+                  "display_index": 275,
+                  "pts": 140800,
+                  "source_time_us": 11000000,
+                  "rgb24_sha256": "705ab105c8aaffbc97b76afe2cb0d09a4cade4ecfc90424ee1d7b78d65772cac",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-f4a6ee31787348c2dfb586e5714dce8b61bc99a166f45fe5777623fafc06503f",
+                  "display_index": 300,
+                  "pts": 153600,
+                  "source_time_us": 12000000,
+                  "rgb24_sha256": "0c3773e86d8e2469185167cc3938214a3837e1e97c1decbf5bf89f59983afb98",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-842fbeee56be6d12782847eb550b718d3c8ccea8b5ea69ddb9bdd5d3670b4e1e",
+                  "display_index": 325,
+                  "pts": 166400,
+                  "source_time_us": 13000000,
+                  "rgb24_sha256": "39992dc37f591d7d5fac862efc7411a9d515bb438567deb9f26b6f88e8e73131",
+                  "schema_version": 1
+                }
+              ]
+            }
+          ],
+          "relation": null
+        }
+      ],
+      "inspection": null,
+      "anchor": null
+    },
+    {
+      "question": "What happened after the two people approached each other?",
+      "text": "No grounded matching event was found. Use a supported event description or a source time range.",
+      "events": [],
+      "inspection": null,
+      "anchor": null
+    },
+    {
+      "question": "Did the two people separate afterward?",
+      "text": "Insufficient evidence to establish person correspondence or continuity for that relative question.",
+      "events": [],
+      "inspection": null,
+      "anchor": null
+    }
+  ],
+  "initial_observations": 5,
+  "supported_events": 3,
+  "unresolved": 2,
+  "archived_completion": {
+    "initial_scan": "completed",
+    "investigation": "partial",
+    "verification": "partial",
+    "intentional_empty_delegation": false,
+    "delegated": 4,
+    "completed_checks": 3,
+    "initial_observations": 5,
+    "accounted_observations": 5,
+    "triage_complete": true,
+    "open_observation_ids": [
+      "observation-1745a5f33626f75de7a9048fc019c9ca200525a31fbe92ac5192c7f6b0492cf0",
+      "observation-04cd131462020fa7aef1d5c98d6a2f2fd0716295745944dc4ead37462784b814"
+    ],
+    "observation_dispositions": [
+      {
+        "id": "observation-04cd131462020fa7aef1d5c98d6a2f2fd0716295745944dc4ead37462784b814",
+        "status": "delegated",
+        "check_completed": false
+      },
+      {
+        "id": "observation-075f06c9cb499cf97000878a30b3b03615abc2ed250176a92349d81b77cf691c",
+        "status": "delegated",
+        "check_completed": true
+      },
+      {
+        "id": "observation-229b46c51ce0ddb14dd5e484db0a8f8922a8c5903346a00f5657118e7e1fe5d9",
+        "status": "delegated",
+        "check_completed": true
+      },
+      {
+        "id": "observation-47629be9a97b36e3dc3694f87ec69a1841c4f629b198d1718bfb341e53ea2c8a",
+        "status": "delegated",
+        "check_completed": true
+      },
+      {
+        "id": "observation-1745a5f33626f75de7a9048fc019c9ca200525a31fbe92ac5192c7f6b0492cf0",
+        "status": "associated",
+        "reason": "Associated with candidate observation-47629be9a97b36e3dc3694f87ec69a1841c4f629b198d1718bfb341e53ea2c8a covering the same appearance/movement event of the two people in the upper left background at the same time frames.",
+        "candidate_id": "observation-47629be9a97b36e3dc3694f87ec69a1841c4f629b198d1718bfb341e53ea2c8a",
+        "correspondence": {
+          "id": "observation-1745a5f33626f75de7a9048fc019c9ca200525a31fbe92ac5192c7f6b0492cf0",
+          "status": "same_event",
+          "seed_quote": "Two people appear in the upper left background area near the hallway entrance.",
+          "other_quote": "The two people walk across the upper floor area from the upper left towards the center-left.",
+          "shared_frame_id": "frame-5fede5729c07598bac7546df783a37fc31986de583e57295ff5a472a71425451"
+        },
+        "resolved": false
+      }
+    ],
+    "resolved_association_ids": []
+  }
+}

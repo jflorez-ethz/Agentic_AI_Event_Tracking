@@ -1,0 +1,17 @@
+{
+  "action": "delegate",
+  "reason": "Delegating up to 4 distinct observable event candidates from the available evidence.",
+  "dispositions": [
+    {
+      "id": "observation-0aa005597bab7cba2071153e6624a909991635864e3a7dc14db4a3e6e52c1025",
+      "reason": "Excluding observation to respect the maximum limit of 4 delegated candidate IDs.",
+      "status": "excluded"
+    }
+  ],
+  "ids": [
+    "observation-5825a5ee3a0cd8baa8233d294696e25cff3dc234f6c297afacc5074a158baa87",
+    "observation-81c7ab9b22cec7a524406d8e9ced590d54e48d0975f10a02513ef758921e797c",
+    "observation-af11b0374973bbf94fca6bca64c60787aec961d4b2b3b6640101381616992957",
+    "observation-bd3673e5be4de63016f6248c069a40695f068a2cffdba8748bbaf683f9dbcd57"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "source_sha256": "a9ecf0af1ed8317d62dd0e4bae117d877615f8f59ab98d1a8bd8b5afc8c629fd",
+  "artifact_sha256": "5328722ff473cc5c5734a0d878da018552dc07d00874dfc7ffc11a51ba14c6b4",
+  "annotation_sha256": "eb998c952e8bf6627ff1240dd4087a003b5d34c23ec3151e81b1196167737c60",
+  "reviewer": "",
+  "event_links": {
+    "initial": {
+      "observation-075f06c9cb499cf97000878a30b3b03615abc2ed250176a92349d81b77cf691c": null,
+      "observation-229b46c51ce0ddb14dd5e484db0a8f8922a8c5903346a00f5657118e7e1fe5d9": null,
+      "observation-1745a5f33626f75de7a9048fc019c9ca200525a31fbe92ac5192c7f6b0492cf0": null
+    },
+    "verified": {
+      "observation-075f06c9cb499cf97000878a30b3b03615abc2ed250176a92349d81b77cf691c": null,
+      "observation-229b46c51ce0ddb14dd5e484db0a8f8922a8c5903346a00f5657118e7e1fe5d9": null
+    }
+  },
+  "caviar_unlabelled_predictions": {
+    "initial": {},
+    "verified": {}
+  },
+  "claim_reviews": [],
+  "report_checked": false,
+  "report_omitted_reference_ids": [],
+  "retrieval_checked": false,
+  "retrieval_reviews": []
+}

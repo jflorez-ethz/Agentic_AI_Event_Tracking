@@ -1,0 +1,9 @@
+{
+  "action": "verdict",
+  "reason": "The observation describes two individuals walking across the hallway floor between F1 and F10 (10000000 to 14520000 microseconds), supported by inspection evidence.",
+  "correspondence": [],
+  "ids": [
+    "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6"
+  ],
+  "verdict": "supported"
+}

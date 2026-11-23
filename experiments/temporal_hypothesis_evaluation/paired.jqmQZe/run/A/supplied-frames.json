@@ -1,0 +1,124 @@
+{
+  "id": "inspection-eb5128069ce6612aa5b748b11cf6f61c6becf88b1279571d9d34d19349eca923",
+  "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+  "requested_interval": {
+    "start_us": 14520000,
+    "end_us": 19520000
+  },
+  "requested_times_us": [
+    14520000,
+    15020000,
+    15520000,
+    16020000,
+    16520000,
+    17020000,
+    17520000,
+    18020000,
+    18520000,
+    19020000
+  ],
+  "modality": "frames",
+  "selection_policy": "first_at_or_after_within_interval",
+  "pixel_format": "rgb24",
+  "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "frames": [
+    {
+      "id": "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+      "display_index": 363,
+      "pts": 185856,
+      "source_time_us": 14520000,
+      "rgb24_sha256": "9e10b66cb9c0fda7cd687f16814cb4d5b8d2549cd436730fb5e2f54e7f667723",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-8f7db73136d3db24cbe5431945422c4f6753dc5819829db668b3fc56606b9369",
+      "display_index": 376,
+      "pts": 192512,
+      "source_time_us": 15040000,
+      "rgb24_sha256": "5a4612746cfce826817766c2c21bf7b54940da7203b6d19ea19eaea536d38848",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-66e522973d288b0527224d540695138dae7fb7b129e38cee3e308ada50b014f4",
+      "display_index": 388,
+      "pts": 198656,
+      "source_time_us": 15520000,
+      "rgb24_sha256": "99bb79e3a3576c768db2eff98bf76bd7b8a02d3326533922a6120ddd5393e881",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-4dc9ba685e925cac2e29207d79961b38f5701a3307057fee5a6987632eae99d2",
+      "display_index": 401,
+      "pts": 205312,
+      "source_time_us": 16040000,
+      "rgb24_sha256": "42180899dee94f4f31ecb4304c479a99a8ef4f63e434270b5c8b53fd37ddc841",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-1244bf6e61315ee3b9bf9891394f1ef223f2f75ee2edc2926f9c16bc6063604c",
+      "display_index": 413,
+      "pts": 211456,
+      "source_time_us": 16520000,
+      "rgb24_sha256": "42321f2eb822342984eb38aa54ce56527bc9229a4739b73e3da0009b346b834b",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-c151685bc67451e63bab4a8b23099933da33e67fc18a18aef07e2caeb4019ab7",
+      "display_index": 426,
+      "pts": 218112,
+      "source_time_us": 17040000,
+      "rgb24_sha256": "ff8ee46daa96f36c626fd98886c2a49f2d8beded08688b58985d69b6268f8f24",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-e6144b4cb75b4117f4442be05ba75d00e3c9468cbaf7626b1917bbdcc2369c0f",
+      "display_index": 438,
+      "pts": 224256,
+      "source_time_us": 17520000,
+      "rgb24_sha256": "7da63ab12392cfe74e53e02770408bf52c29c74b2a321eac24fd6c4c07f83dfd",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-59a37da9686877a8fc2f1095cb7e7f752833f4f1bda7c2212cb8e7000f003478",
+      "display_index": 451,
+      "pts": 230912,
+      "source_time_us": 18040000,
+      "rgb24_sha256": "87ff415947da7e5eb6f6f4f2ba8ce3734f61b9bc60084d9cc1eb9473aeca97a1",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-b4ac930b827db68fa0ad88611ba94fbf95fd4537d3ae8a570d528a77ea28645e",
+      "display_index": 463,
+      "pts": 237056,
+      "source_time_us": 18520000,
+      "rgb24_sha256": "38434a5fd02f2cbd91055c8b19443697ab21e07a75f2ae83d885a2c5c0e8d6f3",
+      "schema_version": 1
+    },
+    {
+      "id": "frame-2d63143d0c0889b2c56564194480bac8d348895cc7f13a0a7712082e4bbb8f8b",
+      "display_index": 476,
+      "pts": 243712,
+      "source_time_us": 19040000,
+      "rgb24_sha256": "58b237d8c15804107010e7dc8c758933c84fd7c70cbee56ee986b717c68d4ca4",
+      "schema_version": 1
+    }
+  ],
+  "frame_ids_by_request": [
+    "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+    "frame-8f7db73136d3db24cbe5431945422c4f6753dc5819829db668b3fc56606b9369",
+    "frame-66e522973d288b0527224d540695138dae7fb7b129e38cee3e308ada50b014f4",
+    "frame-4dc9ba685e925cac2e29207d79961b38f5701a3307057fee5a6987632eae99d2",
+    "frame-1244bf6e61315ee3b9bf9891394f1ef223f2f75ee2edc2926f9c16bc6063604c",
+    "frame-c151685bc67451e63bab4a8b23099933da33e67fc18a18aef07e2caeb4019ab7",
+    "frame-e6144b4cb75b4117f4442be05ba75d00e3c9468cbaf7626b1917bbdcc2369c0f",
+    "frame-59a37da9686877a8fc2f1095cb7e7f752833f4f1bda7c2212cb8e7000f003478",
+    "frame-b4ac930b827db68fa0ad88611ba94fbf95fd4537d3ae8a570d528a77ea28645e",
+    "frame-2d63143d0c0889b2c56564194480bac8d348895cc7f13a0a7712082e4bbb8f8b"
+  ],
+  "status": "complete",
+  "schema_version": 1,
+  "frame_size": [
+    384,
+    288
+  ]
+}

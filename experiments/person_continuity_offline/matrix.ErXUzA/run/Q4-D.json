@@ -1,0 +1,64 @@
+{
+  "status": "schema_and_references_valid",
+  "model": "gemini-3.6-flash",
+  "frame_map": {
+    "F1": {
+      "file": "0250.png",
+      "index": 250,
+      "pts": 128000,
+      "source_time_us": 10000000,
+      "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+      "marker_center_xy": [
+        105,
+        120
+      ],
+      "marked_png": "experiments/person_continuity_offline/matrix.ErXUzA/run/marked/Q4/F1.png",
+      "marked_png_sha256": "5c9c786a748b2e63746eafaaaa6c27f68c87816a2bd31d20c46ed827356d676e"
+    },
+    "F2": {
+      "file": "0300.png",
+      "index": 300,
+      "pts": 153600,
+      "source_time_us": 12000000,
+      "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157"
+    },
+    "F3": {
+      "file": "0325.png",
+      "index": 325,
+      "pts": 166400,
+      "source_time_us": 13000000,
+      "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+      "marker_center_xy": [
+        66,
+        145
+      ],
+      "marked_png": "experiments/person_continuity_offline/matrix.ErXUzA/run/marked/Q4/F3.png",
+      "marked_png_sha256": "5b9250b5e85051785d25b5238ae49e1c11043173acd40ab301fba2a6b38da3fe"
+    }
+  },
+  "sdk_calls": 1,
+  "thinking_level": "HIGH",
+  "max_output_tokens": 4096,
+  "marked": true,
+  "model_version": "gemini-3.6-flash",
+  "usage": {
+    "prompt_token_count": 3381,
+    "candidates_token_count": 110,
+    "thoughts_token_count": 1074,
+    "total_token_count": 4565
+  },
+  "finish_reasons": [
+    "FinishReason.STOP"
+  ],
+  "raw_response": "{\n  \"decision\": \"different_person\",\n  \"frame_ids\": [\n    \"F1\",\n    \"F2\",\n    \"F3\"\n  ],\n  \"reason\": \"The target marked in F1 is the person walking ahead/further right within the pair. Tracking their movement through F2 and F3 shows this person continuing into the upper-left hallway, whereas the target marked in F3 is the second person from the pair who moved towards the reception desk on the left.\"\n}",
+  "decision": {
+    "decision": "different_person",
+    "frame_ids": [
+      "F1",
+      "F2",
+      "F3"
+    ],
+    "reason": "The target marked in F1 is the person walking ahead/further right within the pair. Tracking their movement through F2 and F3 shows this person continuing into the upper-left hallway, whereas the target marked in F3 is the second person from the pair who moved towards the reception desk on the left."
+  },
+  "elapsed_ms": 7340
+}

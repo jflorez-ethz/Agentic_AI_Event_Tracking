@@ -1,0 +1,141 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "Describe visible object placement or removal. Use object_placed only when a visible object is set down and remains in view, and object_removed only when a visible object is picked up and moves away from its previous location. Use insufficient_evidence when a potentially relevant action is visible but the available evidence cannot establish placement or removal. Report each distinct observation once.\nUse only visible evidence. Do not infer identity, ownership, intent or actions outside the supplied media. State visibility limits and timing uncertainty. Return an empty observations list if no category applies.\nCite one or more supplied frame labels for each observation and leave clip_interval_us empty. Discrete frames do not show continuous action."
+        },
+        {
+          "text": "F1: source time 37439700 microseconds."
+        },
+        {
+          "inline_data": {
+            "mime_type": "image/png",
+            "path": "part-2.png",
+            "bytes": 246251,
+            "sha256": "11294673b3b3d5fd644bd02dc9f36a4668f5b62db27605470f58822984b305db"
+          }
+        },
+        {
+          "text": "F2: source time 37959700 microseconds."
+        },
+        {
+          "inline_data": {
+            "mime_type": "image/png",
+            "path": "part-4.png",
+            "bytes": 245687,
+            "sha256": "372f1dd68464114e6ff3e08d539668d269880e8bf43157e3d1a876c7d3ee55f7"
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "response_mime_type": "application/json",
+    "response_json_schema": {
+      "type": "object",
+      "required": [
+        "observations"
+      ],
+      "properties": {
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "category",
+              "description",
+              "visibility_limits",
+              "uncertainty",
+              "frame_labels",
+              "clip_interval_us"
+            ],
+            "properties": {
+              "category": {
+                "type": "string",
+                "enum": [
+                  "object_placed",
+                  "object_removed",
+                  "insufficient_evidence"
+                ]
+              },
+              "description": {
+                "type": "string"
+              },
+              "visibility_limits": {
+                "type": "string"
+              },
+              "uncertainty": {
+                "type": "string"
+              },
+              "frame_labels": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "clip_interval_us": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "maxItems": 2
+              }
+            }
+          }
+        }
+      }
+    },
+    "max_output_tokens": 4096,
+    "thinking_config": {
+      "thinking_level": "LOW"
+    }
+  },
+  "inspection": {
+    "id": "inspection-b52836d38e3c6721c2fb03278fafcdc799a822f84c58cd7e5f48f48ee6947acf",
+    "video_id": "video-5ccee870c2f89fc169832abf3aa4c82892d02562c2fd80c2e30ffd776780a723",
+    "requested_interval": {
+      "start_us": 37400000,
+      "end_us": 38200000
+    },
+    "requested_times_us": [
+      37439700,
+      37939700
+    ],
+    "modality": "frames",
+    "selection_policy": "first_at_or_after_within_interval",
+    "pixel_format": "rgb24",
+    "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+    "frames": [
+      {
+        "id": "frame-a54c839dad8bf2e98dc635a9ef8ba4fbc46c580a570218eeab3f01689b2ad0f6",
+        "display_index": 930,
+        "pts": 3369573,
+        "source_time_us": 37439700,
+        "rgb24_sha256": "d1c98ed46acf7c08ce4f308262f2ded2e5b5f58cce6981b3045644e15763d644",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-1b6c89e028d9bf65c32a0b8efdd1b18b79e31d8323f652831741f4f69f4ea584",
+        "display_index": 943,
+        "pts": 3416373,
+        "source_time_us": 37959700,
+        "rgb24_sha256": "359049604eae41ff718b6e0cd344fea5fb0ec79eaa82718f3232b8ef7503d81e",
+        "schema_version": 1
+      }
+    ],
+    "frame_ids_by_request": [
+      "frame-a54c839dad8bf2e98dc635a9ef8ba4fbc46c580a570218eeab3f01689b2ad0f6",
+      "frame-1b6c89e028d9bf65c32a0b8efdd1b18b79e31d8323f652831741f4f69f4ea584"
+    ],
+    "status": "complete",
+    "schema_version": 1,
+    "frame_size": [
+      384,
+      288
+    ],
+    "ffmpeg_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers"
+  }
+}

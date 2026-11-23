@@ -1,0 +1,196 @@
+{
+  "metadata": {
+    "provider": "google-gemini-developer-api",
+    "model_id": "gemini-3.5-flash-lite",
+    "model_version": "gemini-3.5-flash-lite",
+    "adapter_version": "1",
+    "prompt_version": "e1-v1",
+    "settings": [
+      [
+        "sdk_version",
+        "3.6.1"
+      ],
+      [
+        "max_output_tokens",
+        4096
+      ],
+      [
+        "thinking_level",
+        "LOW"
+      ]
+    ],
+    "elapsed_ms": 6559,
+    "usage": [
+      [
+        "prompt_token_count",
+        21708
+      ],
+      [
+        "candidates_token_count",
+        227
+      ],
+      [
+        "total_token_count",
+        21935
+      ]
+    ]
+  },
+  "observations": [
+    {
+      "id": "observation-4bacdcf64c96fd092b01b966aa0ad79a7d32a281fca6f74c483952d2a6071cc5",
+      "inspection_id": "inspection-28c0ec793aff4eb034e942bd8758d3bdca4d4660e9e3d70f24b7ec98c3a9bb40",
+      "category": "person_moved",
+      "description": "A person moves along the walkway from the left side of the frame toward the upper left area across frames F1 to F20.",
+      "evidence": {
+        "frame_ids": [
+          "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+          "frame-8f7db73136d3db24cbe5431945422c4f6753dc5819829db668b3fc56606b9369",
+          "frame-66e522973d288b0527224d540695138dae7fb7b129e38cee3e308ada50b014f4",
+          "frame-4dc9ba685e925cac2e29207d79961b38f5701a3307057fee5a6987632eae99d2",
+          "frame-1244bf6e61315ee3b9bf9891394f1ef223f2f75ee2edc2926f9c16bc6063604c",
+          "frame-c151685bc67451e63bab4a8b23099933da33e67fc18a18aef07e2caeb4019ab7",
+          "frame-e6144b4cb75b4117f4442be05ba75d00e3c9468cbaf7626b1917bbdcc2369c0f",
+          "frame-59a37da9686877a8fc2f1095cb7e7f752833f4f1bda7c2212cb8e7000f003478",
+          "frame-b4ac930b827db68fa0ad88611ba94fbf95fd4537d3ae8a570d528a77ea28645e",
+          "frame-2d63143d0c0889b2c56564194480bac8d348895cc7f13a0a7712082e4bbb8f8b",
+          "frame-c81d8eeb5adfbda36173d8525c1378f4a22acda6b74f34091940848148a5e8a5",
+          "frame-b154ef429730bdc504c5515d63036bd599ee9c8bf7938e194f2ded2b1bcf6360",
+          "frame-ee1ce7b8f4ea9068fd883febdedbfc9e0d407ecd9d305c3c115a70d17faa127b",
+          "frame-3579fd1211ca4c12f8d6894cb09151aa209fcdf58c724516ffeb360f07dd621c",
+          "frame-344385896ba45b32c945a562bf5360a9fd198341852b686ef989fb23fe436ac5",
+          "frame-b4c5ddf04f1fa5e5fc3b9930ee772ad9311c68a368f2bcbf92ceb4b20d9b2392",
+          "frame-aca03dd7e6b9bcc1f10f741bfc6bdec675d14ded687eca985a60a67f2ba2d0ee",
+          "frame-8416b9c972bcc853bf01bd5acfd115a11ada1085ff8a99d421daf32585ff2d66",
+          "frame-c9717c1e672bf84274a784f7e73141e0480013c62766fcb68b56af5f0d0a5f68",
+          "frame-14700665727a615e334322711da9fe4f89867bcfc9951730d39446a295b468c5"
+        ]
+      },
+      "visibility_limits": "The person is visible walking along the glass-roofed walkway corridor throughout all frames, but details are small due to overhead camera distance.",
+      "uncertainty": "Timing uncertainty is bounded by the 480ms interval between consecutive frames.",
+      "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.5-flash-lite",
+        "model_version": "gemini-3.5-flash-lite",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            4096
+          ],
+          [
+            "thinking_level",
+            "LOW"
+          ]
+        ],
+        "elapsed_ms": 6559,
+        "usage": [
+          [
+            "prompt_token_count",
+            21708
+          ],
+          [
+            "candidates_token_count",
+            227
+          ],
+          [
+            "total_token_count",
+            21935
+          ]
+        ]
+      },
+      "schema_version": 1
+    }
+  ],
+  "raw_response": "{\n  \"observations\": [\n    {\n      \"category\": \"person_moved\",\n      \"description\": \"A person moves along the walkway from the left side of the frame toward the upper left area across frames F1 to F20.\",\n      \"visibility_limits\": \"The person is visible walking along the glass-roofed walkway corridor throughout all frames, but details are small due to overhead camera distance.\",\n      \"uncertainty\": \"Timing uncertainty is bounded by the 480ms interval between consecutive frames.\",\n      \"frame_labels\": [\"F1\", \"F2\", \"F3\", \"F4\", \"F5\", \"F6\", \"F7\", \"F8\", \"F9\", \"F10\", \"F11\", \"F12\", \"F13\", \"F14\", \"F15\", \"F16\", \"F17\", \"F18\", \"F19\", \"F20\"],\n      \"clip_interval_us\": []\n    }\n  ]\n}",
+  "schema_version": 1,
+  "response_details": {
+    "sdk_http_response": {
+      "headers": {
+        "x-gemini-service-tier": "standard",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin, X-Origin, Referer",
+        "content-encoding": "gzip",
+        "date": "Sun, 22 Nov 2026 15:41:06 GMT",
+        "server": "scaffolding on HTTPServer2",
+        "x-xss-protection": "0",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "server-timing": "gfet4t7; dur=6292",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "transfer-encoding": "chunked"
+      }
+    },
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"observations\": [\n    {\n      \"category\": \"person_moved\",\n      \"description\": \"A person moves along the walkway from the left side of the frame toward the upper left area across frames F1 to F20.\",\n      \"visibility_limits\": \"The person is visible walking along the glass-roofed walkway corridor throughout all frames, but details are small due to overhead camera distance.\",\n      \"uncertainty\": \"Timing uncertainty is bounded by the 480ms interval between consecutive frames.\",\n      \"frame_labels\": [\"F1\", \"F2\", \"F3\", \"F4\", \"F5\", \"F6\", \"F7\", \"F8\", \"F9\", \"F10\", \"F11\", \"F12\", \"F13\", \"F14\", \"F15\", \"F16\", \"F17\", \"F18\", \"F19\", \"F20\"],\n      \"clip_interval_us\": []\n    }\n  ]\n}",
+              "thought_signature": "Eo4BCosBAWkUfRPUDSwvZo3bkjgVYpDda1xaxOmMiYaLOXf9njnHCU-U-TW7pChRCg_wconVhld56e3KOhceLWwdKdmBXHxTVztWYswFg2vdr9RjByXT-s8TwvUsWKI0bcFCY6FxtrxzkU8HwHCqKFpcHCxJVAELkMZtr_TsLJaX-WEDqVquq7SINJ8MUdGbqQ=="
+            }
+          ],
+          "role": "model"
+        },
+        "finish_reason": "STOP",
+        "index": 0
+      }
+    ],
+    "model_version": "gemini-3.5-flash-lite",
+    "response_id": "EA0Da7KKMMDLkdUPhM2rqA4",
+    "usage_metadata": {
+      "candidates_token_count": 227,
+      "prompt_token_count": 21708,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 428
+        },
+        {
+          "modality": "IMAGE",
+          "token_count": 21280
+        }
+      ],
+      "total_token_count": 21935
+    },
+    "automatic_function_calling_history": [],
+    "parsed": {
+      "observations": [
+        {
+          "category": "person_moved",
+          "description": "A person moves along the walkway from the left side of the frame toward the upper left area across frames F1 to F20.",
+          "visibility_limits": "The person is visible walking along the glass-roofed walkway corridor throughout all frames, but details are small due to overhead camera distance.",
+          "uncertainty": "Timing uncertainty is bounded by the 480ms interval between consecutive frames.",
+          "frame_labels": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5",
+            "F6",
+            "F7",
+            "F8",
+            "F9",
+            "F10",
+            "F11",
+            "F12",
+            "F13",
+            "F14",
+            "F15",
+            "F16",
+            "F17",
+            "F18",
+            "F19",
+            "F20"
+          ],
+          "clip_interval_us": []
+        }
+      ]
+    }
+  }
+}

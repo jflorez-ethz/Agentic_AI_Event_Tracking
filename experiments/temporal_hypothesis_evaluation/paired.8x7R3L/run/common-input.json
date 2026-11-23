@@ -1,0 +1,478 @@
+{
+  "duration_us": 24960000,
+  "candidate_id": "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6",
+  "additional_evidence_available": true,
+  "evidence": {
+    "observation-99da36e3e6b4a2023c0d8fd1b07e665d3fdfd64aa6f17c0b494e70059755c787": {
+      "category": "person_appeared",
+      "description": "A person in blue clothing appears in the lower right area of the frame.",
+      "visibility_limits": "Visible within the camera's field of view in F1.",
+      "uncertainty": "Exact appearance timestamp is within the frame interval.",
+      "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+      "modality": "frames",
+      "interval": {
+        "start_us": 0,
+        "end_us": 1
+      },
+      "frame_ids": [
+        "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4"
+      ],
+      "frame_times_us": [
+        0
+      ]
+    },
+    "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b": {
+      "category": "person_moved",
+      "description": "The person in blue clothing moves across the floor in the lower right area.",
+      "visibility_limits": "Visible within the lower right frame region.",
+      "uncertainty": "Continuous motion between frames is interpolated.",
+      "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+      "modality": "frames",
+      "interval": {
+        "start_us": 0,
+        "end_us": 520001
+      },
+      "frame_ids": [
+        "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+        "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117"
+      ],
+      "frame_times_us": [
+        0,
+        520000
+      ]
+    },
+    "observation-6fb87d692bb39d7e7caa18e572c005f1fb39810df4562afb02fe59b349c7c96d": {
+      "category": "object_appeared",
+      "description": "An object (case/bag) appears stationary on the right side of the hallway.",
+      "visibility_limits": "Fully visible against the right wall.",
+      "uncertainty": "Present since F1 without observable physical placement action.",
+      "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+      "modality": "frames",
+      "interval": {
+        "start_us": 0,
+        "end_us": 9520001
+      },
+      "frame_ids": [
+        "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+        "frame-70c092b0f9e14a36486f332cd9e8e0810ece04d77079a08075f3574b866ecbfc"
+      ],
+      "frame_times_us": [
+        0,
+        9520000
+      ]
+    },
+    "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6": {
+      "category": "person_moved",
+      "description": "Two individuals are seen walking across the hallway floor within the camera view from F1 to F10.",
+      "visibility_limits": "Fully visible within the central hallway area.",
+      "uncertainty": "Timing uncertainty is within frame intervals (approx. 520ms).",
+      "inspection_id": "inspection-b0232e313c01776f94fbc7c30800174a20f682e4dd17ec2716c5ef0ee21a84d2",
+      "modality": "frames",
+      "interval": {
+        "start_us": 10000000,
+        "end_us": 14520001
+      },
+      "frame_ids": [
+        "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+        "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+        "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+        "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+        "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+        "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+        "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+        "frame-7d01e523cdffab0fca101856f91ad31c36da1ac429a140ec3e9692f392e3e0b4",
+        "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+        "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351"
+      ],
+      "frame_times_us": [
+        10000000,
+        10520000,
+        11000000,
+        11520000,
+        12000000,
+        12520000,
+        13000000,
+        13520000,
+        14000000,
+        14520000
+      ]
+    },
+    "observation-187d5a18a21e80aae7a7a4de796a9cae7e7058aa4a99421ab15945667e563b06": {
+      "category": "insufficient_evidence",
+      "description": "An object bag is visible stationary on the right side across all frames F1 to F10, with no physical placement or removal action captured.",
+      "visibility_limits": "Entire floor area visible, but placement action occurred before the recording started.",
+      "uncertainty": "Exact timing of the object's appearance is unknown.",
+      "inspection_id": "inspection-528f7897aa78500fa84d5fb794d2ffea0a7c8c7a2cbca815aa72e1a855c16978",
+      "modality": "frames",
+      "interval": {
+        "start_us": 20000000,
+        "end_us": 24520001
+      },
+      "frame_ids": [
+        "frame-33cf8253171403ffbcb1a7c8ac405b025adc1b8f7465f958d88af6f5118fb0fb",
+        "frame-ee1ce7b8f4ea9068fd883febdedbfc9e0d407ecd9d305c3c115a70d17faa127b",
+        "frame-e35535ed16952da30168650b24276f9ed19ab95ff65726887cd674b27ace93a1",
+        "frame-344385896ba45b32c945a562bf5360a9fd198341852b686ef989fb23fe436ac5",
+        "frame-31634321104304862602962942786f59519afc1855a724d0c255aeb725b7c6de",
+        "frame-aca03dd7e6b9bcc1f10f741bfc6bdec675d14ded687eca985a60a67f2ba2d0ee",
+        "frame-f98cb27986d40f259d1a590f52005e25eeeecaf08d9c0f5ba545f9a1b6c30b1f",
+        "frame-c9717c1e672bf84274a784f7e73141e0480013c62766fcb68b56af5f0d0a5f68",
+        "frame-f8de2ab12c4bb26fb728812a49dcea6bd213e21fb4f2a9f53f558f5ab2df2cd3",
+        "frame-951e0496213f562336d45c7958e429894c922494f30563f5124026e62e12e62b"
+      ]
+    },
+    "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5": {
+      "category": "person_moved",
+      "description": "A person wearing a dark shirt and blue jeans walks across the floor from the right side towards the bottom edge, visible walking from F1 to F2.",
+      "visibility_limits": "Limited to the overhead camera field of view.",
+      "uncertainty": "Timing uncertainty is within the frame intervals (~520ms).",
+      "inspection_id": "inspection-41f64ff6c8a6839b22c6c1ecc836bf74d904dbe6516e64844adb7bb58a01cb26",
+      "modality": "frames",
+      "interval": {
+        "start_us": 0,
+        "end_us": 520001
+      },
+      "frame_ids": [
+        "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+        "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117"
+      ],
+      "frame_times_us": [
+        0,
+        520000
+      ]
+    },
+    "observation-250fc74388e3014c58efc8047055bf965fee49d9539edb9c3ad9c3b679683d96": {
+      "category": "person_moved",
+      "description": "The person continues walking downwards and exits the bottom edge of the frame between F2 and F3.",
+      "visibility_limits": "Limited to the overhead camera field of view.",
+      "uncertainty": "Timing uncertainty is within the frame intervals (~520ms).",
+      "inspection_id": "inspection-41f64ff6c8a6839b22c6c1ecc836bf74d904dbe6516e64844adb7bb58a01cb26",
+      "modality": "frames",
+      "interval": {
+        "start_us": 520000,
+        "end_us": 1000001
+      },
+      "frame_ids": [
+        "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+        "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2"
+      ],
+      "frame_times_us": [
+        520000,
+        1000000
+      ]
+    }
+  },
+  "citations": {
+    "observation-99da36e3e6b4a2023c0d8fd1b07e665d3fdfd64aa6f17c0b494e70059755c787": {
+      "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+      "modality": "frames",
+      "interval": {
+        "start_us": 0,
+        "end_us": 1
+      },
+      "frames": [
+        {
+          "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+          "display_index": 0,
+          "pts": 0,
+          "source_time_us": 0,
+          "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+          "schema_version": 1
+        }
+      ]
+    },
+    "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b": {
+      "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+      "modality": "frames",
+      "interval": {
+        "start_us": 0,
+        "end_us": 520001
+      },
+      "frames": [
+        {
+          "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+          "display_index": 0,
+          "pts": 0,
+          "source_time_us": 0,
+          "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+          "display_index": 13,
+          "pts": 6656,
+          "source_time_us": 520000,
+          "rgb24_sha256": "714a32f8405451be5ced614bc6cd67e2699da716018461d098a5127cb6a0ffae",
+          "schema_version": 1
+        }
+      ]
+    },
+    "observation-6fb87d692bb39d7e7caa18e572c005f1fb39810df4562afb02fe59b349c7c96d": {
+      "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+      "modality": "frames",
+      "interval": {
+        "start_us": 0,
+        "end_us": 9520001
+      },
+      "frames": [
+        {
+          "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+          "display_index": 0,
+          "pts": 0,
+          "source_time_us": 0,
+          "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-70c092b0f9e14a36486f332cd9e8e0810ece04d77079a08075f3574b866ecbfc",
+          "display_index": 238,
+          "pts": 121856,
+          "source_time_us": 9520000,
+          "rgb24_sha256": "414deff064cfeb32d32bcce5c8f674e6daf070645663de7e8285690689f2c404",
+          "schema_version": 1
+        }
+      ]
+    },
+    "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6": {
+      "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inspection_id": "inspection-b0232e313c01776f94fbc7c30800174a20f682e4dd17ec2716c5ef0ee21a84d2",
+      "modality": "frames",
+      "interval": {
+        "start_us": 10000000,
+        "end_us": 14520001
+      },
+      "frames": [
+        {
+          "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+          "display_index": 250,
+          "pts": 128000,
+          "source_time_us": 10000000,
+          "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+          "display_index": 263,
+          "pts": 134656,
+          "source_time_us": 10520000,
+          "rgb24_sha256": "a2a7bc34ad481bd607b0087b299a2a238deadf8a456837ca2e1de9812090de49",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+          "display_index": 275,
+          "pts": 140800,
+          "source_time_us": 11000000,
+          "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+          "display_index": 288,
+          "pts": 147456,
+          "source_time_us": 11520000,
+          "rgb24_sha256": "501ada5b02f345a9ad65926ff00191eefdcc8d7aca2811396b79656ef99bc7f2",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+          "display_index": 300,
+          "pts": 153600,
+          "source_time_us": 12000000,
+          "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+          "display_index": 313,
+          "pts": 160256,
+          "source_time_us": 12520000,
+          "rgb24_sha256": "d561329fe5b9d259120a002a0afbec95211e3124261a2e8dfcee1335f898bc21",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+          "display_index": 325,
+          "pts": 166400,
+          "source_time_us": 13000000,
+          "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-7d01e523cdffab0fca101856f91ad31c36da1ac429a140ec3e9692f392e3e0b4",
+          "display_index": 338,
+          "pts": 173056,
+          "source_time_us": 13520000,
+          "rgb24_sha256": "5f7da68b42f924b215717d4ea58346380981ac558bbb8c1feaaff1064af6e0d6",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+          "display_index": 350,
+          "pts": 179200,
+          "source_time_us": 14000000,
+          "rgb24_sha256": "1328d87d39c45ad7a5bc19e7fcfecb07b196eb3dc87e73ece13daa4a7f290a93",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+          "display_index": 363,
+          "pts": 185856,
+          "source_time_us": 14520000,
+          "rgb24_sha256": "9e10b66cb9c0fda7cd687f16814cb4d5b8d2549cd436730fb5e2f54e7f667723",
+          "schema_version": 1
+        }
+      ]
+    },
+    "observation-187d5a18a21e80aae7a7a4de796a9cae7e7058aa4a99421ab15945667e563b06": {
+      "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inspection_id": "inspection-528f7897aa78500fa84d5fb794d2ffea0a7c8c7a2cbca815aa72e1a855c16978",
+      "modality": "frames",
+      "interval": {
+        "start_us": 20000000,
+        "end_us": 24520001
+      },
+      "frames": [
+        {
+          "id": "frame-33cf8253171403ffbcb1a7c8ac405b025adc1b8f7465f958d88af6f5118fb0fb",
+          "display_index": 500,
+          "pts": 256000,
+          "source_time_us": 20000000,
+          "rgb24_sha256": "7f503ac40270cfe1631799a1d250fc0bc6602267f56d0ab8584b42d9b6cc6ba9",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-ee1ce7b8f4ea9068fd883febdedbfc9e0d407ecd9d305c3c115a70d17faa127b",
+          "display_index": 513,
+          "pts": 262656,
+          "source_time_us": 20520000,
+          "rgb24_sha256": "36d713df36ed89ddf372dfcdc8c4d1b40fe378058c840895237a90032244d5c9",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-e35535ed16952da30168650b24276f9ed19ab95ff65726887cd674b27ace93a1",
+          "display_index": 525,
+          "pts": 268800,
+          "source_time_us": 21000000,
+          "rgb24_sha256": "ba9e766880f772edb1cca12027a8b443588a18bb9d0a76c85444cdb3dded5962",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-344385896ba45b32c945a562bf5360a9fd198341852b686ef989fb23fe436ac5",
+          "display_index": 538,
+          "pts": 275456,
+          "source_time_us": 21520000,
+          "rgb24_sha256": "90082e4497f9bea71696b999551db8ff857b029cf0c9a0280c82794f77cec4a7",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-31634321104304862602962942786f59519afc1855a724d0c255aeb725b7c6de",
+          "display_index": 550,
+          "pts": 281600,
+          "source_time_us": 22000000,
+          "rgb24_sha256": "fba2ff3b7a08bea57d908763a645e0ec3ff48ac49972fa74f5f2c8d831a5994f",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-aca03dd7e6b9bcc1f10f741bfc6bdec675d14ded687eca985a60a67f2ba2d0ee",
+          "display_index": 563,
+          "pts": 288256,
+          "source_time_us": 22520000,
+          "rgb24_sha256": "dab4cfa49b0fff1519eb8b67a87a74aec08e877c4614f5acfd831868696712f7",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-f98cb27986d40f259d1a590f52005e25eeeecaf08d9c0f5ba545f9a1b6c30b1f",
+          "display_index": 575,
+          "pts": 294400,
+          "source_time_us": 23000000,
+          "rgb24_sha256": "1d55a3c7e4775ac883038f7bf1cf58fd1a8a9cc490773419cc16e71febf91e19",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-c9717c1e672bf84274a784f7e73141e0480013c62766fcb68b56af5f0d0a5f68",
+          "display_index": 588,
+          "pts": 301056,
+          "source_time_us": 23520000,
+          "rgb24_sha256": "49dbf929a1a2ce67a0611bd54a6bfbe3d4eeb6459fba92bab15d7058f6a12c18",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-f8de2ab12c4bb26fb728812a49dcea6bd213e21fb4f2a9f53f558f5ab2df2cd3",
+          "display_index": 600,
+          "pts": 307200,
+          "source_time_us": 24000000,
+          "rgb24_sha256": "0ea9e9ec8895652df1ab2a6faeebc5fd36e3a739188043b5126e179b9d29c8d2",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-951e0496213f562336d45c7958e429894c922494f30563f5124026e62e12e62b",
+          "display_index": 613,
+          "pts": 313856,
+          "source_time_us": 24520000,
+          "rgb24_sha256": "69fa1f562c895407a42324644fe5dc55bac08b3b2b8aeb05fa95d78c2c926c17",
+          "schema_version": 1
+        }
+      ]
+    },
+    "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5": {
+      "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inspection_id": "inspection-41f64ff6c8a6839b22c6c1ecc836bf74d904dbe6516e64844adb7bb58a01cb26",
+      "modality": "frames",
+      "interval": {
+        "start_us": 0,
+        "end_us": 520001
+      },
+      "frames": [
+        {
+          "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+          "display_index": 0,
+          "pts": 0,
+          "source_time_us": 0,
+          "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+          "display_index": 13,
+          "pts": 6656,
+          "source_time_us": 520000,
+          "rgb24_sha256": "714a32f8405451be5ced614bc6cd67e2699da716018461d098a5127cb6a0ffae",
+          "schema_version": 1
+        }
+      ]
+    },
+    "observation-250fc74388e3014c58efc8047055bf965fee49d9539edb9c3ad9c3b679683d96": {
+      "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inspection_id": "inspection-41f64ff6c8a6839b22c6c1ecc836bf74d904dbe6516e64844adb7bb58a01cb26",
+      "modality": "frames",
+      "interval": {
+        "start_us": 520000,
+        "end_us": 1000001
+      },
+      "frames": [
+        {
+          "id": "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+          "display_index": 13,
+          "pts": 6656,
+          "source_time_us": 520000,
+          "rgb24_sha256": "714a32f8405451be5ced614bc6cd67e2699da716018461d098a5127cb6a0ffae",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+          "display_index": 25,
+          "pts": 12800,
+          "source_time_us": 1000000,
+          "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+          "schema_version": 1
+        }
+      ]
+    }
+  },
+  "last_tool_result": null,
+  "remaining_inspections": 1
+}

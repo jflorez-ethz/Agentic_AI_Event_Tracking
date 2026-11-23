@@ -1,0 +1,37 @@
+{
+  "walk_split": {
+    "source": "data/raw/Meet_WalkSplit_pts.mp4",
+    "sha256": "f5290c0107a7d5e2bca9c324d1e2f15929ce7df86ea755613229f18af5c554a0",
+    "duration_us": 24960000,
+    "xml": "data/annotations/mws1gt.xml",
+    "artifact": "experiments/meet_walk_split_high_probes/verification.Uk6X57/run/result.json",
+    "artifact_sha256": "261af2e3df5895b56b1b4df728a57f3384b58d32182ecd6e4c7340e8def03dbc"
+  },
+  "walk_together": {
+    "source": "data/raw/Meet_WalkTogether1_pts.mp4",
+    "sha256": "a9ecf0af1ed8317d62dd0e4bae117d877615f8f59ab98d1a8bd8b5afc8c629fd",
+    "duration_us": 28320000,
+    "xml": "data/annotations/Meet_WalkTogether1.xml",
+    "artifact": "experiments/meet_walk_evaluation.i2mvYw/run/analysis.json",
+    "artifact_sha256": "5328722ff473cc5c5734a0d878da018552dc07d00874dfc7ffc11a51ba14c6b4"
+  },
+  "left_bag": {
+    "source": "experiments/mvp_evaluation/left_bag_source/left-bag.mkv",
+    "sha256": "fb64c4a8f2a64928670bbbde152d52c83f22ddbff946487d6b13c81cfb12962d",
+    "duration_us": 25000000,
+    "xml": "data/annotations/LeftBag.xml",
+    "artifact": null,
+    "original_source": "data/raw/LeftBag.mpg",
+    "original_source_sha256": "8f5d1dbf43d58da1bce57ca1b3f9491b8467773cfd66d2846f62f7d38d4a45e7",
+    "original_frame_map": "experiments/mvp_evaluation/left_bag_source/original-frame-map.json",
+    "requested_interval": {
+      "start_us": 30000000,
+      "end_us": 55000000
+    },
+    "actual_source_interval": {
+      "start_us": 30039700,
+      "end_us": 55039700
+    },
+    "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers"
+  }
+}

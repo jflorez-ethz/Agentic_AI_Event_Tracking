@@ -1,0 +1,188 @@
+{
+  "status": "success",
+  "metadata": {
+    "provider": "google-gemini-developer-api",
+    "model_id": "gemini-3.5-flash-lite",
+    "model_version": "gemini-3.5-flash-lite",
+    "adapter_version": "1",
+    "prompt_version": "e1-v1",
+    "settings": [
+      [
+        "sdk_version",
+        "3.6.1"
+      ],
+      [
+        "max_output_tokens",
+        4096
+      ],
+      [
+        "thinking_level",
+        "LOW"
+      ]
+    ],
+    "elapsed_ms": 3115,
+    "usage": [
+      [
+        "prompt_token_count",
+        2298
+      ],
+      [
+        "candidates_token_count",
+        155
+      ],
+      [
+        "total_token_count",
+        2453
+      ]
+    ]
+  },
+  "observations": [
+    {
+      "id": "observation-14036c9549cc3e003cb7b2e9741242d254f52b6a0bc1751ed76f9a3bc3bdea4e",
+      "inspection_id": "inspection-b52836d38e3c6721c2fb03278fafcdc799a822f84c58cd7e5f48f48ee6947acf",
+      "category": "insufficient_evidence",
+      "description": "A person is bending over near an object on the floor, but the frames are static and spaced in time, so it is unclear whether an object is being placed or removed.",
+      "evidence": {
+        "frame_ids": [
+          "frame-a54c839dad8bf2e98dc635a9ef8ba4fbc46c580a570218eeab3f01689b2ad0f6",
+          "frame-1b6c89e028d9bf65c32a0b8efdd1b18b79e31d8323f652831741f4f69f4ea584"
+        ]
+      },
+      "visibility_limits": "The camera provides a high-angle overhead view of the lobby, but the person and objects are small and details are obscured.",
+      "uncertainty": "High, due to the low resolution and discrete frame intervals.",
+      "source_video_id": "video-5ccee870c2f89fc169832abf3aa4c82892d02562c2fd80c2e30ffd776780a723",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.5-flash-lite",
+        "model_version": "gemini-3.5-flash-lite",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            4096
+          ],
+          [
+            "thinking_level",
+            "LOW"
+          ]
+        ],
+        "elapsed_ms": 3115,
+        "usage": [
+          [
+            "prompt_token_count",
+            2298
+          ],
+          [
+            "candidates_token_count",
+            155
+          ],
+          [
+            "total_token_count",
+            2453
+          ]
+        ]
+      },
+      "schema_version": 1
+    }
+  ],
+  "raw_response": "{\n  \"observations\": [\n    {\n      \"category\": \"insufficient_evidence\",\n      \"description\": \"A person is bending over near an object on the floor, but the frames are static and spaced in time, so it is unclear whether an object is being placed or removed.\",\n      \"visibility_limits\": \"The camera provides a high-angle overhead view of the lobby, but the person and objects are small and details are obscured.\",\n      \"uncertainty\": \"High, due to the low resolution and discrete frame intervals.\",\n      \"frame_labels\": [\n        \"F1\",\n        \"F2\"\n      ],\n      \"clip_interval_us\": []\n    }\n  ]\n}",
+  "schema_version": 1,
+  "response_details": {
+    "sdk_http_response": {
+      "headers": {
+        "x-gemini-service-tier": "standard",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin, X-Origin, Referer",
+        "content-encoding": "gzip",
+        "date": "Sat, 21 Nov 2026 13:17:16 GMT",
+        "server": "scaffolding on HTTPServer2",
+        "x-xss-protection": "0",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "server-timing": "gfet4t7; dur=3090",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "transfer-encoding": "chunked"
+      }
+    },
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"observations\": [\n    {\n      \"category\": \"insufficient_evidence\",\n      \"description\": \"A person is bending over near an object on the floor, but the frames are static and spaced in time, so it is unclear whether an object is being placed or removed.\",\n      \"visibility_limits\": \"The camera provides a high-angle overhead view of the lobby, but the person and objects are small and details are obscured.\",\n      \"uncertainty\": \"High, due to the low resolution and discrete frame intervals.\",\n      \"frame_labels\": [\n        \"F1\",\n        \"F2\"\n      ],\n      \"clip_interval_us\": []\n    }\n  ]\n}",
+              "thought_signature": "Eo4BCosBAWkUfRMDgm2Wha1g31s6ixvYWT36gL4Mo-LTECD2wDExbWN5_UH4ZjGEwQiF4wLc6MIoVjOiztZVZXujwgx8DCatZbi-ZGWaVsrvf-A1tXBlS1MkNPfrFH84DuH9gjXayiDAUf7QFizZ48HsNsarI4kRd4blryeVRl6ZzEais_MbkZHRzTmuhzBMGw=="
+            }
+          ],
+          "role": "model"
+        },
+        "finish_reason": "STOP",
+        "index": 0
+      }
+    ],
+    "model_version": "gemini-3.5-flash-lite",
+    "response_id": "2ZkBa5HJMYOuvdIPkt2xgAU",
+    "usage_metadata": {
+      "candidates_token_count": 155,
+      "prompt_token_count": 2298,
+      "prompt_tokens_details": [
+        {
+          "modality": "IMAGE",
+          "token_count": 2128
+        },
+        {
+          "modality": "TEXT",
+          "token_count": 170
+        }
+      ],
+      "total_token_count": 2453
+    },
+    "automatic_function_calling_history": [],
+    "parsed": {
+      "observations": [
+        {
+          "category": "insufficient_evidence",
+          "description": "A person is bending over near an object on the floor, but the frames are static and spaced in time, so it is unclear whether an object is being placed or removed.",
+          "visibility_limits": "The camera provides a high-angle overhead view of the lobby, but the person and objects are small and details are obscured.",
+          "uncertainty": "High, due to the low resolution and discrete frame intervals.",
+          "frame_labels": [
+            "F1",
+            "F2"
+          ],
+          "clip_interval_us": []
+        }
+      ]
+    }
+  },
+  "replay": [
+    {
+      "observation_id": "observation-14036c9549cc3e003cb7b2e9741242d254f52b6a0bc1751ed76f9a3bc3bdea4e",
+      "source_video_id": "video-5ccee870c2f89fc169832abf3aa4c82892d02562c2fd80c2e30ffd776780a723",
+      "inspection_id": "inspection-b52836d38e3c6721c2fb03278fafcdc799a822f84c58cd7e5f48f48ee6947acf",
+      "resolved_source_frames": [
+        {
+          "id": "frame-a54c839dad8bf2e98dc635a9ef8ba4fbc46c580a570218eeab3f01689b2ad0f6",
+          "display_index": 930,
+          "pts": 3369573,
+          "source_time_us": 37439700,
+          "rgb24_sha256": "d1c98ed46acf7c08ce4f308262f2ded2e5b5f58cce6981b3045644e15763d644",
+          "schema_version": 1
+        },
+        {
+          "id": "frame-1b6c89e028d9bf65c32a0b8efdd1b18b79e31d8323f652831741f4f69f4ea584",
+          "display_index": 943,
+          "pts": 3416373,
+          "source_time_us": 37959700,
+          "rgb24_sha256": "359049604eae41ff718b6e0cd344fea5fb0ec79eaa82718f3232b8ef7503d81e",
+          "schema_version": 1
+        }
+      ]
+    }
+  ],
+  "cost": null,
+  "started_utc": "2026-11-21T13:17:13.467590+00:00"
+}

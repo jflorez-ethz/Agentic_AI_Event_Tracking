@@ -1,0 +1,45 @@
+{
+  "physical_http_requests": 1,
+  "request": {
+    "request_number": 1,
+    "model": "gemini-3.6-flash",
+    "sdk_version": "3.6.1",
+    "request_body_sha256": "044b177f11e6eebc7d53650c47ef3b42392dc3cbe5ad9fae415d4ee34df4ca4a",
+    "request_body_bytes": 17685,
+    "response_mime_type": "application/json",
+    "max_output_tokens": 16384,
+    "thinking_config": {
+      "thinking_level": "HIGH"
+    }
+  },
+  "role_call": {
+    "role": "investigation",
+    "model": "gemini-3.6-flash",
+    "status": "api_error",
+    "usage": {},
+    "max_output_tokens": 16384,
+    "thinking_level": "HIGH",
+    "transport_attempts": [
+      {
+        "request_number": 1,
+        "http_status": 400,
+        "error_type": "ClientError",
+        "provider_status": "INVALID_ARGUMENT"
+      }
+    ],
+    "error_type": "ClientError",
+    "http_status": 400,
+    "provider_status": "INVALID_ARGUMENT",
+    "elapsed_ms": 867
+  },
+  "provider_errors": [
+    {
+      "request_number": 1,
+      "http_status": 400,
+      "code": 400,
+      "status": "INVALID_ARGUMENT",
+      "message": "The specified schema produces a constraint that has too many states for serving. Typical causes of this error are schemas with lots of text (for example, very long property or enum names), schemas with long array length limits (especially when nested), or schemas using complex value matchers (for example, integers or numbers with minimum/maximum bounds or strings with complex formats like date-time)"
+    }
+  ],
+  "decision_action": null
+}

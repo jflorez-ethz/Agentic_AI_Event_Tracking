@@ -1,0 +1,59 @@
+{
+  "status": "failed",
+  "validation": "failed",
+  "stage": "validation",
+  "error": "Invalid Gemini output: Gemini did not return one normally completed candidate",
+  "completion": {
+    "candidate_count": 1,
+    "finish_reasons": [
+      "MAX_TOKENS"
+    ]
+  },
+  "metadata": {
+    "provider": "google-gemini-developer-api",
+    "model_id": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "adapter_version": "1",
+    "prompt_version": "e1-v1",
+    "settings": [
+      [
+        "sdk_version",
+        "3.6.1"
+      ],
+      [
+        "max_output_tokens",
+        4096
+      ],
+      [
+        "thinking_level",
+        "HIGH"
+      ]
+    ],
+    "elapsed_ms": 28332,
+    "usage": [
+      [
+        "prompt_token_count",
+        21818
+      ],
+      [
+        "candidates_token_count",
+        150
+      ],
+      [
+        "thoughts_token_count",
+        3932
+      ],
+      [
+        "total_token_count",
+        25900
+      ]
+    ]
+  },
+  "transport_attempts": [
+    {
+      "request_number": 1,
+      "http_status": 200
+    }
+  ],
+  "normally_completed": false
+}

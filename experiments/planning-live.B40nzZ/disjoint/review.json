@@ -1,0 +1,236 @@
+{
+  "plans": [
+    {
+      "valid": true,
+      "movements": [
+        "observation-93a0b579c8b57e1c33c77940a3f568dedb92f3b19b9c12b912273640440a9461",
+        "observation-42b97b69e76bec23c10aac46e367a7c96e7d6f5e43c5f291154d1b0beca9f781",
+        "observation-5dcbe1c88de9728caf40d69041856342f8a38adecd42b781062bec09081a9730"
+      ],
+      "relations": [],
+      "omitted": []
+    },
+    {
+      "valid": true,
+      "movements": [
+        "observation-93a0b579c8b57e1c33c77940a3f568dedb92f3b19b9c12b912273640440a9461",
+        "observation-42b97b69e76bec23c10aac46e367a7c96e7d6f5e43c5f291154d1b0beca9f781",
+        "observation-5dcbe1c88de9728caf40d69041856342f8a38adecd42b781062bec09081a9730"
+      ],
+      "relations": [],
+      "omitted": []
+    }
+  ],
+  "evidence": {
+    "observation-93a0b579c8b57e1c33c77940a3f568dedb92f3b19b9c12b912273640440a9461": {
+      "description": "The person in the blue top walks toward the lower-right image boundary and exits view.",
+      "citation": {
+        "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+        "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+        "modality": "frames",
+        "interval": {
+          "start_us": 0,
+          "end_us": 1000001
+        },
+        "frames": [
+          {
+            "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+            "display_index": 0,
+            "pts": 0,
+            "source_time_us": 0,
+            "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+            "display_index": 13,
+            "pts": 6656,
+            "source_time_us": 520000,
+            "rgb24_sha256": "714a32f8405451be5ced614bc6cd67e2699da716018461d098a5127cb6a0ffae",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+            "display_index": 25,
+            "pts": 12800,
+            "source_time_us": 1000000,
+            "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+            "schema_version": 1
+          }
+        ]
+      }
+    },
+    "observation-42b97b69e76bec23c10aac46e367a7c96e7d6f5e43c5f291154d1b0beca9f781": {
+      "description": "A person dressed in dark clothing walks across the marble floor of the atrium towards the upper-left reception area.",
+      "citation": {
+        "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+        "inspection_id": "inspection-b0232e313c01776f94fbc7c30800174a20f682e4dd17ec2716c5ef0ee21a84d2",
+        "modality": "frames",
+        "interval": {
+          "start_us": 10000000,
+          "end_us": 15000001
+        },
+        "frames": [
+          {
+            "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+            "display_index": 250,
+            "pts": 128000,
+            "source_time_us": 10000000,
+            "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+            "display_index": 263,
+            "pts": 134656,
+            "source_time_us": 10520000,
+            "rgb24_sha256": "a2a7bc34ad481bd607b0087b299a2a238deadf8a456837ca2e1de9812090de49",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+            "display_index": 275,
+            "pts": 140800,
+            "source_time_us": 11000000,
+            "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+            "display_index": 288,
+            "pts": 147456,
+            "source_time_us": 11520000,
+            "rgb24_sha256": "501ada5b02f345a9ad65926ff00191eefdcc8d7aca2811396b79656ef99bc7f2",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+            "display_index": 300,
+            "pts": 153600,
+            "source_time_us": 12000000,
+            "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+            "display_index": 313,
+            "pts": 160256,
+            "source_time_us": 12520000,
+            "rgb24_sha256": "d561329fe5b9d259120a002a0afbec95211e3124261a2e8dfcee1335f898bc21",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+            "display_index": 325,
+            "pts": 166400,
+            "source_time_us": 13000000,
+            "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-7d01e523cdffab0fca101856f91ad31c36da1ac429a140ec3e9692f392e3e0b4",
+            "display_index": 338,
+            "pts": 173056,
+            "source_time_us": 13520000,
+            "rgb24_sha256": "5f7da68b42f924b215717d4ea58346380981ac558bbb8c1feaaff1064af6e0d6",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+            "display_index": 350,
+            "pts": 179200,
+            "source_time_us": 14000000,
+            "rgb24_sha256": "1328d87d39c45ad7a5bc19e7fcfecb07b196eb3dc87e73ece13daa4a7f290a93",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+            "display_index": 363,
+            "pts": 185856,
+            "source_time_us": 14520000,
+            "rgb24_sha256": "9e10b66cb9c0fda7cd687f16814cb4d5b8d2549cd436730fb5e2f54e7f667723",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-02ddc222324dde3144dce77343baccea1c9a4b6f0640ea7fb006809be2261b53",
+            "display_index": 375,
+            "pts": 192000,
+            "source_time_us": 15000000,
+            "rgb24_sha256": "ff1b8aeb0d4c3b7af98365e357df4af142d50e98c2b3cfaeb6023bcba39612d2",
+            "schema_version": 1
+          }
+        ]
+      }
+    },
+    "observation-5dcbe1c88de9728caf40d69041856342f8a38adecd42b781062bec09081a9730": {
+      "description": "The person in the lower-left corridor continues walking along the sunlit path.",
+      "citation": {
+        "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+        "inspection_id": "inspection-b0232e313c01776f94fbc7c30800174a20f682e4dd17ec2716c5ef0ee21a84d2",
+        "modality": "frames",
+        "interval": {
+          "start_us": 16520000,
+          "end_us": 19520001
+        },
+        "frames": [
+          {
+            "id": "frame-1244bf6e61315ee3b9bf9891394f1ef223f2f75ee2edc2926f9c16bc6063604c",
+            "display_index": 413,
+            "pts": 211456,
+            "source_time_us": 16520000,
+            "rgb24_sha256": "42321f2eb822342984eb38aa54ce56527bc9229a4739b73e3da0009b346b834b",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-fee60e36c03a6670eabe831a5d208ff79010e457240d3810c068d58d3357755c",
+            "display_index": 425,
+            "pts": 217600,
+            "source_time_us": 17000000,
+            "rgb24_sha256": "e02619772ffc2dc0b9963edb05696336373e59f2ef5f315ffcd8bb092a35d952",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-e6144b4cb75b4117f4442be05ba75d00e3c9468cbaf7626b1917bbdcc2369c0f",
+            "display_index": 438,
+            "pts": 224256,
+            "source_time_us": 17520000,
+            "rgb24_sha256": "7da63ab12392cfe74e53e02770408bf52c29c74b2a321eac24fd6c4c07f83dfd",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-a329f3e8c0b0550183618af2afea201dcc8875ac188a237af0200a503aa9fd29",
+            "display_index": 450,
+            "pts": 230400,
+            "source_time_us": 18000000,
+            "rgb24_sha256": "279d8b91e87d784878f5f9a5e6cbd77f1f9eec7a8a6e393052966e139a834cee",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-b4ac930b827db68fa0ad88611ba94fbf95fd4537d3ae8a570d528a77ea28645e",
+            "display_index": 463,
+            "pts": 237056,
+            "source_time_us": 18520000,
+            "rgb24_sha256": "38434a5fd02f2cbd91055c8b19443697ab21e07a75f2ae83d885a2c5c0e8d6f3",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-d537fc86ddcdddf4440ee10124f7da1b8741c166e6e7f6f4dd9de8f489c77e43",
+            "display_index": 475,
+            "pts": 243200,
+            "source_time_us": 19000000,
+            "rgb24_sha256": "f7332d64c9d0363ff9dba9f1a251abdd0092f30179dd920b259ce456ceddd9fe",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-c81d8eeb5adfbda36173d8525c1378f4a22acda6b74f34091940848148a5e8a5",
+            "display_index": 488,
+            "pts": 249856,
+            "source_time_us": 19520000,
+            "rgb24_sha256": "5a110f691b4a6a7fd5c7150172e132aee362ab107eda2329f93731fafde48eee",
+            "schema_version": 1
+          }
+        ]
+      }
+    }
+  }
+}

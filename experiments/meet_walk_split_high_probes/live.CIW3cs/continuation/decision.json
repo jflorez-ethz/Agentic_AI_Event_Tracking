@@ -1,0 +1,63 @@
+{
+  "action": "delegate",
+  "reason": "Delegating key movement events across distinct persons and inspection sequences within candidate limits while associating directly co-occurring appearance events.",
+  "dispositions": [
+    {
+      "id": "observation-7347dcf6e0b900c18da31996d9bea2bd16ea85695e6cde0c7f94337c7f7ed9aa",
+      "reason": "Brief appearance near the lower right lobby border deferred due to candidate limit.",
+      "status": "deferred"
+    },
+    {
+      "id": "observation-a0edff0f464766aa986e7a3fe672cb909e827c930036f46d0313cca1f40cdc39",
+      "reason": "Short movement exiting view early, deferred to prioritize primary traversals across the atrium.",
+      "status": "deferred"
+    },
+    {
+      "id": "observation-c7fda2e68f3f9415af4acce61be098f4d1fe1f9132e88dd901b165d8707ae194",
+      "reason": "Appearance observation directly corresponds to the start of the person's movement across the aisle.",
+      "status": "associated",
+      "candidate_id": "observation-3bfb1c56bbe324de53281c8d55ddd7c506d3607c1ae794310badc00c1d8f80cb",
+      "correspondence": {
+        "id": "observation-c7fda2e68f3f9415af4acce61be098f4d1fe1f9132e88dd901b165d8707ae194",
+        "status": "same_event",
+        "seed_quote": "The person wearing the dark shirt and lighter trousers moves along the sunlit aisle and advances into the central atrium space toward the upper-left corridor.",
+        "other_quote": "A person wearing a dark shirt and lighter trousers is visible along the sunlit corridor area on the left.",
+        "shared_frame_id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4"
+      }
+    },
+    {
+      "id": "observation-2182a33cedc8afc9f08ab1a04d1d32e7e29c1301bda33a9376d195511910db0b",
+      "reason": "Appearance observation directly corresponds to the initial position of the person moving across the atrium.",
+      "status": "associated",
+      "candidate_id": "observation-da6fdebc40fca46c44b2f43c79c6f806c5bbafaca85bb693c5009fa233ab14ba",
+      "correspondence": {
+        "id": "observation-2182a33cedc8afc9f08ab1a04d1d32e7e29c1301bda33a9376d195511910db0b",
+        "status": "same_event",
+        "seed_quote": "The person in dark clothing walks diagonally across the atrium floor toward the upper left, joining the other walking individual.",
+        "other_quote": "A person wearing a dark shirt and dark trousers first appears at the bottom right corner of the view.",
+        "shared_frame_id": "frame-6975ea2366df725c470699fddaf44ad7d40c8036c458c21d057a0589316c67b0"
+      }
+    },
+    {
+      "id": "observation-83b23ba3dbd65521e8b8791098baf6da421ec6827c14ce5b560be5a474602aed",
+      "reason": "Concurrent walking movement in atrium deferred due to candidate limit.",
+      "status": "deferred"
+    },
+    {
+      "id": "observation-7628163245f48993bd8e3a81c0769917e41c9f8846e5ba0d78a0534ab44d2a6e",
+      "reason": "Appearance in sunlit walkway deferred due to candidate limit.",
+      "status": "deferred"
+    },
+    {
+      "id": "observation-7f18178dd644fd52f9c17f79bd89b2c6fc1722d214cc2a95c8069970d2ca4b67",
+      "reason": "Movement along lower corridor deferred due to candidate budget limits.",
+      "status": "deferred"
+    }
+  ],
+  "ids": [
+    "observation-3bfb1c56bbe324de53281c8d55ddd7c506d3607c1ae794310badc00c1d8f80cb",
+    "observation-da6fdebc40fca46c44b2f43c79c6f806c5bbafaca85bb693c5009fa233ab14ba",
+    "observation-ac83682fb5f7d3d5ee5c7eeacb15a97e8a0854d2a629f67175c20d78061d5390",
+    "observation-433e1420058c2daded9fed756c8f39a86c07405e0d55adf8d4ac7a264f1ba71c"
+  ]
+}

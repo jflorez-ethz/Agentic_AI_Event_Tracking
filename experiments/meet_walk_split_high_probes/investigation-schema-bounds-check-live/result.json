@@ -1,0 +1,45 @@
+{
+  "physical_http_requests": 1,
+  "request": {
+    "request_number": 1,
+    "model": "gemini-3.6-flash",
+    "sdk_version": "3.6.1",
+    "request_body_sha256": "0c5ae729d116ffab5d1ae4a9e14f78cfa19742fc47884ee5f0ee0a7bee86c0d5",
+    "request_body_bytes": 17655,
+    "response_mime_type": "application/json",
+    "max_output_tokens": 16384,
+    "thinking_config": {
+      "thinking_level": "HIGH"
+    }
+  },
+  "role_call": {
+    "role": "investigation",
+    "model": "gemini-3.6-flash",
+    "status": "received",
+    "usage": {
+      "prompt_token_count": 6340,
+      "candidates_token_count": 1507,
+      "thoughts_token_count": 9483,
+      "total_token_count": 17330
+    },
+    "max_output_tokens": 16384,
+    "thinking_level": "HIGH",
+    "transport_attempts": [
+      {
+        "request_number": 1,
+        "http_status": 200
+      }
+    ],
+    "model_version": "gemini-3.6-flash",
+    "candidate_count": 1,
+    "finish_reasons": [
+      "STOP"
+    ],
+    "elapsed_ms": 34563
+  },
+  "provider_errors": [],
+  "decision_action": "delegate",
+  "decision_validation": {
+    "status": "accepted"
+  }
+}

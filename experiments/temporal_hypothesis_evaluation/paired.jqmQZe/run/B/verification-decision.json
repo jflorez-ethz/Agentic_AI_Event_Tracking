@@ -1,0 +1,9 @@
+{
+  "action": "verdict",
+  "reason": "The candidate observation describes two individuals walking across the hallway floor between F1 and F10 (10000000us to 14520000us), which is supported by the frame inspection data.",
+  "correspondence": [],
+  "ids": [
+    "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6"
+  ],
+  "verdict": "supported"
+}

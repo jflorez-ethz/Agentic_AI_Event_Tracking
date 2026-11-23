@@ -1,0 +1,310 @@
+{
+  "basis": "AI-assisted exploratory comparison against the user-confirmed provisional sheet; recorded before opening arm mapping or results",
+  "packets": {
+    "X": [
+      {
+        "id": "frame-6975ea2366df725c470699fddaf44ad7d40c8036c458c21d057a0589316c67b0",
+        "display_index": 88,
+        "pts": 45056,
+        "source_time_us": 3520000,
+        "rgb24_sha256": "386ea2d37209599419ac1aa98c866fb62991694fefbadd1679c27417dfc9f70e",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+        "display_index": 100,
+        "pts": 51200,
+        "source_time_us": 4000000,
+        "rgb24_sha256": "a5e14696b60f172ead106fb7ddbd4f76ae344cc1d24654b49fce03c254852d68",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-cefbaba4c6827ac2ad7ba77db65d2973005107d1d9022637bb8fb37201be5ca2",
+        "display_index": 101,
+        "pts": 51712,
+        "source_time_us": 4040000,
+        "rgb24_sha256": "97c227c957da552432005917679e98b0d0e3a1b985b6d75b937d92b5b00a49c5",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-e5f191ad95dd31424c4571b6954ee9b529ac89947becbceca0dfb0a3771a1788",
+        "display_index": 113,
+        "pts": 57856,
+        "source_time_us": 4520000,
+        "rgb24_sha256": "62f914bee99d97224af3f6d7f2d6a3976474e5ca65e7e8924c222779f080aadf",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+        "display_index": 125,
+        "pts": 64000,
+        "source_time_us": 5000000,
+        "rgb24_sha256": "8a7f08da2bb75abf8f4aec43cfcabda9b70293edfcfb1327657fed3f2257a735",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-6642f1a40f5cbb0636bf53ad4be2041d7e0eb07606bfc65cd511d61520ff6059",
+        "display_index": 126,
+        "pts": 64512,
+        "source_time_us": 5040000,
+        "rgb24_sha256": "fe1c2ebd972a69e0586bc3ec0e8ea5489447fb1f95e348ce2b36bcd0971f8e10",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-fc6cdf36874aaee549f25ecca3f4d81b8c243569dcc21bcb5073dd83b7fdfd07",
+        "display_index": 138,
+        "pts": 70656,
+        "source_time_us": 5520000,
+        "rgb24_sha256": "8845d998cb2bce32e2f72daee8889ba54ebbb7ae5807aa5b6d3d1f373e52d2f0",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+        "display_index": 150,
+        "pts": 76800,
+        "source_time_us": 6000000,
+        "rgb24_sha256": "98a9a25fdce06e834fd1e5ebd3dbbaceaec19ab8284b36672f5d9f20eb216496",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-5d759161985977a81f229c616a0214e675988944c4d645aa95bd912da603dedf",
+        "display_index": 151,
+        "pts": 77312,
+        "source_time_us": 6040000,
+        "rgb24_sha256": "021ced888718ea3d4415fcad37d7688306c2199882b4e849d6d64113e6c3f78a",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-bc4674074514a6291d20741efd6f15e5097ba2469b63aa766045ec6f8d4d71c0",
+        "display_index": 163,
+        "pts": 83456,
+        "source_time_us": 6520000,
+        "rgb24_sha256": "43a5a5f10662c139992527e55bb1ce853cf87cc6d0d0f1bc3281818e80bc9b6d",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+        "display_index": 175,
+        "pts": 89600,
+        "source_time_us": 7000000,
+        "rgb24_sha256": "3ac9fc4c268adc8bd50276abe5d803692c9bce6bfcc1c37d885cc0185f4f47da",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-63919cfa284127f476ad50d14b8dd9a2fdc1810b209476829cbd032925d2ff38",
+        "display_index": 176,
+        "pts": 90112,
+        "source_time_us": 7040000,
+        "rgb24_sha256": "c118a953ca08dfd68160a2823399197fb55d02963f43b4bf99fa690475ace92e",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-7f27dea900e5862a195c853d744cc9398c745740d45e6c3d30d85bc5787b2b1a",
+        "display_index": 188,
+        "pts": 96256,
+        "source_time_us": 7520000,
+        "rgb24_sha256": "14214b22226eca46a65a42b48fadfa1c478525c07af147c101c136982b90b87b",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+        "display_index": 200,
+        "pts": 102400,
+        "source_time_us": 8000000,
+        "rgb24_sha256": "f9950625fedc8bd596e3dd8e97d4e41523a5c2c54e0921ba2012d7e2d2b6deab",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-666dafd8454b125a9651db00a795fb4fcfd7e4a0e9fa008ea223c4261f6fabf4",
+        "display_index": 201,
+        "pts": 102912,
+        "source_time_us": 8040000,
+        "rgb24_sha256": "059a61892100f19f66121ba42d144fc3affa8f2dbe913287120e61a097704fe2",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-64025c8deb5a20df19295d00aa0e70cf0e7b300c69a657f722975fc45b5a4a13",
+        "display_index": 213,
+        "pts": 109056,
+        "source_time_us": 8520000,
+        "rgb24_sha256": "958c5363b73b947a3af6f838f8124ae46806f0ed8961334e65e855b64fe8c9a3",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+        "display_index": 225,
+        "pts": 115200,
+        "source_time_us": 9000000,
+        "rgb24_sha256": "c61cbae1b01468998afc9cad396d2c235d300efcc3d39f527e3f74a8965cfcf7",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-70c092b0f9e14a36486f332cd9e8e0810ece04d77079a08075f3574b866ecbfc",
+        "display_index": 238,
+        "pts": 121856,
+        "source_time_us": 9520000,
+        "rgb24_sha256": "414deff064cfeb32d32bcce5c8f674e6daf070645663de7e8285690689f2c404",
+        "schema_version": 1
+      }
+    ],
+    "Y": [
+      {
+        "id": "frame-6975ea2366df725c470699fddaf44ad7d40c8036c458c21d057a0589316c67b0",
+        "display_index": 88,
+        "pts": 45056,
+        "source_time_us": 3520000,
+        "rgb24_sha256": "386ea2d37209599419ac1aa98c866fb62991694fefbadd1679c27417dfc9f70e",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+        "display_index": 100,
+        "pts": 51200,
+        "source_time_us": 4000000,
+        "rgb24_sha256": "a5e14696b60f172ead106fb7ddbd4f76ae344cc1d24654b49fce03c254852d68",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-e5f191ad95dd31424c4571b6954ee9b529ac89947becbceca0dfb0a3771a1788",
+        "display_index": 113,
+        "pts": 57856,
+        "source_time_us": 4520000,
+        "rgb24_sha256": "62f914bee99d97224af3f6d7f2d6a3976474e5ca65e7e8924c222779f080aadf",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+        "display_index": 125,
+        "pts": 64000,
+        "source_time_us": 5000000,
+        "rgb24_sha256": "8a7f08da2bb75abf8f4aec43cfcabda9b70293edfcfb1327657fed3f2257a735",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-6642f1a40f5cbb0636bf53ad4be2041d7e0eb07606bfc65cd511d61520ff6059",
+        "display_index": 126,
+        "pts": 64512,
+        "source_time_us": 5040000,
+        "rgb24_sha256": "fe1c2ebd972a69e0586bc3ec0e8ea5489447fb1f95e348ce2b36bcd0971f8e10",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-fc6cdf36874aaee549f25ecca3f4d81b8c243569dcc21bcb5073dd83b7fdfd07",
+        "display_index": 138,
+        "pts": 70656,
+        "source_time_us": 5520000,
+        "rgb24_sha256": "8845d998cb2bce32e2f72daee8889ba54ebbb7ae5807aa5b6d3d1f373e52d2f0",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+        "display_index": 150,
+        "pts": 76800,
+        "source_time_us": 6000000,
+        "rgb24_sha256": "98a9a25fdce06e834fd1e5ebd3dbbaceaec19ab8284b36672f5d9f20eb216496",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-5d759161985977a81f229c616a0214e675988944c4d645aa95bd912da603dedf",
+        "display_index": 151,
+        "pts": 77312,
+        "source_time_us": 6040000,
+        "rgb24_sha256": "021ced888718ea3d4415fcad37d7688306c2199882b4e849d6d64113e6c3f78a",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-bc4674074514a6291d20741efd6f15e5097ba2469b63aa766045ec6f8d4d71c0",
+        "display_index": 163,
+        "pts": 83456,
+        "source_time_us": 6520000,
+        "rgb24_sha256": "43a5a5f10662c139992527e55bb1ce853cf87cc6d0d0f1bc3281818e80bc9b6d",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+        "display_index": 175,
+        "pts": 89600,
+        "source_time_us": 7000000,
+        "rgb24_sha256": "3ac9fc4c268adc8bd50276abe5d803692c9bce6bfcc1c37d885cc0185f4f47da",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-63919cfa284127f476ad50d14b8dd9a2fdc1810b209476829cbd032925d2ff38",
+        "display_index": 176,
+        "pts": 90112,
+        "source_time_us": 7040000,
+        "rgb24_sha256": "c118a953ca08dfd68160a2823399197fb55d02963f43b4bf99fa690475ace92e",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-7f27dea900e5862a195c853d744cc9398c745740d45e6c3d30d85bc5787b2b1a",
+        "display_index": 188,
+        "pts": 96256,
+        "source_time_us": 7520000,
+        "rgb24_sha256": "14214b22226eca46a65a42b48fadfa1c478525c07af147c101c136982b90b87b",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+        "display_index": 200,
+        "pts": 102400,
+        "source_time_us": 8000000,
+        "rgb24_sha256": "f9950625fedc8bd596e3dd8e97d4e41523a5c2c54e0921ba2012d7e2d2b6deab",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-666dafd8454b125a9651db00a795fb4fcfd7e4a0e9fa008ea223c4261f6fabf4",
+        "display_index": 201,
+        "pts": 102912,
+        "source_time_us": 8040000,
+        "rgb24_sha256": "059a61892100f19f66121ba42d144fc3affa8f2dbe913287120e61a097704fe2",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-64025c8deb5a20df19295d00aa0e70cf0e7b300c69a657f722975fc45b5a4a13",
+        "display_index": 213,
+        "pts": 109056,
+        "source_time_us": 8520000,
+        "rgb24_sha256": "958c5363b73b947a3af6f838f8124ae46806f0ed8961334e65e855b64fe8c9a3",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+        "display_index": 225,
+        "pts": 115200,
+        "source_time_us": 9000000,
+        "rgb24_sha256": "c61cbae1b01468998afc9cad396d2c235d300efcc3d39f527e3f74a8965cfcf7",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-6ae83e87268ffa9490da125138c60810ae2deb3560e448f20f141bcb03728c09",
+        "display_index": 226,
+        "pts": 115712,
+        "source_time_us": 9040000,
+        "rgb24_sha256": "1c5946dc54556d68ef267b56402b4891c7a610c2fd0e54b49ebbb4415714d3f9",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-70c092b0f9e14a36486f332cd9e8e0810ece04d77079a08075f3574b866ecbfc",
+        "display_index": 238,
+        "pts": 121856,
+        "source_time_us": 9520000,
+        "rgb24_sha256": "414deff064cfeb32d32bcce5c8f674e6daf070645663de7e8285690689f2c404",
+        "schema_version": 1
+      }
+    ]
+  },
+  "coverage": "18 each; 17 shared; all 13 original grid frames in both. Only X has 4.04; only Y has 9.04. Five additions per packet are off reference grid.",
+  "comparison": "Tie. Both show two outlines before substantial overlap at 6.52 and 7.00 and clear distinguishability again at 7.52. Neither has 6.28, 6.76 or 7.28. At common off-grid 7.04 the outlines still overlap visually; no reference label assigned. Unique frames are away from the disputed transition.",
+  "grid_brackets_seconds": [
+    [
+      6.0,
+      6.52
+    ],
+    [
+      7.0,
+      7.52
+    ]
+  ],
+  "interpretation": "Brackets summarize changed degree of overlap at sampled views, not a binary disappearance, an exact change time, or identity continuity."
+}

@@ -1,0 +1,8 @@
+Answer the same question separately for X and Y:
+Which portions of this interval, if any, show two separately distinguishable silhouettes?
+
+Open only the two anonymous packets and your assessment.csv. Use the PNGs in timestamp order. Filenames give source-relative microseconds. frames.json maps each timestamp to its canonical frame ID. The packets contain original in-scope cited frames plus any unique additional frames from successful inspections. Seeing an image here does not mean Verification itself saw pixels directly.
+
+Complete the X and Y rows independently. List the packet evidence examined in selected_frame_ids. In answer_and_brackets describe what is distinguishable, inseparable, or uncertain at the sampled times. For each apparent change give the earlier and later sampled times and their respective states. List the supporting canonical IDs in cited_frame_ids in the same order. Give the visible cue or limitation in visibility_limit. Record any abstention and its reason in abstention. Avoid interpolating an exact transition instant, identifying individuals across overlap, or treating indistinguishability as absence. If no change can be located, say so.
+
+Return both rows before seeing reference judgments, arm identities, model decisions, costs, or the other evaluation material. Leave missed_transitions, unsupported_continuity, unique_new_frames, physical_requests and latency_ms for coordinator comparison after lock. Preserve your original answers unchanged.

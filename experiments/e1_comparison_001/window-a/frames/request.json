@@ -1,0 +1,267 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "Describe visible object placement or removal. Use object_placed only when a visible object is set down and remains in view, and object_removed only when a visible object is picked up and moves away from its previous location. Use insufficient_evidence when a potentially relevant action is visible but the available evidence cannot establish placement or removal. Report each distinct observation once.\nUse only visible evidence. Do not infer identity, ownership, intent or actions outside the supplied media. State visibility limits and timing uncertainty. Return an empty observations list if no category applies.\nCite one or more supplied frame labels for each observation and leave clip_interval_us empty. Discrete frames do not show continuous action."
+        },
+        {
+          "text": "F1: source time 36039700 microseconds."
+        },
+        {
+          "inline_data": {
+            "mime_type": "image/png",
+            "path": "part-2.png",
+            "bytes": 246285,
+            "sha256": "45b50870fcfb829c12054f2d0caf833f9f91305eaa2d64f2cc6fb91ccdcf99bd"
+          }
+        },
+        {
+          "text": "F2: source time 36559700 microseconds."
+        },
+        {
+          "inline_data": {
+            "mime_type": "image/png",
+            "path": "part-4.png",
+            "bytes": 247007,
+            "sha256": "966a9ee0cb427d259414c4667a34282ad5188121ff1a58fc5c5872fb2beda77e"
+          }
+        },
+        {
+          "text": "F3: source time 37039700 microseconds."
+        },
+        {
+          "inline_data": {
+            "mime_type": "image/png",
+            "path": "part-6.png",
+            "bytes": 246740,
+            "sha256": "87befb1403f49e37e094e7405f3133b994475b9bf914414988ea2e17cd6b1d01"
+          }
+        },
+        {
+          "text": "F4: source time 37559700 microseconds."
+        },
+        {
+          "inline_data": {
+            "mime_type": "image/png",
+            "path": "part-8.png",
+            "bytes": 247944,
+            "sha256": "3556b88a8223e5ab0de7912f8ec7ef97d3459e814b525d88679f31e153acb0d7"
+          }
+        },
+        {
+          "text": "F5: source time 38039700 microseconds."
+        },
+        {
+          "inline_data": {
+            "mime_type": "image/png",
+            "path": "part-10.png",
+            "bytes": 247815,
+            "sha256": "01eff19023ccd02ec40d9f9fb543f1fc9b0a771bf14e3b1d510d9cc855b4a9ce"
+          }
+        },
+        {
+          "text": "F6: source time 38559700 microseconds."
+        },
+        {
+          "inline_data": {
+            "mime_type": "image/png",
+            "path": "part-12.png",
+            "bytes": 249065,
+            "sha256": "98f7dcd8e993c1a0e680eac38dbf8984c3899d6a5ad8a9da829447e3bf17aa48"
+          }
+        },
+        {
+          "text": "F7: source time 39039700 microseconds."
+        },
+        {
+          "inline_data": {
+            "mime_type": "image/png",
+            "path": "part-14.png",
+            "bytes": 247080,
+            "sha256": "06f26581234902e8fff8bcfdb904a56d7f4440ca74dc11f948b5d7d9b23d6b5b"
+          }
+        },
+        {
+          "text": "F8: source time 39559700 microseconds."
+        },
+        {
+          "inline_data": {
+            "mime_type": "image/png",
+            "path": "part-16.png",
+            "bytes": 248487,
+            "sha256": "9bdda0c014148e0f2a524994ab046f949468dc99c5a3354be7c8a22279fe9d59"
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "response_mime_type": "application/json",
+    "response_json_schema": {
+      "type": "object",
+      "required": [
+        "observations"
+      ],
+      "properties": {
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "category",
+              "description",
+              "visibility_limits",
+              "uncertainty",
+              "frame_labels",
+              "clip_interval_us"
+            ],
+            "properties": {
+              "category": {
+                "type": "string",
+                "enum": [
+                  "object_placed",
+                  "object_removed",
+                  "insufficient_evidence"
+                ]
+              },
+              "description": {
+                "type": "string"
+              },
+              "visibility_limits": {
+                "type": "string"
+              },
+              "uncertainty": {
+                "type": "string"
+              },
+              "frame_labels": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "clip_interval_us": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "maxItems": 2
+              }
+            }
+          }
+        }
+      }
+    },
+    "max_output_tokens": 4096,
+    "thinking_config": {
+      "thinking_level": "LOW"
+    }
+  },
+  "inspection": {
+    "id": "inspection-c17e2ad9b6826ce4b2849e48f1516a21f17f5bd4bcd86568a0839fdb857977a6",
+    "video_id": "video-5ccee870c2f89fc169832abf3aa4c82892d02562c2fd80c2e30ffd776780a723",
+    "requested_interval": {
+      "start_us": 36000000,
+      "end_us": 40000000
+    },
+    "requested_times_us": [
+      36039700,
+      36539700,
+      37039700,
+      37539700,
+      38039700,
+      38539700,
+      39039700,
+      39539700
+    ],
+    "modality": "frames",
+    "selection_policy": "first_at_or_after_within_interval",
+    "pixel_format": "rgb24",
+    "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+    "frames": [
+      {
+        "id": "frame-260c30f1816bfdce39c5a369702464505426348d3e7e0b74f0f33c31ef4935f5",
+        "display_index": 895,
+        "pts": 3243573,
+        "source_time_us": 36039700,
+        "rgb24_sha256": "2bae8df80a645b9c73ebd5e3679759f806339883232afd28f9c892e387e2c1c7",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-d14fa07b8bce7dc7ed8ac785d9030be3ebbc79cb0cc022c57175a9f633624947",
+        "display_index": 908,
+        "pts": 3290373,
+        "source_time_us": 36559700,
+        "rgb24_sha256": "d9b1e8eaf327a3c02def7a8c71ab67cd5f1dacf97ab68872205dac6a3fef0af0",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-ee41e5edc971d344c5042343dee371d3613a5d4011a6285a835747caef222e90",
+        "display_index": 920,
+        "pts": 3333573,
+        "source_time_us": 37039700,
+        "rgb24_sha256": "86a415043a307e9adc0e232d3afb158a8ecc57e7fc95ca0a47464c5c7f276ec7",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-36b5d0bd231bf70620d81fe2b6aed0c532069a44d04e7f52f5a1d447bd3e9fde",
+        "display_index": 933,
+        "pts": 3380373,
+        "source_time_us": 37559700,
+        "rgb24_sha256": "77ccd25a63bdf06eae9dab6d8561dbdf89960b0a6ebc47d4051816b566c34fe9",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-ffa4030ed886eff1aeac12a856948400812052a362dbc5b3efbb6465d10abc26",
+        "display_index": 945,
+        "pts": 3423573,
+        "source_time_us": 38039700,
+        "rgb24_sha256": "87795d3d7815a590bef2422858c73ce504d498c55e26b9985f77df8b00d79e6f",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-db1234e79f26c28e1a5524bfe632dc799e697bd9daf875719e3ff59ebfaba650",
+        "display_index": 958,
+        "pts": 3470373,
+        "source_time_us": 38559700,
+        "rgb24_sha256": "40b8e7a10cce7bc47953a20af1e72e4325f3e2f1e1c642195ef56f7022ce5d7a",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-1b14086491f11fa2c1b9024f86754e923d5d2d92ef167175558833268568d420",
+        "display_index": 970,
+        "pts": 3513573,
+        "source_time_us": 39039700,
+        "rgb24_sha256": "21c932d1309e00b590d8d1ea35a94b1ce4475ac62fde85cb83a98c64e37806d0",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-bb976f370a71ec2cc12c23b8678061e65de5dcda3cf36a4b2071a37b3e4f2f35",
+        "display_index": 983,
+        "pts": 3560373,
+        "source_time_us": 39559700,
+        "rgb24_sha256": "02104ea1d7f519c70bcde9ebffb1aa4755cebdac432b00ce763f725c8ab6899a",
+        "schema_version": 1
+      }
+    ],
+    "frame_ids_by_request": [
+      "frame-260c30f1816bfdce39c5a369702464505426348d3e7e0b74f0f33c31ef4935f5",
+      "frame-d14fa07b8bce7dc7ed8ac785d9030be3ebbc79cb0cc022c57175a9f633624947",
+      "frame-ee41e5edc971d344c5042343dee371d3613a5d4011a6285a835747caef222e90",
+      "frame-36b5d0bd231bf70620d81fe2b6aed0c532069a44d04e7f52f5a1d447bd3e9fde",
+      "frame-ffa4030ed886eff1aeac12a856948400812052a362dbc5b3efbb6465d10abc26",
+      "frame-db1234e79f26c28e1a5524bfe632dc799e697bd9daf875719e3ff59ebfaba650",
+      "frame-1b14086491f11fa2c1b9024f86754e923d5d2d92ef167175558833268568d420",
+      "frame-bb976f370a71ec2cc12c23b8678061e65de5dcda3cf36a4b2071a37b3e4f2f35"
+    ],
+    "status": "complete",
+    "schema_version": 1,
+    "frame_size": [
+      384,
+      288
+    ],
+    "ffmpeg_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers"
+  }
+}

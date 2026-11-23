@@ -1,0 +1,3732 @@
+{
+  "models": {
+    "investigation": "gemini-3.6-flash",
+    "verification": "gemini-3.6-flash",
+    "reporting": "gemini-3.6-flash",
+    "video": "gemini-3.5-flash-lite"
+  },
+  "role_calls": [
+    {
+      "role": "investigation",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 2164,
+        "candidates_token_count": 293,
+        "total_token_count": 2457
+      },
+      "transport_attempts": [
+        {
+          "request_number": 1,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 1908
+    },
+    {
+      "role": "verification",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 767,
+        "candidates_token_count": 68,
+        "total_token_count": 835
+      },
+      "transport_attempts": [
+        {
+          "request_number": 2,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 1466
+    },
+    {
+      "role": "verification",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 1971,
+        "candidates_token_count": 449,
+        "total_token_count": 2420
+      },
+      "transport_attempts": [
+        {
+          "request_number": 3,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 3211
+    },
+    {
+      "role": "verification",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 2078,
+        "candidates_token_count": 380,
+        "total_token_count": 2458
+      },
+      "transport_attempts": [
+        {
+          "request_number": 4,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 2867
+    },
+    {
+      "role": "verification",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 1893,
+        "candidates_token_count": 347,
+        "total_token_count": 2240
+      },
+      "transport_attempts": [
+        {
+          "request_number": 5,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 2762
+    },
+    {
+      "role": "verification",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 985,
+        "candidates_token_count": 238,
+        "total_token_count": 1223
+      },
+      "transport_attempts": [
+        {
+          "request_number": 6,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 2179
+    },
+    {
+      "role": "verification",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 1094,
+        "candidates_token_count": 464,
+        "total_token_count": 1558
+      },
+      "transport_attempts": [
+        {
+          "request_number": 7,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 3041
+    },
+    {
+      "role": "verification",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 1078,
+        "candidates_token_count": 465,
+        "total_token_count": 1543
+      },
+      "transport_attempts": [
+        {
+          "request_number": 8,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 3583
+    },
+    {
+      "role": "reporting",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 600,
+        "candidates_token_count": 106,
+        "total_token_count": 706
+      },
+      "transport_attempts": [
+        {
+          "request_number": 9,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 1637
+    }
+  ],
+  "max_physical_role_requests": 28,
+  "max_physical_media_requests": 7,
+  "max_physical_requests": 35,
+  "analysis": {
+    "video": {
+      "id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "sha256": "f5290c0107a7d5e2bca9c324d1e2f15929ce7df86ea755613229f18af5c554a0",
+      "source_path": "/home/xian/Projects/security-augmented/data/raw/Meet_WalkSplit_pts.mp4",
+      "stream_index": 0,
+      "duration_us": 24960000,
+      "time_base_num": 1,
+      "time_base_den": 12800,
+      "first_display_pts": 0,
+      "frame_pts": [
+        0,
+        512,
+        1024,
+        1536,
+        2048,
+        2560,
+        3072,
+        3584,
+        4096,
+        4608,
+        5120,
+        5632,
+        6144,
+        6656,
+        7168,
+        7680,
+        8192,
+        8704,
+        9216,
+        9728,
+        10240,
+        10752,
+        11264,
+        11776,
+        12288,
+        12800,
+        13312,
+        13824,
+        14336,
+        14848,
+        15360,
+        15872,
+        16384,
+        16896,
+        17408,
+        17920,
+        18432,
+        18944,
+        19456,
+        19968,
+        20480,
+        20992,
+        21504,
+        22016,
+        22528,
+        23040,
+        23552,
+        24064,
+        24576,
+        25088,
+        25600,
+        26112,
+        26624,
+        27136,
+        27648,
+        28160,
+        28672,
+        29184,
+        29696,
+        30208,
+        30720,
+        31232,
+        31744,
+        32256,
+        32768,
+        33280,
+        33792,
+        34304,
+        34816,
+        35328,
+        35840,
+        36352,
+        36864,
+        37376,
+        37888,
+        38400,
+        38912,
+        39424,
+        39936,
+        40448,
+        40960,
+        41472,
+        41984,
+        42496,
+        43008,
+        43520,
+        44032,
+        44544,
+        45056,
+        45568,
+        46080,
+        46592,
+        47104,
+        47616,
+        48128,
+        48640,
+        49152,
+        49664,
+        50176,
+        50688,
+        51200,
+        51712,
+        52224,
+        52736,
+        53248,
+        53760,
+        54272,
+        54784,
+        55296,
+        55808,
+        56320,
+        56832,
+        57344,
+        57856,
+        58368,
+        58880,
+        59392,
+        59904,
+        60416,
+        60928,
+        61440,
+        61952,
+        62464,
+        62976,
+        63488,
+        64000,
+        64512,
+        65024,
+        65536,
+        66048,
+        66560,
+        67072,
+        67584,
+        68096,
+        68608,
+        69120,
+        69632,
+        70144,
+        70656,
+        71168,
+        71680,
+        72192,
+        72704,
+        73216,
+        73728,
+        74240,
+        74752,
+        75264,
+        75776,
+        76288,
+        76800,
+        77312,
+        77824,
+        78336,
+        78848,
+        79360,
+        79872,
+        80384,
+        80896,
+        81408,
+        81920,
+        82432,
+        82944,
+        83456,
+        83968,
+        84480,
+        84992,
+        85504,
+        86016,
+        86528,
+        87040,
+        87552,
+        88064,
+        88576,
+        89088,
+        89600,
+        90112,
+        90624,
+        91136,
+        91648,
+        92160,
+        92672,
+        93184,
+        93696,
+        94208,
+        94720,
+        95232,
+        95744,
+        96256,
+        96768,
+        97280,
+        97792,
+        98304,
+        98816,
+        99328,
+        99840,
+        100352,
+        100864,
+        101376,
+        101888,
+        102400,
+        102912,
+        103424,
+        103936,
+        104448,
+        104960,
+        105472,
+        105984,
+        106496,
+        107008,
+        107520,
+        108032,
+        108544,
+        109056,
+        109568,
+        110080,
+        110592,
+        111104,
+        111616,
+        112128,
+        112640,
+        113152,
+        113664,
+        114176,
+        114688,
+        115200,
+        115712,
+        116224,
+        116736,
+        117248,
+        117760,
+        118272,
+        118784,
+        119296,
+        119808,
+        120320,
+        120832,
+        121344,
+        121856,
+        122368,
+        122880,
+        123392,
+        123904,
+        124416,
+        124928,
+        125440,
+        125952,
+        126464,
+        126976,
+        127488,
+        128000,
+        128512,
+        129024,
+        129536,
+        130048,
+        130560,
+        131072,
+        131584,
+        132096,
+        132608,
+        133120,
+        133632,
+        134144,
+        134656,
+        135168,
+        135680,
+        136192,
+        136704,
+        137216,
+        137728,
+        138240,
+        138752,
+        139264,
+        139776,
+        140288,
+        140800,
+        141312,
+        141824,
+        142336,
+        142848,
+        143360,
+        143872,
+        144384,
+        144896,
+        145408,
+        145920,
+        146432,
+        146944,
+        147456,
+        147968,
+        148480,
+        148992,
+        149504,
+        150016,
+        150528,
+        151040,
+        151552,
+        152064,
+        152576,
+        153088,
+        153600,
+        154112,
+        154624,
+        155136,
+        155648,
+        156160,
+        156672,
+        157184,
+        157696,
+        158208,
+        158720,
+        159232,
+        159744,
+        160256,
+        160768,
+        161280,
+        161792,
+        162304,
+        162816,
+        163328,
+        163840,
+        164352,
+        164864,
+        165376,
+        165888,
+        166400,
+        166912,
+        167424,
+        167936,
+        168448,
+        168960,
+        169472,
+        169984,
+        170496,
+        171008,
+        171520,
+        172032,
+        172544,
+        173056,
+        173568,
+        174080,
+        174592,
+        175104,
+        175616,
+        176128,
+        176640,
+        177152,
+        177664,
+        178176,
+        178688,
+        179200,
+        179712,
+        180224,
+        180736,
+        181248,
+        181760,
+        182272,
+        182784,
+        183296,
+        183808,
+        184320,
+        184832,
+        185344,
+        185856,
+        186368,
+        186880,
+        187392,
+        187904,
+        188416,
+        188928,
+        189440,
+        189952,
+        190464,
+        190976,
+        191488,
+        192000,
+        192512,
+        193024,
+        193536,
+        194048,
+        194560,
+        195072,
+        195584,
+        196096,
+        196608,
+        197120,
+        197632,
+        198144,
+        198656,
+        199168,
+        199680,
+        200192,
+        200704,
+        201216,
+        201728,
+        202240,
+        202752,
+        203264,
+        203776,
+        204288,
+        204800,
+        205312,
+        205824,
+        206336,
+        206848,
+        207360,
+        207872,
+        208384,
+        208896,
+        209408,
+        209920,
+        210432,
+        210944,
+        211456,
+        211968,
+        212480,
+        212992,
+        213504,
+        214016,
+        214528,
+        215040,
+        215552,
+        216064,
+        216576,
+        217088,
+        217600,
+        218112,
+        218624,
+        219136,
+        219648,
+        220160,
+        220672,
+        221184,
+        221696,
+        222208,
+        222720,
+        223232,
+        223744,
+        224256,
+        224768,
+        225280,
+        225792,
+        226304,
+        226816,
+        227328,
+        227840,
+        228352,
+        228864,
+        229376,
+        229888,
+        230400,
+        230912,
+        231424,
+        231936,
+        232448,
+        232960,
+        233472,
+        233984,
+        234496,
+        235008,
+        235520,
+        236032,
+        236544,
+        237056,
+        237568,
+        238080,
+        238592,
+        239104,
+        239616,
+        240128,
+        240640,
+        241152,
+        241664,
+        242176,
+        242688,
+        243200,
+        243712,
+        244224,
+        244736,
+        245248,
+        245760,
+        246272,
+        246784,
+        247296,
+        247808,
+        248320,
+        248832,
+        249344,
+        249856,
+        250368,
+        250880,
+        251392,
+        251904,
+        252416,
+        252928,
+        253440,
+        253952,
+        254464,
+        254976,
+        255488,
+        256000,
+        256512,
+        257024,
+        257536,
+        258048,
+        258560,
+        259072,
+        259584,
+        260096,
+        260608,
+        261120,
+        261632,
+        262144,
+        262656,
+        263168,
+        263680,
+        264192,
+        264704,
+        265216,
+        265728,
+        266240,
+        266752,
+        267264,
+        267776,
+        268288,
+        268800,
+        269312,
+        269824,
+        270336,
+        270848,
+        271360,
+        271872,
+        272384,
+        272896,
+        273408,
+        273920,
+        274432,
+        274944,
+        275456,
+        275968,
+        276480,
+        276992,
+        277504,
+        278016,
+        278528,
+        279040,
+        279552,
+        280064,
+        280576,
+        281088,
+        281600,
+        282112,
+        282624,
+        283136,
+        283648,
+        284160,
+        284672,
+        285184,
+        285696,
+        286208,
+        286720,
+        287232,
+        287744,
+        288256,
+        288768,
+        289280,
+        289792,
+        290304,
+        290816,
+        291328,
+        291840,
+        292352,
+        292864,
+        293376,
+        293888,
+        294400,
+        294912,
+        295424,
+        295936,
+        296448,
+        296960,
+        297472,
+        297984,
+        298496,
+        299008,
+        299520,
+        300032,
+        300544,
+        301056,
+        301568,
+        302080,
+        302592,
+        303104,
+        303616,
+        304128,
+        304640,
+        305152,
+        305664,
+        306176,
+        306688,
+        307200,
+        307712,
+        308224,
+        308736,
+        309248,
+        309760,
+        310272,
+        310784,
+        311296,
+        311808,
+        312320,
+        312832,
+        313344,
+        313856,
+        314368,
+        314880,
+        315392,
+        315904,
+        316416,
+        316928,
+        317440,
+        317952,
+        318464,
+        318976
+      ],
+      "last_frame_duration_pts": 512,
+      "width": 384,
+      "height": 288,
+      "probe_version": "ffprobe version 6.1.1-3ubuntu5 Copyright (c) 2007-2023 the FFmpeg developers",
+      "schema_version": 1
+    },
+    "evidence": [
+      {
+        "path": "provider",
+        "modality": "frames",
+        "interval": {
+          "start_us": 0,
+          "end_us": 10000000
+        },
+        "status": "success",
+        "findings": [
+          {
+            "observation": {
+              "id": "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033",
+              "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+              "category": "person_appeared",
+              "description": "A person appears in the lower right corner of the view.",
+              "evidence": {
+                "frame_ids": [
+                  "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4"
+                ]
+              },
+              "visibility_limits": "Limited by the field of view of the camera",
+              "uncertainty": "Exact time of appearance between frames is unknown",
+              "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+              "inference_metadata": {
+                "provider": "google-gemini-developer-api",
+                "model_id": "gemini-3.5-flash-lite",
+                "model_version": "gemini-3.5-flash-lite",
+                "adapter_version": "1",
+                "prompt_version": "e1-v1",
+                "settings": [
+                  [
+                    "sdk_version",
+                    "3.6.1"
+                  ],
+                  [
+                    "max_output_tokens",
+                    4096
+                  ],
+                  [
+                    "thinking_level",
+                    "LOW"
+                  ]
+                ],
+                "elapsed_ms": 5481,
+                "usage": [
+                  [
+                    "prompt_token_count",
+                    10992
+                  ],
+                  [
+                    "candidates_token_count",
+                    291
+                  ],
+                  [
+                    "total_token_count",
+                    11283
+                  ]
+                ]
+              },
+              "schema_version": 1
+            },
+            "citation": {
+              "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+              "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+              "modality": "frames",
+              "interval": {
+                "start_us": 0,
+                "end_us": 1
+              },
+              "frames": [
+                {
+                  "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                  "display_index": 0,
+                  "pts": 0,
+                  "source_time_us": 0,
+                  "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+                  "schema_version": 1
+                }
+              ]
+            }
+          },
+          {
+            "observation": {
+              "id": "observation-35cff3017005e36b2b96bbce1459299dd8ec9da02d665657e1b9a9b79d48199e",
+              "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+              "category": "person_moved",
+              "description": "A person walks across the floor from the lower right towards the center.",
+              "evidence": {
+                "frame_ids": [
+                  "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                  "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+                  "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e",
+                  "frame-cb7d7b1ad9f2c1683187b64d359f03691196eee8d64110a3a1fb78686d73bb7c",
+                  "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+                  "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3"
+                ]
+              },
+              "visibility_limits": "Fully visible within the camera view",
+              "uncertainty": "None",
+              "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+              "inference_metadata": {
+                "provider": "google-gemini-developer-api",
+                "model_id": "gemini-3.5-flash-lite",
+                "model_version": "gemini-3.5-flash-lite",
+                "adapter_version": "1",
+                "prompt_version": "e1-v1",
+                "settings": [
+                  [
+                    "sdk_version",
+                    "3.6.1"
+                  ],
+                  [
+                    "max_output_tokens",
+                    4096
+                  ],
+                  [
+                    "thinking_level",
+                    "LOW"
+                  ]
+                ],
+                "elapsed_ms": 5481,
+                "usage": [
+                  [
+                    "prompt_token_count",
+                    10992
+                  ],
+                  [
+                    "candidates_token_count",
+                    291
+                  ],
+                  [
+                    "total_token_count",
+                    11283
+                  ]
+                ]
+              },
+              "schema_version": 1
+            },
+            "citation": {
+              "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+              "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+              "modality": "frames",
+              "interval": {
+                "start_us": 0,
+                "end_us": 5000001
+              },
+              "frames": [
+                {
+                  "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                  "display_index": 0,
+                  "pts": 0,
+                  "source_time_us": 0,
+                  "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+                  "display_index": 25,
+                  "pts": 12800,
+                  "source_time_us": 1000000,
+                  "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e",
+                  "display_index": 50,
+                  "pts": 25600,
+                  "source_time_us": 2000000,
+                  "rgb24_sha256": "c482921221fd98e75d465be395f2d191e57706c5e7448a811dfb6336e47ed7ab",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-cb7d7b1ad9f2c1683187b64d359f03691196eee8d64110a3a1fb78686d73bb7c",
+                  "display_index": 75,
+                  "pts": 38400,
+                  "source_time_us": 3000000,
+                  "rgb24_sha256": "7fa8413c14165687b3030fefc03d9711d7406bf27a1cfc72b3ec56cfe3e15ba9",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+                  "display_index": 100,
+                  "pts": 51200,
+                  "source_time_us": 4000000,
+                  "rgb24_sha256": "a5e14696b60f172ead106fb7ddbd4f76ae344cc1d24654b49fce03c254852d68",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+                  "display_index": 125,
+                  "pts": 64000,
+                  "source_time_us": 5000000,
+                  "rgb24_sha256": "8a7f08da2bb75abf8f4aec43cfcabda9b70293edfcfb1327657fed3f2257a735",
+                  "schema_version": 1
+                }
+              ]
+            }
+          },
+          {
+            "observation": {
+              "id": "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2",
+              "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+              "category": "person_moved",
+              "description": "Two people walk together across the lobby floor.",
+              "evidence": {
+                "frame_ids": [
+                  "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+                  "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+                  "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+                  "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc"
+                ]
+              },
+              "visibility_limits": "Fully visible within the camera view",
+              "uncertainty": "None",
+              "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+              "inference_metadata": {
+                "provider": "google-gemini-developer-api",
+                "model_id": "gemini-3.5-flash-lite",
+                "model_version": "gemini-3.5-flash-lite",
+                "adapter_version": "1",
+                "prompt_version": "e1-v1",
+                "settings": [
+                  [
+                    "sdk_version",
+                    "3.6.1"
+                  ],
+                  [
+                    "max_output_tokens",
+                    4096
+                  ],
+                  [
+                    "thinking_level",
+                    "LOW"
+                  ]
+                ],
+                "elapsed_ms": 5481,
+                "usage": [
+                  [
+                    "prompt_token_count",
+                    10992
+                  ],
+                  [
+                    "candidates_token_count",
+                    291
+                  ],
+                  [
+                    "total_token_count",
+                    11283
+                  ]
+                ]
+              },
+              "schema_version": 1
+            },
+            "citation": {
+              "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+              "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+              "modality": "frames",
+              "interval": {
+                "start_us": 6000000,
+                "end_us": 9000001
+              },
+              "frames": [
+                {
+                  "id": "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+                  "display_index": 150,
+                  "pts": 76800,
+                  "source_time_us": 6000000,
+                  "rgb24_sha256": "98a9a25fdce06e834fd1e5ebd3dbbaceaec19ab8284b36672f5d9f20eb216496",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+                  "display_index": 175,
+                  "pts": 89600,
+                  "source_time_us": 7000000,
+                  "rgb24_sha256": "3ac9fc4c268adc8bd50276abe5d803692c9bce6bfcc1c37d885cc0185f4f47da",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+                  "display_index": 200,
+                  "pts": 102400,
+                  "source_time_us": 8000000,
+                  "rgb24_sha256": "f9950625fedc8bd596e3dd8e97d4e41523a5c2c54e0921ba2012d7e2d2b6deab",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+                  "display_index": 225,
+                  "pts": 115200,
+                  "source_time_us": 9000000,
+                  "rgb24_sha256": "c61cbae1b01468998afc9cad396d2c235d300efcc3d39f527e3f74a8965cfcf7",
+                  "schema_version": 1
+                }
+              ]
+            }
+          }
+        ],
+        "error": null,
+        "coverage": [
+          {
+            "start_us": 0,
+            "end_us": 1
+          },
+          {
+            "start_us": 1000000,
+            "end_us": 1000001
+          },
+          {
+            "start_us": 2000000,
+            "end_us": 2000001
+          },
+          {
+            "start_us": 3000000,
+            "end_us": 3000001
+          },
+          {
+            "start_us": 4000000,
+            "end_us": 4000001
+          },
+          {
+            "start_us": 5000000,
+            "end_us": 5000001
+          },
+          {
+            "start_us": 6000000,
+            "end_us": 6000001
+          },
+          {
+            "start_us": 7000000,
+            "end_us": 7000001
+          },
+          {
+            "start_us": 8000000,
+            "end_us": 8000001
+          },
+          {
+            "start_us": 9000000,
+            "end_us": 9000001
+          }
+        ],
+        "phase": "initial",
+        "inspection": {
+          "id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+          "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "requested_interval": {
+            "start_us": 0,
+            "end_us": 10000000
+          },
+          "requested_times_us": [
+            0,
+            1000000,
+            2000000,
+            3000000,
+            4000000,
+            5000000,
+            6000000,
+            7000000,
+            8000000,
+            9000000
+          ],
+          "modality": "frames",
+          "selection_policy": "first_at_or_after_within_interval",
+          "pixel_format": "rgb24",
+          "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+          "frames": [
+            {
+              "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+              "display_index": 0,
+              "pts": 0,
+              "source_time_us": 0,
+              "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+              "display_index": 25,
+              "pts": 12800,
+              "source_time_us": 1000000,
+              "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e",
+              "display_index": 50,
+              "pts": 25600,
+              "source_time_us": 2000000,
+              "rgb24_sha256": "c482921221fd98e75d465be395f2d191e57706c5e7448a811dfb6336e47ed7ab",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-cb7d7b1ad9f2c1683187b64d359f03691196eee8d64110a3a1fb78686d73bb7c",
+              "display_index": 75,
+              "pts": 38400,
+              "source_time_us": 3000000,
+              "rgb24_sha256": "7fa8413c14165687b3030fefc03d9711d7406bf27a1cfc72b3ec56cfe3e15ba9",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+              "display_index": 100,
+              "pts": 51200,
+              "source_time_us": 4000000,
+              "rgb24_sha256": "a5e14696b60f172ead106fb7ddbd4f76ae344cc1d24654b49fce03c254852d68",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+              "display_index": 125,
+              "pts": 64000,
+              "source_time_us": 5000000,
+              "rgb24_sha256": "8a7f08da2bb75abf8f4aec43cfcabda9b70293edfcfb1327657fed3f2257a735",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+              "display_index": 150,
+              "pts": 76800,
+              "source_time_us": 6000000,
+              "rgb24_sha256": "98a9a25fdce06e834fd1e5ebd3dbbaceaec19ab8284b36672f5d9f20eb216496",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+              "display_index": 175,
+              "pts": 89600,
+              "source_time_us": 7000000,
+              "rgb24_sha256": "3ac9fc4c268adc8bd50276abe5d803692c9bce6bfcc1c37d885cc0185f4f47da",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+              "display_index": 200,
+              "pts": 102400,
+              "source_time_us": 8000000,
+              "rgb24_sha256": "f9950625fedc8bd596e3dd8e97d4e41523a5c2c54e0921ba2012d7e2d2b6deab",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+              "display_index": 225,
+              "pts": 115200,
+              "source_time_us": 9000000,
+              "rgb24_sha256": "c61cbae1b01468998afc9cad396d2c235d300efcc3d39f527e3f74a8965cfcf7",
+              "schema_version": 1
+            }
+          ],
+          "frame_ids_by_request": [
+            "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+            "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+            "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e",
+            "frame-cb7d7b1ad9f2c1683187b64d359f03691196eee8d64110a3a1fb78686d73bb7c",
+            "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+            "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+            "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+            "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+            "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+            "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc"
+          ],
+          "status": "complete",
+          "schema_version": 1,
+          "frame_size": [
+            384,
+            288
+          ]
+        },
+        "inference": {
+          "provider": "google-gemini-developer-api",
+          "model_id": "gemini-3.5-flash-lite",
+          "model_version": "gemini-3.5-flash-lite",
+          "adapter_version": "1",
+          "prompt_version": "e1-v1",
+          "settings": [
+            [
+              "sdk_version",
+              "3.6.1"
+            ],
+            [
+              "max_output_tokens",
+              4096
+            ],
+            [
+              "thinking_level",
+              "LOW"
+            ]
+          ],
+          "elapsed_ms": 5481,
+          "usage": [
+            [
+              "prompt_token_count",
+              10992
+            ],
+            [
+              "candidates_token_count",
+              291
+            ],
+            [
+              "total_token_count",
+              11283
+            ]
+          ]
+        },
+        "failure_stage": null
+      },
+      {
+        "path": "provider",
+        "modality": "frames",
+        "interval": {
+          "start_us": 10000000,
+          "end_us": 20000000
+        },
+        "status": "success",
+        "findings": [
+          {
+            "observation": {
+              "id": "observation-265d0fedb71facc31f50ba6b91236572fdbc41ec2aa0c8ef2817f710a8ac63c4",
+              "inspection_id": "inspection-4b5920e1acb947ec1eb0ee1728895d84f62cec43cc82a0d46fc0342e7302d35d",
+              "category": "person_moved",
+              "description": "Two people walk across the upper hallway from F1 to F5.",
+              "evidence": {
+                "frame_ids": [
+                  "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+                  "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+                  "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+                  "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+                  "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8"
+                ]
+              },
+              "visibility_limits": "Fully visible within the camera frame.",
+              "uncertainty": "Timing is accurate to the frame rate interval of 1 second.",
+              "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+              "inference_metadata": {
+                "provider": "google-gemini-developer-api",
+                "model_id": "gemini-3.5-flash-lite",
+                "model_version": "gemini-3.5-flash-lite",
+                "adapter_version": "1",
+                "prompt_version": "e1-v1",
+                "settings": [
+                  [
+                    "sdk_version",
+                    "3.6.1"
+                  ],
+                  [
+                    "max_output_tokens",
+                    4096
+                  ],
+                  [
+                    "thinking_level",
+                    "LOW"
+                  ]
+                ],
+                "elapsed_ms": 5028,
+                "usage": [
+                  [
+                    "prompt_token_count",
+                    11008
+                  ],
+                  [
+                    "candidates_token_count",
+                    134
+                  ],
+                  [
+                    "total_token_count",
+                    11142
+                  ]
+                ]
+              },
+              "schema_version": 1
+            },
+            "citation": {
+              "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+              "inspection_id": "inspection-4b5920e1acb947ec1eb0ee1728895d84f62cec43cc82a0d46fc0342e7302d35d",
+              "modality": "frames",
+              "interval": {
+                "start_us": 10000000,
+                "end_us": 14000001
+              },
+              "frames": [
+                {
+                  "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+                  "display_index": 250,
+                  "pts": 128000,
+                  "source_time_us": 10000000,
+                  "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+                  "display_index": 275,
+                  "pts": 140800,
+                  "source_time_us": 11000000,
+                  "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+                  "display_index": 300,
+                  "pts": 153600,
+                  "source_time_us": 12000000,
+                  "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+                  "display_index": 325,
+                  "pts": 166400,
+                  "source_time_us": 13000000,
+                  "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+                  "display_index": 350,
+                  "pts": 179200,
+                  "source_time_us": 14000000,
+                  "rgb24_sha256": "1328d87d39c45ad7a5bc19e7fcfecb07b196eb3dc87e73ece13daa4a7f290a93",
+                  "schema_version": 1
+                }
+              ]
+            }
+          }
+        ],
+        "error": null,
+        "coverage": [
+          {
+            "start_us": 10000000,
+            "end_us": 10000001
+          },
+          {
+            "start_us": 11000000,
+            "end_us": 11000001
+          },
+          {
+            "start_us": 12000000,
+            "end_us": 12000001
+          },
+          {
+            "start_us": 13000000,
+            "end_us": 13000001
+          },
+          {
+            "start_us": 14000000,
+            "end_us": 14000001
+          },
+          {
+            "start_us": 15000000,
+            "end_us": 15000001
+          },
+          {
+            "start_us": 16000000,
+            "end_us": 16000001
+          },
+          {
+            "start_us": 17000000,
+            "end_us": 17000001
+          },
+          {
+            "start_us": 18000000,
+            "end_us": 18000001
+          },
+          {
+            "start_us": 19000000,
+            "end_us": 19000001
+          }
+        ],
+        "phase": "initial",
+        "inspection": {
+          "id": "inspection-4b5920e1acb947ec1eb0ee1728895d84f62cec43cc82a0d46fc0342e7302d35d",
+          "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "requested_interval": {
+            "start_us": 10000000,
+            "end_us": 20000000
+          },
+          "requested_times_us": [
+            10000000,
+            11000000,
+            12000000,
+            13000000,
+            14000000,
+            15000000,
+            16000000,
+            17000000,
+            18000000,
+            19000000
+          ],
+          "modality": "frames",
+          "selection_policy": "first_at_or_after_within_interval",
+          "pixel_format": "rgb24",
+          "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+          "frames": [
+            {
+              "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+              "display_index": 250,
+              "pts": 128000,
+              "source_time_us": 10000000,
+              "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+              "display_index": 275,
+              "pts": 140800,
+              "source_time_us": 11000000,
+              "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+              "display_index": 300,
+              "pts": 153600,
+              "source_time_us": 12000000,
+              "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+              "display_index": 325,
+              "pts": 166400,
+              "source_time_us": 13000000,
+              "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+              "display_index": 350,
+              "pts": 179200,
+              "source_time_us": 14000000,
+              "rgb24_sha256": "1328d87d39c45ad7a5bc19e7fcfecb07b196eb3dc87e73ece13daa4a7f290a93",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-02ddc222324dde3144dce77343baccea1c9a4b6f0640ea7fb006809be2261b53",
+              "display_index": 375,
+              "pts": 192000,
+              "source_time_us": 15000000,
+              "rgb24_sha256": "ff1b8aeb0d4c3b7af98365e357df4af142d50e98c2b3cfaeb6023bcba39612d2",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-ab0c86834178f2449255b13f94009fb694cac634df3d7207176af03faa98cf88",
+              "display_index": 400,
+              "pts": 204800,
+              "source_time_us": 16000000,
+              "rgb24_sha256": "573b30a99816a318f8faf799b4c9f4144b4bfab4421c1a8d52dff9379619c8a3",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-fee60e36c03a6670eabe831a5d208ff79010e457240d3810c068d58d3357755c",
+              "display_index": 425,
+              "pts": 217600,
+              "source_time_us": 17000000,
+              "rgb24_sha256": "e02619772ffc2dc0b9963edb05696336373e59f2ef5f315ffcd8bb092a35d952",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-a329f3e8c0b0550183618af2afea201dcc8875ac188a237af0200a503aa9fd29",
+              "display_index": 450,
+              "pts": 230400,
+              "source_time_us": 18000000,
+              "rgb24_sha256": "279d8b91e87d784878f5f9a5e6cbd77f1f9eec7a8a6e393052966e139a834cee",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-d537fc86ddcdddf4440ee10124f7da1b8741c166e6e7f6f4dd9de8f489c77e43",
+              "display_index": 475,
+              "pts": 243200,
+              "source_time_us": 19000000,
+              "rgb24_sha256": "f7332d64c9d0363ff9dba9f1a251abdd0092f30179dd920b259ce456ceddd9fe",
+              "schema_version": 1
+            }
+          ],
+          "frame_ids_by_request": [
+            "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+            "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+            "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+            "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+            "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+            "frame-02ddc222324dde3144dce77343baccea1c9a4b6f0640ea7fb006809be2261b53",
+            "frame-ab0c86834178f2449255b13f94009fb694cac634df3d7207176af03faa98cf88",
+            "frame-fee60e36c03a6670eabe831a5d208ff79010e457240d3810c068d58d3357755c",
+            "frame-a329f3e8c0b0550183618af2afea201dcc8875ac188a237af0200a503aa9fd29",
+            "frame-d537fc86ddcdddf4440ee10124f7da1b8741c166e6e7f6f4dd9de8f489c77e43"
+          ],
+          "status": "complete",
+          "schema_version": 1,
+          "frame_size": [
+            384,
+            288
+          ]
+        },
+        "inference": {
+          "provider": "google-gemini-developer-api",
+          "model_id": "gemini-3.5-flash-lite",
+          "model_version": "gemini-3.5-flash-lite",
+          "adapter_version": "1",
+          "prompt_version": "e1-v1",
+          "settings": [
+            [
+              "sdk_version",
+              "3.6.1"
+            ],
+            [
+              "max_output_tokens",
+              4096
+            ],
+            [
+              "thinking_level",
+              "LOW"
+            ]
+          ],
+          "elapsed_ms": 5028,
+          "usage": [
+            [
+              "prompt_token_count",
+              11008
+            ],
+            [
+              "candidates_token_count",
+              134
+            ],
+            [
+              "total_token_count",
+              11142
+            ]
+          ]
+        },
+        "failure_stage": null
+      },
+      {
+        "path": "provider",
+        "modality": "frames",
+        "interval": {
+          "start_us": 20000000,
+          "end_us": 24960000
+        },
+        "status": "success",
+        "findings": [],
+        "error": null,
+        "coverage": [
+          {
+            "start_us": 20000000,
+            "end_us": 20000001
+          },
+          {
+            "start_us": 21000000,
+            "end_us": 21000001
+          },
+          {
+            "start_us": 22000000,
+            "end_us": 22000001
+          },
+          {
+            "start_us": 23000000,
+            "end_us": 23000001
+          },
+          {
+            "start_us": 24000000,
+            "end_us": 24000001
+          }
+        ],
+        "phase": "initial",
+        "inspection": {
+          "id": "inspection-9ebad834faecea292bab54bafadba15778ddc840f90631862d2477f3b361fe46",
+          "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "requested_interval": {
+            "start_us": 20000000,
+            "end_us": 24960000
+          },
+          "requested_times_us": [
+            20000000,
+            21000000,
+            22000000,
+            23000000,
+            24000000
+          ],
+          "modality": "frames",
+          "selection_policy": "first_at_or_after_within_interval",
+          "pixel_format": "rgb24",
+          "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+          "frames": [
+            {
+              "id": "frame-33cf8253171403ffbcb1a7c8ac405b025adc1b8f7465f958d88af6f5118fb0fb",
+              "display_index": 500,
+              "pts": 256000,
+              "source_time_us": 20000000,
+              "rgb24_sha256": "7f503ac40270cfe1631799a1d250fc0bc6602267f56d0ab8584b42d9b6cc6ba9",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-e35535ed16952da30168650b24276f9ed19ab95ff65726887cd674b27ace93a1",
+              "display_index": 525,
+              "pts": 268800,
+              "source_time_us": 21000000,
+              "rgb24_sha256": "ba9e766880f772edb1cca12027a8b443588a18bb9d0a76c85444cdb3dded5962",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-31634321104304862602962942786f59519afc1855a724d0c255aeb725b7c6de",
+              "display_index": 550,
+              "pts": 281600,
+              "source_time_us": 22000000,
+              "rgb24_sha256": "fba2ff3b7a08bea57d908763a645e0ec3ff48ac49972fa74f5f2c8d831a5994f",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-f98cb27986d40f259d1a590f52005e25eeeecaf08d9c0f5ba545f9a1b6c30b1f",
+              "display_index": 575,
+              "pts": 294400,
+              "source_time_us": 23000000,
+              "rgb24_sha256": "1d55a3c7e4775ac883038f7bf1cf58fd1a8a9cc490773419cc16e71febf91e19",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-f8de2ab12c4bb26fb728812a49dcea6bd213e21fb4f2a9f53f558f5ab2df2cd3",
+              "display_index": 600,
+              "pts": 307200,
+              "source_time_us": 24000000,
+              "rgb24_sha256": "0ea9e9ec8895652df1ab2a6faeebc5fd36e3a739188043b5126e179b9d29c8d2",
+              "schema_version": 1
+            }
+          ],
+          "frame_ids_by_request": [
+            "frame-33cf8253171403ffbcb1a7c8ac405b025adc1b8f7465f958d88af6f5118fb0fb",
+            "frame-e35535ed16952da30168650b24276f9ed19ab95ff65726887cd674b27ace93a1",
+            "frame-31634321104304862602962942786f59519afc1855a724d0c255aeb725b7c6de",
+            "frame-f98cb27986d40f259d1a590f52005e25eeeecaf08d9c0f5ba545f9a1b6c30b1f",
+            "frame-f8de2ab12c4bb26fb728812a49dcea6bd213e21fb4f2a9f53f558f5ab2df2cd3"
+          ],
+          "status": "complete",
+          "schema_version": 1,
+          "frame_size": [
+            384,
+            288
+          ]
+        },
+        "inference": {
+          "provider": "google-gemini-developer-api",
+          "model_id": "gemini-3.5-flash-lite",
+          "model_version": "gemini-3.5-flash-lite",
+          "adapter_version": "1",
+          "prompt_version": "e1-v1",
+          "settings": [
+            [
+              "sdk_version",
+              "3.6.1"
+            ],
+            [
+              "max_output_tokens",
+              4096
+            ],
+            [
+              "thinking_level",
+              "LOW"
+            ]
+          ],
+          "elapsed_ms": 2586,
+          "usage": [
+            [
+              "prompt_token_count",
+              5607
+            ],
+            [
+              "candidates_token_count",
+              9
+            ],
+            [
+              "total_token_count",
+              5616
+            ]
+          ]
+        },
+        "failure_stage": null
+      },
+      {
+        "path": "provider",
+        "modality": "frames",
+        "interval": {
+          "start_us": 0,
+          "end_us": 3000000
+        },
+        "status": "success",
+        "findings": [
+          {
+            "observation": {
+              "id": "observation-ef6a2f2d9279e63cf5da65dc47cecd260ea0fc9fdde3940b2de7aa5c47277006",
+              "inspection_id": "inspection-ea8d0c499621f354ba8d8c431fb96361d4b0b1110f09cb3bca92ef64abfb93bc",
+              "category": "person_appeared",
+              "description": "A person appears in the lower right area of the frame in F1.",
+              "evidence": {
+                "frame_ids": [
+                  "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                  "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2"
+                ]
+              },
+              "visibility_limits": "Fully visible within the camera's frame in F1, leaves the frame in F2.",
+              "uncertainty": "Exact timing of disappearance is between F1 and F2.",
+              "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+              "inference_metadata": {
+                "provider": "google-gemini-developer-api",
+                "model_id": "gemini-3.5-flash-lite",
+                "model_version": "gemini-3.5-flash-lite",
+                "adapter_version": "1",
+                "prompt_version": "e1-v1",
+                "settings": [
+                  [
+                    "sdk_version",
+                    "3.6.1"
+                  ],
+                  [
+                    "max_output_tokens",
+                    4096
+                  ],
+                  [
+                    "thinking_level",
+                    "LOW"
+                  ]
+                ],
+                "elapsed_ms": 2238,
+                "usage": [
+                  [
+                    "prompt_token_count",
+                    3438
+                  ],
+                  [
+                    "candidates_token_count",
+                    220
+                  ],
+                  [
+                    "total_token_count",
+                    3658
+                  ]
+                ]
+              },
+              "schema_version": 1
+            },
+            "citation": {
+              "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+              "inspection_id": "inspection-ea8d0c499621f354ba8d8c431fb96361d4b0b1110f09cb3bca92ef64abfb93bc",
+              "modality": "frames",
+              "interval": {
+                "start_us": 0,
+                "end_us": 1000001
+              },
+              "frames": [
+                {
+                  "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                  "display_index": 0,
+                  "pts": 0,
+                  "source_time_us": 0,
+                  "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+                  "display_index": 25,
+                  "pts": 12800,
+                  "source_time_us": 1000000,
+                  "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+                  "schema_version": 1
+                }
+              ]
+            }
+          },
+          {
+            "observation": {
+              "id": "observation-ea944a94d91056ee8349a383752f0794d0e07c92bf6569ee63000b81724adfd3",
+              "inspection_id": "inspection-ea8d0c499621f354ba8d8c431fb96361d4b0b1110f09cb3bca92ef64abfb93bc",
+              "category": "person_moved",
+              "description": "A person is seen walking near the upper left desk/seating area across the frames.",
+              "evidence": {
+                "frame_ids": [
+                  "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                  "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+                  "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e"
+                ]
+              },
+              "visibility_limits": "Visible from a distance overhead.",
+              "uncertainty": "Continuous motion cannot be tracked precisely across discrete frames.",
+              "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+              "inference_metadata": {
+                "provider": "google-gemini-developer-api",
+                "model_id": "gemini-3.5-flash-lite",
+                "model_version": "gemini-3.5-flash-lite",
+                "adapter_version": "1",
+                "prompt_version": "e1-v1",
+                "settings": [
+                  [
+                    "sdk_version",
+                    "3.6.1"
+                  ],
+                  [
+                    "max_output_tokens",
+                    4096
+                  ],
+                  [
+                    "thinking_level",
+                    "LOW"
+                  ]
+                ],
+                "elapsed_ms": 2238,
+                "usage": [
+                  [
+                    "prompt_token_count",
+                    3438
+                  ],
+                  [
+                    "candidates_token_count",
+                    220
+                  ],
+                  [
+                    "total_token_count",
+                    3658
+                  ]
+                ]
+              },
+              "schema_version": 1
+            },
+            "citation": {
+              "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+              "inspection_id": "inspection-ea8d0c499621f354ba8d8c431fb96361d4b0b1110f09cb3bca92ef64abfb93bc",
+              "modality": "frames",
+              "interval": {
+                "start_us": 0,
+                "end_us": 2000001
+              },
+              "frames": [
+                {
+                  "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                  "display_index": 0,
+                  "pts": 0,
+                  "source_time_us": 0,
+                  "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+                  "display_index": 25,
+                  "pts": 12800,
+                  "source_time_us": 1000000,
+                  "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+                  "schema_version": 1
+                },
+                {
+                  "id": "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e",
+                  "display_index": 50,
+                  "pts": 25600,
+                  "source_time_us": 2000000,
+                  "rgb24_sha256": "c482921221fd98e75d465be395f2d191e57706c5e7448a811dfb6336e47ed7ab",
+                  "schema_version": 1
+                }
+              ]
+            }
+          }
+        ],
+        "error": null,
+        "coverage": [
+          {
+            "start_us": 0,
+            "end_us": 1
+          },
+          {
+            "start_us": 1000000,
+            "end_us": 1000001
+          },
+          {
+            "start_us": 2000000,
+            "end_us": 2000001
+          }
+        ],
+        "phase": "targeted",
+        "inspection": {
+          "id": "inspection-ea8d0c499621f354ba8d8c431fb96361d4b0b1110f09cb3bca92ef64abfb93bc",
+          "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "requested_interval": {
+            "start_us": 0,
+            "end_us": 3000000
+          },
+          "requested_times_us": [
+            0,
+            1000000,
+            2000000
+          ],
+          "modality": "frames",
+          "selection_policy": "first_at_or_after_within_interval",
+          "pixel_format": "rgb24",
+          "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+          "frames": [
+            {
+              "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+              "display_index": 0,
+              "pts": 0,
+              "source_time_us": 0,
+              "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+              "display_index": 25,
+              "pts": 12800,
+              "source_time_us": 1000000,
+              "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e",
+              "display_index": 50,
+              "pts": 25600,
+              "source_time_us": 2000000,
+              "rgb24_sha256": "c482921221fd98e75d465be395f2d191e57706c5e7448a811dfb6336e47ed7ab",
+              "schema_version": 1
+            }
+          ],
+          "frame_ids_by_request": [
+            "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+            "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+            "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e"
+          ],
+          "status": "complete",
+          "schema_version": 1,
+          "frame_size": [
+            384,
+            288
+          ]
+        },
+        "inference": {
+          "provider": "google-gemini-developer-api",
+          "model_id": "gemini-3.5-flash-lite",
+          "model_version": "gemini-3.5-flash-lite",
+          "adapter_version": "1",
+          "prompt_version": "e1-v1",
+          "settings": [
+            [
+              "sdk_version",
+              "3.6.1"
+            ],
+            [
+              "max_output_tokens",
+              4096
+            ],
+            [
+              "thinking_level",
+              "LOW"
+            ]
+          ],
+          "elapsed_ms": 2238,
+          "usage": [
+            [
+              "prompt_token_count",
+              3438
+            ],
+            [
+              "candidates_token_count",
+              220
+            ],
+            [
+              "total_token_count",
+              3658
+            ]
+          ]
+        },
+        "failure_stage": null
+      }
+    ],
+    "observations": [
+      {
+        "observation": {
+          "id": "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033",
+          "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+          "category": "person_appeared",
+          "description": "A person appears in the lower right corner of the view.",
+          "evidence": {
+            "frame_ids": [
+              "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4"
+            ]
+          },
+          "visibility_limits": "Limited by the field of view of the camera",
+          "uncertainty": "Exact time of appearance between frames is unknown",
+          "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "inference_metadata": {
+            "provider": "google-gemini-developer-api",
+            "model_id": "gemini-3.5-flash-lite",
+            "model_version": "gemini-3.5-flash-lite",
+            "adapter_version": "1",
+            "prompt_version": "e1-v1",
+            "settings": [
+              [
+                "sdk_version",
+                "3.6.1"
+              ],
+              [
+                "max_output_tokens",
+                4096
+              ],
+              [
+                "thinking_level",
+                "LOW"
+              ]
+            ],
+            "elapsed_ms": 5481,
+            "usage": [
+              [
+                "prompt_token_count",
+                10992
+              ],
+              [
+                "candidates_token_count",
+                291
+              ],
+              [
+                "total_token_count",
+                11283
+              ]
+            ]
+          },
+          "schema_version": 1
+        },
+        "citation": {
+          "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+          "modality": "frames",
+          "interval": {
+            "start_us": 0,
+            "end_us": 1
+          },
+          "frames": [
+            {
+              "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+              "display_index": 0,
+              "pts": 0,
+              "source_time_us": 0,
+              "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+              "schema_version": 1
+            }
+          ]
+        }
+      },
+      {
+        "observation": {
+          "id": "observation-35cff3017005e36b2b96bbce1459299dd8ec9da02d665657e1b9a9b79d48199e",
+          "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+          "category": "person_moved",
+          "description": "A person walks across the floor from the lower right towards the center.",
+          "evidence": {
+            "frame_ids": [
+              "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+              "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+              "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e",
+              "frame-cb7d7b1ad9f2c1683187b64d359f03691196eee8d64110a3a1fb78686d73bb7c",
+              "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+              "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3"
+            ]
+          },
+          "visibility_limits": "Fully visible within the camera view",
+          "uncertainty": "None",
+          "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "inference_metadata": {
+            "provider": "google-gemini-developer-api",
+            "model_id": "gemini-3.5-flash-lite",
+            "model_version": "gemini-3.5-flash-lite",
+            "adapter_version": "1",
+            "prompt_version": "e1-v1",
+            "settings": [
+              [
+                "sdk_version",
+                "3.6.1"
+              ],
+              [
+                "max_output_tokens",
+                4096
+              ],
+              [
+                "thinking_level",
+                "LOW"
+              ]
+            ],
+            "elapsed_ms": 5481,
+            "usage": [
+              [
+                "prompt_token_count",
+                10992
+              ],
+              [
+                "candidates_token_count",
+                291
+              ],
+              [
+                "total_token_count",
+                11283
+              ]
+            ]
+          },
+          "schema_version": 1
+        },
+        "citation": {
+          "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+          "modality": "frames",
+          "interval": {
+            "start_us": 0,
+            "end_us": 5000001
+          },
+          "frames": [
+            {
+              "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+              "display_index": 0,
+              "pts": 0,
+              "source_time_us": 0,
+              "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+              "display_index": 25,
+              "pts": 12800,
+              "source_time_us": 1000000,
+              "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e",
+              "display_index": 50,
+              "pts": 25600,
+              "source_time_us": 2000000,
+              "rgb24_sha256": "c482921221fd98e75d465be395f2d191e57706c5e7448a811dfb6336e47ed7ab",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-cb7d7b1ad9f2c1683187b64d359f03691196eee8d64110a3a1fb78686d73bb7c",
+              "display_index": 75,
+              "pts": 38400,
+              "source_time_us": 3000000,
+              "rgb24_sha256": "7fa8413c14165687b3030fefc03d9711d7406bf27a1cfc72b3ec56cfe3e15ba9",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+              "display_index": 100,
+              "pts": 51200,
+              "source_time_us": 4000000,
+              "rgb24_sha256": "a5e14696b60f172ead106fb7ddbd4f76ae344cc1d24654b49fce03c254852d68",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+              "display_index": 125,
+              "pts": 64000,
+              "source_time_us": 5000000,
+              "rgb24_sha256": "8a7f08da2bb75abf8f4aec43cfcabda9b70293edfcfb1327657fed3f2257a735",
+              "schema_version": 1
+            }
+          ]
+        }
+      },
+      {
+        "observation": {
+          "id": "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2",
+          "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+          "category": "person_moved",
+          "description": "Two people walk together across the lobby floor.",
+          "evidence": {
+            "frame_ids": [
+              "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+              "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+              "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+              "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc"
+            ]
+          },
+          "visibility_limits": "Fully visible within the camera view",
+          "uncertainty": "None",
+          "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "inference_metadata": {
+            "provider": "google-gemini-developer-api",
+            "model_id": "gemini-3.5-flash-lite",
+            "model_version": "gemini-3.5-flash-lite",
+            "adapter_version": "1",
+            "prompt_version": "e1-v1",
+            "settings": [
+              [
+                "sdk_version",
+                "3.6.1"
+              ],
+              [
+                "max_output_tokens",
+                4096
+              ],
+              [
+                "thinking_level",
+                "LOW"
+              ]
+            ],
+            "elapsed_ms": 5481,
+            "usage": [
+              [
+                "prompt_token_count",
+                10992
+              ],
+              [
+                "candidates_token_count",
+                291
+              ],
+              [
+                "total_token_count",
+                11283
+              ]
+            ]
+          },
+          "schema_version": 1
+        },
+        "citation": {
+          "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+          "modality": "frames",
+          "interval": {
+            "start_us": 6000000,
+            "end_us": 9000001
+          },
+          "frames": [
+            {
+              "id": "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+              "display_index": 150,
+              "pts": 76800,
+              "source_time_us": 6000000,
+              "rgb24_sha256": "98a9a25fdce06e834fd1e5ebd3dbbaceaec19ab8284b36672f5d9f20eb216496",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+              "display_index": 175,
+              "pts": 89600,
+              "source_time_us": 7000000,
+              "rgb24_sha256": "3ac9fc4c268adc8bd50276abe5d803692c9bce6bfcc1c37d885cc0185f4f47da",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+              "display_index": 200,
+              "pts": 102400,
+              "source_time_us": 8000000,
+              "rgb24_sha256": "f9950625fedc8bd596e3dd8e97d4e41523a5c2c54e0921ba2012d7e2d2b6deab",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+              "display_index": 225,
+              "pts": 115200,
+              "source_time_us": 9000000,
+              "rgb24_sha256": "c61cbae1b01468998afc9cad396d2c235d300efcc3d39f527e3f74a8965cfcf7",
+              "schema_version": 1
+            }
+          ]
+        }
+      },
+      {
+        "observation": {
+          "id": "observation-265d0fedb71facc31f50ba6b91236572fdbc41ec2aa0c8ef2817f710a8ac63c4",
+          "inspection_id": "inspection-4b5920e1acb947ec1eb0ee1728895d84f62cec43cc82a0d46fc0342e7302d35d",
+          "category": "person_moved",
+          "description": "Two people walk across the upper hallway from F1 to F5.",
+          "evidence": {
+            "frame_ids": [
+              "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+              "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+              "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+              "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+              "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8"
+            ]
+          },
+          "visibility_limits": "Fully visible within the camera frame.",
+          "uncertainty": "Timing is accurate to the frame rate interval of 1 second.",
+          "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "inference_metadata": {
+            "provider": "google-gemini-developer-api",
+            "model_id": "gemini-3.5-flash-lite",
+            "model_version": "gemini-3.5-flash-lite",
+            "adapter_version": "1",
+            "prompt_version": "e1-v1",
+            "settings": [
+              [
+                "sdk_version",
+                "3.6.1"
+              ],
+              [
+                "max_output_tokens",
+                4096
+              ],
+              [
+                "thinking_level",
+                "LOW"
+              ]
+            ],
+            "elapsed_ms": 5028,
+            "usage": [
+              [
+                "prompt_token_count",
+                11008
+              ],
+              [
+                "candidates_token_count",
+                134
+              ],
+              [
+                "total_token_count",
+                11142
+              ]
+            ]
+          },
+          "schema_version": 1
+        },
+        "citation": {
+          "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+          "inspection_id": "inspection-4b5920e1acb947ec1eb0ee1728895d84f62cec43cc82a0d46fc0342e7302d35d",
+          "modality": "frames",
+          "interval": {
+            "start_us": 10000000,
+            "end_us": 14000001
+          },
+          "frames": [
+            {
+              "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+              "display_index": 250,
+              "pts": 128000,
+              "source_time_us": 10000000,
+              "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+              "display_index": 275,
+              "pts": 140800,
+              "source_time_us": 11000000,
+              "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+              "display_index": 300,
+              "pts": 153600,
+              "source_time_us": 12000000,
+              "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+              "display_index": 325,
+              "pts": 166400,
+              "source_time_us": 13000000,
+              "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+              "schema_version": 1
+            },
+            {
+              "id": "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+              "display_index": 350,
+              "pts": 179200,
+              "source_time_us": 14000000,
+              "rgb24_sha256": "1328d87d39c45ad7a5bc19e7fcfecb07b196eb3dc87e73ece13daa4a7f290a93",
+              "schema_version": 1
+            }
+          ]
+        }
+      }
+    ],
+    "timeline": [
+      {
+        "category": "person_moved",
+        "interval": {
+          "start_us": 0,
+          "end_us": 5000001
+        },
+        "verdict": "supported",
+        "reason": "The direct visual movement of the person walking across the floor from lower right towards center is established across the provided frames.",
+        "observation_ids": [
+          "observation-35cff3017005e36b2b96bbce1459299dd8ec9da02d665657e1b9a9b79d48199e"
+        ],
+        "citations": [
+          {
+            "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+            "modality": "frames",
+            "interval": {
+              "start_us": 0,
+              "end_us": 5000001
+            },
+            "frames": [
+              {
+                "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                "display_index": 0,
+                "pts": 0,
+                "source_time_us": 0,
+                "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+                "display_index": 25,
+                "pts": 12800,
+                "source_time_us": 1000000,
+                "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e",
+                "display_index": 50,
+                "pts": 25600,
+                "source_time_us": 2000000,
+                "rgb24_sha256": "c482921221fd98e75d465be395f2d191e57706c5e7448a811dfb6336e47ed7ab",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-cb7d7b1ad9f2c1683187b64d359f03691196eee8d64110a3a1fb78686d73bb7c",
+                "display_index": 75,
+                "pts": 38400,
+                "source_time_us": 3000000,
+                "rgb24_sha256": "7fa8413c14165687b3030fefc03d9711d7406bf27a1cfc72b3ec56cfe3e15ba9",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+                "display_index": 100,
+                "pts": 51200,
+                "source_time_us": 4000000,
+                "rgb24_sha256": "a5e14696b60f172ead106fb7ddbd4f76ae344cc1d24654b49fce03c254852d68",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+                "display_index": 125,
+                "pts": 64000,
+                "source_time_us": 5000000,
+                "rgb24_sha256": "8a7f08da2bb75abf8f4aec43cfcabda9b70293edfcfb1327657fed3f2257a735",
+                "schema_version": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category": "person_moved",
+        "interval": {
+          "start_us": 6000000,
+          "end_us": 9000001
+        },
+        "verdict": "supported",
+        "reason": "The observation describes two people walking together across the lobby floor, which is supported by frames frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505 and frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d9",
+        "observation_ids": [
+          "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2"
+        ],
+        "citations": [
+          {
+            "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+            "modality": "frames",
+            "interval": {
+              "start_us": 6000000,
+              "end_us": 9000001
+            },
+            "frames": [
+              {
+                "id": "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+                "display_index": 150,
+                "pts": 76800,
+                "source_time_us": 6000000,
+                "rgb24_sha256": "98a9a25fdce06e834fd1e5ebd3dbbaceaec19ab8284b36672f5d9f20eb216496",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+                "display_index": 175,
+                "pts": 89600,
+                "source_time_us": 7000000,
+                "rgb24_sha256": "3ac9fc4c268adc8bd50276abe5d803692c9bce6bfcc1c37d885cc0185f4f47da",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+                "display_index": 200,
+                "pts": 102400,
+                "source_time_us": 8000000,
+                "rgb24_sha256": "f9950625fedc8bd596e3dd8e97d4e41523a5c2c54e0921ba2012d7e2d2b6deab",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+                "display_index": 225,
+                "pts": 115200,
+                "source_time_us": 9000000,
+                "rgb24_sha256": "c61cbae1b01468998afc9cad396d2c235d300efcc3d39f527e3f74a8965cfcf7",
+                "schema_version": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category": "person_moved",
+        "interval": {
+          "start_us": 10000000,
+          "end_us": 14000001
+        },
+        "verdict": "supported",
+        "reason": "The observation provides explicit evidence across frames f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad (10000000us) to 3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8 (14000000us) showing two people movin",
+        "observation_ids": [
+          "observation-265d0fedb71facc31f50ba6b91236572fdbc41ec2aa0c8ef2817f710a8ac63c4"
+        ],
+        "citations": [
+          {
+            "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inspection_id": "inspection-4b5920e1acb947ec1eb0ee1728895d84f62cec43cc82a0d46fc0342e7302d35d",
+            "modality": "frames",
+            "interval": {
+              "start_us": 10000000,
+              "end_us": 14000001
+            },
+            "frames": [
+              {
+                "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+                "display_index": 250,
+                "pts": 128000,
+                "source_time_us": 10000000,
+                "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+                "display_index": 275,
+                "pts": 140800,
+                "source_time_us": 11000000,
+                "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+                "display_index": 300,
+                "pts": 153600,
+                "source_time_us": 12000000,
+                "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+                "display_index": 325,
+                "pts": 166400,
+                "source_time_us": 13000000,
+                "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+                "display_index": 350,
+                "pts": 179200,
+                "source_time_us": 14000000,
+                "rgb24_sha256": "1328d87d39c45ad7a5bc19e7fcfecb07b196eb3dc87e73ece13daa4a7f290a93",
+                "schema_version": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "unresolved": [
+      {
+        "category": "person_appeared",
+        "interval": {
+          "start_us": 0,
+          "end_us": 1
+        },
+        "verdict": "insufficient",
+        "reason": "The candidate observation lacks distinct before and after frames showing the appearance transition, and cannot be corroborated without valid before/after states.",
+        "observation_ids": [
+          "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033",
+          "observation-ef6a2f2d9279e63cf5da65dc47cecd260ea0fc9fdde3940b2de7aa5c47277006"
+        ],
+        "citations": [
+          {
+            "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inspection_id": "inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae",
+            "modality": "frames",
+            "interval": {
+              "start_us": 0,
+              "end_us": 1
+            },
+            "frames": [
+              {
+                "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                "display_index": 0,
+                "pts": 0,
+                "source_time_us": 0,
+                "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+                "schema_version": 1
+              }
+            ]
+          },
+          {
+            "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inspection_id": "inspection-ea8d0c499621f354ba8d8c431fb96361d4b0b1110f09cb3bca92ef64abfb93bc",
+            "modality": "frames",
+            "interval": {
+              "start_us": 0,
+              "end_us": 1000001
+            },
+            "frames": [
+              {
+                "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                "display_index": 0,
+                "pts": 0,
+                "source_time_us": 0,
+                "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+                "display_index": 25,
+                "pts": 12800,
+                "source_time_us": 1000000,
+                "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+                "schema_version": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace": [
+      {
+        "actor": "workflow",
+        "action": "ingest",
+        "reason": "Verified source video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd; 3 initial evidence records available.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "workflow",
+        "action": "evidence_result",
+        "reason": "frames [0, 10000000) \u00b5s: success",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "workflow",
+        "action": "evidence_result",
+        "reason": "frames [10000000, 20000000) \u00b5s: success",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "workflow",
+        "action": "evidence_result",
+        "reason": "frames [20000000, 24960000) \u00b5s: success",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "START",
+          "to": "investigate"
+        }
+      },
+      {
+        "actor": "investigation",
+        "action": "decision",
+        "reason": "delegate: Delegating distinct movement and appearance events across the video sequence.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "investigation",
+        "action": "triage",
+        "reason": "Recorded observation dispositions.",
+        "observation_ids": [
+          "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033",
+          "observation-35cff3017005e36b2b96bbce1459299dd8ec9da02d665657e1b9a9b79d48199e",
+          "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2",
+          "observation-265d0fedb71facc31f50ba6b91236572fdbc41ec2aa0c8ef2817f710a8ac63c4"
+        ],
+        "recipient": null,
+        "details": {
+          "dispositions": [
+            {
+              "id": "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-35cff3017005e36b2b96bbce1459299dd8ec9da02d665657e1b9a9b79d48199e",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-265d0fedb71facc31f50ba6b91236572fdbc41ec2aa0c8ef2817f710a8ac63c4",
+              "status": "delegated"
+            }
+          ],
+          "omitted_ids": []
+        }
+      },
+      {
+        "actor": "investigation",
+        "action": "delegate",
+        "reason": "Sent candidate evidence to verification.",
+        "observation_ids": [
+          "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033",
+          "observation-35cff3017005e36b2b96bbce1459299dd8ec9da02d665657e1b9a9b79d48199e",
+          "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2",
+          "observation-265d0fedb71facc31f50ba6b91236572fdbc41ec2aa0c8ef2817f710a8ac63c4"
+        ],
+        "recipient": "verification",
+        "details": null
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "investigate",
+          "to": "start_candidate"
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "start_candidate",
+          "to": "decide"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "decision",
+        "reason": "inspect: Inspect frames across the requested timeframe to observe the person appearing in the lower right corner.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "decide",
+          "to": "inspect"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "inspect",
+        "reason": "Inspect the requested source interval.",
+        "observation_ids": [
+          "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033"
+        ],
+        "recipient": null,
+        "details": {
+          "modality": "frames",
+          "start_us": 0,
+          "end_us": 3000000
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "tool_result",
+        "reason": "2 observations added to visible evidence.",
+        "observation_ids": [
+          "observation-ef6a2f2d9279e63cf5da65dc47cecd260ea0fc9fdde3940b2de7aa5c47277006",
+          "observation-ea944a94d91056ee8349a383752f0794d0e07c92bf6569ee63000b81724adfd3"
+        ],
+        "recipient": null,
+        "details": {
+          "status": "partial",
+          "requested": {
+            "start_us": 0,
+            "end_us": 3000000
+          },
+          "coverage": [
+            {
+              "start_us": 0,
+              "end_us": 1
+            },
+            {
+              "start_us": 1000000,
+              "end_us": 1000001
+            },
+            {
+              "start_us": 2000000,
+              "end_us": 2000001
+            }
+          ],
+          "citation_spans": [
+            {
+              "id": "observation-ef6a2f2d9279e63cf5da65dc47cecd260ea0fc9fdde3940b2de7aa5c47277006",
+              "start_us": 0,
+              "end_us": 1000001
+            },
+            {
+              "id": "observation-ea944a94d91056ee8349a383752f0794d0e07c92bf6569ee63000b81724adfd3",
+              "start_us": 0,
+              "end_us": 2000001
+            }
+          ],
+          "excluded_citation_spans": [],
+          "archived_failures": 0,
+          "matches": 1,
+          "ids": [
+            "observation-ef6a2f2d9279e63cf5da65dc47cecd260ea0fc9fdde3940b2de7aa5c47277006",
+            "observation-ea944a94d91056ee8349a383752f0794d0e07c92bf6569ee63000b81724adfd3"
+          ]
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "inspect",
+          "to": "decide"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "decision",
+        "reason": "verdict: The candidate observation describes a person already visible at frame 0 (start of video) in the lower right corner, which is a state of appearance at the start frame, corroborated by observation-ef6a2f2d9279e63cf5da65dc47cecd260ea0fc9fdde39",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "decide",
+          "to": "validate"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "correspondence",
+        "reason": "Validated pair assessments.",
+        "observation_ids": [
+          "observation-ef6a2f2d9279e63cf5da65dc47cecd260ea0fc9fdde3940b2de7aa5c47277006"
+        ],
+        "recipient": null,
+        "details": {
+          "assessments": [
+            {
+              "id": "observation-ef6a2f2d9279e63cf5da65dc47cecd260ea0fc9fdde3940b2de7aa5c47277006",
+              "status": "same_event",
+              "seed_quote": "A person appears in the lower right corner of the view.",
+              "other_quote": "A person appears in the lower right area of the frame in F1.",
+              "shared_frame_id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4"
+            }
+          ]
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "evidence_insufficient",
+        "reason": "Visibility transition requires distinct before and after states in ordered cited source frames",
+        "observation_ids": [
+          "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033"
+        ],
+        "recipient": null,
+        "details": {
+          "code": "missing_corroboration",
+          "reason": "Visibility transition requires distinct before and after states in ordered cited source frames",
+          "candidate_id": "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033",
+          "remaining_recoveries": 0
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "recovery",
+        "reason": "Return validation feedback for a new evidence decision.",
+        "observation_ids": [
+          "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033"
+        ],
+        "recipient": null,
+        "details": {
+          "code": "missing_corroboration",
+          "reason": "Visibility transition requires distinct before and after states in ordered cited source frames",
+          "candidate_id": "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033",
+          "remaining_recoveries": 0
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "validate",
+          "to": "decide"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "decision",
+        "reason": "verdict: The candidate observation lacks distinct before and after frames showing the appearance transition, and cannot be corroborated without valid before/after states.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "decide",
+          "to": "validate"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "correspondence",
+        "reason": "Validated pair assessments.",
+        "observation_ids": [
+          "observation-ef6a2f2d9279e63cf5da65dc47cecd260ea0fc9fdde3940b2de7aa5c47277006"
+        ],
+        "recipient": null,
+        "details": {
+          "assessments": [
+            {
+              "id": "observation-ef6a2f2d9279e63cf5da65dc47cecd260ea0fc9fdde3940b2de7aa5c47277006",
+              "status": "same_event",
+              "seed_quote": "A person appears in the lower right corner of the view.",
+              "other_quote": "A person appears in the lower right area of the frame in F1.",
+              "shared_frame_id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4"
+            }
+          ]
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "validate",
+          "to": "finish"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "verdict",
+        "reason": "insufficient: The candidate observation lacks distinct before and after frames showing the appearance transition, and cannot be corroborated without valid before/after states.",
+        "observation_ids": [
+          "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033",
+          "observation-ef6a2f2d9279e63cf5da65dc47cecd260ea0fc9fdde3940b2de7aa5c47277006"
+        ],
+        "recipient": "reporting",
+        "details": {
+          "candidate_id": "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033",
+          "outcome": "insufficient",
+          "completed": true
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "finish",
+          "to": "start_candidate"
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "start_candidate",
+          "to": "decide"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "decision",
+        "reason": "verdict: The direct visual movement of the person walking across the floor from lower right towards center is established across the provided frames.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "decide",
+          "to": "validate"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "transition_evidence",
+        "reason": "Accepted model-assessed before/after frame references.",
+        "observation_ids": [
+          "observation-35cff3017005e36b2b96bbce1459299dd8ec9da02d665657e1b9a9b79d48199e"
+        ],
+        "recipient": null,
+        "details": {
+          "observation_id": "observation-35cff3017005e36b2b96bbce1459299dd8ec9da02d665657e1b9a9b79d48199e",
+          "before_frame_id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+          "after_frame_id": "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+          "interval": {
+            "start_us": 0,
+            "end_us": 5000001
+          }
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "validate",
+          "to": "finish"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "verdict",
+        "reason": "supported: The direct visual movement of the person walking across the floor from lower right towards center is established across the provided frames.",
+        "observation_ids": [
+          "observation-35cff3017005e36b2b96bbce1459299dd8ec9da02d665657e1b9a9b79d48199e"
+        ],
+        "recipient": "reporting",
+        "details": {
+          "candidate_id": "observation-35cff3017005e36b2b96bbce1459299dd8ec9da02d665657e1b9a9b79d48199e",
+          "outcome": "supported",
+          "completed": true
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "finish",
+          "to": "start_candidate"
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "start_candidate",
+          "to": "decide"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "decision",
+        "reason": "verdict: The frames show two people walking together across the lobby floor continuously from frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505 to frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "decide",
+          "to": "validate"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "evidence_insufficient",
+        "reason": "Visibility transition requires distinct before and after states in ordered cited source frames",
+        "observation_ids": [
+          "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2"
+        ],
+        "recipient": null,
+        "details": {
+          "code": "missing_corroboration",
+          "reason": "Visibility transition requires distinct before and after states in ordered cited source frames",
+          "candidate_id": "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2",
+          "remaining_recoveries": 0
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "recovery",
+        "reason": "Return validation feedback for a new evidence decision.",
+        "observation_ids": [
+          "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2"
+        ],
+        "recipient": null,
+        "details": {
+          "code": "missing_corroboration",
+          "reason": "Visibility transition requires distinct before and after states in ordered cited source frames",
+          "candidate_id": "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2",
+          "remaining_recoveries": 0
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "validate",
+          "to": "decide"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "decision",
+        "reason": "verdict: The observation describes two people walking together across the lobby floor, which is supported by frames frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505 and frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d9",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "decide",
+          "to": "validate"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "transition_evidence",
+        "reason": "Accepted model-assessed before/after frame references.",
+        "observation_ids": [
+          "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2"
+        ],
+        "recipient": null,
+        "details": {
+          "observation_id": "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2",
+          "before_frame_id": "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+          "after_frame_id": "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+          "interval": {
+            "start_us": 6000000,
+            "end_us": 9000001
+          }
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "validate",
+          "to": "finish"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "verdict",
+        "reason": "supported: The observation describes two people walking together across the lobby floor, which is supported by frames frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505 and frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d9",
+        "observation_ids": [
+          "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2"
+        ],
+        "recipient": "reporting",
+        "details": {
+          "candidate_id": "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2",
+          "outcome": "supported",
+          "completed": true
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "finish",
+          "to": "start_candidate"
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "start_candidate",
+          "to": "decide"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "decision",
+        "reason": "verdict: The observation provides explicit evidence across frames f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad (10000000us) to 3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8 (14000000us) showing two people movin",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "decide",
+          "to": "validate"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "transition_evidence",
+        "reason": "Accepted model-assessed before/after frame references.",
+        "observation_ids": [
+          "observation-265d0fedb71facc31f50ba6b91236572fdbc41ec2aa0c8ef2817f710a8ac63c4"
+        ],
+        "recipient": null,
+        "details": {
+          "observation_id": "observation-265d0fedb71facc31f50ba6b91236572fdbc41ec2aa0c8ef2817f710a8ac63c4",
+          "before_frame_id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+          "after_frame_id": "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+          "interval": {
+            "start_us": 10000000,
+            "end_us": 14000001
+          }
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "validate",
+          "to": "finish"
+        }
+      },
+      {
+        "actor": "verification",
+        "action": "verdict",
+        "reason": "supported: The observation provides explicit evidence across frames f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad (10000000us) to 3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8 (14000000us) showing two people movin",
+        "observation_ids": [
+          "observation-265d0fedb71facc31f50ba6b91236572fdbc41ec2aa0c8ef2817f710a8ac63c4"
+        ],
+        "recipient": "reporting",
+        "details": {
+          "candidate_id": "observation-265d0fedb71facc31f50ba6b91236572fdbc41ec2aa0c8ef2817f710a8ac63c4",
+          "outcome": "supported",
+          "completed": true
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "finish",
+          "to": "start_candidate"
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "start_candidate",
+          "to": "report"
+        }
+      },
+      {
+        "actor": "reporting",
+        "action": "decision",
+        "reason": "report: Selecting the earliest supported observation of person movement as the lead.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "reporting",
+        "action": "render",
+        "reason": "Rendered 4 verified or unresolved items.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "reporting",
+        "action": "select",
+        "reason": "Accepted the report emphasis and lead.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "lead_id": "observation-35cff3017005e36b2b96bbce1459299dd8ec9da02d665657e1b9a9b79d48199e",
+          "emphasis": "evidence"
+        }
+      },
+      {
+        "actor": "workflow",
+        "action": "graph_transition",
+        "reason": "StateGraph advanced.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": {
+          "from": "report",
+          "to": "END"
+        }
+      }
+    ],
+    "report": "# Video investigation\n\nInitial scan: completed (scheduled through 00:24.960000 of 00:24.960000). Coverage records distinguish sampled timestamps, submitted clip spans, and uninspected time. Uninspected time provides no evidence of absence. Corroboration from two inspections using the same model is not independent semantic confirmation.\n\nSupported findings with source citations: 3.\n\nLead finding: A person moved within view.\n\nInvestigation: completed. Verification: completed (4/4 checks completed). Observation triage: 4/4 accounted for.\n\nSource: video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd  \nSHA-256: `f5290c0107a7d5e2bca9c324d1e2f15929ce7df86ea755613229f18af5c554a0`\n\nThis report covers only the inspected visual inputs. Citation times describe evidence. Direct visual findings use a model-assessed before/after frame pair. Action claims require corroborating observations from separate inspections.\n\n- **00:00.000000\u201300:00.000000** Finding remains unresolved. insufficient. A source-grounded before/after pair was not established.\n  - frames `inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae` at 00:00.000000\u201300:00.000000 (1 source frames).\n  - frames `inspection-ea8d0c499621f354ba8d8c431fb96361d4b0b1110f09cb3bca92ef64abfb93bc` at 00:00.000000\u201300:01.000000 (2 source frames).\n- **00:00.000000\u201300:05.000000** A person moved within view. supported\n  - frames `inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae` at 00:00.000000\u201300:05.000000 (6 source frames).\n- **00:06.000000\u201300:09.000000** A person moved within view. supported\n  - frames `inspection-fd34b84122ec6ca2c136c6bb60233deed3c79bcb08ffc58695aee8901224a8ae` at 00:06.000000\u201300:09.000000 (4 source frames).\n- **00:10.000000\u201300:14.000000** A person moved within view. supported\n  - frames `inspection-4b5920e1acb947ec1eb0ee1728895d84f62cec43cc82a0d46fc0342e7302d35d` at 00:10.000000\u201300:14.000000 (5 source frames).\n",
+    "budget": {
+      "max_archive_attempts": 24,
+      "max_candidates": 4,
+      "max_inspections": 4,
+      "max_initial_windows": 3,
+      "max_agent_calls": 14,
+      "max_retrievals": 1,
+      "max_verification_iterations": 4,
+      "max_failures": 1,
+      "max_recoveries": 1
+    },
+    "completion": {
+      "initial_scan": "completed",
+      "investigation": "completed",
+      "verification": "completed",
+      "intentional_empty_delegation": false,
+      "delegated": 4,
+      "completed_checks": 4,
+      "initial_observations": 4,
+      "accounted_observations": 4,
+      "triage_complete": true,
+      "open_observation_ids": [],
+      "observation_dispositions": [
+        {
+          "id": "observation-be819b3f0ef198f77faf2f3b26f8b33028822ea13af83bb4c19af305317a4033",
+          "status": "delegated",
+          "check_completed": true
+        },
+        {
+          "id": "observation-35cff3017005e36b2b96bbce1459299dd8ec9da02d665657e1b9a9b79d48199e",
+          "status": "delegated",
+          "check_completed": true
+        },
+        {
+          "id": "observation-d092adc2e082892b757b180ba6cb85dc50060d4fa0d36c1b8fc765117534f6c2",
+          "status": "delegated",
+          "check_completed": true
+        },
+        {
+          "id": "observation-265d0fedb71facc31f50ba6b91236572fdbc41ec2aa0c8ef2817f710a8ac63c4",
+          "status": "delegated",
+          "check_completed": true
+        }
+      ],
+      "resolved_association_ids": []
+    },
+    "coverage": {
+      "plan": {
+        "window_us": 10000000,
+        "frame_step_us": 1000000
+      },
+      "initial_scan": "completed",
+      "initial_scan_end_us": 24960000,
+      "examined": [
+        {
+          "start_us": 0,
+          "end_us": 1
+        },
+        {
+          "start_us": 1000000,
+          "end_us": 1000001
+        },
+        {
+          "start_us": 2000000,
+          "end_us": 2000001
+        },
+        {
+          "start_us": 3000000,
+          "end_us": 3000001
+        },
+        {
+          "start_us": 4000000,
+          "end_us": 4000001
+        },
+        {
+          "start_us": 5000000,
+          "end_us": 5000001
+        },
+        {
+          "start_us": 6000000,
+          "end_us": 6000001
+        },
+        {
+          "start_us": 7000000,
+          "end_us": 7000001
+        },
+        {
+          "start_us": 8000000,
+          "end_us": 8000001
+        },
+        {
+          "start_us": 9000000,
+          "end_us": 9000001
+        },
+        {
+          "start_us": 10000000,
+          "end_us": 10000001
+        },
+        {
+          "start_us": 11000000,
+          "end_us": 11000001
+        },
+        {
+          "start_us": 12000000,
+          "end_us": 12000001
+        },
+        {
+          "start_us": 13000000,
+          "end_us": 13000001
+        },
+        {
+          "start_us": 14000000,
+          "end_us": 14000001
+        },
+        {
+          "start_us": 15000000,
+          "end_us": 15000001
+        },
+        {
+          "start_us": 16000000,
+          "end_us": 16000001
+        },
+        {
+          "start_us": 17000000,
+          "end_us": 17000001
+        },
+        {
+          "start_us": 18000000,
+          "end_us": 18000001
+        },
+        {
+          "start_us": 19000000,
+          "end_us": 19000001
+        },
+        {
+          "start_us": 20000000,
+          "end_us": 20000001
+        },
+        {
+          "start_us": 21000000,
+          "end_us": 21000001
+        },
+        {
+          "start_us": 22000000,
+          "end_us": 22000001
+        },
+        {
+          "start_us": 23000000,
+          "end_us": 23000001
+        },
+        {
+          "start_us": 24000000,
+          "end_us": 24000001
+        }
+      ],
+      "uninspected": [
+        {
+          "start_us": 1,
+          "end_us": 1000000
+        },
+        {
+          "start_us": 1000001,
+          "end_us": 2000000
+        },
+        {
+          "start_us": 2000001,
+          "end_us": 3000000
+        },
+        {
+          "start_us": 3000001,
+          "end_us": 4000000
+        },
+        {
+          "start_us": 4000001,
+          "end_us": 5000000
+        },
+        {
+          "start_us": 5000001,
+          "end_us": 6000000
+        },
+        {
+          "start_us": 6000001,
+          "end_us": 7000000
+        },
+        {
+          "start_us": 7000001,
+          "end_us": 8000000
+        },
+        {
+          "start_us": 8000001,
+          "end_us": 9000000
+        },
+        {
+          "start_us": 9000001,
+          "end_us": 10000000
+        },
+        {
+          "start_us": 10000001,
+          "end_us": 11000000
+        },
+        {
+          "start_us": 11000001,
+          "end_us": 12000000
+        },
+        {
+          "start_us": 12000001,
+          "end_us": 13000000
+        },
+        {
+          "start_us": 13000001,
+          "end_us": 14000000
+        },
+        {
+          "start_us": 14000001,
+          "end_us": 15000000
+        },
+        {
+          "start_us": 15000001,
+          "end_us": 16000000
+        },
+        {
+          "start_us": 16000001,
+          "end_us": 17000000
+        },
+        {
+          "start_us": 17000001,
+          "end_us": 18000000
+        },
+        {
+          "start_us": 18000001,
+          "end_us": 19000000
+        },
+        {
+          "start_us": 19000001,
+          "end_us": 20000000
+        },
+        {
+          "start_us": 20000001,
+          "end_us": 21000000
+        },
+        {
+          "start_us": 21000001,
+          "end_us": 22000000
+        },
+        {
+          "start_us": 22000001,
+          "end_us": 23000000
+        },
+        {
+          "start_us": 23000001,
+          "end_us": 24000000
+        },
+        {
+          "start_us": 24000001,
+          "end_us": 24960000
+        }
+      ]
+    }
+  },
+  "answers": []
+}

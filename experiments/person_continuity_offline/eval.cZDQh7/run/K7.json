@@ -1,0 +1,49 @@
+{
+  "status": "schema_and_references_valid",
+  "model": "gemini-3.6-flash",
+  "frame_map": {
+    "F1": {
+      "file": "0250.png",
+      "index": 250,
+      "pts": 128000,
+      "source_time_us": 10000000,
+      "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e"
+    },
+    "F2": {
+      "file": "0300.png",
+      "index": 300,
+      "pts": 153600,
+      "source_time_us": 12000000,
+      "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157"
+    },
+    "F3": {
+      "file": "0325.png",
+      "index": 325,
+      "pts": 166400,
+      "source_time_us": 13000000,
+      "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865"
+    }
+  },
+  "sdk_calls": 1,
+  "model_version": "gemini-3.6-flash",
+  "usage": {
+    "prompt_token_count": 3328,
+    "candidates_token_count": 81,
+    "thoughts_token_count": 363,
+    "total_token_count": 3772
+  },
+  "finish_reasons": [
+    "FinishReason.STOP"
+  ],
+  "raw_response": "{\n  \"decision\": \"same_person\",\n  \"frame_ids\": [\n    \"F1\",\n    \"F2\",\n    \"F3\"\n  ],\n  \"reason\": \"The target person wearing all-dark clothing walking towards the upper left can be continuously tracked across F1, F2, and F3 along a consistent motion path.\"\n}",
+  "decision": {
+    "decision": "same_person",
+    "frame_ids": [
+      "F1",
+      "F2",
+      "F3"
+    ],
+    "reason": "The target person wearing all-dark clothing walking towards the upper left can be continuously tracked across F1, F2, and F3 along a consistent motion path."
+  },
+  "elapsed_ms": 5109
+}

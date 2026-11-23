@@ -1,0 +1,4346 @@
+{
+  "record": "experiments/meet_walk_split_500ms.bqVoWC/run/analysis.json",
+  "source_sha256": "f5290c0107a7d5e2bca9c324d1e2f15929ce7df86ea755613229f18af5c554a0",
+  "time_base": "1/12800",
+  "budget": {
+    "max_archive_attempts": 24,
+    "max_candidates": 4,
+    "max_inspections": 4,
+    "max_initial_windows": 3,
+    "max_agent_calls": 14,
+    "max_retrievals": 1,
+    "max_verification_iterations": 4,
+    "max_failures": 1,
+    "max_recoveries": 1
+  },
+  "recorded_evidence": [
+    {
+      "path": "provider",
+      "modality": "frames",
+      "interval": {
+        "start_us": 0,
+        "end_us": 10000000
+      },
+      "status": "success",
+      "findings": [
+        {
+          "observation": {
+            "id": "observation-99da36e3e6b4a2023c0d8fd1b07e665d3fdfd64aa6f17c0b494e70059755c787",
+            "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+            "category": "person_appeared",
+            "description": "A person in blue clothing appears in the lower right area of the frame.",
+            "evidence": {
+              "frame_ids": [
+                "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4"
+              ]
+            },
+            "visibility_limits": "Visible within the camera's field of view in F1.",
+            "uncertainty": "Exact appearance timestamp is within the frame interval.",
+            "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inference_metadata": {
+              "provider": "google-gemini-developer-api",
+              "model_id": "gemini-3.5-flash-lite",
+              "model_version": "gemini-3.5-flash-lite",
+              "adapter_version": "1",
+              "prompt_version": "e1-v1",
+              "settings": [
+                [
+                  "sdk_version",
+                  "3.6.1"
+                ],
+                [
+                  "max_output_tokens",
+                  4096
+                ],
+                [
+                  "thinking_level",
+                  "LOW"
+                ]
+              ],
+              "elapsed_ms": 7961,
+              "usage": [
+                [
+                  "prompt_token_count",
+                  21791
+                ],
+                [
+                  "candidates_token_count",
+                  296
+                ],
+                [
+                  "total_token_count",
+                  22087
+                ]
+              ]
+            },
+            "schema_version": 1
+          },
+          "citation": {
+            "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+            "modality": "frames",
+            "interval": {
+              "start_us": 0,
+              "end_us": 1
+            },
+            "frames": [
+              {
+                "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                "display_index": 0,
+                "pts": 0,
+                "source_time_us": 0,
+                "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+                "schema_version": 1
+              }
+            ]
+          }
+        },
+        {
+          "observation": {
+            "id": "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b",
+            "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+            "category": "person_moved",
+            "description": "The person in blue clothing moves across the floor in the lower right area.",
+            "evidence": {
+              "frame_ids": [
+                "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117"
+              ]
+            },
+            "visibility_limits": "Visible within the lower right frame region.",
+            "uncertainty": "Continuous motion between frames is interpolated.",
+            "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inference_metadata": {
+              "provider": "google-gemini-developer-api",
+              "model_id": "gemini-3.5-flash-lite",
+              "model_version": "gemini-3.5-flash-lite",
+              "adapter_version": "1",
+              "prompt_version": "e1-v1",
+              "settings": [
+                [
+                  "sdk_version",
+                  "3.6.1"
+                ],
+                [
+                  "max_output_tokens",
+                  4096
+                ],
+                [
+                  "thinking_level",
+                  "LOW"
+                ]
+              ],
+              "elapsed_ms": 7961,
+              "usage": [
+                [
+                  "prompt_token_count",
+                  21791
+                ],
+                [
+                  "candidates_token_count",
+                  296
+                ],
+                [
+                  "total_token_count",
+                  22087
+                ]
+              ]
+            },
+            "schema_version": 1
+          },
+          "citation": {
+            "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+            "modality": "frames",
+            "interval": {
+              "start_us": 0,
+              "end_us": 520001
+            },
+            "frames": [
+              {
+                "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                "display_index": 0,
+                "pts": 0,
+                "source_time_us": 0,
+                "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+                "display_index": 13,
+                "pts": 6656,
+                "source_time_us": 520000,
+                "rgb24_sha256": "714a32f8405451be5ced614bc6cd67e2699da716018461d098a5127cb6a0ffae",
+                "schema_version": 1
+              }
+            ]
+          }
+        },
+        {
+          "observation": {
+            "id": "observation-6fb87d692bb39d7e7caa18e572c005f1fb39810df4562afb02fe59b349c7c96d",
+            "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+            "category": "object_appeared",
+            "description": "An object (case/bag) appears stationary on the right side of the hallway.",
+            "evidence": {
+              "frame_ids": [
+                "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                "frame-70c092b0f9e14a36486f332cd9e8e0810ece04d77079a08075f3574b866ecbfc"
+              ]
+            },
+            "visibility_limits": "Fully visible against the right wall.",
+            "uncertainty": "Present since F1 without observable physical placement action.",
+            "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inference_metadata": {
+              "provider": "google-gemini-developer-api",
+              "model_id": "gemini-3.5-flash-lite",
+              "model_version": "gemini-3.5-flash-lite",
+              "adapter_version": "1",
+              "prompt_version": "e1-v1",
+              "settings": [
+                [
+                  "sdk_version",
+                  "3.6.1"
+                ],
+                [
+                  "max_output_tokens",
+                  4096
+                ],
+                [
+                  "thinking_level",
+                  "LOW"
+                ]
+              ],
+              "elapsed_ms": 7961,
+              "usage": [
+                [
+                  "prompt_token_count",
+                  21791
+                ],
+                [
+                  "candidates_token_count",
+                  296
+                ],
+                [
+                  "total_token_count",
+                  22087
+                ]
+              ]
+            },
+            "schema_version": 1
+          },
+          "citation": {
+            "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inspection_id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+            "modality": "frames",
+            "interval": {
+              "start_us": 0,
+              "end_us": 9520001
+            },
+            "frames": [
+              {
+                "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                "display_index": 0,
+                "pts": 0,
+                "source_time_us": 0,
+                "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-70c092b0f9e14a36486f332cd9e8e0810ece04d77079a08075f3574b866ecbfc",
+                "display_index": 238,
+                "pts": 121856,
+                "source_time_us": 9520000,
+                "rgb24_sha256": "414deff064cfeb32d32bcce5c8f674e6daf070645663de7e8285690689f2c404",
+                "schema_version": 1
+              }
+            ]
+          }
+        }
+      ],
+      "error": null,
+      "coverage": [
+        {
+          "start_us": 0,
+          "end_us": 1
+        },
+        {
+          "start_us": 520000,
+          "end_us": 520001
+        },
+        {
+          "start_us": 1000000,
+          "end_us": 1000001
+        },
+        {
+          "start_us": 1520000,
+          "end_us": 1520001
+        },
+        {
+          "start_us": 2000000,
+          "end_us": 2000001
+        },
+        {
+          "start_us": 2520000,
+          "end_us": 2520001
+        },
+        {
+          "start_us": 3000000,
+          "end_us": 3000001
+        },
+        {
+          "start_us": 3520000,
+          "end_us": 3520001
+        },
+        {
+          "start_us": 4000000,
+          "end_us": 4000001
+        },
+        {
+          "start_us": 4520000,
+          "end_us": 4520001
+        },
+        {
+          "start_us": 5000000,
+          "end_us": 5000001
+        },
+        {
+          "start_us": 5520000,
+          "end_us": 5520001
+        },
+        {
+          "start_us": 6000000,
+          "end_us": 6000001
+        },
+        {
+          "start_us": 6520000,
+          "end_us": 6520001
+        },
+        {
+          "start_us": 7000000,
+          "end_us": 7000001
+        },
+        {
+          "start_us": 7520000,
+          "end_us": 7520001
+        },
+        {
+          "start_us": 8000000,
+          "end_us": 8000001
+        },
+        {
+          "start_us": 8520000,
+          "end_us": 8520001
+        },
+        {
+          "start_us": 9000000,
+          "end_us": 9000001
+        },
+        {
+          "start_us": 9520000,
+          "end_us": 9520001
+        }
+      ],
+      "phase": "initial",
+      "inspection": {
+        "id": "inspection-99d11f068a8122696115472bcf8446badbe836c098fefed39257980086d4c7a8",
+        "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+        "requested_interval": {
+          "start_us": 0,
+          "end_us": 10000000
+        },
+        "requested_times_us": [
+          0,
+          500000,
+          1000000,
+          1500000,
+          2000000,
+          2500000,
+          3000000,
+          3500000,
+          4000000,
+          4500000,
+          5000000,
+          5500000,
+          6000000,
+          6500000,
+          7000000,
+          7500000,
+          8000000,
+          8500000,
+          9000000,
+          9500000
+        ],
+        "modality": "frames",
+        "selection_policy": "first_at_or_after_within_interval",
+        "pixel_format": "rgb24",
+        "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+        "frames": [
+          {
+            "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+            "display_index": 0,
+            "pts": 0,
+            "source_time_us": 0,
+            "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+            "display_index": 13,
+            "pts": 6656,
+            "source_time_us": 520000,
+            "rgb24_sha256": "714a32f8405451be5ced614bc6cd67e2699da716018461d098a5127cb6a0ffae",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+            "display_index": 25,
+            "pts": 12800,
+            "source_time_us": 1000000,
+            "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-cfbfec091a21efabb640d08fd47feda5a8e0914509ec5cae49418d38a3ce4954",
+            "display_index": 38,
+            "pts": 19456,
+            "source_time_us": 1520000,
+            "rgb24_sha256": "195839835883e609f18c4bd7f8eaace09d4119ea1a2b622a6472847305a1f478",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e",
+            "display_index": 50,
+            "pts": 25600,
+            "source_time_us": 2000000,
+            "rgb24_sha256": "c482921221fd98e75d465be395f2d191e57706c5e7448a811dfb6336e47ed7ab",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-52faf6e0f59f4db9e3da4dee37a2b521b94770bb9d0a690cbb778490ac6c62e3",
+            "display_index": 63,
+            "pts": 32256,
+            "source_time_us": 2520000,
+            "rgb24_sha256": "7b601becaa5017b962d0a93d439de0874e6e6c924db3b50ecab4e66282e9f95a",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-cb7d7b1ad9f2c1683187b64d359f03691196eee8d64110a3a1fb78686d73bb7c",
+            "display_index": 75,
+            "pts": 38400,
+            "source_time_us": 3000000,
+            "rgb24_sha256": "7fa8413c14165687b3030fefc03d9711d7406bf27a1cfc72b3ec56cfe3e15ba9",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-6975ea2366df725c470699fddaf44ad7d40c8036c458c21d057a0589316c67b0",
+            "display_index": 88,
+            "pts": 45056,
+            "source_time_us": 3520000,
+            "rgb24_sha256": "386ea2d37209599419ac1aa98c866fb62991694fefbadd1679c27417dfc9f70e",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+            "display_index": 100,
+            "pts": 51200,
+            "source_time_us": 4000000,
+            "rgb24_sha256": "a5e14696b60f172ead106fb7ddbd4f76ae344cc1d24654b49fce03c254852d68",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-e5f191ad95dd31424c4571b6954ee9b529ac89947becbceca0dfb0a3771a1788",
+            "display_index": 113,
+            "pts": 57856,
+            "source_time_us": 4520000,
+            "rgb24_sha256": "62f914bee99d97224af3f6d7f2d6a3976474e5ca65e7e8924c222779f080aadf",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+            "display_index": 125,
+            "pts": 64000,
+            "source_time_us": 5000000,
+            "rgb24_sha256": "8a7f08da2bb75abf8f4aec43cfcabda9b70293edfcfb1327657fed3f2257a735",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-fc6cdf36874aaee549f25ecca3f4d81b8c243569dcc21bcb5073dd83b7fdfd07",
+            "display_index": 138,
+            "pts": 70656,
+            "source_time_us": 5520000,
+            "rgb24_sha256": "8845d998cb2bce32e2f72daee8889ba54ebbb7ae5807aa5b6d3d1f373e52d2f0",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+            "display_index": 150,
+            "pts": 76800,
+            "source_time_us": 6000000,
+            "rgb24_sha256": "98a9a25fdce06e834fd1e5ebd3dbbaceaec19ab8284b36672f5d9f20eb216496",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-bc4674074514a6291d20741efd6f15e5097ba2469b63aa766045ec6f8d4d71c0",
+            "display_index": 163,
+            "pts": 83456,
+            "source_time_us": 6520000,
+            "rgb24_sha256": "43a5a5f10662c139992527e55bb1ce853cf87cc6d0d0f1bc3281818e80bc9b6d",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+            "display_index": 175,
+            "pts": 89600,
+            "source_time_us": 7000000,
+            "rgb24_sha256": "3ac9fc4c268adc8bd50276abe5d803692c9bce6bfcc1c37d885cc0185f4f47da",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-7f27dea900e5862a195c853d744cc9398c745740d45e6c3d30d85bc5787b2b1a",
+            "display_index": 188,
+            "pts": 96256,
+            "source_time_us": 7520000,
+            "rgb24_sha256": "14214b22226eca46a65a42b48fadfa1c478525c07af147c101c136982b90b87b",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+            "display_index": 200,
+            "pts": 102400,
+            "source_time_us": 8000000,
+            "rgb24_sha256": "f9950625fedc8bd596e3dd8e97d4e41523a5c2c54e0921ba2012d7e2d2b6deab",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-64025c8deb5a20df19295d00aa0e70cf0e7b300c69a657f722975fc45b5a4a13",
+            "display_index": 213,
+            "pts": 109056,
+            "source_time_us": 8520000,
+            "rgb24_sha256": "958c5363b73b947a3af6f838f8124ae46806f0ed8961334e65e855b64fe8c9a3",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+            "display_index": 225,
+            "pts": 115200,
+            "source_time_us": 9000000,
+            "rgb24_sha256": "c61cbae1b01468998afc9cad396d2c235d300efcc3d39f527e3f74a8965cfcf7",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-70c092b0f9e14a36486f332cd9e8e0810ece04d77079a08075f3574b866ecbfc",
+            "display_index": 238,
+            "pts": 121856,
+            "source_time_us": 9520000,
+            "rgb24_sha256": "414deff064cfeb32d32bcce5c8f674e6daf070645663de7e8285690689f2c404",
+            "schema_version": 1
+          }
+        ],
+        "frame_ids_by_request": [
+          "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+          "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+          "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+          "frame-cfbfec091a21efabb640d08fd47feda5a8e0914509ec5cae49418d38a3ce4954",
+          "frame-91406dd036dfff6e653bffb91867a3ef2ffefabb09b48b8393e2bae3ad78e88e",
+          "frame-52faf6e0f59f4db9e3da4dee37a2b521b94770bb9d0a690cbb778490ac6c62e3",
+          "frame-cb7d7b1ad9f2c1683187b64d359f03691196eee8d64110a3a1fb78686d73bb7c",
+          "frame-6975ea2366df725c470699fddaf44ad7d40c8036c458c21d057a0589316c67b0",
+          "frame-d9d10231819b2f684a49bb120dc64e35c19328e3e4ec4a0e3cc14a69777a971f",
+          "frame-e5f191ad95dd31424c4571b6954ee9b529ac89947becbceca0dfb0a3771a1788",
+          "frame-5a8849f8c9116a584ad22c7e56cf8c87168d3c71bc3187996a9beb30f964dcf3",
+          "frame-fc6cdf36874aaee549f25ecca3f4d81b8c243569dcc21bcb5073dd83b7fdfd07",
+          "frame-5594fe39769e51f21f97c5867b6a1359bf15bed58e5d50fbcb69285668aaf505",
+          "frame-bc4674074514a6291d20741efd6f15e5097ba2469b63aa766045ec6f8d4d71c0",
+          "frame-e065e05a7358776cf1acead2005454008971166a9a0f98188171c26b20cc060b",
+          "frame-7f27dea900e5862a195c853d744cc9398c745740d45e6c3d30d85bc5787b2b1a",
+          "frame-22233139271bfbe4062e1b11e1a3c59b44c2cd4ac65b3d23112f7cb797e48efe",
+          "frame-64025c8deb5a20df19295d00aa0e70cf0e7b300c69a657f722975fc45b5a4a13",
+          "frame-bf58254b752ebbd678b8624570507154d4f4bea691ba916658d942b95cff94dc",
+          "frame-70c092b0f9e14a36486f332cd9e8e0810ece04d77079a08075f3574b866ecbfc"
+        ],
+        "status": "complete",
+        "schema_version": 1,
+        "frame_size": [
+          384,
+          288
+        ]
+      },
+      "inference": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.5-flash-lite",
+        "model_version": "gemini-3.5-flash-lite",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            4096
+          ],
+          [
+            "thinking_level",
+            "LOW"
+          ]
+        ],
+        "elapsed_ms": 7961,
+        "usage": [
+          [
+            "prompt_token_count",
+            21791
+          ],
+          [
+            "candidates_token_count",
+            296
+          ],
+          [
+            "total_token_count",
+            22087
+          ]
+        ]
+      },
+      "failure_stage": null
+    },
+    {
+      "path": "provider",
+      "modality": "frames",
+      "interval": {
+        "start_us": 10000000,
+        "end_us": 20000000
+      },
+      "status": "success",
+      "findings": [
+        {
+          "observation": {
+            "id": "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6",
+            "inspection_id": "inspection-b0232e313c01776f94fbc7c30800174a20f682e4dd17ec2716c5ef0ee21a84d2",
+            "category": "person_moved",
+            "description": "Two individuals are seen walking across the hallway floor within the camera view from F1 to F10.",
+            "evidence": {
+              "frame_ids": [
+                "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+                "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+                "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+                "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+                "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+                "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+                "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+                "frame-7d01e523cdffab0fca101856f91ad31c36da1ac429a140ec3e9692f392e3e0b4",
+                "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+                "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351"
+              ]
+            },
+            "visibility_limits": "Fully visible within the central hallway area.",
+            "uncertainty": "Timing uncertainty is within frame intervals (approx. 520ms).",
+            "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inference_metadata": {
+              "provider": "google-gemini-developer-api",
+              "model_id": "gemini-3.5-flash-lite",
+              "model_version": "gemini-3.5-flash-lite",
+              "adapter_version": "1",
+              "prompt_version": "e1-v1",
+              "settings": [
+                [
+                  "sdk_version",
+                  "3.6.1"
+                ],
+                [
+                  "max_output_tokens",
+                  4096
+                ],
+                [
+                  "thinking_level",
+                  "LOW"
+                ]
+              ],
+              "elapsed_ms": 6800,
+              "usage": [
+                [
+                  "prompt_token_count",
+                  21818
+                ],
+                [
+                  "candidates_token_count",
+                  152
+                ],
+                [
+                  "total_token_count",
+                  21970
+                ]
+              ]
+            },
+            "schema_version": 1
+          },
+          "citation": {
+            "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inspection_id": "inspection-b0232e313c01776f94fbc7c30800174a20f682e4dd17ec2716c5ef0ee21a84d2",
+            "modality": "frames",
+            "interval": {
+              "start_us": 10000000,
+              "end_us": 14520001
+            },
+            "frames": [
+              {
+                "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+                "display_index": 250,
+                "pts": 128000,
+                "source_time_us": 10000000,
+                "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+                "display_index": 263,
+                "pts": 134656,
+                "source_time_us": 10520000,
+                "rgb24_sha256": "a2a7bc34ad481bd607b0087b299a2a238deadf8a456837ca2e1de9812090de49",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+                "display_index": 275,
+                "pts": 140800,
+                "source_time_us": 11000000,
+                "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+                "display_index": 288,
+                "pts": 147456,
+                "source_time_us": 11520000,
+                "rgb24_sha256": "501ada5b02f345a9ad65926ff00191eefdcc8d7aca2811396b79656ef99bc7f2",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+                "display_index": 300,
+                "pts": 153600,
+                "source_time_us": 12000000,
+                "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+                "display_index": 313,
+                "pts": 160256,
+                "source_time_us": 12520000,
+                "rgb24_sha256": "d561329fe5b9d259120a002a0afbec95211e3124261a2e8dfcee1335f898bc21",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+                "display_index": 325,
+                "pts": 166400,
+                "source_time_us": 13000000,
+                "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-7d01e523cdffab0fca101856f91ad31c36da1ac429a140ec3e9692f392e3e0b4",
+                "display_index": 338,
+                "pts": 173056,
+                "source_time_us": 13520000,
+                "rgb24_sha256": "5f7da68b42f924b215717d4ea58346380981ac558bbb8c1feaaff1064af6e0d6",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+                "display_index": 350,
+                "pts": 179200,
+                "source_time_us": 14000000,
+                "rgb24_sha256": "1328d87d39c45ad7a5bc19e7fcfecb07b196eb3dc87e73ece13daa4a7f290a93",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+                "display_index": 363,
+                "pts": 185856,
+                "source_time_us": 14520000,
+                "rgb24_sha256": "9e10b66cb9c0fda7cd687f16814cb4d5b8d2549cd436730fb5e2f54e7f667723",
+                "schema_version": 1
+              }
+            ]
+          }
+        }
+      ],
+      "error": null,
+      "coverage": [
+        {
+          "start_us": 10000000,
+          "end_us": 10000001
+        },
+        {
+          "start_us": 10520000,
+          "end_us": 10520001
+        },
+        {
+          "start_us": 11000000,
+          "end_us": 11000001
+        },
+        {
+          "start_us": 11520000,
+          "end_us": 11520001
+        },
+        {
+          "start_us": 12000000,
+          "end_us": 12000001
+        },
+        {
+          "start_us": 12520000,
+          "end_us": 12520001
+        },
+        {
+          "start_us": 13000000,
+          "end_us": 13000001
+        },
+        {
+          "start_us": 13520000,
+          "end_us": 13520001
+        },
+        {
+          "start_us": 14000000,
+          "end_us": 14000001
+        },
+        {
+          "start_us": 14520000,
+          "end_us": 14520001
+        },
+        {
+          "start_us": 15000000,
+          "end_us": 15000001
+        },
+        {
+          "start_us": 15520000,
+          "end_us": 15520001
+        },
+        {
+          "start_us": 16000000,
+          "end_us": 16000001
+        },
+        {
+          "start_us": 16520000,
+          "end_us": 16520001
+        },
+        {
+          "start_us": 17000000,
+          "end_us": 17000001
+        },
+        {
+          "start_us": 17520000,
+          "end_us": 17520001
+        },
+        {
+          "start_us": 18000000,
+          "end_us": 18000001
+        },
+        {
+          "start_us": 18520000,
+          "end_us": 18520001
+        },
+        {
+          "start_us": 19000000,
+          "end_us": 19000001
+        },
+        {
+          "start_us": 19520000,
+          "end_us": 19520001
+        }
+      ],
+      "phase": "initial",
+      "inspection": {
+        "id": "inspection-b0232e313c01776f94fbc7c30800174a20f682e4dd17ec2716c5ef0ee21a84d2",
+        "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+        "requested_interval": {
+          "start_us": 10000000,
+          "end_us": 20000000
+        },
+        "requested_times_us": [
+          10000000,
+          10500000,
+          11000000,
+          11500000,
+          12000000,
+          12500000,
+          13000000,
+          13500000,
+          14000000,
+          14500000,
+          15000000,
+          15500000,
+          16000000,
+          16500000,
+          17000000,
+          17500000,
+          18000000,
+          18500000,
+          19000000,
+          19500000
+        ],
+        "modality": "frames",
+        "selection_policy": "first_at_or_after_within_interval",
+        "pixel_format": "rgb24",
+        "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+        "frames": [
+          {
+            "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+            "display_index": 250,
+            "pts": 128000,
+            "source_time_us": 10000000,
+            "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+            "display_index": 263,
+            "pts": 134656,
+            "source_time_us": 10520000,
+            "rgb24_sha256": "a2a7bc34ad481bd607b0087b299a2a238deadf8a456837ca2e1de9812090de49",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+            "display_index": 275,
+            "pts": 140800,
+            "source_time_us": 11000000,
+            "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+            "display_index": 288,
+            "pts": 147456,
+            "source_time_us": 11520000,
+            "rgb24_sha256": "501ada5b02f345a9ad65926ff00191eefdcc8d7aca2811396b79656ef99bc7f2",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+            "display_index": 300,
+            "pts": 153600,
+            "source_time_us": 12000000,
+            "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+            "display_index": 313,
+            "pts": 160256,
+            "source_time_us": 12520000,
+            "rgb24_sha256": "d561329fe5b9d259120a002a0afbec95211e3124261a2e8dfcee1335f898bc21",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+            "display_index": 325,
+            "pts": 166400,
+            "source_time_us": 13000000,
+            "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-7d01e523cdffab0fca101856f91ad31c36da1ac429a140ec3e9692f392e3e0b4",
+            "display_index": 338,
+            "pts": 173056,
+            "source_time_us": 13520000,
+            "rgb24_sha256": "5f7da68b42f924b215717d4ea58346380981ac558bbb8c1feaaff1064af6e0d6",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+            "display_index": 350,
+            "pts": 179200,
+            "source_time_us": 14000000,
+            "rgb24_sha256": "1328d87d39c45ad7a5bc19e7fcfecb07b196eb3dc87e73ece13daa4a7f290a93",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+            "display_index": 363,
+            "pts": 185856,
+            "source_time_us": 14520000,
+            "rgb24_sha256": "9e10b66cb9c0fda7cd687f16814cb4d5b8d2549cd436730fb5e2f54e7f667723",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-02ddc222324dde3144dce77343baccea1c9a4b6f0640ea7fb006809be2261b53",
+            "display_index": 375,
+            "pts": 192000,
+            "source_time_us": 15000000,
+            "rgb24_sha256": "ff1b8aeb0d4c3b7af98365e357df4af142d50e98c2b3cfaeb6023bcba39612d2",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-66e522973d288b0527224d540695138dae7fb7b129e38cee3e308ada50b014f4",
+            "display_index": 388,
+            "pts": 198656,
+            "source_time_us": 15520000,
+            "rgb24_sha256": "99bb79e3a3576c768db2eff98bf76bd7b8a02d3326533922a6120ddd5393e881",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-ab0c86834178f2449255b13f94009fb694cac634df3d7207176af03faa98cf88",
+            "display_index": 400,
+            "pts": 204800,
+            "source_time_us": 16000000,
+            "rgb24_sha256": "573b30a99816a318f8faf799b4c9f4144b4bfab4421c1a8d52dff9379619c8a3",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-1244bf6e61315ee3b9bf9891394f1ef223f2f75ee2edc2926f9c16bc6063604c",
+            "display_index": 413,
+            "pts": 211456,
+            "source_time_us": 16520000,
+            "rgb24_sha256": "42321f2eb822342984eb38aa54ce56527bc9229a4739b73e3da0009b346b834b",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-fee60e36c03a6670eabe831a5d208ff79010e457240d3810c068d58d3357755c",
+            "display_index": 425,
+            "pts": 217600,
+            "source_time_us": 17000000,
+            "rgb24_sha256": "e02619772ffc2dc0b9963edb05696336373e59f2ef5f315ffcd8bb092a35d952",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-e6144b4cb75b4117f4442be05ba75d00e3c9468cbaf7626b1917bbdcc2369c0f",
+            "display_index": 438,
+            "pts": 224256,
+            "source_time_us": 17520000,
+            "rgb24_sha256": "7da63ab12392cfe74e53e02770408bf52c29c74b2a321eac24fd6c4c07f83dfd",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-a329f3e8c0b0550183618af2afea201dcc8875ac188a237af0200a503aa9fd29",
+            "display_index": 450,
+            "pts": 230400,
+            "source_time_us": 18000000,
+            "rgb24_sha256": "279d8b91e87d784878f5f9a5e6cbd77f1f9eec7a8a6e393052966e139a834cee",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-b4ac930b827db68fa0ad88611ba94fbf95fd4537d3ae8a570d528a77ea28645e",
+            "display_index": 463,
+            "pts": 237056,
+            "source_time_us": 18520000,
+            "rgb24_sha256": "38434a5fd02f2cbd91055c8b19443697ab21e07a75f2ae83d885a2c5c0e8d6f3",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-d537fc86ddcdddf4440ee10124f7da1b8741c166e6e7f6f4dd9de8f489c77e43",
+            "display_index": 475,
+            "pts": 243200,
+            "source_time_us": 19000000,
+            "rgb24_sha256": "f7332d64c9d0363ff9dba9f1a251abdd0092f30179dd920b259ce456ceddd9fe",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-c81d8eeb5adfbda36173d8525c1378f4a22acda6b74f34091940848148a5e8a5",
+            "display_index": 488,
+            "pts": 249856,
+            "source_time_us": 19520000,
+            "rgb24_sha256": "5a110f691b4a6a7fd5c7150172e132aee362ab107eda2329f93731fafde48eee",
+            "schema_version": 1
+          }
+        ],
+        "frame_ids_by_request": [
+          "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+          "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+          "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+          "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+          "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+          "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+          "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+          "frame-7d01e523cdffab0fca101856f91ad31c36da1ac429a140ec3e9692f392e3e0b4",
+          "frame-3398db5f651edeb8d262e46d34106943fec92b0864d46bd8545f111c722ef1a8",
+          "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+          "frame-02ddc222324dde3144dce77343baccea1c9a4b6f0640ea7fb006809be2261b53",
+          "frame-66e522973d288b0527224d540695138dae7fb7b129e38cee3e308ada50b014f4",
+          "frame-ab0c86834178f2449255b13f94009fb694cac634df3d7207176af03faa98cf88",
+          "frame-1244bf6e61315ee3b9bf9891394f1ef223f2f75ee2edc2926f9c16bc6063604c",
+          "frame-fee60e36c03a6670eabe831a5d208ff79010e457240d3810c068d58d3357755c",
+          "frame-e6144b4cb75b4117f4442be05ba75d00e3c9468cbaf7626b1917bbdcc2369c0f",
+          "frame-a329f3e8c0b0550183618af2afea201dcc8875ac188a237af0200a503aa9fd29",
+          "frame-b4ac930b827db68fa0ad88611ba94fbf95fd4537d3ae8a570d528a77ea28645e",
+          "frame-d537fc86ddcdddf4440ee10124f7da1b8741c166e6e7f6f4dd9de8f489c77e43",
+          "frame-c81d8eeb5adfbda36173d8525c1378f4a22acda6b74f34091940848148a5e8a5"
+        ],
+        "status": "complete",
+        "schema_version": 1,
+        "frame_size": [
+          384,
+          288
+        ]
+      },
+      "inference": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.5-flash-lite",
+        "model_version": "gemini-3.5-flash-lite",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            4096
+          ],
+          [
+            "thinking_level",
+            "LOW"
+          ]
+        ],
+        "elapsed_ms": 6800,
+        "usage": [
+          [
+            "prompt_token_count",
+            21818
+          ],
+          [
+            "candidates_token_count",
+            152
+          ],
+          [
+            "total_token_count",
+            21970
+          ]
+        ]
+      },
+      "failure_stage": null
+    },
+    {
+      "path": "provider",
+      "modality": "frames",
+      "interval": {
+        "start_us": 20000000,
+        "end_us": 24960000
+      },
+      "status": "success",
+      "findings": [
+        {
+          "observation": {
+            "id": "observation-187d5a18a21e80aae7a7a4de796a9cae7e7058aa4a99421ab15945667e563b06",
+            "inspection_id": "inspection-528f7897aa78500fa84d5fb794d2ffea0a7c8c7a2cbca815aa72e1a855c16978",
+            "category": "insufficient_evidence",
+            "description": "An object bag is visible stationary on the right side across all frames F1 to F10, with no physical placement or removal action captured.",
+            "evidence": {
+              "frame_ids": [
+                "frame-33cf8253171403ffbcb1a7c8ac405b025adc1b8f7465f958d88af6f5118fb0fb",
+                "frame-ee1ce7b8f4ea9068fd883febdedbfc9e0d407ecd9d305c3c115a70d17faa127b",
+                "frame-e35535ed16952da30168650b24276f9ed19ab95ff65726887cd674b27ace93a1",
+                "frame-344385896ba45b32c945a562bf5360a9fd198341852b686ef989fb23fe436ac5",
+                "frame-31634321104304862602962942786f59519afc1855a724d0c255aeb725b7c6de",
+                "frame-aca03dd7e6b9bcc1f10f741bfc6bdec675d14ded687eca985a60a67f2ba2d0ee",
+                "frame-f98cb27986d40f259d1a590f52005e25eeeecaf08d9c0f5ba545f9a1b6c30b1f",
+                "frame-c9717c1e672bf84274a784f7e73141e0480013c62766fcb68b56af5f0d0a5f68",
+                "frame-f8de2ab12c4bb26fb728812a49dcea6bd213e21fb4f2a9f53f558f5ab2df2cd3",
+                "frame-951e0496213f562336d45c7958e429894c922494f30563f5124026e62e12e62b"
+              ]
+            },
+            "visibility_limits": "Entire floor area visible, but placement action occurred before the recording started.",
+            "uncertainty": "Exact timing of the object's appearance is unknown.",
+            "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inference_metadata": {
+              "provider": "google-gemini-developer-api",
+              "model_id": "gemini-3.5-flash-lite",
+              "model_version": "gemini-3.5-flash-lite",
+              "adapter_version": "1",
+              "prompt_version": "e1-v1",
+              "settings": [
+                [
+                  "sdk_version",
+                  "3.6.1"
+                ],
+                [
+                  "max_output_tokens",
+                  4096
+                ],
+                [
+                  "thinking_level",
+                  "LOW"
+                ]
+              ],
+              "elapsed_ms": 3837,
+              "usage": [
+                [
+                  "prompt_token_count",
+                  11008
+                ],
+                [
+                  "candidates_token_count",
+                  162
+                ],
+                [
+                  "total_token_count",
+                  11170
+                ]
+              ]
+            },
+            "schema_version": 1
+          },
+          "citation": {
+            "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inspection_id": "inspection-528f7897aa78500fa84d5fb794d2ffea0a7c8c7a2cbca815aa72e1a855c16978",
+            "modality": "frames",
+            "interval": {
+              "start_us": 20000000,
+              "end_us": 24520001
+            },
+            "frames": [
+              {
+                "id": "frame-33cf8253171403ffbcb1a7c8ac405b025adc1b8f7465f958d88af6f5118fb0fb",
+                "display_index": 500,
+                "pts": 256000,
+                "source_time_us": 20000000,
+                "rgb24_sha256": "7f503ac40270cfe1631799a1d250fc0bc6602267f56d0ab8584b42d9b6cc6ba9",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-ee1ce7b8f4ea9068fd883febdedbfc9e0d407ecd9d305c3c115a70d17faa127b",
+                "display_index": 513,
+                "pts": 262656,
+                "source_time_us": 20520000,
+                "rgb24_sha256": "36d713df36ed89ddf372dfcdc8c4d1b40fe378058c840895237a90032244d5c9",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-e35535ed16952da30168650b24276f9ed19ab95ff65726887cd674b27ace93a1",
+                "display_index": 525,
+                "pts": 268800,
+                "source_time_us": 21000000,
+                "rgb24_sha256": "ba9e766880f772edb1cca12027a8b443588a18bb9d0a76c85444cdb3dded5962",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-344385896ba45b32c945a562bf5360a9fd198341852b686ef989fb23fe436ac5",
+                "display_index": 538,
+                "pts": 275456,
+                "source_time_us": 21520000,
+                "rgb24_sha256": "90082e4497f9bea71696b999551db8ff857b029cf0c9a0280c82794f77cec4a7",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-31634321104304862602962942786f59519afc1855a724d0c255aeb725b7c6de",
+                "display_index": 550,
+                "pts": 281600,
+                "source_time_us": 22000000,
+                "rgb24_sha256": "fba2ff3b7a08bea57d908763a645e0ec3ff48ac49972fa74f5f2c8d831a5994f",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-aca03dd7e6b9bcc1f10f741bfc6bdec675d14ded687eca985a60a67f2ba2d0ee",
+                "display_index": 563,
+                "pts": 288256,
+                "source_time_us": 22520000,
+                "rgb24_sha256": "dab4cfa49b0fff1519eb8b67a87a74aec08e877c4614f5acfd831868696712f7",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-f98cb27986d40f259d1a590f52005e25eeeecaf08d9c0f5ba545f9a1b6c30b1f",
+                "display_index": 575,
+                "pts": 294400,
+                "source_time_us": 23000000,
+                "rgb24_sha256": "1d55a3c7e4775ac883038f7bf1cf58fd1a8a9cc490773419cc16e71febf91e19",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-c9717c1e672bf84274a784f7e73141e0480013c62766fcb68b56af5f0d0a5f68",
+                "display_index": 588,
+                "pts": 301056,
+                "source_time_us": 23520000,
+                "rgb24_sha256": "49dbf929a1a2ce67a0611bd54a6bfbe3d4eeb6459fba92bab15d7058f6a12c18",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-f8de2ab12c4bb26fb728812a49dcea6bd213e21fb4f2a9f53f558f5ab2df2cd3",
+                "display_index": 600,
+                "pts": 307200,
+                "source_time_us": 24000000,
+                "rgb24_sha256": "0ea9e9ec8895652df1ab2a6faeebc5fd36e3a739188043b5126e179b9d29c8d2",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-951e0496213f562336d45c7958e429894c922494f30563f5124026e62e12e62b",
+                "display_index": 613,
+                "pts": 313856,
+                "source_time_us": 24520000,
+                "rgb24_sha256": "69fa1f562c895407a42324644fe5dc55bac08b3b2b8aeb05fa95d78c2c926c17",
+                "schema_version": 1
+              }
+            ]
+          }
+        }
+      ],
+      "error": null,
+      "coverage": [
+        {
+          "start_us": 20000000,
+          "end_us": 20000001
+        },
+        {
+          "start_us": 20520000,
+          "end_us": 20520001
+        },
+        {
+          "start_us": 21000000,
+          "end_us": 21000001
+        },
+        {
+          "start_us": 21520000,
+          "end_us": 21520001
+        },
+        {
+          "start_us": 22000000,
+          "end_us": 22000001
+        },
+        {
+          "start_us": 22520000,
+          "end_us": 22520001
+        },
+        {
+          "start_us": 23000000,
+          "end_us": 23000001
+        },
+        {
+          "start_us": 23520000,
+          "end_us": 23520001
+        },
+        {
+          "start_us": 24000000,
+          "end_us": 24000001
+        },
+        {
+          "start_us": 24520000,
+          "end_us": 24520001
+        }
+      ],
+      "phase": "initial",
+      "inspection": {
+        "id": "inspection-528f7897aa78500fa84d5fb794d2ffea0a7c8c7a2cbca815aa72e1a855c16978",
+        "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+        "requested_interval": {
+          "start_us": 20000000,
+          "end_us": 24960000
+        },
+        "requested_times_us": [
+          20000000,
+          20500000,
+          21000000,
+          21500000,
+          22000000,
+          22500000,
+          23000000,
+          23500000,
+          24000000,
+          24500000
+        ],
+        "modality": "frames",
+        "selection_policy": "first_at_or_after_within_interval",
+        "pixel_format": "rgb24",
+        "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+        "frames": [
+          {
+            "id": "frame-33cf8253171403ffbcb1a7c8ac405b025adc1b8f7465f958d88af6f5118fb0fb",
+            "display_index": 500,
+            "pts": 256000,
+            "source_time_us": 20000000,
+            "rgb24_sha256": "7f503ac40270cfe1631799a1d250fc0bc6602267f56d0ab8584b42d9b6cc6ba9",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-ee1ce7b8f4ea9068fd883febdedbfc9e0d407ecd9d305c3c115a70d17faa127b",
+            "display_index": 513,
+            "pts": 262656,
+            "source_time_us": 20520000,
+            "rgb24_sha256": "36d713df36ed89ddf372dfcdc8c4d1b40fe378058c840895237a90032244d5c9",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-e35535ed16952da30168650b24276f9ed19ab95ff65726887cd674b27ace93a1",
+            "display_index": 525,
+            "pts": 268800,
+            "source_time_us": 21000000,
+            "rgb24_sha256": "ba9e766880f772edb1cca12027a8b443588a18bb9d0a76c85444cdb3dded5962",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-344385896ba45b32c945a562bf5360a9fd198341852b686ef989fb23fe436ac5",
+            "display_index": 538,
+            "pts": 275456,
+            "source_time_us": 21520000,
+            "rgb24_sha256": "90082e4497f9bea71696b999551db8ff857b029cf0c9a0280c82794f77cec4a7",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-31634321104304862602962942786f59519afc1855a724d0c255aeb725b7c6de",
+            "display_index": 550,
+            "pts": 281600,
+            "source_time_us": 22000000,
+            "rgb24_sha256": "fba2ff3b7a08bea57d908763a645e0ec3ff48ac49972fa74f5f2c8d831a5994f",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-aca03dd7e6b9bcc1f10f741bfc6bdec675d14ded687eca985a60a67f2ba2d0ee",
+            "display_index": 563,
+            "pts": 288256,
+            "source_time_us": 22520000,
+            "rgb24_sha256": "dab4cfa49b0fff1519eb8b67a87a74aec08e877c4614f5acfd831868696712f7",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-f98cb27986d40f259d1a590f52005e25eeeecaf08d9c0f5ba545f9a1b6c30b1f",
+            "display_index": 575,
+            "pts": 294400,
+            "source_time_us": 23000000,
+            "rgb24_sha256": "1d55a3c7e4775ac883038f7bf1cf58fd1a8a9cc490773419cc16e71febf91e19",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-c9717c1e672bf84274a784f7e73141e0480013c62766fcb68b56af5f0d0a5f68",
+            "display_index": 588,
+            "pts": 301056,
+            "source_time_us": 23520000,
+            "rgb24_sha256": "49dbf929a1a2ce67a0611bd54a6bfbe3d4eeb6459fba92bab15d7058f6a12c18",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-f8de2ab12c4bb26fb728812a49dcea6bd213e21fb4f2a9f53f558f5ab2df2cd3",
+            "display_index": 600,
+            "pts": 307200,
+            "source_time_us": 24000000,
+            "rgb24_sha256": "0ea9e9ec8895652df1ab2a6faeebc5fd36e3a739188043b5126e179b9d29c8d2",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-951e0496213f562336d45c7958e429894c922494f30563f5124026e62e12e62b",
+            "display_index": 613,
+            "pts": 313856,
+            "source_time_us": 24520000,
+            "rgb24_sha256": "69fa1f562c895407a42324644fe5dc55bac08b3b2b8aeb05fa95d78c2c926c17",
+            "schema_version": 1
+          }
+        ],
+        "frame_ids_by_request": [
+          "frame-33cf8253171403ffbcb1a7c8ac405b025adc1b8f7465f958d88af6f5118fb0fb",
+          "frame-ee1ce7b8f4ea9068fd883febdedbfc9e0d407ecd9d305c3c115a70d17faa127b",
+          "frame-e35535ed16952da30168650b24276f9ed19ab95ff65726887cd674b27ace93a1",
+          "frame-344385896ba45b32c945a562bf5360a9fd198341852b686ef989fb23fe436ac5",
+          "frame-31634321104304862602962942786f59519afc1855a724d0c255aeb725b7c6de",
+          "frame-aca03dd7e6b9bcc1f10f741bfc6bdec675d14ded687eca985a60a67f2ba2d0ee",
+          "frame-f98cb27986d40f259d1a590f52005e25eeeecaf08d9c0f5ba545f9a1b6c30b1f",
+          "frame-c9717c1e672bf84274a784f7e73141e0480013c62766fcb68b56af5f0d0a5f68",
+          "frame-f8de2ab12c4bb26fb728812a49dcea6bd213e21fb4f2a9f53f558f5ab2df2cd3",
+          "frame-951e0496213f562336d45c7958e429894c922494f30563f5124026e62e12e62b"
+        ],
+        "status": "complete",
+        "schema_version": 1,
+        "frame_size": [
+          384,
+          288
+        ]
+      },
+      "inference": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.5-flash-lite",
+        "model_version": "gemini-3.5-flash-lite",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            4096
+          ],
+          [
+            "thinking_level",
+            "LOW"
+          ]
+        ],
+        "elapsed_ms": 3837,
+        "usage": [
+          [
+            "prompt_token_count",
+            11008
+          ],
+          [
+            "candidates_token_count",
+            162
+          ],
+          [
+            "total_token_count",
+            11170
+          ]
+        ]
+      },
+      "failure_stage": null
+    },
+    {
+      "path": "provider",
+      "modality": "frames",
+      "interval": {
+        "start_us": 0,
+        "end_us": 2000000
+      },
+      "status": "success",
+      "findings": [
+        {
+          "observation": {
+            "id": "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5",
+            "inspection_id": "inspection-41f64ff6c8a6839b22c6c1ecc836bf74d904dbe6516e64844adb7bb58a01cb26",
+            "category": "person_moved",
+            "description": "A person wearing a dark shirt and blue jeans walks across the floor from the right side towards the bottom edge, visible walking from F1 to F2.",
+            "evidence": {
+              "frame_ids": [
+                "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117"
+              ]
+            },
+            "visibility_limits": "Limited to the overhead camera field of view.",
+            "uncertainty": "Timing uncertainty is within the frame intervals (~520ms).",
+            "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inference_metadata": {
+              "provider": "google-gemini-developer-api",
+              "model_id": "gemini-3.5-flash-lite",
+              "model_version": "gemini-3.5-flash-lite",
+              "adapter_version": "1",
+              "prompt_version": "e1-v1",
+              "settings": [
+                [
+                  "sdk_version",
+                  "3.6.1"
+                ],
+                [
+                  "max_output_tokens",
+                  4096
+                ],
+                [
+                  "thinking_level",
+                  "LOW"
+                ]
+              ],
+              "elapsed_ms": 2628,
+              "usage": [
+                [
+                  "prompt_token_count",
+                  4516
+                ],
+                [
+                  "candidates_token_count",
+                  233
+                ],
+                [
+                  "total_token_count",
+                  4749
+                ]
+              ]
+            },
+            "schema_version": 1
+          },
+          "citation": {
+            "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inspection_id": "inspection-41f64ff6c8a6839b22c6c1ecc836bf74d904dbe6516e64844adb7bb58a01cb26",
+            "modality": "frames",
+            "interval": {
+              "start_us": 0,
+              "end_us": 520001
+            },
+            "frames": [
+              {
+                "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+                "display_index": 0,
+                "pts": 0,
+                "source_time_us": 0,
+                "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+                "display_index": 13,
+                "pts": 6656,
+                "source_time_us": 520000,
+                "rgb24_sha256": "714a32f8405451be5ced614bc6cd67e2699da716018461d098a5127cb6a0ffae",
+                "schema_version": 1
+              }
+            ]
+          }
+        },
+        {
+          "observation": {
+            "id": "observation-250fc74388e3014c58efc8047055bf965fee49d9539edb9c3ad9c3b679683d96",
+            "inspection_id": "inspection-41f64ff6c8a6839b22c6c1ecc836bf74d904dbe6516e64844adb7bb58a01cb26",
+            "category": "person_moved",
+            "description": "The person continues walking downwards and exits the bottom edge of the frame between F2 and F3.",
+            "evidence": {
+              "frame_ids": [
+                "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+                "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2"
+              ]
+            },
+            "visibility_limits": "Limited to the overhead camera field of view.",
+            "uncertainty": "Timing uncertainty is within the frame intervals (~520ms).",
+            "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inference_metadata": {
+              "provider": "google-gemini-developer-api",
+              "model_id": "gemini-3.5-flash-lite",
+              "model_version": "gemini-3.5-flash-lite",
+              "adapter_version": "1",
+              "prompt_version": "e1-v1",
+              "settings": [
+                [
+                  "sdk_version",
+                  "3.6.1"
+                ],
+                [
+                  "max_output_tokens",
+                  4096
+                ],
+                [
+                  "thinking_level",
+                  "LOW"
+                ]
+              ],
+              "elapsed_ms": 2628,
+              "usage": [
+                [
+                  "prompt_token_count",
+                  4516
+                ],
+                [
+                  "candidates_token_count",
+                  233
+                ],
+                [
+                  "total_token_count",
+                  4749
+                ]
+              ]
+            },
+            "schema_version": 1
+          },
+          "citation": {
+            "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+            "inspection_id": "inspection-41f64ff6c8a6839b22c6c1ecc836bf74d904dbe6516e64844adb7bb58a01cb26",
+            "modality": "frames",
+            "interval": {
+              "start_us": 520000,
+              "end_us": 1000001
+            },
+            "frames": [
+              {
+                "id": "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+                "display_index": 13,
+                "pts": 6656,
+                "source_time_us": 520000,
+                "rgb24_sha256": "714a32f8405451be5ced614bc6cd67e2699da716018461d098a5127cb6a0ffae",
+                "schema_version": 1
+              },
+              {
+                "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+                "display_index": 25,
+                "pts": 12800,
+                "source_time_us": 1000000,
+                "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+                "schema_version": 1
+              }
+            ]
+          }
+        }
+      ],
+      "error": null,
+      "coverage": [
+        {
+          "start_us": 0,
+          "end_us": 1
+        },
+        {
+          "start_us": 520000,
+          "end_us": 520001
+        },
+        {
+          "start_us": 1000000,
+          "end_us": 1000001
+        },
+        {
+          "start_us": 1520000,
+          "end_us": 1520001
+        }
+      ],
+      "phase": "targeted",
+      "inspection": {
+        "id": "inspection-41f64ff6c8a6839b22c6c1ecc836bf74d904dbe6516e64844adb7bb58a01cb26",
+        "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+        "requested_interval": {
+          "start_us": 0,
+          "end_us": 2000000
+        },
+        "requested_times_us": [
+          0,
+          500000,
+          1000000,
+          1500000
+        ],
+        "modality": "frames",
+        "selection_policy": "first_at_or_after_within_interval",
+        "pixel_format": "rgb24",
+        "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+        "frames": [
+          {
+            "id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+            "display_index": 0,
+            "pts": 0,
+            "source_time_us": 0,
+            "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+            "display_index": 13,
+            "pts": 6656,
+            "source_time_us": 520000,
+            "rgb24_sha256": "714a32f8405451be5ced614bc6cd67e2699da716018461d098a5127cb6a0ffae",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+            "display_index": 25,
+            "pts": 12800,
+            "source_time_us": 1000000,
+            "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71",
+            "schema_version": 1
+          },
+          {
+            "id": "frame-cfbfec091a21efabb640d08fd47feda5a8e0914509ec5cae49418d38a3ce4954",
+            "display_index": 38,
+            "pts": 19456,
+            "source_time_us": 1520000,
+            "rgb24_sha256": "195839835883e609f18c4bd7f8eaace09d4119ea1a2b622a6472847305a1f478",
+            "schema_version": 1
+          }
+        ],
+        "frame_ids_by_request": [
+          "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+          "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+          "frame-c2fc7db1550a84279bf80ac6a925eee872c93aa6de233d48607e3adbe03bb1e2",
+          "frame-cfbfec091a21efabb640d08fd47feda5a8e0914509ec5cae49418d38a3ce4954"
+        ],
+        "status": "complete",
+        "schema_version": 1,
+        "frame_size": [
+          384,
+          288
+        ]
+      },
+      "inference": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.5-flash-lite",
+        "model_version": "gemini-3.5-flash-lite",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            4096
+          ],
+          [
+            "thinking_level",
+            "LOW"
+          ]
+        ],
+        "elapsed_ms": 2628,
+        "usage": [
+          [
+            "prompt_token_count",
+            4516
+          ],
+          [
+            "candidates_token_count",
+            233
+          ],
+          [
+            "total_token_count",
+            4749
+          ]
+        ]
+      },
+      "failure_stage": null
+    }
+  ],
+  "recorded_trace": [
+    {
+      "actor": "workflow",
+      "action": "ingest",
+      "reason": "Verified source video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd; 3 initial evidence records available.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "workflow",
+      "action": "evidence_result",
+      "reason": "frames [0, 10000000) \u00b5s: success",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "workflow",
+      "action": "evidence_result",
+      "reason": "frames [10000000, 20000000) \u00b5s: success",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "workflow",
+      "action": "evidence_result",
+      "reason": "frames [20000000, 24960000) \u00b5s: success",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "START",
+        "to": "investigate"
+      }
+    },
+    {
+      "actor": "investigation",
+      "action": "decision",
+      "reason": "delegate: Delegate major person movement and object appearance candidates while marking static object/insufficient evidence observations appropriately.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "investigation",
+      "action": "triage",
+      "reason": "Recorded observation dispositions.",
+      "observation_ids": [
+        "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b",
+        "observation-6fb87d692bb39d7e7caa18e572c005f1fb39810df4562afb02fe59b349c7c96d",
+        "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6",
+        "observation-99da36e3e6b4a2023c0d8fd1b07e665d3fdfd64aa6f17c0b494e70059755c787",
+        "observation-187d5a18a21e80aae7a7a4de796a9cae7e7058aa4a99421ab15945667e563b06"
+      ],
+      "recipient": null,
+      "details": {
+        "dispositions": [
+          {
+            "id": "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b",
+            "status": "delegated"
+          },
+          {
+            "id": "observation-6fb87d692bb39d7e7caa18e572c005f1fb39810df4562afb02fe59b349c7c96d",
+            "status": "delegated"
+          },
+          {
+            "id": "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6",
+            "status": "delegated"
+          },
+          {
+            "id": "observation-99da36e3e6b4a2023c0d8fd1b07e665d3fdfd64aa6f17c0b494e70059755c787",
+            "status": "associated",
+            "reason": "Associated with person movement candidate.",
+            "candidate_id": "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b",
+            "correspondence": {
+              "id": "observation-99da36e3e6b4a2023c0d8fd1b07e665d3fdfd64aa6f17c0b494e70059755c787",
+              "status": "same_event",
+              "seed_quote": "The person in blue clothing moves across the floor in the lower right area.",
+              "other_quote": "A person in blue clothing appears in the lower right area of the frame.",
+              "shared_frame_id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4"
+            }
+          },
+          {
+            "id": "observation-187d5a18a21e80aae7a7a4de796a9cae7e7058aa4a99421ab15945667e563b06",
+            "status": "excluded",
+            "reason": "Insufficient evidence of physical placement or motion; static object."
+          }
+        ],
+        "omitted_ids": []
+      }
+    },
+    {
+      "actor": "investigation",
+      "action": "delegate",
+      "reason": "Sent candidate evidence to verification.",
+      "observation_ids": [
+        "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b",
+        "observation-6fb87d692bb39d7e7caa18e572c005f1fb39810df4562afb02fe59b349c7c96d",
+        "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6"
+      ],
+      "recipient": "verification",
+      "details": null
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "investigate",
+        "to": "start_candidate"
+      }
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "start_candidate",
+        "to": "decide"
+      }
+    },
+    {
+      "actor": "verification",
+      "action": "decision",
+      "reason": "inspect: Inspect frames at the start of the video to verify the movement of the person in blue clothing in the lower right area.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "decide",
+        "to": "inspect"
+      }
+    },
+    {
+      "actor": "verification",
+      "action": "inspect",
+      "reason": "Inspect the requested source interval.",
+      "observation_ids": [
+        "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b"
+      ],
+      "recipient": null,
+      "details": {
+        "modality": "frames",
+        "start_us": 0,
+        "end_us": 2000000
+      }
+    },
+    {
+      "actor": "verification",
+      "action": "tool_result",
+      "reason": "2 observations added to visible evidence.",
+      "observation_ids": [
+        "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5",
+        "observation-250fc74388e3014c58efc8047055bf965fee49d9539edb9c3ad9c3b679683d96"
+      ],
+      "recipient": null,
+      "details": {
+        "status": "partial",
+        "requested": {
+          "start_us": 0,
+          "end_us": 2000000
+        },
+        "coverage": [
+          {
+            "start_us": 0,
+            "end_us": 1
+          },
+          {
+            "start_us": 520000,
+            "end_us": 520001
+          },
+          {
+            "start_us": 1000000,
+            "end_us": 1000001
+          },
+          {
+            "start_us": 1520000,
+            "end_us": 1520001
+          }
+        ],
+        "citation_spans": [
+          {
+            "id": "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5",
+            "start_us": 0,
+            "end_us": 520001
+          },
+          {
+            "id": "observation-250fc74388e3014c58efc8047055bf965fee49d9539edb9c3ad9c3b679683d96",
+            "start_us": 520000,
+            "end_us": 1000001
+          }
+        ],
+        "excluded_citation_spans": [],
+        "archived_failures": 0,
+        "matches": 1,
+        "ids": [
+          "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5",
+          "observation-250fc74388e3014c58efc8047055bf965fee49d9539edb9c3ad9c3b679683d96"
+        ]
+      }
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "inspect",
+        "to": "decide"
+      }
+    },
+    {
+      "actor": "verification",
+      "action": "decision",
+      "reason": "verdict: The delegated observation 'observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b' describes the person in blue clothing moving across the floor in the lower right area between frame-d90d4107bd8820496436193b769fb8ced22",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "decide",
+        "to": "validate"
+      }
+    },
+    {
+      "actor": "verification",
+      "action": "correspondence",
+      "reason": "Validated pair assessments.",
+      "observation_ids": [
+        "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5"
+      ],
+      "recipient": null,
+      "details": {
+        "assessments": [
+          {
+            "id": "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5",
+            "status": "same_event",
+            "seed_quote": "The person in blue clothing moves across the floor in the lower right area.",
+            "other_quote": "A person wearing a dark shirt and blue jeans walks across the floor from the right side towards the bottom edge, visible walking from F1 to F2.",
+            "shared_frame_id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4"
+          }
+        ]
+      }
+    },
+    {
+      "actor": "verification",
+      "action": "transition_evidence",
+      "reason": "Accepted model-assessed before/after frame references.",
+      "observation_ids": [
+        "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b"
+      ],
+      "recipient": null,
+      "details": {
+        "observation_id": "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b",
+        "before_frame_id": "frame-d90d4107bd8820496436193b769fb8ced22c37eea0ed200d1e508f35cf4b5ae4",
+        "after_frame_id": "frame-24c08fbf69cfb36c8b93d30cbfe4ca96511e54475aa693e787c9cbf3ca359117",
+        "interval": {
+          "start_us": 0,
+          "end_us": 520001
+        }
+      }
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "validate",
+        "to": "finish"
+      }
+    },
+    {
+      "actor": "verification",
+      "action": "verdict",
+      "reason": "supported: The delegated observation 'observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b' describes the person in blue clothing moving across the floor in the lower right area between frame-d90d4107bd8820496436193b769fb8ced22",
+      "observation_ids": [
+        "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b"
+      ],
+      "recipient": "reporting",
+      "details": {
+        "candidate_id": "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b",
+        "outcome": "supported",
+        "completed": true
+      }
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "finish",
+        "to": "start_candidate"
+      }
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "start_candidate",
+        "to": "decide"
+      }
+    },
+    {
+      "actor": "verification",
+      "action": "decision",
+      "reason": "verdict: The candidate observation explicitly states that the object was present since F1 without an observable physical placement action, so object_appeared is unsupported.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "decide",
+        "to": "validate"
+      }
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "validate",
+        "to": "finish"
+      }
+    },
+    {
+      "actor": "verification",
+      "action": "verdict",
+      "reason": "unsupported: The candidate observation explicitly states that the object was present since F1 without an observable physical placement action, so object_appeared is unsupported.",
+      "observation_ids": [
+        "observation-6fb87d692bb39d7e7caa18e572c005f1fb39810df4562afb02fe59b349c7c96d"
+      ],
+      "recipient": "reporting",
+      "details": {
+        "candidate_id": "observation-6fb87d692bb39d7e7caa18e572c005f1fb39810df4562afb02fe59b349c7c96d",
+        "outcome": "unsupported",
+        "completed": true
+      }
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "finish",
+        "to": "start_candidate"
+      }
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "start_candidate",
+        "to": "decide"
+      }
+    },
+    {
+      "actor": "verification",
+      "action": "decision",
+      "reason": "verdict: The frames provided clearly show the two individuals walking across the hallway floor between frame 1 (10000000 us) and frame 10 (14520000 us), fully supporting the observation.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "decide",
+        "to": "validate"
+      }
+    },
+    {
+      "actor": "verification",
+      "action": "transition_evidence",
+      "reason": "Accepted model-assessed before/after frame references.",
+      "observation_ids": [
+        "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6"
+      ],
+      "recipient": null,
+      "details": {
+        "observation_id": "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6",
+        "before_frame_id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+        "after_frame_id": "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+        "interval": {
+          "start_us": 10000000,
+          "end_us": 14520001
+        }
+      }
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "validate",
+        "to": "finish"
+      }
+    },
+    {
+      "actor": "verification",
+      "action": "verdict",
+      "reason": "supported: The frames provided clearly show the two individuals walking across the hallway floor between frame 1 (10000000 us) and frame 10 (14520000 us), fully supporting the observation.",
+      "observation_ids": [
+        "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6"
+      ],
+      "recipient": "reporting",
+      "details": {
+        "candidate_id": "observation-6fcfe054d68730ed586a7ac4d98d668defcea51e267ca8923b71c1d6c56f2ee6",
+        "outcome": "supported",
+        "completed": true
+      }
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "finish",
+        "to": "start_candidate"
+      }
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "start_candidate",
+        "to": "report"
+      }
+    },
+    {
+      "actor": "reporting",
+      "action": "decision",
+      "reason": "report: Reporting supported lead observation with emphasis on evidence.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "reporting",
+      "action": "render",
+      "reason": "Rendered 4 verified or unresolved items.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": null
+    },
+    {
+      "actor": "reporting",
+      "action": "select",
+      "reason": "Accepted the report emphasis and lead.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "lead_id": "observation-5fd8bfe3661d97d21154799d9d8f2159bb65035a1d973de095aba61569ba9d6b",
+        "emphasis": "evidence"
+      }
+    },
+    {
+      "actor": "workflow",
+      "action": "graph_transition",
+      "reason": "StateGraph advanced.",
+      "observation_ids": [],
+      "recipient": null,
+      "details": {
+        "from": "report",
+        "to": "END"
+      }
+    }
+  ],
+  "recorded_role_calls": [
+    {
+      "role": "investigation",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 2994,
+        "candidates_token_count": 705,
+        "total_token_count": 3699
+      },
+      "transport_attempts": [
+        {
+          "request_number": 1,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 4481
+    },
+    {
+      "role": "verification",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 1200,
+        "candidates_token_count": 75,
+        "thoughts_token_count": 255,
+        "total_token_count": 1530
+      },
+      "transport_attempts": [
+        {
+          "request_number": 2,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 2731
+    },
+    {
+      "role": "verification",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 2420,
+        "candidates_token_count": 875,
+        "total_token_count": 3295
+      },
+      "transport_attempts": [
+        {
+          "request_number": 3,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 5219
+    },
+    {
+      "role": "verification",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 1604,
+        "candidates_token_count": 127,
+        "total_token_count": 1731
+      },
+      "transport_attempts": [
+        {
+          "request_number": 4,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 1944
+    },
+    {
+      "role": "verification",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 1440,
+        "candidates_token_count": 364,
+        "total_token_count": 1804
+      },
+      "transport_attempts": [
+        {
+          "request_number": 5,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 2354
+    },
+    {
+      "role": "reporting",
+      "model": "gemini-3.6-flash",
+      "status": "received",
+      "usage": {
+        "prompt_token_count": 660,
+        "candidates_token_count": 85,
+        "total_token_count": 745
+      },
+      "transport_attempts": [
+        {
+          "request_number": 6,
+          "http_status": 200
+        }
+      ],
+      "model_version": "gemini-3.6-flash",
+      "elapsed_ms": 1740
+    }
+  ],
+  "decoded_frames": [
+    {
+      "index": 0,
+      "pts": 0,
+      "source_time_us": 0,
+      "rgb24_sha256": "0def93ef40c5e1e4d889f5b40448238192d20751cb48a8ee3208ee32fd8b5ed2"
+    },
+    {
+      "index": 13,
+      "pts": 6656,
+      "source_time_us": 520000,
+      "rgb24_sha256": "714a32f8405451be5ced614bc6cd67e2699da716018461d098a5127cb6a0ffae"
+    },
+    {
+      "index": 25,
+      "pts": 12800,
+      "source_time_us": 1000000,
+      "rgb24_sha256": "09348a4ce7177812314b72cfa7917d72646d56af92374a6cca9bbec2befcbd71"
+    },
+    {
+      "index": 38,
+      "pts": 19456,
+      "source_time_us": 1520000,
+      "rgb24_sha256": "195839835883e609f18c4bd7f8eaace09d4119ea1a2b622a6472847305a1f478"
+    },
+    {
+      "index": 50,
+      "pts": 25600,
+      "source_time_us": 2000000,
+      "rgb24_sha256": "c482921221fd98e75d465be395f2d191e57706c5e7448a811dfb6336e47ed7ab"
+    },
+    {
+      "index": 63,
+      "pts": 32256,
+      "source_time_us": 2520000,
+      "rgb24_sha256": "7b601becaa5017b962d0a93d439de0874e6e6c924db3b50ecab4e66282e9f95a"
+    },
+    {
+      "index": 75,
+      "pts": 38400,
+      "source_time_us": 3000000,
+      "rgb24_sha256": "7fa8413c14165687b3030fefc03d9711d7406bf27a1cfc72b3ec56cfe3e15ba9"
+    },
+    {
+      "index": 88,
+      "pts": 45056,
+      "source_time_us": 3520000,
+      "rgb24_sha256": "386ea2d37209599419ac1aa98c866fb62991694fefbadd1679c27417dfc9f70e"
+    },
+    {
+      "index": 100,
+      "pts": 51200,
+      "source_time_us": 4000000,
+      "rgb24_sha256": "a5e14696b60f172ead106fb7ddbd4f76ae344cc1d24654b49fce03c254852d68"
+    },
+    {
+      "index": 113,
+      "pts": 57856,
+      "source_time_us": 4520000,
+      "rgb24_sha256": "62f914bee99d97224af3f6d7f2d6a3976474e5ca65e7e8924c222779f080aadf"
+    },
+    {
+      "index": 125,
+      "pts": 64000,
+      "source_time_us": 5000000,
+      "rgb24_sha256": "8a7f08da2bb75abf8f4aec43cfcabda9b70293edfcfb1327657fed3f2257a735"
+    },
+    {
+      "index": 138,
+      "pts": 70656,
+      "source_time_us": 5520000,
+      "rgb24_sha256": "8845d998cb2bce32e2f72daee8889ba54ebbb7ae5807aa5b6d3d1f373e52d2f0"
+    },
+    {
+      "index": 150,
+      "pts": 76800,
+      "source_time_us": 6000000,
+      "rgb24_sha256": "98a9a25fdce06e834fd1e5ebd3dbbaceaec19ab8284b36672f5d9f20eb216496"
+    },
+    {
+      "index": 163,
+      "pts": 83456,
+      "source_time_us": 6520000,
+      "rgb24_sha256": "43a5a5f10662c139992527e55bb1ce853cf87cc6d0d0f1bc3281818e80bc9b6d"
+    },
+    {
+      "index": 175,
+      "pts": 89600,
+      "source_time_us": 7000000,
+      "rgb24_sha256": "3ac9fc4c268adc8bd50276abe5d803692c9bce6bfcc1c37d885cc0185f4f47da"
+    },
+    {
+      "index": 188,
+      "pts": 96256,
+      "source_time_us": 7520000,
+      "rgb24_sha256": "14214b22226eca46a65a42b48fadfa1c478525c07af147c101c136982b90b87b"
+    },
+    {
+      "index": 200,
+      "pts": 102400,
+      "source_time_us": 8000000,
+      "rgb24_sha256": "f9950625fedc8bd596e3dd8e97d4e41523a5c2c54e0921ba2012d7e2d2b6deab"
+    },
+    {
+      "index": 213,
+      "pts": 109056,
+      "source_time_us": 8520000,
+      "rgb24_sha256": "958c5363b73b947a3af6f838f8124ae46806f0ed8961334e65e855b64fe8c9a3"
+    },
+    {
+      "index": 225,
+      "pts": 115200,
+      "source_time_us": 9000000,
+      "rgb24_sha256": "c61cbae1b01468998afc9cad396d2c235d300efcc3d39f527e3f74a8965cfcf7"
+    },
+    {
+      "index": 238,
+      "pts": 121856,
+      "source_time_us": 9520000,
+      "rgb24_sha256": "414deff064cfeb32d32bcce5c8f674e6daf070645663de7e8285690689f2c404"
+    },
+    {
+      "index": 250,
+      "pts": 128000,
+      "source_time_us": 10000000,
+      "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e"
+    },
+    {
+      "index": 251,
+      "pts": 128512,
+      "source_time_us": 10040000,
+      "rgb24_sha256": "36dbc136ebb318cc2714742ff63c01f915e52bb124a448656bb416fc5ad29810"
+    },
+    {
+      "index": 252,
+      "pts": 129024,
+      "source_time_us": 10080000,
+      "rgb24_sha256": "1ab774b6deaaa15cf535c604f5e1039a2931d8e27e54f0bc36682d0da9e24ec2"
+    },
+    {
+      "index": 253,
+      "pts": 129536,
+      "source_time_us": 10120000,
+      "rgb24_sha256": "fd96abf7e0f91acfb9cdc2f1f156b96cbf2fad4b3cc10dcfe75d699ad27ae723"
+    },
+    {
+      "index": 254,
+      "pts": 130048,
+      "source_time_us": 10160000,
+      "rgb24_sha256": "626c3dfedd02ccec34f3b3c12678780c41067ff67afd1515c8127e77e78bd15f"
+    },
+    {
+      "index": 255,
+      "pts": 130560,
+      "source_time_us": 10200000,
+      "rgb24_sha256": "84393e0cea5d0166affd403944c7f1f947ac63b625b61213de1707825f4ca6ce"
+    },
+    {
+      "index": 256,
+      "pts": 131072,
+      "source_time_us": 10240000,
+      "rgb24_sha256": "995390ad9732785e7ff9f71ce5715c1446eec577075626ecbfcb8f3127f1a624"
+    },
+    {
+      "index": 257,
+      "pts": 131584,
+      "source_time_us": 10280000,
+      "rgb24_sha256": "66163837689355609fde72b84ee65092d52696afbb4dc38866309516b1f0f24b"
+    },
+    {
+      "index": 258,
+      "pts": 132096,
+      "source_time_us": 10320000,
+      "rgb24_sha256": "d834dcca50006aa201e4af2b174d19829f75802a920058a0f0c4354cb92dc99a"
+    },
+    {
+      "index": 259,
+      "pts": 132608,
+      "source_time_us": 10360000,
+      "rgb24_sha256": "fafc9fed5d7663b32cb9b6fa57779ee5b03698ef77d4f4b5378b11221dd3f885"
+    },
+    {
+      "index": 260,
+      "pts": 133120,
+      "source_time_us": 10400000,
+      "rgb24_sha256": "c845158504aa77bfee7248f086712117c788b19dfc17231bd3c3074204164e50"
+    },
+    {
+      "index": 261,
+      "pts": 133632,
+      "source_time_us": 10440000,
+      "rgb24_sha256": "ca8f9bb52a5995d77b83e7227611f88b25e8b22db2c527ba28a35390ffb01f0d"
+    },
+    {
+      "index": 262,
+      "pts": 134144,
+      "source_time_us": 10480000,
+      "rgb24_sha256": "4b97c64a12ab053686e3e0b607a280812b031e98771c495402acb518eaf979a0"
+    },
+    {
+      "index": 263,
+      "pts": 134656,
+      "source_time_us": 10520000,
+      "rgb24_sha256": "a2a7bc34ad481bd607b0087b299a2a238deadf8a456837ca2e1de9812090de49"
+    },
+    {
+      "index": 264,
+      "pts": 135168,
+      "source_time_us": 10560000,
+      "rgb24_sha256": "c65216480f91371f75031e843891447e7f3f44157c5f761093b058f111bfbe86"
+    },
+    {
+      "index": 265,
+      "pts": 135680,
+      "source_time_us": 10600000,
+      "rgb24_sha256": "f17685a89ae39242923b007e7a73f76360c97b0e5f7c1885fef888a2107b74a9"
+    },
+    {
+      "index": 266,
+      "pts": 136192,
+      "source_time_us": 10640000,
+      "rgb24_sha256": "9f88db7fe7a01dbc5d2b7c70195355cdd87319bc81b3199921297d4266114e00"
+    },
+    {
+      "index": 267,
+      "pts": 136704,
+      "source_time_us": 10680000,
+      "rgb24_sha256": "be5b5fb781d38de47eb0542fc3fe54ac6b9b260339c8180b78f5c4dabb6efaea"
+    },
+    {
+      "index": 268,
+      "pts": 137216,
+      "source_time_us": 10720000,
+      "rgb24_sha256": "4983985444470b1d76ca03492e5ee3983a0774d3879d29231661b5c2e16179d4"
+    },
+    {
+      "index": 269,
+      "pts": 137728,
+      "source_time_us": 10760000,
+      "rgb24_sha256": "87f166f79e0da59f82074cf19ab08eca07dbd9763a8176df3976784801fc0993"
+    },
+    {
+      "index": 270,
+      "pts": 138240,
+      "source_time_us": 10800000,
+      "rgb24_sha256": "37272f7512102b5fe410d16d49a656c2273e2d71844247aac033dcc52c2df925"
+    },
+    {
+      "index": 271,
+      "pts": 138752,
+      "source_time_us": 10840000,
+      "rgb24_sha256": "eee73dc185429791f608b8c3f2ffa3fdae7b04d2752027b1beae7c73906cf764"
+    },
+    {
+      "index": 272,
+      "pts": 139264,
+      "source_time_us": 10880000,
+      "rgb24_sha256": "f673dcda97a70660e22884e2a8a5f876df9e946848e3313459e1485030bdf156"
+    },
+    {
+      "index": 273,
+      "pts": 139776,
+      "source_time_us": 10920000,
+      "rgb24_sha256": "80b367a44f3a4e7ffedb25cab7de489f9bc250642702d68a95205d9fb9fff95c"
+    },
+    {
+      "index": 274,
+      "pts": 140288,
+      "source_time_us": 10960000,
+      "rgb24_sha256": "de39e5eaa5d788489af9ecf8c349d639d0810484f1b54b8b0c25c4fbd19f54b3"
+    },
+    {
+      "index": 275,
+      "pts": 140800,
+      "source_time_us": 11000000,
+      "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8"
+    },
+    {
+      "index": 276,
+      "pts": 141312,
+      "source_time_us": 11040000,
+      "rgb24_sha256": "010d99abe72e7a4155a54a86f215c3ba91179936e15ddd82b9d3b4a748399849"
+    },
+    {
+      "index": 277,
+      "pts": 141824,
+      "source_time_us": 11080000,
+      "rgb24_sha256": "f66d7cdd42f8e470f7ec40f95bf499d507469030398bb282c53cb2830ddd6c65"
+    },
+    {
+      "index": 278,
+      "pts": 142336,
+      "source_time_us": 11120000,
+      "rgb24_sha256": "cd5c36a7355aeb49bf729b16806bb0c89dfa26203c1b4b34879dbdba327f3a77"
+    },
+    {
+      "index": 279,
+      "pts": 142848,
+      "source_time_us": 11160000,
+      "rgb24_sha256": "124b1ad6bcf26c227129c5dcca65afece4d06368dc10091fe76f7841a44584a6"
+    },
+    {
+      "index": 280,
+      "pts": 143360,
+      "source_time_us": 11200000,
+      "rgb24_sha256": "2b1056297ed6aca34994d8f1a8c0c61f293d8a6edb8949bd5638a0a7a9c5eb7b"
+    },
+    {
+      "index": 281,
+      "pts": 143872,
+      "source_time_us": 11240000,
+      "rgb24_sha256": "60d22afb33cc18cf0ed428d9a2f52f21526f61c1fe87d60ee04a53b4b059e9f5"
+    },
+    {
+      "index": 282,
+      "pts": 144384,
+      "source_time_us": 11280000,
+      "rgb24_sha256": "4bba5f0c69333fe34041415c15cf600c1887ef717dff670dc7fc58e3c060f633"
+    },
+    {
+      "index": 283,
+      "pts": 144896,
+      "source_time_us": 11320000,
+      "rgb24_sha256": "c813429175d1efb7d36c97da1f047057cc9d33a97a161620dee95440b4b88003"
+    },
+    {
+      "index": 284,
+      "pts": 145408,
+      "source_time_us": 11360000,
+      "rgb24_sha256": "d1020a8aba182dcd2d523d0659687ee4b6e5fe744dd59b07683d07e51c0bdcd1"
+    },
+    {
+      "index": 285,
+      "pts": 145920,
+      "source_time_us": 11400000,
+      "rgb24_sha256": "de9de55ae0175c3dc5b1caeecec389562433fb7b1feba1d9ecc189fcf0cad15e"
+    },
+    {
+      "index": 286,
+      "pts": 146432,
+      "source_time_us": 11440000,
+      "rgb24_sha256": "8892ca138c26e115d21a767b42d8d154588b275e001a5f6edff4d39c5bfb003e"
+    },
+    {
+      "index": 287,
+      "pts": 146944,
+      "source_time_us": 11480000,
+      "rgb24_sha256": "cce5c0d5ff4c1c23b096c63210bd7112a826edc4fff4fb98bfd4495c068006c5"
+    },
+    {
+      "index": 288,
+      "pts": 147456,
+      "source_time_us": 11520000,
+      "rgb24_sha256": "501ada5b02f345a9ad65926ff00191eefdcc8d7aca2811396b79656ef99bc7f2"
+    },
+    {
+      "index": 289,
+      "pts": 147968,
+      "source_time_us": 11560000,
+      "rgb24_sha256": "77d05c4929e0ceba1945a2632e1a1f1ce89aadfd4a3d27c16bdfb31b9e57c5b0"
+    },
+    {
+      "index": 290,
+      "pts": 148480,
+      "source_time_us": 11600000,
+      "rgb24_sha256": "6d3a5eeb60b2708dc415c109acf7c4a7fb3e25b9d8e4a6fb6d15889664f1003e"
+    },
+    {
+      "index": 291,
+      "pts": 148992,
+      "source_time_us": 11640000,
+      "rgb24_sha256": "76f944e7d249c4b6cbcbb52aeb777f91152ea5a6faf7da0425102d75f8f8a248"
+    },
+    {
+      "index": 292,
+      "pts": 149504,
+      "source_time_us": 11680000,
+      "rgb24_sha256": "ab63a14c223e50001ea737dc3aabf1bd1d11e32eab1f7d14dddb16ee723d3834"
+    },
+    {
+      "index": 293,
+      "pts": 150016,
+      "source_time_us": 11720000,
+      "rgb24_sha256": "7e68373351d8d30237f1f08d48e0d91ff3548ee9aeed8705f6bb2aa1f3c38092"
+    },
+    {
+      "index": 294,
+      "pts": 150528,
+      "source_time_us": 11760000,
+      "rgb24_sha256": "7ed09931b85271f8354af0bd06658dd5e69476473629dc435509737ce7df2ec0"
+    },
+    {
+      "index": 295,
+      "pts": 151040,
+      "source_time_us": 11800000,
+      "rgb24_sha256": "91135f7613cb7c35e97e60c1f092a753374262b7c8b71db3d2bc1e81a68c9333"
+    },
+    {
+      "index": 296,
+      "pts": 151552,
+      "source_time_us": 11840000,
+      "rgb24_sha256": "2c75537300fbf6823d1a4ad88f880d9bfb275acb1d294aa14a7190fa83d1f3a8"
+    },
+    {
+      "index": 297,
+      "pts": 152064,
+      "source_time_us": 11880000,
+      "rgb24_sha256": "c20bae4f81d839abed32499f3b22e99399d9643967ba9dc1430a31147a2f897d"
+    },
+    {
+      "index": 298,
+      "pts": 152576,
+      "source_time_us": 11920000,
+      "rgb24_sha256": "a7cfa9155420037777814366c2b1dbceca9cb5d32eaf7253646175b3668a8b00"
+    },
+    {
+      "index": 299,
+      "pts": 153088,
+      "source_time_us": 11960000,
+      "rgb24_sha256": "9cc61096156fb299f6fe8def64522f328b1a5fa7f7d547b56182878dab4b6978"
+    },
+    {
+      "index": 300,
+      "pts": 153600,
+      "source_time_us": 12000000,
+      "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157"
+    },
+    {
+      "index": 301,
+      "pts": 154112,
+      "source_time_us": 12040000,
+      "rgb24_sha256": "01ad0a14d7b72bef55f077f3cfc1e273e81e96056fa9c7e4eb6d36a6842c77df"
+    },
+    {
+      "index": 302,
+      "pts": 154624,
+      "source_time_us": 12080000,
+      "rgb24_sha256": "9293535c5d342e637be289381b67be2ca9aad6e609ca4fbea2e7eadc94612a73"
+    },
+    {
+      "index": 303,
+      "pts": 155136,
+      "source_time_us": 12120000,
+      "rgb24_sha256": "933034a3a8bcb927415b8dc88da00124ef6b9e51d19e66d60a503da72394d349"
+    },
+    {
+      "index": 304,
+      "pts": 155648,
+      "source_time_us": 12160000,
+      "rgb24_sha256": "5e58a19909c4c43131e2b42132296aab786383e2dec0dde6546c90c9cc8ee493"
+    },
+    {
+      "index": 305,
+      "pts": 156160,
+      "source_time_us": 12200000,
+      "rgb24_sha256": "9b9f2e12f3e80a662759688b66f79f5afe50104d6af1df4a45a93c63ba73986e"
+    },
+    {
+      "index": 306,
+      "pts": 156672,
+      "source_time_us": 12240000,
+      "rgb24_sha256": "d2b3e1cc5d6cd7e48fb0f64fdc88b0c342adf2478c8b60c7b11f0b0f7480981f"
+    },
+    {
+      "index": 307,
+      "pts": 157184,
+      "source_time_us": 12280000,
+      "rgb24_sha256": "6c30cf96d64f962f62b54c2cad1ec0c9e5a3d3cd0e8a743c095b5f3aa33b19a0"
+    },
+    {
+      "index": 308,
+      "pts": 157696,
+      "source_time_us": 12320000,
+      "rgb24_sha256": "a3c422aeb7af9ac1bf4df54ad5f3b9dbc3b198318b1d263fb7781a1226b3b7b0"
+    },
+    {
+      "index": 309,
+      "pts": 158208,
+      "source_time_us": 12360000,
+      "rgb24_sha256": "3952b50fd41a0eb92b2e5a803876830b76bc8c213a6b153d93430ac5cbc8ca5c"
+    },
+    {
+      "index": 310,
+      "pts": 158720,
+      "source_time_us": 12400000,
+      "rgb24_sha256": "7c5972e4987b0a1f3e70b70ac1682aa6a1fc5e46c153792c3b43e7a55a2950fd"
+    },
+    {
+      "index": 311,
+      "pts": 159232,
+      "source_time_us": 12440000,
+      "rgb24_sha256": "d0c60f8980f6a07ca9b5130dbee61875d115de3c18c776ba034dabced4ef03c1"
+    },
+    {
+      "index": 312,
+      "pts": 159744,
+      "source_time_us": 12480000,
+      "rgb24_sha256": "096008de30feea6dc4403643b978615841d9c9ad89f1f66351b0970df8f4e598"
+    },
+    {
+      "index": 313,
+      "pts": 160256,
+      "source_time_us": 12520000,
+      "rgb24_sha256": "d561329fe5b9d259120a002a0afbec95211e3124261a2e8dfcee1335f898bc21"
+    },
+    {
+      "index": 314,
+      "pts": 160768,
+      "source_time_us": 12560000,
+      "rgb24_sha256": "14b12b3f630636d5be9bc9f2eac4cb82fa134b03634351738a5e385e9d145941"
+    },
+    {
+      "index": 315,
+      "pts": 161280,
+      "source_time_us": 12600000,
+      "rgb24_sha256": "280f8041124ebcba36fcc55b47dfdb1507df5ad557ac5e43a3dd1c9f9a72ea57"
+    },
+    {
+      "index": 316,
+      "pts": 161792,
+      "source_time_us": 12640000,
+      "rgb24_sha256": "d0fae484495e0e4ed6ffef024f7279b67a0f07fde89616fe2f2ab66ecd7da1ad"
+    },
+    {
+      "index": 317,
+      "pts": 162304,
+      "source_time_us": 12680000,
+      "rgb24_sha256": "36e545c5e2a63c81b84e9b86044320d5eaa6b0496a7492cb17e92d330049416b"
+    },
+    {
+      "index": 318,
+      "pts": 162816,
+      "source_time_us": 12720000,
+      "rgb24_sha256": "2fe54e28d95ce54b5353d4e15d18edac95562b2565190e6ff0182153fa553a79"
+    },
+    {
+      "index": 319,
+      "pts": 163328,
+      "source_time_us": 12760000,
+      "rgb24_sha256": "9c5ca8e32eda9781db601443e03f59f386a96b4caead66cb1556a5764aeec76b"
+    },
+    {
+      "index": 320,
+      "pts": 163840,
+      "source_time_us": 12800000,
+      "rgb24_sha256": "37d18bbfa8242fb7ae1b9c0e0d2256c4380ad9d777251ed2195fbbdf816b2b68"
+    },
+    {
+      "index": 321,
+      "pts": 164352,
+      "source_time_us": 12840000,
+      "rgb24_sha256": "dfda57715f97ce1ad1d19bddc2a8469d58e46a9acd59ff9f6c3a9e604c0a06e3"
+    },
+    {
+      "index": 322,
+      "pts": 164864,
+      "source_time_us": 12880000,
+      "rgb24_sha256": "f1e114c5c735b208c4931270c2b74013efc31f46ba87d6bcc00a5b7741bf77af"
+    },
+    {
+      "index": 323,
+      "pts": 165376,
+      "source_time_us": 12920000,
+      "rgb24_sha256": "9a0d82e4b584583e55ecb6ba2d687c21b3515b40394346e09ee712f0bee24496"
+    },
+    {
+      "index": 324,
+      "pts": 165888,
+      "source_time_us": 12960000,
+      "rgb24_sha256": "e151af062749d67226f5df950e051ce3cefdf7936576743ca3195ef16937bd5e"
+    },
+    {
+      "index": 325,
+      "pts": 166400,
+      "source_time_us": 13000000,
+      "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865"
+    },
+    {
+      "index": 326,
+      "pts": 166912,
+      "source_time_us": 13040000,
+      "rgb24_sha256": "496f1b444edfdb88dfa3777faf00b31767cb387b31eae7f71d3c7e2aa193ead4"
+    },
+    {
+      "index": 327,
+      "pts": 167424,
+      "source_time_us": 13080000,
+      "rgb24_sha256": "b9b924f42270f61005b20ae0e7705ca8ee2a69906f191c74cce7f0e74ed1594c"
+    },
+    {
+      "index": 328,
+      "pts": 167936,
+      "source_time_us": 13120000,
+      "rgb24_sha256": "6e1013c0d6bf37c080db8d62a99a11532d14f5bd392aa140ef5dc41b869d99d8"
+    },
+    {
+      "index": 329,
+      "pts": 168448,
+      "source_time_us": 13160000,
+      "rgb24_sha256": "662cc81f5e3fe060ed721d8331498bb381e36dc69e51754d438f38b9ca056ac2"
+    },
+    {
+      "index": 330,
+      "pts": 168960,
+      "source_time_us": 13200000,
+      "rgb24_sha256": "217e373dec8fb29bb9bcf6ed570fa86032c7427c131b5e08a513a37e5270db76"
+    },
+    {
+      "index": 331,
+      "pts": 169472,
+      "source_time_us": 13240000,
+      "rgb24_sha256": "3e81eeca8fd05d1413c27984a1ccfc22fb76118eb0da6db94a58984b179924fb"
+    },
+    {
+      "index": 332,
+      "pts": 169984,
+      "source_time_us": 13280000,
+      "rgb24_sha256": "36521917dfc477c6df44b565ad9b7252de5acf699be1d7d6aec257ac7fbad12a"
+    },
+    {
+      "index": 333,
+      "pts": 170496,
+      "source_time_us": 13320000,
+      "rgb24_sha256": "ef0fb99b241361b449a8d08ec2364c7056593a374bbba7af0f602069bd4f0dce"
+    },
+    {
+      "index": 334,
+      "pts": 171008,
+      "source_time_us": 13360000,
+      "rgb24_sha256": "993f36d0376df53238f548eea3003095401ae528ce262a67c930eb4f6b87c5c6"
+    },
+    {
+      "index": 335,
+      "pts": 171520,
+      "source_time_us": 13400000,
+      "rgb24_sha256": "19c915d9d570c5bf5a088656be5fe652143e69a73ff06e6dfac776d9346a7186"
+    },
+    {
+      "index": 336,
+      "pts": 172032,
+      "source_time_us": 13440000,
+      "rgb24_sha256": "ff3b50ecfa0fed33bf1d7aa2242546f1aeb736aa1b90d8450cfb3b41680b8570"
+    },
+    {
+      "index": 337,
+      "pts": 172544,
+      "source_time_us": 13480000,
+      "rgb24_sha256": "0b0fe04f1d6796e1c6b76572e7a8a5cb0ee06fd2f2e13647e8c54b1b4776c4f2"
+    },
+    {
+      "index": 338,
+      "pts": 173056,
+      "source_time_us": 13520000,
+      "rgb24_sha256": "5f7da68b42f924b215717d4ea58346380981ac558bbb8c1feaaff1064af6e0d6"
+    },
+    {
+      "index": 339,
+      "pts": 173568,
+      "source_time_us": 13560000,
+      "rgb24_sha256": "25a6dda7f61d1a0d05706eb5b0417cf8e5b7d67eda0259a979f72c38ee75ba80"
+    },
+    {
+      "index": 340,
+      "pts": 174080,
+      "source_time_us": 13600000,
+      "rgb24_sha256": "da2ba4f5f629daf792541dd7821f4a7de15227e72653a0b380858321c17baaf3"
+    },
+    {
+      "index": 341,
+      "pts": 174592,
+      "source_time_us": 13640000,
+      "rgb24_sha256": "85e1f71c98aabfd2cd7da66013d204921eb9eea595606a42f34a6b4d0a91fec5"
+    },
+    {
+      "index": 342,
+      "pts": 175104,
+      "source_time_us": 13680000,
+      "rgb24_sha256": "350dbf10d26a7d5bfa722d9b6fb232d033e0af6be32fe8f406c64a68c959dc0c"
+    },
+    {
+      "index": 343,
+      "pts": 175616,
+      "source_time_us": 13720000,
+      "rgb24_sha256": "4ebe2d7be15ca97f2548c2536eed090de5124de3cd27ba27626a2095293f48d1"
+    },
+    {
+      "index": 344,
+      "pts": 176128,
+      "source_time_us": 13760000,
+      "rgb24_sha256": "95fe473ce2b925336ebd8e94a40194df90f1e83b0a6cee6b009f367da8ddd1f4"
+    },
+    {
+      "index": 345,
+      "pts": 176640,
+      "source_time_us": 13800000,
+      "rgb24_sha256": "b58202f001f0c49b645c090569c3689f4e6851e6990e11185a7c377b54cad005"
+    },
+    {
+      "index": 346,
+      "pts": 177152,
+      "source_time_us": 13840000,
+      "rgb24_sha256": "26f1b4d07060f5c86b4f4a092f687cc49254ae7c78cd2b08cf21052338a6b957"
+    },
+    {
+      "index": 347,
+      "pts": 177664,
+      "source_time_us": 13880000,
+      "rgb24_sha256": "757fd9def54089cd90dabcedbf42ce7963ec4bb0d31d8d04c36414e1d592f5eb"
+    },
+    {
+      "index": 348,
+      "pts": 178176,
+      "source_time_us": 13920000,
+      "rgb24_sha256": "693573f74ddea9a02fea0e783a5f390c8ea3c5232a28986bfb5cf92b73f0a6e7"
+    },
+    {
+      "index": 349,
+      "pts": 178688,
+      "source_time_us": 13960000,
+      "rgb24_sha256": "47044f2a10035a618987134103b9b67685586805bd10e07174b2f38486b48c65"
+    },
+    {
+      "index": 350,
+      "pts": 179200,
+      "source_time_us": 14000000,
+      "rgb24_sha256": "1328d87d39c45ad7a5bc19e7fcfecb07b196eb3dc87e73ece13daa4a7f290a93"
+    },
+    {
+      "index": 351,
+      "pts": 179712,
+      "source_time_us": 14040000,
+      "rgb24_sha256": "83705e65d666bd0e4422c0457b45735ff6c369b9d09393b25e7efab6e19a05dc"
+    },
+    {
+      "index": 352,
+      "pts": 180224,
+      "source_time_us": 14080000,
+      "rgb24_sha256": "8d6ea2289857dc5b8e84e5e4d5732327b00caea85815f07ce9c8fe8c5f524a0d"
+    },
+    {
+      "index": 353,
+      "pts": 180736,
+      "source_time_us": 14120000,
+      "rgb24_sha256": "93f6b831461a358120600d6c45b9faaeb354bb2ae6d75342b03a3be61d4e6ed1"
+    },
+    {
+      "index": 354,
+      "pts": 181248,
+      "source_time_us": 14160000,
+      "rgb24_sha256": "cb28110e7e7d2afe7c8bc87ab5412aef147c3eb35bc3c7b7aade8d6d3904935d"
+    },
+    {
+      "index": 355,
+      "pts": 181760,
+      "source_time_us": 14200000,
+      "rgb24_sha256": "219951a67554bad7cbb67ca8893c2f1f7cd4fcdd5a332c3ab7dffbf80a408fe9"
+    },
+    {
+      "index": 356,
+      "pts": 182272,
+      "source_time_us": 14240000,
+      "rgb24_sha256": "ab6976208284d7eb1fe01a46894787e2a406da5c37766f4ec2889591f3c91d19"
+    },
+    {
+      "index": 357,
+      "pts": 182784,
+      "source_time_us": 14280000,
+      "rgb24_sha256": "e322a1477d8a7795463fd003021bb1290a1b948c8f87bc0d507503ba9a889d26"
+    },
+    {
+      "index": 358,
+      "pts": 183296,
+      "source_time_us": 14320000,
+      "rgb24_sha256": "b3c87f46ebb144b6e0d513244b756330dc707ebbe77dc90debd32b96cb0eb901"
+    },
+    {
+      "index": 359,
+      "pts": 183808,
+      "source_time_us": 14360000,
+      "rgb24_sha256": "ab9cbf07debedce9bbc866136f9328f303df0d54a2dbc0feb6479ff01c878d97"
+    },
+    {
+      "index": 360,
+      "pts": 184320,
+      "source_time_us": 14400000,
+      "rgb24_sha256": "f724b0751c44c79607fe0e7e827d915cf72cf5ba0af7f6d5f8dff9f9fc12181c"
+    },
+    {
+      "index": 361,
+      "pts": 184832,
+      "source_time_us": 14440000,
+      "rgb24_sha256": "dfbddb3f79bb14ad21a899893277c7e4a75d4a80b64bfb4103b64d22a87d367d"
+    },
+    {
+      "index": 362,
+      "pts": 185344,
+      "source_time_us": 14480000,
+      "rgb24_sha256": "ccf3e6bfd0ddbf7e7eb441bf3ece88dbeffa314081c0b80341862596ce42392b"
+    },
+    {
+      "index": 363,
+      "pts": 185856,
+      "source_time_us": 14520000,
+      "rgb24_sha256": "9e10b66cb9c0fda7cd687f16814cb4d5b8d2549cd436730fb5e2f54e7f667723"
+    },
+    {
+      "index": 364,
+      "pts": 186368,
+      "source_time_us": 14560000,
+      "rgb24_sha256": "2d9ff8785a5ca52c74eeb6ff421d6c8f1fa8b7eeae00b16036b9eecb949ec5fd"
+    },
+    {
+      "index": 365,
+      "pts": 186880,
+      "source_time_us": 14600000,
+      "rgb24_sha256": "2009ba9c9d66b8eea08f27db3a0be0115addca744195b3dae9864b9d346b101f"
+    },
+    {
+      "index": 366,
+      "pts": 187392,
+      "source_time_us": 14640000,
+      "rgb24_sha256": "cdbfc64b457488f0a462fe90a9112593088402c227801bca17817bb999e5cd4b"
+    },
+    {
+      "index": 367,
+      "pts": 187904,
+      "source_time_us": 14680000,
+      "rgb24_sha256": "74369f9c0401c82109e3452210cf85ca64812923b88c29f08b76bea9305b33bf"
+    },
+    {
+      "index": 368,
+      "pts": 188416,
+      "source_time_us": 14720000,
+      "rgb24_sha256": "09de3af00070990b21d9a9d6781f3daee21e558d11dc6afeb1fa5c0fc96fb8e6"
+    },
+    {
+      "index": 369,
+      "pts": 188928,
+      "source_time_us": 14760000,
+      "rgb24_sha256": "a4598a51a0d7e455af2d4ad1e5b983fcd62ca63faae577395ebec5d853ea33b1"
+    },
+    {
+      "index": 370,
+      "pts": 189440,
+      "source_time_us": 14800000,
+      "rgb24_sha256": "4ead7725712fe71fb34509ccb1b450dd7c0291e34dd82a428fa78548bd6b58b5"
+    },
+    {
+      "index": 371,
+      "pts": 189952,
+      "source_time_us": 14840000,
+      "rgb24_sha256": "16044c38c46495a572d8ed602cf511c7ff6181087dda79ee23f445be01bf956d"
+    },
+    {
+      "index": 372,
+      "pts": 190464,
+      "source_time_us": 14880000,
+      "rgb24_sha256": "ee3e50e7122927716ea10fe2b129edff66b6f00ce14c6e08611a04a489d90340"
+    },
+    {
+      "index": 373,
+      "pts": 190976,
+      "source_time_us": 14920000,
+      "rgb24_sha256": "aca390eeda79edb92d7df40545f64482523e1bba4454fdf535adfde52a8ec3ba"
+    },
+    {
+      "index": 374,
+      "pts": 191488,
+      "source_time_us": 14960000,
+      "rgb24_sha256": "af778240817c71cf38325892a149b405cff996f0680f0fc75e1f6b63935da1a7"
+    },
+    {
+      "index": 375,
+      "pts": 192000,
+      "source_time_us": 15000000,
+      "rgb24_sha256": "ff1b8aeb0d4c3b7af98365e357df4af142d50e98c2b3cfaeb6023bcba39612d2"
+    },
+    {
+      "index": 376,
+      "pts": 192512,
+      "source_time_us": 15040000,
+      "rgb24_sha256": "5a4612746cfce826817766c2c21bf7b54940da7203b6d19ea19eaea536d38848"
+    },
+    {
+      "index": 377,
+      "pts": 193024,
+      "source_time_us": 15080000,
+      "rgb24_sha256": "6b390cfe0466e6c8ccea3fd85c8d4e1d457ac1df15113403521d53468a2db347"
+    },
+    {
+      "index": 378,
+      "pts": 193536,
+      "source_time_us": 15120000,
+      "rgb24_sha256": "4579a4cc0aaa11f27c9dafe7e97a04b8e68f25f2284a9433e1bc81efdc1651c6"
+    },
+    {
+      "index": 379,
+      "pts": 194048,
+      "source_time_us": 15160000,
+      "rgb24_sha256": "30a87a1fa7238381b4d8d35fbf126db47ff13ef14a042b451a507cafb12b863b"
+    },
+    {
+      "index": 380,
+      "pts": 194560,
+      "source_time_us": 15200000,
+      "rgb24_sha256": "abfc873844be8b4b9ca2564c88759769bd447f2cea4f4d6865df6e96bfdeaf38"
+    },
+    {
+      "index": 381,
+      "pts": 195072,
+      "source_time_us": 15240000,
+      "rgb24_sha256": "2c43d74460634d111d6f1a73640c7c249a563d2338e0472c38650a582dc20e41"
+    },
+    {
+      "index": 382,
+      "pts": 195584,
+      "source_time_us": 15280000,
+      "rgb24_sha256": "984ac8b3c6b81591318ca0760694355e82c217cde09caa04038ec977ad9f1455"
+    },
+    {
+      "index": 383,
+      "pts": 196096,
+      "source_time_us": 15320000,
+      "rgb24_sha256": "6eac5f739aa3c8165fbd496922c579afaf778f0044e8331003ed639c80b79852"
+    },
+    {
+      "index": 384,
+      "pts": 196608,
+      "source_time_us": 15360000,
+      "rgb24_sha256": "07269d26380b648b71fb6b7cd348ae6d10c46012acd04feb8f58ab7c92989262"
+    },
+    {
+      "index": 385,
+      "pts": 197120,
+      "source_time_us": 15400000,
+      "rgb24_sha256": "33ff3cff8aca0dd091f87c386bfbc500509b90591c5b69097c6b7633e2028707"
+    },
+    {
+      "index": 386,
+      "pts": 197632,
+      "source_time_us": 15440000,
+      "rgb24_sha256": "8ca223432c8aa1c9a88efd1bb5170972b559f5f002328a377c3198c5025d79f0"
+    },
+    {
+      "index": 387,
+      "pts": 198144,
+      "source_time_us": 15480000,
+      "rgb24_sha256": "d0f0f9b94e67447edb60378611d06b3486f371c7971a8a9d96875cc348c8e0f6"
+    },
+    {
+      "index": 388,
+      "pts": 198656,
+      "source_time_us": 15520000,
+      "rgb24_sha256": "99bb79e3a3576c768db2eff98bf76bd7b8a02d3326533922a6120ddd5393e881"
+    },
+    {
+      "index": 389,
+      "pts": 199168,
+      "source_time_us": 15560000,
+      "rgb24_sha256": "e02de166de450de2380e4fe539f598d0ef22fa86946a6c0c6aec28c6fa2f2316"
+    },
+    {
+      "index": 390,
+      "pts": 199680,
+      "source_time_us": 15600000,
+      "rgb24_sha256": "cc3b8f33638645293f5ea1bee4efdc73d34650c7b1a4773bbbfa8766ed183c60"
+    },
+    {
+      "index": 391,
+      "pts": 200192,
+      "source_time_us": 15640000,
+      "rgb24_sha256": "4bb70c87a799e1fb4e11a773ebbc29b42d5a105ca086335aa0d4d3c8ea7e4a93"
+    },
+    {
+      "index": 392,
+      "pts": 200704,
+      "source_time_us": 15680000,
+      "rgb24_sha256": "406a7b131c3288333b68b4f61c54fd96ccd223dd9044339ba3f88ff7992e1ab0"
+    },
+    {
+      "index": 393,
+      "pts": 201216,
+      "source_time_us": 15720000,
+      "rgb24_sha256": "8a4fea5832a42a4ef5f824d9bb12b2c53839c5f4d47d573d5639994ba1ba5b1f"
+    },
+    {
+      "index": 394,
+      "pts": 201728,
+      "source_time_us": 15760000,
+      "rgb24_sha256": "620a04721c29ab450a58ac24e5faa48c54c4f72e2c8e610f69149c12150bd91b"
+    },
+    {
+      "index": 395,
+      "pts": 202240,
+      "source_time_us": 15800000,
+      "rgb24_sha256": "2b01c1f3fc73c1245f7d79e3cb0bb549870ea5587c1e9e6828935dc3f221bc12"
+    },
+    {
+      "index": 396,
+      "pts": 202752,
+      "source_time_us": 15840000,
+      "rgb24_sha256": "83543ba691059c00708b9556494a1cb834c772b21d1d0da87b682c97b42ae91c"
+    },
+    {
+      "index": 397,
+      "pts": 203264,
+      "source_time_us": 15880000,
+      "rgb24_sha256": "92c20f5b85900bc29d7dd94800022f393ad39c3c5815fa5708b7f3be2f416602"
+    },
+    {
+      "index": 398,
+      "pts": 203776,
+      "source_time_us": 15920000,
+      "rgb24_sha256": "75d25755cf384faf1a99e35dda763163f88ae9be4ddc07c9265b0e3f506f1d88"
+    },
+    {
+      "index": 399,
+      "pts": 204288,
+      "source_time_us": 15960000,
+      "rgb24_sha256": "dd5181d6509c96be9db0228cde648530500bf47a5f46b733b104462e5a6c6cfd"
+    },
+    {
+      "index": 400,
+      "pts": 204800,
+      "source_time_us": 16000000,
+      "rgb24_sha256": "573b30a99816a318f8faf799b4c9f4144b4bfab4421c1a8d52dff9379619c8a3"
+    },
+    {
+      "index": 401,
+      "pts": 205312,
+      "source_time_us": 16040000,
+      "rgb24_sha256": "42180899dee94f4f31ecb4304c479a99a8ef4f63e434270b5c8b53fd37ddc841"
+    },
+    {
+      "index": 402,
+      "pts": 205824,
+      "source_time_us": 16080000,
+      "rgb24_sha256": "16235077f8a1733dee181b3af1a0fbbb051e093c4ef422b88f900aeae4de1e9a"
+    },
+    {
+      "index": 403,
+      "pts": 206336,
+      "source_time_us": 16120000,
+      "rgb24_sha256": "8b3d037bedaca98eafc13c2626907f64af55f929cef473e89eeb84bf744fb1c7"
+    },
+    {
+      "index": 404,
+      "pts": 206848,
+      "source_time_us": 16160000,
+      "rgb24_sha256": "627aa70b67ab311f5958199bd96686babc107d5f62807dca371373183dfbacd8"
+    },
+    {
+      "index": 405,
+      "pts": 207360,
+      "source_time_us": 16200000,
+      "rgb24_sha256": "b2726763d10265d7421d4121ac0e6740257c345c72b91be6603404415d98fff9"
+    },
+    {
+      "index": 406,
+      "pts": 207872,
+      "source_time_us": 16240000,
+      "rgb24_sha256": "00741751e37282f1fcf97a39bdf21ee0da3e7f8a721bfd9c5edcd5520eef396b"
+    },
+    {
+      "index": 407,
+      "pts": 208384,
+      "source_time_us": 16280000,
+      "rgb24_sha256": "208e987c338f6624912deca83b5e58ad60fc7150a8b0da616c3f12c6b128f983"
+    },
+    {
+      "index": 408,
+      "pts": 208896,
+      "source_time_us": 16320000,
+      "rgb24_sha256": "98ace74cda04b1a59fca23ca75ac7c2b4b8b25f86e9d375bb2791d1200006013"
+    },
+    {
+      "index": 409,
+      "pts": 209408,
+      "source_time_us": 16360000,
+      "rgb24_sha256": "a21102f4b695a729c0ecde0e53f7b0dd9d710201decbc3887c2519690b7e1761"
+    },
+    {
+      "index": 410,
+      "pts": 209920,
+      "source_time_us": 16400000,
+      "rgb24_sha256": "18a8d1082166f760bb44783a8449cdb0297bfd2cdfc97b026a01e5c4c6d8e929"
+    },
+    {
+      "index": 411,
+      "pts": 210432,
+      "source_time_us": 16440000,
+      "rgb24_sha256": "4f5fdc4c2d13009a9f41c27aa944629c955e5a38a46dd9f6c50fab16bc0676fc"
+    },
+    {
+      "index": 412,
+      "pts": 210944,
+      "source_time_us": 16480000,
+      "rgb24_sha256": "02a64e608c3c2ed4facd339df80b36c6ba8fbdb9799f6fac91ec7b24306aa669"
+    },
+    {
+      "index": 413,
+      "pts": 211456,
+      "source_time_us": 16520000,
+      "rgb24_sha256": "42321f2eb822342984eb38aa54ce56527bc9229a4739b73e3da0009b346b834b"
+    },
+    {
+      "index": 414,
+      "pts": 211968,
+      "source_time_us": 16560000,
+      "rgb24_sha256": "af7dd6969ccc78ac5be744f05dd9a39f2a28cc7d770f264e7fe303762c93b0df"
+    },
+    {
+      "index": 415,
+      "pts": 212480,
+      "source_time_us": 16600000,
+      "rgb24_sha256": "9c778133ec2c01adf5ee6ad93ec2a4237f4d9bda58233220936a4369e1f53bd8"
+    },
+    {
+      "index": 416,
+      "pts": 212992,
+      "source_time_us": 16640000,
+      "rgb24_sha256": "e0c4ad70a57a39f102032d6e81b8d1db944aaec1a91fb2d541b9d8e7dc1ae867"
+    },
+    {
+      "index": 417,
+      "pts": 213504,
+      "source_time_us": 16680000,
+      "rgb24_sha256": "2a7ff3d1fa9c1db1729bcdcb2a7a56db16dd154c262b58439c0f03de8571c072"
+    },
+    {
+      "index": 418,
+      "pts": 214016,
+      "source_time_us": 16720000,
+      "rgb24_sha256": "23cfc81e10b9661ff2812852a54681446f62b14093ef26803e9fc70300bf5411"
+    },
+    {
+      "index": 419,
+      "pts": 214528,
+      "source_time_us": 16760000,
+      "rgb24_sha256": "5257de8a55197a2a52921f9838d84121a6bc8cd72bdfbee484771e6037889f51"
+    },
+    {
+      "index": 420,
+      "pts": 215040,
+      "source_time_us": 16800000,
+      "rgb24_sha256": "9a60a5e2d566fa4ace1e46db82f503a3b40b27766c12a8e7dd21aac152205b93"
+    },
+    {
+      "index": 421,
+      "pts": 215552,
+      "source_time_us": 16840000,
+      "rgb24_sha256": "f93ae738d484ff0980e313e76f40d92ea3db02cb7a5ba34c040eeff6df98bc91"
+    },
+    {
+      "index": 422,
+      "pts": 216064,
+      "source_time_us": 16880000,
+      "rgb24_sha256": "2b86be39fadb03dd51a820b06b5a52f91272fb6b112d3180936daf746ebab2d7"
+    },
+    {
+      "index": 423,
+      "pts": 216576,
+      "source_time_us": 16920000,
+      "rgb24_sha256": "24b2d6295fee16c0f52856effcafc0b70a2ac08ce7d93ed4f646c8500cd47f98"
+    },
+    {
+      "index": 424,
+      "pts": 217088,
+      "source_time_us": 16960000,
+      "rgb24_sha256": "86d195fa9fbcc7e41c1f784f7c4bc62e6e4e805181c4910e037a3fc7fcedf6e9"
+    },
+    {
+      "index": 425,
+      "pts": 217600,
+      "source_time_us": 17000000,
+      "rgb24_sha256": "e02619772ffc2dc0b9963edb05696336373e59f2ef5f315ffcd8bb092a35d952"
+    },
+    {
+      "index": 426,
+      "pts": 218112,
+      "source_time_us": 17040000,
+      "rgb24_sha256": "ff8ee46daa96f36c626fd98886c2a49f2d8beded08688b58985d69b6268f8f24"
+    },
+    {
+      "index": 427,
+      "pts": 218624,
+      "source_time_us": 17080000,
+      "rgb24_sha256": "3b1fe04ceadd75955378d5130ab1b5eab4fb16827c01c546f0b2ededff51c5c3"
+    },
+    {
+      "index": 428,
+      "pts": 219136,
+      "source_time_us": 17120000,
+      "rgb24_sha256": "a1b78420cf123d28b98d17e6715569f85c557cccdfe15e8a47f9e75f6e486001"
+    },
+    {
+      "index": 429,
+      "pts": 219648,
+      "source_time_us": 17160000,
+      "rgb24_sha256": "0ca18cc5ff4c11ca184497d509b31788db771ce1a2f581a6de0f479e3002b06c"
+    },
+    {
+      "index": 430,
+      "pts": 220160,
+      "source_time_us": 17200000,
+      "rgb24_sha256": "9401abde1e34f073276ae7c2895f48b4d2def31268565c6bae5945fb167979cf"
+    },
+    {
+      "index": 431,
+      "pts": 220672,
+      "source_time_us": 17240000,
+      "rgb24_sha256": "f076aa4f401134138a124b135960c00f25b1e80eeda32dd24518557eaafe2a88"
+    },
+    {
+      "index": 432,
+      "pts": 221184,
+      "source_time_us": 17280000,
+      "rgb24_sha256": "14d9798a12bb3e57ffad5a50fe0a0a1875b6ea99581ea309e66a547bfc8a69e4"
+    },
+    {
+      "index": 433,
+      "pts": 221696,
+      "source_time_us": 17320000,
+      "rgb24_sha256": "34c86294540da5aa555e1bab3400ea58eb212dcbc607a7c865ca2cb0d0610986"
+    },
+    {
+      "index": 434,
+      "pts": 222208,
+      "source_time_us": 17360000,
+      "rgb24_sha256": "a27431a35e87baf8b9c6ca150fe3aa706b7c09b8adcf8c4df2d60a108bad7c8c"
+    },
+    {
+      "index": 435,
+      "pts": 222720,
+      "source_time_us": 17400000,
+      "rgb24_sha256": "970576c3a1e7d0ee4296bd87f495069c236ea7e351a0666824b618526fa42c7a"
+    },
+    {
+      "index": 436,
+      "pts": 223232,
+      "source_time_us": 17440000,
+      "rgb24_sha256": "a316d61a30d0de69c3113e1150777ac8b94f09772bed8f8a5307c1dcb96da967"
+    },
+    {
+      "index": 437,
+      "pts": 223744,
+      "source_time_us": 17480000,
+      "rgb24_sha256": "c37fc6e6c23ce8c89e7a45dcf98c845f4d4b0cbb0b885526a1fc7636aae8cb04"
+    },
+    {
+      "index": 438,
+      "pts": 224256,
+      "source_time_us": 17520000,
+      "rgb24_sha256": "7da63ab12392cfe74e53e02770408bf52c29c74b2a321eac24fd6c4c07f83dfd"
+    },
+    {
+      "index": 439,
+      "pts": 224768,
+      "source_time_us": 17560000,
+      "rgb24_sha256": "f4953a0f6a6051d241440761ee044be61af6cf7126581332fe5dbc24542c6c4b"
+    },
+    {
+      "index": 440,
+      "pts": 225280,
+      "source_time_us": 17600000,
+      "rgb24_sha256": "7e8e6169c5330446c6b99c554c37cd14660b3dcc1f3c582145241713a08993f5"
+    },
+    {
+      "index": 441,
+      "pts": 225792,
+      "source_time_us": 17640000,
+      "rgb24_sha256": "0cc95bdb6eff31bf683667fde977d20e64b8cf6fffe886e1a1a286fb72690fe9"
+    },
+    {
+      "index": 442,
+      "pts": 226304,
+      "source_time_us": 17680000,
+      "rgb24_sha256": "38b4d8b54a0860f2ddfc751704bb783ada528b4ae30dbad59b6a7ad74ffd6664"
+    },
+    {
+      "index": 443,
+      "pts": 226816,
+      "source_time_us": 17720000,
+      "rgb24_sha256": "75d3729349425be19023038cd0bd503af05281dd4319cf0284517d28f8adae92"
+    },
+    {
+      "index": 444,
+      "pts": 227328,
+      "source_time_us": 17760000,
+      "rgb24_sha256": "915352ac3db802cd57368bf12bd82d73b4c6dc1b46d03b34e9deb609af58f8c7"
+    },
+    {
+      "index": 445,
+      "pts": 227840,
+      "source_time_us": 17800000,
+      "rgb24_sha256": "36298c9ca630456f8ef4982cfdc11b559d9ef0d28bcc9b95ffbbfbb39d4defe9"
+    },
+    {
+      "index": 446,
+      "pts": 228352,
+      "source_time_us": 17840000,
+      "rgb24_sha256": "cecd3cb95479202fc3df8320b324bf5f7bee8fa0c85b1c380165f0993c3d0f11"
+    },
+    {
+      "index": 447,
+      "pts": 228864,
+      "source_time_us": 17880000,
+      "rgb24_sha256": "bf2f634eb696c60ba9cababa4f3577eb2231cb33d6fecb84b9fa795e242c2cc7"
+    },
+    {
+      "index": 448,
+      "pts": 229376,
+      "source_time_us": 17920000,
+      "rgb24_sha256": "74fab10bebed29c5d1355a16b5ed0f41f0e12763face3609cbad0c28807c1b4c"
+    },
+    {
+      "index": 449,
+      "pts": 229888,
+      "source_time_us": 17960000,
+      "rgb24_sha256": "b2a1ca15d31447653d54a57c1f7537e1378ee62d94e48266fc634dd6d5b0cf00"
+    },
+    {
+      "index": 450,
+      "pts": 230400,
+      "source_time_us": 18000000,
+      "rgb24_sha256": "279d8b91e87d784878f5f9a5e6cbd77f1f9eec7a8a6e393052966e139a834cee"
+    },
+    {
+      "index": 451,
+      "pts": 230912,
+      "source_time_us": 18040000,
+      "rgb24_sha256": "87ff415947da7e5eb6f6f4f2ba8ce3734f61b9bc60084d9cc1eb9473aeca97a1"
+    },
+    {
+      "index": 452,
+      "pts": 231424,
+      "source_time_us": 18080000,
+      "rgb24_sha256": "31d1e6c28567a016cd56f52f34b3865852bbd0b6711800320d79e480c4788904"
+    },
+    {
+      "index": 453,
+      "pts": 231936,
+      "source_time_us": 18120000,
+      "rgb24_sha256": "4cb25c347c15fe3e1504bc469ac32293113c207c34f690af25f373bc3806c43e"
+    },
+    {
+      "index": 454,
+      "pts": 232448,
+      "source_time_us": 18160000,
+      "rgb24_sha256": "cab6aabfd11d5c73b25f789f6041d2ace1174a1ddca627bbce42b0adf2c8b27d"
+    },
+    {
+      "index": 455,
+      "pts": 232960,
+      "source_time_us": 18200000,
+      "rgb24_sha256": "271735922a126392a9f688a223f17bc0e1914d9e8c5f6c3b5a5edb6a92c7ce63"
+    },
+    {
+      "index": 456,
+      "pts": 233472,
+      "source_time_us": 18240000,
+      "rgb24_sha256": "454ad20014f0401f3764877f4fe8179219801e0b47357d2724a2c415792325e0"
+    },
+    {
+      "index": 457,
+      "pts": 233984,
+      "source_time_us": 18280000,
+      "rgb24_sha256": "e6825a126978da1c253811b622adf20846ffe4f85e8b887eaea47e0eb7611aa9"
+    },
+    {
+      "index": 458,
+      "pts": 234496,
+      "source_time_us": 18320000,
+      "rgb24_sha256": "8eb438460ab21918299e5a1ba687fbfeed32731f99a38a61a881f99edc071bcf"
+    },
+    {
+      "index": 459,
+      "pts": 235008,
+      "source_time_us": 18360000,
+      "rgb24_sha256": "1e7fbc8d343f1d66b378dfe83fd526bef1bff86d7a1d749e654a3c7f161d3301"
+    },
+    {
+      "index": 460,
+      "pts": 235520,
+      "source_time_us": 18400000,
+      "rgb24_sha256": "4daa6709e2775b587958cc8c014cf0420769c517d271299c1546b14a7a291817"
+    },
+    {
+      "index": 461,
+      "pts": 236032,
+      "source_time_us": 18440000,
+      "rgb24_sha256": "7edf7ff3c2d9751a51824ea83472f0dc25dfff93376bdf91a6791308e76b3a53"
+    },
+    {
+      "index": 462,
+      "pts": 236544,
+      "source_time_us": 18480000,
+      "rgb24_sha256": "b13d4f7d5a6f2cdc3688857feda1b9a10d382be06815c07646b868b7fa03b1bb"
+    },
+    {
+      "index": 463,
+      "pts": 237056,
+      "source_time_us": 18520000,
+      "rgb24_sha256": "38434a5fd02f2cbd91055c8b19443697ab21e07a75f2ae83d885a2c5c0e8d6f3"
+    },
+    {
+      "index": 464,
+      "pts": 237568,
+      "source_time_us": 18560000,
+      "rgb24_sha256": "df66b51e449f28ac111cbba484bb486a0af78d65e9d3431c9ff7b64d148154c8"
+    },
+    {
+      "index": 465,
+      "pts": 238080,
+      "source_time_us": 18600000,
+      "rgb24_sha256": "6d4a03cd69373ff05b5b9f2e45240b441019b2ba32bf9eabe28cc4f9a3cee3fc"
+    },
+    {
+      "index": 466,
+      "pts": 238592,
+      "source_time_us": 18640000,
+      "rgb24_sha256": "3630b9243f2dfbe6eec7737198e689800e58ef5ad9c8af7742968b78ea56586e"
+    },
+    {
+      "index": 467,
+      "pts": 239104,
+      "source_time_us": 18680000,
+      "rgb24_sha256": "9bed19d27c8f86cc76ea17b2b72e9372043e67769ffd878f841f9cf531755f44"
+    },
+    {
+      "index": 468,
+      "pts": 239616,
+      "source_time_us": 18720000,
+      "rgb24_sha256": "1bb1ec73b304821b473924f7b8fe3e951d0b93524e8d833361b5601474526d9d"
+    },
+    {
+      "index": 469,
+      "pts": 240128,
+      "source_time_us": 18760000,
+      "rgb24_sha256": "6d99ab5332b7d1d4d4b99c6f23d05ba21f80f4480fd95ae1375fa55e6a06ad15"
+    },
+    {
+      "index": 470,
+      "pts": 240640,
+      "source_time_us": 18800000,
+      "rgb24_sha256": "a50645fa468d7e6738e01c52d46202924b273e3ed4b3cb7566b5d93de83c3cb7"
+    },
+    {
+      "index": 471,
+      "pts": 241152,
+      "source_time_us": 18840000,
+      "rgb24_sha256": "9b921f8850c0b9b43e3f5dcbfb24fb9905e27bbd1bf153627c188defeece5357"
+    },
+    {
+      "index": 472,
+      "pts": 241664,
+      "source_time_us": 18880000,
+      "rgb24_sha256": "aa591989868b292a62c31e73f9f4eb62330a97354c6b4aa2a7ff2fc4f288381b"
+    },
+    {
+      "index": 473,
+      "pts": 242176,
+      "source_time_us": 18920000,
+      "rgb24_sha256": "7bdf60aca55b015789daf2d5fca346f093f1dfcafe063584f0bd702c51b0195d"
+    },
+    {
+      "index": 474,
+      "pts": 242688,
+      "source_time_us": 18960000,
+      "rgb24_sha256": "2d5fc0662fb3c560cf46b2846f941a1ec1c2728200c888f612b217259a6e9961"
+    },
+    {
+      "index": 475,
+      "pts": 243200,
+      "source_time_us": 19000000,
+      "rgb24_sha256": "f7332d64c9d0363ff9dba9f1a251abdd0092f30179dd920b259ce456ceddd9fe"
+    },
+    {
+      "index": 476,
+      "pts": 243712,
+      "source_time_us": 19040000,
+      "rgb24_sha256": "58b237d8c15804107010e7dc8c758933c84fd7c70cbee56ee986b717c68d4ca4"
+    },
+    {
+      "index": 477,
+      "pts": 244224,
+      "source_time_us": 19080000,
+      "rgb24_sha256": "dbc282c590f7f739ae693b4bf8a862eadfa0510488f04b8db78c2ab6ec0c8540"
+    },
+    {
+      "index": 478,
+      "pts": 244736,
+      "source_time_us": 19120000,
+      "rgb24_sha256": "09bc688a6ee999f557793a3e305ab21dbfac206bb222c407682b0484cec948cd"
+    },
+    {
+      "index": 479,
+      "pts": 245248,
+      "source_time_us": 19160000,
+      "rgb24_sha256": "3241a84c669c47ab52febfb0f7fe41ccd0a370d76d0103ce636afc8cba647720"
+    },
+    {
+      "index": 480,
+      "pts": 245760,
+      "source_time_us": 19200000,
+      "rgb24_sha256": "a88af0afad7d1405cabedb7a6ccc4b4f4ca48a345d8b8ed7d92ffe96dc4bc958"
+    },
+    {
+      "index": 481,
+      "pts": 246272,
+      "source_time_us": 19240000,
+      "rgb24_sha256": "43ef0815e94bda9cfc27ecc1d4d177b3c0f8bea9a3055b8a0bc4be01e3de46a8"
+    },
+    {
+      "index": 482,
+      "pts": 246784,
+      "source_time_us": 19280000,
+      "rgb24_sha256": "b252c99b73ee771bc688e32a3c3d95113eae60ffc4ede353cc99219f524ce961"
+    },
+    {
+      "index": 483,
+      "pts": 247296,
+      "source_time_us": 19320000,
+      "rgb24_sha256": "183e2428b390cc6fbb5ffff9675b2bba6648f26785a1971d5e71c12f43607994"
+    },
+    {
+      "index": 484,
+      "pts": 247808,
+      "source_time_us": 19360000,
+      "rgb24_sha256": "2a2b1cc0016abd6f4510a681bb595657c0426354f5a73aa8d159a6e12d605391"
+    },
+    {
+      "index": 485,
+      "pts": 248320,
+      "source_time_us": 19400000,
+      "rgb24_sha256": "b723b05eab04965da8b15b23936fa303a5ad195479c21a6f45a813610cbf8755"
+    },
+    {
+      "index": 486,
+      "pts": 248832,
+      "source_time_us": 19440000,
+      "rgb24_sha256": "ce985d96b1caf1dac0b634813f71e219a5ffbf332e818710844dfdbc9b8b2436"
+    },
+    {
+      "index": 487,
+      "pts": 249344,
+      "source_time_us": 19480000,
+      "rgb24_sha256": "a84bcfaafbbf93b4980b3d51c71b3b483b99f9d18cda02d212a52c7f7816abaf"
+    },
+    {
+      "index": 488,
+      "pts": 249856,
+      "source_time_us": 19520000,
+      "rgb24_sha256": "5a110f691b4a6a7fd5c7150172e132aee362ab107eda2329f93731fafde48eee"
+    },
+    {
+      "index": 489,
+      "pts": 250368,
+      "source_time_us": 19560000,
+      "rgb24_sha256": "10ab831b81a0a5bd57a20c3e79e681aae104237f1fa581912e6c9433dcf90e34"
+    },
+    {
+      "index": 490,
+      "pts": 250880,
+      "source_time_us": 19600000,
+      "rgb24_sha256": "a248c6b6075f9f833d980ec707f0a00d50ca10e99ebb85769640791b0c248643"
+    },
+    {
+      "index": 491,
+      "pts": 251392,
+      "source_time_us": 19640000,
+      "rgb24_sha256": "f8a8a3b2cd9b820e61f558584f65e597cd3f9289997b93b5887979e72d2924a0"
+    },
+    {
+      "index": 492,
+      "pts": 251904,
+      "source_time_us": 19680000,
+      "rgb24_sha256": "757245c305a40db0f83e68130fd69b934f6adfcb6d9259797324271bd8192ca6"
+    },
+    {
+      "index": 493,
+      "pts": 252416,
+      "source_time_us": 19720000,
+      "rgb24_sha256": "d0e8f55b541e2070580d994dd689b71b0bb8bdc4daac2ca440ac6759f6c746d5"
+    },
+    {
+      "index": 494,
+      "pts": 252928,
+      "source_time_us": 19760000,
+      "rgb24_sha256": "d9fdf75209fdb21ace3111a6b40e1571a2bfd9c349f9c249e745e38331d61ddb"
+    },
+    {
+      "index": 495,
+      "pts": 253440,
+      "source_time_us": 19800000,
+      "rgb24_sha256": "6039174d289c1b8fa9222c1a4fc71b8fa9a52639bd6c81eb23f4f1a3c1ddc935"
+    },
+    {
+      "index": 496,
+      "pts": 253952,
+      "source_time_us": 19840000,
+      "rgb24_sha256": "cfde9fb063a51ea1214a46842ae64f53f9813b1cc18456ae1810c1a1b4b583d1"
+    },
+    {
+      "index": 497,
+      "pts": 254464,
+      "source_time_us": 19880000,
+      "rgb24_sha256": "62d432cc6c32f742aa9bdde697720580490ade3918813edfb49ec9cc0113acc1"
+    },
+    {
+      "index": 498,
+      "pts": 254976,
+      "source_time_us": 19920000,
+      "rgb24_sha256": "4f1450d3d336b3801ec362e84a8d6ee977cb3ea510d98e483d49be98922b0ffd"
+    },
+    {
+      "index": 499,
+      "pts": 255488,
+      "source_time_us": 19960000,
+      "rgb24_sha256": "290fddd72b2dff988ec5ca46974c9fe77a767f4b895d841ddcf721410f49914c"
+    },
+    {
+      "index": 500,
+      "pts": 256000,
+      "source_time_us": 20000000,
+      "rgb24_sha256": "7f503ac40270cfe1631799a1d250fc0bc6602267f56d0ab8584b42d9b6cc6ba9"
+    },
+    {
+      "index": 513,
+      "pts": 262656,
+      "source_time_us": 20520000,
+      "rgb24_sha256": "36d713df36ed89ddf372dfcdc8c4d1b40fe378058c840895237a90032244d5c9"
+    },
+    {
+      "index": 525,
+      "pts": 268800,
+      "source_time_us": 21000000,
+      "rgb24_sha256": "ba9e766880f772edb1cca12027a8b443588a18bb9d0a76c85444cdb3dded5962"
+    },
+    {
+      "index": 538,
+      "pts": 275456,
+      "source_time_us": 21520000,
+      "rgb24_sha256": "90082e4497f9bea71696b999551db8ff857b029cf0c9a0280c82794f77cec4a7"
+    },
+    {
+      "index": 550,
+      "pts": 281600,
+      "source_time_us": 22000000,
+      "rgb24_sha256": "fba2ff3b7a08bea57d908763a645e0ec3ff48ac49972fa74f5f2c8d831a5994f"
+    },
+    {
+      "index": 563,
+      "pts": 288256,
+      "source_time_us": 22520000,
+      "rgb24_sha256": "dab4cfa49b0fff1519eb8b67a87a74aec08e877c4614f5acfd831868696712f7"
+    },
+    {
+      "index": 575,
+      "pts": 294400,
+      "source_time_us": 23000000,
+      "rgb24_sha256": "1d55a3c7e4775ac883038f7bf1cf58fd1a8a9cc490773419cc16e71febf91e19"
+    },
+    {
+      "index": 588,
+      "pts": 301056,
+      "source_time_us": 23520000,
+      "rgb24_sha256": "49dbf929a1a2ce67a0611bd54a6bfbe3d4eeb6459fba92bab15d7058f6a12c18"
+    },
+    {
+      "index": 600,
+      "pts": 307200,
+      "source_time_us": 24000000,
+      "rgb24_sha256": "0ea9e9ec8895652df1ab2a6faeebc5fd36e3a739188043b5126e179b9d29c8d2"
+    },
+    {
+      "index": 613,
+      "pts": 313856,
+      "source_time_us": 24520000,
+      "rgb24_sha256": "69fa1f562c895407a42324644fe5dc55bac08b3b2b8aeb05fa95d78c2c926c17"
+    }
+  ],
+  "scripted_baseline": {
+    "calls": [
+      "investigation",
+      "verification",
+      "verification",
+      "verification",
+      "verification",
+      "reporting"
+    ],
+    "inspections": [
+      {
+        "modality": "frames",
+        "interval": {
+          "start_us": 0,
+          "end_us": 2000000
+        }
+      }
+    ],
+    "completed_checks": 3,
+    "timeline": [
+      [
+        "person_moved",
+        {
+          "start_us": 0,
+          "end_us": 520001
+        }
+      ],
+      [
+        "person_moved",
+        {
+          "start_us": 10000000,
+          "end_us": 14520001
+        }
+      ]
+    ],
+    "tool_results": [
+      {
+        "status": "partial",
+        "requested": {
+          "start_us": 0,
+          "end_us": 2000000
+        },
+        "coverage": [
+          {
+            "start_us": 0,
+            "end_us": 1
+          },
+          {
+            "start_us": 520000,
+            "end_us": 520001
+          },
+          {
+            "start_us": 1000000,
+            "end_us": 1000001
+          },
+          {
+            "start_us": 1520000,
+            "end_us": 1520001
+          }
+        ],
+        "citation_spans": [
+          {
+            "id": "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5",
+            "start_us": 0,
+            "end_us": 520001
+          },
+          {
+            "id": "observation-250fc74388e3014c58efc8047055bf965fee49d9539edb9c3ad9c3b679683d96",
+            "start_us": 520000,
+            "end_us": 1000001
+          }
+        ],
+        "excluded_citation_spans": [],
+        "archived_failures": 0,
+        "matches": 1,
+        "ids": [
+          "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5",
+          "observation-250fc74388e3014c58efc8047055bf965fee49d9539edb9c3ad9c3b679683d96"
+        ]
+      }
+    ]
+  },
+  "scripted_temporal": {
+    "calls": [
+      "investigation",
+      "verification",
+      "verification",
+      "verification",
+      "verification",
+      "verification",
+      "reporting"
+    ],
+    "inspections": [
+      {
+        "modality": "frames",
+        "interval": {
+          "start_us": 0,
+          "end_us": 2000000
+        }
+      },
+      {
+        "modality": "frames",
+        "interval": {
+          "start_us": 14520000,
+          "end_us": 19520000
+        }
+      }
+    ],
+    "completed_checks": 3,
+    "timeline": [
+      [
+        "person_moved",
+        {
+          "start_us": 0,
+          "end_us": 520001
+        }
+      ],
+      [
+        "person_moved",
+        {
+          "start_us": 10000000,
+          "end_us": 14520001
+        }
+      ]
+    ],
+    "tool_results": [
+      {
+        "status": "partial",
+        "requested": {
+          "start_us": 0,
+          "end_us": 2000000
+        },
+        "coverage": [
+          {
+            "start_us": 0,
+            "end_us": 1
+          },
+          {
+            "start_us": 520000,
+            "end_us": 520001
+          },
+          {
+            "start_us": 1000000,
+            "end_us": 1000001
+          },
+          {
+            "start_us": 1520000,
+            "end_us": 1520001
+          }
+        ],
+        "citation_spans": [
+          {
+            "id": "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5",
+            "start_us": 0,
+            "end_us": 520001
+          },
+          {
+            "id": "observation-250fc74388e3014c58efc8047055bf965fee49d9539edb9c3ad9c3b679683d96",
+            "start_us": 520000,
+            "end_us": 1000001
+          }
+        ],
+        "excluded_citation_spans": [],
+        "archived_failures": 0,
+        "matches": 1,
+        "ids": [
+          "observation-6599d101e7423d580bfa39753a3168da56fcb8cf1589a8120f430e2e5f5090e5",
+          "observation-250fc74388e3014c58efc8047055bf965fee49d9539edb9c3ad9c3b679683d96"
+        ]
+      },
+      {
+        "status": "missing",
+        "requested": {
+          "start_us": 14520000,
+          "end_us": 19520000
+        },
+        "coverage": [],
+        "citation_spans": [],
+        "excluded_citation_spans": [],
+        "archived_failures": 0,
+        "matches": 0,
+        "ids": []
+      }
+    ]
+  },
+  "alternative_local_frames": [
+    {
+      "index": 363,
+      "pts": 185856,
+      "source_time_us": 14520000,
+      "rgb24_sha256": "9e10b66cb9c0fda7cd687f16814cb4d5b8d2549cd436730fb5e2f54e7f667723"
+    },
+    {
+      "index": 376,
+      "pts": 192512,
+      "source_time_us": 15040000,
+      "rgb24_sha256": "5a4612746cfce826817766c2c21bf7b54940da7203b6d19ea19eaea536d38848"
+    },
+    {
+      "index": 388,
+      "pts": 198656,
+      "source_time_us": 15520000,
+      "rgb24_sha256": "99bb79e3a3576c768db2eff98bf76bd7b8a02d3326533922a6120ddd5393e881"
+    },
+    {
+      "index": 401,
+      "pts": 205312,
+      "source_time_us": 16040000,
+      "rgb24_sha256": "42180899dee94f4f31ecb4304c479a99a8ef4f63e434270b5c8b53fd37ddc841"
+    },
+    {
+      "index": 413,
+      "pts": 211456,
+      "source_time_us": 16520000,
+      "rgb24_sha256": "42321f2eb822342984eb38aa54ce56527bc9229a4739b73e3da0009b346b834b"
+    },
+    {
+      "index": 426,
+      "pts": 218112,
+      "source_time_us": 17040000,
+      "rgb24_sha256": "ff8ee46daa96f36c626fd98886c2a49f2d8beded08688b58985d69b6268f8f24"
+    },
+    {
+      "index": 438,
+      "pts": 224256,
+      "source_time_us": 17520000,
+      "rgb24_sha256": "7da63ab12392cfe74e53e02770408bf52c29c74b2a321eac24fd6c4c07f83dfd"
+    },
+    {
+      "index": 451,
+      "pts": 230912,
+      "source_time_us": 18040000,
+      "rgb24_sha256": "87ff415947da7e5eb6f6f4f2ba8ce3734f61b9bc60084d9cc1eb9473aeca97a1"
+    },
+    {
+      "index": 463,
+      "pts": 237056,
+      "source_time_us": 18520000,
+      "rgb24_sha256": "38434a5fd02f2cbd91055c8b19443697ab21e07a75f2ae83d885a2c5c0e8d6f3"
+    },
+    {
+      "index": 476,
+      "pts": 243712,
+      "source_time_us": 19040000,
+      "rgb24_sha256": "58b237d8c15804107010e7dc8c758933c84fd7c70cbee56ee986b717c68d4ca4"
+    }
+  ],
+  "alternative_provider_output": null
+}

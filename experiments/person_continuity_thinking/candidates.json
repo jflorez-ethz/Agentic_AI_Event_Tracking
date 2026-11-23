@@ -1,0 +1,200 @@
+{
+  "J8": {
+    "source": "data/raw/Walk2_pts.mp4",
+    "frame_indices": [
+      100,
+      137,
+      175
+    ],
+    "start_xy": [
+      214,
+      236
+    ],
+    "end_xy": [
+      207,
+      176
+    ],
+    "scouting_group": "same_person",
+    "scouting_note": "Walking path on open floor"
+  },
+  "N4": {
+    "source": "data/raw/Walk2_pts.mp4",
+    "frame_indices": [
+      375,
+      425,
+      475
+    ],
+    "start_xy": [
+      164,
+      133
+    ],
+    "end_xy": [
+      77,
+      98
+    ],
+    "scouting_group": "same_person",
+    "scouting_note": "Approach toward upper-left seating"
+  },
+  "C6": {
+    "source": "data/raw/Walk2_pts.mp4",
+    "frame_indices": [
+      600,
+      725,
+      825
+    ],
+    "start_xy": [
+      35,
+      113
+    ],
+    "end_xy": [
+      32,
+      112
+    ],
+    "scouting_group": "indeterminate",
+    "scouting_note": "Disappearance at left and reappearance"
+  },
+  "T2": {
+    "source": "data/raw/Walk2_pts.mp4",
+    "frame_indices": [
+      900,
+      975,
+      1050
+    ],
+    "start_xy": [
+      58,
+      97
+    ],
+    "end_xy": [
+      145,
+      35
+    ],
+    "scouting_group": "different_person",
+    "scouting_note": "Foreground walker versus separated upper-left figure"
+  },
+  "P9": {
+    "source": "data/raw/LeftBag_PickedUp_pts.mp4",
+    "frame_indices": [
+      0,
+      40,
+      75
+    ],
+    "start_xy": [
+      214,
+      215
+    ],
+    "end_xy": [
+      192,
+      162
+    ],
+    "scouting_group": "same_person",
+    "scouting_note": "Foreground walking"
+  },
+  "B3": {
+    "source": "data/raw/LeftBag_PickedUp_pts.mp4",
+    "frame_indices": [
+      600,
+      675,
+      750
+    ],
+    "start_xy": [
+      181,
+      50
+    ],
+    "end_xy": [
+      294,
+      98
+    ],
+    "scouting_group": "same_person",
+    "scouting_note": "Direction change away from upper-right area"
+  },
+  "X5": {
+    "source": "data/raw/LeftBag_PickedUp_pts.mp4",
+    "frame_indices": [
+      900,
+      975,
+      1050
+    ],
+    "start_xy": [
+      248,
+      125
+    ],
+    "end_xy": [
+      203,
+      82
+    ],
+    "scouting_group": "same_person",
+    "scouting_note": "Returns toward top then turns away"
+  },
+  "G1": {
+    "source": "data/raw/TwoEnterShop1front_pts.mp4",
+    "frame_indices": [
+      375,
+      412,
+      450
+    ],
+    "start_xy": [
+      55,
+      145
+    ],
+    "end_xy": [
+      182,
+      134
+    ],
+    "scouting_group": "indeterminate",
+    "scouting_note": "Crowded endpoint near storefront column"
+  },
+  "V7": {
+    "source": "data/raw/TwoEnterShop1front_pts.mp4",
+    "frame_indices": [
+      550,
+      612,
+      675
+    ],
+    "start_xy": [
+      46,
+      144
+    ],
+    "end_xy": [
+      237,
+      86
+    ],
+    "scouting_group": "different_person",
+    "scouting_note": "Foreground passerby versus shop entrant"
+  },
+  "D4": {
+    "source": "data/raw/TwoEnterShop1front_pts.mp4",
+    "frame_indices": [
+      1125,
+      1200,
+      1275
+    ],
+    "start_xy": [
+      235,
+      81
+    ],
+    "end_xy": [
+      229,
+      107
+    ],
+    "scouting_group": "indeterminate",
+    "scouting_note": "Similar silhouettes close together at the entrance"
+  },
+  "L8": {
+    "source": "data/raw/TwoEnterShop1front_pts.mp4",
+    "frame_indices": [
+      225,
+      262,
+      300
+    ],
+    "start_xy": [
+      80,
+      138
+    ],
+    "end_xy": [
+      234,
+      78
+    ],
+    "scouting_group": "different_person",
+    "scouting_note": "Foreground walker versus storefront figure"
+  }
+}

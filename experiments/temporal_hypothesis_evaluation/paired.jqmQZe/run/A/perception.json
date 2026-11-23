@@ -1,0 +1,176 @@
+{
+  "metadata": {
+    "provider": "google-gemini-developer-api",
+    "model_id": "gemini-3.5-flash-lite",
+    "model_version": "gemini-3.5-flash-lite",
+    "adapter_version": "1",
+    "prompt_version": "e1-v1",
+    "settings": [
+      [
+        "sdk_version",
+        "3.6.1"
+      ],
+      [
+        "max_output_tokens",
+        4096
+      ],
+      [
+        "thinking_level",
+        "LOW"
+      ]
+    ],
+    "elapsed_ms": 6657,
+    "usage": [
+      [
+        "prompt_token_count",
+        10898
+      ],
+      [
+        "candidates_token_count",
+        203
+      ],
+      [
+        "total_token_count",
+        11101
+      ]
+    ]
+  },
+  "observations": [
+    {
+      "id": "observation-0aede919d5fd0ecc16cc3ccefaba2f0cee5f96ec47e0b46203dae590492025af",
+      "inspection_id": "inspection-eb5128069ce6612aa5b748b11cf6f61c6becf88b1279571d9d34d19349eca923",
+      "category": "insufficient_evidence",
+      "description": "No clear person movement or appearance can be definitively established across the low-resolution frames within the visibility limits.",
+      "evidence": {
+        "frame_ids": [
+          "frame-3c30ec8507c6d6d61b4a7a9489c3b0391317db88cc1d72d1dbd80fc98b7dd351",
+          "frame-8f7db73136d3db24cbe5431945422c4f6753dc5819829db668b3fc56606b9369",
+          "frame-66e522973d288b0527224d540695138dae7fb7b129e38cee3e308ada50b014f4",
+          "frame-4dc9ba685e925cac2e29207d79961b38f5701a3307057fee5a6987632eae99d2",
+          "frame-1244bf6e61315ee3b9bf9891394f1ef223f2f75ee2edc2926f9c16bc6063604c",
+          "frame-c151685bc67451e63bab4a8b23099933da33e67fc18a18aef07e2caeb4019ab7",
+          "frame-e6144b4cb75b4117f4442be05ba75d00e3c9468cbaf7626b1917bbdcc2369c0f",
+          "frame-59a37da9686877a8fc2f1095cb7e7f752833f4f1bda7c2212cb8e7000f003478",
+          "frame-b4ac930b827db68fa0ad88611ba94fbf95fd4537d3ae8a570d528a77ea28645e",
+          "frame-2d63143d0c0889b2c56564194480bac8d348895cc7f13a0a7712082e4bbb8f8b"
+        ]
+      },
+      "visibility_limits": "High angle overhead view with low resolution, high glare near windows, and distant figures.",
+      "uncertainty": "Timing uncertainty spans 14520000 microseconds to 19040000 microseconds between frames F1 to F10.",
+      "source_video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+      "inference_metadata": {
+        "provider": "google-gemini-developer-api",
+        "model_id": "gemini-3.5-flash-lite",
+        "model_version": "gemini-3.5-flash-lite",
+        "adapter_version": "1",
+        "prompt_version": "e1-v1",
+        "settings": [
+          [
+            "sdk_version",
+            "3.6.1"
+          ],
+          [
+            "max_output_tokens",
+            4096
+          ],
+          [
+            "thinking_level",
+            "LOW"
+          ]
+        ],
+        "elapsed_ms": 6657,
+        "usage": [
+          [
+            "prompt_token_count",
+            10898
+          ],
+          [
+            "candidates_token_count",
+            203
+          ],
+          [
+            "total_token_count",
+            11101
+          ]
+        ]
+      },
+      "schema_version": 1
+    }
+  ],
+  "raw_response": "{\n  \"observations\": [\n    {\n      \"category\": \"insufficient_evidence\",\n      \"description\": \"No clear person movement or appearance can be definitively established across the low-resolution frames within the visibility limits.\",\n      \"visibility_limits\": \"High angle overhead view with low resolution, high glare near windows, and distant figures.\",\n      \"uncertainty\": \"Timing uncertainty spans 14520000 microseconds to 19040000 microseconds between frames F1 to F10.\",\n      \"frame_labels\": [\n        \"F1\",\n        \"F2\",\n        \"F3\",\n        \"F4\",\n        \"F5\",\n        \"F6\",\n        \"F7\",\n        \"F8\",\n        \"F9\",\n        \"F10\"\n      ],\n      \"clip_interval_us\": []\n    }\n  ]\n}",
+  "schema_version": 1,
+  "response_details": {
+    "sdk_http_response": {
+      "headers": {
+        "x-gemini-service-tier": "standard",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin, X-Origin, Referer",
+        "content-encoding": "gzip",
+        "date": "Sun, 22 Nov 2026 15:40:54 GMT",
+        "server": "scaffolding on HTTPServer2",
+        "x-xss-protection": "0",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "server-timing": "gfet4t7; dur=6321",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "transfer-encoding": "chunked"
+      }
+    },
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"observations\": [\n    {\n      \"category\": \"insufficient_evidence\",\n      \"description\": \"No clear person movement or appearance can be definitively established across the low-resolution frames within the visibility limits.\",\n      \"visibility_limits\": \"High angle overhead view with low resolution, high glare near windows, and distant figures.\",\n      \"uncertainty\": \"Timing uncertainty spans 14520000 microseconds to 19040000 microseconds between frames F1 to F10.\",\n      \"frame_labels\": [\n        \"F1\",\n        \"F2\",\n        \"F3\",\n        \"F4\",\n        \"F5\",\n        \"F6\",\n        \"F7\",\n        \"F8\",\n        \"F9\",\n        \"F10\"\n      ],\n      \"clip_interval_us\": []\n    }\n  ]\n}",
+              "thought_signature": "Eo4BCosBAWkUfRNt2-2DntmghJiIjE1O7zoDWjGHomlVe0b9NHQN5YkuvdxvqpUTx4HyS20jSr456hHCVRrYNw_COuGRSe5MZnqy7xiEgWqbWuE9U1DIAqdoFuPIs1fEBOyCcZEiHwpKKoZ2DoBsgukHz0pI8inTXUoTH0NEeR9msjpuU7X_M0GW3isl7Pvp_g=="
+            }
+          ],
+          "role": "model"
+        },
+        "finish_reason": "STOP",
+        "index": 0
+      }
+    ],
+    "model_version": "gemini-3.5-flash-lite",
+    "response_id": "BA0Da-G4OZmN28oPgJS1-QE",
+    "usage_metadata": {
+      "candidates_token_count": 203,
+      "prompt_token_count": 10898,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 258
+        },
+        {
+          "modality": "IMAGE",
+          "token_count": 10640
+        }
+      ],
+      "total_token_count": 11101
+    },
+    "automatic_function_calling_history": [],
+    "parsed": {
+      "observations": [
+        {
+          "category": "insufficient_evidence",
+          "description": "No clear person movement or appearance can be definitively established across the low-resolution frames within the visibility limits.",
+          "visibility_limits": "High angle overhead view with low resolution, high glare near windows, and distant figures.",
+          "uncertainty": "Timing uncertainty spans 14520000 microseconds to 19040000 microseconds between frames F1 to F10.",
+          "frame_labels": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5",
+            "F6",
+            "F7",
+            "F8",
+            "F9",
+            "F10"
+          ],
+          "clip_interval_us": []
+        }
+      ]
+    }
+  }
+}

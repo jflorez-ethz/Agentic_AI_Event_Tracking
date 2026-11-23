@@ -1,0 +1,15 @@
+{
+  "models": {
+    "reasoning": "gemini-3.6-flash",
+    "video": "gemini-3.5-flash-lite"
+  },
+  "caps_per_arm": {
+    "reasoning_calls": 3,
+    "reasoning_attempts": 6,
+    "media_attempts": 1
+  },
+  "selection_instruction": " This evaluation concerns what follows the focused movement. You may search once, which requests fresh frame perception, or abstain by returning delegate with empty ids and dispositions. Use a search interval overlapping the focused citation, at most ten seconds. Treat identity as uncertain. Record the evidence basis for your choice in reason. No further search is permitted.",
+  "temporal_addition": " Before choosing, explicitly consider joint continuation, divergence, and loss of visibility. Name the visual clue that would distinguish the plausible outcomes, or why no inspection would help, in the brief decision rationale.",
+  "order": "AB",
+  "input_sha256": "39b118978eaf3d9f514ea91cd4871d14cf3b7c9e59d0278019dea3e6c21ee22f"
+}

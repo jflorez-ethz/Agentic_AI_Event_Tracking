@@ -1,0 +1,101 @@
+{
+  "case": "left_bag",
+  "source_sha256": "fb64c4a8f2a64928670bbbde152d52c83f22ddbff946487d6b13c81cfb12962d",
+  "reference_kind": "caviar_conversion",
+  "alignment_status": "local_verified",
+  "review_complete": false,
+  "reviewers": [],
+  "events": [
+    {
+      "id": "caviar-person-3-757-1093",
+      "category": "person_moved",
+      "description": "CAVIAR labels individual 3 walking.",
+      "interval": {
+        "start_us": 480000,
+        "end_us": 13960000
+      },
+      "status": "supported",
+      "participants": [
+        "caviar-object:3"
+      ],
+      "supporting_frames": [
+        {
+          "display_index": 12,
+          "pts": 480,
+          "source_time_us": 480000
+        },
+        {
+          "display_index": 348,
+          "pts": 13920,
+          "source_time_us": 13920000
+        }
+      ],
+      "uncertainty": "Label boundaries follow the XML, clipped to the evaluation source.",
+      "provenance": {
+        "xml": "data/annotations/LeftBag.xml",
+        "kind": "objects",
+        "entity_id": "3",
+        "members": [],
+        "hypothesis_id": "1",
+        "field": "movement",
+        "label": "walking",
+        "field_evaluation": "1.0",
+        "original_frame_interval": {
+          "start": 757,
+          "end_exclusive": 1094
+        },
+        "local_interval": {
+          "start_us": 480000,
+          "end_us": 13960000
+        },
+        "compatibility": "broader_person_moved"
+      }
+    },
+    {
+      "id": "caviar-person-5-1216-1369",
+      "category": "person_moved",
+      "description": "CAVIAR labels individual 5 walking.",
+      "interval": {
+        "start_us": 18840000,
+        "end_us": 25000000
+      },
+      "status": "supported",
+      "participants": [
+        "caviar-object:5"
+      ],
+      "supporting_frames": [
+        {
+          "display_index": 471,
+          "pts": 18840,
+          "source_time_us": 18840000
+        },
+        {
+          "display_index": 624,
+          "pts": 24960,
+          "source_time_us": 24960000
+        }
+      ],
+      "uncertainty": "Label boundaries follow the XML, clipped to the evaluation source.",
+      "provenance": {
+        "xml": "data/annotations/LeftBag.xml",
+        "kind": "objects",
+        "entity_id": "5",
+        "members": [],
+        "hypothesis_id": "1",
+        "field": "movement",
+        "label": "walking",
+        "field_evaluation": "1.0",
+        "original_frame_interval": {
+          "start": 1216,
+          "end_exclusive": 1370
+        },
+        "local_interval": {
+          "start_us": 18840000,
+          "end_us": 25000000
+        },
+        "compatibility": "broader_person_moved"
+      }
+    }
+  ],
+  "questions": []
+}

@@ -1,0 +1,398 @@
+{
+  "kind": "perception",
+  "source_sha256": "f5290c0107a7d5e2bca9c324d1e2f15929ce7df86ea755613229f18af5c554a0",
+  "sdk_version": "3.6.1",
+  "wire_bytes": 2152713,
+  "wire_sha256": "1a12d86ed66696f4dc3ccb311646395d4039de49cc45daaf829167490521a7ae",
+  "body_without_images": {
+    "contents": [
+      {
+        "parts": [
+          {
+            "text": "Describe visible activities. Use placement, removal or entry only when the observable transition is established. Describe uncertain action as insufficient evidence. Cite the supporting visual evidence. Do not infer ownership, intent or abandonment. Use object_appeared or object_disappeared for visibility changes without an observed physical action. Describe the visible before and after states and cite frames for both. Use object_placed or object_removed only when the physical action itself is visible. Use person_appeared for first visibility and person_moved for motion already within view. Use person_enters_area only when a person visibly crosses an identifiable physical boundary. Name the boundary and describe the crossing in the observation. The image edge only marks visibility. For this targeted inspection, report only visible cues. Cite frames that show changes and describe what is visible before and after. If several people are visible, describe their positions and paths separately where distinguishable. Flag occlusion, frame edges and uncertainty about identity across a visibility gap. Do not infer separation from a person becoming hard to see.\nUse only visible evidence. Do not infer identity, ownership, intent or actions outside the supplied media. State visibility limits and timing uncertainty. Return an empty observations list if no category applies.\nCite one or more supplied frame labels for each observation and leave clip_interval_us empty. Discrete frames do not show continuous action. Optionally propose one visual relation from these 384x288 images. Use apparent image-plane convergence (approach), local visible divergence, or near proximity (nearby). Return null if no relevant assessment is possible. Use unresolved when an overlap or occlusion leaves correspondence uncertain. Never infer identity links or same-pair separation. Cite chronological F labels. The half-open interval starts at the first cited timestamp and ends one microsecond after the last; for nearby cite only one view and set nearby_frame_label. Use two visible comparable pixel positions and a radius in pixels covering each position's uncertainty. Use null marks on a view you cannot assess. Never guess coordinates or uncertainty. Set distinct_paths true only if two distinguishable paths are visible."
+          },
+          {
+            "text": "F1: source time 10000000 microseconds."
+          },
+          {
+            "inlineData": {
+              "data": "<image omitted>",
+              "mime_type": "image/png"
+            }
+          },
+          {
+            "text": "F2: source time 10520000 microseconds."
+          },
+          {
+            "inlineData": {
+              "data": "<image omitted>",
+              "mime_type": "image/png"
+            }
+          },
+          {
+            "text": "F3: source time 11000000 microseconds."
+          },
+          {
+            "inlineData": {
+              "data": "<image omitted>",
+              "mime_type": "image/png"
+            }
+          },
+          {
+            "text": "F4: source time 11520000 microseconds."
+          },
+          {
+            "inlineData": {
+              "data": "<image omitted>",
+              "mime_type": "image/png"
+            }
+          },
+          {
+            "text": "F5: source time 12000000 microseconds."
+          },
+          {
+            "inlineData": {
+              "data": "<image omitted>",
+              "mime_type": "image/png"
+            }
+          },
+          {
+            "text": "F6: source time 12520000 microseconds."
+          },
+          {
+            "inlineData": {
+              "data": "<image omitted>",
+              "mime_type": "image/png"
+            }
+          },
+          {
+            "text": "F7: source time 13000000 microseconds."
+          },
+          {
+            "inlineData": {
+              "data": "<image omitted>",
+              "mime_type": "image/png"
+            }
+          }
+        ],
+        "role": "user"
+      }
+    ],
+    "generationConfig": {
+      "maxOutputTokens": 8192,
+      "responseMimeType": "application/json",
+      "responseJsonSchema": {
+        "type": "object",
+        "required": [
+          "observations"
+        ],
+        "properties": {
+          "observations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "category",
+                "description",
+                "visibility_limits",
+                "uncertainty",
+                "frame_labels",
+                "clip_interval_us"
+              ],
+              "properties": {
+                "category": {
+                  "type": "string",
+                  "enum": [
+                    "object_placed",
+                    "object_removed",
+                    "person_enters_area",
+                    "person_appeared",
+                    "person_moved",
+                    "object_appeared",
+                    "object_disappeared",
+                    "insufficient_evidence"
+                  ]
+                },
+                "description": {
+                  "type": "string"
+                },
+                "visibility_limits": {
+                  "type": "string"
+                },
+                "uncertainty": {
+                  "type": "string"
+                },
+                "frame_labels": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "clip_interval_us": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "maxItems": 2
+                }
+              }
+            }
+          },
+          "relation": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "claim": {
+                    "type": "string",
+                    "enum": [
+                      "approach",
+                      "nearby",
+                      "visible_divergence",
+                      "unresolved"
+                    ]
+                  },
+                  "interval": {
+                    "type": "object",
+                    "properties": {
+                      "start_us": {
+                        "type": "integer"
+                      },
+                      "end_us": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "start_us",
+                      "end_us"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "views": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 7,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "frame_label": {
+                          "type": "string",
+                          "enum": [
+                            "F1",
+                            "F2",
+                            "F3",
+                            "F4",
+                            "F5",
+                            "F6",
+                            "F7"
+                          ]
+                        },
+                        "marks": {
+                          "anyOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "type": "array",
+                              "minItems": 2,
+                              "maxItems": 2,
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "x": {
+                                    "type": "number"
+                                  },
+                                  "y": {
+                                    "type": "number"
+                                  },
+                                  "radius": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "x",
+                                  "y",
+                                  "radius"
+                                ],
+                                "additionalProperties": false
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "frame_label",
+                        "marks"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "distinct_paths": {
+                    "type": "boolean"
+                  },
+                  "nearby_frame_label": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "F1",
+                          "F2",
+                          "F3",
+                          "F4",
+                          "F5",
+                          "F6",
+                          "F7"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "claim",
+                  "interval",
+                  "views",
+                  "distinct_paths",
+                  "nearby_frame_label"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "thinkingConfig": {
+        "thinking_level": "HIGH"
+      }
+    }
+  },
+  "images": [
+    {
+      "bytes": 230513,
+      "sha256": "da82cef94346a5033621ddbae23693adbe5121ab1faa2a3261854df6fe84ff01"
+    },
+    {
+      "bytes": 233437,
+      "sha256": "661d9a49fd838e507ff8ec1dc5a5fb9e0aa94d45553a39778236c03b3991dcbe"
+    },
+    {
+      "bytes": 232615,
+      "sha256": "29c5e0117d5cd6edbaf64d6366ddc37ebe3280726d6ff3a5645c307e3b0089bc"
+    },
+    {
+      "bytes": 223875,
+      "sha256": "9596950dd7b3abc5bc2fab349ec21717460186982e0eff09024d13f608639976"
+    },
+    {
+      "bytes": 225925,
+      "sha256": "9b75ebbc832454b07ed413d5ffc6e08dcb4c8b0a153afbb88101208567544060"
+    },
+    {
+      "bytes": 231594,
+      "sha256": "283c0315b6ba4cd9a0e3684e49aea0a8da5e19c9534083c5453d422f218091b6"
+    },
+    {
+      "bytes": 232685,
+      "sha256": "abb2717d47dca9c5ce4fe0bf5222c4b795c32f3117ffe3a5cb1e23df3eba3e93"
+    }
+  ],
+  "inspection": {
+    "id": "inspection-9a03c2c8614970f7701823118e1c5b0b2d170f6d269af415222af63aefae7705",
+    "video_id": "video-8d27aff817054ec42231f2b3bb90f1ff8408e0d010b889a82a6f0e2e5ff3e8bd",
+    "requested_interval": {
+      "start_us": 10000000,
+      "end_us": 13000001
+    },
+    "requested_times_us": [
+      10000000,
+      10500000,
+      11000000,
+      11500000,
+      12000000,
+      12500000,
+      13000000
+    ],
+    "modality": "frames",
+    "selection_policy": "first_at_or_after_within_interval",
+    "pixel_format": "rgb24",
+    "extraction_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+    "frames": [
+      {
+        "id": "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+        "display_index": 250,
+        "pts": 128000,
+        "source_time_us": 10000000,
+        "rgb24_sha256": "317f76b388c42bb9c4c02202e4c78c7bee2f464db253d2679443dd621e6c1a2e",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+        "display_index": 263,
+        "pts": 134656,
+        "source_time_us": 10520000,
+        "rgb24_sha256": "a2a7bc34ad481bd607b0087b299a2a238deadf8a456837ca2e1de9812090de49",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+        "display_index": 275,
+        "pts": 140800,
+        "source_time_us": 11000000,
+        "rgb24_sha256": "d7e925e0f71670240ab20c6f09fea3929042a8ab63d14eafa3b572121b8ebcd8",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+        "display_index": 288,
+        "pts": 147456,
+        "source_time_us": 11520000,
+        "rgb24_sha256": "501ada5b02f345a9ad65926ff00191eefdcc8d7aca2811396b79656ef99bc7f2",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+        "display_index": 300,
+        "pts": 153600,
+        "source_time_us": 12000000,
+        "rgb24_sha256": "3d4eace29183f0f15d8caabeca9a8dfbe7d75e7d79e107f4c91d02260303a157",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+        "display_index": 313,
+        "pts": 160256,
+        "source_time_us": 12520000,
+        "rgb24_sha256": "d561329fe5b9d259120a002a0afbec95211e3124261a2e8dfcee1335f898bc21",
+        "schema_version": 1
+      },
+      {
+        "id": "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4",
+        "display_index": 325,
+        "pts": 166400,
+        "source_time_us": 13000000,
+        "rgb24_sha256": "089b3d2045212ff80db967b7eb034f8e13f50dad456819d53aa6a7470a110865",
+        "schema_version": 1
+      }
+    ],
+    "frame_ids_by_request": [
+      "frame-f6da36a00991e63bcc20c523bfd3d338bba4a131f9a3ff5afe220be385e5b7ad",
+      "frame-e99c4d45a0a23cddd7d8378471532762705ccc9acf3d9fe491e15647f8ae2e55",
+      "frame-c23e115a5ce42752a4d44666bb79ef5140207106636d3757b24182df1c9646eb",
+      "frame-c9695de5ac910022881d899bb1f845826cd4ae084fe89ece9c813fd960b3cdb8",
+      "frame-37b287e560b1253c6617728a9c0fb9ebc9263bdaf542137c4fb0167b717c46b9",
+      "frame-3cf1e5d9296fdc2dba88bc2da217fcf4df7ef07e2e59b154a94fcc70aae380db",
+      "frame-d93d48853c83162c51f6121d11667f45085fafbae33574178b0b44c03c5278c4"
+    ],
+    "status": "complete",
+    "schema_version": 1,
+    "frame_size": [
+      384,
+      288
+    ]
+  }
+}
