@@ -14,7 +14,7 @@ from .evidence import CorroborationRequired, assess_correspondence, tool_coverag
 from .observation import FrameReference
 from .relations import validate_review
 from .video import _frame, _id, _select
-from .workflow import RELATIONAL_TASK_CATEGORY, _event_label, _time, Citation, RelationalFinding, Budget, Decision, DIRECT_PERSON_LABELS, EVENT_LABELS, VISUAL_TRANSITION_LABELS, Event, ReportingAgent, _overlaps
+from .workflow import RELATIONAL_TASK_CATEGORY, _event_label, _time, Citation, RelationalFinding, Budget, Decision, DIRECT_PERSON_LABELS, ENTRY_REFINEMENT_LABELS, EVENT_LABELS, VISUAL_TRANSITION_LABELS, Event, ReportingAgent, _overlaps
 
 AGENT_DEFAULT_MODEL = "gemini-3.5-flash-lite"
 INVESTIGATION_THINKING_LEVEL = "HIGH"
@@ -104,7 +104,7 @@ _PROPERTIES["transition"] = {
 _PROPERTIES["refinement"] = {
     **_PROPERTIES["transition"],
     "properties": {**_PROPERTIES["transition"]["properties"],
-                   "category": {"type": "string", "enum": list(DIRECT_PERSON_LABELS)}},
+                   "category": {"type": "string", "enum": list(ENTRY_REFINEMENT_LABELS)}},
     "required": ["category", *_TRANSITION_FIELDS],
 }
 _PROPERTIES["boundary"] = {"type": "string"}
@@ -1149,7 +1149,7 @@ class AgentRun:
         if "refinement" in action:
             refinement = action["refinement"]
             if (not isinstance(refinement, dict) or not isinstance(refinement.get("category"), str)
-                    or refinement["category"] not in DIRECT_PERSON_LABELS or "boundary" in action):
+                    or refinement["category"] not in ENTRY_REFINEMENT_LABELS or "boundary" in action):
                 raise VideoError("Invalid person-entry refinement")
             refined_category = refinement["category"]
         if "transition" in action and (not is_transition or status != "supported"):

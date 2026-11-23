@@ -19,7 +19,10 @@ from .video import _decode, _run, extract_clip, ingest, sample
 DIRECT_PERSON_LABELS = {
     "person_appeared": "A person became visible.",
     "person_moved": "A person moved within view.",
+    "person_fell": "A person went from upright to lying on the floor.",
 }
+# A person-entry candidate may only be narrowed to these weaker visibility claims.
+ENTRY_REFINEMENT_LABELS = ("person_appeared", "person_moved")
 VISUAL_TRANSITION_LABELS = {
     **DIRECT_PERSON_LABELS,
     "object_appeared": "An object became visible.",
@@ -535,6 +538,9 @@ def _observe_video(video, provider, interval, modality, phase, plan, *, model_gu
                 "physical action. Describe the visible before and after states and cite frames for both. "
                 "Use object_placed or object_removed only when the physical action itself is visible. "
                 "Use person_appeared for first visibility and person_moved for motion already within view. "
+                "Use person_fell only when cited frames show the same person upright before and lying on the "
+                "floor after; cite frames for both states. A person sitting, crouching, bending or partly hidden "
+                "is insufficient evidence. Do not infer injury, medical condition or cause. "
                 "Use person_enters_area only when a person visibly crosses an identifiable physical boundary. "
                 "Name the boundary and describe the crossing in the observation. The image edge only marks visibility."
                 if model_guided else ""
@@ -699,6 +705,8 @@ def _query_categories(text):
     if re.search(r"\b(person|someone|people)\b", text) and re.search(r"\b(mov\w*|walk\w*)\b", text):
         if "person_enters_area" not in categories:
             categories.add("person_moved")
+    if re.search(r"\b(fall|falls|falling|fell|fallen)\b|\b(lying|lay|lies) on the (floor|ground)\b", text):
+        categories.add("person_fell")
     if re.search(r"\bdisappear\w*\b|ceased to be visible", text):
         categories.add("object_disappeared")
     if not categories and _VISUAL_CHANGES.search(text):

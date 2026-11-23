@@ -14,7 +14,6 @@ from security_augmented.contracts import Interval, VideoError
 from security_augmented.gemini import MAX_INLINE_BYTES, GeminiAdapter
 from security_augmented.observation import FrameSequenceInput, ObservationRequest
 from security_augmented.video import _decode, ingest, sample
-from security_augmented.workflow import EVENT_LABELS
 
 WINDOW = Interval(5_000_000, 20_000_000)
 STEPS = (500, 250)
@@ -24,6 +23,11 @@ def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 
+# Categories as frozen in the prepared arms; later production taxonomy additions must not change them.
+FROZEN_LABELS = ("object_placed", "object_removed", "person_enters_area", "person_appeared",
+                 "person_moved", "object_appeared", "object_disappeared")
+
+
 def build(video, step_ms):
     inspection = sample(video, WINDOW, list(range(WINDOW.start_us, WINDOW.end_us, step_ms * 1000)))
     if inspection.status != "complete" or len(inspection.frames) != 15_000 // step_ms:
@@ -31,7 +35,7 @@ def build(video, step_ms):
     pixels = _decode(video, tuple(f.display_index for f in inspection.frames))
     media = FrameSequenceInput(inspection, video.width, video.height, pixels)
     return GeminiAdapter(model=MODEL, single_request=True).prepare(
-        ObservationRequest(media, (*EVENT_LABELS, "insufficient_evidence"), PROMPT),
+        ObservationRequest(media, (*FROZEN_LABELS, "insufficient_evidence"), PROMPT),
     )
 
 

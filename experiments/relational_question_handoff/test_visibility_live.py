@@ -134,9 +134,20 @@ def test_archived_default_rate_inspection_forwards_its_question(tmp_path, arm):
     body, = media_bodies
     instruction = f" Inspection question (an unverified lead): {question}".encode()
     assert body.count(question.encode()) == 1 and instruction in body
-    # Removing just this text must reproduce the original physical media request.
+    # Removing just this text, and the later person_fell taxonomy addition (prompt sentence and
+    # category enum entry), must reproduce the original physical media request.
+    fall_additions = (
+        b"Use person_fell only when cited frames show the same person upright before and lying on the "
+        b"floor after; cite frames for both states. A person sitting, crouching, bending or partly hidden "
+        b"is insufficient evidence. Do not infer injury, medical condition or cause. ",
+        b'"person_fell", ',
+    )
+    assert all(body.count(text) == 1 for text in fall_additions)
+    stripped = body.replace(instruction, b"")
+    for text in fall_additions:
+        stripped = stripped.replace(text, b"")
     old_media, = (r for r in saved["physical_requests"] if r["role"] == "perception")
-    assert hashlib.sha256(body.replace(instruction, b"")).hexdigest() == old_media["body_sha256"]
+    assert hashlib.sha256(stripped).hexdigest() == old_media["body_sha256"]
     assert list(inspection["entry"]["inspection"]["frames"]) == saved["inspections"][0]["entry"]["inspection"]["frames"]
     assert result["request_counts"] == saved["request_counts"]
     assert result["outcome"]["status"] == "unresolved" and not result["events"]
