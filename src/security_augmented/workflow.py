@@ -34,6 +34,9 @@ _ACTION_LABELS = {
     "person_enters_area": "A person entered the observed area.",
 }
 EVENT_LABELS = _ACTION_LABELS | VISUAL_TRANSITION_LABELS
+# Routine person activity fills candidate slots only after every visible security-relevant observation.
+ROUTINE_LABELS = frozenset({"person_appeared", "person_moved"})
+PRIORITY_LABELS = tuple(label for label in EVENT_LABELS if label not in ROUTINE_LABELS)
 RELATIONAL_TASK_CATEGORY = "relational_task"
 _CLOCK = re.compile(r"(?<!\d)(?:\d+:)?\d{1,2}:[0-5]\d(?:\.\d{1,6})?(?!\d)")
 _SECONDS_RANGE = re.compile(

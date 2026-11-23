@@ -14,7 +14,7 @@ from .evidence import CorroborationRequired, assess_correspondence, tool_coverag
 from .observation import FrameReference
 from .relations import validate_review
 from .video import _frame, _id, _select
-from .workflow import RELATIONAL_TASK_CATEGORY, _event_label, _time, Citation, RelationalFinding, Budget, Decision, DIRECT_PERSON_LABELS, ENTRY_REFINEMENT_LABELS, EVENT_LABELS, VISUAL_TRANSITION_LABELS, Event, ReportingAgent, _overlaps
+from .workflow import RELATIONAL_TASK_CATEGORY, _event_label, _time, Citation, RelationalFinding, Budget, Decision, DIRECT_PERSON_LABELS, ENTRY_REFINEMENT_LABELS, EVENT_LABELS, PRIORITY_LABELS, ROUTINE_LABELS, VISUAL_TRANSITION_LABELS, Event, ReportingAgent, _overlaps
 
 AGENT_DEFAULT_MODEL = "gemini-3.5-flash-lite"
 INVESTIGATION_THINKING_LEVEL = "HIGH"
@@ -125,7 +125,10 @@ _INSTRUCTIONS = {
         "For association correspondence the seed is the delegated candidate and id is the associated observation. "
         "A shared frame can show distinct events at the same time. If the event is distinct or "
         "correspondence is uncertain, delegate it separately if warranted and within budget, or defer it. "
-        "Do not associate observations based on co-visibility, clothing similarity, or timing alone."
+        "Do not associate observations based on co-visibility, clothing similarity, or timing alone. "
+        f"Security-relevant observations come first: delegate or associate every visible {', '.join(PRIORITY_LABELS)} "
+        f"observation before using any candidate slot for {', '.join(sorted(ROUTINE_LABELS))} or a relational task. "
+        "Routine movement and appearance only fill the remaining slots."
     ),
     "verification": (
         "Judge only the delegated observation. Inspect frames or a clip within or near its "
@@ -526,6 +529,14 @@ def _index(findings):
 MAX_INSPECTION_SPAN_US = 10_000_000
 
 
+class PriorityRuleViolation(VideoError):
+    """A delegation used a slot for routine activity while a security-relevant observation was left unchecked."""
+
+    def __init__(self, unhandled, ids, dispositions, tasks):
+        super().__init__("Security-relevant observations must be delegated or associated before routine ones")
+        self.unhandled, self.ids, self.dispositions, self.tasks = unhandled, ids, dispositions, tasks
+
+
 class InspectionRejected(VideoError):
     """The proposed inspection was rejected before tool execution."""
 
@@ -759,7 +770,34 @@ class AgentRun:
         tasks = ()
         if self.independent_relational_tasks:
             tasks = self._relation_delegations(action.get("relational_tasks", []), visible, dispositions, len(ids))
+        unhandled = [i for i, f in visible.items() if f.observation.category in PRIORITY_LABELS
+                     and dispositions.get(i, {}).get("status") not in ("delegated", "associated")]
+        if unhandled and (tasks or any(visible[i].observation.category in ROUTINE_LABELS for i in ids)):
+            raise PriorityRuleViolation(unhandled, ids, dispositions, tasks)
         return ids, picks, dispositions, tasks
+
+    def _enforce_priority(self, violation):
+        """Last resort after feedback: displace routine candidates in favour of unchecked priority ones."""
+        limit, initial = self.budget.max_candidates, self.initial
+        routine = [i for i in violation.ids if initial[i].observation.category in ROUTINE_LABELS]
+        kept = ([i for i in violation.ids if i not in routine] + violation.unhandled)[:limit]
+        kept += routine[:limit - len(kept)]
+        displaced = [i for i in routine if i not in kept]
+        tasks = violation.tasks[:max(0, limit - len(kept))]
+        dispositions = dict(violation.dispositions)
+        for i in kept:
+            dispositions[i] = {"id": i, "status": "delegated"}
+        for i, record in list(dispositions.items()):
+            if i in displaced:
+                dispositions[i] = {"id": i, "status": "deferred",
+                                   "reason": "Displaced by the runtime security-priority rule."}
+            elif record["status"] == "associated" and record["candidate_id"] in displaced:
+                dispositions[i] = {"id": i, "status": "deferred",
+                                   "reason": "Its delegated candidate was displaced by the runtime security-priority rule."}
+        self.log("investigation", "priority_enforced", "Runtime displaced routine candidates for priority ones.",
+                 tuple(kept), details={"delegated": kept, "displaced": displaced,
+                                       "dropped_relational_tasks": len(violation.tasks) - len(tasks)})
+        return kept, [initial[i] for i in kept], dispositions, tasks
 
     def _validate_search(self, action):
         interval = self.interval(action)
@@ -769,11 +807,16 @@ class AgentRun:
 
     def investigate(self, initial):
         self.initial = available = _index(initial)
-        visible = dict(list(available.items())[:max(8, self.budget.max_candidates)])
+        # Every security-relevant observation is visible; routine ones fill the rest chronologically.
+        limit = max(8, self.budget.max_candidates)
+        priority = {i for i, f in available.items() if f.observation.category in PRIORITY_LABELS}
+        routine = [i for i in available if i not in priority][:max(0, limit - len(priority))]
+        visible = {i: f for i, f in available.items() if i in priority or i in routine}
         return self._investigate_visible(visible)
 
     def _investigate_visible(self, visible, tool_result=None):
         available = self.initial
+        priority_recovered = False
         while action := self.action("investigation", {
             "duration_us": self.video.duration_us, "max_candidates": self.budget.max_candidates,
             "evidence": {i: _short(f) for i, f in visible.items()}, "last_tool_result": tool_result,
@@ -783,7 +826,17 @@ class AgentRun:
         }):
             try:
                 if action["action"] == "delegate":
-                    ids, picks, dispositions, tasks = self._validate_delegation(action, visible)
+                    try:
+                        ids, picks, dispositions, tasks = self._validate_delegation(action, visible)
+                    except PriorityRuleViolation as violation:
+                        if not priority_recovered and self.remaining > 2:
+                            priority_recovered = True
+                            tool_result = {"status": "rejected", "code": "priority_observations_not_delegated",
+                                           "priority_ids": violation.unhandled, "reason": str(violation)}
+                            self.log("investigation", "recovery", str(violation), tuple(violation.unhandled),
+                                     details=tool_result)
+                            continue
+                        ids, picks, dispositions, tasks = self._enforce_priority(violation)
                     self.relational_tasks = tasks
                     self.dispositions = dispositions
                     self.log("investigation", "triage", "Recorded observation dispositions.",
