@@ -432,6 +432,8 @@ def test_archived_scan_triggers_automatic_investigation_without_question(tmp_pat
     assert (output / "alerts.csv").read_text().splitlines() == [
         "alert_id,category,start_s,end_s,frames_to_review,operator_label,operator_note"]
     assert (output / "report.md").read_text().startswith("## Alertes à vérifier (0)")
+    guard = (output / "report.html").read_text()
+    assert guard.startswith("<!doctype html>") and "No security event found" in guard and 'href="report.md"' in guard
     replayed = analysis["observations"]
     assert len(replayed) == len(rows) == 11
     for actual, archived in zip(replayed, rows, strict=True):

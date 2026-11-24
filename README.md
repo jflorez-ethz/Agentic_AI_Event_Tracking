@@ -15,6 +15,21 @@ From the repository root with Python 3.12, FFmpeg and ffprobe on PATH. The exist
 
 The first answer returns the 10–14.52 s movement and its source citations. The second records insufficient evidence for person continuity. Use `--interactive` to ask more questions. Saved mode reads a trusted local workflow artifact and checks the supplied video identity. The output is JSON on stdout. [Replay report](experiments/mvp_evaluation/delivery_replay/report.md)
 
+## Guard report
+
+Each CLI run also writes `report.html` next to `report.md`. It is a plain-language page for a security guard:
+
+- the review queue, with a question for the operator;
+- confirmed security events, with before, during and after thumbnails embedded in the page;
+- normal activity, one line each;
+- limits.
+
+It contains no technical identifiers and links to `report.md`. To regenerate it for saved runs without any model call (the source video must still be at its recorded path for the thumbnails):
+
+```bash
+.venv/bin/python -m security_augmented.guard_report experiments/<run>/run [experiments/<run2>/run ...]
+```
+
 ## Run a new investigation
 
 A live run requires a Gemini API key privately configured as `GEMINI_API_KEY` or `GOOGLE_API_KEY`, authorization for the footage and observation text, and a fresh output directory. This command uses the budgets of the archived WalkSplit evaluation. Run it only after approval.

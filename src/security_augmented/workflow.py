@@ -1083,6 +1083,9 @@ def main(argv=None):
         (args.output / "analysis.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
         if analysis.review is not None:
             _write_alert_sheet(args.output / "alerts.csv", analysis.review["alerts"])
+        from .guard_report import write as write_guard_report
+
+        write_guard_report(args.output, json.loads(json.dumps(result)))  # plain-language companion to report.md
     except (VideoError, OSError, ValueError, KeyError) as exc:
         parser.exit(1, f"{exc}\n")
     print(analysis.report, end="")
