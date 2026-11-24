@@ -1,0 +1,260 @@
+{
+ "case": "fall_true",
+ "video": "Rest_FallOnFloor.mpg",
+ "video_sha256": "06bc1d99e6766fd755adc215b3b5753f26d099f45c6578eee9c318e5c9637546",
+ "candidate": {
+  "t_before": 25.52,
+  "t_after": 28.04,
+  "x": 0.4948,
+  "y": 0.4097
+ },
+ "expected": {
+  "verdict": "supported",
+  "reason": "confirmed"
+ },
+ "probe": {
+  "aspect": 0.75,
+  "frames": [
+   {
+    "t": 26.0797,
+    "frame": 646,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.4531,
+      "y": 0.3785
+     }
+    ]
+   },
+   {
+    "t": 26.3197,
+    "frame": 652,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.4766,
+      "y": 0.3924
+     }
+    ]
+   },
+   {
+    "t": 26.5597,
+    "frame": 658,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "bending",
+      "x": 0.4922,
+      "y": 0.4271
+     }
+    ]
+   },
+   {
+    "t": 26.7997,
+    "frame": 664,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "bending",
+      "x": 0.4974,
+      "y": 0.4306
+     }
+    ]
+   },
+   {
+    "t": 27.0797,
+    "frame": 671,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "kneeling",
+      "x": 0.5,
+      "y": 0.4375
+     }
+    ]
+   },
+   {
+    "t": 27.3197,
+    "frame": 677,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "kneeling",
+      "x": 0.4896,
+      "y": 0.4479
+     }
+    ]
+   },
+   {
+    "t": 27.5597,
+    "frame": 683,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "sitting_on_floor",
+      "x": 0.4844,
+      "y": 0.4306
+     }
+    ]
+   },
+   {
+    "t": 27.7997,
+    "frame": 689,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.487,
+      "y": 0.4236
+     }
+    ]
+   },
+   {
+    "t": 28.0797,
+    "frame": 696,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.4948,
+      "y": 0.4097
+     }
+    ]
+   },
+   {
+    "t": 28.4797,
+    "frame": 706,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.5052,
+      "y": 0.4167
+     }
+    ]
+   },
+   {
+    "t": 28.9197,
+    "frame": 717,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.5052,
+      "y": 0.4201
+     }
+    ]
+   },
+   {
+    "t": 29.3197,
+    "frame": 727,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.5078,
+      "y": 0.4201
+     }
+    ]
+   },
+   {
+    "t": 29.7597,
+    "frame": 738,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.5078,
+      "y": 0.4201
+     }
+    ]
+   },
+   {
+    "t": 30.1597,
+    "frame": 748,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.5078,
+      "y": 0.4201
+     }
+    ]
+   },
+   {
+    "t": 30.5997,
+    "frame": 759,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.5078,
+      "y": 0.4201
+     }
+    ]
+   },
+   {
+    "t": 30.9997,
+    "frame": 769,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.5078,
+      "y": 0.4201
+     }
+    ]
+   },
+   {
+    "t": 31.4397,
+    "frame": 780,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.5078,
+      "y": 0.4201
+     }
+    ]
+   },
+   {
+    "t": 31.8397,
+    "frame": 790,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.5078,
+      "y": 0.4201
+     }
+    ]
+   },
+   {
+    "t": 32.2797,
+    "frame": 801,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.5078,
+      "y": 0.4201
+     }
+    ]
+   },
+   {
+    "t": 32.6797,
+    "frame": 811,
+    "persons": [
+     {
+      "id": "P2",
+      "posture": "lying_on_floor",
+      "x": 0.5078,
+      "y": 0.4201
+     }
+    ]
+   }
+  ]
+ }
+}

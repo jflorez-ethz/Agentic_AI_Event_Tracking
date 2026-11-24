@@ -1,0 +1,260 @@
+{
+ "case": "slump_true_slow",
+ "video": "Rest_SlumpOnFloor.mpg",
+ "video_sha256": "4ac7d2c63479ce052c0b7e7f8a49aec35f971bcd9b49c78b6687c5f885daf78c",
+ "candidate": {
+  "t_before": 25.04,
+  "t_after": 27.52,
+  "x": 0.7839,
+  "y": 0.3889
+ },
+ "expected": {
+  "verdict": "insufficient",
+  "reason": "no_upright_before"
+ },
+ "probe": {
+  "aspect": 0.75,
+  "frames": [
+   {
+    "t": 25.5597,
+    "frame": 633,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "kneeling",
+      "x": 0.7839,
+      "y": 0.3611
+     }
+    ]
+   },
+   {
+    "t": 25.7997,
+    "frame": 639,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "kneeling",
+      "x": 0.7839,
+      "y": 0.3507
+     }
+    ]
+   },
+   {
+    "t": 26.0397,
+    "frame": 645,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "kneeling",
+      "x": 0.7917,
+      "y": 0.3507
+     }
+    ]
+   },
+   {
+    "t": 26.2797,
+    "frame": 651,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "kneeling",
+      "x": 0.7917,
+      "y": 0.3507
+     }
+    ]
+   },
+   {
+    "t": 26.5597,
+    "frame": 658,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "kneeling",
+      "x": 0.7943,
+      "y": 0.3507
+     }
+    ]
+   },
+   {
+    "t": 26.7997,
+    "frame": 664,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "kneeling",
+      "x": 0.7943,
+      "y": 0.3611
+     }
+    ]
+   },
+   {
+    "t": 27.0397,
+    "frame": 670,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "kneeling",
+      "x": 0.7969,
+      "y": 0.3646
+     }
+    ]
+   },
+   {
+    "t": 27.2797,
+    "frame": 676,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "kneeling",
+      "x": 0.7969,
+      "y": 0.3681
+     }
+    ]
+   },
+   {
+    "t": 27.5597,
+    "frame": 683,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "sitting_on_floor",
+      "x": 0.7839,
+      "y": 0.3889
+     }
+    ]
+   },
+   {
+    "t": 27.9597,
+    "frame": 693,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "sitting_on_floor",
+      "x": 0.7734,
+      "y": 0.3889
+     }
+    ]
+   },
+   {
+    "t": 28.3997,
+    "frame": 704,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "sitting_on_floor",
+      "x": 0.7708,
+      "y": 0.3889
+     }
+    ]
+   },
+   {
+    "t": 28.7997,
+    "frame": 714,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "sitting_on_floor",
+      "x": 0.7708,
+      "y": 0.3889
+     }
+    ]
+   },
+   {
+    "t": 29.2397,
+    "frame": 725,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "sitting_on_floor",
+      "x": 0.7708,
+      "y": 0.3889
+     }
+    ]
+   },
+   {
+    "t": 29.6397,
+    "frame": 735,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "sitting_on_floor",
+      "x": 0.7708,
+      "y": 0.3889
+     }
+    ]
+   },
+   {
+    "t": 30.0797,
+    "frame": 746,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "sitting_on_floor",
+      "x": 0.7708,
+      "y": 0.3889
+     }
+    ]
+   },
+   {
+    "t": 30.4797,
+    "frame": 756,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "sitting_on_floor",
+      "x": 0.7708,
+      "y": 0.3889
+     }
+    ]
+   },
+   {
+    "t": 30.9197,
+    "frame": 767,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "sitting_on_floor",
+      "x": 0.7708,
+      "y": 0.3889
+     }
+    ]
+   },
+   {
+    "t": 31.3197,
+    "frame": 777,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "sitting_on_floor",
+      "x": 0.7708,
+      "y": 0.3889
+     }
+    ]
+   },
+   {
+    "t": 31.7597,
+    "frame": 788,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "sitting_on_floor",
+      "x": 0.7708,
+      "y": 0.3889
+     }
+    ]
+   },
+   {
+    "t": 32.1597,
+    "frame": 798,
+    "persons": [
+     {
+      "id": "P5",
+      "posture": "sitting_on_floor",
+      "x": 0.7708,
+      "y": 0.3889
+     }
+    ]
+   }
+  ]
+ }
+}

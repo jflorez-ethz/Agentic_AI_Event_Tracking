@@ -1,0 +1,500 @@
+{
+ "case": "leftbag_set_down_pick_up",
+ "video": "LeftBag.mpg",
+ "video_sha256": "8f5d1dbf43d58da1bce57ca1b3f9491b8467773cfd66d2846f62f7d38d4a45e7",
+ "candidate": {
+  "t_before": 1.52,
+  "t_after": 3.52,
+  "x": 0.4323,
+  "y": 0.375
+ },
+ "expected": {
+  "verdict": "insufficient",
+  "reason": "no_ground"
+ },
+ "probe": {
+  "aspect": 0.75,
+  "frames": [
+   {
+    "t": 1.5597,
+    "frame": 33,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "bending",
+      "x": 0.4557,
+      "y": 0.4583
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.1875,
+      "y": 0.3056
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2057,
+      "y": 0.2569
+     }
+    ]
+   },
+   {
+    "t": 1.7997,
+    "frame": 39,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "bending",
+      "x": 0.4661,
+      "y": 0.441
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.1901,
+      "y": 0.3125
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2109,
+      "y": 0.2604
+     }
+    ]
+   },
+   {
+    "t": 2.0397,
+    "frame": 45,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "bending",
+      "x": 0.474,
+      "y": 0.4201
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.1901,
+      "y": 0.316
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2135,
+      "y": 0.2639
+     }
+    ]
+   },
+   {
+    "t": 2.2797,
+    "frame": 51,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "bending",
+      "x": 0.474,
+      "y": 0.4132
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.1901,
+      "y": 0.3229
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2135,
+      "y": 0.2674
+     }
+    ]
+   },
+   {
+    "t": 2.5597,
+    "frame": 58,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "bending",
+      "x": 0.4714,
+      "y": 0.4132
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.1901,
+      "y": 0.3472
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2161,
+      "y": 0.2743
+     }
+    ]
+   },
+   {
+    "t": 2.7997,
+    "frame": 64,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "bending",
+      "x": 0.4635,
+      "y": 0.4132
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.1927,
+      "y": 0.3542
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2161,
+      "y": 0.2778
+     }
+    ]
+   },
+   {
+    "t": 3.0397,
+    "frame": 70,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "standing",
+      "x": 0.4557,
+      "y": 0.4028
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.1901,
+      "y": 0.3576
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.224,
+      "y": 0.2812
+     }
+    ]
+   },
+   {
+    "t": 3.2797,
+    "frame": 76,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "standing",
+      "x": 0.4401,
+      "y": 0.3819
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.1953,
+      "y": 0.3681
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2292,
+      "y": 0.2812
+     }
+    ]
+   },
+   {
+    "t": 3.5597,
+    "frame": 83,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "standing",
+      "x": 0.4323,
+      "y": 0.375
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.1953,
+      "y": 0.3785
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2292,
+      "y": 0.2882
+     }
+    ]
+   },
+   {
+    "t": 3.9597,
+    "frame": 93,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "standing",
+      "x": 0.4323,
+      "y": 0.375
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.1979,
+      "y": 0.4028
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2318,
+      "y": 0.3021
+     }
+    ]
+   },
+   {
+    "t": 4.3997,
+    "frame": 104,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "standing",
+      "x": 0.4505,
+      "y": 0.3889
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.2005,
+      "y": 0.4167
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2396,
+      "y": 0.309
+     }
+    ]
+   },
+   {
+    "t": 4.7997,
+    "frame": 114,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "standing",
+      "x": 0.4688,
+      "y": 0.4132
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.2161,
+      "y": 0.4271
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2448,
+      "y": 0.3194
+     }
+    ]
+   },
+   {
+    "t": 5.2397,
+    "frame": 125,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "bending",
+      "x": 0.4688,
+      "y": 0.4132
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.2188,
+      "y": 0.4479
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2448,
+      "y": 0.3403
+     }
+    ]
+   },
+   {
+    "t": 5.6397,
+    "frame": 135,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "bending",
+      "x": 0.4505,
+      "y": 0.375
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.2266,
+      "y": 0.4653
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2552,
+      "y": 0.3472
+     }
+    ]
+   },
+   {
+    "t": 6.0797,
+    "frame": 146,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "standing",
+      "x": 0.4401,
+      "y": 0.3125
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.2396,
+      "y": 0.4722
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2604,
+      "y": 0.3611
+     }
+    ]
+   },
+   {
+    "t": 6.4797,
+    "frame": 156,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "standing",
+      "x": 0.4193,
+      "y": 0.2465
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.2474,
+      "y": 0.4826
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2682,
+      "y": 0.3785
+     }
+    ]
+   },
+   {
+    "t": 6.9197,
+    "frame": 167,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "standing",
+      "x": 0.4193,
+      "y": 0.191
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.263,
+      "y": 0.5104
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2891,
+      "y": 0.3854
+     }
+    ]
+   },
+   {
+    "t": 7.3197,
+    "frame": 177,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "standing",
+      "x": 0.4193,
+      "y": 0.1493
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.2734,
+      "y": 0.5174
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.2969,
+      "y": 0.3889
+     }
+    ]
+   },
+   {
+    "t": 7.7597,
+    "frame": 188,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "standing",
+      "x": 0.4297,
+      "y": 0.1215
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.2891,
+      "y": 0.5208
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.3099,
+      "y": 0.3993
+     }
+    ]
+   },
+   {
+    "t": 8.1597,
+    "frame": 198,
+    "persons": [
+     {
+      "id": "P0",
+      "posture": "standing",
+      "x": 0.4349,
+      "y": 0.1111
+     },
+     {
+      "id": "P1",
+      "posture": "standing",
+      "x": 0.3073,
+      "y": 0.5417
+     },
+     {
+      "id": "P2",
+      "posture": "standing",
+      "x": 0.3307,
+      "y": 0.3993
+     }
+    ]
+   }
+  ]
+ }
+}

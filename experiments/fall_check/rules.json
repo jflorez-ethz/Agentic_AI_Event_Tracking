@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "written": "2026-11-25, before any live run of the fall check",
+  "purpose": "Code-side decision for person_fell candidates from a neutral dense posture probe. Only path to 'supported' for person_fell; anything else gives 'insufficient' (alert to review, never dismissed).",
+  "vocabulary": ["standing", "bending", "kneeling", "sitting_on_seat", "sitting_on_floor", "lying_on_floor", "not_visible"],
+  "upright": ["standing"],
+  "on_ground": ["sitting_on_floor", "lying_on_floor"],
+  "note_on_ground": "kneeling never counts as on the ground (people setting down or picking up a bag). It may appear between upright and ground; persistent kneeling only ever gives 'insufficient'.",
+  "probe_sampling": {
+    "anchor": "t_after: the candidate's 'after' frame (first frame claimed on the ground)",
+    "before": {"count": 8, "step_s": 0.25, "first_offset_s": -2.0},
+    "after": {"count": 12, "step_s": 0.42, "first_offset_s": 0.0},
+    "frame_choice": "first decoded frame at or after each requested time",
+    "max_frames": 20
+  },
+  "max_transition_s": 2.5,
+  "min_ground_s": 2.0,
+  "max_ground_displacement": 0.10,
+  "displacement_unit": "fraction of the image width; vertical offsets are converted with the frame's height/width ratio",
+  "max_glitch_frames_in_ground_run": 1,
+  "glitch_rule": "inside a ground run, at most one isolated frame labelled bending, kneeling or not_visible is tolerated if a ground frame follows; a 'standing' frame always ends the run",
+  "near_candidate": {
+    "first_ground_from_after_s": [-2.5, 1.0],
+    "max_distance": 0.25,
+    "distance_note": "between the person's position at the probe frame nearest t_after and the candidate's position; skipped only when the candidate carries no position"
+  },
+  "per_video_budget": {"probes_per_candidate": 1, "max_probes_per_video": 3},
+  "reasons_in_priority_order": ["confirmed", "moving_on_ground", "ground_too_short", "transition_too_slow", "no_upright_before", "kneeling_not_ground", "seated", "no_ground", "upright_throughout", "no_person_near", "invalid_probe"]
+}
