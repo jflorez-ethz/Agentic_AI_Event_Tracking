@@ -1,0 +1,137 @@
+{
+ "LeftBag_BehindChair": {
+  "corrected": {
+   "base_meanIoU": 0.385,
+   "base_frac05": 0.426,
+   "best_frame_shift": 0,
+   "best_dx": 1,
+   "best_dy": 0,
+   "best_meanIoU": 0.387,
+   "best_frac05": 0.426,
+   "k_curve": {
+    "-4": 0.294,
+    "-2": 0.34,
+    "-1": 0.368,
+    "0": 0.385,
+    "1": 0.363,
+    "2": 0.333,
+    "4": 0.284
+   }
+  },
+  "legacy": {
+   "base_meanIoU": 0.385,
+   "base_frac05": 0.426,
+   "best_frame_shift": 0,
+   "best_dx": 1,
+   "best_dy": 0,
+   "best_meanIoU": 0.387,
+   "best_frac05": 0.426,
+   "k_curve": {
+    "-4": 0.294,
+    "-2": 0.34,
+    "-1": 0.368,
+    "0": 0.385,
+    "1": 0.363,
+    "2": 0.333,
+    "4": 0.284
+   }
+  },
+  "residual_median_dx_dy_dw_dh": [
+   0.5,
+   0.4,
+   1.8,
+   0.3
+  ],
+  "residual_n": 131
+ },
+ "Walk1": {
+  "corrected": {
+   "base_meanIoU": 0.182,
+   "base_frac05": 0.199,
+   "best_frame_shift": 0,
+   "best_dx": 0,
+   "best_dy": 0,
+   "best_meanIoU": 0.182,
+   "best_frac05": 0.199,
+   "k_curve": {
+    "-4": 0.127,
+    "-2": 0.155,
+    "-1": 0.17,
+    "0": 0.182,
+    "1": 0.169,
+    "2": 0.151,
+    "4": 0.123
+   }
+  },
+  "legacy": {
+   "base_meanIoU": 0.182,
+   "base_frac05": 0.199,
+   "best_frame_shift": 0,
+   "best_dx": 0,
+   "best_dy": 0,
+   "best_meanIoU": 0.182,
+   "best_frac05": 0.199,
+   "k_curve": {
+    "-4": 0.127,
+    "-2": 0.155,
+    "-1": 0.17,
+    "0": 0.182,
+    "1": 0.169,
+    "2": 0.151,
+    "4": 0.123
+   }
+  },
+  "residual_median_dx_dy_dw_dh": [
+   0.2,
+   0.4,
+   1.3,
+   0.1
+  ],
+  "residual_n": 62
+ },
+ "Meet_WalkTogether2": {
+  "corrected": {
+   "base_meanIoU": 0.346,
+   "base_frac05": 0.393,
+   "best_frame_shift": 0,
+   "best_dx": 1,
+   "best_dy": 0,
+   "best_meanIoU": 0.347,
+   "best_frac05": 0.393,
+   "k_curve": {
+    "-4": 0.28,
+    "-2": 0.312,
+    "-1": 0.329,
+    "0": 0.346,
+    "1": 0.338,
+    "2": 0.322,
+    "4": 0.287
+   }
+  },
+  "legacy": {
+   "base_meanIoU": 0.138,
+   "base_frac05": 0.017,
+   "best_frame_shift": 6,
+   "best_dx": -11,
+   "best_dy": -7,
+   "best_meanIoU": 0.25,
+   "best_frac05": 0.318,
+   "k_curve": {
+    "-4": 0.131,
+    "-2": 0.136,
+    "-1": 0.136,
+    "0": 0.138,
+    "1": 0.141,
+    "2": 0.142,
+    "4": 0.142
+   }
+  },
+  "residual_median_dx_dy_dw_dh": [
+   0.6,
+   0.4,
+   2.6,
+   0.5
+  ],
+  "residual_n": 125
+ }
+}

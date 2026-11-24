@@ -8,3 +8,7 @@ __pycache__/
 
 # Third-party CAVIAR / LeftBag source videos; obtain separately (tests and replays expect them locally).
 data/raw/
+
+# Model weights (downloaded locally, never committed)
+*.pt
+*.pth

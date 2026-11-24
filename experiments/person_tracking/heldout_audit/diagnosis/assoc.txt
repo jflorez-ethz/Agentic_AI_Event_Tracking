@@ -1,0 +1,41 @@
+
+##### LeftBag_BehindChair
+raw matched 184 -> ByteTrack 136 -> final 136 | pertes ByteTrack: {'conf>=0.4 mais perdue par ByteTrack': 17, 'conf<0.4 (jamais activée seule)': 31}
+final metrics {'idf1': 0.531, 'idtp': 117.0, 'truth_detections': 305, 'predicted_detections': 136, 'id_switches': 2, 'predicted_tracks': 6}
+borne "identité parfaite" sur les boîtes finales: IDF1 <= 0.617 (vs 0.531) -> perte due à l’association seule = 0.086
+  X0: 32 vérités, 19 appariées en sortie, pistes {1: 17, 5: 2}, segments 2
+  X1: 16 vérités, 0 appariées en sortie, pistes {}, segments 0
+  X2: 105 vérités, 49 appariées en sortie, pistes {7: 32, 8: 17}, segments 2
+  X3: 55 vérités, 0 appariées en sortie, pistes {}, segments 0
+  X4: 13 vérités, 0 appariées en sortie, pistes {}, segments 0
+  X5: 39 vérités, 34 appariées en sortie, pistes {10: 34}, segments 1
+  X6: 45 vérités, 34 appariées en sortie, pistes {9: 34}, segments 1
+  T1: 17 boîtes, 0.0-4.6s, appariements {'0': 17}, non appariées 0
+  T5: 2 boîtes, 5.8-6.2s, appariements {'0': 2}, non appariées 0
+  T7: 32 boîtes, 8.4-14.8s, appariements {'2': 32}, non appariées 0
+  T8: 17 boîtes, 24.2-27.4s, appariements {'2': 17}, non appariées 0
+  T9: 34 boîtes, 35.2-41.8s, appariements {'6': 34}, non appariées 0
+  T10: 34 boîtes, 36.0-42.8s, appariements {'5': 34}, non appariées 0
+
+##### Walk1
+raw matched 117 -> ByteTrack 55 -> final 55 | pertes ByteTrack: {'conf>=0.4 mais perdue par ByteTrack': 14, 'conf<0.4 (jamais activée seule)': 48}
+final metrics {'idf1': 0.3, 'idtp': 55.0, 'truth_detections': 312, 'predicted_detections': 55, 'id_switches': 0, 'predicted_tracks': 2}
+borne "identité parfaite" sur les boîtes finales: IDF1 <= 0.300 (vs 0.3) -> perte due à l’association seule = -0.000
+  X0: 32 vérités, 20 appariées en sortie, pistes {1: 20}, segments 1
+  X1: 55 vérités, 35 appariées en sortie, pistes {4: 35}, segments 1
+  X4: 115 vérités, 0 appariées en sortie, pistes {}, segments 0
+  X5: 110 vérités, 0 appariées en sortie, pistes {}, segments 0
+  T1: 20 boîtes, 1.8-5.8s, appariements {'0': 20}, non appariées 0
+  T4: 35 boîtes, 11.0-18.2s, appariements {'1': 35}, non appariées 0
+
+##### Meet_WalkTogether2
+raw matched 145 -> ByteTrack 111 -> final 111 | pertes ByteTrack: {'conf<0.4 (jamais activée seule)': 26, 'conf>=0.4 mais perdue par ByteTrack': 8}
+final metrics {'idf1': 0.314, 'idtp': 73.0, 'truth_detections': 298, 'predicted_detections': 167, 'id_switches': 2, 'predicted_tracks': 4}
+borne "identité parfaite" sur les boîtes finales: IDF1 <= 0.477 (vs 0.314) -> perte due à l’association seule = 0.163
+  X0: 25 vérités, 22 appariées en sortie, pistes {1: 22}, segments 1
+  X1: 141 vérités, 41 appariées en sortie, pistes {3: 27, 4: 14}, segments 2
+  X2: 132 vérités, 48 appariées en sortie, pistes {4: 21, 3: 27}, segments 2
+  T1: 22 boîtes, 0.0-4.4s, appariements {'0': 22}, non appariées 0
+  T3: 55 boîtes, 7.8-18.6s, appariements {'1': 27, '2': 27}, non appariées 1
+  T4: 35 boîtes, 8.8-18.2s, appariements {'2': 21, '1': 14}, non appariées 0
+  T7: 55 boîtes, 22.4-33.2s, appariements {}, non appariées 55

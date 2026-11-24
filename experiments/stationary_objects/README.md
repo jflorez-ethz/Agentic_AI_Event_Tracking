@@ -112,3 +112,12 @@ Diagnosis, without changing anything:
 3. **Person filter.** An RF-DETR person box overlaps the bag area in 57% of the sampled frames during the stay. This is probably furniture detected as a person, as seen in the tracking pilot; that cause is not verified.
 
 Conclusion: the trial 2 settings do not generalise to a small, dark object placed against dark furniture. This held-out result counts more than the 3/4 on development videos. No re-tuning was done on this video, and any further change must be validated on yet another unseen dataset.
+
+## Note: the "XML offset" on TwoEnterShop1front and Meet_WalkSplit was a reader bug
+
+The person-tracking audit traced the reported offsets to a reader that let body landmarks overwrite box centers. The trial 1 reader here uses the same pattern. Impact, checked by rerunning trial 1 with boxes from the direct `<box>` element ([xml_reader_check.py](xml_reader_check.py)):
+
+- The object ground truth is unaffected: no bag box changes in any XML, and those two videos have no objects.
+- The trial 1 "XML (perfect)" person filter used wrong person boxes on these two videos, but **its counts do not change**: TwoEnterShop1front 0 false alarms and Meet_WalkSplit 6 (25 fps) and 4 (5 fps), all startup or end ghosts, as with no filter at all. Trial 2 and the blind test used the RF-DETR filter only.
+
+See the [tracking reference audit](../person_tracking/xml_correction.md).

@@ -1,0 +1,3 @@
+LeftBag_BehindChair: decoded 1068 frames, PTS0=0.0000, dt min/median/max=0.0000/0.0400/0.2797; XML frames 0..1066 (1067 entries, 1067 unique); det frames 214 (stride 5 up to 1065); person boxes 1523; legacy-reader centre shift median 0.0px max 0.0
+Walk1: decoded 612 frames, PTS0=0.0000, dt min/median/max=0.0000/0.0400/0.2797; XML frames 0..610 (611 entries, 611 unique); det frames 123 (stride 5 up to 610); person boxes 1559; legacy-reader centre shift median 0.0px max 0.0
+Meet_WalkTogether2: decoded 828 frames, PTS0=0.0000, dt min/median/max=0.0000/0.0400/0.2797; XML frames 0..826 (827 entries, 827 unique); det frames 166 (stride 5 up to 825); person boxes 1484; legacy-reader centre shift median 10.6px max 32.4

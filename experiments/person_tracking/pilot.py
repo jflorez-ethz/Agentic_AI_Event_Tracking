@@ -17,7 +17,7 @@ Tuning uses Walk2 and LeftBag only.
     .venv/bin/python experiments/person_tracking/pilot.py
 """
 import json
-import re
+import xml.etree.ElementTree as ET
 import subprocess
 from itertools import product
 from pathlib import Path
@@ -39,15 +39,16 @@ def pts_times(video):
 
 
 def ground_truth(xml):
-    """XML person tracks {id: {frame: box}} and the bag's first and last frames (if any)."""
+    """Read person and bag boxes in original frame coordinates."""
     persons, bag = {}, {}
-    for frame in re.split(r'<frame number="', Path(xml).read_text())[1:]:
-        n = int(frame.split('"')[0])
-        for oid, body in re.findall(r'<object id="(\d+)">(.*?)</object>', frame, re.S):
-            b = {k: int(v) for k, v in re.findall(r'(h|w|xc|yc)="(\d+)"', body)}
-            box = (b["xc"] - b["w"] / 2, b["yc"] - b["h"] / 2, b["xc"] + b["w"] / 2, b["yc"] + b["h"] / 2)
-            role = (re.search(r"<role[^>]*>\s*([^<]*?)\s*</role>", body) or [0, ""])[1]
-            (bag if "object" in role else persons.setdefault(oid, {}))[n] = box
+    for frame in ET.parse(xml).getroot().findall("frame"):
+        n = int(frame.attrib["number"])
+        for obj in frame.findall("objectlist/object"):
+            bounds = obj.find("box").attrib
+            x, y, w, h = (int(bounds[k]) for k in ("xc", "yc", "w", "h"))
+            box = (x - w / 2, y - h / 2, x + w / 2, y + h / 2)
+            role = obj.findtext(".//role", default="")
+            (bag if "object" in role else persons.setdefault(obj.attrib["id"], {}))[n] = box
     return persons, bag
 
 
@@ -231,15 +232,28 @@ def owner_checks(rows):
     return checks
 
 
-def main():
-    detections = json.loads((HERE / "detections_stride5.json").read_text())
-    roles = {name: role for name, _, _, role in VIDEOS}
+# Clips excluded from the five-clip subset. The "offset" once blamed on their annotation was a reader bug (see
+# xml_correction.md); the subset is kept only to reproduce the recorded five-clip results.
+MISALIGNED = {"TwoEnterShop1front", "Meet_WalkSplit"}
+
+
+def main(argv=None):
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--detections", default="detections_stride5.json")
+    parser.add_argument("--aligned-only", action="store_true", help="Measure the criterion on the historical five-clip test subset")
+    parser.add_argument("--output", default="results.json")
+    args = parser.parse_args(argv)
+    detections = json.loads((HERE / args.detections).read_text())
+    videos = [v for v in VIDEOS if not (args.aligned_only and v[0] in MISALIGNED)]
+    roles = {name: role for name, _, _, role in videos}
     # 1. Tune on Walk2 and LeftBag only (RF-DETR detections).
     grid = []
     for activation, lost_s, matching, tau_s, base_px in product((0.25, 0.4), (1.0, 2.0, 4.0), (0.6, 0.8),
                                                                 (0.0, 1.0, 2.0, 3.0), (20.0, 40.0)):
         params = {"activation": activation, "lost_s": lost_s, "matching": matching, "tau_s": tau_s, "base_px": base_px}
-        scores = [run_video(n, v, x, detections[n], params)["metrics"] for n, v, x, r in VIDEOS if r == "tuning"]
+        scores = [run_video(n, v, x, detections[n], params)["metrics"] for n, v, x, r in videos if r == "tuning"]
         grid.append({**params, "mean_idf1": round(float(np.mean([s["idf1"] for s in scores])), 3),
                      "id_switches": sum(s["id_switches"] for s in scores)})
     best = max(grid, key=lambda g: (g["mean_idf1"], -g["id_switches"]))
@@ -249,11 +263,12 @@ def main():
           "| best without stitching", no_stitch["mean_idf1"])
     # 2. Frozen on every video: RF-DETR, oracle (XML boxes) and no stitching.
     results = {"criterion": __doc__.split("Criterion (written before running; ")[1].split("\n\n")[0],
+               "detections": args.detections, "aligned_only": args.aligned_only, "cpu": detections.get("_cpu"),
                "frozen": frozen, "tuning_grid": grid, "runs": {}}
     for variant, kwargs, params in (("rfdetr", {}, frozen), ("oracle", {"oracle": True}, frozen),
                                     ("rfdetr_no_stitch", {}, {**frozen, "tau_s": 0.0})):
         rows = []
-        for name, video, xml, role in VIDEOS:
+        for name, video, xml, role in videos:
             row = run_video(name, video, xml, detections.get(name, {}), params, **kwargs)
             row["role"] = role
             rows.append(row)
@@ -268,7 +283,7 @@ def main():
             "criterion_met": all(ok for _, ok in checks) and len(checks) == 4
             and pooled >= 0.70,
         }
-    (HERE / "results.json").write_text(json.dumps(results, indent=2, default=str))
+    (HERE / args.output).write_text(json.dumps(results, indent=2, default=str))
     for variant, run in results["runs"].items():
         print(f"\n== {variant}: test pooled IDF1 {run['test_pooled_idf1']}, test switches {run['test_id_switches']}, "
               f"criterion met: {run['criterion_met']}")

@@ -1,0 +1,2414 @@
+{
+  "criterion": "IoU >= 0.5 for a detection to match an XML box):\n1. Owner test on the two test videos with a bag (4 checks): LeftBag_PickedUp, the person setting the bag down\n   and the person picking it up (one continuous XML track) get the same label; LeftBag_AtChair, they (two XML\n   tracks) get two different labels, each matched to its own XML track. No false \"same person\" claim.\n2. IDF1 >= 0.70 over the seven test videos with RF-DETR detections, pooled (2*sum IDTP / (sum truth + sum predicted\n   detections)), the standard set-level IDF1.\n3. The same figures with XML boxes as detections (oracle) are reported alongside.\nTuning uses Walk2 and LeftBag only.",
+  "detections": "detections_stride5_nano_576x768.json",
+  "aligned_only": true,
+  "cpu": {
+    "Walk2": {
+      "seconds": 95.6,
+      "video_s": 42.2
+    },
+    "LeftBag": {
+      "seconds": 193.3,
+      "video_s": 57.6
+    },
+    "LeftBag_PickedUp": {
+      "seconds": 150.6,
+      "video_s": 54.2
+    },
+    "LeftBag_AtChair": {
+      "seconds": 125.0,
+      "video_s": 44.6
+    },
+    "LeftBox": {
+      "seconds": 113.1,
+      "video_s": 34.6
+    },
+    "Rest_FallOnFloor": {
+      "seconds": 118.4,
+      "video_s": 40.3
+    },
+    "TwoEnterShop1front": {
+      "seconds": 200.6,
+      "video_s": 65.8
+    },
+    "Meet_WalkSplit": {
+      "seconds": 81.5,
+      "video_s": 25.0
+    },
+    "Meet_WalkTogether1": {
+      "seconds": 84.3,
+      "video_s": 28.3
+    }
+  },
+  "frozen": {
+    "activation": 0.4,
+    "lost_s": 4.0,
+    "matching": 0.8,
+    "tau_s": 3.0,
+    "base_px": 20.0
+  },
+  "tuning_grid": [
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 0.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.328,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 0.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.328,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 1.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.431,
+      "id_switches": 4
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 1.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.424,
+      "id_switches": 8
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 2.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.466,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 2.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.445,
+      "id_switches": 8
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 3.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.589,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 3.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.566,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 0.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.583,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 0.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.583,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 1.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.586,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 1.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.586,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 2.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.584,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 2.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.584,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 3.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.56,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 3.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.56,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 0.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.328,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 0.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.328,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 1.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.431,
+      "id_switches": 4
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 1.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.424,
+      "id_switches": 8
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 2.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.466,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 2.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.445,
+      "id_switches": 8
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 3.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.589,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 3.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.566,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 0.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.583,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 0.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.583,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 1.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.586,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 1.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.586,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 2.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.584,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 2.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.584,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 3.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.56,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 3.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.56,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 0.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.328,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 0.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.328,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 1.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.462,
+      "id_switches": 4
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 1.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.452,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 2.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.588,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 2.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.564,
+      "id_switches": 6
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 3.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.599,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 3.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.575,
+      "id_switches": 5
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 0.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.612,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 0.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.612,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 1.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.615,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 1.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.615,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 2.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.609,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 2.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.609,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 3.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.581,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.25,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 3.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.581,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 0.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.49,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 0.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.49,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 1.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 1.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 2.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 2.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 3.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.6,
+      "tau_s": 3.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 0.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.577,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 0.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.577,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 1.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.58,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 1.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.58,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 2.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.58,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 2.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.58,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 3.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.592,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 1.0,
+      "matching": 0.8,
+      "tau_s": 3.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.592,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 0.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.49,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 0.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.49,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 1.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 1.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 2.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 2.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 3.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.6,
+      "tau_s": 3.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 0.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.577,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 0.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.577,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 1.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.58,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 1.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.58,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 2.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.58,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 2.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.58,
+      "id_switches": 3
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 3.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.592,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 2.0,
+      "matching": 0.8,
+      "tau_s": 3.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.592,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 0.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.49,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 0.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.49,
+      "id_switches": 7
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 1.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 1.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 2.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 2.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 3.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.6,
+      "tau_s": 3.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.597,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 0.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.603,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 0.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.603,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 1.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.607,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 1.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.607,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 2.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.607,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 2.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.607,
+      "id_switches": 2
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 3.0,
+      "base_px": 20.0,
+      "mean_idf1": 0.619,
+      "id_switches": 1
+    },
+    {
+      "activation": 0.4,
+      "lost_s": 4.0,
+      "matching": 0.8,
+      "tau_s": 3.0,
+      "base_px": 40.0,
+      "mean_idf1": 0.619,
+      "id_switches": 1
+    }
+  ],
+  "runs": {
+    "rfdetr": {
+      "rows": [
+        {
+          "video": "Walk2",
+          "metrics": {
+            "idf1": 0.609,
+            "idtp": 259.0,
+            "truth_detections": 584,
+            "predicted_detections": 267,
+            "id_switches": 1,
+            "truth_tracks": 6,
+            "predicted_tracks": 5,
+            "per_truth_track": {
+              "0": {
+                "frames": 10,
+                "matched": 0,
+                "numbers": 0
+              },
+              "1": {
+                "frames": 211,
+                "matched": 203,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 211,
+                "matched": 0,
+                "numbers": 0
+              },
+              "3": {
+                "frames": 33,
+                "matched": 17,
+                "numbers": 2
+              },
+              "4": {
+                "frames": 68,
+                "matched": 27,
+                "numbers": 1
+              },
+              "5": {
+                "frames": 51,
+                "matched": 15,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": null,
+          "tracks": {
+            "Person A": {
+              "first_s": 0.64,
+              "last_s": 42.44,
+              "detections": 207
+            },
+            "Person B": {
+              "first_s": 3.84,
+              "last_s": 7.44,
+              "detections": 14
+            },
+            "Person C": {
+              "first_s": 8.64,
+              "last_s": 9.04,
+              "detections": 3
+            },
+            "Person D": {
+              "first_s": 12.84,
+              "last_s": 19.04,
+              "detections": 27
+            },
+            "Person E": {
+              "first_s": 39.44,
+              "last_s": 42.44,
+              "detections": 16
+            }
+          },
+          "role": "tuning"
+        },
+        {
+          "video": "LeftBag",
+          "metrics": {
+            "idf1": 0.628,
+            "idtp": 271.0,
+            "truth_detections": 376,
+            "predicted_detections": 487,
+            "id_switches": 0,
+            "truth_tracks": 5,
+            "predicted_tracks": 7,
+            "per_truth_track": {
+              "0": {
+                "frames": 47,
+                "matched": 44,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 104,
+                "matched": 48,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 117,
+                "matched": 89,
+                "numbers": 1
+              },
+              "3": {
+                "frames": 67,
+                "matched": 59,
+                "numbers": 1
+              },
+              "5": {
+                "frames": 41,
+                "matched": 31,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": {
+            "placed_by": "3",
+            "placed_frame": 945,
+            "picked_by": "5",
+            "picked_frame": 1354,
+            "placed_label": "Person F",
+            "picked_label": "Person G",
+            "placed_s": 38.04,
+            "picked_s": 54.4
+          },
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 8.84,
+              "detections": 44
+            },
+            "Person B": {
+              "first_s": 3.24,
+              "last_s": 21.84,
+              "detections": 89
+            },
+            "Person C": {
+              "first_s": 4.44,
+              "last_s": 18.04,
+              "detections": 55
+            },
+            "Person D": {
+              "first_s": 17.44,
+              "last_s": 57.64,
+              "detections": 199
+            },
+            "Person E": {
+              "first_s": 21.24,
+              "last_s": 23.04,
+              "detections": 10
+            },
+            "Person F": {
+              "first_s": 32.04,
+              "last_s": 43.64,
+              "detections": 59
+            },
+            "Person G": {
+              "first_s": 50.44,
+              "last_s": 56.44,
+              "detections": 31
+            }
+          },
+          "role": "tuning"
+        },
+        {
+          "video": "LeftBag_PickedUp",
+          "metrics": {
+            "idf1": 0.94,
+            "idtp": 189.0,
+            "truth_detections": 213,
+            "predicted_detections": 189,
+            "id_switches": 0,
+            "truth_tracks": 3,
+            "predicted_tracks": 2,
+            "per_truth_track": {
+              "0": {
+                "frames": 25,
+                "matched": 20,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 11,
+                "matched": 0,
+                "numbers": 0
+              },
+              "2": {
+                "frames": 177,
+                "matched": 169,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": {
+            "placed_by": "2",
+            "placed_frame": 503,
+            "picked_by": "2",
+            "picked_frame": 1015,
+            "placed_label": "Person B",
+            "picked_label": "Person B",
+            "placed_s": 20.36,
+            "picked_s": 40.84
+          },
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 4.24,
+              "detections": 20
+            },
+            "Person B": {
+              "first_s": 12.04,
+              "last_s": 45.64,
+              "detections": 169
+            }
+          },
+          "role": "test"
+        },
+        {
+          "video": "LeftBag_AtChair",
+          "metrics": {
+            "idf1": 0.696,
+            "idtp": 158.0,
+            "truth_detections": 294,
+            "predicted_detections": 160,
+            "id_switches": 0,
+            "truth_tracks": 7,
+            "predicted_tracks": 4,
+            "per_truth_track": {
+              "0": {
+                "frames": 51,
+                "matched": 44,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 14,
+                "matched": 11,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 13,
+                "matched": 0,
+                "numbers": 0
+              },
+              "3": {
+                "frames": 38,
+                "matched": 0,
+                "numbers": 0
+              },
+              "4": {
+                "frames": 80,
+                "matched": 54,
+                "numbers": 1
+              },
+              "5": {
+                "frames": 73,
+                "matched": 49,
+                "numbers": 1
+              },
+              "7": {
+                "frames": 25,
+                "matched": 0,
+                "numbers": 0
+              }
+            }
+          },
+          "owner": {
+            "placed_by": "4",
+            "placed_frame": 455,
+            "picked_by": "5",
+            "picked_frame": 925,
+            "placed_label": "Person C",
+            "picked_label": "Person D",
+            "placed_s": 18.36,
+            "picked_s": 37.16
+          },
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 8.76,
+              "detections": 44
+            },
+            "Person B": {
+              "first_s": 0.0,
+              "last_s": 2.16,
+              "detections": 11
+            },
+            "Person C": {
+              "first_s": 10.76,
+              "last_s": 23.96,
+              "detections": 54
+            },
+            "Person D": {
+              "first_s": 32.76,
+              "last_s": 44.56,
+              "detections": 51
+            }
+          },
+          "role": "test"
+        },
+        {
+          "video": "LeftBox",
+          "metrics": {
+            "idf1": 0.767,
+            "idtp": 140.0,
+            "truth_detections": 217,
+            "predicted_detections": 148,
+            "id_switches": 0,
+            "truth_tracks": 3,
+            "predicted_tracks": 3,
+            "per_truth_track": {
+              "0": {
+                "frames": 83,
+                "matched": 66,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 36,
+                "matched": 14,
+                "numbers": 1
+              },
+              "4": {
+                "frames": 98,
+                "matched": 60,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": {
+            "placed_by": "4",
+            "placed_frame": 571,
+            "picked_by": "4",
+            "picked_frame": 862,
+            "placed_label": "Person C",
+            "picked_label": "Person C",
+            "placed_s": 23.08,
+            "picked_s": 34.72
+          },
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 14.44,
+              "detections": 66
+            },
+            "Person B": {
+              "first_s": 4.64,
+              "last_s": 9.84,
+              "detections": 14
+            },
+            "Person C": {
+              "first_s": 17.64,
+              "last_s": 34.24,
+              "detections": 68
+            }
+          },
+          "role": "test"
+        },
+        {
+          "video": "Rest_FallOnFloor",
+          "metrics": {
+            "idf1": 0.844,
+            "idtp": 176.0,
+            "truth_detections": 241,
+            "predicted_detections": 176,
+            "id_switches": 0,
+            "truth_tracks": 3,
+            "predicted_tracks": 3,
+            "per_truth_track": {
+              "0": {
+                "frames": 36,
+                "matched": 32,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 99,
+                "matched": 56,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 106,
+                "matched": 88,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": null,
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 11.24,
+              "detections": 56
+            },
+            "Person B": {
+              "first_s": 0.0,
+              "last_s": 6.44,
+              "detections": 32
+            },
+            "Person C": {
+              "first_s": 22.84,
+              "last_s": 40.44,
+              "detections": 88
+            }
+          },
+          "role": "test"
+        },
+        {
+          "video": "Meet_WalkTogether1",
+          "metrics": {
+            "idf1": 0.498,
+            "idtp": 60.0,
+            "truth_detections": 169,
+            "predicted_detections": 72,
+            "id_switches": 1,
+            "truth_tracks": 6,
+            "predicted_tracks": 2,
+            "per_truth_track": {
+              "1": {
+                "frames": 75,
+                "matched": 24,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 54,
+                "matched": 43,
+                "numbers": 2
+              },
+              "5": {
+                "frames": 17,
+                "matched": 0,
+                "numbers": 0
+              },
+              "6": {
+                "frames": 17,
+                "matched": 0,
+                "numbers": 0
+              },
+              "3": {
+                "frames": 4,
+                "matched": 0,
+                "numbers": 0
+              },
+              "4": {
+                "frames": 2,
+                "matched": 0,
+                "numbers": 0
+              }
+            }
+          },
+          "owner": null,
+          "tracks": {
+            "Person A": {
+              "first_s": 9.8,
+              "last_s": 16.8,
+              "detections": 36
+            },
+            "Person B": {
+              "first_s": 11.6,
+              "last_s": 19.4,
+              "detections": 36
+            }
+          },
+          "role": "test"
+        }
+      ],
+      "owner_checks": [
+        [
+          "PickedUp: owner labelled at set-down",
+          true
+        ],
+        [
+          "PickedUp: same label at pick-up (one XML track)",
+          true
+        ],
+        [
+          "AtChair: owner labelled at set-down",
+          true
+        ],
+        [
+          "AtChair: different label at pick-up (two XML tracks)",
+          true
+        ]
+      ],
+      "test_pooled_idf1": 0.77,
+      "test_id_switches": 1,
+      "criterion_met": true
+    },
+    "oracle": {
+      "rows": [
+        {
+          "video": "Walk2",
+          "metrics": {
+            "idf1": 0.963,
+            "idtp": 550.0,
+            "truth_detections": 584,
+            "predicted_detections": 558,
+            "id_switches": 1,
+            "truth_tracks": 6,
+            "predicted_tracks": 6,
+            "per_truth_track": {
+              "0": {
+                "frames": 10,
+                "matched": 4,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 211,
+                "matched": 211,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 211,
+                "matched": 211,
+                "numbers": 1
+              },
+              "3": {
+                "frames": 33,
+                "matched": 16,
+                "numbers": 2
+              },
+              "4": {
+                "frames": 68,
+                "matched": 66,
+                "numbers": 1
+              },
+              "5": {
+                "frames": 51,
+                "matched": 50,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": null,
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 6.64,
+              "detections": 16
+            },
+            "Person B": {
+              "first_s": 0.0,
+              "last_s": 42.24,
+              "detections": 211
+            },
+            "Person C": {
+              "first_s": 0.0,
+              "last_s": 42.24,
+              "detections": 211
+            },
+            "Person D": {
+              "first_s": 8.24,
+              "last_s": 9.04,
+              "detections": 4
+            },
+            "Person E": {
+              "first_s": 12.44,
+              "last_s": 25.44,
+              "detections": 66
+            },
+            "Person F": {
+              "first_s": 32.44,
+              "last_s": 42.24,
+              "detections": 50
+            }
+          },
+          "role": "tuning"
+        },
+        {
+          "video": "LeftBag",
+          "metrics": {
+            "idf1": 0.995,
+            "idtp": 372.0,
+            "truth_detections": 376,
+            "predicted_detections": 372,
+            "id_switches": 0,
+            "truth_tracks": 5,
+            "predicted_tracks": 5,
+            "per_truth_track": {
+              "0": {
+                "frames": 47,
+                "matched": 47,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 104,
+                "matched": 104,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 117,
+                "matched": 117,
+                "numbers": 1
+              },
+              "3": {
+                "frames": 67,
+                "matched": 65,
+                "numbers": 1
+              },
+              "5": {
+                "frames": 41,
+                "matched": 39,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": {
+            "placed_by": "3",
+            "placed_frame": 945,
+            "picked_by": "5",
+            "picked_frame": 1354,
+            "placed_label": "Person D",
+            "picked_label": "Person E",
+            "placed_s": 38.04,
+            "picked_s": 54.4
+          },
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 9.44,
+              "detections": 47
+            },
+            "Person B": {
+              "first_s": 0.0,
+              "last_s": 20.84,
+              "detections": 104
+            },
+            "Person C": {
+              "first_s": 0.0,
+              "last_s": 23.44,
+              "detections": 117
+            },
+            "Person D": {
+              "first_s": 30.84,
+              "last_s": 43.64,
+              "detections": 65
+            },
+            "Person E": {
+              "first_s": 49.24,
+              "last_s": 56.84,
+              "detections": 39
+            }
+          },
+          "role": "tuning"
+        },
+        {
+          "video": "LeftBag_PickedUp",
+          "metrics": {
+            "idf1": 0.964,
+            "idtp": 199.0,
+            "truth_detections": 213,
+            "predicted_detections": 200,
+            "id_switches": 1,
+            "truth_tracks": 3,
+            "predicted_tracks": 3,
+            "per_truth_track": {
+              "0": {
+                "frames": 25,
+                "matched": 20,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 11,
+                "matched": 8,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 177,
+                "matched": 172,
+                "numbers": 2
+              }
+            }
+          },
+          "owner": {
+            "placed_by": "2",
+            "placed_frame": 503,
+            "picked_by": "2",
+            "picked_frame": 1015,
+            "placed_label": "Person C",
+            "picked_label": "Person C",
+            "placed_s": 20.36,
+            "picked_s": 40.84
+          },
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 4.24,
+              "detections": 20
+            },
+            "Person B": {
+              "first_s": 6.44,
+              "last_s": 11.24,
+              "detections": 9
+            },
+            "Person C": {
+              "first_s": 11.84,
+              "last_s": 45.84,
+              "detections": 171
+            }
+          },
+          "role": "test"
+        },
+        {
+          "video": "LeftBag_AtChair",
+          "metrics": {
+            "idf1": 0.97,
+            "idtp": 277.0,
+            "truth_detections": 294,
+            "predicted_detections": 277,
+            "id_switches": 0,
+            "truth_tracks": 7,
+            "predicted_tracks": 6,
+            "per_truth_track": {
+              "0": {
+                "frames": 51,
+                "matched": 51,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 14,
+                "matched": 14,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 13,
+                "matched": 0,
+                "numbers": 0
+              },
+              "3": {
+                "frames": 38,
+                "matched": 38,
+                "numbers": 1
+              },
+              "4": {
+                "frames": 80,
+                "matched": 79,
+                "numbers": 1
+              },
+              "5": {
+                "frames": 73,
+                "matched": 71,
+                "numbers": 1
+              },
+              "7": {
+                "frames": 25,
+                "matched": 24,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": {
+            "placed_by": "4",
+            "placed_frame": 455,
+            "picked_by": "5",
+            "picked_frame": 925,
+            "placed_label": "Person D",
+            "picked_label": "Person E",
+            "placed_s": 18.36,
+            "picked_s": 37.16
+          },
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 10.16,
+              "detections": 51
+            },
+            "Person B": {
+              "first_s": 0.0,
+              "last_s": 2.76,
+              "detections": 14
+            },
+            "Person C": {
+              "first_s": 0.0,
+              "last_s": 7.56,
+              "detections": 38
+            },
+            "Person D": {
+              "first_s": 9.96,
+              "last_s": 25.56,
+              "detections": 79
+            },
+            "Person E": {
+              "first_s": 30.36,
+              "last_s": 44.56,
+              "detections": 71
+            },
+            "Person F": {
+              "first_s": 38.36,
+              "last_s": 42.96,
+              "detections": 24
+            }
+          },
+          "role": "test"
+        },
+        {
+          "video": "LeftBox",
+          "metrics": {
+            "idf1": 0.991,
+            "idtp": 213.0,
+            "truth_detections": 217,
+            "predicted_detections": 213,
+            "id_switches": 0,
+            "truth_tracks": 3,
+            "predicted_tracks": 3,
+            "per_truth_track": {
+              "0": {
+                "frames": 83,
+                "matched": 82,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 36,
+                "matched": 34,
+                "numbers": 1
+              },
+              "4": {
+                "frames": 98,
+                "matched": 97,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": {
+            "placed_by": "4",
+            "placed_frame": 571,
+            "picked_by": "4",
+            "picked_frame": 862,
+            "placed_label": "Person C",
+            "picked_label": "Person C",
+            "placed_s": 23.08,
+            "picked_s": 34.72
+          },
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 16.64,
+              "detections": 82
+            },
+            "Person B": {
+              "first_s": 3.64,
+              "last_s": 10.24,
+              "detections": 34
+            },
+            "Person C": {
+              "first_s": 15.24,
+              "last_s": 34.44,
+              "detections": 97
+            }
+          },
+          "role": "test"
+        },
+        {
+          "video": "Rest_FallOnFloor",
+          "metrics": {
+            "idf1": 0.99,
+            "idtp": 236.0,
+            "truth_detections": 241,
+            "predicted_detections": 236,
+            "id_switches": 0,
+            "truth_tracks": 3,
+            "predicted_tracks": 3,
+            "per_truth_track": {
+              "0": {
+                "frames": 36,
+                "matched": 36,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 99,
+                "matched": 96,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 106,
+                "matched": 104,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": null,
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 7.24,
+              "detections": 36
+            },
+            "Person B": {
+              "first_s": 0.0,
+              "last_s": 19.44,
+              "detections": 96
+            },
+            "Person C": {
+              "first_s": 19.84,
+              "last_s": 40.44,
+              "detections": 104
+            }
+          },
+          "role": "test"
+        },
+        {
+          "video": "Meet_WalkTogether1",
+          "metrics": {
+            "idf1": 0.97,
+            "idtp": 159.0,
+            "truth_detections": 169,
+            "predicted_detections": 159,
+            "id_switches": 0,
+            "truth_tracks": 6,
+            "predicted_tracks": 4,
+            "per_truth_track": {
+              "1": {
+                "frames": 75,
+                "matched": 74,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 54,
+                "matched": 53,
+                "numbers": 1
+              },
+              "5": {
+                "frames": 17,
+                "matched": 16,
+                "numbers": 1
+              },
+              "6": {
+                "frames": 17,
+                "matched": 16,
+                "numbers": 1
+              },
+              "3": {
+                "frames": 4,
+                "matched": 0,
+                "numbers": 0
+              },
+              "4": {
+                "frames": 2,
+                "matched": 0,
+                "numbers": 0
+              }
+            }
+          },
+          "owner": null,
+          "tracks": {
+            "Person A": {
+              "first_s": 5.8,
+              "last_s": 20.4,
+              "detections": 74
+            },
+            "Person B": {
+              "first_s": 9.2,
+              "last_s": 19.6,
+              "detections": 53
+            },
+            "Person C": {
+              "first_s": 25.2,
+              "last_s": 28.2,
+              "detections": 16
+            },
+            "Person D": {
+              "first_s": 25.2,
+              "last_s": 28.2,
+              "detections": 16
+            }
+          },
+          "role": "test"
+        }
+      ],
+      "owner_checks": [
+        [
+          "PickedUp: owner labelled at set-down",
+          true
+        ],
+        [
+          "PickedUp: same label at pick-up (one XML track)",
+          true
+        ],
+        [
+          "AtChair: owner labelled at set-down",
+          true
+        ],
+        [
+          "AtChair: different label at pick-up (two XML tracks)",
+          true
+        ]
+      ],
+      "test_pooled_idf1": 0.977,
+      "test_id_switches": 1,
+      "criterion_met": true
+    },
+    "rfdetr_no_stitch": {
+      "rows": [
+        {
+          "video": "Walk2",
+          "metrics": {
+            "idf1": 0.602,
+            "idtp": 255.0,
+            "truth_detections": 584,
+            "predicted_detections": 263,
+            "id_switches": 1,
+            "truth_tracks": 6,
+            "predicted_tracks": 5,
+            "per_truth_track": {
+              "0": {
+                "frames": 10,
+                "matched": 0,
+                "numbers": 0
+              },
+              "1": {
+                "frames": 211,
+                "matched": 203,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 211,
+                "matched": 0,
+                "numbers": 0
+              },
+              "3": {
+                "frames": 33,
+                "matched": 15,
+                "numbers": 2
+              },
+              "4": {
+                "frames": 68,
+                "matched": 25,
+                "numbers": 1
+              },
+              "5": {
+                "frames": 51,
+                "matched": 15,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": null,
+          "tracks": {
+            "Person A": {
+              "first_s": 0.64,
+              "last_s": 42.44,
+              "detections": 207
+            },
+            "Person B": {
+              "first_s": 4.84,
+              "last_s": 7.44,
+              "detections": 12
+            },
+            "Person C": {
+              "first_s": 8.64,
+              "last_s": 9.04,
+              "detections": 3
+            },
+            "Person D": {
+              "first_s": 14.24,
+              "last_s": 19.04,
+              "detections": 25
+            },
+            "Person E": {
+              "first_s": 39.44,
+              "last_s": 42.44,
+              "detections": 16
+            }
+          },
+          "role": "tuning"
+        },
+        {
+          "video": "LeftBag",
+          "metrics": {
+            "idf1": 0.605,
+            "idtp": 261.0,
+            "truth_detections": 376,
+            "predicted_detections": 487,
+            "id_switches": 1,
+            "truth_tracks": 5,
+            "predicted_tracks": 8,
+            "per_truth_track": {
+              "0": {
+                "frames": 47,
+                "matched": 44,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 104,
+                "matched": 48,
+                "numbers": 2
+              },
+              "2": {
+                "frames": 117,
+                "matched": 89,
+                "numbers": 1
+              },
+              "3": {
+                "frames": 67,
+                "matched": 59,
+                "numbers": 1
+              },
+              "5": {
+                "frames": 41,
+                "matched": 31,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": {
+            "placed_by": "3",
+            "placed_frame": 945,
+            "picked_by": "5",
+            "picked_frame": 1354,
+            "placed_label": "Person G",
+            "picked_label": "Person H",
+            "placed_s": 38.04,
+            "picked_s": 54.4
+          },
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 8.84,
+              "detections": 44
+            },
+            "Person B": {
+              "first_s": 3.24,
+              "last_s": 21.84,
+              "detections": 89
+            },
+            "Person C": {
+              "first_s": 4.44,
+              "last_s": 12.84,
+              "detections": 43
+            },
+            "Person D": {
+              "first_s": 15.84,
+              "last_s": 18.04,
+              "detections": 12
+            },
+            "Person E": {
+              "first_s": 17.44,
+              "last_s": 57.64,
+              "detections": 199
+            },
+            "Person F": {
+              "first_s": 21.24,
+              "last_s": 23.04,
+              "detections": 10
+            },
+            "Person G": {
+              "first_s": 32.04,
+              "last_s": 43.64,
+              "detections": 59
+            },
+            "Person H": {
+              "first_s": 50.44,
+              "last_s": 56.44,
+              "detections": 31
+            }
+          },
+          "role": "tuning"
+        },
+        {
+          "video": "LeftBag_PickedUp",
+          "metrics": {
+            "idf1": 0.94,
+            "idtp": 189.0,
+            "truth_detections": 213,
+            "predicted_detections": 189,
+            "id_switches": 0,
+            "truth_tracks": 3,
+            "predicted_tracks": 2,
+            "per_truth_track": {
+              "0": {
+                "frames": 25,
+                "matched": 20,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 11,
+                "matched": 0,
+                "numbers": 0
+              },
+              "2": {
+                "frames": 177,
+                "matched": 169,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": {
+            "placed_by": "2",
+            "placed_frame": 503,
+            "picked_by": "2",
+            "picked_frame": 1015,
+            "placed_label": "Person B",
+            "picked_label": "Person B",
+            "placed_s": 20.36,
+            "picked_s": 40.84
+          },
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 4.24,
+              "detections": 20
+            },
+            "Person B": {
+              "first_s": 12.04,
+              "last_s": 45.64,
+              "detections": 169
+            }
+          },
+          "role": "test"
+        },
+        {
+          "video": "LeftBag_AtChair",
+          "metrics": {
+            "idf1": 0.568,
+            "idtp": 128.0,
+            "truth_detections": 294,
+            "predicted_detections": 157,
+            "id_switches": 2,
+            "truth_tracks": 7,
+            "predicted_tracks": 6,
+            "per_truth_track": {
+              "0": {
+                "frames": 51,
+                "matched": 44,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 14,
+                "matched": 11,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 13,
+                "matched": 0,
+                "numbers": 0
+              },
+              "3": {
+                "frames": 38,
+                "matched": 0,
+                "numbers": 0
+              },
+              "4": {
+                "frames": 80,
+                "matched": 51,
+                "numbers": 2
+              },
+              "5": {
+                "frames": 73,
+                "matched": 49,
+                "numbers": 2
+              },
+              "7": {
+                "frames": 25,
+                "matched": 0,
+                "numbers": 0
+              }
+            }
+          },
+          "owner": {
+            "placed_by": "4",
+            "placed_frame": 455,
+            "picked_by": "5",
+            "picked_frame": 925,
+            "placed_label": "Person C",
+            "picked_label": "Person F",
+            "placed_s": 18.36,
+            "picked_s": 37.16
+          },
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 8.76,
+              "detections": 44
+            },
+            "Person B": {
+              "first_s": 0.0,
+              "last_s": 2.16,
+              "detections": 11
+            },
+            "Person C": {
+              "first_s": 10.76,
+              "last_s": 18.16,
+              "detections": 38
+            },
+            "Person D": {
+              "first_s": 21.56,
+              "last_s": 23.96,
+              "detections": 13
+            },
+            "Person E": {
+              "first_s": 32.76,
+              "last_s": 35.76,
+              "detections": 16
+            },
+            "Person F": {
+              "first_s": 37.76,
+              "last_s": 44.56,
+              "detections": 35
+            }
+          },
+          "role": "test"
+        },
+        {
+          "video": "LeftBox",
+          "metrics": {
+            "idf1": 0.503,
+            "idtp": 91.0,
+            "truth_detections": 217,
+            "predicted_detections": 145,
+            "id_switches": 3,
+            "truth_tracks": 3,
+            "predicted_tracks": 6,
+            "per_truth_track": {
+              "0": {
+                "frames": 83,
+                "matched": 65,
+                "numbers": 3
+              },
+              "1": {
+                "frames": 36,
+                "matched": 12,
+                "numbers": 1
+              },
+              "4": {
+                "frames": 98,
+                "matched": 60,
+                "numbers": 2
+              }
+            }
+          },
+          "owner": {
+            "placed_by": "4",
+            "placed_frame": 571,
+            "picked_by": "4",
+            "picked_frame": 862,
+            "placed_label": "Person E",
+            "picked_label": "Person F",
+            "placed_s": 23.08,
+            "picked_s": 34.72
+          },
+          "tracks": {
+            "Person A": {
+              "first_s": 0.64,
+              "last_s": 0.84,
+              "detections": 2
+            },
+            "Person B": {
+              "first_s": 1.44,
+              "last_s": 5.84,
+              "detections": 23
+            },
+            "Person C": {
+              "first_s": 6.64,
+              "last_s": 14.44,
+              "detections": 40
+            },
+            "Person D": {
+              "first_s": 7.64,
+              "last_s": 9.84,
+              "detections": 12
+            },
+            "Person E": {
+              "first_s": 17.64,
+              "last_s": 22.04,
+              "detections": 21
+            },
+            "Person F": {
+              "first_s": 24.04,
+              "last_s": 34.24,
+              "detections": 47
+            }
+          },
+          "role": "test"
+        },
+        {
+          "video": "Rest_FallOnFloor",
+          "metrics": {
+            "idf1": 0.844,
+            "idtp": 176.0,
+            "truth_detections": 241,
+            "predicted_detections": 176,
+            "id_switches": 0,
+            "truth_tracks": 3,
+            "predicted_tracks": 3,
+            "per_truth_track": {
+              "0": {
+                "frames": 36,
+                "matched": 32,
+                "numbers": 1
+              },
+              "1": {
+                "frames": 99,
+                "matched": 56,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 106,
+                "matched": 88,
+                "numbers": 1
+              }
+            }
+          },
+          "owner": null,
+          "tracks": {
+            "Person A": {
+              "first_s": 0.0,
+              "last_s": 11.24,
+              "detections": 56
+            },
+            "Person B": {
+              "first_s": 0.0,
+              "last_s": 6.44,
+              "detections": 32
+            },
+            "Person C": {
+              "first_s": 22.84,
+              "last_s": 40.44,
+              "detections": 88
+            }
+          },
+          "role": "test"
+        },
+        {
+          "video": "Meet_WalkTogether1",
+          "metrics": {
+            "idf1": 0.498,
+            "idtp": 60.0,
+            "truth_detections": 169,
+            "predicted_detections": 72,
+            "id_switches": 1,
+            "truth_tracks": 6,
+            "predicted_tracks": 2,
+            "per_truth_track": {
+              "1": {
+                "frames": 75,
+                "matched": 24,
+                "numbers": 1
+              },
+              "2": {
+                "frames": 54,
+                "matched": 43,
+                "numbers": 2
+              },
+              "5": {
+                "frames": 17,
+                "matched": 0,
+                "numbers": 0
+              },
+              "6": {
+                "frames": 17,
+                "matched": 0,
+                "numbers": 0
+              },
+              "3": {
+                "frames": 4,
+                "matched": 0,
+                "numbers": 0
+              },
+              "4": {
+                "frames": 2,
+                "matched": 0,
+                "numbers": 0
+              }
+            }
+          },
+          "owner": null,
+          "tracks": {
+            "Person A": {
+              "first_s": 9.8,
+              "last_s": 16.8,
+              "detections": 36
+            },
+            "Person B": {
+              "first_s": 11.6,
+              "last_s": 19.4,
+              "detections": 36
+            }
+          },
+          "role": "test"
+        }
+      ],
+      "owner_checks": [
+        [
+          "PickedUp: owner labelled at set-down",
+          true
+        ],
+        [
+          "PickedUp: same label at pick-up (one XML track)",
+          true
+        ],
+        [
+          "AtChair: owner labelled at set-down",
+          true
+        ],
+        [
+          "AtChair: different label at pick-up (two XML tracks)",
+          true
+        ]
+      ],
+      "test_pooled_idf1": 0.688,
+      "test_id_switches": 6,
+      "criterion_met": false
+    }
+  }
+}

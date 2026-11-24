@@ -30,12 +30,33 @@ VIDEOS = [  # name, decoded source, CAVIAR XML, role in the protocol
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--stride", type=int, default=5)
+    parser.add_argument("--model", choices=("nano", "small", "medium", "yolo26n", "yolo26s"), default="nano")
+    parser.add_argument("--shape", default=None, help="Inference size HxW, multiples of 32 (default: the model's own)")
     args = parser.parse_args()
-    from PIL import Image
-    from rfdetr import RFDETRNano
+    import time
 
-    model = RFDETRNano()
-    out = Path(__file__).with_name(f"detections_stride{args.stride}.json")
+    import rfdetr
+    from PIL import Image
+
+    shape = tuple(map(int, args.shape.split("x"))) if args.shape else None
+    if args.model.startswith("yolo"):
+        # Ultralytics YOLO (AGPL-3.0, course use only): letterboxed to imgsz on the long side; class 0 is person.
+        from ultralytics import YOLO
+
+        yolo = YOLO(f"{args.model}.pt")
+        imgsz = shape[1] if shape else 384
+
+        def predict(image):
+            result = yolo.predict(image, imgsz=imgsz, conf=0.1, classes=[0], device="cpu", verbose=False)[0]
+            return [[*map(float, b), float(c)] for b, c in zip(result.boxes.xyxy.tolist(), result.boxes.conf.tolist())]
+    else:
+        model = {"nano": rfdetr.RFDETRNano, "small": rfdetr.RFDETRSmall, "medium": rfdetr.RFDETRMedium}[args.model]()
+
+        def predict(image):
+            d = model.predict(image, threshold=0.1, **({"shape": shape} if shape else {}))
+            return [[*map(float, b), float(c)] for b, c, k in zip(d.xyxy, d.confidence, d.data["class_name"]) if k == "person"]
+    suffix = "" if args.model == "nano" and shape is None else f"_{args.model}" + (f"_{args.shape}" if shape else "")
+    out = Path(__file__).with_name(f"detections_stride{args.stride}{suffix}.json")
     cache = json.loads(out.read_text()) if out.exists() else {}
     for name, video, _, _ in VIDEOS:
         if name in cache:
@@ -46,16 +67,19 @@ def main():
             capture_output=True, text=True, check=True).stdout)[:2])
         proc = subprocess.Popen(["ffmpeg", "-v", "error", "-i", path, "-fps_mode", "passthrough", "-f", "rawvideo",
                                  "-pix_fmt", "rgb24", "pipe:1"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
-        rows, n = {}, 0
+        rows, n, seconds = {}, 0, 0.0
         while (chunk := proc.stdout.read(w * h * 3)) and len(chunk) == w * h * 3:
             if n % args.stride == 0:
-                d = model.predict(Image.fromarray(np.frombuffer(chunk, np.uint8).reshape(h, w, 3)), threshold=0.1)
-                rows[n] = [[*map(float, b), float(c)] for b, c, k in zip(d.xyxy, d.confidence, d.data["class_name"]) if k == "person"]
+                started = time.monotonic()
+                rows[n] = predict(Image.fromarray(np.frombuffer(chunk, np.uint8).reshape(h, w, 3)))
+                seconds += time.monotonic() - started
             n += 1
         proc.wait()
         cache[name] = rows
+        cache.setdefault("_cpu", {})[name] = {"seconds": round(seconds, 1), "video_s": round(n / 25, 1)}
         out.write_text(json.dumps(cache))
-        print(name, n, "frames", sum(map(len, rows.values())), "detections", flush=True)
+        print(name, n, "frames", sum(map(len, rows.values())), "detections",
+              f"{seconds / (n / 25) * 60:.0f} s CPU per video minute at 5 fps", flush=True)
 
 
 if __name__ == "__main__":

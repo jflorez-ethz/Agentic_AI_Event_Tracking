@@ -1,0 +1,305 @@
+{
+  "clips": {
+    "Walk1": {
+      "reference": 1559,
+      "changed": 0,
+      "sampled_changed": 0,
+      "scored": 312,
+      "object_boxes": 0,
+      "changed_objects": 0,
+      "frame_count": 612,
+      "stages": {
+        "raw": {
+          "matches": 117,
+          "boxes": 1567,
+          "lost": 0,
+          "gained": 117,
+          "idtp": null
+        },
+        "byte": {
+          "matches": 55,
+          "boxes": 72,
+          "lost": 62,
+          "gained": 0,
+          "idtp": 51
+        },
+        "stitch": {
+          "matches": 55,
+          "boxes": 72,
+          "lost": 0,
+          "gained": 0,
+          "idtp": 55
+        },
+        "final": {
+          "matches": 55,
+          "boxes": 55,
+          "lost": 0,
+          "gained": 0,
+          "idtp": 55
+        }
+      },
+      "nano_old": {
+        "idtp": 55,
+        "idfp": 0,
+        "idfn": 257,
+        "idf1": 0.3,
+        "switches": 0
+      },
+      "nano": {
+        "idtp": 55,
+        "idfp": 0,
+        "idfn": 257,
+        "idf1": 0.3,
+        "switches": 0
+      },
+      "oracle_old": {
+        "idtp": 301,
+        "idfp": 0,
+        "idfn": 11,
+        "idf1": 0.982,
+        "switches": 0
+      },
+      "oracle": {
+        "idtp": 301,
+        "idfp": 0,
+        "idfn": 11,
+        "idf1": 0.982,
+        "switches": 0
+      },
+      "detection": {
+        "tp": 117,
+        "fp": 1450,
+        "fn": 195,
+        "precision": 0.07466496490108487,
+        "recall": 0.375
+      },
+      "exhibit": {
+        "frame": 85,
+        "pts": 3.639711,
+        "xml_id": "0",
+        "box": {
+          "h": "49",
+          "w": "62",
+          "xc": "208",
+          "yc": "144"
+        },
+        "legacy": [
+          177.0,
+          119.5,
+          239.0,
+          168.5
+        ],
+        "corrected": [
+          177.0,
+          119.5,
+          239.0,
+          168.5
+        ]
+      }
+    },
+    "LeftBag_BehindChair": {
+      "reference": 1523,
+      "changed": 0,
+      "sampled_changed": 0,
+      "scored": 305,
+      "object_boxes": 0,
+      "changed_objects": 0,
+      "frame_count": 1068,
+      "stages": {
+        "raw": {
+          "matches": 184,
+          "boxes": 2559,
+          "lost": 0,
+          "gained": 184,
+          "idtp": null
+        },
+        "byte": {
+          "matches": 136,
+          "boxes": 137,
+          "lost": 48,
+          "gained": 0,
+          "idtp": 112
+        },
+        "stitch": {
+          "matches": 136,
+          "boxes": 137,
+          "lost": 0,
+          "gained": 0,
+          "idtp": 117
+        },
+        "final": {
+          "matches": 136,
+          "boxes": 136,
+          "lost": 0,
+          "gained": 0,
+          "idtp": 117
+        }
+      },
+      "nano_old": {
+        "idtp": 117,
+        "idfp": 19,
+        "idfn": 188,
+        "idf1": 0.531,
+        "switches": 2
+      },
+      "nano": {
+        "idtp": 117,
+        "idfp": 19,
+        "idfn": 188,
+        "idf1": 0.531,
+        "switches": 2
+      },
+      "oracle_old": {
+        "idtp": 281,
+        "idfp": 0,
+        "idfn": 24,
+        "idf1": 0.959,
+        "switches": 0
+      },
+      "oracle": {
+        "idtp": 281,
+        "idfp": 0,
+        "idfn": 24,
+        "idf1": 0.959,
+        "switches": 0
+      },
+      "detection": {
+        "tp": 184,
+        "fp": 2375,
+        "fn": 121,
+        "precision": 0.0719030871434154,
+        "recall": 0.6032786885245902
+      },
+      "exhibit": {
+        "frame": 85,
+        "pts": 3.639711,
+        "xml_id": "0",
+        "box": {
+          "h": "51",
+          "w": "62",
+          "xc": "167",
+          "yc": "130"
+        },
+        "legacy": [
+          136.0,
+          104.5,
+          198.0,
+          155.5
+        ],
+        "corrected": [
+          136.0,
+          104.5,
+          198.0,
+          155.5
+        ]
+      }
+    },
+    "Meet_WalkTogether2": {
+      "reference": 1484,
+      "changed": 1477,
+      "sampled_changed": 297,
+      "scored": 298,
+      "object_boxes": 0,
+      "changed_objects": 0,
+      "frame_count": 828,
+      "stages": {
+        "raw": {
+          "matches": 145,
+          "boxes": 2504,
+          "lost": 0,
+          "gained": 145,
+          "idtp": null
+        },
+        "byte": {
+          "matches": 111,
+          "boxes": 328,
+          "lost": 34,
+          "gained": 0,
+          "idtp": 72
+        },
+        "stitch": {
+          "matches": 111,
+          "boxes": 328,
+          "lost": 0,
+          "gained": 0,
+          "idtp": 73
+        },
+        "final": {
+          "matches": 111,
+          "boxes": 167,
+          "lost": 0,
+          "gained": 0,
+          "idtp": 73
+        }
+      },
+      "nano_old": {
+        "idtp": 4,
+        "idfp": 163,
+        "idfn": 294,
+        "idf1": 0.017,
+        "switches": 0
+      },
+      "nano": {
+        "idtp": 73,
+        "idfp": 94,
+        "idfn": 225,
+        "idf1": 0.314,
+        "switches": 2
+      },
+      "oracle_old": {
+        "idtp": 195,
+        "idfp": 73,
+        "idfn": 103,
+        "idf1": 0.689,
+        "switches": 4
+      },
+      "oracle": {
+        "idtp": 290,
+        "idfp": 0,
+        "idfn": 8,
+        "idf1": 0.986,
+        "switches": 0
+      },
+      "detection": {
+        "tp": 145,
+        "fp": 2359,
+        "fn": 153,
+        "precision": 0.057907348242811504,
+        "recall": 0.4865771812080537
+      }
+    }
+  },
+  "pooled": {
+    "nano_old": {
+      "idtp": 176,
+      "idfp": 182,
+      "idfn": 739,
+      "idf1": 0.27651217596229377
+    },
+    "nano": {
+      "idtp": 245,
+      "idfp": 113,
+      "idfn": 670,
+      "idf1": 0.384917517674784
+    },
+    "oracle_old": {
+      "idtp": 777,
+      "idfp": 73,
+      "idfn": 138,
+      "idf1": 0.8804532577903683
+    },
+    "oracle": {
+      "idtp": 872,
+      "idfp": 0,
+      "idfn": 43,
+      "idf1": 0.9759373251259094
+    },
+    "detection": {
+      "tp": 446,
+      "fp": 6184,
+      "fn": 469,
+      "precision": 0.06726998491704374,
+      "recall": 0.48743169398907105
+    }
+  }
+}

@@ -1,0 +1,49 @@
+=== Precision / rappel (appariement 1-1 par trame) ===
+conf>=0.1 (cache brut) IoU 0.3: LeftBag_Behi P=0.075 R=0.630 | Walk1 P=0.081 R=0.407 | Meet_WalkTog P=0.063 R=0.534 || POOL P=0.072 R=0.522 (TP 478, préd 6630, vérité 915)
+conf>=0.1 (cache brut) IoU 0.5: LeftBag_Behi P=0.072 R=0.603 | Walk1 P=0.075 R=0.375 | Meet_WalkTog P=0.058 R=0.487 || POOL P=0.067 R=0.487 (TP 446, préd 6630, vérité 915)
+conf>=0.4 (seuil d’activation ByteTrack) IoU 0.3: LeftBag_Behi P=0.919 R=0.449 | Walk1 P=0.821 R=0.205 | Meet_WalkTog P=0.462 R=0.393 || POOL P=0.662 R=0.348 (TP 318, préd 480, vérité 915)
+conf>=0.4 (seuil d’activation ByteTrack) IoU 0.5: LeftBag_Behi P=0.913 R=0.446 | Walk1 P=0.821 R=0.205 | Meet_WalkTog P=0.458 R=0.389 || POOL P=0.658 R=0.345 (TP 316, préd 480, vérité 915)
+
+=== Personnes XML manquées : nature (conf>=0.1) ===
+LeftBag_BehindChair 305 {'ok': 184, 'loc': 8, 'weak': 31, 'none': 82}
+Walk1 312 {'ok': 117, 'loc': 10, 'weak': 64, 'none': 121}
+Meet_WalkTogether2 298 {'ok': 145, 'loc': 14, 'weak': 57, 'none': 82}
+POOL 915 {'ok': 446, 'loc': 32, 'weak': 152, 'none': 285}
+
+=== Rappel par situation (drapeaux non exclusifs) : n, R@0.5 c0.1, R@0.3 c0.1, R@0.5 c0.4 ===
+toutes                                   n= 915  0.49  0.52  0.35
+petite (sqrt aire<22px)                  n= 379  0.18  0.25  0.01
+  non petite (sqrt aire<22px)            n= 536  0.70  0.72  0.58
+bord image (<8px)                        n=  61  0.46  0.46  0.25
+  non bord image (<8px)                  n= 854  0.49  0.53  0.35
+côte à côte                              n= 412  0.22  0.27  0.09
+  non côte à côte                        n= 503  0.71  0.73  0.56
+sur meuble statique                      n= 445  0.17  0.23  0.04
+  non sur meuble statique                n= 470  0.79  0.80  0.64
+posture: marche                          n= 597  0.61  0.66  0.44
+posture: active (sur place)              n= 163  0.36  0.37  0.27
+posture: inactive                        n= 155  0.14  0.16  0.08
+aucun drapeau (grande, dégagée, marche)  n= 234  0.97  0.97  0.88
+
+=== Par ID XML : n, R@0.5 c0.1, drapeaux dominants ===
+LeftBag_Behi X0: n=32 R=0.97 small=0.03 edge=0.12 side=0.00 meuble=0.09 inactive/active=0.41
+LeftBag_Behi X1: n=16 R=0.00 small=1.00 edge=0.88 side=0.00 meuble=0.00 inactive/active=0.00
+LeftBag_Behi X2: n=105 R=0.65 small=0.40 edge=0.09 side=0.00 meuble=0.33 inactive/active=0.00
+LeftBag_Behi X3: n=55 R=0.18 small=1.00 edge=0.00 side=0.00 meuble=0.95 inactive/active=0.33
+LeftBag_Behi X4: n=13 R=0.00 small=1.00 edge=0.77 side=0.00 meuble=0.00 inactive/active=0.00
+LeftBag_Behi X5: n=39 R=0.97 small=0.05 edge=0.13 side=0.00 meuble=0.00 inactive/active=0.38
+LeftBag_Behi X6: n=45 R=0.82 small=0.49 edge=0.00 side=0.00 meuble=0.18 inactive/active=0.00
+Walk1 X0: n=32 R=0.97 small=0.03 edge=0.19 side=0.00 meuble=0.00 inactive/active=0.16
+Walk1 X1: n=55 R=0.87 small=0.20 edge=0.07 side=0.00 meuble=0.02 inactive/active=0.00
+Walk1 X4: n=115 R=0.24 small=0.17 edge=0.00 side=0.96 meuble=0.69 inactive/active=0.77
+Walk1 X5: n=110 R=0.09 small=0.43 edge=0.00 side=1.00 meuble=0.96 inactive/active=0.77
+Meet_WalkTog X0: n=25 R=0.96 small=0.08 edge=0.20 side=0.00 meuble=0.00 inactive/active=0.20
+Meet_WalkTog X1: n=141 R=0.43 small=0.57 edge=0.00 side=0.68 meuble=0.55 inactive/active=0.33
+Meet_WalkTog X2: n=132 R=0.46 small=0.52 edge=0.03 side=0.73 meuble=0.64 inactive/active=0.32
+
+=== Faux positifs IoU 0.5 : type ===
+c01 6184 {'static (meuble/plante/objet)': '4602 (74%)', 'autre': '1334 (22%)', 'sur une personne (mal localisé/doublon)': '248 (4%)'}
+c04 164 {'static (meuble/plante/objet)': '157 (96%)', 'autre': '3 (2%)', 'sur une personne (mal localisé/doublon)': '4 (2%)'}
+LeftBag_BehindChair boîtes statiques (non-personnes): 271
+Walk1 boîtes statiques (non-personnes): 188
+Meet_WalkTogether2 boîtes statiques (non-personnes): 629

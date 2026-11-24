@@ -1,0 +1,29 @@
+LeftBag_BehindChair: saut médian du centre entre trames consécutives: corrigé 1.0px, ancien lecteur 1.0px
+   L0 oracle XML                              IDF1 0.959  switches 0
+   L0+FP: XML + faux positifs Nano            IDF1 0.957  switches 0
+   L1 XML là où Nano détecte (conf 0.95)      IDF1 0.586  switches 1
+   L1b idem avec la conf Nano                 IDF1 0.527  switches 2
+   L2 boîtes Nano vraies (sans FP)            IDF1 0.531  switches 2
+   L3 Nano complet                            IDF1 0.531  switches 2
+Walk1: saut médian du centre entre trames consécutives: corrigé 0.0px, ancien lecteur 0.0px
+   L0 oracle XML                              IDF1 0.982  switches 0
+   L0+FP: XML + faux positifs Nano            IDF1 0.982  switches 0
+   L1 XML là où Nano détecte (conf 0.95)      IDF1 0.424  switches 0
+   L1b idem avec la conf Nano                 IDF1 0.300  switches 0
+   L2 boîtes Nano vraies (sans FP)            IDF1 0.300  switches 0
+   L3 Nano complet                            IDF1 0.300  switches 0
+Meet_WalkTogether2: saut médian du centre entre trames consécutives: corrigé 0.0px, ancien lecteur 0.0px
+   L0 oracle XML                              IDF1 0.986  switches 0
+   L0+FP: XML + faux positifs Nano            IDF1 0.902  switches 0
+   L1 XML là où Nano détecte (conf 0.95)      IDF1 0.624  switches 1
+   L1b idem avec la conf Nano                 IDF1 0.546  switches 0
+   L2 boîtes Nano vraies (sans FP)            IDF1 0.546  switches 0
+   L3 Nano complet                            IDF1 0.314  switches 2
+
+POOL
+   L0 oracle XML                              IDF1 0.976
+   L0+FP: XML + faux positifs Nano            IDF1 0.946
+   L1 XML là où Nano détecte (conf 0.95)      IDF1 0.550
+   L1b idem avec la conf Nano                 IDF1 0.465
+   L2 boîtes Nano vraies (sans FP)            IDF1 0.466
+   L3 Nano complet                            IDF1 0.385

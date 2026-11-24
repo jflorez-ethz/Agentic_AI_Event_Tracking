@@ -1,0 +1,243 @@
+{
+  "model": "RF-DETR Nano",
+  "shape": [
+    576,
+    768
+  ],
+  "stride": 5,
+  "threshold": 0.1,
+  "frozen": {
+    "activation": 0.4,
+    "lost_s": 4.0,
+    "matching": 0.8,
+    "tau_s": 3.0,
+    "base_px": 20.0
+  },
+  "inputs": {
+    "LeftBag_BehindChair.mpg": {
+      "url": "https://homepages.inf.ed.ac.uk/rbf/CAVIARDATA1/LeftBag_BehindChair/LeftBag_BehindChair.mpg",
+      "sha256": "e35d0bc1fa6efae4cde83f54342e59c7f0cf1316f5be9821968350fe3a145abb"
+    },
+    "lbbcgt.xml": {
+      "url": "https://homepages.inf.ed.ac.uk/rbf/CAVIARDATA1/LeftBag_BehindChair/lbbcgt.xml",
+      "sha256": "85473d4ae0749ab0f02667843d7909e5f1f10810be2494c617e9ed0621ae8436"
+    },
+    "Walk1.mpg": {
+      "url": "https://homepages.inf.ed.ac.uk/rbf/CAVIARDATA1/Walk1/Walk1.mpg",
+      "sha256": "a5d6dc7d7def01c1bdaeea8ff620195c148b366e1a52589bf4e46f15b6daa0c2"
+    },
+    "wk1gt.xml": {
+      "url": "https://homepages.inf.ed.ac.uk/rbf/CAVIARDATA1/Walk1/wk1gt.xml",
+      "sha256": "dfcb8135fe46e7fbbcb7616d93f4f16aee040570185227ecd8c81aaa87de06cd"
+    },
+    "Meet_WalkTogether2.mpg": {
+      "url": "https://homepages.inf.ed.ac.uk/rbf/CAVIARDATA1/Meet_WalkTogether2/Meet_WalkTogether2.mpg",
+      "sha256": "e7ac8ccbc4f268b4da68f6a698f5077a3f74a8f69e9f245f7e3b46443f280a91"
+    },
+    "mwt2gt.xml": {
+      "url": "https://homepages.inf.ed.ac.uk/rbf/CAVIARDATA1/Meet_WalkTogether2/mwt2gt.xml",
+      "sha256": "a1d6b0b1daaeb78d573a268ff344e8eb56d9707bfca0c47df489a5d9c7d1a57d"
+    }
+  },
+  "rows": [
+    {
+      "video": "LeftBag_BehindChair",
+      "metrics": {
+        "idf1": 0.531,
+        "idtp": 117.0,
+        "truth_detections": 305,
+        "predicted_detections": 136,
+        "id_switches": 2,
+        "truth_tracks": 7,
+        "predicted_tracks": 6,
+        "per_truth_track": {
+          "0": {
+            "frames": 32,
+            "matched": 19,
+            "numbers": 2
+          },
+          "1": {
+            "frames": 16,
+            "matched": 0,
+            "numbers": 0
+          },
+          "2": {
+            "frames": 105,
+            "matched": 49,
+            "numbers": 2
+          },
+          "3": {
+            "frames": 55,
+            "matched": 0,
+            "numbers": 0
+          },
+          "4": {
+            "frames": 13,
+            "matched": 0,
+            "numbers": 0
+          },
+          "6": {
+            "frames": 45,
+            "matched": 34,
+            "numbers": 1
+          },
+          "5": {
+            "frames": 39,
+            "matched": 34,
+            "numbers": 1
+          }
+        }
+      },
+      "owner": null,
+      "tracks": {
+        "Person A": {
+          "first_s": 0.0,
+          "last_s": 4.64,
+          "detections": 17
+        },
+        "Person B": {
+          "first_s": 5.84,
+          "last_s": 6.24,
+          "detections": 2
+        },
+        "Person C": {
+          "first_s": 8.44,
+          "last_s": 14.84,
+          "detections": 32
+        },
+        "Person D": {
+          "first_s": 24.24,
+          "last_s": 27.44,
+          "detections": 17
+        },
+        "Person E": {
+          "first_s": 35.24,
+          "last_s": 41.84,
+          "detections": 34
+        },
+        "Person F": {
+          "first_s": 36.04,
+          "last_s": 42.84,
+          "detections": 34
+        }
+      },
+      "frame_count": 1068
+    },
+    {
+      "video": "Walk1",
+      "metrics": {
+        "idf1": 0.3,
+        "idtp": 55.0,
+        "truth_detections": 312,
+        "predicted_detections": 55,
+        "id_switches": 0,
+        "truth_tracks": 4,
+        "predicted_tracks": 2,
+        "per_truth_track": {
+          "0": {
+            "frames": 32,
+            "matched": 20,
+            "numbers": 1
+          },
+          "4": {
+            "frames": 115,
+            "matched": 0,
+            "numbers": 0
+          },
+          "5": {
+            "frames": 110,
+            "matched": 0,
+            "numbers": 0
+          },
+          "1": {
+            "frames": 55,
+            "matched": 35,
+            "numbers": 1
+          }
+        }
+      },
+      "owner": null,
+      "tracks": {
+        "Person A": {
+          "first_s": 1.84,
+          "last_s": 5.84,
+          "detections": 20
+        },
+        "Person B": {
+          "first_s": 11.04,
+          "last_s": 18.24,
+          "detections": 35
+        }
+      },
+      "frame_count": 612
+    },
+    {
+      "video": "Meet_WalkTogether2",
+      "metrics": {
+        "idf1": 0.017,
+        "idtp": 4.0,
+        "truth_detections": 298,
+        "predicted_detections": 167,
+        "id_switches": 0,
+        "truth_tracks": 3,
+        "predicted_tracks": 4,
+        "per_truth_track": {
+          "0": {
+            "frames": 25,
+            "matched": 3,
+            "numbers": 1
+          },
+          "1": {
+            "frames": 141,
+            "matched": 0,
+            "numbers": 0
+          },
+          "2": {
+            "frames": 132,
+            "matched": 1,
+            "numbers": 1
+          }
+        }
+      },
+      "owner": null,
+      "tracks": {
+        "Person A": {
+          "first_s": 0.0,
+          "last_s": 4.36,
+          "detections": 22
+        },
+        "Person B": {
+          "first_s": 7.76,
+          "last_s": 18.56,
+          "detections": 55
+        },
+        "Person C": {
+          "first_s": 8.76,
+          "last_s": 18.16,
+          "detections": 35
+        },
+        "Person D": {
+          "first_s": 22.36,
+          "last_s": 33.16,
+          "detections": 55
+        }
+      },
+      "frame_count": 828
+    }
+  ],
+  "pooled_idf1": 0.27651217596229377,
+  "timing": {
+    "LeftBag_BehindChair": {
+      "seconds": 120.2,
+      "video_s": 42.7
+    },
+    "Walk1": {
+      "seconds": 68.9,
+      "video_s": 24.5
+    },
+    "Meet_WalkTogether2": {
+      "seconds": 91.9,
+      "video_s": 33.1
+    }
+  }
+}

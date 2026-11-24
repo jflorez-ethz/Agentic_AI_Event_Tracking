@@ -35,3 +35,23 @@ def test_owners_from_xml():
     truth, bag = pilot.ground_truth(ANNOTATIONS / "lbpugt.xml")
     owner = pilot.owners(truth, bag)
     assert (owner["placed_by"], owner["picked_by"]) == ("2", "2")
+
+
+def test_box_coordinates_ignore_foot_annotations(tmp_path):
+    xml = tmp_path / "objects.xml"
+    xml.write_text('''<dataset><frame number="195"><objectlist>
+        <object id="1"><box h="23" w="30" xc="154" yc="41"/>
+          <body><foot xc="999" yc="888"/><feet>
+            <right xc="167" yc="49"/><left xc="165" yc="44"/>
+          </feet></body></object>
+        <object id="2"><box h="8" w="10" xc="30" yc="20"/>
+          <foot xc="101" yc="102" w="2" h="4"/><role>object</role>
+        </object></objectlist></frame></dataset>''')
+    people, bag = pilot.ground_truth(xml)
+    assert people == {"1": {195: (139, 29.5, 169, 52.5)}}
+    assert bag == {195: (25, 16, 35, 24)}
+
+
+def test_walk_together2_original_object_box():
+    people, _ = pilot.ground_truth(ANNOTATIONS / "mwt2gt.xml")
+    assert people["1"][195] == (139, 29.5, 169, 52.5)
