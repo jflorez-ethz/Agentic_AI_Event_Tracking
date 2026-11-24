@@ -80,9 +80,12 @@ def _relation_schema(frame_count):
     }), nullable]}
 
 
-def _response_schema(categories, relational_frame_count=None):
+def _response_schema(categories, relational_frame_count=None, possible_category=False):
     properties = {field: {"type": "string"} for field in TEXT_FIELDS}
     properties["category"]["enum"] = list(categories)
+    if possible_category:
+        properties["possible_category"] = {
+            "type": "string", "enum": [c for c in categories if c != "insufficient_evidence"] + ["none"]}
     properties["frame_labels"] = {"type": "array", "items": {"type": "string"}}
     properties["clip_interval_us"] = {"type": "array", "items": {"type": "integer"}, "maxItems": 2}
     schema = {"type": "object", "required": ["observations"], "properties": {
@@ -172,6 +175,9 @@ class GeminiAdapter:
             f"{request.prompt}\nUse only visible evidence. Do not infer identity, ownership, "
             "intent or actions outside the supplied media. State visibility limits and timing "
             "uncertainty. Return an empty observations list if no category applies."
+            + (" Set possible_category on every observation: for insufficient_evidence, the event category you "
+               "suspect but could not confirm, or none if no specific event is suspected; for every other "
+               "category, none." if request.possible_category else "")
         )
         if isinstance(media, FrameSequenceInput):
             rule = (
@@ -217,6 +223,7 @@ class GeminiAdapter:
             "response_mime_type": "application/json",
             "response_json_schema": _response_schema(
                 request.categories, len(media.inspection.frames) if request.relational else None,
+                possible_category=request.possible_category,
             ),
             "max_output_tokens": 8192,
             "thinking_config": {"thinking_level": "HIGH"},
@@ -302,9 +309,16 @@ class GeminiAdapter:
         ) else {}
         observations = []
         for i, item in enumerate(data["observations"]):
-            if (not isinstance(item, dict) or set(item) != set(TEXT_FIELDS + EVIDENCE_FIELDS)
+            expected = set(TEXT_FIELDS + EVIDENCE_FIELDS)
+            optional = {"possible_category"} if request.possible_category else set()
+            if (not isinstance(item, dict) or not expected <= set(item) <= expected | optional
                     or any(not isinstance(item[field], str) for field in TEXT_FIELDS)):
                 raise VideoError("Observation fields differ from the expected schema")
+            suspected = item.get("possible_category", "none")
+            if optional and (not isinstance(suspected, str) or (
+                    suspected != "none" and (suspected not in request.categories or suspected == "insufficient_evidence"))):
+                raise VideoError("Invalid possible_category")
+            suspected = suspected if item["category"] == "insufficient_evidence" and suspected != "none" else None
             frame_labels, bounds = (item[field] for field in EVIDENCE_FIELDS)
             if not isinstance(frame_labels, list) or not isinstance(bounds, list):
                 raise VideoError("Evidence fields must be arrays")
@@ -320,7 +334,7 @@ class GeminiAdapter:
             observations.append(Observation(
                 _id("observation", inspection.id, i, item), inspection.id, item["category"],
                 item["description"], evidence, item["visibility_limits"], item["uncertainty"],
-                source_video_id=inspection.video_id, inference_metadata=metadata,
+                source_video_id=inspection.video_id, inference_metadata=metadata, possible_category=suspected,
             ))
         relation = relation_error = None
         if data.get("relation") is not None:

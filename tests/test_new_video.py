@@ -438,7 +438,9 @@ def test_archived_scan_triggers_automatic_investigation_without_question(tmp_pat
     assert len(replayed) == len(rows) == 11
     for actual, archived in zip(replayed, rows, strict=True):
         assert actual["citation"] == archived["citation"]
-        assert {k: v for k, v in actual["observation"].items() if k != "inference_metadata"} == {
+        # The CLI asks Perception for possible_category; these archived replies do not set it, so it stays None.
+        assert actual["observation"]["possible_category"] is None
+        assert {k: v for k, v in actual["observation"].items() if k not in ("inference_metadata", "possible_category")} == {
             k: v for k, v in archived["observation"].items() if k != "inference_metadata"
         }
     assert analysis["completion"]["initial_scan"] == "completed"

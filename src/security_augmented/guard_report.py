@@ -45,6 +45,7 @@ WHY = {
     "invalid_verdict": "The automatic check gave an invalid answer.",
     "unfinished": "The automatic check stopped before reaching a conclusion.",
     "contradicted": "The automatic check thinks the images do not show it. Please confirm: this is never dismissed.",
+    "unclear_observation": "Possible, not confirmed: the video analysis suspects this but could not see it clearly.",
 }
 # Order used to choose the headline among confirmed security events.
 SEVERITY = ("person_fell", "object_placed", "object_removed", "person_enters_area",
@@ -215,6 +216,8 @@ def render(result):
     descriptions = {f.observation.id: (f.observation.description, f.observation.inspection_id)
                     for e in analysis.evidence for f in e.findings}
     thumbs = _Thumbnails(analysis)
+    suspected = {f.observation.id: getattr(f.observation, "possible_category", None)
+                 for e in analysis.evidence for f in e.findings}
 
     def sentence(observation_id):
         text, inspection_id = descriptions.get(observation_id, ("", None))
@@ -266,7 +269,7 @@ def render(result):
         what = sentence(alert["observation_id"])
         parts.append(
             f'<section class="card review"><h3>{span(alert["interval"]["start_us"], alert["interval"]["end_us"])} · '
-            f'{html.escape(title(alert["category"]))}</h3>'
+            f'{html.escape(("Possible: " if alert.get("unclear") else "") + title(alert["category"]))}</h3>'
             f'<p class="question">{html.escape(QUESTIONS.get(alert["category"], "What happened here?"))}</p>'
             + (f"<p>{html.escape(what)}</p>" if what else "")
             + f'<p class="why">{html.escape(why)}</p>{_images(thumbs.triplet(frames), thumbs.problem)}</section>')
@@ -291,6 +294,9 @@ def render(result):
         notes = []
         if row["closer_look"]:
             notes.append("also seen in a closer look")
+        possibly = next((suspected[i] for i in row["members"] if suspected.get(i)), None)
+        if possibly:
+            notes.append(f"possibly: {title(possibly).lower()}")
         if row["category"] in ("person_enters_area",) and status != "verified":
             notes.append("entry or exit cannot be confirmed: no zone is configured")
         tag = '<span class="tag sec">Security</span> ' if row["security"] else ""

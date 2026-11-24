@@ -39,6 +39,8 @@ _WHY = {
                                           "celles demandées avaient déjà toutes été examinées."),
     "invalid_verdict": "La décision de vérification était invalide et a été refusée.",
     "unfinished": "La vérification s'est arrêtée avant de conclure (limite d'itérations, d'appels ou échec d'outil).",
+    "unclear_observation": ("Possible, non confirmé : l'analyse vidéo soupçonne cet événement sans l'avoir vu "
+                            "clairement."),
     "contradicted": ("La vérification juge que les images ne le montrent pas. "
                      "À confirmer quand même : ce type d'événement n'est jamais écarté par l'agent."),
 }
@@ -128,13 +130,58 @@ def review(events, trace, evidence):
             "model_reason_affirmative": bool(_AFFIRMATIVE.search(event.reason) and not _NEGATION.search(event.reason)),
             "question": _QUESTION[event.category], "operator_label": None,
         })
+    alerts.extend(_unclear_alerts(events, alerts, evidence, inspections))
+    alerts.sort(key=lambda a: (a["interval"]["start_us"], a["category"]))
     supported = sum(1 for e in events if e.category in PRIORITY_LABELS and e.verdict == "supported")
     return {
         "alerts": alerts, "not_alerted": not_alerted,
         "counts": {"needs_review": len(alerts), "supported_security": supported,
+                   "unclear": sum(1 for a in alerts if a["reason_code"] == "unclear_observation"),
                    "not_alerted": {why: sum(1 for n in not_alerted if n["why"] == why)
                                    for why in ("zone_undefined", "contradicted")}},
     }
+
+
+UNCLEAR_MARGIN_US = 2_000_000
+
+
+class _Cited:
+    def __init__(self, citation):
+        self.citations = (citation,)
+
+
+def _unclear_alerts(events, alerts, evidence, inspections):
+    """insufficient_evidence observations that suspect a security event, unless already covered nearby."""
+    def near(a_start, a_end, b_start, b_end):
+        return a_start < b_end + UNCLEAR_MARGIN_US and b_start < a_end + UNCLEAR_MARGIN_US
+
+    covered = [(e.category, e.interval.start_us, e.interval.end_us) for e in events if e.verdict == "supported"]
+    covered += [(a["category"], a["interval"]["start_us"], a["interval"]["end_us"]) for a in alerts]
+    added = []
+    for entry in evidence:
+        for finding in entry.findings:
+            observation = finding.observation
+            suspected = getattr(observation, "possible_category", None)
+            if (observation.category != "insufficient_evidence" or suspected not in PRIORITY_LABELS
+                    or suspected in ZONE_CATEGORIES):
+                continue
+            cited = finding.citation.interval
+            if any(category == suspected and near(cited.start_us, cited.end_us, start, end)
+                   for category, start, end in covered):
+                continue
+            frames, count = _frames(_Cited(finding.citation), observation.description, inspections)
+            alert = {
+                "id": _id("alert", finding.citation.video_id, observation.id, "unclear"),
+                "status": "needs_review", "category": suspected, "observation_id": observation.id,
+                "interval": {"start_us": cited.start_us, "end_us": cited.end_us},
+                "reason_code": "unclear_observation", "model_reason": observation.uncertainty,
+                "frames": frames, "cited_frame_count": count, "description": observation.description,
+                "model_reason_affirmative": False, "question": _QUESTION[suspected], "operator_label": None,
+                "unclear": True,
+            }
+            added.append(alert)
+            covered.append((suspected, cited.start_us, cited.end_us))
+    return added
 
 
 def _span(interval):
@@ -158,7 +205,8 @@ def render(result):
         views = ", ".join(f"{f['label'] + ' ' if f['label'] else ''}{_time(f['source_time_us'])} (frame {f['display_index']})"
                           for f in alert["frames"])
         lines += [
-            f"{number}. **{_WHAT[alert['category']]}** — {_span(alert['interval'])}",
+            f"{number}. **{('Possible : ' + _WHAT[alert['category']].lower()) if alert.get('unclear') else _WHAT[alert['category']]}**"
+            f" — {_span(alert['interval'])}",
             f"   - Pourquoi ce n'est pas confirmé : {why}{model}",
             f"   - Images à regarder : {views} ({len(alert['frames'])} sur {alert['cited_frame_count']} images citées)",
             *([f"   - Description de la perception : « {alert['description']} »"] if alert["description"] else []),

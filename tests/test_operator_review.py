@@ -32,7 +32,7 @@ def test_leftbox_box_is_an_alert_with_short_frame_selection_and_no_routine_alert
     assert [f["display_index"] for f in alert["frames"]][2:4] == [557, 569]  # set down at 22.52-23.00 s
     assert alert["operator_label"] is None and alert["id"].startswith("alert-")
     assert not any(a["category"] in ("person_moved", "person_appeared") for a in result["alerts"])
-    assert result["counts"] == {"needs_review": 1, "supported_security": 0,
+    assert result["counts"] == {"needs_review": 1, "supported_security": 0, "unclear": 0,
                                 "not_alerted": {"zone_undefined": 0, "contradicted": 0}}
     text = render(result)
     assert text.startswith("## Alertes à vérifier (1)")

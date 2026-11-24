@@ -43,6 +43,21 @@ A **Non retenus comme alertes** list follows, then the confirmed findings.
 
 `analysis.json` stores `analysis.review` with `alerts` (stable `id`, category, code, frames, empty `operator_label`), `not_alerted` and `counts` (`needs_review`, `supported_security`, `not_alerted`). The CLI also writes `alerts.csv`, a blank labelling sheet with what, when and which frames, but no model verdict or reasons. Reviewers fill it in without seeing the model's judgement. Precision can then be measured.
 
+## Unclear observations that suspect a security event
+
+The CLI asks Perception for `possible_category` on every observation. An `insufficient_evidence` observation names the event it suspects but could not confirm, or `none`; every other observation must use `none`. The field is opt-in (`ObservationRequest.possible_category`), so archived replays send byte-identical requests.
+
+An unclear observation whose `possible_category` is a security category becomes a `needs_review` alert with reason code `unclear_observation`, marked "possible". `person_enters_area` is excluded while zones are absent. No alert is raised when a supported event or an existing alert of the same category overlaps it within ±2 s in the same video. `analysis.review.counts.unclear` records how many there are.
+
+Simulation on the eight archived unclear observations, with the category a reader would expect Perception to suspect (the real field still needs live runs):
+
+| Simulated alert | Truth (XML) |
+|---|---|
+| LeftBag_AtChair 35.0–37.0 s, object_removed | True (pickup at 37.20 s); the only signal from either Gemini or the stationary-object detector |
+| Fall clip 11.5–13.0 s, person_fell | False (the fall is at 26.4 s) |
+
+Three other cases were duplicates of an existing alert or supported event and were dropped. Three suspected no specific event.
+
 ## Entry alerts and monitored zones
 
 `person_enters_area` alerts return once monitored zones are configured (detector C1 of the plan). Without a defined zone or boundary, an entry claim cannot be confirmed. Every such observation would remain an alert. In the step-0 simulation over the archived runs, they were 8 of 11 alerts, all ordinary passages at the image edge or out of a corridor, with two duplicates. They are listed as "zone non définie" until then.

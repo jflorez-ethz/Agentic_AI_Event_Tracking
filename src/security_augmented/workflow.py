@@ -266,13 +266,20 @@ def _load_attempt(video: Video, path: Path) -> ArchivedInspection:
     if _normalize(asdict(inspection)) != {k: v for k, v in record.items() if k != "ffmpeg_version"}:
         raise VideoError(f"Archived inspection differs from source replay: {path}")
     schema = manifest["config"]["response_json_schema"]
-    categories = tuple(schema["properties"]["observations"]["items"]["properties"]["category"]["enum"])
-    request = ObservationRequest(media, categories, parts[0]["text"])
+    item_properties = schema["properties"]["observations"]["items"]["properties"]
+    categories = tuple(item_properties["category"]["enum"])
+    request = ObservationRequest(media, categories, parts[0]["text"],
+                                 possible_category="possible_category" in item_properties)
     details = attempt.get("response_details")
     if not details or [c.get("finish_reason") for c in details.get("candidates", ())] != ["STOP"]:
         raise VideoError(f"Archive lacks a normally completed model response: {path}")
     result = GeminiAdapter._parse(request, attempt["raw_response"], metadata, details)
-    if _normalize([asdict(obs) for obs in result.observations]) != attempt["observations"]:
+    replayed = _normalize([asdict(obs) for obs in result.observations])
+    if len(replayed) == len(attempt["observations"]):
+        # Fields added later with a None default are absent from older archives.
+        replayed = [{k: v for k, v in row.items() if k in saved or v is not None}
+                    for row, saved in zip(replayed, attempt["observations"])]
+    if replayed != attempt["observations"]:
         raise VideoError(f"Archived normalized observations differ from raw response: {path}")
 
     return ArchivedInspection(
@@ -524,7 +531,7 @@ def _video_coverage(video, evidence, plan, scan, initial_end):
     return VideoCoverage(plan, scan, initial_end, tuple(examined), tuple(uninspected))
 
 
-def _observe_video(video, provider, interval, modality, phase, plan, *, model_guided, relational=False, sampling_step_ms=None, visual_question=None):
+def _observe_video(video, provider, interval, modality, phase, plan, *, model_guided, relational=False, sampling_step_ms=None, visual_question=None, possible_category=False):
     """Run one source inspection using the video-first perception contract."""
     inspection = None
     metadata = None
@@ -571,6 +578,7 @@ def _observe_video(video, provider, interval, modality, phase, plan, *, model_gu
             )
             + (f" Inspection question (an unverified lead): {visual_question}" if visual_question else ""),
             relational=relational,
+            possible_category=possible_category and model_guided,
         )
         stage = "inference"
         result = provider.infer(request)
@@ -598,6 +606,7 @@ def _observe_video(video, provider, interval, modality, phase, plan, *, model_gu
 def analyze_video(
     source: Path, provider: ObservationProvider, *, budget: Budget = Budget(),
     plan: InspectionPlan = InspectionPlan(), decide=None, controller="python", movement_only=False, adaptive_sampling=True,
+    possible_category=False,
 ) -> Analysis:
     """Analyze a new video using a caller-supplied, authorized observation provider."""
     _check_controller(controller, decide)
@@ -606,7 +615,8 @@ def analyze_video(
 
     def observe(interval, modality, phase, *, relational=False, sampling_step_ms=None, visual_question=None):
         entry = _observe_video(video, provider, interval, modality, phase, plan,
-                               model_guided=decide is not None, relational=relational, sampling_step_ms=sampling_step_ms, visual_question=visual_question)
+                               model_guided=decide is not None, relational=relational, sampling_step_ms=sampling_step_ms, visual_question=visual_question,
+                               possible_category=possible_category)
         evidence.append(entry)
         return entry
 
@@ -1079,7 +1089,7 @@ def main(argv=None):
             with decide.adapter.client:
                 analysis = analyze_video(
                     args.video, decide.adapter, budget=budget, plan=plan, decide=decide, controller="langgraph",
-                    movement_only=args.movement_only,
+                    movement_only=args.movement_only, possible_category=True,
                 )
             metadata = {
                 "media_attempts": decide.http_budget.media_attempts,

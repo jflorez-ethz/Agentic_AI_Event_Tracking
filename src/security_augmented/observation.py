@@ -36,6 +36,8 @@ class ObservationRequest:
     prompt: str
     schema_version: int = SCHEMA_VERSION
     relational: bool = False
+    # Ask, for each insufficient_evidence observation, which event was suspected but not confirmed.
+    possible_category: bool = False
 
 
 @dataclass(frozen=True)
@@ -61,6 +63,8 @@ class Observation:
     source_video_id: str | None = None
     inference_metadata: InferenceMetadata | None = None
     schema_version: int = SCHEMA_VERSION
+    # Event suspected by Perception for an insufficient_evidence observation; None otherwise or when not asked.
+    possible_category: str | None = None
 
 
 Scalar = str | int | float | bool | None
