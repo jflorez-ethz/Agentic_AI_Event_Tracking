@@ -1,0 +1,70 @@
+{
+  "written": "2026-11-24, before the first KPI computation",
+  "scope": "Offline KPI table (work plan task B7, page 4). Reads archived runs and CAVIAR XML only; no network, no provider call.",
+  "videos": {
+    "Rest_FallOnFloor.mpg": "Rest_FallOnFloor.xml",
+    "LeftBag_AtChair.mpg": "LeftBag_AtChair.xml",
+    "LeftBag_PickedUp.mpg": "lbpugt.xml",
+    "LeftBox_pts.mkv": "LeftBox.xml",
+    "Walk2.mpg": "wk2gt.xml",
+    "TwoEnterShop1front_pts.mkv": "f2es1gt.xml",
+    "Meet_WalkSplit_pts.mp4": "mws1gt.xml",
+    "Meet_WalkTogether1_pts.mp4": "Meet_WalkTogether1.xml"
+  },
+  "xml_reader": "security_augmented.annotations.parse_annotations (direct <box> element; never the old regex reader)",
+  "xml_time": "XML frame n is display index n of the analysed video; seconds = (frame_pts[n] - first_display_pts) * time_base, from the run's own analysis.video",
+  "critical_events": {
+    "person_fell": "For each object whose context is 'drop down': the first frame where its situation changes from 'moving' to 'inactive' (the person is on the floor). The 'drop down' context alone spans the whole scenario, from the person's arrival while still walking, so it does not date the fall. Getting up again is not an event.",
+    "object_placed": "First frame of each object track whose role contains 'object' (CAVIAR 'leaving object' role on the bag box). Same rule as experiments/stationary_objects.",
+    "object_removed": "Last annotated frame + 1 of that object track, unless the track reaches the last 3 XML frames (then the object is still present at the end: no event).",
+    "fire": "Not present in CAVIAR: not measurable."
+  },
+  "matching": {
+    "tolerance_s": 2.0,
+    "sensitivity_tolerances_s": [1.0, 5.0],
+    "rule": "An item matches an XML event of a compatible category when [item.start - tol, item.end + tol] contains the XML instant. One-to-one, greedy by increasing distance from the XML instant to the item interval, ties by item start then XML instant. A second item on an already matched event is a false item.",
+    "strict_categories": {"object_placed": ["object_placed"], "object_removed": ["object_removed"], "person_fell": ["person_fell"]},
+    "lenient_categories": {"object_placed": ["object_placed", "object_appeared"], "object_removed": ["object_removed", "object_disappeared"], "person_fell": ["person_fell"]},
+    "headline": "strict"
+  },
+  "human_facing_items": "Supported events of a security category (security_augmented.workflow.PRIORITY_LABELS, as counted in review.counts.supported_security) plus every review.alerts entry (needs_review, including 'possible' alerts). Zone entries without a configured zone are not shown to a person (review.not_alerted) and are excluded.",
+  "raw_alert_proxy": "Initial-phase Perception observations whose category, or possible_category, is a security category. This stands in for raw detector alerts until detector C1 exists; it is a proxy, labelled as such.",
+  "miss_causes": {
+    "not_covered": "XML instant outside the run's initial scan coverage",
+    "never_seen": "no observation of a compatible category within tolerance, at any phase, initial or verification",
+    "dismissed": "a compatible observation existed within tolerance, but no human-facing item matched"
+  },
+  "time_to_alert": {
+    "as_run_s": "Sum of elapsed_ms of every initial Perception window, plus role calls in trace order up to and including the verification verdict that produced the item (Investigation for an alert without verification). Lower bound: decoding, gaps and retries are not timed.",
+    "live_simulated_s": "max(0, end of the initial window containing the XML instant - XML instant) + elapsed of that window's Perception call + role calls in trace order up to the item's verdict.",
+    "trace_alignment": "Trace entries '<role>:decision' are paired in order with role_calls; if the counts differ the time is reported as unknown.",
+    "target_s": 30
+  },
+  "report_and_evidence": {
+    "cited": "a human-facing item has at least one cited frame",
+    "on_time": "at least one cited frame within tolerance of the matched XML instant",
+    "valid_citation": "each cited frame id exists in a recorded inspection of the run with the same display_index, source_time_us and rgb24_sha256",
+    "report_produced": "run/report.md exists and is non-empty",
+    "lead_matches": "the report's 'Lead finding' line names the category of a matched critical event"
+  },
+  "run_selection": {
+    "rule": "Per source video, the latest complete run, ordered by the commit time of run/analysis.json (an untracked run counts as newest and is flagged).",
+    "complete": "analysis.review present; coverage.initial_scan == 'completed' and initial_scan_end_us >= video duration - 1 frame; completion.investigation != 'failed'.",
+    "failures": "Runs with completion.investigation == 'failed' are listed separately, never in the totals.",
+    "not_comparable": "Latest run of a video with no complete run (no review queue, or only part of the video scanned) goes to a separate table, outside the totals."
+  },
+  "prices_usd_per_million_tokens": {
+    "gemini-3.6-flash": {
+      "launch": {"input": 0.75, "output": 3.75, "valid": "until 2026-12-31"},
+      "standard": {"input": 1.50, "output": 7.50, "valid": "from 2027-01-01"},
+      "source": "Google launch pricing, as stated by the project owner on 2026-11-24; the same rates are recorded for gemini-3.8-flash in docs/e1-pilot.md",
+      "billing": "thinking tokens are billed as output; no cache discount"
+    }
+  },
+  "cost_per_camera_month": {
+    "minutes_per_month": 43200,
+    "perception": "Perception cost per analysed video minute x 43,200 (all footage, 30 days)",
+    "agents": "Reported per run and per human-facing item, not scaled by time: agent calls follow the number of events, not the duration",
+    "two_step_design": "Not measurable: detector C1 does not exist yet"
+  }
+}
