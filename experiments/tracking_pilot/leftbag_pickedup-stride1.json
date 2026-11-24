@@ -1,0 +1,67 @@
+{
+  "video": "data/raw/LeftBag_PickedUp.mpg",
+  "xml": "data/annotations/lbpugt.xml",
+  "model": "RF-DETR Nano (COCO weights)",
+  "tracker": "supervision ByteTrack",
+  "stride": 1,
+  "threshold": 0.3,
+  "frames_decoded": 1356,
+  "frames_processed": 1356,
+  "cpu_seconds_detect_and_track": 206.6,
+  "seconds_per_video_minute": 228.5,
+  "predicted_track_numbers": 38,
+  "per_truth_track": {
+    "0": {
+      "kind": "person",
+      "frames_evaluated": 123,
+      "coverage": 0.943,
+      "distinct_track_numbers": 1,
+      "identity_switches": 0,
+      "dominant_number_share": 0.943,
+      "switch_frames": [],
+      "switch_seconds": []
+    },
+    "1": {
+      "kind": "person",
+      "frames_evaluated": 56,
+      "coverage": 0.0,
+      "distinct_track_numbers": 0,
+      "identity_switches": 0,
+      "dominant_number_share": 0.0,
+      "switch_frames": [],
+      "switch_seconds": []
+    },
+    "2": {
+      "kind": "person",
+      "frames_evaluated": 883,
+      "coverage": 0.926,
+      "distinct_track_numbers": 3,
+      "identity_switches": 2,
+      "dominant_number_share": 0.819,
+      "switch_frames": [
+        1040,
+        1138
+      ],
+      "switch_seconds": [
+        41.84,
+        45.76
+      ]
+    },
+    "4": {
+      "kind": "object",
+      "frames_evaluated": 513,
+      "coverage": 0.027,
+      "distinct_track_numbers": 3,
+      "identity_switches": 2,
+      "dominant_number_share": 0.012,
+      "switch_frames": [
+        675,
+        979
+      ],
+      "switch_seconds": [
+        27.24,
+        39.4
+      ]
+    }
+  }
+}

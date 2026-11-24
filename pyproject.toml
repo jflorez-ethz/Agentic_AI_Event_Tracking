@@ -11,6 +11,10 @@ dependencies = ["google-genai>=1.55,<4", "pydantic>=2,<3"]
 [project.optional-dependencies]
 dev = ["pytest>=9", "jsonschema>=4,<5"]
 graph = ["langgraph>=1.2,<2"]
+# Offline tracking pilot (experiments/tracking_pilot), CPU only. Versions as installed and tested.
+# Install with: pip install -e '.[tracking]' --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
+# supervision is pinned to 0.30.9 because 0.31+ removed ByteTrack; rfdetr requires supervision>=0.29.
+tracking = ["torch==2.15.0", "torchvision==0.29.2", "supervision==0.30.9", "rfdetr==1.12.1"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
