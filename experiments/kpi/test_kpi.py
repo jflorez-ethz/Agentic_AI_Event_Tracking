@@ -161,3 +161,12 @@ def test_heldout_truth_is_consistent():
     assert [s for v, _, s in events if v == "LeftBag_BehindChair.mpg"] == ["manual", "manual"]
     for d in truth["videos"].values():
         assert all(e["t"] == round(e["t"], 4) and e["frame"] >= 0 for e in d["events"])
+
+
+def test_false_alerts_split_confirmed_and_review():
+    rs = {"v": {"main": {"events": [], "found": [], "items": [item("person_fell", 2, 3), item("person_fell", 8, 9)],
+                         "false_items": [item("person_fell", 2, 3), {**item("person_fell", 8, 9), "kind": "needs_review:unclear_observation"}],
+                         "valid_citations": [0, 0], "scanned_s": 60.0},
+                "cost": {"launch": {"perception": 0.1, "agents": 0.1}}}}
+    t = kpi.totals(rs)
+    assert (t["false_confirmed"], t["false_review"], t["false"]) == (1, 1, 2)

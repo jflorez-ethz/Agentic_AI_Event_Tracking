@@ -302,6 +302,8 @@ def totals(results):
     return {"videos": len(rs), "events": sum(len(r["events"]) for r in rs), "found": sum(len(r["found"]) for r in rs),
             "confirmed": sum(1 for r in rs for f in r["found"] if f["item"]["kind"] == "supported"),
             "human": human, "real": human - false - unscorable, "false": false, "unscorable": unscorable,
+            "false_confirmed": sum(1 for r in rs for i in r["false_items"] if i["kind"] == "supported"),
+            "false_review": sum(1 for r in rs for i in r["false_items"] if i["kind"] != "supported"),
             "false_per_h": false / (secs / 3600) if secs else 0.0,
             "live_median": median(lives) if lives else None, "live_max": max(lives) if lives else None,
             "valid": [sum(r["valid_citations"][k] for r in rs) for k in (0, 1)],
@@ -378,26 +380,29 @@ def render(results, failures, tol, listed, title="# KPI hors ligne (tâche B7)",
     names = sorted(results)
     # 1. Alerts and misses
     L += ["## Alertes et événements critiques", "",
-          "| Vidéo | Run | Analysé | Événements XML | Retrouvés | Ratés (cause) | Alertes brutes (approx.) | Alertes à un humain | dont vraies | Fausses / h |",
-          "|---|---|---:|---:|---:|---|---:|---:|---:|---:|"]
-    T = dict(ev=0, found=0, missed=0, raw=0, human=0, real=0, false=0, hours=0.0, un=0)
+          "| Vidéo | Run | Analysé | Événements XML | Retrouvés | Ratés (cause) | Alertes brutes (approx.) | Alertes à un humain | dont vraies | Fausses : confirmées / à vérifier | Fausses / h |",
+          "|---|---|---:|---:|---:|---|---:|---:|---:|---:|---:|"]
+    T = dict(ev=0, found=0, missed=0, raw=0, human=0, real=0, false=0, hours=0.0, un=0, fc=0)
     for n in names:
         r = results[n]["main"]
         ev, fo, mi = len(r["events"]), len(r["found"]), len(r["missed"])
         hu, fa, un = len(r["items"]), len(r["false_items"]), len(r.get("unscorable_items", []))
+        fc = sum(1 for i in r["false_items"] if i["kind"] == "supported")
         hours = r["scanned_s"] / 3600
         causes = ", ".join(f'{m["category"]} {m["t"]:.1f} s{" (label manuel)" if m.get("source") == "manual" else ""} : {m["cause"]}'
                            for m in r["missed"]) or "—"
         L.append(f'| {n} | {Path(results[n]["run"]).name} | '
                  f'{r["scanned_s"]:.1f}/{r["duration_s"]:.1f} s | {ev} | {fo}/{ev} | {mi} ({causes}) | {r["raw_alerts"]} | '
-                 f'{hu} | {hu - fa - un}/{hu - un}{f" (+{un} non jugeable)" if un else ""} | {fa / hours:.0f} |')
-        for k, v in dict(ev=ev, found=fo, missed=mi, raw=r["raw_alerts"], human=hu, real=hu - fa - un, false=fa, hours=hours, un=un).items():
+                 f'{hu} | {hu - fa - un}/{hu - un}{f" (+{un} non jugeable)" if un else ""} | {fc} / {fa - fc} | {fa / hours:.0f} |')
+        for k, v in dict(ev=ev, found=fo, missed=mi, raw=r["raw_alerts"], human=hu, real=hu - fa - un, false=fa, hours=hours, un=un, fc=fc).items():
             T[k] += v
     red = f'{1 - T["human"] / T["raw"]:.0%}' if T["raw"] else "—"
     L.append(f'| **Total** | | {T["hours"] * 3600:.1f} s | **{T["ev"]}** | **{T["found"]}/{T["ev"]}** | **{T["missed"]}** | '
-             f'{T["raw"]} | {T["human"]} (réduction {red}) | **{T["real"]}/{T["human"] - T["un"]}** | {T["false"] / T["hours"]:.0f} |')
+             f'{T["raw"]} | {T["human"]} (réduction {red}) | **{T["real"]}/{T["human"] - T["un"]}** | **{T["fc"]}** / {T["false"] - T["fc"]} | {T["false"] / T["hours"]:.0f} |')
     L += ["", "Objectif du plan : 0 événement critique raté ; au moins 70 % d’alertes en moins en gardant au moins 95 % des vrais événements. "
-          "« Alertes brutes » est une approximation (observations de sécurité de la perception initiale) tant que le détecteur C1 n’existe pas.", ""]
+          "« Alertes brutes » est une approximation (observations de sécurité de la perception initiale) tant que le détecteur C1 n’existe pas. "
+          "Une fausse alerte **confirmée** a reçu le verdict « supported » : elle est présentée comme un fait établi, souvent en titre du rapport. "
+          "Une fausse alerte **à vérifier** (needs_review) est présentée comme incertaine et laisse la décision à l’opérateur.", ""]
     # 2. Sensitivity
     L += ["## Sensibilité à la tolérance", "", "| Tolérance | Retrouvés | Alertes vraies | Correspondance large (±2 s) |", "|---|---:|---:|---:|"]
     for t in RULES["matching"]["sensitivity_tolerances_s"][:1] + [tol] + RULES["matching"]["sensitivity_tolerances_s"][1:]:
@@ -477,6 +482,8 @@ def render(results, failures, tol, listed, title="# KPI hors ligne (tâche B7)",
               f'| Événements critiques amenés à un humain | {pct(compare["found"], compare["events"])} | {pct(h["found"], h["events"])} |',
               f'| dont confirmés par l’agent | {pct(compare["confirmed"], compare["events"])} | {pct(h["confirmed"], h["events"])} |',
               f'| Alertes vraies | {pct(compare["real"], compare["human"] - compare["unscorable"])} | {pct(h["real"], h["human"] - h["unscorable"])} |',
+              f'| Fausses alertes confirmées (supported) | {compare.get("false_confirmed", "—")} | {h["false_confirmed"]} |',
+              f'| Fausses alertes à vérifier (needs_review) | {compare.get("false_review", "—")} | {h["false_review"]} |',
               f'| Fausses alertes par heure analysée | {compare["false_per_h"]:.0f} | {h["false_per_h"]:.0f} |',
               f'| Temps d’alerte en direct simulé, médiane / max | {sec(compare["live_median"])} / {sec(compare["live_max"])} | {sec(h["live_median"])} / {sec(h["live_max"])} |',
               f'| Citations valides | {pct(*compare["valid"])} | {pct(*h["valid"])} |',
