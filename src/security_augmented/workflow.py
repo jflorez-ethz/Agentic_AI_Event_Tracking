@@ -178,6 +178,8 @@ class Analysis:
     budget: Budget
     completion: dict | None = None
     coverage: VideoCoverage | None = None
+    # Operator review queue (alerts, not_alerted, counts); see review.py. Never used as evidence.
+    review: dict | None = None
 
     def ask(self, question: str, *, inspect_missing: bool = False) -> Answer:
         return _answer(self, question, inspect_missing=inspect_missing)
@@ -683,11 +685,17 @@ def _analyze(video, evidence, inspect, budget, *, decide=None, controller="pytho
             events = run.finalize_events(tuple(run.verify(finding) for finding in candidates))
             report = run.report(events)
         completion = run.completion()
+    queue = None
+    if decide is not None:
+        from .review import render as render_review, review
+
+        queue = review(events, trace, evidence)
+        report = render_review(queue) + report
     return Analysis(
         video, tuple(evidence), initial,
         _supported_timeline(events),
         tuple(e for e in events if e.verdict != "supported"),
-        tuple(trace), report, budget, completion,
+        tuple(trace), report, budget, completion, review=queue,
     )
 
 
@@ -926,6 +934,20 @@ def _interactive(analysis):
         print(json.dumps(asdict(analysis.ask(question, inspect_missing=True)), indent=2))
 
 
+def _write_alert_sheet(path, alerts):
+    """Blank labelling sheet: what, when and which frames only, without the model's verdict or reasons."""
+    import csv
+
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["alert_id", "category", "start_s", "end_s", "frames_to_review", "operator_label", "operator_note"])
+        for alert in alerts:
+            writer.writerow([
+                alert["id"], alert["category"], alert["interval"]["start_us"] / 1e6, alert["interval"]["end_us"] / 1e6,
+                " ".join(f"{f['display_index']}@{f['source_time_us'] / 1e6:.2f}s" for f in alert["frames"]), "", "",
+            ])
+
+
 def main(argv=None):
     import argparse
 
@@ -1025,6 +1047,8 @@ def main(argv=None):
             {"question": question, **asdict(analysis.ask(question, inspect_missing=True))} for question in args.question
         ]}
         (args.output / "analysis.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+        if analysis.review is not None:
+            _write_alert_sheet(args.output / "alerts.csv", analysis.review["alerts"])
     except (VideoError, OSError, ValueError, KeyError) as exc:
         parser.exit(1, f"{exc}\n")
     print(analysis.report, end="")

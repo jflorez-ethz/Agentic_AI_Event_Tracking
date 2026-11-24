@@ -422,6 +422,11 @@ def test_archived_scan_triggers_automatic_investigation_without_question(tmp_pat
     result = json.loads((output / "analysis.json").read_text())
     analysis = result["analysis"]
     assert result["answers"] == []
+    # WalkSplit has no security observation: an empty review queue and a header-only labelling sheet.
+    assert analysis["review"]["counts"]["needs_review"] == 0
+    assert (output / "alerts.csv").read_text().splitlines() == [
+        "alert_id,category,start_s,end_s,frames_to_review,operator_label,operator_note"]
+    assert (output / "report.md").read_text().startswith("## Alertes à vérifier (0)")
     replayed = analysis["observations"]
     assert len(replayed) == len(rows) == 11
     for actual, archived in zip(replayed, rows, strict=True):
