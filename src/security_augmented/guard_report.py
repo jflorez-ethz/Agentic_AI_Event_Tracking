@@ -45,7 +45,7 @@ WHY = {
 SEVERITY = ("person_fell", "object_placed", "object_removed", "person_enters_area",
             "object_appeared", "object_disappeared")
 _TECHNICAL = re.compile(r"\b(?:frame|observation|inspection|video|alert|relational-task)-[0-9a-f]{16,}\b|\b[0-9a-f]{40,}\b")
-_LABEL = re.compile(r"\b(?:(in|at|by|from|until|during|between) )?(?:frames?\s+)?F(\d+)(?:\s*(?:-|–|to|through|and)\s*F?(\d+))?\b")
+_LABEL = re.compile(r"\b(?:(in|at|by|from|until|during|between|across|over|through) )?(?:frames?\s+)?F(\d+)(?:\s*(?:-|–|to|through|and)\s*F?(\d+))?\b")
 
 
 def mmss(us):
@@ -69,7 +69,7 @@ def _sentence(text, inspection):
         times = [frames[int(n) - 1].source_time_us for n in numbers if n and 0 < int(n) <= len(frames)]
         if not times:
             return ""
-        keep = word if word in ("from", "until", "during", "between") else "at"
+        keep = word if word in ("from", "until", "during", "between", "across", "over", "through") else "at"
         return f" {keep} {span(min(times), max(times) + 1)}"
 
     text = _TECHNICAL.sub("", _LABEL.sub(clock, text))
@@ -112,6 +112,79 @@ class _Thumbnails:
         return "data:image/jpeg;base64," + base64.b64encode(data).decode()
 
 
+STATUS_ORDER = ("verified", "needs review", "ruled out", "seen, not verified")
+
+
+def review_queue(analysis):
+    """The saved review queue, or the one the CLI would have derived for runs saved before it existed."""
+    if analysis.review is not None:
+        return analysis.review
+    from .review import review
+
+    return review((*analysis.timeline, *analysis.unresolved), analysis.trace, analysis.evidence)
+
+
+def timeline_rows(analysis, queue):
+    """Every Perception observation (initial and targeted), one row per scene, with a data-derived status.
+
+    A targeted observation joins the initial row of the same category whose citation overlaps it.
+    """
+    events = (*analysis.timeline, *analysis.unresolved)
+    verified = {i for e in events if e.verdict == "supported" for i in e.observation_ids}
+    ruled_out = {i for e in events if e.verdict == "unsupported" for i in e.observation_ids}
+    review = {a["observation_id"] for a in queue["alerts"]}
+
+    def status(identifier):
+        if identifier in verified:
+            return "verified"
+        if identifier in review:
+            return "needs review"
+        if identifier in ruled_out:
+            return "ruled out"
+        return "seen, not verified"
+
+    findings = [(e.phase, f) for e in analysis.evidence for f in e.findings]
+    rows = []
+    for phase, finding in sorted(findings, key=lambda x: (x[0] != "initial", x[1].citation.interval.start_us)):
+        cited = finding.citation.interval
+        home = next((r for r in rows if phase != "initial" and r["category"] == finding.observation.category
+                     and r["start_us"] < cited.end_us and cited.start_us < r["end_us"]), None)
+        if home is None:
+            rows.append({"category": finding.observation.category, "start_us": cited.start_us, "end_us": cited.end_us,
+                         "primary": finding.observation.id, "members": [finding.observation.id], "closer_look": False})
+        else:
+            home["members"].append(finding.observation.id)
+            home["closer_look"] = True
+    for row in rows:
+        row["status"] = min((status(i) for i in row["members"]), key=STATUS_ORDER.index)
+        row["security"] = row["category"] in PRIORITY_LABELS
+    return sorted(rows, key=lambda r: (r["start_us"], r["end_us"]))
+
+
+def _coverage_bar(analysis, duration):
+    """SVG bar: sampled moments (ticks), verified intervals and time that was not analysed."""
+    x = lambda us: round(1000 * min(max(us, 0), duration) / duration, 2)
+    # Frame inspections have known sample times; a clip's internal sampling is chosen by the provider.
+    sampled = sorted({f.source_time_us for e in analysis.evidence
+                      if e.status == "success" and e.inspection and e.modality == "frames" for f in e.inspection.frames})
+    if analysis.coverage is not None and analysis.coverage.uninspected:
+        missing = [(i.start_us, i.end_us) for i in analysis.coverage.uninspected]
+    else:
+        scanned = min(duration, analysis.coverage.initial_scan_end_us) if analysis.coverage else duration
+        missing = [(scanned, duration)] if scanned < duration else []
+    verified = [(e.interval.start_us, e.interval.end_us) for e in analysis.timeline]
+    shapes = ['<rect x="0" y="10" width="1000" height="16" class="analysed"/>']
+    shapes += [f'<rect x="{x(a)}" y="10" width="{max(x(b) - x(a), 1)}" height="16" class="missing"/>' for a, b in missing]
+    shapes += [f'<rect x="{x(a)}" y="10" width="{max(x(b) - x(a), 2)}" height="16" class="verified"/>' for a, b in verified]
+    shapes += [f'<line x1="{x(t)}" x2="{x(t)}" y1="0" y2="8" class="tick"/>' for t in sampled]
+    legend = (f'<span><i class="k tick"></i>{len(sampled)} sampled moments</span>'
+              '<span><i class="k verified"></i>verified</span><span><i class="k analysed"></i>analysed, not verified</span>'
+              '<span><i class="k missing"></i>not analysed</span>')
+    return (f'<svg class="coverage" viewBox="0 0 1000 26" preserveAspectRatio="none" role="img" '
+            f'aria-label="Coverage of the video">{"".join(shapes)}</svg>'
+            f'<div class="axis"><span>00:00</span><span>{mmss(duration)}</span></div><div class="legend">{legend}</div>')
+
+
 class _Frame:
     def __init__(self, display_index, source_time_us):
         self.display_index, self.source_time_us = display_index, source_time_us
@@ -145,12 +218,9 @@ def render(result):
     events = sorted(analysis.timeline, key=lambda e: e.interval.start_us)
     security = [e for e in events if e.category in PRIORITY_LABELS]
     routine = [e for e in events if e.category in ROUTINE_LABELS]
-    queue = analysis.review
-    if queue is None:  # runs saved before the review queue existed: derive it locally, as the CLI would
-        from .review import review
-
-        queue = review((*analysis.timeline, *analysis.unresolved), analysis.trace, analysis.evidence)
+    queue = review_queue(analysis)
     alerts = queue["alerts"]
+    rows = timeline_rows(analysis, queue)
 
     # Header facts.
     duration = video.duration_us
@@ -171,7 +241,16 @@ def render(result):
         headline = "No security event found in the analysed part of the video"
         tone = "clear"
 
-    parts = [f'<p class="headline {tone}">{html.escape(headline)}</p>']
+    counts = {status: sum(r["status"] == status for r in rows) for status in STATUS_ORDER}
+    analysed = (f"The whole video ({mmss(duration)}) was analysed" if scanned >= duration
+                else f"The first {mmss(scanned)} of {mmss(duration)} were analysed")
+    first = (f"{analysed}: {len(rows)} things were seen, {counts['verified']} verified and "
+             f"{counts['needs review']} needing review.")
+    second = (f"Most important: {headline} (verified)." if tone == "confirmed" else
+              f"Most important: {headline}." if tone == "review" else "No security event was seen.")
+    parts = [f'<p class="headline {tone}">{html.escape(headline)}</p>',
+             f'<p class="summary">{html.escape(first)} {html.escape(second)}</p>',
+             "<h2>Coverage</h2>", _coverage_bar(analysis, duration)]
 
     parts.append("<h2>Needs operator review</h2>")
     if not alerts:
@@ -196,21 +275,34 @@ def render(result):
             f'<section class="card confirmed"><h3>{mmss(event.interval.start_us)} · {html.escape(TITLES[event.category])}</h3>'
             f"<p>{html.escape(sentence(event.observation_ids[0]))}</p>{_images(thumbs.triplet(frames), thumbs.problem)}</section>")
 
-    parts.append("<h2>Normal activity</h2>")
-    if not routine:
-        parts.append('<p class="empty">None confirmed.</p>')
-    else:
-        rows = "".join(f'<li><span class="when">{span(e.interval.start_us, e.interval.end_us)}</span> '
-                       f'{html.escape(TITLES[e.category])}: {html.escape(sentence(e.observation_ids[0]))}</li>'
-                       for e in routine)
-        parts.append(f'<ul class="activity">{rows}</ul>')
+    parts.append("<h2>Everything seen, in order</h2>")
+    lines = []
+    for row in rows:
+        described = sentence(row["primary"])
+        status = row["status"]
+        # Only verified rows are stated as facts; everything else is attributed to the video analysis.
+        text = (html.escape(described) if status == "verified"
+                else f'Reported by the video analysis: <q>{html.escape(described)}</q>')
+        notes = []
+        if row["closer_look"]:
+            notes.append("also seen in a closer look")
+        if row["category"] in ("person_enters_area",) and status != "verified":
+            notes.append("entry or exit cannot be confirmed: no zone is configured")
+        tag = '<span class="tag sec">Security</span> ' if row["security"] else ""
+        lines.append(
+            f'<li class="row {"security" if row["security"] else "routine"} {status.replace(", ", "-").replace(" ", "-")}">'
+            f'<span class="when">{span(row["start_us"], row["end_us"])}</span>'
+            f'<span class="what">{tag}<b>{html.escape(TITLES[row["category"]])}</b>'
+            f'<span class="status">{html.escape(status)}</span><br>{text}'
+            + (f' <span class="note">({html.escape("; ".join(notes))})</span>' if notes else "") + "</span></li>")
+    parts.append(f'<ul class="timeline">{"".join(lines)}</ul>' if lines else '<p class="empty">Nothing was seen.</p>')
 
-    unchecked = sum(1 for e in analysis.unresolved if e.reason.endswith("during triage."))
+    unchecked = counts["seen, not verified"]
     limits = []
     if scanned < duration:
         limits.append(f"{span(scanned, duration)} ({(duration - scanned) // 1_000_000} s) was not analysed")
     if unchecked:
-        limits.append(f"{unchecked} observation{'s were' if unchecked > 1 else ' was'} not checked")
+        limits.append(f"{unchecked} thing{'s' if unchecked > 1 else ''} seen {'were' if unchecked > 1 else 'was'} not verified")
     parts.append("<h2>Limits</h2><p>" + (html.escape("; ".join(limits).capitalize() + ".") if limits else
                  "The whole video was analysed and every observation was checked.") +
                  " Anything not seen in the analysed images may still have happened.</p>")
@@ -240,7 +332,24 @@ h3 {{ font-size:1.05rem; margin:0 0 6px; }}
 figure {{ margin:0; flex:1 1 200px; max-width:240px; }} figure img, .noimg {{ width:100%; border-radius:6px; display:block; }}
 .noimg {{ aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; background:var(--line); color:var(--muted); font-size:.85rem; }}
 figcaption {{ font-size:.85rem; color:var(--muted); margin-top:4px; }}
-.activity {{ padding-left:20px; }} .activity li {{ margin:4px 0; }} .when {{ font-variant-numeric:tabular-nums; font-weight:600; }}
+.when {{ font-variant-numeric:tabular-nums; font-weight:600; }}
+.summary {{ margin:10px 0 0; }}
+.coverage {{ width:100%; height:34px; display:block; }} .coverage .analysed {{ fill:var(--line); }}
+.coverage .missing {{ fill:var(--muted); opacity:.55; }} .coverage .verified {{ fill:var(--ok); }}
+.coverage .tick {{ stroke:var(--fg); stroke-width:1; vector-effect:non-scaling-stroke; opacity:.6; }}
+.axis {{ display:flex; justify-content:space-between; color:var(--muted); font-size:.85rem; }}
+.legend {{ display:flex; flex-wrap:wrap; gap:6px 16px; color:var(--muted); font-size:.85rem; margin-top:4px; }}
+.k {{ display:inline-block; width:12px; height:12px; border-radius:2px; margin-right:6px; vertical-align:-1px; }}
+.k.tick {{ width:2px; background:var(--fg); }} .k.verified {{ background:var(--ok); }}
+.k.analysed {{ background:var(--line); }} .k.missing {{ background:var(--muted); opacity:.55; }}
+.timeline {{ list-style:none; padding:0; margin:0; }}
+.timeline .row {{ display:grid; grid-template-columns:7.5rem 1fr; gap:4px 12px; padding:8px 10px; border-left:4px solid var(--line); margin:6px 0; border-radius:4px; }}
+.timeline .row.security {{ border-left-color:var(--alert); background:var(--alert-bg); }}
+.timeline .status {{ margin-left:8px; font-size:.8rem; padding:1px 8px; border-radius:999px; border:1px solid var(--line); color:var(--muted); }}
+.timeline .verified .status {{ color:var(--ok); border-color:var(--ok); }} .timeline .needs-review .status {{ color:var(--review); border-color:var(--review); }}
+.tag.sec {{ color:var(--alert); font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; }}
+q {{ font-style:italic; }}
+@media (max-width:560px) {{ .timeline .row {{ grid-template-columns:1fr; }} }}
 .empty, .note {{ color:var(--muted); }} footer {{ margin-top:36px; color:var(--muted); font-size:.9rem; }}
 a {{ color:inherit; }}
 </style></head>

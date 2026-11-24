@@ -29,7 +29,8 @@ def test_fall_report_structure_and_images():
     page = guard_report.render(result("fall_live.Q2OExt"))
     assert headline(page) == "Person down at 00:25"
     plain = text(page)
-    order = [plain.index(h) for h in ("Needs operator review", "Confirmed security events", "Normal activity", "Limits")]
+    order = [plain.index(h) for h in ("Coverage", "Needs operator review", "Confirmed security events",
+                                      "Everything seen, in order", "Limits")]
     assert order == sorted(order)
     assert "Duration 00:40" in plain and "Analysed: the whole video" in plain and "Model processing time" in plain
     assert "lies on the floor from 00:28–00:29" in plain  # frame labels become clock times
@@ -60,11 +61,36 @@ def test_headline_is_a_security_event_never_routine(run, expected):
     assert "walking" not in headline(page).lower() and "came into view" not in headline(page).lower()
 
 
-def test_routine_activity_is_one_line_each():
-    data = result("Walk2_live.m2MsOp")
+@pytest.mark.parametrize("run", ["TwoEnterShop1front_live.yuMI6O", "LeftBag_PickedUp_live.kocJd7",
+                                 "fall_live.Q2OExt", "leftbox_live.HwKyEx"])
+def test_every_perception_observation_reaches_the_guard(run):
+    from pydantic import TypeAdapter
+    from security_augmented.workflow import Analysis
+
+    data = result(run)
+    analysis = TypeAdapter(Analysis).validate_python(data["analysis"])
+    seen = {f.observation.id for e in analysis.evidence for f in e.findings}
+    rows = guard_report.timeline_rows(analysis, guard_report.review_queue(analysis))
+    assert {i for r in rows for i in r["members"]} == seen  # nothing Perception saw is dropped
     page = guard_report.render(data)
-    supported = [e for e in data["analysis"]["timeline"] if e["category"] in ("person_moved", "person_appeared")]
-    assert page.count("<li>") == len(supported) and "<img " not in page
+    items = re.findall(r'<li class="row ([^"]+)">(.*?)</li>', page, re.S)
+    assert len(items) == len(rows)
+    for classes, item in items:
+        # Only verified rows are stated as facts; others are attributed to the video analysis.
+        assert ("Reported by the video analysis" in item) == ("verified" not in classes.split())
+        assert ("security" in classes.split()) == ("Security</span>" in item)  # red is backed by a label
+    summary = re.search(r'<p class="summary">([^<]+)</p>', page).group(1)
+    assert len(re.findall(r"[.!?](?:\s|$)", summary)) == 2
+    assert f"{len(rows)} things were seen" in summary
+    assert '<svg class="coverage"' in page and "sampled moments" in page
+
+
+def test_store_exit_is_shown_not_dropped():
+    page = guard_report.render(result("TwoEnterShop1front_live.yuMI6O"))
+    plain = text(page)
+    assert "moving from inside the store into the upper-level hallway corridor" in plain  # the 00:50 exit
+    assert "no zone is configured" in plain
+    assert "01:03" in plain  # observations Investigation never saw still appear
 
 
 def test_missing_video_still_renders_with_a_note():
