@@ -1,0 +1,151 @@
+{
+  "written": "2026-11-24, before any held-out run; frozen truth for the 'never seen' table",
+  "system_version": {
+    "commit": "bd6046fb6fd472370156de069dc8094313126b20",
+    "src_tree": "7e86f3b1ed98be02a630496ef485a4b5ca6e366e",
+    "pyproject_blob": "fb505586c8aed8f40c048b3dea6fda9de58a1617",
+    "last_src_change": "8376171 Perception possible_category: route unclear security suspicions to review",
+    "rule": "A run counts only if run_all_kpi.sh recorded this src tree and pyproject blob with no uncommitted change in src/ or pyproject.toml. Later commits that touch neither keep the same version."
+  },
+  "kpi_rules": "experiments/kpi/rules.json, unchanged (matching ±2 s, sensitivity ±1/±5 s, same categories and definitions)",
+  "truth_source": "This file. kpi.py does not re-derive these events from the XML: two of them needed a choice the frozen rule cannot make (Slump, Fight) and two are manual (LeftBag_BehindChair).",
+  "never_seen_caveat": "None of these videos was ever given to the agent system and no src/ change is based on them. LeftBag_BehindChair was used earlier in the offline person-tracking audit (RF-DETR detections and a few frames looked at); the agent system never saw it.",
+  "review": "All events checked on images before any run. Every clip was also reviewed at one frame per second; no other fall, placement or removal was seen. That review cannot exclude brief unannotated handling.",
+  "videos": {
+    "Rest_SlumpOnFloor.mpg": {
+      "source": "Rest_SlumpOnFloor.mpg",
+      "xml": "Rest_SlumpOnFloor.xml",
+      "role": "critical",
+      "video_sha256": "4ac7d2c63479ce052c0b7e7f8a49aec35f971bcd9b49c78b6687c5f885daf78c",
+      "xml_sha256": "138313b69d7d227e9f0c72f72ae506ad170e2a5431520aec1de376dabfad5083",
+      "source_frame_digest": "5aec6d6ecf37aeb115721d6b02062ff565a064fa72fa60db3eae66a33b57e55e",
+      "events": [
+        {
+          "category": "person_fell",
+          "frame": 646,
+          "t": 26.0797,
+          "label": "XML object 5, context 'drop down': first frame with situation 'inactive' (moving -> browsing -> inactive)",
+          "source": "xml",
+          "frozen_rule_fires": false,
+          "note": "The frozen kpi.py rule needs moving -> inactive directly and does not fire. Images: the person sinks down 25.4-27.2 s and sits on the floor at 27.8 s."
+        }
+      ]
+    },
+    "Rest_WiggleOnFloor_pts.mkv": {
+      "source": "Rest_WiggleOnFloor.mpg",
+      "xml": "Rest_WiggleOnFloor.xml",
+      "role": "critical",
+      "video_sha256": "856320956b9b753db81edf1dd9946ce35d1faf8ec93068b22d8e7d03ca63ad2f",
+      "xml_sha256": "2c3569127297721218e906cea14eaacbf52d227e92b3c2e32654dc2a5a041e38",
+      "source_frame_digest": "dd5751d6b51bb98d5e9bf84ace479897a8d9a3afb75725aa396cf88fd79ca479",
+      "pts_copy": "ffmpeg -i <source>.mpg -map 0:v:0 -c:v ffv1 -fps_mode passthrough <name>_pts.mkv (the CLI rejects the original: 'Source lacks usable frame PTS'); decoded frames identical to the source",
+      "events": [
+        {
+          "category": "person_fell",
+          "frame": 689,
+          "t": 27.76,
+          "label": "XML object 2, context 'drop down': situation moving -> inactive",
+          "source": "xml",
+          "frozen_rule_fires": true,
+          "note": "Images: walking at 27.6 s, down at 28.2 s, lying at 28.8 s."
+        }
+      ],
+      "unscorable_after_s": 47.76,
+      "unscorable_note": "The XML ends at frame 1188; frames 1189-1295 are not annotated. Items lying entirely after this instant are reported as not scorable, never as false."
+    },
+    "Fight_OneManDown.mpg": {
+      "source": "Fight_OneManDown.mpg",
+      "xml": "Fight_OneManDown_1.xml",
+      "role": "critical",
+      "other_xml": [
+        "Fight_OneManDown_2.xml",
+        "Fight_OneManDown_3.xml"
+      ],
+      "video_sha256": "79e5bb85695611ce73246678d87710b582d79767894247118a79dc9790bf0147",
+      "xml_sha256": "3788efb9b8d072facb7bebee107319754e7b4a1c510a2e0b65e84b394384c826",
+      "other_xml_sha256": {
+        "Fight_OneManDown_2.xml": "b54705cbba6e176835d013b800d6b2d4b04e35a3db838885bd90f68109889716",
+        "Fight_OneManDown_3.xml": "30649c1de94968e9332588a7fcd5b40a886b9b7120be369ccaf151b47673aaf2"
+      },
+      "source_frame_digest": "b6c20f528244794cdbe9ba507fd7aee5ba575e322f598d115a6984098b2fddce",
+      "events": [
+        {
+          "category": "person_fell",
+          "frame": 338,
+          "t": 13.7197,
+          "label": "Fight_OneManDown_1.xml object 5, context 'drop down': situation moving -> inactive",
+          "source": "xml",
+          "frozen_rule_fires": true,
+          "note": "The three CAVIAR files disagree: _1 13.72 s (frame 338), _3 14.76 s (frame 364), _2 14.88 s (frame 367; the frozen rule does not fire there because 'drop down' starts already inactive). _1 is kept because it best matches the images: the victim hits the floor between 13.0 and 13.4 s. The 'fighting' situation (about 9-13 s) is not a measured category."
+        }
+      ]
+    },
+    "LeftBag_BehindChair.mpg": {
+      "source": "LeftBag_BehindChair.mpg",
+      "xml": "LeftBag_BehindChair.xml",
+      "role": "critical",
+      "video_sha256": "e35d0bc1fa6efae4cde83f54342e59c7f0cf1316f5be9821968350fe3a145abb",
+      "xml_sha256": "85473d4ae0749ab0f02667843d7909e5f1f10810be2494c617e9ed0621ae8436",
+      "source_frame_digest": "a44505445faa2d774052e123f930ab5da4200b1feaf62a73de4ece62cb93dd44",
+      "events": [
+        {
+          "category": "object_placed",
+          "frame": 518,
+          "t": 20.9597,
+          "label": "MANUAL LABEL (no bag track in the XML)",
+          "source": "manual",
+          "confidence": "low",
+          "interval_s": [
+            15.4397,
+            20.9597
+          ],
+          "note": "A person in dark clothes goes behind the upper orange armchair (by the desk, image around x 36-50, y 98-110) from about 15.4 s and leaves upwards; first frame where the place behind the chair holds something without the person: 20.96 s. The bag itself is almost entirely hidden by the armchair; presence is read from a sustained change behind the chair (mean |difference| to the empty scene about 10 before 14 s, 20-27 from 20 to 31 s)."
+        },
+        {
+          "category": "object_removed",
+          "frame": 845,
+          "t": 34.0397,
+          "label": "MANUAL LABEL (no bag track in the XML)",
+          "source": "manual",
+          "confidence": "low",
+          "interval_s": [
+            31.6397,
+            34.0397
+          ],
+          "note": "A person in a white shirt reaches behind the same armchair from about 31.6 s and leaves along the desk; the place is durably empty again from 34.04 s (difference back to about 10). Same convention as the frozen rule: first frame without the object."
+        }
+      ]
+    },
+    "Rest_InChair.mpg": {
+      "source": "Rest_InChair.mpg",
+      "xml": "Rest_InChair.xml",
+      "role": "control",
+      "video_sha256": "19b32edd0fe6ad0c0243f3c94adc787ffee28d8a74cb8ca73473fdfb996c423a",
+      "xml_sha256": "15be1e83afe70162e6a2e14464918c5e267e3b12d9d6463eaa0f57a10d8be96f",
+      "source_frame_digest": "d93099ddbe42d12d5bdc9fe455c1ad4461a6e00c8a3753bbf8c4918511dbf2d1",
+      "events": [],
+      "note": "Control. No fall, placement or removal in the XML labels; none seen on a one-frame-per-second review."
+    },
+    "Browse1.mpg": {
+      "source": "Browse1.mpg",
+      "xml": "Browse1.xml",
+      "role": "control",
+      "video_sha256": "fafff382d83c7f091dc47396dee82159fb88c0d951b649b6f17afc2b0a914380",
+      "xml_sha256": "4970dc26d3302f12d673c6df33d0dc92760016175f8bb4294fc219b0fe62f753",
+      "source_frame_digest": "5e301d77d1695c12a1af830a2561257b35da0c4b16652d42130f29c9e7d714db",
+      "events": [],
+      "note": "Control. No fall, placement or removal in the XML labels; none seen on a one-frame-per-second review."
+    },
+    "Browse2_pts.mkv": {
+      "source": "Browse2.mpg",
+      "xml": "Browse2.xml",
+      "role": "control",
+      "video_sha256": "08b08b71f8b50c18aec547ac2059a6dded09ae6cc60d01bee30ca498543c7d62",
+      "xml_sha256": "c5755b19aef64f35a08b79f6effb83c1bdcadf446f4a82344296cb201c7d9939",
+      "source_frame_digest": "7ae25b0ade5a687a6bd4fe3c881fc8a2783b3567a59f9c1080cd8b12d7c1a9b8",
+      "pts_copy": "ffmpeg -i <source>.mpg -map 0:v:0 -c:v ffv1 -fps_mode passthrough <name>_pts.mkv (the CLI rejects the original: 'Source lacks usable frame PTS'); decoded frames identical to the source",
+      "events": [],
+      "note": "Control. No fall, placement or removal in the XML labels; none seen on a one-frame-per-second review."
+    }
+  }
+}
