@@ -38,3 +38,10 @@ The reference is the CAVIAR XML. It contains 8 critical events: 4 objects placed
 - Real time to alert in operation, true raw alerts and two-step cost: these need detector C1.
 - Fire: CAVIAR has none.
 - Generalisation: every clip was used during development, and there are only 8 critical events.
+
+## Notes on the first table (2026-11-24, after the computation)
+
+[KPI.md](KPI.md) follows the frozen rules and is unchanged. Visual checks of the false alerts give two notes:
+
+- **LeftBag, 1.5–6 s.** The two *confirmed* events counted as false (`object_placed` 1.5–3.0 s and `object_removed` 4.0–6.0 s) look real on the images. The person in blue sets the bag down at their feet around 2–2.5 s, stretches, then picks it up again around 5–5.5 s ([frames](evidence/LeftBag_1.5-6s.png)). The XML follows the bag only from 38 s, when it is left behind, so it misses this short handling. On the images, the real alerts would be 9/12 rather than 7/12. This is not counted: an independent label would be needed (task B3).
+- **Rest_FallOnFloor, 11.0–12.5 s.** The "possible" fall alert is a person leaving through the bottom edge of the image. It is a true false alert, but it is only sent to a person for review ([frames](evidence/Rest_FallOnFloor_10.5-13s.png)).

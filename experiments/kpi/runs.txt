@@ -1,0 +1,9 @@
+experiments/kpi_runs/20261124T173718-b75534f/LeftBag
+experiments/kpi_runs/20261124T173718-b75534f/LeftBox
+experiments/kpi_runs/20261124T173718-b75534f/LeftBag_PickedUp
+experiments/kpi_runs/20261124T173718-b75534f/LeftBag_AtChair
+experiments/kpi_runs/20261124T173718-b75534f/Rest_FallOnFloor
+experiments/kpi_runs/20261124T173718-b75534f/Walk2
+experiments/kpi_runs/20261124T173718-b75534f/TwoEnterShop1front
+experiments/kpi_runs/20261124T173718-b75534f/Meet_WalkSplit
+experiments/kpi_runs/20261124T173718-b75534f/Meet_WalkTogether1
