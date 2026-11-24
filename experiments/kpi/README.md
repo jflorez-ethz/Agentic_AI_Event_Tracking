@@ -45,3 +45,14 @@ The reference is the CAVIAR XML. It contains 8 critical events: 4 objects placed
 
 - **LeftBag, 1.5–6 s.** The two *confirmed* events counted as false (`object_placed` 1.5–3.0 s and `object_removed` 4.0–6.0 s) look real on the images. The person in blue sets the bag down at their feet around 2–2.5 s, stretches, then picks it up again around 5–5.5 s ([frames](evidence/LeftBag_1.5-6s.png)). The XML follows the bag only from 38 s, when it is left behind, so it misses this short handling. On the images, the real alerts would be 9/12 rather than 7/12. This is not counted: an independent label would be needed (task B3).
 - **Rest_FallOnFloor, 11.0–12.5 s.** The "possible" fall alert is a person leaving through the bottom edge of the image. It is a true false alert, but it is only sent to a person for review ([frames](evidence/Rest_FallOnFloor_10.5-13s.png)).
+
+## Never-seen videos (held-out table)
+
+These videos have never been given to the agent system. They are tested at the same frozen version, with the same settings and rules. The truth was frozen before any run: [heldout_truth.md](heldout_truth.md) and [heldout_truth.json](heldout_truth.json). It covers 5 critical events (3 people down, 1 object placed, 1 object removed; the bag events are manual labels with low confidence) and 3 controls.
+
+```bash
+GEMINI_API_KEY=... experiments/kpi/run_heldout.sh   # paid, at most 3 videos at a time
+.venv/bin/python experiments/kpi/kpi.py --heldout   # free: KPI_heldout.md and kpi_heldout.json, with a comparison against the dev table
+```
+
+`run_heldout.sh` checks the frozen version and the video hashes. If a lossless `_pts` copy is missing, it recreates it and accepts it only if its decoded frames are identical to the frozen digest. FFV1 copies are not byte-identical between encodings, so the files really analysed are recorded in `sources.json`. The truth comes from the frozen file and is not re-derived from the XML. Alerts in Rest_WiggleOnFloor's unannotated tail (after 47.76 s) are reported as not scorable.

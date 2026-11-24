@@ -1,6 +1,7 @@
 """Offline KPI table (work plan task B7) from archived runs and CAVIAR XML. Rules: rules.json (frozen first).
 
     .venv/bin/python experiments/kpi/kpi.py            # writes experiments/kpi/KPI.md and kpi.json
+    .venv/bin/python experiments/kpi/kpi.py --heldout  # never-seen videos: KPI_heldout.md and kpi_heldout.json
 
 No network, no provider call. Every definition is in rules.json; this file only applies it.
 """
@@ -140,7 +141,9 @@ def time_to_alert(run, item, t):
         return None, None
     verdicts = [k for k, e in enumerate(an["trace"])
                 if e["actor"] == "verification" and e["action"] == "verdict" and item["seed"] in e["observation_ids"]]
-    stop = verdicts[-1] if verdicts else next(k for k, a in decisions if a == "investigation")
+    stop = verdicts[-1] if verdicts else next((k for k, a in decisions if a == "investigation"), None)
+    if stop is None:
+        return None, None
     agents = sum(c["elapsed_ms"] for (k, _), c in zip(decisions, calls) if k <= stop) / 1000
     initial = [e for e in an["evidence"] if e["phase"] == "initial"]
     as_run = sum(e["inference"]["elapsed_ms"] for e in initial) / 1000 + agents
@@ -198,9 +201,12 @@ def cost(run):
 
 # ---------- one run ----------
 
-def evaluate(run, events, tol, mapping, report=""):
+def evaluate(run, events, tol, mapping, report="", unscorable_after=None):
+    """unscorable_after: items starting at or after this instant lie in an unannotated tail (held-out truth only)."""
     an = run["analysis"]
-    items = human_items(an)
+    all_items = human_items(an)
+    items = [i for i in all_items if unscorable_after is None or i["start"] < unscorable_after]
+    unscorable = [i for i in all_items if i not in items]
     matched, false_items, missed = match(items, events, tol, mapping)
     known = inspection_frames(an)
     rows = []
@@ -214,6 +220,7 @@ def evaluate(run, events, tol, mapping, report=""):
         "found": rows,
         "missed": [{**events[e], "cause": miss_cause(an, events[e], tol, mapping)} for e in missed],
         "false_items": [items[i] for i in false_items],
+        "unscorable_items": unscorable,
         "raw_alerts": raw_alerts(an),
         "cited": sum(1 for i in items if i["frames"]),
         "valid_citations": [sum(citation_valid(f, known) for i in items for f in i["frames"]),
@@ -227,7 +234,7 @@ def evaluate(run, events, tol, mapping, report=""):
 
 # ---------- run selection: only the runs listed by run_all_kpi.sh ----------
 
-def check(entry):
+def check(entry, videos=None):
     """(status, reason) of one listed run against rules.json run_selection.complete."""
     meta, path = entry["meta"], entry["path"]
     version = RULES["system_version"]
@@ -240,9 +247,11 @@ def check(entry):
     if entry["run"] is None:
         return "failed", "pas de run/analysis.json"
     an = entry["run"]["analysis"]
-    expected = RULES["videos"].get(meta["video"], {}).get("video_sha256")
+    expected = (videos or RULES["videos"]).get(meta["video"], {}).get("video_sha256")
     if an["video"]["sha256"] != expected:
-        return "failed", "SHA-256 de la vidéo différent"
+        alt = entry.get("sources", {}).get(meta["video"], {})
+        if not (alt.get("frames_identical_to_frozen") and alt.get("sha256") == an["video"]["sha256"]):
+            return "failed", "SHA-256 de la vidéo différent"
     if an.get("completion", {}).get("investigation") == "failed":
         return "failed", "Investigation en échec"
     video, cov = an["video"], an.get("coverage") or {}
@@ -253,14 +262,16 @@ def check(entry):
     return "complete", ""
 
 
-def load_listed(listing):
+def load_listed(listing, videos=None):
     entries = []
     for line in listing.read_text().split():
         d = ROOT / line
         meta = json.loads((d / "meta.json").read_text()) if (d / "meta.json").exists() else None
         run = json.loads((d / "run/analysis.json").read_text()) if (d / "run/analysis.json").exists() else None
-        e = {"dir": d, "path": d / "run/analysis.json", "meta": meta, "run": run}
-        e["status"], e["why"] = check(e)
+        sources = d.parent / "sources.json"
+        e = {"dir": d, "path": d / "run/analysis.json", "meta": meta, "run": run,
+             "sources": json.loads(sources.read_text()) if sources.exists() else {}}
+        e["status"], e["why"] = check(e, videos)
         entries.append(e)
     return entries
 
@@ -280,11 +291,39 @@ def label(path):
     return path.parent.parent.name
 
 
-def main():
-    listing = HERE / "runs.txt"
+def totals(results):
+    """Pooled figures used by the dev / held-out comparison."""
+    rs = [r["main"] for r in results.values()]
+    lives = [f["live_s"] for r in rs for f in r["found"] if f["live_s"] is not None]
+    secs = sum(r["scanned_s"] for r in rs)
+    human = sum(len(r["items"]) for r in rs)
+    false = sum(len(r["false_items"]) for r in rs)
+    unscorable = sum(len(r.get("unscorable_items", [])) for r in rs)
+    return {"videos": len(rs), "events": sum(len(r["events"]) for r in rs), "found": sum(len(r["found"]) for r in rs),
+            "confirmed": sum(1 for r in rs for f in r["found"] if f["item"]["kind"] == "supported"),
+            "human": human, "real": human - false - unscorable, "false": false, "unscorable": unscorable,
+            "false_per_h": false / (secs / 3600) if secs else 0.0,
+            "live_median": median(lives) if lives else None, "live_max": max(lives) if lives else None,
+            "valid": [sum(r["valid_citations"][k] for r in rs) for k in (0, 1)],
+            "usd_launch": sum((v["cost"]["launch"]["perception"] or 0) + (v["cost"]["launch"]["agents"] or 0) for v in results.values()),
+            "perception_usd_min": sum(v["cost"]["launch"]["perception"] or 0 for v in results.values()) / (secs / 60) if secs else None,
+            "minutes": secs / 60}
+
+
+def main(argv=None):
+    import argparse
+    args = argparse.ArgumentParser()
+    args.add_argument("--heldout", action="store_true", help="never-seen videos: truth from heldout_truth.json")
+    heldout = args.parse_args(argv).heldout
+    if heldout:
+        truth = json.loads((HERE / "heldout_truth.json").read_text())
+        videos, listing, stem = truth["videos"], HERE / "runs_heldout.txt", "heldout"
+        script = "run_heldout.sh"
+    else:
+        videos, listing, stem, script = RULES["videos"], HERE / "runs.txt", "", "run_all_kpi.sh"
     if not listing.exists():
-        raise SystemExit("experiments/kpi/runs.txt is missing: run experiments/kpi/run_all_kpi.sh first")
-    entries = load_listed(listing)
+        raise SystemExit(f"{listing.relative_to(ROOT)} is missing: run experiments/kpi/{script} first")
+    entries = load_listed(listing, videos)
     mapping = RULES["matching"]["strict_categories"]
     lenient = RULES["matching"]["lenient_categories"]
     tol = RULES["matching"]["tolerance_s"]
@@ -293,28 +332,45 @@ def main():
         if e["status"] != "complete":
             continue
         name, an = e["meta"]["video"], e["run"]["analysis"]
-        events = xml_events(ROOT / "data/annotations" / RULES["videos"][name]["xml"], an["video"])
+        if heldout:
+            events = [{"category": x["category"], "t": x["t"], "frame": x["frame"], "source": x["source"]}
+                      for x in videos[name]["events"]]
+        else:
+            events = xml_events(ROOT / "data/annotations" / videos[name]["xml"], an["video"])
+        cut = videos[name].get("unscorable_after_s") if heldout else None
         report_path = e["dir"] / "run/report.md"
         report = report_path.read_text() if report_path.exists() else ""
         results[name] = {
             "run": str(e["dir"].relative_to(ROOT)),
             "wall_s": e["meta"]["end_epoch"] - e["meta"]["start_epoch"],
-            "main": evaluate(e["run"], events, tol, mapping, report),
-            "lenient": evaluate(e["run"], events, tol, lenient, report),
-            "sensitivity": {t: evaluate(e["run"], events, t, mapping, report)
+            "main": evaluate(e["run"], events, tol, mapping, report, cut),
+            "lenient": evaluate(e["run"], events, tol, lenient, report, cut),
+            "sensitivity": {t: evaluate(e["run"], events, t, mapping, report, cut)
                             for t in RULES["matching"]["sensitivity_tolerances_s"]},
             "cost": cost(e["run"]),
         }
     failures = [(e["meta"]["video"] if e["meta"] else e["dir"].name, str(e["dir"].relative_to(ROOT)), e["why"])
                 for e in entries if e["status"] != "complete"]
-    (HERE / "kpi.json").write_text(json.dumps({"system_version": RULES["system_version"], "videos": results,
-                                               "failures": failures}, indent=1, default=str, sort_keys=True) + "\n")
-    (HERE / "KPI.md").write_text(render(results, failures, tol, len(entries)) + "\n")
-    print((HERE / "KPI.md").read_text())
+    suffix = f"_{stem}" if stem else ""
+    compare = None
+    if heldout and (HERE / "kpi.json").exists():
+        compare = totals(json.loads((HERE / "kpi.json").read_text())["videos"])
+    (HERE / f"kpi{suffix}.json").write_text(json.dumps({"system_version": RULES["system_version"], "videos": results,
+                                                       "failures": failures, "totals": totals(results) if results else None,
+                                                       "dev_totals": compare}, indent=1, default=str, sort_keys=True) + "\n")
+    title = "# KPI hors ligne (tâche B7) — vidéos jamais vues" if heldout else "# KPI hors ligne (tâche B7)"
+    text = render(results, failures, tol, len(entries), title, compare)
+    if heldout:
+        text = text.replace("Vérité terrain : XML CAVIAR. Tous ces clips ont servi au développement : aucune conclusion de généralisation.",
+                            "Vérité terrain : [heldout_truth.json](heldout_truth.json), figée avant les runs (XML CAVIAR, plus 2 labels manuels "
+                            "à confiance faible pour LeftBag_BehindChair). Le système n’a jamais vu ces vidéos ; les nombres restent petits.")
+        text = text.replace("| Événements XML |", "| Événements attendus |")
+    (HERE / f"KPI{suffix}.md").write_text(text + "\n")
+    print((HERE / f"KPI{suffix}.md").read_text())
 
 
-def render(results, failures, tol, listed):
-    L = ["# KPI hors ligne (tâche B7)", "",
+def render(results, failures, tol, listed, title="# KPI hors ligne (tâche B7)", compare=None):
+    L = [title, "",
          f"Version mesurée : arbre src `{RULES['system_version']['src_tree'][:7]}` (commit `{RULES['system_version']['commit'][:7]}`). "
          f"Règles figées : [rules.json](rules.json). Correspondance stricte, tolérance ±{tol:g} s. "
          f"Runs complets : {len(results)}/{listed}. Les anciens runs archivés ne sont pas lus. "
@@ -324,21 +380,22 @@ def render(results, failures, tol, listed):
     L += ["## Alertes et événements critiques", "",
           "| Vidéo | Run | Analysé | Événements XML | Retrouvés | Ratés (cause) | Alertes brutes (approx.) | Alertes à un humain | dont vraies | Fausses / h |",
           "|---|---|---:|---:|---:|---|---:|---:|---:|---:|"]
-    T = dict(ev=0, found=0, missed=0, raw=0, human=0, real=0, false=0, hours=0.0)
+    T = dict(ev=0, found=0, missed=0, raw=0, human=0, real=0, false=0, hours=0.0, un=0)
     for n in names:
         r = results[n]["main"]
         ev, fo, mi = len(r["events"]), len(r["found"]), len(r["missed"])
-        hu, fa = len(r["items"]), len(r["false_items"])
+        hu, fa, un = len(r["items"]), len(r["false_items"]), len(r.get("unscorable_items", []))
         hours = r["scanned_s"] / 3600
-        causes = ", ".join(f'{m["category"]} {m["t"]:.1f} s : {m["cause"]}' for m in r["missed"]) or "—"
+        causes = ", ".join(f'{m["category"]} {m["t"]:.1f} s{" (label manuel)" if m.get("source") == "manual" else ""} : {m["cause"]}'
+                           for m in r["missed"]) or "—"
         L.append(f'| {n} | {Path(results[n]["run"]).name} | '
                  f'{r["scanned_s"]:.1f}/{r["duration_s"]:.1f} s | {ev} | {fo}/{ev} | {mi} ({causes}) | {r["raw_alerts"]} | '
-                 f'{hu} | {hu - fa}/{hu} | {fa / hours:.0f} |')
-        for k, v in dict(ev=ev, found=fo, missed=mi, raw=r["raw_alerts"], human=hu, real=hu - fa, false=fa, hours=hours).items():
+                 f'{hu} | {hu - fa - un}/{hu - un}{f" (+{un} non jugeable)" if un else ""} | {fa / hours:.0f} |')
+        for k, v in dict(ev=ev, found=fo, missed=mi, raw=r["raw_alerts"], human=hu, real=hu - fa - un, false=fa, hours=hours, un=un).items():
             T[k] += v
     red = f'{1 - T["human"] / T["raw"]:.0%}' if T["raw"] else "—"
     L.append(f'| **Total** | | {T["hours"] * 3600:.1f} s | **{T["ev"]}** | **{T["found"]}/{T["ev"]}** | **{T["missed"]}** | '
-             f'{T["raw"]} | {T["human"]} (réduction {red}) | **{T["real"]}/{T["human"]}** | {T["false"] / T["hours"]:.0f} |')
+             f'{T["raw"]} | {T["human"]} (réduction {red}) | **{T["real"]}/{T["human"] - T["un"]}** | {T["false"] / T["hours"]:.0f} |')
     L += ["", "Objectif du plan : 0 événement critique raté ; au moins 70 % d’alertes en moins en gardant au moins 95 % des vrais événements. "
           "« Alertes brutes » est une approximation (observations de sécurité de la perception initiale) tant que le détecteur C1 n’existe pas.", ""]
     # 2. Sensitivity
@@ -364,7 +421,7 @@ def render(results, failures, tol, listed):
             e, i = f["event"], f["item"]
             lives += [f["live_s"]] if f["live_s"] is not None else []
             s = lambda x: "inconnu" if x is None else f"{x:.0f} s"
-            L.append(f'| {n} | {e["category"]} {e["t"]:.2f} s | {i["kind"]} {i["start"]:.1f}–{i["end"]:.1f} s | '
+            L.append(f'| {n} | {e["category"]} {e["t"]:.2f} s{" (label manuel)" if e.get("source") == "manual" else ""} | {i["kind"]} {i["start"]:.1f}–{i["end"]:.1f} s | '
                      f'{s(f["as_run_s"])} | {s(f["live_s"])} | {"oui" if f["on_time"] else "non"} | {r["lead"] or "—"} |')
     if lives:
         L.append(f"| **Total** | | | | médiane {median(lives):.0f} s, max {max(lives):.0f} s (cible ≤ 30 s) | | |")
@@ -408,6 +465,23 @@ def render(results, failures, tol, listed):
     L += ["## Runs en échec (hors total)", ""]
     L += ([f"- {v} (`{d}`) : {why}" for v, d, why in failures] or ["Aucun."])
     L += ["", f"Taux de réussite : {len(results)}/{listed}.", ""]
+    if compare and results:
+        h = totals(results)
+        pct = lambda a, b: f"{a}/{b}" + (f" ({a / b:.0%})" if b else "")
+        sec = lambda x: "—" if x is None else f"{x:.0f} s"
+        L += ["## Comparaison avec le tableau de développement", "",
+              "Même version du système, mêmes règles. Les vidéos de développement ont servi à construire le système ; celles-ci jamais. "
+              "Petits nombres : une différence d’un ou deux événements ne prouve rien.", "",
+              "| | Développement | Jamais vues |", "|---|---:|---:|",
+              f'| Vidéos | {compare["videos"]} | {h["videos"]} |',
+              f'| Événements critiques amenés à un humain | {pct(compare["found"], compare["events"])} | {pct(h["found"], h["events"])} |',
+              f'| dont confirmés par l’agent | {pct(compare["confirmed"], compare["events"])} | {pct(h["confirmed"], h["events"])} |',
+              f'| Alertes vraies | {pct(compare["real"], compare["human"] - compare["unscorable"])} | {pct(h["real"], h["human"] - h["unscorable"])} |',
+              f'| Fausses alertes par heure analysée | {compare["false_per_h"]:.0f} | {h["false_per_h"]:.0f} |',
+              f'| Temps d’alerte en direct simulé, médiane / max | {sec(compare["live_median"])} / {sec(compare["live_max"])} | {sec(h["live_median"])} / {sec(h["live_max"])} |',
+              f'| Citations valides | {pct(*compare["valid"])} | {pct(*h["valid"])} |',
+              f'| Coût total (lancement) | {compare["usd_launch"]:.2f} $ pour {compare["minutes"]:.1f} min | {h["usd_launch"]:.2f} $ pour {h["minutes"]:.1f} min |',
+              f'| Perception par minute (lancement) | {compare["perception_usd_min"]:.3f} $ | {h["perception_usd_min"]:.3f} $ |', ""]
     L += ["## Pas encore mesurable", "",
           "- Temps humain de référence (B5) : recherche manuelle dans la vidéo et rapport écrit à la main, donc ni temps jusqu’à la preuve (B6 manque aussi) ni temps de rapport gagné.",
           "- Rapports approuvés et taux de correction (B8) : `operator_label` est vide partout.",

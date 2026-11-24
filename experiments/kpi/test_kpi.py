@@ -133,3 +133,31 @@ def test_xml_events_match_stationary_pilot(video, xml, expected):
     v = asdict(ingest(ROOT / "data/raw" / video))
     events = kpi.xml_events(ROOT / "data/annotations" / xml, v)
     assert [(e["category"], round(e["t"], 2)) for e in events] == expected
+
+
+# ---------- held-out mode ----------
+
+def test_unscorable_tail_is_neither_real_nor_false():
+    run = {"role_calls": [], "analysis": {
+        "timeline": [], "evidence": [], "trace": [], "coverage": {"initial_scan_end_us": 52_000_000},
+        "video": {"duration_us": 52_000_000},
+        "review": {"alerts": [
+            {"reason_code": "unclear_observation", "category": "person_fell", "observation_id": "a",
+             "interval": {"start_us": 27_000_000, "end_us": 28_000_000}, "frames": []},
+            {"reason_code": "unclear_observation", "category": "person_fell", "observation_id": "b",
+             "interval": {"start_us": 49_000_000, "end_us": 50_000_000}, "frames": []}]}}}
+    r = kpi.evaluate(run, [ev("person_fell", 27.76)], 2.0, STRICT, "", unscorable_after=47.76)
+    assert len(r["found"]) == 1 and r["false_items"] == [] and len(r["unscorable_items"]) == 1
+    r = kpi.evaluate(run, [ev("person_fell", 27.76)], 2.0, STRICT, "")
+    assert len(r["false_items"]) == 1 and r["unscorable_items"] == []
+
+
+def test_heldout_truth_is_consistent():
+    truth = json.loads((kpi.HERE / "heldout_truth.json").read_text())
+    assert truth["system_version"] == kpi.RULES["system_version"]
+    events = [(v, e["category"], e["source"]) for v, d in truth["videos"].items() for e in d["events"]]
+    assert len(events) == 5
+    assert sum(1 for _, c, _ in events if c == "person_fell") == 3
+    assert [s for v, _, s in events if v == "LeftBag_BehindChair.mpg"] == ["manual", "manual"]
+    for d in truth["videos"].values():
+        assert all(e["t"] == round(e["t"], 4) and e["frame"] >= 0 for e in d["events"])
