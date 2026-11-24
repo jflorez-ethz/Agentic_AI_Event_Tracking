@@ -1,0 +1,2 @@
+alert_id,category,start_s,end_s,frames_to_review,operator_label,operator_note
+alert-a645bb325cd382fbc6bb45506cba683c4f98057ce8afadbb1f3f05dcf61d9470,object_removed,30.0397,39.519701,747@30.04s 859@34.52s 872@35.04s 909@36.52s 934@37.52s 984@39.52s,,
