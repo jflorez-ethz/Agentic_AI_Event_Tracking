@@ -1,0 +1,7 @@
+candidate,video,time_s,x,y,sheet,reviewer_label (placed / removed / still there / nothing)
+1,LeftBag,36.92,310,111,candidate-01.png,
+2,LeftBag,54.84,310,111,candidate-02.png,
+3,LeftBox,21.64,147,157,candidate-03.png,
+4,LeftBox,34.76,147,157,candidate-04.png,
+5,LeftBag_PickedUp,18.0,216,33,candidate-05.png,
+6,LeftBag_PickedUp,41.68,216,33,candidate-06.png,

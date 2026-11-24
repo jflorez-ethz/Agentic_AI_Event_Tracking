@@ -60,3 +60,39 @@ A next iteration should fix 1 and 2 on the tuning video alone, using principled 
 ## Review material
 
 `sheets/candidate-NN.png` shows before, at and after crops (±3 s). `blind_review.csv` lists time and place without the detector's label, for blind labelling. Results are in `results_main.json` and `results.json`.
+
+## Trial 2: second attempt after seeing trial 1's test results
+
+**Read this as a second attempt, not a clean held-out result.** The two fixes below were chosen after trial 1's test and no-object results had been seen. Parameters were then tuned on LeftBag only and frozen before the other videos were re-measured, unchanged. The criterion is unchanged. Even if trial 2 had met it, final proof would require an external dataset never used during development (for example PETS 2006 left-luggage).
+
+### Fixes
+
+Both were measured on LeftBag only, over the 14 s window inside the bag's stay:
+
+- **The dark bag was labelled shadow.** With trial 1's settings it never counted as foreground: 0.0 s foreground, 2.7 s shadow. Shadow detection is now off (`shadows=False`).
+- **The slow model absorbed the bag too fast.** A 60 s history absorbed it in about 4 s. With a 600 s history and shadows off, the bag is foreground for the whole 14 s.
+- **Startup ghosts.** A warm-up (`warmup_s`: no detection while the background is learnt quickly) and an edge test (`ghost_ratio`: reject a region whose current edges are fewer than ratio × the slow background's edges there) became tunable options.
+
+Tuned on LeftBag over 36 combinations: most events found, then fewest false alarms, then the most conservative values. Frozen at T = 8 s, minimum area 120 px², warm-up 5 s, ghost ratio 1.0.
+
+### Result (RF-DETR person filter, 25 fps): criterion not met
+
+| Video | Set | Result |
+|---|---|---|
+| LeftBag | tuning | placed (1.12 s), removed (0.4 s), 0 false alarms |
+| LeftBox | test | **placed (1.44 s error) and present at end found**, 0 false alarms |
+| LeftBag_PickedUp | test | **removal found (0.8 s error)**; placement detected at the right place at 18.0 s, 2.36 s before the XML (20.36 s), so missed and counted as 1 false alarm |
+| Fall, Walk2, TwoEnterShop1front, Meet_WalkSplit, Meet_WalkTogether1 | no object | **0 false alarms (raw count 0)** |
+
+Totals: test events **3/4**, 0 false alarms on the no-object videos, 1 on the object videos. CPU time is about 5 s per video minute, excluding RF-DETR.
+
+Sensitivity to T, with the other settings frozen:
+
+| T | Test events | False alarms, no object | False alarms, with object |
+|---|---|---|---|
+| 2 s | 2/4 | 2 | 4 |
+| 3 s | 3/4 | 2 | 3 |
+| 5, 8 and 12 s | 3/4 | 0 | 1 |
+| 20 s | 0/4 | 0 | 0 |
+
+The result is stable from 5 to 12 s. The only failure is placement timing. The detector dates a placement from the first moment the area differs from the background, which happens while the person carrying the bag arrives. The XML marks the bag once it lies alone. A principled change would date placement from when the area first matches the object's own final appearance, but that would be a third attempt and would also need the external dataset. Review sheets are in `sheets_trial2/`, the blind sheet in `blind_review_trial2.csv`, and the results in `results_trial2.json`.

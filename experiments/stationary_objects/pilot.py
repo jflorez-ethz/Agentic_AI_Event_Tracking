@@ -106,22 +106,34 @@ def covered(box, persons, pad=6):
     return any(x1 < p[2] + pad and p[0] - pad < x2 and y1 < p[3] + pad and p[1] - pad < y2 for p in persons)
 
 
-def detect(video, times, *, stride, static_s, min_area, person_boxes):
-    """Candidate events for one video. person_boxes(n) returns person boxes for frame n, or None (no filter)."""
+def detect(video, times, *, stride, static_s, min_area, person_boxes, slow_s=SLOW_S, shadows=True,
+           warmup_s=0.0, ghost_ratio=None):
+    """Candidate events for one video. person_boxes(n) returns person boxes for frame n, or None (no filter).
+
+    Defaults reproduce trial 1. Trial 2: slow_s=600 and shadows=False (a dark bag was labelled shadow and a 60 s
+    model absorbed it in about 4 s), warmup_s (no detection while the background is learnt quickly at the start)
+    and ghost_ratio (reject a region whose current edges are below ratio × edges of the slow background there).
+    """
     fps = 25 / stride
-    slow = cv2.createBackgroundSubtractorMOG2(history=int(SLOW_S * fps), varThreshold=25, detectShadows=True)
-    fast = cv2.createBackgroundSubtractorMOG2(history=int(FAST_S * fps), varThreshold=25, detectShadows=True)
+    slow = cv2.createBackgroundSubtractorMOG2(history=int(slow_s * fps), varThreshold=25, detectShadows=shadows)
+    fast = cv2.createBackgroundSubtractorMOG2(history=int(FAST_S * fps), varThreshold=25, detectShadows=shadows)
+    ghosts = []
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
     history = deque(maxlen=int((static_s + FAST_S + 8) * fps))  # (n, gray) to date placements backwards
     counter, objects, candidates, last_n = None, [], [], 0
     started = time.monotonic()
     for n, frame in frames(video, stride):
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY).astype(np.int16)
+        gray8 = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        gray = gray8.astype(np.int16)
         history.append((n, gray))
-        f_slow = slow.apply(frame, learningRate=1 / (SLOW_S * fps))
+        warming = times[min(n, len(times) - 1)] < warmup_s
+        f_slow = slow.apply(frame, learningRate=1 / (FAST_S * fps) if warming else 1 / (slow_s * fps))
         f_fast = fast.apply(frame, learningRate=1 / (FAST_S * fps))
         counter = np.zeros(gray.shape, np.int32) if counter is None else counter
-        static = (f_slow == 255) & (f_fast == 0)
+        if warming:
+            last_n = n
+            continue
+        static = (f_slow == 255) & (f_fast == 0)  # with shadows off, the fast model only outputs 0 or 255
         counter = np.where(static, counter + 1, np.where(f_slow == 255, counter, 0))  # occlusion keeps the count
         mask = cv2.morphologyEx(((counter >= static_s * fps) * 255).astype(np.uint8), cv2.MORPH_OPEN, kernel)
         mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
@@ -134,6 +146,16 @@ def detect(video, times, *, stride, static_s, min_area, person_boxes):
             box, center = (x, y, x + w, y + h), tuple(map(float, centroids[k]))
             if any(np.hypot(center[0] - o["xy"][0], center[1] - o["xy"][1]) < 25 for o in objects if o["active"]):
                 continue
+            if any(np.hypot(center[0] - g[0], center[1] - g[1]) < 25 for g in ghosts):
+                continue
+            if ghost_ratio is not None:
+                x1, y1 = max(0, x - 3), max(0, y - 3)
+                background = cv2.cvtColor(slow.getBackgroundImage(), cv2.COLOR_BGR2GRAY)
+                now = cv2.Canny(gray8[y1:y + h + 3, x1:x + w + 3], 50, 150).mean()
+                before = cv2.Canny(background[y1:y + h + 3, x1:x + w + 3], 50, 150).mean()
+                if now < ghost_ratio * before:
+                    ghosts.append(center)  # a vacated place: the edges belong to the old background, not to now
+                    continue
             if person_boxes is not None and covered(box, persons):
                 continue  # a person standing still, or an object still being handled: wait
             reference = slow.getBackgroundImage()
@@ -238,8 +260,73 @@ def table(rows):
     return "\n".join(lines)
 
 
+TRIAL2_FIXED = {"slow_s": 600.0, "shadows": False}  # from the LeftBag absorption measurement (tuning video only)
+
+
+def trial2():
+    """Tune on LeftBag only, freeze, then measure every other video untouched (main configuration)."""
+    rfdetr = json.loads((HERE / "persons_rfdetr_stride5.json").read_text())
+    data = {}
+    for name, video, xml in VIDEOS:
+        times = pts_times(str(RAW / video))
+        data[name] = (times, *truth(ANNOTATIONS / xml, times))
+    name, video, _ = VIDEOS[0]
+    times, events, persons = data[name]
+    tuning = []
+    for static_s in (3, 5, 8):
+        for min_area in (30, 60, 120):
+            for warmup_s in (0.0, 5.0):
+                for ghost_ratio in (None, 0.5, 1.0):
+                    params = {"static_s": static_s, "min_area": min_area, "warmup_s": warmup_s, "ghost_ratio": ghost_ratio}
+                    candidates, _ = detect(str(RAW / video), times, stride=1, **params, **TRIAL2_FIXED,
+                                           person_boxes=person_source("rfdetr", name, persons, rfdetr))
+                    found, false = match(candidates, events)
+                    tuning.append({**params, "found": sum(e["found"] for e in found), "false": len(false)})
+    # Most events found, then fewest false alarms, then the most conservative (longer T, larger area, warm-up, ghost test).
+    best = max(tuning, key=lambda r: (r["found"], -r["false"], r["static_s"], r["min_area"], r["warmup_s"],
+                                      -1 if r["ghost_ratio"] is None else r["ghost_ratio"]))
+    frozen = {k: best[k] for k in ("static_s", "min_area", "warmup_s", "ghost_ratio")}
+    print("trial 2 tuning (LeftBag only):", sorted(tuning, key=lambda r: (-r["found"], r["false"]))[:6], "\nfrozen:", frozen)
+
+    def run(params):
+        rows = []
+        for name, video, xml in VIDEOS:
+            times, events, persons = data[name]
+            candidates, seconds = detect(str(RAW / video), times, stride=1, **params, **TRIAL2_FIXED,
+                                         person_boxes=person_source("rfdetr", name, persons, rfdetr))
+            found, false = match(candidates, events)
+            rows.append({"video": name, "duration_s": round(times[-1], 1), "events": found, "false_alarms": false,
+                         "candidates": candidates, "cpu_s_per_video_min": round(seconds / times[-1] * 60, 1)})
+        return rows
+
+    rows = run(frozen)
+    print(table(rows))
+    print("score:", score(rows))
+    sensitivity = {static_s: score(run({**frozen, "static_s": static_s})) for static_s in (2, 3, 5, 8, 12, 20)}
+    print("sensitivity T:", sensitivity)
+    (HERE / "results_trial2.json").write_text(json.dumps(
+        {"criterion": __doc__.split("Criterion (written before running): ")[1].split("\n\n")[0],
+         "fixed_from_tuning_measurement": TRIAL2_FIXED, "tuning": tuning, "frozen": frozen, "score": score(rows),
+         "sensitivity_T": sensitivity, "videos": rows}, indent=2, default=str))
+    sheets = HERE / "sheets_trial2"
+    sheets.mkdir(exist_ok=True)
+    with (HERE / "blind_review_trial2.csv").open("w", newline="") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["candidate", "video", "time_s", "x", "y", "sheet", "reviewer_label (placed / removed / still there / nothing)"])
+        k = 0
+        for row in rows:
+            source = str(RAW / next(v for n, v, _ in VIDEOS if n == row["video"]))
+            for c in row["candidates"]:
+                k += 1
+                contact_sheet(source, c, sheets / f"candidate-{k:02d}.png")
+                writer.writerow([k, row["video"], round(c["t"], 2), round(c["xy"][0]), round(c["xy"][1]), f"candidate-{k:02d}.png", ""])
+
+
 def main(argv=None):
     import sys
+
+    if "--trial2" in (sys.argv[1:] if argv is None else argv):
+        return trial2()
 
     main_only = "--main-only" in (sys.argv[1:] if argv is None else argv)
     rfdetr = json.loads((HERE / "persons_rfdetr_stride5.json").read_text())
