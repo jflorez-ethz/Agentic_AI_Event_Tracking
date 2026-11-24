@@ -1,0 +1,1057 @@
+[
+  {
+    "repeat": 1,
+    "video": "leftbox",
+    "target_category": "object_placed",
+    "target_delegated": true,
+    "delegated": [
+      {
+        "id": "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+        "category": "object_placed"
+      },
+      {
+        "id": "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+        "category": "person_moved"
+      },
+      {
+        "id": "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+        "category": "person_moved"
+      },
+      {
+        "id": "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8",
+        "category": "person_moved"
+      }
+    ],
+    "feedback_round": false,
+    "runtime_enforced": false,
+    "dispositions": [
+      {
+        "id": "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-d347e83b807a6d90c2231636f6540031a0bb0e9b0b58f1c809c74502cd737115",
+        "status": "deferred",
+        "reason": "Routine appearance deferred due to candidate slot limit."
+      },
+      {
+        "id": "observation-e0df9ba31726d6900868e106bbf69e04bccae163e04c80adf53e460ae3a033b9",
+        "status": "deferred",
+        "reason": "Routine appearance deferred due to candidate slot limit."
+      },
+      {
+        "id": "observation-afd1ace155c470432e6e206811fea14e851fd1880fe085b7e60988fbed33b40a",
+        "status": "deferred",
+        "reason": "Routine appearance deferred due to candidate slot limit."
+      },
+      {
+        "id": "observation-c40e05e29b2a0f24e8a30b33f737449ed17e03d51779b84252d50a570e24dc0f",
+        "status": "deferred",
+        "reason": "Routine movement deferred due to candidate slot limit."
+      }
+    ],
+    "investigation_trace": [
+      {
+        "actor": "investigation",
+        "action": "decision",
+        "reason": "delegate: Delegating the security-relevant object placement event first, followed by primary person movement events within candidate limit, deferring remaining routine appearances and movements.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "investigation",
+        "action": "triage",
+        "reason": "Recorded observation dispositions.",
+        "observation_ids": [
+          "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+          "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+          "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+          "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8",
+          "observation-d347e83b807a6d90c2231636f6540031a0bb0e9b0b58f1c809c74502cd737115",
+          "observation-e0df9ba31726d6900868e106bbf69e04bccae163e04c80adf53e460ae3a033b9",
+          "observation-afd1ace155c470432e6e206811fea14e851fd1880fe085b7e60988fbed33b40a",
+          "observation-c40e05e29b2a0f24e8a30b33f737449ed17e03d51779b84252d50a570e24dc0f"
+        ],
+        "recipient": null,
+        "details": {
+          "dispositions": [
+            {
+              "id": "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-d347e83b807a6d90c2231636f6540031a0bb0e9b0b58f1c809c74502cd737115",
+              "status": "deferred",
+              "reason": "Routine appearance deferred due to candidate slot limit."
+            },
+            {
+              "id": "observation-e0df9ba31726d6900868e106bbf69e04bccae163e04c80adf53e460ae3a033b9",
+              "status": "deferred",
+              "reason": "Routine appearance deferred due to candidate slot limit."
+            },
+            {
+              "id": "observation-afd1ace155c470432e6e206811fea14e851fd1880fe085b7e60988fbed33b40a",
+              "status": "deferred",
+              "reason": "Routine appearance deferred due to candidate slot limit."
+            },
+            {
+              "id": "observation-c40e05e29b2a0f24e8a30b33f737449ed17e03d51779b84252d50a570e24dc0f",
+              "status": "deferred",
+              "reason": "Routine movement deferred due to candidate slot limit."
+            }
+          ],
+          "omitted_ids": []
+        }
+      },
+      {
+        "actor": "investigation",
+        "action": "delegate",
+        "reason": "Sent candidate evidence to verification.",
+        "observation_ids": [
+          "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+          "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+          "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+          "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8"
+        ],
+        "recipient": "verification",
+        "details": null
+      }
+    ],
+    "role_calls": [
+      {
+        "role": "investigation",
+        "model": "gemini-3.6-flash",
+        "status": "received",
+        "usage": {
+          "prompt_token_count": 7082,
+          "candidates_token_count": 598,
+          "thoughts_token_count": 6523,
+          "total_token_count": 14203
+        },
+        "max_output_tokens": 20480,
+        "thinking_level": "HIGH",
+        "transport_attempts": [
+          {
+            "request_number": 1,
+            "http_status": 200
+          }
+        ],
+        "model_version": "gemini-3.6-flash",
+        "candidate_count": 1,
+        "finish_reasons": [
+          "STOP"
+        ],
+        "elapsed_ms": 24778
+      }
+    ],
+    "usage": {
+      "prompt_token_count": 7082,
+      "candidates_token_count": 598,
+      "thoughts_token_count": 6523,
+      "total_token_count": 14203
+    },
+    "physical_requests": 1,
+    "media_requests": 0,
+    "elapsed_ms": 24778
+  },
+  {
+    "repeat": 2,
+    "video": "leftbox",
+    "target_category": "object_placed",
+    "target_delegated": true,
+    "delegated": [
+      {
+        "id": "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+        "category": "object_placed"
+      },
+      {
+        "id": "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+        "category": "person_moved"
+      },
+      {
+        "id": "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+        "category": "person_moved"
+      },
+      {
+        "id": "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8",
+        "category": "person_moved"
+      }
+    ],
+    "feedback_round": false,
+    "runtime_enforced": false,
+    "dispositions": [
+      {
+        "id": "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-d347e83b807a6d90c2231636f6540031a0bb0e9b0b58f1c809c74502cd737115",
+        "status": "deferred",
+        "reason": "Exceeds candidate capacity limit; deferred routine appearance observation."
+      },
+      {
+        "id": "observation-e0df9ba31726d6900868e106bbf69e04bccae163e04c80adf53e460ae3a033b9",
+        "status": "deferred",
+        "reason": "Exceeds candidate capacity limit; deferred routine appearance observation."
+      },
+      {
+        "id": "observation-afd1ace155c470432e6e206811fea14e851fd1880fe085b7e60988fbed33b40a",
+        "status": "deferred",
+        "reason": "Exceeds candidate capacity limit; deferred routine appearance observation."
+      },
+      {
+        "id": "observation-c40e05e29b2a0f24e8a30b33f737449ed17e03d51779b84252d50a570e24dc0f",
+        "status": "deferred",
+        "reason": "Exceeds candidate capacity limit; deferred routine movement observation."
+      }
+    ],
+    "investigation_trace": [
+      {
+        "actor": "investigation",
+        "action": "decision",
+        "reason": "delegate: Delegated the high-priority security object placement event first, followed by key movement observations within the max candidate limit of 4, while deferring remaining routine appearance and movement observations.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "investigation",
+        "action": "triage",
+        "reason": "Recorded observation dispositions.",
+        "observation_ids": [
+          "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+          "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+          "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+          "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8",
+          "observation-d347e83b807a6d90c2231636f6540031a0bb0e9b0b58f1c809c74502cd737115",
+          "observation-e0df9ba31726d6900868e106bbf69e04bccae163e04c80adf53e460ae3a033b9",
+          "observation-afd1ace155c470432e6e206811fea14e851fd1880fe085b7e60988fbed33b40a",
+          "observation-c40e05e29b2a0f24e8a30b33f737449ed17e03d51779b84252d50a570e24dc0f"
+        ],
+        "recipient": null,
+        "details": {
+          "dispositions": [
+            {
+              "id": "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-d347e83b807a6d90c2231636f6540031a0bb0e9b0b58f1c809c74502cd737115",
+              "status": "deferred",
+              "reason": "Exceeds candidate capacity limit; deferred routine appearance observation."
+            },
+            {
+              "id": "observation-e0df9ba31726d6900868e106bbf69e04bccae163e04c80adf53e460ae3a033b9",
+              "status": "deferred",
+              "reason": "Exceeds candidate capacity limit; deferred routine appearance observation."
+            },
+            {
+              "id": "observation-afd1ace155c470432e6e206811fea14e851fd1880fe085b7e60988fbed33b40a",
+              "status": "deferred",
+              "reason": "Exceeds candidate capacity limit; deferred routine appearance observation."
+            },
+            {
+              "id": "observation-c40e05e29b2a0f24e8a30b33f737449ed17e03d51779b84252d50a570e24dc0f",
+              "status": "deferred",
+              "reason": "Exceeds candidate capacity limit; deferred routine movement observation."
+            }
+          ],
+          "omitted_ids": []
+        }
+      },
+      {
+        "actor": "investigation",
+        "action": "delegate",
+        "reason": "Sent candidate evidence to verification.",
+        "observation_ids": [
+          "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+          "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+          "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+          "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8"
+        ],
+        "recipient": "verification",
+        "details": null
+      }
+    ],
+    "role_calls": [
+      {
+        "role": "investigation",
+        "model": "gemini-3.6-flash",
+        "status": "received",
+        "usage": {
+          "prompt_token_count": 7082,
+          "candidates_token_count": 617,
+          "thoughts_token_count": 3823,
+          "cached_content_token_count": 5673,
+          "total_token_count": 11522
+        },
+        "max_output_tokens": 20480,
+        "thinking_level": "HIGH",
+        "transport_attempts": [
+          {
+            "request_number": 1,
+            "http_status": 200
+          }
+        ],
+        "model_version": "gemini-3.6-flash",
+        "candidate_count": 1,
+        "finish_reasons": [
+          "STOP"
+        ],
+        "elapsed_ms": 20054
+      }
+    ],
+    "usage": {
+      "prompt_token_count": 7082,
+      "candidates_token_count": 617,
+      "thoughts_token_count": 3823,
+      "cached_content_token_count": 5673,
+      "total_token_count": 11522
+    },
+    "physical_requests": 1,
+    "media_requests": 0,
+    "elapsed_ms": 20054
+  },
+  {
+    "repeat": 3,
+    "video": "leftbox",
+    "target_category": "object_placed",
+    "target_delegated": true,
+    "delegated": [
+      {
+        "id": "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+        "category": "object_placed"
+      },
+      {
+        "id": "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+        "category": "person_moved"
+      },
+      {
+        "id": "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+        "category": "person_moved"
+      },
+      {
+        "id": "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8",
+        "category": "person_moved"
+      }
+    ],
+    "feedback_round": false,
+    "runtime_enforced": false,
+    "dispositions": [
+      {
+        "id": "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-d347e83b807a6d90c2231636f6540031a0bb0e9b0b58f1c809c74502cd737115",
+        "status": "excluded",
+        "reason": "Candidate limit reached; background appearance is secondary."
+      },
+      {
+        "id": "observation-e0df9ba31726d6900868e106bbf69e04bccae163e04c80adf53e460ae3a033b9",
+        "status": "excluded",
+        "reason": "Candidate limit reached; appearance corresponds to delegated movement observation."
+      },
+      {
+        "id": "observation-afd1ace155c470432e6e206811fea14e851fd1880fe085b7e60988fbed33b40a",
+        "status": "excluded",
+        "reason": "Candidate limit reached; background corridor appearance."
+      },
+      {
+        "id": "observation-c40e05e29b2a0f24e8a30b33f737449ed17e03d51779b84252d50a570e24dc0f",
+        "status": "excluded",
+        "reason": "Candidate limit reached; secondary routine movement."
+      }
+    ],
+    "investigation_trace": [
+      {
+        "actor": "investigation",
+        "action": "decision",
+        "reason": "delegate: Delegated the security-relevant object placement event first, followed by primary person movement observations across intervals, excluding remaining routine events due to candidate budget limits.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "investigation",
+        "action": "triage",
+        "reason": "Recorded observation dispositions.",
+        "observation_ids": [
+          "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+          "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+          "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+          "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8",
+          "observation-d347e83b807a6d90c2231636f6540031a0bb0e9b0b58f1c809c74502cd737115",
+          "observation-e0df9ba31726d6900868e106bbf69e04bccae163e04c80adf53e460ae3a033b9",
+          "observation-afd1ace155c470432e6e206811fea14e851fd1880fe085b7e60988fbed33b40a",
+          "observation-c40e05e29b2a0f24e8a30b33f737449ed17e03d51779b84252d50a570e24dc0f"
+        ],
+        "recipient": null,
+        "details": {
+          "dispositions": [
+            {
+              "id": "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-d347e83b807a6d90c2231636f6540031a0bb0e9b0b58f1c809c74502cd737115",
+              "status": "excluded",
+              "reason": "Candidate limit reached; background appearance is secondary."
+            },
+            {
+              "id": "observation-e0df9ba31726d6900868e106bbf69e04bccae163e04c80adf53e460ae3a033b9",
+              "status": "excluded",
+              "reason": "Candidate limit reached; appearance corresponds to delegated movement observation."
+            },
+            {
+              "id": "observation-afd1ace155c470432e6e206811fea14e851fd1880fe085b7e60988fbed33b40a",
+              "status": "excluded",
+              "reason": "Candidate limit reached; background corridor appearance."
+            },
+            {
+              "id": "observation-c40e05e29b2a0f24e8a30b33f737449ed17e03d51779b84252d50a570e24dc0f",
+              "status": "excluded",
+              "reason": "Candidate limit reached; secondary routine movement."
+            }
+          ],
+          "omitted_ids": []
+        }
+      },
+      {
+        "actor": "investigation",
+        "action": "delegate",
+        "reason": "Sent candidate evidence to verification.",
+        "observation_ids": [
+          "observation-1c53af580d1c0b015b2ccdbbfb28409ca6548ca3f9a4f3459129594a3ad136e2",
+          "observation-1591e06ef5715b747665e29d7d26341a4a637355197e0027eb06e3c0e96e1627",
+          "observation-2dac802ec8eb37343ae63aa45a61389d5b4ee97be0bdf50c9a66c24bb0f6a25b",
+          "observation-182d281fc55bd96cba665eb6a70e67c76393ebfb30ee017ac60bba6834ce7ed8"
+        ],
+        "recipient": "verification",
+        "details": null
+      }
+    ],
+    "role_calls": [
+      {
+        "role": "investigation",
+        "model": "gemini-3.6-flash",
+        "status": "received",
+        "usage": {
+          "prompt_token_count": 7082,
+          "candidates_token_count": 599,
+          "thoughts_token_count": 6867,
+          "cached_content_token_count": 5673,
+          "total_token_count": 14548
+        },
+        "max_output_tokens": 20480,
+        "thinking_level": "HIGH",
+        "transport_attempts": [
+          {
+            "request_number": 1,
+            "http_status": 200
+          }
+        ],
+        "model_version": "gemini-3.6-flash",
+        "candidate_count": 1,
+        "finish_reasons": [
+          "STOP"
+        ],
+        "elapsed_ms": 32299
+      }
+    ],
+    "usage": {
+      "prompt_token_count": 7082,
+      "candidates_token_count": 599,
+      "thoughts_token_count": 6867,
+      "cached_content_token_count": 5673,
+      "total_token_count": 14548
+    },
+    "physical_requests": 1,
+    "media_requests": 0,
+    "elapsed_ms": 32299
+  },
+  {
+    "repeat": 1,
+    "video": "fall",
+    "target_category": "person_fell",
+    "target_delegated": true,
+    "delegated": [
+      {
+        "id": "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+        "category": "person_fell"
+      },
+      {
+        "id": "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+        "category": "person_moved"
+      },
+      {
+        "id": "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+        "category": "person_moved"
+      },
+      {
+        "id": "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc",
+        "category": "person_moved"
+      }
+    ],
+    "feedback_round": false,
+    "runtime_enforced": false,
+    "dispositions": [
+      {
+        "id": "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-365a8550215c7b1ec62834ee37fbec59fa79e7bbd5aedb3f5f8eeaf36cdc5c47",
+        "status": "deferred",
+        "reason": "Deferred due to candidate slot limit."
+      },
+      {
+        "id": "observation-3db0963ebf1c5276cdcc8dfb25e792cbacfad6e3ed0855efb4af7202907cc999",
+        "status": "excluded",
+        "reason": "Excluded due to inconclusive evidence of an event."
+      },
+      {
+        "id": "observation-a6c96e9d42d7bc59ad52ce403b554ca4f7096dd6152798e9687c2f0662759506",
+        "status": "deferred",
+        "reason": "Deferred due to candidate slot limit."
+      }
+    ],
+    "investigation_trace": [
+      {
+        "actor": "investigation",
+        "action": "decision",
+        "reason": "delegate: Delegating the security-relevant person fall event first, followed by key person movement events up to the candidate limit, while disposing of the remaining observations.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "investigation",
+        "action": "triage",
+        "reason": "Recorded observation dispositions.",
+        "observation_ids": [
+          "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+          "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+          "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+          "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc",
+          "observation-365a8550215c7b1ec62834ee37fbec59fa79e7bbd5aedb3f5f8eeaf36cdc5c47",
+          "observation-3db0963ebf1c5276cdcc8dfb25e792cbacfad6e3ed0855efb4af7202907cc999",
+          "observation-a6c96e9d42d7bc59ad52ce403b554ca4f7096dd6152798e9687c2f0662759506"
+        ],
+        "recipient": null,
+        "details": {
+          "dispositions": [
+            {
+              "id": "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-365a8550215c7b1ec62834ee37fbec59fa79e7bbd5aedb3f5f8eeaf36cdc5c47",
+              "status": "deferred",
+              "reason": "Deferred due to candidate slot limit."
+            },
+            {
+              "id": "observation-3db0963ebf1c5276cdcc8dfb25e792cbacfad6e3ed0855efb4af7202907cc999",
+              "status": "excluded",
+              "reason": "Excluded due to inconclusive evidence of an event."
+            },
+            {
+              "id": "observation-a6c96e9d42d7bc59ad52ce403b554ca4f7096dd6152798e9687c2f0662759506",
+              "status": "deferred",
+              "reason": "Deferred due to candidate slot limit."
+            }
+          ],
+          "omitted_ids": []
+        }
+      },
+      {
+        "actor": "investigation",
+        "action": "delegate",
+        "reason": "Sent candidate evidence to verification.",
+        "observation_ids": [
+          "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+          "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+          "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+          "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc"
+        ],
+        "recipient": "verification",
+        "details": null
+      }
+    ],
+    "role_calls": [
+      {
+        "role": "investigation",
+        "model": "gemini-3.6-flash",
+        "status": "received",
+        "usage": {
+          "prompt_token_count": 5879,
+          "candidates_token_count": 509,
+          "thoughts_token_count": 3932,
+          "total_token_count": 10320
+        },
+        "max_output_tokens": 20480,
+        "thinking_level": "HIGH",
+        "transport_attempts": [
+          {
+            "request_number": 1,
+            "http_status": 200
+          }
+        ],
+        "model_version": "gemini-3.6-flash",
+        "candidate_count": 1,
+        "finish_reasons": [
+          "STOP"
+        ],
+        "elapsed_ms": 17049
+      }
+    ],
+    "usage": {
+      "prompt_token_count": 5879,
+      "candidates_token_count": 509,
+      "thoughts_token_count": 3932,
+      "total_token_count": 10320
+    },
+    "physical_requests": 1,
+    "media_requests": 0,
+    "elapsed_ms": 17049
+  },
+  {
+    "repeat": 2,
+    "video": "fall",
+    "target_category": "person_fell",
+    "target_delegated": true,
+    "delegated": [
+      {
+        "id": "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+        "category": "person_fell"
+      },
+      {
+        "id": "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+        "category": "person_moved"
+      },
+      {
+        "id": "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+        "category": "person_moved"
+      },
+      {
+        "id": "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc",
+        "category": "person_moved"
+      }
+    ],
+    "feedback_round": false,
+    "runtime_enforced": false,
+    "dispositions": [
+      {
+        "id": "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-365a8550215c7b1ec62834ee37fbec59fa79e7bbd5aedb3f5f8eeaf36cdc5c47",
+        "status": "excluded",
+        "reason": "Background movement excluded due to candidate limit."
+      },
+      {
+        "id": "observation-3db0963ebf1c5276cdcc8dfb25e792cbacfad6e3ed0855efb4af7202907cc999",
+        "status": "excluded",
+        "reason": "Inconclusive evidence of fall event."
+      },
+      {
+        "id": "observation-a6c96e9d42d7bc59ad52ce403b554ca4f7096dd6152798e9687c2f0662759506",
+        "status": "excluded",
+        "reason": "Initial appearance prior to movement excluded to stay within candidate limit."
+      }
+    ],
+    "investigation_trace": [
+      {
+        "actor": "investigation",
+        "action": "decision",
+        "reason": "delegate: Delegated the critical person_fell security-relevant event first, followed by primary movement observations within budget limit, while excluding secondary and inconclusive observations.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "investigation",
+        "action": "triage",
+        "reason": "Recorded observation dispositions.",
+        "observation_ids": [
+          "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+          "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+          "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+          "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc",
+          "observation-365a8550215c7b1ec62834ee37fbec59fa79e7bbd5aedb3f5f8eeaf36cdc5c47",
+          "observation-3db0963ebf1c5276cdcc8dfb25e792cbacfad6e3ed0855efb4af7202907cc999",
+          "observation-a6c96e9d42d7bc59ad52ce403b554ca4f7096dd6152798e9687c2f0662759506"
+        ],
+        "recipient": null,
+        "details": {
+          "dispositions": [
+            {
+              "id": "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-365a8550215c7b1ec62834ee37fbec59fa79e7bbd5aedb3f5f8eeaf36cdc5c47",
+              "status": "excluded",
+              "reason": "Background movement excluded due to candidate limit."
+            },
+            {
+              "id": "observation-3db0963ebf1c5276cdcc8dfb25e792cbacfad6e3ed0855efb4af7202907cc999",
+              "status": "excluded",
+              "reason": "Inconclusive evidence of fall event."
+            },
+            {
+              "id": "observation-a6c96e9d42d7bc59ad52ce403b554ca4f7096dd6152798e9687c2f0662759506",
+              "status": "excluded",
+              "reason": "Initial appearance prior to movement excluded to stay within candidate limit."
+            }
+          ],
+          "omitted_ids": []
+        }
+      },
+      {
+        "actor": "investigation",
+        "action": "delegate",
+        "reason": "Sent candidate evidence to verification.",
+        "observation_ids": [
+          "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+          "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+          "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+          "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc"
+        ],
+        "recipient": "verification",
+        "details": null
+      }
+    ],
+    "role_calls": [
+      {
+        "role": "investigation",
+        "model": "gemini-3.6-flash",
+        "status": "received",
+        "usage": {
+          "prompt_token_count": 5879,
+          "candidates_token_count": 513,
+          "thoughts_token_count": 4527,
+          "cached_content_token_count": 4503,
+          "total_token_count": 10919
+        },
+        "max_output_tokens": 20480,
+        "thinking_level": "HIGH",
+        "transport_attempts": [
+          {
+            "request_number": 1,
+            "http_status": 200
+          }
+        ],
+        "model_version": "gemini-3.6-flash",
+        "candidate_count": 1,
+        "finish_reasons": [
+          "STOP"
+        ],
+        "elapsed_ms": 23922
+      }
+    ],
+    "usage": {
+      "prompt_token_count": 5879,
+      "candidates_token_count": 513,
+      "thoughts_token_count": 4527,
+      "cached_content_token_count": 4503,
+      "total_token_count": 10919
+    },
+    "physical_requests": 1,
+    "media_requests": 0,
+    "elapsed_ms": 23922
+  },
+  {
+    "repeat": 3,
+    "video": "fall",
+    "target_category": "person_fell",
+    "target_delegated": true,
+    "delegated": [
+      {
+        "id": "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+        "category": "person_fell"
+      },
+      {
+        "id": "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+        "category": "person_moved"
+      },
+      {
+        "id": "observation-365a8550215c7b1ec62834ee37fbec59fa79e7bbd5aedb3f5f8eeaf36cdc5c47",
+        "category": "person_moved"
+      },
+      {
+        "id": "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+        "category": "person_moved"
+      }
+    ],
+    "feedback_round": false,
+    "runtime_enforced": false,
+    "dispositions": [
+      {
+        "id": "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-365a8550215c7b1ec62834ee37fbec59fa79e7bbd5aedb3f5f8eeaf36cdc5c47",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+        "status": "delegated"
+      },
+      {
+        "id": "observation-3db0963ebf1c5276cdcc8dfb25e792cbacfad6e3ed0855efb4af7202907cc999",
+        "status": "excluded",
+        "reason": "Category represents insufficient evidence of an event."
+      },
+      {
+        "id": "observation-a6c96e9d42d7bc59ad52ce403b554ca4f7096dd6152798e9687c2f0662759506",
+        "status": "deferred",
+        "reason": "Delegation limit reached."
+      },
+      {
+        "id": "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc",
+        "status": "deferred",
+        "reason": "Delegation limit reached."
+      }
+    ],
+    "investigation_trace": [
+      {
+        "actor": "investigation",
+        "action": "decision",
+        "reason": "delegate: Prioritized security-relevant person_fell event candidate first, then delegated distinct movement candidates up to the candidate budget.",
+        "observation_ids": [],
+        "recipient": null,
+        "details": null
+      },
+      {
+        "actor": "investigation",
+        "action": "triage",
+        "reason": "Recorded observation dispositions.",
+        "observation_ids": [
+          "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+          "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+          "observation-365a8550215c7b1ec62834ee37fbec59fa79e7bbd5aedb3f5f8eeaf36cdc5c47",
+          "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+          "observation-3db0963ebf1c5276cdcc8dfb25e792cbacfad6e3ed0855efb4af7202907cc999",
+          "observation-a6c96e9d42d7bc59ad52ce403b554ca4f7096dd6152798e9687c2f0662759506",
+          "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc"
+        ],
+        "recipient": null,
+        "details": {
+          "dispositions": [
+            {
+              "id": "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-365a8550215c7b1ec62834ee37fbec59fa79e7bbd5aedb3f5f8eeaf36cdc5c47",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546",
+              "status": "delegated"
+            },
+            {
+              "id": "observation-3db0963ebf1c5276cdcc8dfb25e792cbacfad6e3ed0855efb4af7202907cc999",
+              "status": "excluded",
+              "reason": "Category represents insufficient evidence of an event."
+            },
+            {
+              "id": "observation-a6c96e9d42d7bc59ad52ce403b554ca4f7096dd6152798e9687c2f0662759506",
+              "status": "deferred",
+              "reason": "Delegation limit reached."
+            },
+            {
+              "id": "observation-df211aac3f1d4da911273a4cd110b0e67319b3da46b0a6e4d5d8c43c6e48b8dc",
+              "status": "deferred",
+              "reason": "Delegation limit reached."
+            }
+          ],
+          "omitted_ids": []
+        }
+      },
+      {
+        "actor": "investigation",
+        "action": "delegate",
+        "reason": "Sent candidate evidence to verification.",
+        "observation_ids": [
+          "observation-869879802a93aa40c1fd170a9d1eb57e8ba2497e8b3c52f5c2ee68d664d79593",
+          "observation-5960d531da9b5c4ce54d16110c322cf75ddfed7f0035b44b674d9739af1ddd8d",
+          "observation-365a8550215c7b1ec62834ee37fbec59fa79e7bbd5aedb3f5f8eeaf36cdc5c47",
+          "observation-c06b21992bf723448337f56a373957379772008198b8a1fdb0881abe95908546"
+        ],
+        "recipient": "verification",
+        "details": null
+      }
+    ],
+    "role_calls": [
+      {
+        "role": "investigation",
+        "model": "gemini-3.6-flash",
+        "status": "received",
+        "usage": {
+          "prompt_token_count": 5879,
+          "candidates_token_count": 498,
+          "thoughts_token_count": 5938,
+          "cached_content_token_count": 4503,
+          "total_token_count": 12315
+        },
+        "max_output_tokens": 20480,
+        "thinking_level": "HIGH",
+        "transport_attempts": [
+          {
+            "request_number": 1,
+            "http_status": 200
+          }
+        ],
+        "model_version": "gemini-3.6-flash",
+        "candidate_count": 1,
+        "finish_reasons": [
+          "STOP"
+        ],
+        "elapsed_ms": 27576
+      }
+    ],
+    "usage": {
+      "prompt_token_count": 5879,
+      "candidates_token_count": 498,
+      "thoughts_token_count": 5938,
+      "cached_content_token_count": 4503,
+      "total_token_count": 12315
+    },
+    "physical_requests": 1,
+    "media_requests": 0,
+    "elapsed_ms": 27576
+  }
+]

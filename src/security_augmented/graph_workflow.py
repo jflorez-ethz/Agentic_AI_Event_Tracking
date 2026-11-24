@@ -28,6 +28,7 @@ class GraphState(TypedDict, total=False):
     events: tuple[Event, ...]
     iterations: int
     recoveries: int
+    rejection_recoveries: int
     decision: dict | None
     feedback: ValidationFeedback | None
     tool_result: dict | None
@@ -62,7 +63,7 @@ def run_graph(run: AgentRun, initial: tuple[Finding, ...]) -> tuple[tuple[Event,
         task = candidate if isinstance(candidate, RelationalTask) else None
         return {
             "candidate": run.initial[task.observation_ids[0]] if task else candidate, "task": task, "pending": tuple(pending),
-            "iterations": 0, "recoveries": 0, "feedback": None, "tool_result": None,
+            "iterations": 0, "recoveries": 0, "rejection_recoveries": 0, "feedback": None, "tool_result": None,
             "relation": None, "attempted_relations": (), "task_findings": (),
             "route": "decide",
         }
@@ -93,9 +94,10 @@ def run_graph(run: AgentRun, initial: tuple[Finding, ...]) -> tuple[tuple[Event,
             "route": "inspect" if action["action"] == "inspect" else "validate",
         }
 
-    def recover(state, action, code, reason, **details):
+    def recover(state, action, code, reason, *, counter="recoveries", **details):
         seed = state["candidate"].observation.id
-        remaining = run.budget.max_recoveries - state["recoveries"]
+        limit = run.budget.max_rejection_recoveries if counter == "rejection_recoveries" else run.budget.max_recoveries
+        remaining = limit - state.get(counter, 0)
         feedback: ValidationFeedback = {
             "code": code, "reason": reason, "candidate_id": seed,
             "remaining_recoveries": max(0, remaining - 1), **details,
@@ -105,7 +107,7 @@ def run_graph(run: AgentRun, initial: tuple[Finding, ...]) -> tuple[tuple[Event,
             return {"feedback": feedback, **unresolved(state, reason)}
         run.log("verification", "recovery", "Return validation feedback for a new evidence decision.",
                 (seed,), details=feedback)
-        return {"feedback": feedback, "recoveries": state["recoveries"] + 1, "route": "decide"}
+        return {"feedback": feedback, counter: state.get(counter, 0) + 1, "route": "decide"}
 
     def validate(state: GraphState):
         candidate = state["candidate"]
@@ -151,8 +153,16 @@ def run_graph(run: AgentRun, initial: tuple[Finding, ...]) -> tuple[tuple[Event,
             result = run.reinspect(state["candidate"], state["decision"], scoped, publish=False, task=task)
         except InspectionRejected as exc:
             decision = state["decision"]
+            guidance = {}
+            if exc.code == "no_new_frames":
+                fine = run.sampled_indices is not None and (task.id if task else state["candidate"].observation.id) not in run.fine_tasks
+                guidance["guidance"] = (
+                    "Every 500 ms sample in this interval is already in the evidence. "
+                    + ("For new source frames request sampling_step_ms=250 with a visual_question over at most five "
+                       "seconds, or shift the interval start so the 500 ms grid falls between existing samples."
+                       if fine else "Shift the interval start so the 500 ms grid falls between existing samples."))
             return recover(
-                state, "inspection_rejected", exc.code, str(exc),
+                state, "inspection_rejected", exc.code, str(exc), counter="rejection_recoveries", **guidance,
                 requested={key: decision[key] if type(decision[key]) in (int, str) else None
                            for key in ("modality", "start_us", "end_us", "sampling_step_ms") if key in decision},
                 constraints={

@@ -21,7 +21,9 @@ def test_rejected_inspection_recovery_and_candidate_isolation(mode, expected_com
                   for i, times in (("a", (10, 20)), ("b", (40, 50)), ("c", (60, 70))))
     initial = (ArchivedInspection("fixture", "frames", Interval(0, 100), "success", seeds),)
     budget = Budget(max_candidates=3, max_inspections=2, max_agent_calls=5 if mode == "budget" else 9,
-                    max_verification_iterations=5, max_recoveries=1 if mode == "exhaust" else 2, max_failures=1)
+                    max_verification_iterations=5, max_recoveries=1 if mode == "exhaust" else 2, max_failures=1,
+                    # "exhaust": no recovery round is left for the rejected inspection.
+                    max_rejection_recoveries=0 if mode == "exhaust" else 1)
     inspect = {"action": "inspect", "modality": "frames", "start_us": 10, "end_us": 21}
     calls = []
     requests = []

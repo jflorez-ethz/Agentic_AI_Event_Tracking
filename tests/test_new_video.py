@@ -416,6 +416,8 @@ def test_archived_scan_triggers_automatic_investigation_without_question(tmp_pat
         str(source), "--live", "--authorize-footage-transfer", "--authorize-observation-text-transfer",
         "--frame-step-ms", "500", "--max-candidates", "4", "--max-inspections", "4",
         "--max-agent-calls", "14", "--max-verification-iterations", "4", "--output", str(output),
+        # This scenario exercises Investigation's search path, which needs hidden observations.
+        "--max-visible-observations", "8",
     ]) == 0
     result = json.loads((output / "analysis.json").read_text())
     analysis = result["analysis"]

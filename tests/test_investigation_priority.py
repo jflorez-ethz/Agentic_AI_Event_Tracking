@@ -119,17 +119,19 @@ def test_late_priority_observation_stays_visible_to_investigation():
     analysis, _ = archived(LEFTBOX)
     (box,) = by_category(analysis, "object_placed")
     routine = [f for f in analysis.observations if f.observation.id != box]
-    extra = [Finding(replace(f.observation, id=f"{f.observation.id}-copy{n}"), f.citation)
-             for n, f in enumerate(routine[:3])]
+    extra = [Finding(replace(f.observation, id=f"{f.observation.id}-copy{n}-{k}"), f.citation)
+             for k in range(2) for n, f in enumerate(routine)]
     ordered = [*routine, *extra, next(f for f in analysis.observations if f.observation.id == box)]
-    assert len(ordered) == 11 and ordered[-1].observation.id == box
+    assert len(ordered) == 22 and ordered[-1].observation.id == box
     seen = []
 
     def decide(role, context):
         seen.append(context)
         return None
-    run = AgentRun(analysis.video, decide, None, Budget(max_candidates=4, max_agent_calls=14), [])
+    run = AgentRun(analysis.video, decide, None,
+                   Budget(max_candidates=4, max_agent_calls=14, max_visible_observations=16), [])
     run.investigate(tuple(ordered))
     evidence = seen[0]["evidence"]
-    assert len(evidence) == 8 and box in evidence
+    assert len(evidence) == 16 and box in evidence  # max_visible_observations
+    assert list(evidence)[:15] == [f.observation.id for f in ordered[:15]]  # routine fill stays chronological
     assert seen[0]["additional_evidence_available"] is True

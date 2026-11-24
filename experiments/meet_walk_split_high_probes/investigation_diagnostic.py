@@ -191,7 +191,8 @@ def main(argv=None):
     save(args.output, "result.json", {
         "physical_http_requests": budget.sent,
         "request": request_metadata,
-        "role_call": decider.calls[0],
+        # The archived decision text (decision/raw_text) is excluded like the rest of the response.
+        "role_call": {k: v for k, v in decider.calls[0].items() if k not in ("decision", "raw_text")},
         "provider_errors": errors,
         "decision_action": action if action in ("search", "delegate") else None,
         "decision_validation": validation,

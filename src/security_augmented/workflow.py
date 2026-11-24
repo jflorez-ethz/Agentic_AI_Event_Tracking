@@ -57,6 +57,10 @@ class Budget:
     max_verification_iterations: int | None = None
     max_failures: int | None = None
     max_recoveries: int = 1
+    # Inspections rejected before dispatch cost no provider call and get their own feedback round.
+    max_rejection_recoveries: int = 1
+    # Initial observations shown to Investigation before it must search (archived runs used 8).
+    max_visible_observations: int = 8
 
     def __post_init__(self):
         optional = {"max_verification_iterations", "max_failures"}
@@ -942,6 +946,8 @@ def main(argv=None):
     parser.add_argument("--max-candidates", type=int, default=2, help="Live verification queue limit (default: 2)")
     parser.add_argument("--max-inspections", type=int, default=2, help="Live targeted inspection limit (default: 2)")
     parser.add_argument("--max-agent-calls", type=int, default=6, help="Live logical reasoning call limit (default: 6)")
+    parser.add_argument("--max-visible-observations", type=int, default=16,
+                        help="Initial observations shown to Investigation before it must search (default: 16)")
     parser.add_argument("--max-verification-iterations", type=int, default=3,
                         help="Live verification decisions per candidate (default: 3)")
     parser.add_argument("--output", type=Path, help="New directory for report and trace")
@@ -988,6 +994,7 @@ def main(argv=None):
                 max_initial_windows=args.max_initial_windows, max_candidates=args.max_candidates,
                 max_inspections=args.max_inspections, max_agent_calls=args.max_agent_calls,
                 max_verification_iterations=args.max_verification_iterations, max_retrievals=1, max_failures=1,
+                max_visible_observations=args.max_visible_observations,
             )
             models = AgentModels.from_env(role_default="gemini-3.6-flash")
             physical_limit = budget.max_agent_calls * ROLE_HTTP_ATTEMPTS
