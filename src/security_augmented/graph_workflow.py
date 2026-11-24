@@ -3,7 +3,7 @@
 from dataclasses import asdict
 from typing import NotRequired, TypedDict
 
-from .agents import AgentRun, InspectionRejected, MAX_INSPECTION_SPAN_US, RelationalTask
+from .agents import AgentRun, InspectionRejected, MAX_INSPECTION_SPAN_US, RelationalTask, inspection_scope
 from .evidence import CorroborationRequired
 from .contracts import Interval, VideoError
 from .workflow import Event, Finding, RelationalFinding
@@ -169,7 +169,7 @@ def run_graph(run: AgentRun, initial: tuple[Finding, ...]) -> tuple[tuple[Event,
                     "modalities": ["frames"] if task else ["frames", "clip"],
                     "source_duration_us": run.video.duration_us,
                     **({"within_task": asdict(task.interval)} if task
-                       else {"must_overlap": asdict(state["candidate"].citation.interval)}),
+                       else {"must_overlap": asdict(inspection_scope(state["candidate"], run.video.duration_us))}),
                     "max_span_us": MAX_INSPECTION_SPAN_US,
                     "remaining_inspections": run.budget.max_inspections - run.inspections,
                 },

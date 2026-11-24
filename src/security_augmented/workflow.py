@@ -934,6 +934,30 @@ def _interactive(analysis):
         print(json.dumps(asdict(analysis.ask(question, inspect_missing=True)), indent=2))
 
 
+MAX_INITIAL_WINDOWS = 12  # safety cap for --max-initial-windows auto: two minutes at 10 s windows
+
+
+def initial_window_count(duration_us, window_us, cap=MAX_INITIAL_WINDOWS):
+    """Windows needed to scan the whole source, capped; a longer source stays a partial scan."""
+    if duration_us <= 0 or window_us <= 0:
+        raise VideoError("Duration and window must be positive")
+    return min(cap, -(-duration_us // window_us))
+
+
+def _window_count(value):
+    import argparse
+
+    if value == "auto":
+        return value
+    try:
+        count = int(value)
+    except ValueError:
+        raise argparse.ArgumentTypeError("use 'auto' or an integer") from None
+    if not 1 <= count <= MAX_INITIAL_WINDOWS:
+        raise argparse.ArgumentTypeError(f"use 'auto' or 1-{MAX_INITIAL_WINDOWS}")
+    return count
+
+
 def _write_alert_sheet(path, alerts):
     """Blank labelling sheet: what, when and which frames only, without the model's verdict or reasons."""
     import csv
@@ -959,7 +983,9 @@ def main(argv=None):
     mode.add_argument("--live", action="store_true", help="Analyze new video with Gemini and LangGraph")
     parser.add_argument("--authorize-footage-transfer", action="store_true")
     parser.add_argument("--authorize-observation-text-transfer", action="store_true")
-    parser.add_argument("--max-initial-windows", type=int, choices=range(1, 4), default=3)
+    parser.add_argument("--max-initial-windows", type=_window_count, default="auto",
+                        help=f"Initial scan windows: 'auto' covers the whole video (at most {MAX_INITIAL_WINDOWS}), "
+                             f"or 1-{MAX_INITIAL_WINDOWS} (default: auto)")
     parser.add_argument("--window-seconds", type=int, choices=range(1, 11), default=10)
     parser.add_argument("--frame-step-ms", type=int, default=InspectionPlan().frame_step_us // 1000,
                         help="Initial scan step in milliseconds (default: 500). Verification may request 250 ms for a targeted frame inspection.")
@@ -1012,8 +1038,11 @@ def main(argv=None):
             from .agents import AgentModels, GeminiDecider, ROLE_HTTP_ATTEMPTS
 
             plan = InspectionPlan(args.window_seconds * 1_000_000, args.frame_step_ms * 1000)
+            windows = args.max_initial_windows
+            if windows == "auto":
+                windows = initial_window_count(ingest(args.video).duration_us, plan.window_us)
             budget = Budget(
-                max_initial_windows=args.max_initial_windows, max_candidates=args.max_candidates,
+                max_initial_windows=windows, max_candidates=args.max_candidates,
                 max_inspections=args.max_inspections, max_agent_calls=args.max_agent_calls,
                 max_verification_iterations=args.max_verification_iterations, max_retrievals=1, max_failures=1,
                 max_visible_observations=args.max_visible_observations,

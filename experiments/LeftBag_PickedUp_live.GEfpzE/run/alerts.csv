@@ -1,0 +1,2 @@
+alert_id,category,start_s,end_s,frames_to_review,operator_label,operator_note
+alert-d30fa6f334b7194998eede3f3301534a4c668d360c52e9a945bc12f792898416,object_placed,18.0397,19.519712,445@18.04s 457@18.52s 470@19.04s 482@19.52s,,

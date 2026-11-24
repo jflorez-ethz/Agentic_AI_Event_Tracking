@@ -422,6 +422,9 @@ def test_archived_scan_triggers_automatic_investigation_without_question(tmp_pat
     result = json.loads((output / "analysis.json").read_text())
     analysis = result["analysis"]
     assert result["answers"] == []
+    # No --max-initial-windows: "auto" scans the whole 25 s source in three 10 s windows.
+    assert analysis["budget"]["max_initial_windows"] == 3
+    assert result["max_physical_media_requests"] == 3 + 4
     # WalkSplit has no security observation: an empty review queue and a header-only labelling sheet.
     assert analysis["review"]["counts"]["needs_review"] == 0
     assert (output / "alerts.csv").read_text().splitlines() == [
