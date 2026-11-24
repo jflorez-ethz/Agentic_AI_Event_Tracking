@@ -96,3 +96,19 @@ Sensitivity to T, with the other settings frozen:
 | 20 s | 0/4 | 0 | 0 |
 
 The result is stable from 5 to 12 s. The only failure is placement timing. The detector dates a placement from the first moment the area differs from the background, which happens while the person carrying the bag arrives. The XML marks the bag once it lies alone. A principled change would date placement from when the area first matches the object's own final appearance, but that would be a third attempt and would also need the external dataset. Review sheets are in `sheets_trial2/`, the blind sheet in `blind_review_trial2.csv`, and the results in `results_trial2.json`.
+
+## Blind test of trial 2 on an unseen video: LeftBag_AtChair (failed)
+
+This is the first test on a video never used during development. `blind_test.py` runs `pilot.detect` unchanged (commit 353dd40), with the frozen parameters read from `results_trial2.json` and the fixed slow-model settings `pilot.TRIAL2_FIXED`. The person filter is computed for this video with the same RF-DETR Nano settings as `persons.py`. `LeftBag_AtChair.mpg` ingests cleanly: 1,116 frames, 44.8 s, XML up to frame 1,114. The criterion is unchanged.
+
+Ground truth: bag placed at 18.36 s at (68,127), removed at 37.20 s.
+
+**Result: 0/2 events found (placement missed, removal missed), 0 false alarms, 0 candidates.** CPU time was 5.2 s per video minute.
+
+Diagnosis, without changing anything:
+
+1. **Contrast.** The bag is placed against the existing dark furniture between the orange chairs. The slow model calls the bag area foreground for only 0.2 s of its 17.5 s stay, and the longest unbroken static run is 0.1 s, against T = 8 s.
+2. **Size.** The XML bag box is about 99 px² (median, 63–130), below the frozen 120 px² minimum, so it would have been filtered even if seen.
+3. **Person filter.** An RF-DETR person box overlaps the bag area in 57% of the sampled frames during the stay. This is probably furniture detected as a person, as seen in the tracking pilot; that cause is not verified.
+
+Conclusion: the trial 2 settings do not generalise to a small, dark object placed against dark furniture. This held-out result counts more than the 3/4 on development videos. No re-tuning was done on this video, and any further change must be validated on yet another unseen dataset.

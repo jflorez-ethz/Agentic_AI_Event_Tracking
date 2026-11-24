@@ -1,0 +1,62 @@
+{
+  "video": "LeftBag_AtChair.mpg",
+  "xml": "LeftBag_AtChair.xml",
+  "frozen": {
+    "static_s": 8,
+    "min_area": 120,
+    "warmup_s": 5.0,
+    "ghost_ratio": 1.0
+  },
+  "fixed": {
+    "slow_s": 600.0,
+    "shadows": false
+  },
+  "duration_s": 44.76,
+  "ground_truth": [
+    {
+      "type": "placed",
+      "t": 18.3597,
+      "xy": [
+        68,
+        127
+      ],
+      "object": "6"
+    },
+    {
+      "type": "removed",
+      "t": 37.1997,
+      "xy": [
+        80,
+        123
+      ],
+      "object": "6"
+    }
+  ],
+  "events": [
+    {
+      "type": "placed",
+      "t": 18.3597,
+      "xy": [
+        68,
+        127
+      ],
+      "object": "6",
+      "found": false,
+      "time_error_s": null
+    },
+    {
+      "type": "removed",
+      "t": 37.1997,
+      "xy": [
+        80,
+        123
+      ],
+      "object": "6",
+      "found": false,
+      "time_error_s": null
+    }
+  ],
+  "false_alarms": [],
+  "candidates": [],
+  "cpu_s_per_video_min": 5.2
+}
