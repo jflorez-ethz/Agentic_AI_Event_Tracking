@@ -1,0 +1,65 @@
+{
+  "clips": {
+    "Walk2": {
+      "x2": {
+        "recall": 0.8133561643835616,
+        "recall_small": 0.13846153846153847,
+        "precision04": 0.9404255319148936,
+        "n_small": 65,
+        "n": 584
+      },
+      "x3": {
+        "recall": 0.7602739726027398,
+        "recall_small": 0.1076923076923077,
+        "precision04": 0.9815668202764977,
+        "n_small": 65,
+        "n": 584
+      },
+      "x2_rerun_identical_to_cache": true
+    },
+    "LeftBag": {
+      "x2": {
+        "recall": 0.9042553191489362,
+        "recall_small": 0.16666666666666666,
+        "precision04": 0.8068535825545171,
+        "n_small": 12,
+        "n": 376
+      },
+      "x3": {
+        "recall": 0.8617021276595744,
+        "recall_small": 0.25,
+        "precision04": 0.8803088803088803,
+        "n_small": 12,
+        "n": 376
+      },
+      "x2_rerun_identical_to_cache": true
+    }
+  },
+  "pooled": {
+    "x2": {
+      "recall": 0.8489583333333334,
+      "recall_small": 0.14285714285714285,
+      "precision04": 0.8633093525179856,
+      "n_small": 77,
+      "n": 960
+    },
+    "x3": {
+      "recall": 0.8,
+      "recall_small": 0.12987012987012986,
+      "precision04": 0.9264705882352942,
+      "n_small": 77,
+      "n": 960
+    },
+    "delta_recall_small": -0.012987012987012991
+  },
+  "gate": {
+    "delta_recall_small>=0.15": false,
+    "precision04_x3>=0.60": true,
+    "pass": false
+  },
+  "cpu_s_per_video_min": {
+    "x2": 135.9,
+    "x3": 375.0,
+    "x2_cached_run": 173.7
+  }
+}

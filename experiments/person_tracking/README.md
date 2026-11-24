@@ -108,4 +108,8 @@ Offline only, on saved caches; nothing was tuned on these clips. Scripts, logs a
 - **Meet_WalkTogether2.** From 13.0 to 15.4 s (frame 340) the two walkers get one merged box; at 15.6 s (frame 390) track 4, which followed XML 2, resumes on XML 1, the only real identity swap. From 22.4 to 33.2 s both stand at the desk, are not detected, and a desk box that moves ≥ 12 px survives the static filter (55 identity false positives) ([meet2_swap.png](heldout_audit/diagnosis/meet2_swap.png)).
 - **Detection vs association (counterfactual inputs, same frozen tracker).** Pooled IDF1: XML boxes 0.976; XML boxes only where Nano detects the person 0.550; same with Nano's confidence 0.465; Nano's true-positive boxes 0.466; full Nano 0.385. Missed people dominate, then low confidence on true detections and fixed-object false positives. The split depends on order (the same false positives cost only 0.03 when added to the full oracle), so it is not an exact causal decomposition ([ladder.txt](heldout_audit/diagnosis/ladder.txt)).
 
+### Nano ×3 follow-up: stopped at the entry gate
+
+A protocol written beforehand tested the same Nano at 864×1152. On the tuning clips, small-person recall went from 0.143 to 0.130 (+0.15 was required), so the unseen clips were not run. CPU time rose from 135.9 to 375.0 s per video minute. [Result](nano_x3/RESULT.md).
+
 The [held-out results](results_heldout_nano_576x768.json) record the frozen settings, source URLs and SHA-256 hashes, per-track counts, and detector timings. Footage and annotations courtesy of the EC Funded CAVIAR project / IST 2001 37540.
