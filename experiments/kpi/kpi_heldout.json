@@ -1,0 +1,4037 @@
+{
+ "dev_totals": {
+  "confirmed": 3,
+  "events": 8,
+  "false": 5,
+  "false_per_h": 45.68081267099661,
+  "found": 7,
+  "human": 12,
+  "live_max": 143.8023,
+  "live_median": 62.6203,
+  "minutes": 6.567308733333333,
+  "perception_usd_min": 0.20564930854324281,
+  "real": 7,
+  "unscorable": 0,
+  "usd_launch": 2.2446465,
+  "valid": [
+   86,
+   86
+  ],
+  "videos": 9
+ },
+ "failures": [],
+ "system_version": {
+  "commit": "bd6046fb6fd472370156de069dc8094313126b20",
+  "last_src_change": "8376171 Perception possible_category: route unclear security suspicions to review",
+  "pyproject_blob": "fb505586c8aed8f40c048b3dea6fda9de58a1617",
+  "rule": "A run counts only if run_all_kpi.sh recorded this src tree and pyproject blob with no uncommitted change in src/ or pyproject.toml. Later commits that touch neither keep the same version.",
+  "src_tree": "7e86f3b1ed98be02a630496ef485a4b5ca6e366e"
+ },
+ "totals": {
+  "confirmed": 2,
+  "events": 5,
+  "false": 5,
+  "false_per_h": 62.46561961702523,
+  "found": 3,
+  "human": 8,
+  "live_max": 144.061,
+  "live_median": 134.9793,
+  "minutes": 4.802641866666666,
+  "perception_usd_min": 0.1979143513900433,
+  "real": 3,
+  "unscorable": 0,
+  "usd_launch": 1.6968915,
+  "valid": [
+   40,
+   40
+  ],
+  "videos": 7
+ },
+ "videos": {
+  "Browse1.mpg": {
+   "cost": {
+    "launch": {
+     "agents": 0.09556875000000001,
+     "perception": 0.12953775
+    },
+    "standard": {
+     "agents": 0.19113750000000002,
+     "perception": 0.2590755
+    },
+    "tokens": {
+     "agents": [
+      23705,
+      20744
+     ],
+     "perception": [
+      114202,
+      11703
+     ]
+    },
+    "unpriced_calls": 0
+   },
+   "lenient": {
+    "cited": 1,
+    "duration_s": 41.999712,
+    "events": [],
+    "false_items": [
+     {
+      "category": "person_fell",
+      "end": 8.519701,
+      "frames": [
+       {
+        "display_index": 182,
+        "id": "frame-7e7ad4e066b864ee44012a8bcc5e05792887a0fa2aaf0639c0959ab4f4ed2625",
+        "label": "F16",
+        "source_time_us": 7519700
+       },
+       {
+        "display_index": 195,
+        "id": "frame-89fb9d6f382fc1284c34ac0f429a48b49eb3d8e6bced575b7d594d57bfb936fe",
+        "label": "F17",
+        "source_time_us": 8039700
+       },
+       {
+        "display_index": 207,
+        "id": "frame-306377678063926b7caeb25fd4e019d0558bb54e412f3a0fe8fc094beb02e382",
+        "label": "F18",
+        "source_time_us": 8519700
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-f5babebcd2e3fc9a8621df04ce095a08b0de393360888691dbcf366597c3af16",
+      "start": 7.5197
+     }
+    ],
+    "found": [],
+    "items": [
+     {
+      "category": "person_fell",
+      "end": 8.519701,
+      "frames": [
+       {
+        "display_index": 182,
+        "id": "frame-7e7ad4e066b864ee44012a8bcc5e05792887a0fa2aaf0639c0959ab4f4ed2625",
+        "label": "F16",
+        "source_time_us": 7519700
+       },
+       {
+        "display_index": 195,
+        "id": "frame-89fb9d6f382fc1284c34ac0f429a48b49eb3d8e6bced575b7d594d57bfb936fe",
+        "label": "F17",
+        "source_time_us": 8039700
+       },
+       {
+        "display_index": 207,
+        "id": "frame-306377678063926b7caeb25fd4e019d0558bb54e412f3a0fe8fc094beb02e382",
+        "label": "F18",
+        "source_time_us": 8519700
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-f5babebcd2e3fc9a8621df04ce095a08b0de393360888691dbcf366597c3af16",
+      "start": 7.5197
+     }
+    ],
+    "lead": "person_moved",
+    "missed": [],
+    "raw_alerts": 1,
+    "report_produced": true,
+    "scanned_s": 41.999712,
+    "unscorable_items": [],
+    "valid_citations": [
+     3,
+     3
+    ]
+   },
+   "main": {
+    "cited": 1,
+    "duration_s": 41.999712,
+    "events": [],
+    "false_items": [
+     {
+      "category": "person_fell",
+      "end": 8.519701,
+      "frames": [
+       {
+        "display_index": 182,
+        "id": "frame-7e7ad4e066b864ee44012a8bcc5e05792887a0fa2aaf0639c0959ab4f4ed2625",
+        "label": "F16",
+        "source_time_us": 7519700
+       },
+       {
+        "display_index": 195,
+        "id": "frame-89fb9d6f382fc1284c34ac0f429a48b49eb3d8e6bced575b7d594d57bfb936fe",
+        "label": "F17",
+        "source_time_us": 8039700
+       },
+       {
+        "display_index": 207,
+        "id": "frame-306377678063926b7caeb25fd4e019d0558bb54e412f3a0fe8fc094beb02e382",
+        "label": "F18",
+        "source_time_us": 8519700
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-f5babebcd2e3fc9a8621df04ce095a08b0de393360888691dbcf366597c3af16",
+      "start": 7.5197
+     }
+    ],
+    "found": [],
+    "items": [
+     {
+      "category": "person_fell",
+      "end": 8.519701,
+      "frames": [
+       {
+        "display_index": 182,
+        "id": "frame-7e7ad4e066b864ee44012a8bcc5e05792887a0fa2aaf0639c0959ab4f4ed2625",
+        "label": "F16",
+        "source_time_us": 7519700
+       },
+       {
+        "display_index": 195,
+        "id": "frame-89fb9d6f382fc1284c34ac0f429a48b49eb3d8e6bced575b7d594d57bfb936fe",
+        "label": "F17",
+        "source_time_us": 8039700
+       },
+       {
+        "display_index": 207,
+        "id": "frame-306377678063926b7caeb25fd4e019d0558bb54e412f3a0fe8fc094beb02e382",
+        "label": "F18",
+        "source_time_us": 8519700
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-f5babebcd2e3fc9a8621df04ce095a08b0de393360888691dbcf366597c3af16",
+      "start": 7.5197
+     }
+    ],
+    "lead": "person_moved",
+    "missed": [],
+    "raw_alerts": 1,
+    "report_produced": true,
+    "scanned_s": 41.999712,
+    "unscorable_items": [],
+    "valid_citations": [
+     3,
+     3
+    ]
+   },
+   "run": "experiments/kpi_runs_heldout/20261124T183212-053b81f/Browse1",
+   "sensitivity": {
+    "1.0": {
+     "cited": 1,
+     "duration_s": 41.999712,
+     "events": [],
+     "false_items": [
+      {
+       "category": "person_fell",
+       "end": 8.519701,
+       "frames": [
+        {
+         "display_index": 182,
+         "id": "frame-7e7ad4e066b864ee44012a8bcc5e05792887a0fa2aaf0639c0959ab4f4ed2625",
+         "label": "F16",
+         "source_time_us": 7519700
+        },
+        {
+         "display_index": 195,
+         "id": "frame-89fb9d6f382fc1284c34ac0f429a48b49eb3d8e6bced575b7d594d57bfb936fe",
+         "label": "F17",
+         "source_time_us": 8039700
+        },
+        {
+         "display_index": 207,
+         "id": "frame-306377678063926b7caeb25fd4e019d0558bb54e412f3a0fe8fc094beb02e382",
+         "label": "F18",
+         "source_time_us": 8519700
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-f5babebcd2e3fc9a8621df04ce095a08b0de393360888691dbcf366597c3af16",
+       "start": 7.5197
+      }
+     ],
+     "found": [],
+     "items": [
+      {
+       "category": "person_fell",
+       "end": 8.519701,
+       "frames": [
+        {
+         "display_index": 182,
+         "id": "frame-7e7ad4e066b864ee44012a8bcc5e05792887a0fa2aaf0639c0959ab4f4ed2625",
+         "label": "F16",
+         "source_time_us": 7519700
+        },
+        {
+         "display_index": 195,
+         "id": "frame-89fb9d6f382fc1284c34ac0f429a48b49eb3d8e6bced575b7d594d57bfb936fe",
+         "label": "F17",
+         "source_time_us": 8039700
+        },
+        {
+         "display_index": 207,
+         "id": "frame-306377678063926b7caeb25fd4e019d0558bb54e412f3a0fe8fc094beb02e382",
+         "label": "F18",
+         "source_time_us": 8519700
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-f5babebcd2e3fc9a8621df04ce095a08b0de393360888691dbcf366597c3af16",
+       "start": 7.5197
+      }
+     ],
+     "lead": "person_moved",
+     "missed": [],
+     "raw_alerts": 1,
+     "report_produced": true,
+     "scanned_s": 41.999712,
+     "unscorable_items": [],
+     "valid_citations": [
+      3,
+      3
+     ]
+    },
+    "5.0": {
+     "cited": 1,
+     "duration_s": 41.999712,
+     "events": [],
+     "false_items": [
+      {
+       "category": "person_fell",
+       "end": 8.519701,
+       "frames": [
+        {
+         "display_index": 182,
+         "id": "frame-7e7ad4e066b864ee44012a8bcc5e05792887a0fa2aaf0639c0959ab4f4ed2625",
+         "label": "F16",
+         "source_time_us": 7519700
+        },
+        {
+         "display_index": 195,
+         "id": "frame-89fb9d6f382fc1284c34ac0f429a48b49eb3d8e6bced575b7d594d57bfb936fe",
+         "label": "F17",
+         "source_time_us": 8039700
+        },
+        {
+         "display_index": 207,
+         "id": "frame-306377678063926b7caeb25fd4e019d0558bb54e412f3a0fe8fc094beb02e382",
+         "label": "F18",
+         "source_time_us": 8519700
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-f5babebcd2e3fc9a8621df04ce095a08b0de393360888691dbcf366597c3af16",
+       "start": 7.5197
+      }
+     ],
+     "found": [],
+     "items": [
+      {
+       "category": "person_fell",
+       "end": 8.519701,
+       "frames": [
+        {
+         "display_index": 182,
+         "id": "frame-7e7ad4e066b864ee44012a8bcc5e05792887a0fa2aaf0639c0959ab4f4ed2625",
+         "label": "F16",
+         "source_time_us": 7519700
+        },
+        {
+         "display_index": 195,
+         "id": "frame-89fb9d6f382fc1284c34ac0f429a48b49eb3d8e6bced575b7d594d57bfb936fe",
+         "label": "F17",
+         "source_time_us": 8039700
+        },
+        {
+         "display_index": 207,
+         "id": "frame-306377678063926b7caeb25fd4e019d0558bb54e412f3a0fe8fc094beb02e382",
+         "label": "F18",
+         "source_time_us": 8519700
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-f5babebcd2e3fc9a8621df04ce095a08b0de393360888691dbcf366597c3af16",
+       "start": 7.5197
+      }
+     ],
+     "lead": "person_moved",
+     "missed": [],
+     "raw_alerts": 1,
+     "report_produced": true,
+     "scanned_s": 41.999712,
+     "unscorable_items": [],
+     "valid_citations": [
+      3,
+      3
+     ]
+    }
+   },
+   "wall_s": 204.73423147201538
+  },
+  "Browse2_pts.mkv": {
+   "cost": {
+    "launch": {
+     "agents": 0.0931005,
+     "perception": 0.11805075
+    },
+    "standard": {
+     "agents": 0.186201,
+     "perception": 0.2361015
+    },
+    "tokens": {
+     "agents": [
+      23699,
+      20087
+     ],
+     "perception": [
+      89076,
+      13665
+     ]
+    },
+    "unpriced_calls": 0
+   },
+   "lenient": {
+    "cited": 1,
+    "duration_s": 35.28,
+    "events": [],
+    "false_items": [
+     {
+      "category": "object_placed",
+      "end": 31.000001,
+      "frames": [
+       {
+        "display_index": 744,
+        "id": "frame-f3b62213d9e71a9264db79c7c0d37adc95227b282183f607f55b0bd362cb6578",
+        "label": "F1",
+        "source_time_us": 30000000
+       },
+       {
+        "display_index": 757,
+        "id": "frame-4f09b3847470648310e45ca932d5527ef50f6d8773f08d3cc5cceaf487f9344e",
+        "label": "F2",
+        "source_time_us": 30520000
+       },
+       {
+        "display_index": 769,
+        "id": "frame-a89a0a48abb45833340644a417e5a84cd19fbfe3fffe067cf9400cd141a9594c",
+        "label": "F3",
+        "source_time_us": 31000000
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-d4109a6b8ff864e33158747229d1d2d8103341ea15497e6fe84a2d241ed9e13e",
+      "start": 30.0
+     }
+    ],
+    "found": [],
+    "items": [
+     {
+      "category": "object_placed",
+      "end": 31.000001,
+      "frames": [
+       {
+        "display_index": 744,
+        "id": "frame-f3b62213d9e71a9264db79c7c0d37adc95227b282183f607f55b0bd362cb6578",
+        "label": "F1",
+        "source_time_us": 30000000
+       },
+       {
+        "display_index": 757,
+        "id": "frame-4f09b3847470648310e45ca932d5527ef50f6d8773f08d3cc5cceaf487f9344e",
+        "label": "F2",
+        "source_time_us": 30520000
+       },
+       {
+        "display_index": 769,
+        "id": "frame-a89a0a48abb45833340644a417e5a84cd19fbfe3fffe067cf9400cd141a9594c",
+        "label": "F3",
+        "source_time_us": 31000000
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-d4109a6b8ff864e33158747229d1d2d8103341ea15497e6fe84a2d241ed9e13e",
+      "start": 30.0
+     }
+    ],
+    "lead": "person_moved",
+    "missed": [],
+    "raw_alerts": 1,
+    "report_produced": true,
+    "scanned_s": 35.28,
+    "unscorable_items": [],
+    "valid_citations": [
+     3,
+     3
+    ]
+   },
+   "main": {
+    "cited": 1,
+    "duration_s": 35.28,
+    "events": [],
+    "false_items": [
+     {
+      "category": "object_placed",
+      "end": 31.000001,
+      "frames": [
+       {
+        "display_index": 744,
+        "id": "frame-f3b62213d9e71a9264db79c7c0d37adc95227b282183f607f55b0bd362cb6578",
+        "label": "F1",
+        "source_time_us": 30000000
+       },
+       {
+        "display_index": 757,
+        "id": "frame-4f09b3847470648310e45ca932d5527ef50f6d8773f08d3cc5cceaf487f9344e",
+        "label": "F2",
+        "source_time_us": 30520000
+       },
+       {
+        "display_index": 769,
+        "id": "frame-a89a0a48abb45833340644a417e5a84cd19fbfe3fffe067cf9400cd141a9594c",
+        "label": "F3",
+        "source_time_us": 31000000
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-d4109a6b8ff864e33158747229d1d2d8103341ea15497e6fe84a2d241ed9e13e",
+      "start": 30.0
+     }
+    ],
+    "found": [],
+    "items": [
+     {
+      "category": "object_placed",
+      "end": 31.000001,
+      "frames": [
+       {
+        "display_index": 744,
+        "id": "frame-f3b62213d9e71a9264db79c7c0d37adc95227b282183f607f55b0bd362cb6578",
+        "label": "F1",
+        "source_time_us": 30000000
+       },
+       {
+        "display_index": 757,
+        "id": "frame-4f09b3847470648310e45ca932d5527ef50f6d8773f08d3cc5cceaf487f9344e",
+        "label": "F2",
+        "source_time_us": 30520000
+       },
+       {
+        "display_index": 769,
+        "id": "frame-a89a0a48abb45833340644a417e5a84cd19fbfe3fffe067cf9400cd141a9594c",
+        "label": "F3",
+        "source_time_us": 31000000
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-d4109a6b8ff864e33158747229d1d2d8103341ea15497e6fe84a2d241ed9e13e",
+      "start": 30.0
+     }
+    ],
+    "lead": "person_moved",
+    "missed": [],
+    "raw_alerts": 1,
+    "report_produced": true,
+    "scanned_s": 35.28,
+    "unscorable_items": [],
+    "valid_citations": [
+     3,
+     3
+    ]
+   },
+   "run": "experiments/kpi_runs_heldout/20261124T183212-053b81f/Browse2",
+   "sensitivity": {
+    "1.0": {
+     "cited": 1,
+     "duration_s": 35.28,
+     "events": [],
+     "false_items": [
+      {
+       "category": "object_placed",
+       "end": 31.000001,
+       "frames": [
+        {
+         "display_index": 744,
+         "id": "frame-f3b62213d9e71a9264db79c7c0d37adc95227b282183f607f55b0bd362cb6578",
+         "label": "F1",
+         "source_time_us": 30000000
+        },
+        {
+         "display_index": 757,
+         "id": "frame-4f09b3847470648310e45ca932d5527ef50f6d8773f08d3cc5cceaf487f9344e",
+         "label": "F2",
+         "source_time_us": 30520000
+        },
+        {
+         "display_index": 769,
+         "id": "frame-a89a0a48abb45833340644a417e5a84cd19fbfe3fffe067cf9400cd141a9594c",
+         "label": "F3",
+         "source_time_us": 31000000
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-d4109a6b8ff864e33158747229d1d2d8103341ea15497e6fe84a2d241ed9e13e",
+       "start": 30.0
+      }
+     ],
+     "found": [],
+     "items": [
+      {
+       "category": "object_placed",
+       "end": 31.000001,
+       "frames": [
+        {
+         "display_index": 744,
+         "id": "frame-f3b62213d9e71a9264db79c7c0d37adc95227b282183f607f55b0bd362cb6578",
+         "label": "F1",
+         "source_time_us": 30000000
+        },
+        {
+         "display_index": 757,
+         "id": "frame-4f09b3847470648310e45ca932d5527ef50f6d8773f08d3cc5cceaf487f9344e",
+         "label": "F2",
+         "source_time_us": 30520000
+        },
+        {
+         "display_index": 769,
+         "id": "frame-a89a0a48abb45833340644a417e5a84cd19fbfe3fffe067cf9400cd141a9594c",
+         "label": "F3",
+         "source_time_us": 31000000
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-d4109a6b8ff864e33158747229d1d2d8103341ea15497e6fe84a2d241ed9e13e",
+       "start": 30.0
+      }
+     ],
+     "lead": "person_moved",
+     "missed": [],
+     "raw_alerts": 1,
+     "report_produced": true,
+     "scanned_s": 35.28,
+     "unscorable_items": [],
+     "valid_citations": [
+      3,
+      3
+     ]
+    },
+    "5.0": {
+     "cited": 1,
+     "duration_s": 35.28,
+     "events": [],
+     "false_items": [
+      {
+       "category": "object_placed",
+       "end": 31.000001,
+       "frames": [
+        {
+         "display_index": 744,
+         "id": "frame-f3b62213d9e71a9264db79c7c0d37adc95227b282183f607f55b0bd362cb6578",
+         "label": "F1",
+         "source_time_us": 30000000
+        },
+        {
+         "display_index": 757,
+         "id": "frame-4f09b3847470648310e45ca932d5527ef50f6d8773f08d3cc5cceaf487f9344e",
+         "label": "F2",
+         "source_time_us": 30520000
+        },
+        {
+         "display_index": 769,
+         "id": "frame-a89a0a48abb45833340644a417e5a84cd19fbfe3fffe067cf9400cd141a9594c",
+         "label": "F3",
+         "source_time_us": 31000000
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-d4109a6b8ff864e33158747229d1d2d8103341ea15497e6fe84a2d241ed9e13e",
+       "start": 30.0
+      }
+     ],
+     "found": [],
+     "items": [
+      {
+       "category": "object_placed",
+       "end": 31.000001,
+       "frames": [
+        {
+         "display_index": 744,
+         "id": "frame-f3b62213d9e71a9264db79c7c0d37adc95227b282183f607f55b0bd362cb6578",
+         "label": "F1",
+         "source_time_us": 30000000
+        },
+        {
+         "display_index": 757,
+         "id": "frame-4f09b3847470648310e45ca932d5527ef50f6d8773f08d3cc5cceaf487f9344e",
+         "label": "F2",
+         "source_time_us": 30520000
+        },
+        {
+         "display_index": 769,
+         "id": "frame-a89a0a48abb45833340644a417e5a84cd19fbfe3fffe067cf9400cd141a9594c",
+         "label": "F3",
+         "source_time_us": 31000000
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-d4109a6b8ff864e33158747229d1d2d8103341ea15497e6fe84a2d241ed9e13e",
+       "start": 30.0
+      }
+     ],
+     "lead": "person_moved",
+     "missed": [],
+     "raw_alerts": 1,
+     "report_produced": true,
+     "scanned_s": 35.28,
+     "unscorable_items": [],
+     "valid_citations": [
+      3,
+      3
+     ]
+    }
+   },
+   "wall_s": 230.11184096336365
+  },
+  "Fight_OneManDown.mpg": {
+   "cost": {
+    "launch": {
+     "agents": 0.088836,
+     "perception": 0.11808450000000001
+    },
+    "standard": {
+     "agents": 0.177672,
+     "perception": 0.23616900000000002
+    },
+    "tokens": {
+     "agents": [
+      22413,
+      19207
+     ],
+     "perception": [
+      90151,
+      13459
+     ]
+    },
+    "unpriced_calls": 0
+   },
+   "lenient": {
+    "cited": 2,
+    "duration_s": 38.5997,
+    "events": [
+     {
+      "category": "person_fell",
+      "frame": 338,
+      "source": "xml",
+      "t": 13.7197
+     }
+    ],
+    "false_items": [
+     {
+      "category": "person_fell",
+      "end": 22.039701,
+      "frames": [
+       {
+        "display_index": 496,
+        "id": "frame-912aa53f5801e67962726fc7ca9bdb045402f35b1e53fbe4d2aaba802cb7e58c",
+        "label": "F1",
+        "source_time_us": 20039700
+       },
+       {
+        "display_index": 508,
+        "id": "frame-f84205747d5ce39b0ffe5a2ae7610c636b329abb6703d802447762644f7fefe6",
+        "label": "F2",
+        "source_time_us": 20519700
+       },
+       {
+        "display_index": 546,
+        "id": "frame-b49493edd07b2673db234ce51b012ed60b34f5aec318e65b89d0495c22a782a3",
+        "label": "F5",
+        "source_time_us": 22039700
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-5356d9c1e1510c163217cea16e981493a6cd669bd96ada9ee616209f09c97054",
+      "start": 20.0397
+     }
+    ],
+    "found": [
+     {
+      "as_run_s": 167.66500000000002,
+      "event": {
+       "category": "person_fell",
+       "frame": 338,
+       "source": "xml",
+       "t": 13.7197
+      },
+      "item": {
+       "category": "person_fell",
+       "end": 14.519701,
+       "frames": [
+        {
+         "display_index": 246,
+         "id": "frame-14abdd62505a102fc53ec611d4bf1f310eaadd9492a7753ad54ef9a1e467005a",
+         "pts": 903573,
+         "rgb24_sha256": "d3c8e129f4d7364a366267740120fe7d993373de22896fa5e31ae22916762d2e",
+         "schema_version": 1,
+         "source_time_us": 10039700
+        },
+        {
+         "display_index": 258,
+         "id": "frame-451519d75ec55835de144971c6ece39d61093630112cc34133c1de564156d6b7",
+         "pts": 946773,
+         "rgb24_sha256": "5c2fdfcc2c64cae84dcdd879e7e33a071db5b40f9da37a0affdffa18ae8d13f3",
+         "schema_version": 1,
+         "source_time_us": 10519700
+        },
+        {
+         "display_index": 271,
+         "id": "frame-939e34fd2f1cb6416e5ccc51a0c4c6c7b8518d6aa89422e5bc9bff9ec250c387",
+         "pts": 993573,
+         "rgb24_sha256": "ab913c6abdd87bf65cd9d32f64afd259d7a717868ad35d339432c0c9da0fe43a",
+         "schema_version": 1,
+         "source_time_us": 11039700
+        },
+        {
+         "display_index": 283,
+         "id": "frame-a6b7786e69b3bc28c488ea99c85c591372dddf08d5d347cbad421e1a64dcb5b1",
+         "pts": 1036773,
+         "rgb24_sha256": "3834a8cb0f8e7ed10c017ce43c3f05c65dab42408a33e102670c68704f8dea8e",
+         "schema_version": 1,
+         "source_time_us": 11519700
+        },
+        {
+         "display_index": 296,
+         "id": "frame-b63c2316b7ad2362c6a01f7af9118ef805da650b585ddc5b7f1576aa74e59295",
+         "pts": 1083573,
+         "rgb24_sha256": "68ba3378483247c77b5504054e9ccea13348d483d3b0f3464aacd882379d01c6",
+         "schema_version": 1,
+         "source_time_us": 12039700
+        },
+        {
+         "display_index": 308,
+         "id": "frame-a6b3ba7fb6b44baf2ca2277164a781cb9d351b30df5e733562e651eeddf11450",
+         "pts": 1126773,
+         "rgb24_sha256": "a7dfd5c888164175d54b3fdfb724146648936a26c186a373e40e189f3f1b0e93",
+         "schema_version": 1,
+         "source_time_us": 12519700
+        },
+        {
+         "display_index": 321,
+         "id": "frame-8d9e495430b9ed09e2414b964fd3bad4820e7ccbda40148fe58fe641d9dc1aa6",
+         "pts": 1173573,
+         "rgb24_sha256": "0121c904351188159f5476dd5f999f9dbe6f64cfac6ba2b288966416758d8512",
+         "schema_version": 1,
+         "source_time_us": 13039700
+        },
+        {
+         "display_index": 333,
+         "id": "frame-20943f5c3a1c80e941419c97c398be6d8d99d1b90da9ff876a775aa8787470fe",
+         "pts": 1216773,
+         "rgb24_sha256": "80e45b7d7a9aa9809b9013aba5cc5c78aa40f66d7a89a77c7a5a338daff3af0e",
+         "schema_version": 1,
+         "source_time_us": 13519700
+        },
+        {
+         "display_index": 346,
+         "id": "frame-f8416f93e70df2f5da1b331c8db621f29a37d7b998023a1e451cc61ed58af913",
+         "pts": 1263573,
+         "rgb24_sha256": "30467e3a2f66aadcc046def22b209390c9555e33cfdbea04dd6efec809af1a4b",
+         "schema_version": 1,
+         "source_time_us": 14039700
+        },
+        {
+         "display_index": 358,
+         "id": "frame-3220ffdfa18bfd1e4cc90f9e496cf1479ef1334c69aaacd717c9179b981035aa",
+         "pts": 1306773,
+         "rgb24_sha256": "7adab1efcf34bb995f188cb8d083bc5c58fb6092bf402f52b2005b04cb62ab3a",
+         "schema_version": 1,
+         "source_time_us": 14519700
+        },
+        {
+         "display_index": 371,
+         "id": "frame-ee86377c451eaeae9ecb8dc8b32cda0c3e98b24aea4d3f347b6ab63754fcd89c",
+         "pts": 1353573,
+         "rgb24_sha256": "9888d29b95a4846bb9af54a9e9e6263f90c899602a2d61220dff49e7fb63a623",
+         "schema_version": 1,
+         "source_time_us": 15039700
+        },
+        {
+         "display_index": 383,
+         "id": "frame-fcfc5a9171c899425eafc14fb70fbab007dcf792ed1078416b5504ddeb3a8f41",
+         "pts": 1396773,
+         "rgb24_sha256": "245e249248a9856c32b8fcc1e5417f2bf18f276409143475fb4bcc41c99ff451",
+         "schema_version": 1,
+         "source_time_us": 15519700
+        },
+        {
+         "display_index": 396,
+         "id": "frame-dc46803f3e9eb7bf8b971e45704c4551cd2ff8992f6af3a0cd09c8796dde73a0",
+         "pts": 1443573,
+         "rgb24_sha256": "9ac30e2d0401f6535283565a4d24d316bc6bcf7a54613c1b03b993fa93839532",
+         "schema_version": 1,
+         "source_time_us": 16039700
+        },
+        {
+         "display_index": 408,
+         "id": "frame-520848f054101fb6788980ed98112a9c8c08bf304ddcaacba163f8fdab1d0fba",
+         "pts": 1486773,
+         "rgb24_sha256": "72e9365ddadebe25dec98823400541ac149199ddc54af7a56247e525b5448817",
+         "schema_version": 1,
+         "source_time_us": 16519700
+        },
+        {
+         "display_index": 421,
+         "id": "frame-ec550dba1b2afcf7c965cf89efadb75b0fb0907a3749c3bbc18c2a977f326633",
+         "pts": 1533573,
+         "rgb24_sha256": "586c95e66e5129f99f948bb949cbda041257d26071ccb8d944ef90c7788af91e",
+         "schema_version": 1,
+         "source_time_us": 17039700
+        },
+        {
+         "display_index": 433,
+         "id": "frame-dde4935ace7181e4a029a07690764276b43e0d6de184fa7eab14836519081574",
+         "pts": 1576773,
+         "rgb24_sha256": "21f781fb742de462b4d0b6afe84ad28dce949975110aa2bec2fda16dea3f0bc3",
+         "schema_version": 1,
+         "source_time_us": 17519700
+        },
+        {
+         "display_index": 446,
+         "id": "frame-7dc80329a651c4c523dcfe1b48c6cfd38ec9701df907d28d24450609f7029031",
+         "pts": 1623573,
+         "rgb24_sha256": "3353fcc4fb5be79b6af774f31a2f346c1c9afb4e8513f24b7dfde3064ae382a0",
+         "schema_version": 1,
+         "source_time_us": 18039700
+        },
+        {
+         "display_index": 458,
+         "id": "frame-ab6ddfe2eabf522d20658447441b3aeda30aa1f1ecafac2600cb520fe4072721",
+         "pts": 1666773,
+         "rgb24_sha256": "edcaf96c2c01d96bfcf705075a03b263a2a69c2c362e4393782933969b511d90",
+         "schema_version": 1,
+         "source_time_us": 18519700
+        }
+       ],
+       "kind": "supported",
+       "seed": "observation-3e58a1e676f28174357b64f21acca2fe16cd9a81672b72c2c8ea700f4d2c166d",
+       "start": 12.5197
+      },
+      "live_s": 103.2173,
+      "on_time": true
+     }
+    ],
+    "items": [
+     {
+      "category": "person_fell",
+      "end": 14.519701,
+      "frames": [
+       {
+        "display_index": 246,
+        "id": "frame-14abdd62505a102fc53ec611d4bf1f310eaadd9492a7753ad54ef9a1e467005a",
+        "pts": 903573,
+        "rgb24_sha256": "d3c8e129f4d7364a366267740120fe7d993373de22896fa5e31ae22916762d2e",
+        "schema_version": 1,
+        "source_time_us": 10039700
+       },
+       {
+        "display_index": 258,
+        "id": "frame-451519d75ec55835de144971c6ece39d61093630112cc34133c1de564156d6b7",
+        "pts": 946773,
+        "rgb24_sha256": "5c2fdfcc2c64cae84dcdd879e7e33a071db5b40f9da37a0affdffa18ae8d13f3",
+        "schema_version": 1,
+        "source_time_us": 10519700
+       },
+       {
+        "display_index": 271,
+        "id": "frame-939e34fd2f1cb6416e5ccc51a0c4c6c7b8518d6aa89422e5bc9bff9ec250c387",
+        "pts": 993573,
+        "rgb24_sha256": "ab913c6abdd87bf65cd9d32f64afd259d7a717868ad35d339432c0c9da0fe43a",
+        "schema_version": 1,
+        "source_time_us": 11039700
+       },
+       {
+        "display_index": 283,
+        "id": "frame-a6b7786e69b3bc28c488ea99c85c591372dddf08d5d347cbad421e1a64dcb5b1",
+        "pts": 1036773,
+        "rgb24_sha256": "3834a8cb0f8e7ed10c017ce43c3f05c65dab42408a33e102670c68704f8dea8e",
+        "schema_version": 1,
+        "source_time_us": 11519700
+       },
+       {
+        "display_index": 296,
+        "id": "frame-b63c2316b7ad2362c6a01f7af9118ef805da650b585ddc5b7f1576aa74e59295",
+        "pts": 1083573,
+        "rgb24_sha256": "68ba3378483247c77b5504054e9ccea13348d483d3b0f3464aacd882379d01c6",
+        "schema_version": 1,
+        "source_time_us": 12039700
+       },
+       {
+        "display_index": 308,
+        "id": "frame-a6b3ba7fb6b44baf2ca2277164a781cb9d351b30df5e733562e651eeddf11450",
+        "pts": 1126773,
+        "rgb24_sha256": "a7dfd5c888164175d54b3fdfb724146648936a26c186a373e40e189f3f1b0e93",
+        "schema_version": 1,
+        "source_time_us": 12519700
+       },
+       {
+        "display_index": 321,
+        "id": "frame-8d9e495430b9ed09e2414b964fd3bad4820e7ccbda40148fe58fe641d9dc1aa6",
+        "pts": 1173573,
+        "rgb24_sha256": "0121c904351188159f5476dd5f999f9dbe6f64cfac6ba2b288966416758d8512",
+        "schema_version": 1,
+        "source_time_us": 13039700
+       },
+       {
+        "display_index": 333,
+        "id": "frame-20943f5c3a1c80e941419c97c398be6d8d99d1b90da9ff876a775aa8787470fe",
+        "pts": 1216773,
+        "rgb24_sha256": "80e45b7d7a9aa9809b9013aba5cc5c78aa40f66d7a89a77c7a5a338daff3af0e",
+        "schema_version": 1,
+        "source_time_us": 13519700
+       },
+       {
+        "display_index": 346,
+        "id": "frame-f8416f93e70df2f5da1b331c8db621f29a37d7b998023a1e451cc61ed58af913",
+        "pts": 1263573,
+        "rgb24_sha256": "30467e3a2f66aadcc046def22b209390c9555e33cfdbea04dd6efec809af1a4b",
+        "schema_version": 1,
+        "source_time_us": 14039700
+       },
+       {
+        "display_index": 358,
+        "id": "frame-3220ffdfa18bfd1e4cc90f9e496cf1479ef1334c69aaacd717c9179b981035aa",
+        "pts": 1306773,
+        "rgb24_sha256": "7adab1efcf34bb995f188cb8d083bc5c58fb6092bf402f52b2005b04cb62ab3a",
+        "schema_version": 1,
+        "source_time_us": 14519700
+       },
+       {
+        "display_index": 371,
+        "id": "frame-ee86377c451eaeae9ecb8dc8b32cda0c3e98b24aea4d3f347b6ab63754fcd89c",
+        "pts": 1353573,
+        "rgb24_sha256": "9888d29b95a4846bb9af54a9e9e6263f90c899602a2d61220dff49e7fb63a623",
+        "schema_version": 1,
+        "source_time_us": 15039700
+       },
+       {
+        "display_index": 383,
+        "id": "frame-fcfc5a9171c899425eafc14fb70fbab007dcf792ed1078416b5504ddeb3a8f41",
+        "pts": 1396773,
+        "rgb24_sha256": "245e249248a9856c32b8fcc1e5417f2bf18f276409143475fb4bcc41c99ff451",
+        "schema_version": 1,
+        "source_time_us": 15519700
+       },
+       {
+        "display_index": 396,
+        "id": "frame-dc46803f3e9eb7bf8b971e45704c4551cd2ff8992f6af3a0cd09c8796dde73a0",
+        "pts": 1443573,
+        "rgb24_sha256": "9ac30e2d0401f6535283565a4d24d316bc6bcf7a54613c1b03b993fa93839532",
+        "schema_version": 1,
+        "source_time_us": 16039700
+       },
+       {
+        "display_index": 408,
+        "id": "frame-520848f054101fb6788980ed98112a9c8c08bf304ddcaacba163f8fdab1d0fba",
+        "pts": 1486773,
+        "rgb24_sha256": "72e9365ddadebe25dec98823400541ac149199ddc54af7a56247e525b5448817",
+        "schema_version": 1,
+        "source_time_us": 16519700
+       },
+       {
+        "display_index": 421,
+        "id": "frame-ec550dba1b2afcf7c965cf89efadb75b0fb0907a3749c3bbc18c2a977f326633",
+        "pts": 1533573,
+        "rgb24_sha256": "586c95e66e5129f99f948bb949cbda041257d26071ccb8d944ef90c7788af91e",
+        "schema_version": 1,
+        "source_time_us": 17039700
+       },
+       {
+        "display_index": 433,
+        "id": "frame-dde4935ace7181e4a029a07690764276b43e0d6de184fa7eab14836519081574",
+        "pts": 1576773,
+        "rgb24_sha256": "21f781fb742de462b4d0b6afe84ad28dce949975110aa2bec2fda16dea3f0bc3",
+        "schema_version": 1,
+        "source_time_us": 17519700
+       },
+       {
+        "display_index": 446,
+        "id": "frame-7dc80329a651c4c523dcfe1b48c6cfd38ec9701df907d28d24450609f7029031",
+        "pts": 1623573,
+        "rgb24_sha256": "3353fcc4fb5be79b6af774f31a2f346c1c9afb4e8513f24b7dfde3064ae382a0",
+        "schema_version": 1,
+        "source_time_us": 18039700
+       },
+       {
+        "display_index": 458,
+        "id": "frame-ab6ddfe2eabf522d20658447441b3aeda30aa1f1ecafac2600cb520fe4072721",
+        "pts": 1666773,
+        "rgb24_sha256": "edcaf96c2c01d96bfcf705075a03b263a2a69c2c362e4393782933969b511d90",
+        "schema_version": 1,
+        "source_time_us": 18519700
+       }
+      ],
+      "kind": "supported",
+      "seed": "observation-3e58a1e676f28174357b64f21acca2fe16cd9a81672b72c2c8ea700f4d2c166d",
+      "start": 12.5197
+     },
+     {
+      "category": "person_fell",
+      "end": 22.039701,
+      "frames": [
+       {
+        "display_index": 496,
+        "id": "frame-912aa53f5801e67962726fc7ca9bdb045402f35b1e53fbe4d2aaba802cb7e58c",
+        "label": "F1",
+        "source_time_us": 20039700
+       },
+       {
+        "display_index": 508,
+        "id": "frame-f84205747d5ce39b0ffe5a2ae7610c636b329abb6703d802447762644f7fefe6",
+        "label": "F2",
+        "source_time_us": 20519700
+       },
+       {
+        "display_index": 546,
+        "id": "frame-b49493edd07b2673db234ce51b012ed60b34f5aec318e65b89d0495c22a782a3",
+        "label": "F5",
+        "source_time_us": 22039700
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-5356d9c1e1510c163217cea16e981493a6cd669bd96ada9ee616209f09c97054",
+      "start": 20.0397
+     }
+    ],
+    "lead": "person_fell",
+    "missed": [],
+    "raw_alerts": 2,
+    "report_produced": true,
+    "scanned_s": 38.5997,
+    "unscorable_items": [],
+    "valid_citations": [
+     21,
+     21
+    ]
+   },
+   "main": {
+    "cited": 2,
+    "duration_s": 38.5997,
+    "events": [
+     {
+      "category": "person_fell",
+      "frame": 338,
+      "source": "xml",
+      "t": 13.7197
+     }
+    ],
+    "false_items": [
+     {
+      "category": "person_fell",
+      "end": 22.039701,
+      "frames": [
+       {
+        "display_index": 496,
+        "id": "frame-912aa53f5801e67962726fc7ca9bdb045402f35b1e53fbe4d2aaba802cb7e58c",
+        "label": "F1",
+        "source_time_us": 20039700
+       },
+       {
+        "display_index": 508,
+        "id": "frame-f84205747d5ce39b0ffe5a2ae7610c636b329abb6703d802447762644f7fefe6",
+        "label": "F2",
+        "source_time_us": 20519700
+       },
+       {
+        "display_index": 546,
+        "id": "frame-b49493edd07b2673db234ce51b012ed60b34f5aec318e65b89d0495c22a782a3",
+        "label": "F5",
+        "source_time_us": 22039700
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-5356d9c1e1510c163217cea16e981493a6cd669bd96ada9ee616209f09c97054",
+      "start": 20.0397
+     }
+    ],
+    "found": [
+     {
+      "as_run_s": 167.66500000000002,
+      "event": {
+       "category": "person_fell",
+       "frame": 338,
+       "source": "xml",
+       "t": 13.7197
+      },
+      "item": {
+       "category": "person_fell",
+       "end": 14.519701,
+       "frames": [
+        {
+         "display_index": 246,
+         "id": "frame-14abdd62505a102fc53ec611d4bf1f310eaadd9492a7753ad54ef9a1e467005a",
+         "pts": 903573,
+         "rgb24_sha256": "d3c8e129f4d7364a366267740120fe7d993373de22896fa5e31ae22916762d2e",
+         "schema_version": 1,
+         "source_time_us": 10039700
+        },
+        {
+         "display_index": 258,
+         "id": "frame-451519d75ec55835de144971c6ece39d61093630112cc34133c1de564156d6b7",
+         "pts": 946773,
+         "rgb24_sha256": "5c2fdfcc2c64cae84dcdd879e7e33a071db5b40f9da37a0affdffa18ae8d13f3",
+         "schema_version": 1,
+         "source_time_us": 10519700
+        },
+        {
+         "display_index": 271,
+         "id": "frame-939e34fd2f1cb6416e5ccc51a0c4c6c7b8518d6aa89422e5bc9bff9ec250c387",
+         "pts": 993573,
+         "rgb24_sha256": "ab913c6abdd87bf65cd9d32f64afd259d7a717868ad35d339432c0c9da0fe43a",
+         "schema_version": 1,
+         "source_time_us": 11039700
+        },
+        {
+         "display_index": 283,
+         "id": "frame-a6b7786e69b3bc28c488ea99c85c591372dddf08d5d347cbad421e1a64dcb5b1",
+         "pts": 1036773,
+         "rgb24_sha256": "3834a8cb0f8e7ed10c017ce43c3f05c65dab42408a33e102670c68704f8dea8e",
+         "schema_version": 1,
+         "source_time_us": 11519700
+        },
+        {
+         "display_index": 296,
+         "id": "frame-b63c2316b7ad2362c6a01f7af9118ef805da650b585ddc5b7f1576aa74e59295",
+         "pts": 1083573,
+         "rgb24_sha256": "68ba3378483247c77b5504054e9ccea13348d483d3b0f3464aacd882379d01c6",
+         "schema_version": 1,
+         "source_time_us": 12039700
+        },
+        {
+         "display_index": 308,
+         "id": "frame-a6b3ba7fb6b44baf2ca2277164a781cb9d351b30df5e733562e651eeddf11450",
+         "pts": 1126773,
+         "rgb24_sha256": "a7dfd5c888164175d54b3fdfb724146648936a26c186a373e40e189f3f1b0e93",
+         "schema_version": 1,
+         "source_time_us": 12519700
+        },
+        {
+         "display_index": 321,
+         "id": "frame-8d9e495430b9ed09e2414b964fd3bad4820e7ccbda40148fe58fe641d9dc1aa6",
+         "pts": 1173573,
+         "rgb24_sha256": "0121c904351188159f5476dd5f999f9dbe6f64cfac6ba2b288966416758d8512",
+         "schema_version": 1,
+         "source_time_us": 13039700
+        },
+        {
+         "display_index": 333,
+         "id": "frame-20943f5c3a1c80e941419c97c398be6d8d99d1b90da9ff876a775aa8787470fe",
+         "pts": 1216773,
+         "rgb24_sha256": "80e45b7d7a9aa9809b9013aba5cc5c78aa40f66d7a89a77c7a5a338daff3af0e",
+         "schema_version": 1,
+         "source_time_us": 13519700
+        },
+        {
+         "display_index": 346,
+         "id": "frame-f8416f93e70df2f5da1b331c8db621f29a37d7b998023a1e451cc61ed58af913",
+         "pts": 1263573,
+         "rgb24_sha256": "30467e3a2f66aadcc046def22b209390c9555e33cfdbea04dd6efec809af1a4b",
+         "schema_version": 1,
+         "source_time_us": 14039700
+        },
+        {
+         "display_index": 358,
+         "id": "frame-3220ffdfa18bfd1e4cc90f9e496cf1479ef1334c69aaacd717c9179b981035aa",
+         "pts": 1306773,
+         "rgb24_sha256": "7adab1efcf34bb995f188cb8d083bc5c58fb6092bf402f52b2005b04cb62ab3a",
+         "schema_version": 1,
+         "source_time_us": 14519700
+        },
+        {
+         "display_index": 371,
+         "id": "frame-ee86377c451eaeae9ecb8dc8b32cda0c3e98b24aea4d3f347b6ab63754fcd89c",
+         "pts": 1353573,
+         "rgb24_sha256": "9888d29b95a4846bb9af54a9e9e6263f90c899602a2d61220dff49e7fb63a623",
+         "schema_version": 1,
+         "source_time_us": 15039700
+        },
+        {
+         "display_index": 383,
+         "id": "frame-fcfc5a9171c899425eafc14fb70fbab007dcf792ed1078416b5504ddeb3a8f41",
+         "pts": 1396773,
+         "rgb24_sha256": "245e249248a9856c32b8fcc1e5417f2bf18f276409143475fb4bcc41c99ff451",
+         "schema_version": 1,
+         "source_time_us": 15519700
+        },
+        {
+         "display_index": 396,
+         "id": "frame-dc46803f3e9eb7bf8b971e45704c4551cd2ff8992f6af3a0cd09c8796dde73a0",
+         "pts": 1443573,
+         "rgb24_sha256": "9ac30e2d0401f6535283565a4d24d316bc6bcf7a54613c1b03b993fa93839532",
+         "schema_version": 1,
+         "source_time_us": 16039700
+        },
+        {
+         "display_index": 408,
+         "id": "frame-520848f054101fb6788980ed98112a9c8c08bf304ddcaacba163f8fdab1d0fba",
+         "pts": 1486773,
+         "rgb24_sha256": "72e9365ddadebe25dec98823400541ac149199ddc54af7a56247e525b5448817",
+         "schema_version": 1,
+         "source_time_us": 16519700
+        },
+        {
+         "display_index": 421,
+         "id": "frame-ec550dba1b2afcf7c965cf89efadb75b0fb0907a3749c3bbc18c2a977f326633",
+         "pts": 1533573,
+         "rgb24_sha256": "586c95e66e5129f99f948bb949cbda041257d26071ccb8d944ef90c7788af91e",
+         "schema_version": 1,
+         "source_time_us": 17039700
+        },
+        {
+         "display_index": 433,
+         "id": "frame-dde4935ace7181e4a029a07690764276b43e0d6de184fa7eab14836519081574",
+         "pts": 1576773,
+         "rgb24_sha256": "21f781fb742de462b4d0b6afe84ad28dce949975110aa2bec2fda16dea3f0bc3",
+         "schema_version": 1,
+         "source_time_us": 17519700
+        },
+        {
+         "display_index": 446,
+         "id": "frame-7dc80329a651c4c523dcfe1b48c6cfd38ec9701df907d28d24450609f7029031",
+         "pts": 1623573,
+         "rgb24_sha256": "3353fcc4fb5be79b6af774f31a2f346c1c9afb4e8513f24b7dfde3064ae382a0",
+         "schema_version": 1,
+         "source_time_us": 18039700
+        },
+        {
+         "display_index": 458,
+         "id": "frame-ab6ddfe2eabf522d20658447441b3aeda30aa1f1ecafac2600cb520fe4072721",
+         "pts": 1666773,
+         "rgb24_sha256": "edcaf96c2c01d96bfcf705075a03b263a2a69c2c362e4393782933969b511d90",
+         "schema_version": 1,
+         "source_time_us": 18519700
+        }
+       ],
+       "kind": "supported",
+       "seed": "observation-3e58a1e676f28174357b64f21acca2fe16cd9a81672b72c2c8ea700f4d2c166d",
+       "start": 12.5197
+      },
+      "live_s": 103.2173,
+      "on_time": true
+     }
+    ],
+    "items": [
+     {
+      "category": "person_fell",
+      "end": 14.519701,
+      "frames": [
+       {
+        "display_index": 246,
+        "id": "frame-14abdd62505a102fc53ec611d4bf1f310eaadd9492a7753ad54ef9a1e467005a",
+        "pts": 903573,
+        "rgb24_sha256": "d3c8e129f4d7364a366267740120fe7d993373de22896fa5e31ae22916762d2e",
+        "schema_version": 1,
+        "source_time_us": 10039700
+       },
+       {
+        "display_index": 258,
+        "id": "frame-451519d75ec55835de144971c6ece39d61093630112cc34133c1de564156d6b7",
+        "pts": 946773,
+        "rgb24_sha256": "5c2fdfcc2c64cae84dcdd879e7e33a071db5b40f9da37a0affdffa18ae8d13f3",
+        "schema_version": 1,
+        "source_time_us": 10519700
+       },
+       {
+        "display_index": 271,
+        "id": "frame-939e34fd2f1cb6416e5ccc51a0c4c6c7b8518d6aa89422e5bc9bff9ec250c387",
+        "pts": 993573,
+        "rgb24_sha256": "ab913c6abdd87bf65cd9d32f64afd259d7a717868ad35d339432c0c9da0fe43a",
+        "schema_version": 1,
+        "source_time_us": 11039700
+       },
+       {
+        "display_index": 283,
+        "id": "frame-a6b7786e69b3bc28c488ea99c85c591372dddf08d5d347cbad421e1a64dcb5b1",
+        "pts": 1036773,
+        "rgb24_sha256": "3834a8cb0f8e7ed10c017ce43c3f05c65dab42408a33e102670c68704f8dea8e",
+        "schema_version": 1,
+        "source_time_us": 11519700
+       },
+       {
+        "display_index": 296,
+        "id": "frame-b63c2316b7ad2362c6a01f7af9118ef805da650b585ddc5b7f1576aa74e59295",
+        "pts": 1083573,
+        "rgb24_sha256": "68ba3378483247c77b5504054e9ccea13348d483d3b0f3464aacd882379d01c6",
+        "schema_version": 1,
+        "source_time_us": 12039700
+       },
+       {
+        "display_index": 308,
+        "id": "frame-a6b3ba7fb6b44baf2ca2277164a781cb9d351b30df5e733562e651eeddf11450",
+        "pts": 1126773,
+        "rgb24_sha256": "a7dfd5c888164175d54b3fdfb724146648936a26c186a373e40e189f3f1b0e93",
+        "schema_version": 1,
+        "source_time_us": 12519700
+       },
+       {
+        "display_index": 321,
+        "id": "frame-8d9e495430b9ed09e2414b964fd3bad4820e7ccbda40148fe58fe641d9dc1aa6",
+        "pts": 1173573,
+        "rgb24_sha256": "0121c904351188159f5476dd5f999f9dbe6f64cfac6ba2b288966416758d8512",
+        "schema_version": 1,
+        "source_time_us": 13039700
+       },
+       {
+        "display_index": 333,
+        "id": "frame-20943f5c3a1c80e941419c97c398be6d8d99d1b90da9ff876a775aa8787470fe",
+        "pts": 1216773,
+        "rgb24_sha256": "80e45b7d7a9aa9809b9013aba5cc5c78aa40f66d7a89a77c7a5a338daff3af0e",
+        "schema_version": 1,
+        "source_time_us": 13519700
+       },
+       {
+        "display_index": 346,
+        "id": "frame-f8416f93e70df2f5da1b331c8db621f29a37d7b998023a1e451cc61ed58af913",
+        "pts": 1263573,
+        "rgb24_sha256": "30467e3a2f66aadcc046def22b209390c9555e33cfdbea04dd6efec809af1a4b",
+        "schema_version": 1,
+        "source_time_us": 14039700
+       },
+       {
+        "display_index": 358,
+        "id": "frame-3220ffdfa18bfd1e4cc90f9e496cf1479ef1334c69aaacd717c9179b981035aa",
+        "pts": 1306773,
+        "rgb24_sha256": "7adab1efcf34bb995f188cb8d083bc5c58fb6092bf402f52b2005b04cb62ab3a",
+        "schema_version": 1,
+        "source_time_us": 14519700
+       },
+       {
+        "display_index": 371,
+        "id": "frame-ee86377c451eaeae9ecb8dc8b32cda0c3e98b24aea4d3f347b6ab63754fcd89c",
+        "pts": 1353573,
+        "rgb24_sha256": "9888d29b95a4846bb9af54a9e9e6263f90c899602a2d61220dff49e7fb63a623",
+        "schema_version": 1,
+        "source_time_us": 15039700
+       },
+       {
+        "display_index": 383,
+        "id": "frame-fcfc5a9171c899425eafc14fb70fbab007dcf792ed1078416b5504ddeb3a8f41",
+        "pts": 1396773,
+        "rgb24_sha256": "245e249248a9856c32b8fcc1e5417f2bf18f276409143475fb4bcc41c99ff451",
+        "schema_version": 1,
+        "source_time_us": 15519700
+       },
+       {
+        "display_index": 396,
+        "id": "frame-dc46803f3e9eb7bf8b971e45704c4551cd2ff8992f6af3a0cd09c8796dde73a0",
+        "pts": 1443573,
+        "rgb24_sha256": "9ac30e2d0401f6535283565a4d24d316bc6bcf7a54613c1b03b993fa93839532",
+        "schema_version": 1,
+        "source_time_us": 16039700
+       },
+       {
+        "display_index": 408,
+        "id": "frame-520848f054101fb6788980ed98112a9c8c08bf304ddcaacba163f8fdab1d0fba",
+        "pts": 1486773,
+        "rgb24_sha256": "72e9365ddadebe25dec98823400541ac149199ddc54af7a56247e525b5448817",
+        "schema_version": 1,
+        "source_time_us": 16519700
+       },
+       {
+        "display_index": 421,
+        "id": "frame-ec550dba1b2afcf7c965cf89efadb75b0fb0907a3749c3bbc18c2a977f326633",
+        "pts": 1533573,
+        "rgb24_sha256": "586c95e66e5129f99f948bb949cbda041257d26071ccb8d944ef90c7788af91e",
+        "schema_version": 1,
+        "source_time_us": 17039700
+       },
+       {
+        "display_index": 433,
+        "id": "frame-dde4935ace7181e4a029a07690764276b43e0d6de184fa7eab14836519081574",
+        "pts": 1576773,
+        "rgb24_sha256": "21f781fb742de462b4d0b6afe84ad28dce949975110aa2bec2fda16dea3f0bc3",
+        "schema_version": 1,
+        "source_time_us": 17519700
+       },
+       {
+        "display_index": 446,
+        "id": "frame-7dc80329a651c4c523dcfe1b48c6cfd38ec9701df907d28d24450609f7029031",
+        "pts": 1623573,
+        "rgb24_sha256": "3353fcc4fb5be79b6af774f31a2f346c1c9afb4e8513f24b7dfde3064ae382a0",
+        "schema_version": 1,
+        "source_time_us": 18039700
+       },
+       {
+        "display_index": 458,
+        "id": "frame-ab6ddfe2eabf522d20658447441b3aeda30aa1f1ecafac2600cb520fe4072721",
+        "pts": 1666773,
+        "rgb24_sha256": "edcaf96c2c01d96bfcf705075a03b263a2a69c2c362e4393782933969b511d90",
+        "schema_version": 1,
+        "source_time_us": 18519700
+       }
+      ],
+      "kind": "supported",
+      "seed": "observation-3e58a1e676f28174357b64f21acca2fe16cd9a81672b72c2c8ea700f4d2c166d",
+      "start": 12.5197
+     },
+     {
+      "category": "person_fell",
+      "end": 22.039701,
+      "frames": [
+       {
+        "display_index": 496,
+        "id": "frame-912aa53f5801e67962726fc7ca9bdb045402f35b1e53fbe4d2aaba802cb7e58c",
+        "label": "F1",
+        "source_time_us": 20039700
+       },
+       {
+        "display_index": 508,
+        "id": "frame-f84205747d5ce39b0ffe5a2ae7610c636b329abb6703d802447762644f7fefe6",
+        "label": "F2",
+        "source_time_us": 20519700
+       },
+       {
+        "display_index": 546,
+        "id": "frame-b49493edd07b2673db234ce51b012ed60b34f5aec318e65b89d0495c22a782a3",
+        "label": "F5",
+        "source_time_us": 22039700
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-5356d9c1e1510c163217cea16e981493a6cd669bd96ada9ee616209f09c97054",
+      "start": 20.0397
+     }
+    ],
+    "lead": "person_fell",
+    "missed": [],
+    "raw_alerts": 2,
+    "report_produced": true,
+    "scanned_s": 38.5997,
+    "unscorable_items": [],
+    "valid_citations": [
+     21,
+     21
+    ]
+   },
+   "run": "experiments/kpi_runs_heldout/20261124T183212-053b81f/Fight_OneManDown",
+   "sensitivity": {
+    "1.0": {
+     "cited": 2,
+     "duration_s": 38.5997,
+     "events": [
+      {
+       "category": "person_fell",
+       "frame": 338,
+       "source": "xml",
+       "t": 13.7197
+      }
+     ],
+     "false_items": [
+      {
+       "category": "person_fell",
+       "end": 22.039701,
+       "frames": [
+        {
+         "display_index": 496,
+         "id": "frame-912aa53f5801e67962726fc7ca9bdb045402f35b1e53fbe4d2aaba802cb7e58c",
+         "label": "F1",
+         "source_time_us": 20039700
+        },
+        {
+         "display_index": 508,
+         "id": "frame-f84205747d5ce39b0ffe5a2ae7610c636b329abb6703d802447762644f7fefe6",
+         "label": "F2",
+         "source_time_us": 20519700
+        },
+        {
+         "display_index": 546,
+         "id": "frame-b49493edd07b2673db234ce51b012ed60b34f5aec318e65b89d0495c22a782a3",
+         "label": "F5",
+         "source_time_us": 22039700
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-5356d9c1e1510c163217cea16e981493a6cd669bd96ada9ee616209f09c97054",
+       "start": 20.0397
+      }
+     ],
+     "found": [
+      {
+       "as_run_s": 167.66500000000002,
+       "event": {
+        "category": "person_fell",
+        "frame": 338,
+        "source": "xml",
+        "t": 13.7197
+       },
+       "item": {
+        "category": "person_fell",
+        "end": 14.519701,
+        "frames": [
+         {
+          "display_index": 246,
+          "id": "frame-14abdd62505a102fc53ec611d4bf1f310eaadd9492a7753ad54ef9a1e467005a",
+          "pts": 903573,
+          "rgb24_sha256": "d3c8e129f4d7364a366267740120fe7d993373de22896fa5e31ae22916762d2e",
+          "schema_version": 1,
+          "source_time_us": 10039700
+         },
+         {
+          "display_index": 258,
+          "id": "frame-451519d75ec55835de144971c6ece39d61093630112cc34133c1de564156d6b7",
+          "pts": 946773,
+          "rgb24_sha256": "5c2fdfcc2c64cae84dcdd879e7e33a071db5b40f9da37a0affdffa18ae8d13f3",
+          "schema_version": 1,
+          "source_time_us": 10519700
+         },
+         {
+          "display_index": 271,
+          "id": "frame-939e34fd2f1cb6416e5ccc51a0c4c6c7b8518d6aa89422e5bc9bff9ec250c387",
+          "pts": 993573,
+          "rgb24_sha256": "ab913c6abdd87bf65cd9d32f64afd259d7a717868ad35d339432c0c9da0fe43a",
+          "schema_version": 1,
+          "source_time_us": 11039700
+         },
+         {
+          "display_index": 283,
+          "id": "frame-a6b7786e69b3bc28c488ea99c85c591372dddf08d5d347cbad421e1a64dcb5b1",
+          "pts": 1036773,
+          "rgb24_sha256": "3834a8cb0f8e7ed10c017ce43c3f05c65dab42408a33e102670c68704f8dea8e",
+          "schema_version": 1,
+          "source_time_us": 11519700
+         },
+         {
+          "display_index": 296,
+          "id": "frame-b63c2316b7ad2362c6a01f7af9118ef805da650b585ddc5b7f1576aa74e59295",
+          "pts": 1083573,
+          "rgb24_sha256": "68ba3378483247c77b5504054e9ccea13348d483d3b0f3464aacd882379d01c6",
+          "schema_version": 1,
+          "source_time_us": 12039700
+         },
+         {
+          "display_index": 308,
+          "id": "frame-a6b3ba7fb6b44baf2ca2277164a781cb9d351b30df5e733562e651eeddf11450",
+          "pts": 1126773,
+          "rgb24_sha256": "a7dfd5c888164175d54b3fdfb724146648936a26c186a373e40e189f3f1b0e93",
+          "schema_version": 1,
+          "source_time_us": 12519700
+         },
+         {
+          "display_index": 321,
+          "id": "frame-8d9e495430b9ed09e2414b964fd3bad4820e7ccbda40148fe58fe641d9dc1aa6",
+          "pts": 1173573,
+          "rgb24_sha256": "0121c904351188159f5476dd5f999f9dbe6f64cfac6ba2b288966416758d8512",
+          "schema_version": 1,
+          "source_time_us": 13039700
+         },
+         {
+          "display_index": 333,
+          "id": "frame-20943f5c3a1c80e941419c97c398be6d8d99d1b90da9ff876a775aa8787470fe",
+          "pts": 1216773,
+          "rgb24_sha256": "80e45b7d7a9aa9809b9013aba5cc5c78aa40f66d7a89a77c7a5a338daff3af0e",
+          "schema_version": 1,
+          "source_time_us": 13519700
+         },
+         {
+          "display_index": 346,
+          "id": "frame-f8416f93e70df2f5da1b331c8db621f29a37d7b998023a1e451cc61ed58af913",
+          "pts": 1263573,
+          "rgb24_sha256": "30467e3a2f66aadcc046def22b209390c9555e33cfdbea04dd6efec809af1a4b",
+          "schema_version": 1,
+          "source_time_us": 14039700
+         },
+         {
+          "display_index": 358,
+          "id": "frame-3220ffdfa18bfd1e4cc90f9e496cf1479ef1334c69aaacd717c9179b981035aa",
+          "pts": 1306773,
+          "rgb24_sha256": "7adab1efcf34bb995f188cb8d083bc5c58fb6092bf402f52b2005b04cb62ab3a",
+          "schema_version": 1,
+          "source_time_us": 14519700
+         },
+         {
+          "display_index": 371,
+          "id": "frame-ee86377c451eaeae9ecb8dc8b32cda0c3e98b24aea4d3f347b6ab63754fcd89c",
+          "pts": 1353573,
+          "rgb24_sha256": "9888d29b95a4846bb9af54a9e9e6263f90c899602a2d61220dff49e7fb63a623",
+          "schema_version": 1,
+          "source_time_us": 15039700
+         },
+         {
+          "display_index": 383,
+          "id": "frame-fcfc5a9171c899425eafc14fb70fbab007dcf792ed1078416b5504ddeb3a8f41",
+          "pts": 1396773,
+          "rgb24_sha256": "245e249248a9856c32b8fcc1e5417f2bf18f276409143475fb4bcc41c99ff451",
+          "schema_version": 1,
+          "source_time_us": 15519700
+         },
+         {
+          "display_index": 396,
+          "id": "frame-dc46803f3e9eb7bf8b971e45704c4551cd2ff8992f6af3a0cd09c8796dde73a0",
+          "pts": 1443573,
+          "rgb24_sha256": "9ac30e2d0401f6535283565a4d24d316bc6bcf7a54613c1b03b993fa93839532",
+          "schema_version": 1,
+          "source_time_us": 16039700
+         },
+         {
+          "display_index": 408,
+          "id": "frame-520848f054101fb6788980ed98112a9c8c08bf304ddcaacba163f8fdab1d0fba",
+          "pts": 1486773,
+          "rgb24_sha256": "72e9365ddadebe25dec98823400541ac149199ddc54af7a56247e525b5448817",
+          "schema_version": 1,
+          "source_time_us": 16519700
+         },
+         {
+          "display_index": 421,
+          "id": "frame-ec550dba1b2afcf7c965cf89efadb75b0fb0907a3749c3bbc18c2a977f326633",
+          "pts": 1533573,
+          "rgb24_sha256": "586c95e66e5129f99f948bb949cbda041257d26071ccb8d944ef90c7788af91e",
+          "schema_version": 1,
+          "source_time_us": 17039700
+         },
+         {
+          "display_index": 433,
+          "id": "frame-dde4935ace7181e4a029a07690764276b43e0d6de184fa7eab14836519081574",
+          "pts": 1576773,
+          "rgb24_sha256": "21f781fb742de462b4d0b6afe84ad28dce949975110aa2bec2fda16dea3f0bc3",
+          "schema_version": 1,
+          "source_time_us": 17519700
+         },
+         {
+          "display_index": 446,
+          "id": "frame-7dc80329a651c4c523dcfe1b48c6cfd38ec9701df907d28d24450609f7029031",
+          "pts": 1623573,
+          "rgb24_sha256": "3353fcc4fb5be79b6af774f31a2f346c1c9afb4e8513f24b7dfde3064ae382a0",
+          "schema_version": 1,
+          "source_time_us": 18039700
+         },
+         {
+          "display_index": 458,
+          "id": "frame-ab6ddfe2eabf522d20658447441b3aeda30aa1f1ecafac2600cb520fe4072721",
+          "pts": 1666773,
+          "rgb24_sha256": "edcaf96c2c01d96bfcf705075a03b263a2a69c2c362e4393782933969b511d90",
+          "schema_version": 1,
+          "source_time_us": 18519700
+         }
+        ],
+        "kind": "supported",
+        "seed": "observation-3e58a1e676f28174357b64f21acca2fe16cd9a81672b72c2c8ea700f4d2c166d",
+        "start": 12.5197
+       },
+       "live_s": 103.2173,
+       "on_time": true
+      }
+     ],
+     "items": [
+      {
+       "category": "person_fell",
+       "end": 14.519701,
+       "frames": [
+        {
+         "display_index": 246,
+         "id": "frame-14abdd62505a102fc53ec611d4bf1f310eaadd9492a7753ad54ef9a1e467005a",
+         "pts": 903573,
+         "rgb24_sha256": "d3c8e129f4d7364a366267740120fe7d993373de22896fa5e31ae22916762d2e",
+         "schema_version": 1,
+         "source_time_us": 10039700
+        },
+        {
+         "display_index": 258,
+         "id": "frame-451519d75ec55835de144971c6ece39d61093630112cc34133c1de564156d6b7",
+         "pts": 946773,
+         "rgb24_sha256": "5c2fdfcc2c64cae84dcdd879e7e33a071db5b40f9da37a0affdffa18ae8d13f3",
+         "schema_version": 1,
+         "source_time_us": 10519700
+        },
+        {
+         "display_index": 271,
+         "id": "frame-939e34fd2f1cb6416e5ccc51a0c4c6c7b8518d6aa89422e5bc9bff9ec250c387",
+         "pts": 993573,
+         "rgb24_sha256": "ab913c6abdd87bf65cd9d32f64afd259d7a717868ad35d339432c0c9da0fe43a",
+         "schema_version": 1,
+         "source_time_us": 11039700
+        },
+        {
+         "display_index": 283,
+         "id": "frame-a6b7786e69b3bc28c488ea99c85c591372dddf08d5d347cbad421e1a64dcb5b1",
+         "pts": 1036773,
+         "rgb24_sha256": "3834a8cb0f8e7ed10c017ce43c3f05c65dab42408a33e102670c68704f8dea8e",
+         "schema_version": 1,
+         "source_time_us": 11519700
+        },
+        {
+         "display_index": 296,
+         "id": "frame-b63c2316b7ad2362c6a01f7af9118ef805da650b585ddc5b7f1576aa74e59295",
+         "pts": 1083573,
+         "rgb24_sha256": "68ba3378483247c77b5504054e9ccea13348d483d3b0f3464aacd882379d01c6",
+         "schema_version": 1,
+         "source_time_us": 12039700
+        },
+        {
+         "display_index": 308,
+         "id": "frame-a6b3ba7fb6b44baf2ca2277164a781cb9d351b30df5e733562e651eeddf11450",
+         "pts": 1126773,
+         "rgb24_sha256": "a7dfd5c888164175d54b3fdfb724146648936a26c186a373e40e189f3f1b0e93",
+         "schema_version": 1,
+         "source_time_us": 12519700
+        },
+        {
+         "display_index": 321,
+         "id": "frame-8d9e495430b9ed09e2414b964fd3bad4820e7ccbda40148fe58fe641d9dc1aa6",
+         "pts": 1173573,
+         "rgb24_sha256": "0121c904351188159f5476dd5f999f9dbe6f64cfac6ba2b288966416758d8512",
+         "schema_version": 1,
+         "source_time_us": 13039700
+        },
+        {
+         "display_index": 333,
+         "id": "frame-20943f5c3a1c80e941419c97c398be6d8d99d1b90da9ff876a775aa8787470fe",
+         "pts": 1216773,
+         "rgb24_sha256": "80e45b7d7a9aa9809b9013aba5cc5c78aa40f66d7a89a77c7a5a338daff3af0e",
+         "schema_version": 1,
+         "source_time_us": 13519700
+        },
+        {
+         "display_index": 346,
+         "id": "frame-f8416f93e70df2f5da1b331c8db621f29a37d7b998023a1e451cc61ed58af913",
+         "pts": 1263573,
+         "rgb24_sha256": "30467e3a2f66aadcc046def22b209390c9555e33cfdbea04dd6efec809af1a4b",
+         "schema_version": 1,
+         "source_time_us": 14039700
+        },
+        {
+         "display_index": 358,
+         "id": "frame-3220ffdfa18bfd1e4cc90f9e496cf1479ef1334c69aaacd717c9179b981035aa",
+         "pts": 1306773,
+         "rgb24_sha256": "7adab1efcf34bb995f188cb8d083bc5c58fb6092bf402f52b2005b04cb62ab3a",
+         "schema_version": 1,
+         "source_time_us": 14519700
+        },
+        {
+         "display_index": 371,
+         "id": "frame-ee86377c451eaeae9ecb8dc8b32cda0c3e98b24aea4d3f347b6ab63754fcd89c",
+         "pts": 1353573,
+         "rgb24_sha256": "9888d29b95a4846bb9af54a9e9e6263f90c899602a2d61220dff49e7fb63a623",
+         "schema_version": 1,
+         "source_time_us": 15039700
+        },
+        {
+         "display_index": 383,
+         "id": "frame-fcfc5a9171c899425eafc14fb70fbab007dcf792ed1078416b5504ddeb3a8f41",
+         "pts": 1396773,
+         "rgb24_sha256": "245e249248a9856c32b8fcc1e5417f2bf18f276409143475fb4bcc41c99ff451",
+         "schema_version": 1,
+         "source_time_us": 15519700
+        },
+        {
+         "display_index": 396,
+         "id": "frame-dc46803f3e9eb7bf8b971e45704c4551cd2ff8992f6af3a0cd09c8796dde73a0",
+         "pts": 1443573,
+         "rgb24_sha256": "9ac30e2d0401f6535283565a4d24d316bc6bcf7a54613c1b03b993fa93839532",
+         "schema_version": 1,
+         "source_time_us": 16039700
+        },
+        {
+         "display_index": 408,
+         "id": "frame-520848f054101fb6788980ed98112a9c8c08bf304ddcaacba163f8fdab1d0fba",
+         "pts": 1486773,
+         "rgb24_sha256": "72e9365ddadebe25dec98823400541ac149199ddc54af7a56247e525b5448817",
+         "schema_version": 1,
+         "source_time_us": 16519700
+        },
+        {
+         "display_index": 421,
+         "id": "frame-ec550dba1b2afcf7c965cf89efadb75b0fb0907a3749c3bbc18c2a977f326633",
+         "pts": 1533573,
+         "rgb24_sha256": "586c95e66e5129f99f948bb949cbda041257d26071ccb8d944ef90c7788af91e",
+         "schema_version": 1,
+         "source_time_us": 17039700
+        },
+        {
+         "display_index": 433,
+         "id": "frame-dde4935ace7181e4a029a07690764276b43e0d6de184fa7eab14836519081574",
+         "pts": 1576773,
+         "rgb24_sha256": "21f781fb742de462b4d0b6afe84ad28dce949975110aa2bec2fda16dea3f0bc3",
+         "schema_version": 1,
+         "source_time_us": 17519700
+        },
+        {
+         "display_index": 446,
+         "id": "frame-7dc80329a651c4c523dcfe1b48c6cfd38ec9701df907d28d24450609f7029031",
+         "pts": 1623573,
+         "rgb24_sha256": "3353fcc4fb5be79b6af774f31a2f346c1c9afb4e8513f24b7dfde3064ae382a0",
+         "schema_version": 1,
+         "source_time_us": 18039700
+        },
+        {
+         "display_index": 458,
+         "id": "frame-ab6ddfe2eabf522d20658447441b3aeda30aa1f1ecafac2600cb520fe4072721",
+         "pts": 1666773,
+         "rgb24_sha256": "edcaf96c2c01d96bfcf705075a03b263a2a69c2c362e4393782933969b511d90",
+         "schema_version": 1,
+         "source_time_us": 18519700
+        }
+       ],
+       "kind": "supported",
+       "seed": "observation-3e58a1e676f28174357b64f21acca2fe16cd9a81672b72c2c8ea700f4d2c166d",
+       "start": 12.5197
+      },
+      {
+       "category": "person_fell",
+       "end": 22.039701,
+       "frames": [
+        {
+         "display_index": 496,
+         "id": "frame-912aa53f5801e67962726fc7ca9bdb045402f35b1e53fbe4d2aaba802cb7e58c",
+         "label": "F1",
+         "source_time_us": 20039700
+        },
+        {
+         "display_index": 508,
+         "id": "frame-f84205747d5ce39b0ffe5a2ae7610c636b329abb6703d802447762644f7fefe6",
+         "label": "F2",
+         "source_time_us": 20519700
+        },
+        {
+         "display_index": 546,
+         "id": "frame-b49493edd07b2673db234ce51b012ed60b34f5aec318e65b89d0495c22a782a3",
+         "label": "F5",
+         "source_time_us": 22039700
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-5356d9c1e1510c163217cea16e981493a6cd669bd96ada9ee616209f09c97054",
+       "start": 20.0397
+      }
+     ],
+     "lead": "person_fell",
+     "missed": [],
+     "raw_alerts": 2,
+     "report_produced": true,
+     "scanned_s": 38.5997,
+     "unscorable_items": [],
+     "valid_citations": [
+      21,
+      21
+     ]
+    },
+    "5.0": {
+     "cited": 2,
+     "duration_s": 38.5997,
+     "events": [
+      {
+       "category": "person_fell",
+       "frame": 338,
+       "source": "xml",
+       "t": 13.7197
+      }
+     ],
+     "false_items": [
+      {
+       "category": "person_fell",
+       "end": 22.039701,
+       "frames": [
+        {
+         "display_index": 496,
+         "id": "frame-912aa53f5801e67962726fc7ca9bdb045402f35b1e53fbe4d2aaba802cb7e58c",
+         "label": "F1",
+         "source_time_us": 20039700
+        },
+        {
+         "display_index": 508,
+         "id": "frame-f84205747d5ce39b0ffe5a2ae7610c636b329abb6703d802447762644f7fefe6",
+         "label": "F2",
+         "source_time_us": 20519700
+        },
+        {
+         "display_index": 546,
+         "id": "frame-b49493edd07b2673db234ce51b012ed60b34f5aec318e65b89d0495c22a782a3",
+         "label": "F5",
+         "source_time_us": 22039700
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-5356d9c1e1510c163217cea16e981493a6cd669bd96ada9ee616209f09c97054",
+       "start": 20.0397
+      }
+     ],
+     "found": [
+      {
+       "as_run_s": 167.66500000000002,
+       "event": {
+        "category": "person_fell",
+        "frame": 338,
+        "source": "xml",
+        "t": 13.7197
+       },
+       "item": {
+        "category": "person_fell",
+        "end": 14.519701,
+        "frames": [
+         {
+          "display_index": 246,
+          "id": "frame-14abdd62505a102fc53ec611d4bf1f310eaadd9492a7753ad54ef9a1e467005a",
+          "pts": 903573,
+          "rgb24_sha256": "d3c8e129f4d7364a366267740120fe7d993373de22896fa5e31ae22916762d2e",
+          "schema_version": 1,
+          "source_time_us": 10039700
+         },
+         {
+          "display_index": 258,
+          "id": "frame-451519d75ec55835de144971c6ece39d61093630112cc34133c1de564156d6b7",
+          "pts": 946773,
+          "rgb24_sha256": "5c2fdfcc2c64cae84dcdd879e7e33a071db5b40f9da37a0affdffa18ae8d13f3",
+          "schema_version": 1,
+          "source_time_us": 10519700
+         },
+         {
+          "display_index": 271,
+          "id": "frame-939e34fd2f1cb6416e5ccc51a0c4c6c7b8518d6aa89422e5bc9bff9ec250c387",
+          "pts": 993573,
+          "rgb24_sha256": "ab913c6abdd87bf65cd9d32f64afd259d7a717868ad35d339432c0c9da0fe43a",
+          "schema_version": 1,
+          "source_time_us": 11039700
+         },
+         {
+          "display_index": 283,
+          "id": "frame-a6b7786e69b3bc28c488ea99c85c591372dddf08d5d347cbad421e1a64dcb5b1",
+          "pts": 1036773,
+          "rgb24_sha256": "3834a8cb0f8e7ed10c017ce43c3f05c65dab42408a33e102670c68704f8dea8e",
+          "schema_version": 1,
+          "source_time_us": 11519700
+         },
+         {
+          "display_index": 296,
+          "id": "frame-b63c2316b7ad2362c6a01f7af9118ef805da650b585ddc5b7f1576aa74e59295",
+          "pts": 1083573,
+          "rgb24_sha256": "68ba3378483247c77b5504054e9ccea13348d483d3b0f3464aacd882379d01c6",
+          "schema_version": 1,
+          "source_time_us": 12039700
+         },
+         {
+          "display_index": 308,
+          "id": "frame-a6b3ba7fb6b44baf2ca2277164a781cb9d351b30df5e733562e651eeddf11450",
+          "pts": 1126773,
+          "rgb24_sha256": "a7dfd5c888164175d54b3fdfb724146648936a26c186a373e40e189f3f1b0e93",
+          "schema_version": 1,
+          "source_time_us": 12519700
+         },
+         {
+          "display_index": 321,
+          "id": "frame-8d9e495430b9ed09e2414b964fd3bad4820e7ccbda40148fe58fe641d9dc1aa6",
+          "pts": 1173573,
+          "rgb24_sha256": "0121c904351188159f5476dd5f999f9dbe6f64cfac6ba2b288966416758d8512",
+          "schema_version": 1,
+          "source_time_us": 13039700
+         },
+         {
+          "display_index": 333,
+          "id": "frame-20943f5c3a1c80e941419c97c398be6d8d99d1b90da9ff876a775aa8787470fe",
+          "pts": 1216773,
+          "rgb24_sha256": "80e45b7d7a9aa9809b9013aba5cc5c78aa40f66d7a89a77c7a5a338daff3af0e",
+          "schema_version": 1,
+          "source_time_us": 13519700
+         },
+         {
+          "display_index": 346,
+          "id": "frame-f8416f93e70df2f5da1b331c8db621f29a37d7b998023a1e451cc61ed58af913",
+          "pts": 1263573,
+          "rgb24_sha256": "30467e3a2f66aadcc046def22b209390c9555e33cfdbea04dd6efec809af1a4b",
+          "schema_version": 1,
+          "source_time_us": 14039700
+         },
+         {
+          "display_index": 358,
+          "id": "frame-3220ffdfa18bfd1e4cc90f9e496cf1479ef1334c69aaacd717c9179b981035aa",
+          "pts": 1306773,
+          "rgb24_sha256": "7adab1efcf34bb995f188cb8d083bc5c58fb6092bf402f52b2005b04cb62ab3a",
+          "schema_version": 1,
+          "source_time_us": 14519700
+         },
+         {
+          "display_index": 371,
+          "id": "frame-ee86377c451eaeae9ecb8dc8b32cda0c3e98b24aea4d3f347b6ab63754fcd89c",
+          "pts": 1353573,
+          "rgb24_sha256": "9888d29b95a4846bb9af54a9e9e6263f90c899602a2d61220dff49e7fb63a623",
+          "schema_version": 1,
+          "source_time_us": 15039700
+         },
+         {
+          "display_index": 383,
+          "id": "frame-fcfc5a9171c899425eafc14fb70fbab007dcf792ed1078416b5504ddeb3a8f41",
+          "pts": 1396773,
+          "rgb24_sha256": "245e249248a9856c32b8fcc1e5417f2bf18f276409143475fb4bcc41c99ff451",
+          "schema_version": 1,
+          "source_time_us": 15519700
+         },
+         {
+          "display_index": 396,
+          "id": "frame-dc46803f3e9eb7bf8b971e45704c4551cd2ff8992f6af3a0cd09c8796dde73a0",
+          "pts": 1443573,
+          "rgb24_sha256": "9ac30e2d0401f6535283565a4d24d316bc6bcf7a54613c1b03b993fa93839532",
+          "schema_version": 1,
+          "source_time_us": 16039700
+         },
+         {
+          "display_index": 408,
+          "id": "frame-520848f054101fb6788980ed98112a9c8c08bf304ddcaacba163f8fdab1d0fba",
+          "pts": 1486773,
+          "rgb24_sha256": "72e9365ddadebe25dec98823400541ac149199ddc54af7a56247e525b5448817",
+          "schema_version": 1,
+          "source_time_us": 16519700
+         },
+         {
+          "display_index": 421,
+          "id": "frame-ec550dba1b2afcf7c965cf89efadb75b0fb0907a3749c3bbc18c2a977f326633",
+          "pts": 1533573,
+          "rgb24_sha256": "586c95e66e5129f99f948bb949cbda041257d26071ccb8d944ef90c7788af91e",
+          "schema_version": 1,
+          "source_time_us": 17039700
+         },
+         {
+          "display_index": 433,
+          "id": "frame-dde4935ace7181e4a029a07690764276b43e0d6de184fa7eab14836519081574",
+          "pts": 1576773,
+          "rgb24_sha256": "21f781fb742de462b4d0b6afe84ad28dce949975110aa2bec2fda16dea3f0bc3",
+          "schema_version": 1,
+          "source_time_us": 17519700
+         },
+         {
+          "display_index": 446,
+          "id": "frame-7dc80329a651c4c523dcfe1b48c6cfd38ec9701df907d28d24450609f7029031",
+          "pts": 1623573,
+          "rgb24_sha256": "3353fcc4fb5be79b6af774f31a2f346c1c9afb4e8513f24b7dfde3064ae382a0",
+          "schema_version": 1,
+          "source_time_us": 18039700
+         },
+         {
+          "display_index": 458,
+          "id": "frame-ab6ddfe2eabf522d20658447441b3aeda30aa1f1ecafac2600cb520fe4072721",
+          "pts": 1666773,
+          "rgb24_sha256": "edcaf96c2c01d96bfcf705075a03b263a2a69c2c362e4393782933969b511d90",
+          "schema_version": 1,
+          "source_time_us": 18519700
+         }
+        ],
+        "kind": "supported",
+        "seed": "observation-3e58a1e676f28174357b64f21acca2fe16cd9a81672b72c2c8ea700f4d2c166d",
+        "start": 12.5197
+       },
+       "live_s": 103.2173,
+       "on_time": true
+      }
+     ],
+     "items": [
+      {
+       "category": "person_fell",
+       "end": 14.519701,
+       "frames": [
+        {
+         "display_index": 246,
+         "id": "frame-14abdd62505a102fc53ec611d4bf1f310eaadd9492a7753ad54ef9a1e467005a",
+         "pts": 903573,
+         "rgb24_sha256": "d3c8e129f4d7364a366267740120fe7d993373de22896fa5e31ae22916762d2e",
+         "schema_version": 1,
+         "source_time_us": 10039700
+        },
+        {
+         "display_index": 258,
+         "id": "frame-451519d75ec55835de144971c6ece39d61093630112cc34133c1de564156d6b7",
+         "pts": 946773,
+         "rgb24_sha256": "5c2fdfcc2c64cae84dcdd879e7e33a071db5b40f9da37a0affdffa18ae8d13f3",
+         "schema_version": 1,
+         "source_time_us": 10519700
+        },
+        {
+         "display_index": 271,
+         "id": "frame-939e34fd2f1cb6416e5ccc51a0c4c6c7b8518d6aa89422e5bc9bff9ec250c387",
+         "pts": 993573,
+         "rgb24_sha256": "ab913c6abdd87bf65cd9d32f64afd259d7a717868ad35d339432c0c9da0fe43a",
+         "schema_version": 1,
+         "source_time_us": 11039700
+        },
+        {
+         "display_index": 283,
+         "id": "frame-a6b7786e69b3bc28c488ea99c85c591372dddf08d5d347cbad421e1a64dcb5b1",
+         "pts": 1036773,
+         "rgb24_sha256": "3834a8cb0f8e7ed10c017ce43c3f05c65dab42408a33e102670c68704f8dea8e",
+         "schema_version": 1,
+         "source_time_us": 11519700
+        },
+        {
+         "display_index": 296,
+         "id": "frame-b63c2316b7ad2362c6a01f7af9118ef805da650b585ddc5b7f1576aa74e59295",
+         "pts": 1083573,
+         "rgb24_sha256": "68ba3378483247c77b5504054e9ccea13348d483d3b0f3464aacd882379d01c6",
+         "schema_version": 1,
+         "source_time_us": 12039700
+        },
+        {
+         "display_index": 308,
+         "id": "frame-a6b3ba7fb6b44baf2ca2277164a781cb9d351b30df5e733562e651eeddf11450",
+         "pts": 1126773,
+         "rgb24_sha256": "a7dfd5c888164175d54b3fdfb724146648936a26c186a373e40e189f3f1b0e93",
+         "schema_version": 1,
+         "source_time_us": 12519700
+        },
+        {
+         "display_index": 321,
+         "id": "frame-8d9e495430b9ed09e2414b964fd3bad4820e7ccbda40148fe58fe641d9dc1aa6",
+         "pts": 1173573,
+         "rgb24_sha256": "0121c904351188159f5476dd5f999f9dbe6f64cfac6ba2b288966416758d8512",
+         "schema_version": 1,
+         "source_time_us": 13039700
+        },
+        {
+         "display_index": 333,
+         "id": "frame-20943f5c3a1c80e941419c97c398be6d8d99d1b90da9ff876a775aa8787470fe",
+         "pts": 1216773,
+         "rgb24_sha256": "80e45b7d7a9aa9809b9013aba5cc5c78aa40f66d7a89a77c7a5a338daff3af0e",
+         "schema_version": 1,
+         "source_time_us": 13519700
+        },
+        {
+         "display_index": 346,
+         "id": "frame-f8416f93e70df2f5da1b331c8db621f29a37d7b998023a1e451cc61ed58af913",
+         "pts": 1263573,
+         "rgb24_sha256": "30467e3a2f66aadcc046def22b209390c9555e33cfdbea04dd6efec809af1a4b",
+         "schema_version": 1,
+         "source_time_us": 14039700
+        },
+        {
+         "display_index": 358,
+         "id": "frame-3220ffdfa18bfd1e4cc90f9e496cf1479ef1334c69aaacd717c9179b981035aa",
+         "pts": 1306773,
+         "rgb24_sha256": "7adab1efcf34bb995f188cb8d083bc5c58fb6092bf402f52b2005b04cb62ab3a",
+         "schema_version": 1,
+         "source_time_us": 14519700
+        },
+        {
+         "display_index": 371,
+         "id": "frame-ee86377c451eaeae9ecb8dc8b32cda0c3e98b24aea4d3f347b6ab63754fcd89c",
+         "pts": 1353573,
+         "rgb24_sha256": "9888d29b95a4846bb9af54a9e9e6263f90c899602a2d61220dff49e7fb63a623",
+         "schema_version": 1,
+         "source_time_us": 15039700
+        },
+        {
+         "display_index": 383,
+         "id": "frame-fcfc5a9171c899425eafc14fb70fbab007dcf792ed1078416b5504ddeb3a8f41",
+         "pts": 1396773,
+         "rgb24_sha256": "245e249248a9856c32b8fcc1e5417f2bf18f276409143475fb4bcc41c99ff451",
+         "schema_version": 1,
+         "source_time_us": 15519700
+        },
+        {
+         "display_index": 396,
+         "id": "frame-dc46803f3e9eb7bf8b971e45704c4551cd2ff8992f6af3a0cd09c8796dde73a0",
+         "pts": 1443573,
+         "rgb24_sha256": "9ac30e2d0401f6535283565a4d24d316bc6bcf7a54613c1b03b993fa93839532",
+         "schema_version": 1,
+         "source_time_us": 16039700
+        },
+        {
+         "display_index": 408,
+         "id": "frame-520848f054101fb6788980ed98112a9c8c08bf304ddcaacba163f8fdab1d0fba",
+         "pts": 1486773,
+         "rgb24_sha256": "72e9365ddadebe25dec98823400541ac149199ddc54af7a56247e525b5448817",
+         "schema_version": 1,
+         "source_time_us": 16519700
+        },
+        {
+         "display_index": 421,
+         "id": "frame-ec550dba1b2afcf7c965cf89efadb75b0fb0907a3749c3bbc18c2a977f326633",
+         "pts": 1533573,
+         "rgb24_sha256": "586c95e66e5129f99f948bb949cbda041257d26071ccb8d944ef90c7788af91e",
+         "schema_version": 1,
+         "source_time_us": 17039700
+        },
+        {
+         "display_index": 433,
+         "id": "frame-dde4935ace7181e4a029a07690764276b43e0d6de184fa7eab14836519081574",
+         "pts": 1576773,
+         "rgb24_sha256": "21f781fb742de462b4d0b6afe84ad28dce949975110aa2bec2fda16dea3f0bc3",
+         "schema_version": 1,
+         "source_time_us": 17519700
+        },
+        {
+         "display_index": 446,
+         "id": "frame-7dc80329a651c4c523dcfe1b48c6cfd38ec9701df907d28d24450609f7029031",
+         "pts": 1623573,
+         "rgb24_sha256": "3353fcc4fb5be79b6af774f31a2f346c1c9afb4e8513f24b7dfde3064ae382a0",
+         "schema_version": 1,
+         "source_time_us": 18039700
+        },
+        {
+         "display_index": 458,
+         "id": "frame-ab6ddfe2eabf522d20658447441b3aeda30aa1f1ecafac2600cb520fe4072721",
+         "pts": 1666773,
+         "rgb24_sha256": "edcaf96c2c01d96bfcf705075a03b263a2a69c2c362e4393782933969b511d90",
+         "schema_version": 1,
+         "source_time_us": 18519700
+        }
+       ],
+       "kind": "supported",
+       "seed": "observation-3e58a1e676f28174357b64f21acca2fe16cd9a81672b72c2c8ea700f4d2c166d",
+       "start": 12.5197
+      },
+      {
+       "category": "person_fell",
+       "end": 22.039701,
+       "frames": [
+        {
+         "display_index": 496,
+         "id": "frame-912aa53f5801e67962726fc7ca9bdb045402f35b1e53fbe4d2aaba802cb7e58c",
+         "label": "F1",
+         "source_time_us": 20039700
+        },
+        {
+         "display_index": 508,
+         "id": "frame-f84205747d5ce39b0ffe5a2ae7610c636b329abb6703d802447762644f7fefe6",
+         "label": "F2",
+         "source_time_us": 20519700
+        },
+        {
+         "display_index": 546,
+         "id": "frame-b49493edd07b2673db234ce51b012ed60b34f5aec318e65b89d0495c22a782a3",
+         "label": "F5",
+         "source_time_us": 22039700
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-5356d9c1e1510c163217cea16e981493a6cd669bd96ada9ee616209f09c97054",
+       "start": 20.0397
+      }
+     ],
+     "lead": "person_fell",
+     "missed": [],
+     "raw_alerts": 2,
+     "report_produced": true,
+     "scanned_s": 38.5997,
+     "unscorable_items": [],
+     "valid_citations": [
+      21,
+      21
+     ]
+    }
+   },
+   "wall_s": 194.1514871120453
+  },
+  "LeftBag_BehindChair.mpg": {
+   "cost": {
+    "launch": {
+     "agents": 0.07363125,
+     "perception": 0.1180215
+    },
+    "standard": {
+     "agents": 0.1472625,
+     "perception": 0.236043
+    },
+    "tokens": {
+     "agents": [
+      23420,
+      14951
+     ],
+     "perception": [
+      94382,
+      12596
+     ]
+    },
+    "unpriced_calls": 0
+   },
+   "lenient": {
+    "cited": 0,
+    "duration_s": 42.9597,
+    "events": [
+     {
+      "category": "object_placed",
+      "frame": 518,
+      "source": "manual",
+      "t": 20.9597
+     },
+     {
+      "category": "object_removed",
+      "frame": 845,
+      "source": "manual",
+      "t": 34.0397
+     }
+    ],
+    "false_items": [],
+    "found": [],
+    "items": [],
+    "lead": "person_moved",
+    "missed": [
+     {
+      "category": "object_placed",
+      "cause": "never_seen",
+      "frame": 518,
+      "source": "manual",
+      "t": 20.9597
+     },
+     {
+      "category": "object_removed",
+      "cause": "never_seen",
+      "frame": 845,
+      "source": "manual",
+      "t": 34.0397
+     }
+    ],
+    "raw_alerts": 0,
+    "report_produced": true,
+    "scanned_s": 42.9597,
+    "unscorable_items": [],
+    "valid_citations": [
+     0,
+     0
+    ]
+   },
+   "main": {
+    "cited": 0,
+    "duration_s": 42.9597,
+    "events": [
+     {
+      "category": "object_placed",
+      "frame": 518,
+      "source": "manual",
+      "t": 20.9597
+     },
+     {
+      "category": "object_removed",
+      "frame": 845,
+      "source": "manual",
+      "t": 34.0397
+     }
+    ],
+    "false_items": [],
+    "found": [],
+    "items": [],
+    "lead": "person_moved",
+    "missed": [
+     {
+      "category": "object_placed",
+      "cause": "never_seen",
+      "frame": 518,
+      "source": "manual",
+      "t": 20.9597
+     },
+     {
+      "category": "object_removed",
+      "cause": "never_seen",
+      "frame": 845,
+      "source": "manual",
+      "t": 34.0397
+     }
+    ],
+    "raw_alerts": 0,
+    "report_produced": true,
+    "scanned_s": 42.9597,
+    "unscorable_items": [],
+    "valid_citations": [
+     0,
+     0
+    ]
+   },
+   "run": "experiments/kpi_runs_heldout/20261124T183212-053b81f/LeftBag_BehindChair",
+   "sensitivity": {
+    "1.0": {
+     "cited": 0,
+     "duration_s": 42.9597,
+     "events": [
+      {
+       "category": "object_placed",
+       "frame": 518,
+       "source": "manual",
+       "t": 20.9597
+      },
+      {
+       "category": "object_removed",
+       "frame": 845,
+       "source": "manual",
+       "t": 34.0397
+      }
+     ],
+     "false_items": [],
+     "found": [],
+     "items": [],
+     "lead": "person_moved",
+     "missed": [
+      {
+       "category": "object_placed",
+       "cause": "never_seen",
+       "frame": 518,
+       "source": "manual",
+       "t": 20.9597
+      },
+      {
+       "category": "object_removed",
+       "cause": "never_seen",
+       "frame": 845,
+       "source": "manual",
+       "t": 34.0397
+      }
+     ],
+     "raw_alerts": 0,
+     "report_produced": true,
+     "scanned_s": 42.9597,
+     "unscorable_items": [],
+     "valid_citations": [
+      0,
+      0
+     ]
+    },
+    "5.0": {
+     "cited": 0,
+     "duration_s": 42.9597,
+     "events": [
+      {
+       "category": "object_placed",
+       "frame": 518,
+       "source": "manual",
+       "t": 20.9597
+      },
+      {
+       "category": "object_removed",
+       "frame": 845,
+       "source": "manual",
+       "t": 34.0397
+      }
+     ],
+     "false_items": [],
+     "found": [],
+     "items": [],
+     "lead": "person_moved",
+     "missed": [
+      {
+       "category": "object_placed",
+       "cause": "never_seen",
+       "frame": 518,
+       "source": "manual",
+       "t": 20.9597
+      },
+      {
+       "category": "object_removed",
+       "cause": "never_seen",
+       "frame": 845,
+       "source": "manual",
+       "t": 34.0397
+      }
+     ],
+     "raw_alerts": 0,
+     "report_produced": true,
+     "scanned_s": 42.9597,
+     "unscorable_items": [],
+     "valid_citations": [
+      0,
+      0
+     ]
+    }
+   },
+   "wall_s": 166.07719826698303
+  },
+  "Rest_InChair.mpg": {
+   "cost": {
+    "launch": {
+     "agents": 0.12701325,
+     "perception": 0.138684
+    },
+    "standard": {
+     "agents": 0.2540265,
+     "perception": 0.277368
+    },
+    "tokens": {
+     "agents": [
+      23266,
+      29217
+     ],
+     "perception": [
+      107017,
+      15579
+     ]
+    },
+    "unpriced_calls": 0
+   },
+   "lenient": {
+    "cited": 0,
+    "duration_s": 40.5597,
+    "events": [],
+    "false_items": [],
+    "found": [],
+    "items": [],
+    "lead": "person_moved",
+    "missed": [],
+    "raw_alerts": 0,
+    "report_produced": true,
+    "scanned_s": 40.5597,
+    "unscorable_items": [],
+    "valid_citations": [
+     0,
+     0
+    ]
+   },
+   "main": {
+    "cited": 0,
+    "duration_s": 40.5597,
+    "events": [],
+    "false_items": [],
+    "found": [],
+    "items": [],
+    "lead": "person_moved",
+    "missed": [],
+    "raw_alerts": 0,
+    "report_produced": true,
+    "scanned_s": 40.5597,
+    "unscorable_items": [],
+    "valid_citations": [
+     0,
+     0
+    ]
+   },
+   "run": "experiments/kpi_runs_heldout/20261124T183212-053b81f/Rest_InChair",
+   "sensitivity": {
+    "1.0": {
+     "cited": 0,
+     "duration_s": 40.5597,
+     "events": [],
+     "false_items": [],
+     "found": [],
+     "items": [],
+     "lead": "person_moved",
+     "missed": [],
+     "raw_alerts": 0,
+     "report_produced": true,
+     "scanned_s": 40.5597,
+     "unscorable_items": [],
+     "valid_citations": [
+      0,
+      0
+     ]
+    },
+    "5.0": {
+     "cited": 0,
+     "duration_s": 40.5597,
+     "events": [],
+     "false_items": [],
+     "found": [],
+     "items": [],
+     "lead": "person_moved",
+     "missed": [],
+     "raw_alerts": 0,
+     "report_produced": true,
+     "scanned_s": 40.5597,
+     "unscorable_items": [],
+     "valid_citations": [
+      0,
+      0
+     ]
+    }
+   },
+   "wall_s": 269.8711540699005
+  },
+  "Rest_SlumpOnFloor.mpg": {
+   "cost": {
+    "launch": {
+     "agents": 0.12282825,
+     "perception": 0.132957
+    },
+    "standard": {
+     "agents": 0.2456565,
+     "perception": 0.265914
+    },
+    "tokens": {
+     "agents": [
+      40986,
+      24557
+     ],
+     "perception": [
+      96306,
+      16194
+     ]
+    },
+    "unpriced_calls": 0
+   },
+   "lenient": {
+    "cited": 2,
+    "duration_s": 36.7197,
+    "events": [
+     {
+      "category": "person_fell",
+      "frame": 646,
+      "source": "xml",
+      "t": 26.0797
+     }
+    ],
+    "false_items": [
+     {
+      "category": "person_fell",
+      "end": 3.039701,
+      "frames": [
+       {
+        "display_index": 57,
+        "id": "frame-4fb9541d01cec6c90f7c0a2ba7335fdd19c9506b384e5c3c8d87d8133360f997",
+        "pts": 226773,
+        "rgb24_sha256": "40e6f6f60f183251dbc94409ac62310ed773a1d040b87e024d943786027d540e",
+        "schema_version": 1,
+        "source_time_us": 2519700
+       },
+       {
+        "display_index": 70,
+        "id": "frame-2fcb9bedc8342792b87ff4c2fa123af03e42f334fb264973da239ac206449c92",
+        "pts": 273573,
+        "rgb24_sha256": "64aebd40ca042f5f8382a924fde46d6f1679b2702c427ee4282cd19412d0a381",
+        "schema_version": 1,
+        "source_time_us": 3039700
+       }
+      ],
+      "kind": "supported",
+      "seed": "observation-9c2269f2e5eac3e8cee4d631843be7f7b38a7124915cc909a68c8f0eaf4c7424",
+      "start": 2.5197
+     }
+    ],
+    "found": [
+     {
+      "as_run_s": 199.329,
+      "event": {
+       "category": "person_fell",
+       "frame": 646,
+       "source": "xml",
+       "t": 26.0797
+      },
+      "item": {
+       "category": "person_fell",
+       "end": 27.519701,
+       "frames": [
+        {
+         "display_index": 495,
+         "id": "frame-93dd8f99d24c10960b0fd204d0db1ac499b92b70fbeb63ba2d2ef7209ca4b7a8",
+         "label": "F1",
+         "source_time_us": 20039700
+        },
+        {
+         "display_index": 620,
+         "id": "frame-941186795d073c35acae4f072eb1d355bcb1a41f35785c7ebf3f73c4ad020c7a",
+         "label": "F11",
+         "source_time_us": 25079700
+        },
+        {
+         "display_index": 682,
+         "id": "frame-356b1e809ecf1493e27142c162d7f9989b9ad496836403af3445ecce2a9e0355",
+         "label": "F16",
+         "source_time_us": 27519700
+        }
+       ],
+       "kind": "needs_review:contradicted",
+       "seed": "observation-0868979ac9b51792936cc699bc4f8578a5c4415cfd621f5d70e1b3cd6f486d95",
+       "start": 20.0397
+      },
+      "live_s": 134.9793,
+      "on_time": true
+     }
+    ],
+    "items": [
+     {
+      "category": "person_fell",
+      "end": 3.039701,
+      "frames": [
+       {
+        "display_index": 57,
+        "id": "frame-4fb9541d01cec6c90f7c0a2ba7335fdd19c9506b384e5c3c8d87d8133360f997",
+        "pts": 226773,
+        "rgb24_sha256": "40e6f6f60f183251dbc94409ac62310ed773a1d040b87e024d943786027d540e",
+        "schema_version": 1,
+        "source_time_us": 2519700
+       },
+       {
+        "display_index": 70,
+        "id": "frame-2fcb9bedc8342792b87ff4c2fa123af03e42f334fb264973da239ac206449c92",
+        "pts": 273573,
+        "rgb24_sha256": "64aebd40ca042f5f8382a924fde46d6f1679b2702c427ee4282cd19412d0a381",
+        "schema_version": 1,
+        "source_time_us": 3039700
+       }
+      ],
+      "kind": "supported",
+      "seed": "observation-9c2269f2e5eac3e8cee4d631843be7f7b38a7124915cc909a68c8f0eaf4c7424",
+      "start": 2.5197
+     },
+     {
+      "category": "person_fell",
+      "end": 27.519701,
+      "frames": [
+       {
+        "display_index": 495,
+        "id": "frame-93dd8f99d24c10960b0fd204d0db1ac499b92b70fbeb63ba2d2ef7209ca4b7a8",
+        "label": "F1",
+        "source_time_us": 20039700
+       },
+       {
+        "display_index": 620,
+        "id": "frame-941186795d073c35acae4f072eb1d355bcb1a41f35785c7ebf3f73c4ad020c7a",
+        "label": "F11",
+        "source_time_us": 25079700
+       },
+       {
+        "display_index": 682,
+        "id": "frame-356b1e809ecf1493e27142c162d7f9989b9ad496836403af3445ecce2a9e0355",
+        "label": "F16",
+        "source_time_us": 27519700
+       }
+      ],
+      "kind": "needs_review:contradicted",
+      "seed": "observation-0868979ac9b51792936cc699bc4f8578a5c4415cfd621f5d70e1b3cd6f486d95",
+      "start": 20.0397
+     }
+    ],
+    "lead": "person_fell",
+    "missed": [],
+    "raw_alerts": 2,
+    "report_produced": true,
+    "scanned_s": 36.7197,
+    "unscorable_items": [],
+    "valid_citations": [
+     5,
+     5
+    ]
+   },
+   "main": {
+    "cited": 2,
+    "duration_s": 36.7197,
+    "events": [
+     {
+      "category": "person_fell",
+      "frame": 646,
+      "source": "xml",
+      "t": 26.0797
+     }
+    ],
+    "false_items": [
+     {
+      "category": "person_fell",
+      "end": 3.039701,
+      "frames": [
+       {
+        "display_index": 57,
+        "id": "frame-4fb9541d01cec6c90f7c0a2ba7335fdd19c9506b384e5c3c8d87d8133360f997",
+        "pts": 226773,
+        "rgb24_sha256": "40e6f6f60f183251dbc94409ac62310ed773a1d040b87e024d943786027d540e",
+        "schema_version": 1,
+        "source_time_us": 2519700
+       },
+       {
+        "display_index": 70,
+        "id": "frame-2fcb9bedc8342792b87ff4c2fa123af03e42f334fb264973da239ac206449c92",
+        "pts": 273573,
+        "rgb24_sha256": "64aebd40ca042f5f8382a924fde46d6f1679b2702c427ee4282cd19412d0a381",
+        "schema_version": 1,
+        "source_time_us": 3039700
+       }
+      ],
+      "kind": "supported",
+      "seed": "observation-9c2269f2e5eac3e8cee4d631843be7f7b38a7124915cc909a68c8f0eaf4c7424",
+      "start": 2.5197
+     }
+    ],
+    "found": [
+     {
+      "as_run_s": 199.329,
+      "event": {
+       "category": "person_fell",
+       "frame": 646,
+       "source": "xml",
+       "t": 26.0797
+      },
+      "item": {
+       "category": "person_fell",
+       "end": 27.519701,
+       "frames": [
+        {
+         "display_index": 495,
+         "id": "frame-93dd8f99d24c10960b0fd204d0db1ac499b92b70fbeb63ba2d2ef7209ca4b7a8",
+         "label": "F1",
+         "source_time_us": 20039700
+        },
+        {
+         "display_index": 620,
+         "id": "frame-941186795d073c35acae4f072eb1d355bcb1a41f35785c7ebf3f73c4ad020c7a",
+         "label": "F11",
+         "source_time_us": 25079700
+        },
+        {
+         "display_index": 682,
+         "id": "frame-356b1e809ecf1493e27142c162d7f9989b9ad496836403af3445ecce2a9e0355",
+         "label": "F16",
+         "source_time_us": 27519700
+        }
+       ],
+       "kind": "needs_review:contradicted",
+       "seed": "observation-0868979ac9b51792936cc699bc4f8578a5c4415cfd621f5d70e1b3cd6f486d95",
+       "start": 20.0397
+      },
+      "live_s": 134.9793,
+      "on_time": true
+     }
+    ],
+    "items": [
+     {
+      "category": "person_fell",
+      "end": 3.039701,
+      "frames": [
+       {
+        "display_index": 57,
+        "id": "frame-4fb9541d01cec6c90f7c0a2ba7335fdd19c9506b384e5c3c8d87d8133360f997",
+        "pts": 226773,
+        "rgb24_sha256": "40e6f6f60f183251dbc94409ac62310ed773a1d040b87e024d943786027d540e",
+        "schema_version": 1,
+        "source_time_us": 2519700
+       },
+       {
+        "display_index": 70,
+        "id": "frame-2fcb9bedc8342792b87ff4c2fa123af03e42f334fb264973da239ac206449c92",
+        "pts": 273573,
+        "rgb24_sha256": "64aebd40ca042f5f8382a924fde46d6f1679b2702c427ee4282cd19412d0a381",
+        "schema_version": 1,
+        "source_time_us": 3039700
+       }
+      ],
+      "kind": "supported",
+      "seed": "observation-9c2269f2e5eac3e8cee4d631843be7f7b38a7124915cc909a68c8f0eaf4c7424",
+      "start": 2.5197
+     },
+     {
+      "category": "person_fell",
+      "end": 27.519701,
+      "frames": [
+       {
+        "display_index": 495,
+        "id": "frame-93dd8f99d24c10960b0fd204d0db1ac499b92b70fbeb63ba2d2ef7209ca4b7a8",
+        "label": "F1",
+        "source_time_us": 20039700
+       },
+       {
+        "display_index": 620,
+        "id": "frame-941186795d073c35acae4f072eb1d355bcb1a41f35785c7ebf3f73c4ad020c7a",
+        "label": "F11",
+        "source_time_us": 25079700
+       },
+       {
+        "display_index": 682,
+        "id": "frame-356b1e809ecf1493e27142c162d7f9989b9ad496836403af3445ecce2a9e0355",
+        "label": "F16",
+        "source_time_us": 27519700
+       }
+      ],
+      "kind": "needs_review:contradicted",
+      "seed": "observation-0868979ac9b51792936cc699bc4f8578a5c4415cfd621f5d70e1b3cd6f486d95",
+      "start": 20.0397
+     }
+    ],
+    "lead": "person_fell",
+    "missed": [],
+    "raw_alerts": 2,
+    "report_produced": true,
+    "scanned_s": 36.7197,
+    "unscorable_items": [],
+    "valid_citations": [
+     5,
+     5
+    ]
+   },
+   "run": "experiments/kpi_runs_heldout/20261124T183212-053b81f/Rest_SlumpOnFloor",
+   "sensitivity": {
+    "1.0": {
+     "cited": 2,
+     "duration_s": 36.7197,
+     "events": [
+      {
+       "category": "person_fell",
+       "frame": 646,
+       "source": "xml",
+       "t": 26.0797
+      }
+     ],
+     "false_items": [
+      {
+       "category": "person_fell",
+       "end": 3.039701,
+       "frames": [
+        {
+         "display_index": 57,
+         "id": "frame-4fb9541d01cec6c90f7c0a2ba7335fdd19c9506b384e5c3c8d87d8133360f997",
+         "pts": 226773,
+         "rgb24_sha256": "40e6f6f60f183251dbc94409ac62310ed773a1d040b87e024d943786027d540e",
+         "schema_version": 1,
+         "source_time_us": 2519700
+        },
+        {
+         "display_index": 70,
+         "id": "frame-2fcb9bedc8342792b87ff4c2fa123af03e42f334fb264973da239ac206449c92",
+         "pts": 273573,
+         "rgb24_sha256": "64aebd40ca042f5f8382a924fde46d6f1679b2702c427ee4282cd19412d0a381",
+         "schema_version": 1,
+         "source_time_us": 3039700
+        }
+       ],
+       "kind": "supported",
+       "seed": "observation-9c2269f2e5eac3e8cee4d631843be7f7b38a7124915cc909a68c8f0eaf4c7424",
+       "start": 2.5197
+      }
+     ],
+     "found": [
+      {
+       "as_run_s": 199.329,
+       "event": {
+        "category": "person_fell",
+        "frame": 646,
+        "source": "xml",
+        "t": 26.0797
+       },
+       "item": {
+        "category": "person_fell",
+        "end": 27.519701,
+        "frames": [
+         {
+          "display_index": 495,
+          "id": "frame-93dd8f99d24c10960b0fd204d0db1ac499b92b70fbeb63ba2d2ef7209ca4b7a8",
+          "label": "F1",
+          "source_time_us": 20039700
+         },
+         {
+          "display_index": 620,
+          "id": "frame-941186795d073c35acae4f072eb1d355bcb1a41f35785c7ebf3f73c4ad020c7a",
+          "label": "F11",
+          "source_time_us": 25079700
+         },
+         {
+          "display_index": 682,
+          "id": "frame-356b1e809ecf1493e27142c162d7f9989b9ad496836403af3445ecce2a9e0355",
+          "label": "F16",
+          "source_time_us": 27519700
+         }
+        ],
+        "kind": "needs_review:contradicted",
+        "seed": "observation-0868979ac9b51792936cc699bc4f8578a5c4415cfd621f5d70e1b3cd6f486d95",
+        "start": 20.0397
+       },
+       "live_s": 134.9793,
+       "on_time": true
+      }
+     ],
+     "items": [
+      {
+       "category": "person_fell",
+       "end": 3.039701,
+       "frames": [
+        {
+         "display_index": 57,
+         "id": "frame-4fb9541d01cec6c90f7c0a2ba7335fdd19c9506b384e5c3c8d87d8133360f997",
+         "pts": 226773,
+         "rgb24_sha256": "40e6f6f60f183251dbc94409ac62310ed773a1d040b87e024d943786027d540e",
+         "schema_version": 1,
+         "source_time_us": 2519700
+        },
+        {
+         "display_index": 70,
+         "id": "frame-2fcb9bedc8342792b87ff4c2fa123af03e42f334fb264973da239ac206449c92",
+         "pts": 273573,
+         "rgb24_sha256": "64aebd40ca042f5f8382a924fde46d6f1679b2702c427ee4282cd19412d0a381",
+         "schema_version": 1,
+         "source_time_us": 3039700
+        }
+       ],
+       "kind": "supported",
+       "seed": "observation-9c2269f2e5eac3e8cee4d631843be7f7b38a7124915cc909a68c8f0eaf4c7424",
+       "start": 2.5197
+      },
+      {
+       "category": "person_fell",
+       "end": 27.519701,
+       "frames": [
+        {
+         "display_index": 495,
+         "id": "frame-93dd8f99d24c10960b0fd204d0db1ac499b92b70fbeb63ba2d2ef7209ca4b7a8",
+         "label": "F1",
+         "source_time_us": 20039700
+        },
+        {
+         "display_index": 620,
+         "id": "frame-941186795d073c35acae4f072eb1d355bcb1a41f35785c7ebf3f73c4ad020c7a",
+         "label": "F11",
+         "source_time_us": 25079700
+        },
+        {
+         "display_index": 682,
+         "id": "frame-356b1e809ecf1493e27142c162d7f9989b9ad496836403af3445ecce2a9e0355",
+         "label": "F16",
+         "source_time_us": 27519700
+        }
+       ],
+       "kind": "needs_review:contradicted",
+       "seed": "observation-0868979ac9b51792936cc699bc4f8578a5c4415cfd621f5d70e1b3cd6f486d95",
+       "start": 20.0397
+      }
+     ],
+     "lead": "person_fell",
+     "missed": [],
+     "raw_alerts": 2,
+     "report_produced": true,
+     "scanned_s": 36.7197,
+     "unscorable_items": [],
+     "valid_citations": [
+      5,
+      5
+     ]
+    },
+    "5.0": {
+     "cited": 2,
+     "duration_s": 36.7197,
+     "events": [
+      {
+       "category": "person_fell",
+       "frame": 646,
+       "source": "xml",
+       "t": 26.0797
+      }
+     ],
+     "false_items": [
+      {
+       "category": "person_fell",
+       "end": 3.039701,
+       "frames": [
+        {
+         "display_index": 57,
+         "id": "frame-4fb9541d01cec6c90f7c0a2ba7335fdd19c9506b384e5c3c8d87d8133360f997",
+         "pts": 226773,
+         "rgb24_sha256": "40e6f6f60f183251dbc94409ac62310ed773a1d040b87e024d943786027d540e",
+         "schema_version": 1,
+         "source_time_us": 2519700
+        },
+        {
+         "display_index": 70,
+         "id": "frame-2fcb9bedc8342792b87ff4c2fa123af03e42f334fb264973da239ac206449c92",
+         "pts": 273573,
+         "rgb24_sha256": "64aebd40ca042f5f8382a924fde46d6f1679b2702c427ee4282cd19412d0a381",
+         "schema_version": 1,
+         "source_time_us": 3039700
+        }
+       ],
+       "kind": "supported",
+       "seed": "observation-9c2269f2e5eac3e8cee4d631843be7f7b38a7124915cc909a68c8f0eaf4c7424",
+       "start": 2.5197
+      }
+     ],
+     "found": [
+      {
+       "as_run_s": 199.329,
+       "event": {
+        "category": "person_fell",
+        "frame": 646,
+        "source": "xml",
+        "t": 26.0797
+       },
+       "item": {
+        "category": "person_fell",
+        "end": 27.519701,
+        "frames": [
+         {
+          "display_index": 495,
+          "id": "frame-93dd8f99d24c10960b0fd204d0db1ac499b92b70fbeb63ba2d2ef7209ca4b7a8",
+          "label": "F1",
+          "source_time_us": 20039700
+         },
+         {
+          "display_index": 620,
+          "id": "frame-941186795d073c35acae4f072eb1d355bcb1a41f35785c7ebf3f73c4ad020c7a",
+          "label": "F11",
+          "source_time_us": 25079700
+         },
+         {
+          "display_index": 682,
+          "id": "frame-356b1e809ecf1493e27142c162d7f9989b9ad496836403af3445ecce2a9e0355",
+          "label": "F16",
+          "source_time_us": 27519700
+         }
+        ],
+        "kind": "needs_review:contradicted",
+        "seed": "observation-0868979ac9b51792936cc699bc4f8578a5c4415cfd621f5d70e1b3cd6f486d95",
+        "start": 20.0397
+       },
+       "live_s": 134.9793,
+       "on_time": true
+      }
+     ],
+     "items": [
+      {
+       "category": "person_fell",
+       "end": 3.039701,
+       "frames": [
+        {
+         "display_index": 57,
+         "id": "frame-4fb9541d01cec6c90f7c0a2ba7335fdd19c9506b384e5c3c8d87d8133360f997",
+         "pts": 226773,
+         "rgb24_sha256": "40e6f6f60f183251dbc94409ac62310ed773a1d040b87e024d943786027d540e",
+         "schema_version": 1,
+         "source_time_us": 2519700
+        },
+        {
+         "display_index": 70,
+         "id": "frame-2fcb9bedc8342792b87ff4c2fa123af03e42f334fb264973da239ac206449c92",
+         "pts": 273573,
+         "rgb24_sha256": "64aebd40ca042f5f8382a924fde46d6f1679b2702c427ee4282cd19412d0a381",
+         "schema_version": 1,
+         "source_time_us": 3039700
+        }
+       ],
+       "kind": "supported",
+       "seed": "observation-9c2269f2e5eac3e8cee4d631843be7f7b38a7124915cc909a68c8f0eaf4c7424",
+       "start": 2.5197
+      },
+      {
+       "category": "person_fell",
+       "end": 27.519701,
+       "frames": [
+        {
+         "display_index": 495,
+         "id": "frame-93dd8f99d24c10960b0fd204d0db1ac499b92b70fbeb63ba2d2ef7209ca4b7a8",
+         "label": "F1",
+         "source_time_us": 20039700
+        },
+        {
+         "display_index": 620,
+         "id": "frame-941186795d073c35acae4f072eb1d355bcb1a41f35785c7ebf3f73c4ad020c7a",
+         "label": "F11",
+         "source_time_us": 25079700
+        },
+        {
+         "display_index": 682,
+         "id": "frame-356b1e809ecf1493e27142c162d7f9989b9ad496836403af3445ecce2a9e0355",
+         "label": "F16",
+         "source_time_us": 27519700
+        }
+       ],
+       "kind": "needs_review:contradicted",
+       "seed": "observation-0868979ac9b51792936cc699bc4f8578a5c4415cfd621f5d70e1b3cd6f486d95",
+       "start": 20.0397
+      }
+     ],
+     "lead": "person_fell",
+     "missed": [],
+     "raw_alerts": 2,
+     "report_produced": true,
+     "scanned_s": 36.7197,
+     "unscorable_items": [],
+     "valid_citations": [
+      5,
+      5
+     ]
+    }
+   },
+   "wall_s": 253.2096529006958
+  },
+  "Rest_WiggleOnFloor_pts.mkv": {
+   "cost": {
+    "launch": {
+     "agents": 0.14540175,
+     "perception": 0.19517625000000002
+    },
+    "standard": {
+     "agents": 0.2908035,
+     "perception": 0.39035250000000005
+    },
+    "tokens": {
+     "agents": [
+      58569,
+      27060
+     ],
+     "perception": [
+      148375,
+      22372
+     ]
+    },
+    "unpriced_calls": 0
+   },
+   "lenient": {
+    "cited": 2,
+    "duration_s": 52.04,
+    "events": [
+     {
+      "category": "person_fell",
+      "frame": 689,
+      "source": "xml",
+      "t": 27.76
+     }
+    ],
+    "false_items": [
+     {
+      "category": "person_fell",
+      "end": 49.520001,
+      "frames": [
+       {
+        "display_index": 995,
+        "id": "frame-ab1c6c696c10d5898084aec7f165ce892e2e52c955931fa9a4a7f8306d8b49c9",
+        "label": "F1",
+        "source_time_us": 40000000
+       },
+       {
+        "display_index": 1233,
+        "id": "frame-1d45ace02920d06fad720eeaca7bfbc66e9481dd363e9ecdb021ba8e81cf0a1b",
+        "label": "F20",
+        "source_time_us": 49520000
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-ea3053768a49237b41ef9100db5223439932b14b9d0ed2bf3e81e18c6ee4993d",
+      "start": 40.0
+     }
+    ],
+    "found": [
+     {
+      "as_run_s": 239.2,
+      "event": {
+       "category": "person_fell",
+       "frame": 689,
+       "source": "xml",
+       "t": 27.76
+      },
+      "item": {
+       "category": "person_fell",
+       "end": 29.000001,
+       "frames": [
+        {
+         "display_index": 670,
+         "id": "frame-59bd7a384819abcb251c189caf9c819f3d38578f278a3c912eb75cfa1dd37076",
+         "pts": 27000,
+         "rgb24_sha256": "32e4e4db2d1c9346e28f32fc0dd0860c712274f3cbe75ad12822d559872fbb43",
+         "schema_version": 1,
+         "source_time_us": 27000000
+        },
+        {
+         "display_index": 683,
+         "id": "frame-296da831894e1d0eaa89b53aa3a26453ad054ae8a396f5d72fc1ccea635120cb",
+         "pts": 27520,
+         "rgb24_sha256": "489ff5dba1f85169abdfd88b7f0c8fc7ea7b7cf33b04f633938f688659e45590",
+         "schema_version": 1,
+         "source_time_us": 27520000
+        },
+        {
+         "display_index": 695,
+         "id": "frame-e1f0cb05299b5198f5a0a1f7cb82acfdfff1e9fcc905d5f660f3fce2e774d566",
+         "pts": 28000,
+         "rgb24_sha256": "71e0d075c9654061ddfd7bd5e7b4d1e4a957d32d242751c79e1e75f6456e5866",
+         "schema_version": 1,
+         "source_time_us": 28000000
+        },
+        {
+         "display_index": 708,
+         "id": "frame-b803deadae10637518fca5b8f162872894fd8f6fd678daef9afa55e6ae856cc1",
+         "pts": 28520,
+         "rgb24_sha256": "c5862c01ae8481fd707e4440860a9d80a2b41e2e254357c3a0786026efda5033",
+         "schema_version": 1,
+         "source_time_us": 28520000
+        },
+        {
+         "display_index": 720,
+         "id": "frame-afed18f06e118bbdc25b46da8ee53a35e264af30c194ee33174e096122504f77",
+         "pts": 29000,
+         "rgb24_sha256": "6058bf2a5d15d679be931a2d51a94846229c754301592d8232ad9a2a8e82902b",
+         "schema_version": 1,
+         "source_time_us": 29000000
+        },
+        {
+         "display_index": 733,
+         "id": "frame-20770f73f2a11778e3dd3ff4e8492d4bdd93148abe38bba4c9f23dc5eff63ad3",
+         "pts": 29520,
+         "rgb24_sha256": "2e81d4e7634e0bbf88553e33478988521e09f2adbbd2fc9f7b713cad8816a229",
+         "schema_version": 1,
+         "source_time_us": 29520000
+        }
+       ],
+       "kind": "supported",
+       "seed": "observation-7ee3249449b658eae7eb546e06971c0021ae10e9adda7112e2bd0e847b3094a9",
+       "start": 27.0
+      },
+      "live_s": 144.061,
+      "on_time": true
+     }
+    ],
+    "items": [
+     {
+      "category": "person_fell",
+      "end": 29.000001,
+      "frames": [
+       {
+        "display_index": 670,
+        "id": "frame-59bd7a384819abcb251c189caf9c819f3d38578f278a3c912eb75cfa1dd37076",
+        "pts": 27000,
+        "rgb24_sha256": "32e4e4db2d1c9346e28f32fc0dd0860c712274f3cbe75ad12822d559872fbb43",
+        "schema_version": 1,
+        "source_time_us": 27000000
+       },
+       {
+        "display_index": 683,
+        "id": "frame-296da831894e1d0eaa89b53aa3a26453ad054ae8a396f5d72fc1ccea635120cb",
+        "pts": 27520,
+        "rgb24_sha256": "489ff5dba1f85169abdfd88b7f0c8fc7ea7b7cf33b04f633938f688659e45590",
+        "schema_version": 1,
+        "source_time_us": 27520000
+       },
+       {
+        "display_index": 695,
+        "id": "frame-e1f0cb05299b5198f5a0a1f7cb82acfdfff1e9fcc905d5f660f3fce2e774d566",
+        "pts": 28000,
+        "rgb24_sha256": "71e0d075c9654061ddfd7bd5e7b4d1e4a957d32d242751c79e1e75f6456e5866",
+        "schema_version": 1,
+        "source_time_us": 28000000
+       },
+       {
+        "display_index": 708,
+        "id": "frame-b803deadae10637518fca5b8f162872894fd8f6fd678daef9afa55e6ae856cc1",
+        "pts": 28520,
+        "rgb24_sha256": "c5862c01ae8481fd707e4440860a9d80a2b41e2e254357c3a0786026efda5033",
+        "schema_version": 1,
+        "source_time_us": 28520000
+       },
+       {
+        "display_index": 720,
+        "id": "frame-afed18f06e118bbdc25b46da8ee53a35e264af30c194ee33174e096122504f77",
+        "pts": 29000,
+        "rgb24_sha256": "6058bf2a5d15d679be931a2d51a94846229c754301592d8232ad9a2a8e82902b",
+        "schema_version": 1,
+        "source_time_us": 29000000
+       },
+       {
+        "display_index": 733,
+        "id": "frame-20770f73f2a11778e3dd3ff4e8492d4bdd93148abe38bba4c9f23dc5eff63ad3",
+        "pts": 29520,
+        "rgb24_sha256": "2e81d4e7634e0bbf88553e33478988521e09f2adbbd2fc9f7b713cad8816a229",
+        "schema_version": 1,
+        "source_time_us": 29520000
+       }
+      ],
+      "kind": "supported",
+      "seed": "observation-7ee3249449b658eae7eb546e06971c0021ae10e9adda7112e2bd0e847b3094a9",
+      "start": 27.0
+     },
+     {
+      "category": "person_fell",
+      "end": 49.520001,
+      "frames": [
+       {
+        "display_index": 995,
+        "id": "frame-ab1c6c696c10d5898084aec7f165ce892e2e52c955931fa9a4a7f8306d8b49c9",
+        "label": "F1",
+        "source_time_us": 40000000
+       },
+       {
+        "display_index": 1233,
+        "id": "frame-1d45ace02920d06fad720eeaca7bfbc66e9481dd363e9ecdb021ba8e81cf0a1b",
+        "label": "F20",
+        "source_time_us": 49520000
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-ea3053768a49237b41ef9100db5223439932b14b9d0ed2bf3e81e18c6ee4993d",
+      "start": 40.0
+     }
+    ],
+    "lead": "person_fell",
+    "missed": [],
+    "raw_alerts": 4,
+    "report_produced": true,
+    "scanned_s": 52.04,
+    "unscorable_items": [],
+    "valid_citations": [
+     8,
+     8
+    ]
+   },
+   "main": {
+    "cited": 2,
+    "duration_s": 52.04,
+    "events": [
+     {
+      "category": "person_fell",
+      "frame": 689,
+      "source": "xml",
+      "t": 27.76
+     }
+    ],
+    "false_items": [
+     {
+      "category": "person_fell",
+      "end": 49.520001,
+      "frames": [
+       {
+        "display_index": 995,
+        "id": "frame-ab1c6c696c10d5898084aec7f165ce892e2e52c955931fa9a4a7f8306d8b49c9",
+        "label": "F1",
+        "source_time_us": 40000000
+       },
+       {
+        "display_index": 1233,
+        "id": "frame-1d45ace02920d06fad720eeaca7bfbc66e9481dd363e9ecdb021ba8e81cf0a1b",
+        "label": "F20",
+        "source_time_us": 49520000
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-ea3053768a49237b41ef9100db5223439932b14b9d0ed2bf3e81e18c6ee4993d",
+      "start": 40.0
+     }
+    ],
+    "found": [
+     {
+      "as_run_s": 239.2,
+      "event": {
+       "category": "person_fell",
+       "frame": 689,
+       "source": "xml",
+       "t": 27.76
+      },
+      "item": {
+       "category": "person_fell",
+       "end": 29.000001,
+       "frames": [
+        {
+         "display_index": 670,
+         "id": "frame-59bd7a384819abcb251c189caf9c819f3d38578f278a3c912eb75cfa1dd37076",
+         "pts": 27000,
+         "rgb24_sha256": "32e4e4db2d1c9346e28f32fc0dd0860c712274f3cbe75ad12822d559872fbb43",
+         "schema_version": 1,
+         "source_time_us": 27000000
+        },
+        {
+         "display_index": 683,
+         "id": "frame-296da831894e1d0eaa89b53aa3a26453ad054ae8a396f5d72fc1ccea635120cb",
+         "pts": 27520,
+         "rgb24_sha256": "489ff5dba1f85169abdfd88b7f0c8fc7ea7b7cf33b04f633938f688659e45590",
+         "schema_version": 1,
+         "source_time_us": 27520000
+        },
+        {
+         "display_index": 695,
+         "id": "frame-e1f0cb05299b5198f5a0a1f7cb82acfdfff1e9fcc905d5f660f3fce2e774d566",
+         "pts": 28000,
+         "rgb24_sha256": "71e0d075c9654061ddfd7bd5e7b4d1e4a957d32d242751c79e1e75f6456e5866",
+         "schema_version": 1,
+         "source_time_us": 28000000
+        },
+        {
+         "display_index": 708,
+         "id": "frame-b803deadae10637518fca5b8f162872894fd8f6fd678daef9afa55e6ae856cc1",
+         "pts": 28520,
+         "rgb24_sha256": "c5862c01ae8481fd707e4440860a9d80a2b41e2e254357c3a0786026efda5033",
+         "schema_version": 1,
+         "source_time_us": 28520000
+        },
+        {
+         "display_index": 720,
+         "id": "frame-afed18f06e118bbdc25b46da8ee53a35e264af30c194ee33174e096122504f77",
+         "pts": 29000,
+         "rgb24_sha256": "6058bf2a5d15d679be931a2d51a94846229c754301592d8232ad9a2a8e82902b",
+         "schema_version": 1,
+         "source_time_us": 29000000
+        },
+        {
+         "display_index": 733,
+         "id": "frame-20770f73f2a11778e3dd3ff4e8492d4bdd93148abe38bba4c9f23dc5eff63ad3",
+         "pts": 29520,
+         "rgb24_sha256": "2e81d4e7634e0bbf88553e33478988521e09f2adbbd2fc9f7b713cad8816a229",
+         "schema_version": 1,
+         "source_time_us": 29520000
+        }
+       ],
+       "kind": "supported",
+       "seed": "observation-7ee3249449b658eae7eb546e06971c0021ae10e9adda7112e2bd0e847b3094a9",
+       "start": 27.0
+      },
+      "live_s": 144.061,
+      "on_time": true
+     }
+    ],
+    "items": [
+     {
+      "category": "person_fell",
+      "end": 29.000001,
+      "frames": [
+       {
+        "display_index": 670,
+        "id": "frame-59bd7a384819abcb251c189caf9c819f3d38578f278a3c912eb75cfa1dd37076",
+        "pts": 27000,
+        "rgb24_sha256": "32e4e4db2d1c9346e28f32fc0dd0860c712274f3cbe75ad12822d559872fbb43",
+        "schema_version": 1,
+        "source_time_us": 27000000
+       },
+       {
+        "display_index": 683,
+        "id": "frame-296da831894e1d0eaa89b53aa3a26453ad054ae8a396f5d72fc1ccea635120cb",
+        "pts": 27520,
+        "rgb24_sha256": "489ff5dba1f85169abdfd88b7f0c8fc7ea7b7cf33b04f633938f688659e45590",
+        "schema_version": 1,
+        "source_time_us": 27520000
+       },
+       {
+        "display_index": 695,
+        "id": "frame-e1f0cb05299b5198f5a0a1f7cb82acfdfff1e9fcc905d5f660f3fce2e774d566",
+        "pts": 28000,
+        "rgb24_sha256": "71e0d075c9654061ddfd7bd5e7b4d1e4a957d32d242751c79e1e75f6456e5866",
+        "schema_version": 1,
+        "source_time_us": 28000000
+       },
+       {
+        "display_index": 708,
+        "id": "frame-b803deadae10637518fca5b8f162872894fd8f6fd678daef9afa55e6ae856cc1",
+        "pts": 28520,
+        "rgb24_sha256": "c5862c01ae8481fd707e4440860a9d80a2b41e2e254357c3a0786026efda5033",
+        "schema_version": 1,
+        "source_time_us": 28520000
+       },
+       {
+        "display_index": 720,
+        "id": "frame-afed18f06e118bbdc25b46da8ee53a35e264af30c194ee33174e096122504f77",
+        "pts": 29000,
+        "rgb24_sha256": "6058bf2a5d15d679be931a2d51a94846229c754301592d8232ad9a2a8e82902b",
+        "schema_version": 1,
+        "source_time_us": 29000000
+       },
+       {
+        "display_index": 733,
+        "id": "frame-20770f73f2a11778e3dd3ff4e8492d4bdd93148abe38bba4c9f23dc5eff63ad3",
+        "pts": 29520,
+        "rgb24_sha256": "2e81d4e7634e0bbf88553e33478988521e09f2adbbd2fc9f7b713cad8816a229",
+        "schema_version": 1,
+        "source_time_us": 29520000
+       }
+      ],
+      "kind": "supported",
+      "seed": "observation-7ee3249449b658eae7eb546e06971c0021ae10e9adda7112e2bd0e847b3094a9",
+      "start": 27.0
+     },
+     {
+      "category": "person_fell",
+      "end": 49.520001,
+      "frames": [
+       {
+        "display_index": 995,
+        "id": "frame-ab1c6c696c10d5898084aec7f165ce892e2e52c955931fa9a4a7f8306d8b49c9",
+        "label": "F1",
+        "source_time_us": 40000000
+       },
+       {
+        "display_index": 1233,
+        "id": "frame-1d45ace02920d06fad720eeaca7bfbc66e9481dd363e9ecdb021ba8e81cf0a1b",
+        "label": "F20",
+        "source_time_us": 49520000
+       }
+      ],
+      "kind": "needs_review:unclear_observation",
+      "seed": "observation-ea3053768a49237b41ef9100db5223439932b14b9d0ed2bf3e81e18c6ee4993d",
+      "start": 40.0
+     }
+    ],
+    "lead": "person_fell",
+    "missed": [],
+    "raw_alerts": 4,
+    "report_produced": true,
+    "scanned_s": 52.04,
+    "unscorable_items": [],
+    "valid_citations": [
+     8,
+     8
+    ]
+   },
+   "run": "experiments/kpi_runs_heldout/20261124T183212-053b81f/Rest_WiggleOnFloor",
+   "sensitivity": {
+    "1.0": {
+     "cited": 2,
+     "duration_s": 52.04,
+     "events": [
+      {
+       "category": "person_fell",
+       "frame": 689,
+       "source": "xml",
+       "t": 27.76
+      }
+     ],
+     "false_items": [
+      {
+       "category": "person_fell",
+       "end": 49.520001,
+       "frames": [
+        {
+         "display_index": 995,
+         "id": "frame-ab1c6c696c10d5898084aec7f165ce892e2e52c955931fa9a4a7f8306d8b49c9",
+         "label": "F1",
+         "source_time_us": 40000000
+        },
+        {
+         "display_index": 1233,
+         "id": "frame-1d45ace02920d06fad720eeaca7bfbc66e9481dd363e9ecdb021ba8e81cf0a1b",
+         "label": "F20",
+         "source_time_us": 49520000
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-ea3053768a49237b41ef9100db5223439932b14b9d0ed2bf3e81e18c6ee4993d",
+       "start": 40.0
+      }
+     ],
+     "found": [
+      {
+       "as_run_s": 239.2,
+       "event": {
+        "category": "person_fell",
+        "frame": 689,
+        "source": "xml",
+        "t": 27.76
+       },
+       "item": {
+        "category": "person_fell",
+        "end": 29.000001,
+        "frames": [
+         {
+          "display_index": 670,
+          "id": "frame-59bd7a384819abcb251c189caf9c819f3d38578f278a3c912eb75cfa1dd37076",
+          "pts": 27000,
+          "rgb24_sha256": "32e4e4db2d1c9346e28f32fc0dd0860c712274f3cbe75ad12822d559872fbb43",
+          "schema_version": 1,
+          "source_time_us": 27000000
+         },
+         {
+          "display_index": 683,
+          "id": "frame-296da831894e1d0eaa89b53aa3a26453ad054ae8a396f5d72fc1ccea635120cb",
+          "pts": 27520,
+          "rgb24_sha256": "489ff5dba1f85169abdfd88b7f0c8fc7ea7b7cf33b04f633938f688659e45590",
+          "schema_version": 1,
+          "source_time_us": 27520000
+         },
+         {
+          "display_index": 695,
+          "id": "frame-e1f0cb05299b5198f5a0a1f7cb82acfdfff1e9fcc905d5f660f3fce2e774d566",
+          "pts": 28000,
+          "rgb24_sha256": "71e0d075c9654061ddfd7bd5e7b4d1e4a957d32d242751c79e1e75f6456e5866",
+          "schema_version": 1,
+          "source_time_us": 28000000
+         },
+         {
+          "display_index": 708,
+          "id": "frame-b803deadae10637518fca5b8f162872894fd8f6fd678daef9afa55e6ae856cc1",
+          "pts": 28520,
+          "rgb24_sha256": "c5862c01ae8481fd707e4440860a9d80a2b41e2e254357c3a0786026efda5033",
+          "schema_version": 1,
+          "source_time_us": 28520000
+         },
+         {
+          "display_index": 720,
+          "id": "frame-afed18f06e118bbdc25b46da8ee53a35e264af30c194ee33174e096122504f77",
+          "pts": 29000,
+          "rgb24_sha256": "6058bf2a5d15d679be931a2d51a94846229c754301592d8232ad9a2a8e82902b",
+          "schema_version": 1,
+          "source_time_us": 29000000
+         },
+         {
+          "display_index": 733,
+          "id": "frame-20770f73f2a11778e3dd3ff4e8492d4bdd93148abe38bba4c9f23dc5eff63ad3",
+          "pts": 29520,
+          "rgb24_sha256": "2e81d4e7634e0bbf88553e33478988521e09f2adbbd2fc9f7b713cad8816a229",
+          "schema_version": 1,
+          "source_time_us": 29520000
+         }
+        ],
+        "kind": "supported",
+        "seed": "observation-7ee3249449b658eae7eb546e06971c0021ae10e9adda7112e2bd0e847b3094a9",
+        "start": 27.0
+       },
+       "live_s": 144.061,
+       "on_time": true
+      }
+     ],
+     "items": [
+      {
+       "category": "person_fell",
+       "end": 29.000001,
+       "frames": [
+        {
+         "display_index": 670,
+         "id": "frame-59bd7a384819abcb251c189caf9c819f3d38578f278a3c912eb75cfa1dd37076",
+         "pts": 27000,
+         "rgb24_sha256": "32e4e4db2d1c9346e28f32fc0dd0860c712274f3cbe75ad12822d559872fbb43",
+         "schema_version": 1,
+         "source_time_us": 27000000
+        },
+        {
+         "display_index": 683,
+         "id": "frame-296da831894e1d0eaa89b53aa3a26453ad054ae8a396f5d72fc1ccea635120cb",
+         "pts": 27520,
+         "rgb24_sha256": "489ff5dba1f85169abdfd88b7f0c8fc7ea7b7cf33b04f633938f688659e45590",
+         "schema_version": 1,
+         "source_time_us": 27520000
+        },
+        {
+         "display_index": 695,
+         "id": "frame-e1f0cb05299b5198f5a0a1f7cb82acfdfff1e9fcc905d5f660f3fce2e774d566",
+         "pts": 28000,
+         "rgb24_sha256": "71e0d075c9654061ddfd7bd5e7b4d1e4a957d32d242751c79e1e75f6456e5866",
+         "schema_version": 1,
+         "source_time_us": 28000000
+        },
+        {
+         "display_index": 708,
+         "id": "frame-b803deadae10637518fca5b8f162872894fd8f6fd678daef9afa55e6ae856cc1",
+         "pts": 28520,
+         "rgb24_sha256": "c5862c01ae8481fd707e4440860a9d80a2b41e2e254357c3a0786026efda5033",
+         "schema_version": 1,
+         "source_time_us": 28520000
+        },
+        {
+         "display_index": 720,
+         "id": "frame-afed18f06e118bbdc25b46da8ee53a35e264af30c194ee33174e096122504f77",
+         "pts": 29000,
+         "rgb24_sha256": "6058bf2a5d15d679be931a2d51a94846229c754301592d8232ad9a2a8e82902b",
+         "schema_version": 1,
+         "source_time_us": 29000000
+        },
+        {
+         "display_index": 733,
+         "id": "frame-20770f73f2a11778e3dd3ff4e8492d4bdd93148abe38bba4c9f23dc5eff63ad3",
+         "pts": 29520,
+         "rgb24_sha256": "2e81d4e7634e0bbf88553e33478988521e09f2adbbd2fc9f7b713cad8816a229",
+         "schema_version": 1,
+         "source_time_us": 29520000
+        }
+       ],
+       "kind": "supported",
+       "seed": "observation-7ee3249449b658eae7eb546e06971c0021ae10e9adda7112e2bd0e847b3094a9",
+       "start": 27.0
+      },
+      {
+       "category": "person_fell",
+       "end": 49.520001,
+       "frames": [
+        {
+         "display_index": 995,
+         "id": "frame-ab1c6c696c10d5898084aec7f165ce892e2e52c955931fa9a4a7f8306d8b49c9",
+         "label": "F1",
+         "source_time_us": 40000000
+        },
+        {
+         "display_index": 1233,
+         "id": "frame-1d45ace02920d06fad720eeaca7bfbc66e9481dd363e9ecdb021ba8e81cf0a1b",
+         "label": "F20",
+         "source_time_us": 49520000
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-ea3053768a49237b41ef9100db5223439932b14b9d0ed2bf3e81e18c6ee4993d",
+       "start": 40.0
+      }
+     ],
+     "lead": "person_fell",
+     "missed": [],
+     "raw_alerts": 4,
+     "report_produced": true,
+     "scanned_s": 52.04,
+     "unscorable_items": [],
+     "valid_citations": [
+      8,
+      8
+     ]
+    },
+    "5.0": {
+     "cited": 2,
+     "duration_s": 52.04,
+     "events": [
+      {
+       "category": "person_fell",
+       "frame": 689,
+       "source": "xml",
+       "t": 27.76
+      }
+     ],
+     "false_items": [
+      {
+       "category": "person_fell",
+       "end": 49.520001,
+       "frames": [
+        {
+         "display_index": 995,
+         "id": "frame-ab1c6c696c10d5898084aec7f165ce892e2e52c955931fa9a4a7f8306d8b49c9",
+         "label": "F1",
+         "source_time_us": 40000000
+        },
+        {
+         "display_index": 1233,
+         "id": "frame-1d45ace02920d06fad720eeaca7bfbc66e9481dd363e9ecdb021ba8e81cf0a1b",
+         "label": "F20",
+         "source_time_us": 49520000
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-ea3053768a49237b41ef9100db5223439932b14b9d0ed2bf3e81e18c6ee4993d",
+       "start": 40.0
+      }
+     ],
+     "found": [
+      {
+       "as_run_s": 239.2,
+       "event": {
+        "category": "person_fell",
+        "frame": 689,
+        "source": "xml",
+        "t": 27.76
+       },
+       "item": {
+        "category": "person_fell",
+        "end": 29.000001,
+        "frames": [
+         {
+          "display_index": 670,
+          "id": "frame-59bd7a384819abcb251c189caf9c819f3d38578f278a3c912eb75cfa1dd37076",
+          "pts": 27000,
+          "rgb24_sha256": "32e4e4db2d1c9346e28f32fc0dd0860c712274f3cbe75ad12822d559872fbb43",
+          "schema_version": 1,
+          "source_time_us": 27000000
+         },
+         {
+          "display_index": 683,
+          "id": "frame-296da831894e1d0eaa89b53aa3a26453ad054ae8a396f5d72fc1ccea635120cb",
+          "pts": 27520,
+          "rgb24_sha256": "489ff5dba1f85169abdfd88b7f0c8fc7ea7b7cf33b04f633938f688659e45590",
+          "schema_version": 1,
+          "source_time_us": 27520000
+         },
+         {
+          "display_index": 695,
+          "id": "frame-e1f0cb05299b5198f5a0a1f7cb82acfdfff1e9fcc905d5f660f3fce2e774d566",
+          "pts": 28000,
+          "rgb24_sha256": "71e0d075c9654061ddfd7bd5e7b4d1e4a957d32d242751c79e1e75f6456e5866",
+          "schema_version": 1,
+          "source_time_us": 28000000
+         },
+         {
+          "display_index": 708,
+          "id": "frame-b803deadae10637518fca5b8f162872894fd8f6fd678daef9afa55e6ae856cc1",
+          "pts": 28520,
+          "rgb24_sha256": "c5862c01ae8481fd707e4440860a9d80a2b41e2e254357c3a0786026efda5033",
+          "schema_version": 1,
+          "source_time_us": 28520000
+         },
+         {
+          "display_index": 720,
+          "id": "frame-afed18f06e118bbdc25b46da8ee53a35e264af30c194ee33174e096122504f77",
+          "pts": 29000,
+          "rgb24_sha256": "6058bf2a5d15d679be931a2d51a94846229c754301592d8232ad9a2a8e82902b",
+          "schema_version": 1,
+          "source_time_us": 29000000
+         },
+         {
+          "display_index": 733,
+          "id": "frame-20770f73f2a11778e3dd3ff4e8492d4bdd93148abe38bba4c9f23dc5eff63ad3",
+          "pts": 29520,
+          "rgb24_sha256": "2e81d4e7634e0bbf88553e33478988521e09f2adbbd2fc9f7b713cad8816a229",
+          "schema_version": 1,
+          "source_time_us": 29520000
+         }
+        ],
+        "kind": "supported",
+        "seed": "observation-7ee3249449b658eae7eb546e06971c0021ae10e9adda7112e2bd0e847b3094a9",
+        "start": 27.0
+       },
+       "live_s": 144.061,
+       "on_time": true
+      }
+     ],
+     "items": [
+      {
+       "category": "person_fell",
+       "end": 29.000001,
+       "frames": [
+        {
+         "display_index": 670,
+         "id": "frame-59bd7a384819abcb251c189caf9c819f3d38578f278a3c912eb75cfa1dd37076",
+         "pts": 27000,
+         "rgb24_sha256": "32e4e4db2d1c9346e28f32fc0dd0860c712274f3cbe75ad12822d559872fbb43",
+         "schema_version": 1,
+         "source_time_us": 27000000
+        },
+        {
+         "display_index": 683,
+         "id": "frame-296da831894e1d0eaa89b53aa3a26453ad054ae8a396f5d72fc1ccea635120cb",
+         "pts": 27520,
+         "rgb24_sha256": "489ff5dba1f85169abdfd88b7f0c8fc7ea7b7cf33b04f633938f688659e45590",
+         "schema_version": 1,
+         "source_time_us": 27520000
+        },
+        {
+         "display_index": 695,
+         "id": "frame-e1f0cb05299b5198f5a0a1f7cb82acfdfff1e9fcc905d5f660f3fce2e774d566",
+         "pts": 28000,
+         "rgb24_sha256": "71e0d075c9654061ddfd7bd5e7b4d1e4a957d32d242751c79e1e75f6456e5866",
+         "schema_version": 1,
+         "source_time_us": 28000000
+        },
+        {
+         "display_index": 708,
+         "id": "frame-b803deadae10637518fca5b8f162872894fd8f6fd678daef9afa55e6ae856cc1",
+         "pts": 28520,
+         "rgb24_sha256": "c5862c01ae8481fd707e4440860a9d80a2b41e2e254357c3a0786026efda5033",
+         "schema_version": 1,
+         "source_time_us": 28520000
+        },
+        {
+         "display_index": 720,
+         "id": "frame-afed18f06e118bbdc25b46da8ee53a35e264af30c194ee33174e096122504f77",
+         "pts": 29000,
+         "rgb24_sha256": "6058bf2a5d15d679be931a2d51a94846229c754301592d8232ad9a2a8e82902b",
+         "schema_version": 1,
+         "source_time_us": 29000000
+        },
+        {
+         "display_index": 733,
+         "id": "frame-20770f73f2a11778e3dd3ff4e8492d4bdd93148abe38bba4c9f23dc5eff63ad3",
+         "pts": 29520,
+         "rgb24_sha256": "2e81d4e7634e0bbf88553e33478988521e09f2adbbd2fc9f7b713cad8816a229",
+         "schema_version": 1,
+         "source_time_us": 29520000
+        }
+       ],
+       "kind": "supported",
+       "seed": "observation-7ee3249449b658eae7eb546e06971c0021ae10e9adda7112e2bd0e847b3094a9",
+       "start": 27.0
+      },
+      {
+       "category": "person_fell",
+       "end": 49.520001,
+       "frames": [
+        {
+         "display_index": 995,
+         "id": "frame-ab1c6c696c10d5898084aec7f165ce892e2e52c955931fa9a4a7f8306d8b49c9",
+         "label": "F1",
+         "source_time_us": 40000000
+        },
+        {
+         "display_index": 1233,
+         "id": "frame-1d45ace02920d06fad720eeaca7bfbc66e9481dd363e9ecdb021ba8e81cf0a1b",
+         "label": "F20",
+         "source_time_us": 49520000
+        }
+       ],
+       "kind": "needs_review:unclear_observation",
+       "seed": "observation-ea3053768a49237b41ef9100db5223439932b14b9d0ed2bf3e81e18c6ee4993d",
+       "start": 40.0
+      }
+     ],
+     "lead": "person_fell",
+     "missed": [],
+     "raw_alerts": 4,
+     "report_produced": true,
+     "scanned_s": 52.04,
+     "unscorable_items": [],
+     "valid_citations": [
+      8,
+      8
+     ]
+    }
+   },
+   "wall_s": 322.5411686897278
+  }
+ }
+}
