@@ -1,0 +1,93 @@
+{
+  "archive": "experiments/TwoEnterShop1front_live.m1ctNI/run/analysis.json",
+  "archived_call": {
+    "role": "investigation",
+    "model": "gemini-3.6-flash",
+    "status": "api_error",
+    "usage": {},
+    "max_output_tokens": 20480,
+    "thinking_level": "HIGH",
+    "transport_attempts": [
+      {
+        "request_number": 1,
+        "http_status": 400,
+        "error_type": "ClientError",
+        "provider_status": "INVALID_ARGUMENT"
+      }
+    ],
+    "error_type": "ClientError",
+    "http_status": 400,
+    "provider_status": "INVALID_ARGUMENT",
+    "elapsed_ms": 395
+  },
+  "visible_observations": 16,
+  "arms": {
+    "a_original_ids": {
+      "schema_bytes": 8939,
+      "call": {
+        "role": "investigation",
+        "model": "gemini-3.6-flash",
+        "status": "api_error",
+        "usage": {},
+        "max_output_tokens": 20480,
+        "thinking_level": "HIGH",
+        "transport_attempts": [
+          {
+            "request_number": 1,
+            "http_status": 400,
+            "error_type": "ClientError",
+            "provider_status": "INVALID_ARGUMENT",
+            "provider_message": "The specified schema produces a constraint that has too many states for serving. Typical causes of this error are schemas with lots of text (for example, very long property or enum names), schemas with long array length limits (especially when nested), or schemas using complex value matchers (for example, integers or numbers with minimum/maximum bounds or strings with complex formats like date-time)"
+          }
+        ],
+        "error_type": "ClientError",
+        "http_status": 400,
+        "provider_status": "INVALID_ARGUMENT",
+        "provider_message": "The specified schema produces a constraint that has too many states for serving. Typical causes of this error are schemas with lots of text (for example, very long property or enum names), schemas with long array length limits (especially when nested), or schemas using complex value matchers (for example, integers or numbers with minimum/maximum bounds or strings with complex formats like date-time)",
+        "elapsed_ms": 5496
+      },
+      "physical_requests": 1,
+      "media_requests": 0
+    },
+    "b_short_aliases": {
+      "schema_bytes": 1877,
+      "call": {
+        "role": "investigation",
+        "model": "gemini-3.6-flash",
+        "status": "received",
+        "usage": {
+          "prompt_token_count": 10971,
+          "candidates_token_count": 375,
+          "thoughts_token_count": 3544,
+          "total_token_count": 14890
+        },
+        "max_output_tokens": 20480,
+        "thinking_level": "HIGH",
+        "transport_attempts": [
+          {
+            "request_number": 1,
+            "http_status": 200
+          }
+        ],
+        "model_version": "gemini-3.6-flash",
+        "candidate_count": 1,
+        "finish_reasons": [
+          "STOP"
+        ],
+        "elapsed_ms": 17297
+      },
+      "physical_requests": 1,
+      "media_requests": 0,
+      "decision_action": "delegate",
+      "validation": {
+        "status": "accepted",
+        "delegated_categories": [
+          "person_enters_area",
+          "person_enters_area",
+          "person_moved",
+          "person_moved"
+        ]
+      }
+    }
+  }
+}

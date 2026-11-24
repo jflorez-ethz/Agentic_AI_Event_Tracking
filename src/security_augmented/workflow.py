@@ -61,12 +61,17 @@ class Budget:
     max_rejection_recoveries: int = 1
     # Initial observations shown to Investigation before it must search (archived runs used 8).
     max_visible_observations: int = 8
+    # Compact Investigation requests: observation IDs shown as O1..On and a pre-send response schema size
+    # bound. Long IDs overflowed Gemini's response grammar (HTTP 400). Archived replays keep the old requests.
+    short_observation_ids: bool = False
 
     def __post_init__(self):
         optional = {"max_verification_iterations", "max_failures"}
-        if any(
+        flags = {"short_observation_ids"}
+        if any(type(getattr(self, name)) is not bool for name in flags) or any(
             (type(value) is not int or value < 0)
-            for name, value in asdict(self).items() if value is not None or name not in optional
+            for name, value in asdict(self).items()
+            if name not in flags and (value is not None or name not in optional)
         ):
             raise VideoError("Investigation budgets must be nonnegative integers")
 
@@ -1045,7 +1050,7 @@ def main(argv=None):
                 max_initial_windows=windows, max_candidates=args.max_candidates,
                 max_inspections=args.max_inspections, max_agent_calls=args.max_agent_calls,
                 max_verification_iterations=args.max_verification_iterations, max_retrievals=1, max_failures=1,
-                max_visible_observations=args.max_visible_observations,
+                max_visible_observations=args.max_visible_observations, short_observation_ids=True,
             )
             models = AgentModels.from_env(role_default="gemini-3.6-flash")
             physical_limit = budget.max_agent_calls * ROLE_HTTP_ATTEMPTS

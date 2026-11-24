@@ -352,12 +352,14 @@ def test_archived_scan_triggers_automatic_investigation_without_question(tmp_pat
                 return response({"action": "search", "start_us": 16_000_000, "end_us": 24_960_000,
                                  "reason": "Retrieve later observations before triage."})
             action_order.append("delegate")
-            assert set(context["evidence"]) == expected_ids
-            assert len(context["last_tool_result"]["ids"]) == 3
+            # The CLI shows Investigation short labels in visible order; search results continue the numbering.
+            assert "observation-" not in json.dumps(body)
+            assert list(context["evidence"]) == [f"O{n}" for n in range(1, len(expected_ids) + 1)]
+            assert context["last_tool_result"]["ids"] == ["O9", "O10", "O11"]
             assert not context["additional_evidence_available"]
             branch, = config["responseJsonSchema"]["anyOf"]
             assert branch["properties"]["ids"]["maxItems"] == 4
-            selected = [first_visibility, movement]
+            selected = ["O1", "O8"]  # rows[0] first visibility and rows[7] movement
             return response({"action": "delegate", "ids": selected, "reason": "Check early visibility and later movement.",
                              "dispositions": [
                                  {"id": identifier, "status": "deferred", "reason": "Outside these two checks."}

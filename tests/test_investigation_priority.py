@@ -129,9 +129,13 @@ def test_late_priority_observation_stays_visible_to_investigation():
         seen.append(context)
         return None
     run = AgentRun(analysis.video, decide, None,
-                   Budget(max_candidates=4, max_agent_calls=14, max_visible_observations=16), [])
+                   Budget(max_candidates=4, max_agent_calls=14, max_visible_observations=16,
+                          short_observation_ids=True), [])  # as in the CLI; long IDs would be trimmed to fit
     run.investigate(tuple(ordered))
     evidence = seen[0]["evidence"]
-    assert len(evidence) == 16 and box in evidence  # max_visible_observations
-    assert list(evidence)[:15] == [f.observation.id for f in ordered[:15]]  # routine fill stays chronological
+    assert len(evidence) == 16  # max_visible_observations
+    assert list(evidence) == [f"O{n}" for n in range(1, 17)]
+    back = {v: k for k, v in run._aliases.items()}
+    assert box in {back[i] for i in evidence}
+    assert [back[i] for i in list(evidence)[:15]] == [f.observation.id for f in ordered[:15]]  # chronological fill
     assert seen[0]["additional_evidence_available"] is True

@@ -18,6 +18,10 @@ from .workflow import _ACTION_LABELS, RELATIONAL_TASK_CATEGORY, _event_label, _t
 
 AGENT_DEFAULT_MODEL = "gemini-3.5-flash-lite"
 INVESTIGATION_THINKING_LEVEL = "HIGH"
+# Largest Investigation response schema Gemini accepted (fall_live.Q2OExt, 10 long IDs). A 16-ID schema of
+# 8,939 bytes was rejected: "too many states for serving ... very long property or enum names"
+# (experiments/investigation_schema_ab/live-20261124T025341).
+INVESTIGATION_SCHEMA_BYTE_LIMIT = 6095
 INVESTIGATION_MAX_OUTPUT_TOKENS = 20480
 
 
@@ -898,16 +902,77 @@ class AgentRun:
         visible = {i: f for i, f in available.items() if i in priority or i in routine}
         return self._investigate_visible(visible)
 
+    def _investigation_context(self, visible, tool_result):
+        def build():
+            context = {
+                "duration_us": self.video.duration_us, "max_candidates": self.budget.max_candidates,
+                "evidence": {i: _short(f) for i, f in visible.items()}, "last_tool_result": tool_result,
+                "additional_evidence_available": len(visible) < len(self.initial),
+                "initial_observation_count": len(self.initial),
+                **({"independent_relational_tasks": True} if self.independent_relational_tasks else {}),
+            }
+            if not self.budget.short_observation_ids:
+                return context
+            for identifier in visible:
+                self._aliases.setdefault(identifier, f"O{len(self._aliases) + 1}")
+            alias = self._aliases.get
+            result = dict(tool_result) if isinstance(tool_result, dict) else tool_result
+            for key in ("ids", "priority_ids"):
+                if isinstance(result, dict) and isinstance(result.get(key), list):
+                    result[key] = [alias(i, i) for i in result[key]]
+            return {**context, "evidence": {alias(i): v for i, v in context["evidence"].items()},
+                    "last_tool_result": result}
+
+        def size(context):
+            return len(json.dumps(_decision_schema("investigation", context), separators=(",", ":")))
+
+        context, trimmed = build(), []
+        # Part of the compact request policy (CLI); archived replays keep their original requests.
+        while self.budget.short_observation_ids and size(context) > INVESTIGATION_SCHEMA_BYTE_LIMIT:
+            routine = [i for i in reversed(visible) if visible[i].observation.category not in PRIORITY_LABELS]
+            if not routine:
+                break  # security observations are never dropped
+            trimmed.append(routine[0])
+            del visible[routine[0]]
+            context = build()
+        if trimmed:
+            self.log("investigation", "context_trimmed",
+                     f"Hid {len(trimmed)} routine observations to keep the response schema within "
+                     f"{INVESTIGATION_SCHEMA_BYTE_LIMIT} bytes.", tuple(trimmed),
+                     details={"schema_bytes": size(context), "limit": INVESTIGATION_SCHEMA_BYTE_LIMIT})
+        return context
+
+    def _unalias(self, action):
+        """Translate O1..On back to observation IDs before any validation; unknown labels stay unknown."""
+        if not self.budget.short_observation_ids or not isinstance(action, dict):
+            return action
+        back = {short: long for long, short in self._aliases.items()}
+        real = lambda value: back.get(value, value) if isinstance(value, str) else value
+        action = dict(action)
+        if isinstance(action.get("ids"), list):
+            action["ids"] = [real(i) for i in action["ids"]]
+        if isinstance(action.get("dispositions"), list):
+            records = []
+            for record in action["dispositions"]:
+                if isinstance(record, dict):
+                    record = {k: real(v) if k in ("id", "candidate_id") else v for k, v in record.items()}
+                    if isinstance(record.get("correspondence"), dict):
+                        record["correspondence"] = {k: real(v) if k == "id" else v
+                                                    for k, v in record["correspondence"].items()}
+                records.append(record)
+            action["dispositions"] = records
+        if isinstance(action.get("relational_tasks"), list):
+            action["relational_tasks"] = [
+                {**task, "observation_ids": [real(i) for i in task["observation_ids"]]}
+                if isinstance(task, dict) and isinstance(task.get("observation_ids"), list) else task
+                for task in action["relational_tasks"]]
+        return action
+
     def _investigate_visible(self, visible, tool_result=None):
         available = self.initial
         priority_recovered = False
-        while action := self.action("investigation", {
-            "duration_us": self.video.duration_us, "max_candidates": self.budget.max_candidates,
-            "evidence": {i: _short(f) for i, f in visible.items()}, "last_tool_result": tool_result,
-            "additional_evidence_available": len(visible) < len(available),
-            "initial_observation_count": len(available),
-            **({"independent_relational_tasks": True} if self.independent_relational_tasks else {}),
-        }):
+        self._aliases = getattr(self, "_aliases", {})
+        while action := self._unalias(self.action("investigation", self._investigation_context(visible, tool_result))):
             try:
                 if action["action"] == "delegate":
                     try:

@@ -1,0 +1,80 @@
+{
+  "archive": "experiments/TwoEnterShop1front_live.m1ctNI/run/analysis.json",
+  "archived_call": {
+    "role": "investigation",
+    "model": "gemini-3.6-flash",
+    "status": "api_error",
+    "usage": {},
+    "max_output_tokens": 20480,
+    "thinking_level": "HIGH",
+    "transport_attempts": [
+      {
+        "request_number": 1,
+        "http_status": 400,
+        "error_type": "ClientError",
+        "provider_status": "INVALID_ARGUMENT"
+      }
+    ],
+    "error_type": "ClientError",
+    "http_status": 400,
+    "provider_status": "INVALID_ARGUMENT",
+    "elapsed_ms": 395
+  },
+  "visible_observations": 16,
+  "arms": {
+    "a_original_ids": {
+      "schema_bytes": 8939,
+      "call": {
+        "role": "investigation",
+        "model": "gemini-3.6-flash",
+        "status": "api_error",
+        "usage": {},
+        "max_output_tokens": 20480,
+        "thinking_level": "HIGH",
+        "transport_attempts": [
+          {
+            "request_number": 1,
+            "http_status": 402,
+            "error_type": "ClientError",
+            "provider_status": "RESOURCE_EXHAUSTED",
+            "provider_message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay."
+          }
+        ],
+        "error_type": "ClientError",
+        "http_status": 402,
+        "provider_status": "RESOURCE_EXHAUSTED",
+        "provider_message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay.",
+        "elapsed_ms": 457
+      },
+      "physical_requests": 1,
+      "media_requests": 0
+    },
+    "b_short_aliases": {
+      "schema_bytes": 1877,
+      "call": {
+        "role": "investigation",
+        "model": "gemini-3.6-flash",
+        "status": "api_error",
+        "usage": {},
+        "max_output_tokens": 20480,
+        "thinking_level": "HIGH",
+        "transport_attempts": [
+          {
+            "request_number": 1,
+            "http_status": 402,
+            "error_type": "ClientError",
+            "provider_status": "RESOURCE_EXHAUSTED",
+            "provider_message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay."
+          }
+        ],
+        "error_type": "ClientError",
+        "http_status": 402,
+        "provider_status": "RESOURCE_EXHAUSTED",
+        "provider_message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay.",
+        "elapsed_ms": 257
+      },
+      "physical_requests": 1,
+      "media_requests": 0
+    }
+  }
+}
