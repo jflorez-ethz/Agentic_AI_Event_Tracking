@@ -287,7 +287,13 @@ def test_role_http_retry_policy(monkeypatch):
             assert sleep.call_count == len(statuses) - 1
             if sleep.called:
                 assert 1 <= sleep.call_args.args[0] <= 2
-            assert "sensitive fixture error body" not in str(call)
+            # Server errors keep no provider text. A 4xx keeps only the sanitized explanation (keys, quoted
+            # request fragments and long opaque values redacted; see test_provider_errors.py), never a raw body.
+            if 400 in statuses:
+                assert call["provider_message"] == "sensitive fixture error body"
+                assert all("provider_message" not in a for a in call["transport_attempts"] if a["http_status"] != 400)
+            else:
+                assert "sensitive fixture error body" not in str(call)
             if limit == 1:
                 with pytest.raises(VideoError):
                     decide("verification", {})

@@ -334,7 +334,7 @@ class RoleHTTPBudget:
             self.media_attempts[-1]["http_status"] = response.status_code
 
 
-def _provider_diagnostics(exc):
+def _provider_diagnostics(exc, private=()):
     details = {"error_type": type(exc).__name__}
     code = getattr(exc, "code", None)
     if type(code) is int:
@@ -350,7 +350,66 @@ def _provider_diagnostics(exc):
     retry_after = headers.get("retry-after") if headers is not None else None
     if isinstance(retry_after, str) and retry_after.isascii() and retry_after.isdecimal() and len(retry_after) <= 9:
         details["retry_after_seconds"] = int(retry_after)
+    if type(code) is int and 400 <= code < 500:
+        details.update(_provider_explanation(getattr(exc, "details", None), private))
     return details
+
+
+def _request_strings(value):
+    """Request text (8+ characters) that a provider error must not echo back into artifacts."""
+    if isinstance(value, str):
+        if len(value) >= 8:
+            yield value
+    elif isinstance(value, dict):
+        for item in value.values():
+            yield from _request_strings(item)
+    elif isinstance(value, list):
+        for item in value:
+            yield from _request_strings(item)
+
+
+def _sanitize_provider_text(value, private=()):
+    """Keep a provider explanation readable without credentials or echoed request content."""
+    if not isinstance(value, str):
+        return None
+    secrets = {os.getenv(key) for key in ("GEMINI_API_KEY", "GOOGLE_API_KEY")} - {None, ""}
+    for text in sorted({*private, *secrets}, key=len, reverse=True):
+        for form in {text, json.dumps(text, ensure_ascii=False)[1:-1], " ".join(text.split())}:
+            if form:
+                value = value.replace(form, "[redacted]")
+    value = re.sub(r"\b(Bearer|Basic)\s+[^\s,;]+", r"\1 [redacted]", value, flags=re.I)
+    value = re.sub(r"""(?i)((?:x-goog-api-key|api[-_ ]?key|access_token)\s*[:=]\s*)["']?[^\s,;"']+""",
+                   r"\1[redacted]", value)
+    value = re.sub(r"\bAIza[\w-]{20,}\b", "[redacted]", value)
+    value = re.sub(r"""(["'])(?:(?!\1).){1,2048}\1""", "[redacted]", value)  # quoted request fragments
+    value = re.sub(r"[A-Za-z0-9+/_=-]{64,}", "[redacted]", value)            # long opaque values
+    return " ".join(value.split())[:500]
+
+
+def _provider_explanation(payload, private=()):
+    """Sanitized message, field violations and error info from a 4xx provider error body."""
+    error = payload.get("error") if isinstance(payload, dict) else None
+    if not isinstance(error, dict):
+        return {}
+    record = {}
+    if (message := _sanitize_provider_text(error.get("message"), private)) is not None:
+        record["provider_message"] = message
+    violations, info = [], []
+    for detail in (error.get("details") if isinstance(error.get("details"), list) else [])[:16]:
+        if not isinstance(detail, dict):
+            continue
+        if detail.get("@type") == "type.googleapis.com/google.rpc.ErrorInfo":
+            info.append({k: _sanitize_provider_text(detail[k], private) for k in ("reason", "domain")
+                         if isinstance(detail.get(k), str)})
+        elif detail.get("@type") == "type.googleapis.com/google.rpc.BadRequest":
+            violations.extend({k: _sanitize_provider_text(row[k], private) for k in ("field", "description", "reason")
+                               if isinstance(row.get(k), str)}
+                              for row in (detail.get("fieldViolations") or [])[:16] if isinstance(row, dict))
+    if violations:
+        record["provider_field_violations"] = violations[:16]
+    if info:
+        record["provider_error_info"] = info
+    return record
 
 
 class GeminiDecider:
@@ -391,7 +450,11 @@ class GeminiDecider:
                 call["status"] = "physical_budget_exhausted"
                 raise VideoError("Gemini physical request budget exhausted") from None
             except Exception as exc:
-                details = _provider_diagnostics(exc)
+                try:
+                    private = set(_request_strings(json.loads(kwargs.get("contents") or "null")))
+                except (TypeError, ValueError):
+                    private = {kwargs["contents"]} if isinstance(kwargs.get("contents"), str) else set()
+                details = _provider_diagnostics(exc, private)
                 sent = budget is not None and len(budget.attempts) > attempt
                 status = budget.attempts[-1].get("http_status") if sent else None
                 if status is not None:
@@ -544,7 +607,7 @@ ACTION_CONTEXT_MARGIN_US = 5_000_000
 def inspection_scope(finding, duration_us):
     """Interval a targeted inspection must overlap for this candidate."""
     cited = finding.citation.interval
-    if finding.observation.category not in ACTION_CONTEXT_CATEGORIES:
+    if getattr(finding.observation, "category", None) not in ACTION_CONTEXT_CATEGORIES:
         return cited
     return Interval(max(0, cited.start_us - ACTION_CONTEXT_MARGIN_US),
                     min(duration_us, cited.end_us + ACTION_CONTEXT_MARGIN_US))
