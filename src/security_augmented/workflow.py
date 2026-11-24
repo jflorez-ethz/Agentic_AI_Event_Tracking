@@ -37,6 +37,8 @@ EVENT_LABELS = _ACTION_LABELS | VISUAL_TRANSITION_LABELS
 # Routine person activity fills candidate slots only after every visible security-relevant observation.
 ROUTINE_LABELS = frozenset({"person_appeared", "person_moved"})
 PRIORITY_LABELS = tuple(label for label in EVENT_LABELS if label not in ROUTINE_LABELS)
+# Every category model-guided Perception may return: the single source for downstream vocabularies.
+PERCEPTION_CATEGORIES = (*EVENT_LABELS, "insufficient_evidence")
 RELATIONAL_TASK_CATEGORY = "relational_task"
 _CLOCK = re.compile(r"(?<!\d)(?:\d+:)?\d{1,2}:[0-5]\d(?:\.\d{1,6})?(?!\d)")
 _SECONDS_RANGE = re.compile(
@@ -543,7 +545,7 @@ def _observe_video(video, provider, interval, modality, phase, plan, *, model_gu
             media = FrameSequenceInput(inspection, video.width, video.height, pixels)
         inspection = media.inspection
         request = ObservationRequest(
-            media, (*(EVENT_LABELS if model_guided else _ACTION_LABELS), "insufficient_evidence"),
+            media, PERCEPTION_CATEGORIES if model_guided else (*_ACTION_LABELS, "insufficient_evidence"),
             "Describe visible activities. Use placement, removal or entry only when the "
             "observable transition is established. Describe uncertain action as insufficient evidence. "
             "Cite the supporting visual evidence. Do not infer ownership, intent or abandonment."
@@ -963,6 +965,21 @@ def _window_count(value):
     return count
 
 
+def _write_guard_report_safely(output, result):
+    """report.html is derived from analysis.json; a failure there must not fail a completed analysis."""
+    import sys
+
+    try:
+        from .guard_report import write
+
+        write(output, json.loads(json.dumps(result)))
+        return True
+    except Exception as exc:  # noqa: BLE001 - presentation only; the analysis artifacts are already written
+        print(f"warning: report.html was not generated ({type(exc).__name__}: {exc}). analysis.json and report.md "
+              f"are complete. Regenerate with: python -m security_augmented.guard_report {output}", file=sys.stderr)
+        return False
+
+
 def _write_alert_sheet(path, alerts):
     """Blank labelling sheet: what, when and which frames only, without the model's verdict or reasons."""
     import csv
@@ -1083,9 +1100,7 @@ def main(argv=None):
         (args.output / "analysis.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
         if analysis.review is not None:
             _write_alert_sheet(args.output / "alerts.csv", analysis.review["alerts"])
-        from .guard_report import write as write_guard_report
-
-        write_guard_report(args.output, json.loads(json.dumps(result)))  # plain-language companion to report.md
+        _write_guard_report_safely(args.output, result)
     except (VideoError, OSError, ValueError, KeyError) as exc:
         parser.exit(1, f"{exc}\n")
     print(analysis.report, end="")

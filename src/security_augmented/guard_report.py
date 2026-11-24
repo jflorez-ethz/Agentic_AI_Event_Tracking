@@ -16,14 +16,19 @@ from pydantic import TypeAdapter
 
 from .contracts import VideoError
 from .video import _decode, _run, ingest
-from .workflow import PRIORITY_LABELS, ROUTINE_LABELS, Analysis
+from .workflow import PERCEPTION_CATEGORIES, PRIORITY_LABELS, ROUTINE_LABELS, Analysis
 
 TITLES = {
     "person_fell": "Person down", "object_placed": "Object left", "object_removed": "Object taken",
     "person_enters_area": "Person entered an area", "object_appeared": "Object appeared",
     "object_disappeared": "Object disappeared", "person_moved": "Person walking",
-    "person_appeared": "Person came into view",
+    "person_appeared": "Person came into view", "insufficient_evidence": "Unclear activity",
 }
+
+
+def title(category):
+    """Display title; an unexpected category degrades to readable text instead of failing the report."""
+    return TITLES.get(category) or category.replace("_", " ").capitalize()
 QUESTIONS = {
     "person_fell": "Is a person lying on the floor?",
     "object_placed": "Was an object put down and left there?",
@@ -232,7 +237,7 @@ def render(result):
 
     if security:
         top = min(security, key=lambda e: (SEVERITY.index(e.category), e.interval.start_us))
-        headline = f"{TITLES[top.category]} at {mmss(top.interval.start_us)}"
+        headline = f"{title(top.category)} at {mmss(top.interval.start_us)}"
         tone = "confirmed"
     elif alerts:
         headline = f"{len(alerts)} possible security event{'s' if len(alerts) > 1 else ''} need{'' if len(alerts) > 1 else 's'} review"
@@ -261,8 +266,8 @@ def render(result):
         what = sentence(alert["observation_id"])
         parts.append(
             f'<section class="card review"><h3>{span(alert["interval"]["start_us"], alert["interval"]["end_us"])} · '
-            f'{html.escape(TITLES[alert["category"]])}</h3>'
-            f'<p class="question">{html.escape(QUESTIONS[alert["category"]])}</p>'
+            f'{html.escape(title(alert["category"]))}</h3>'
+            f'<p class="question">{html.escape(QUESTIONS.get(alert["category"], "What happened here?"))}</p>'
             + (f"<p>{html.escape(what)}</p>" if what else "")
             + f'<p class="why">{html.escape(why)}</p>{_images(thumbs.triplet(frames), thumbs.problem)}</section>')
 
@@ -272,7 +277,7 @@ def render(result):
     for event in security:
         frames = [f for c in event.citations for f in c.frames]
         parts.append(
-            f'<section class="card confirmed"><h3>{mmss(event.interval.start_us)} · {html.escape(TITLES[event.category])}</h3>'
+            f'<section class="card confirmed"><h3>{mmss(event.interval.start_us)} · {html.escape(title(event.category))}</h3>'
             f"<p>{html.escape(sentence(event.observation_ids[0]))}</p>{_images(thumbs.triplet(frames), thumbs.problem)}</section>")
 
     parts.append("<h2>Everything seen, in order</h2>")
@@ -292,7 +297,7 @@ def render(result):
         lines.append(
             f'<li class="row {"security" if row["security"] else "routine"} {status.replace(", ", "-").replace(" ", "-")}">'
             f'<span class="when">{span(row["start_us"], row["end_us"])}</span>'
-            f'<span class="what">{tag}<b>{html.escape(TITLES[row["category"]])}</b>'
+            f'<span class="what">{tag}<b>{html.escape(title(row["category"]))}</b>'
             f'<span class="status">{html.escape(status)}</span><br>{text}'
             + (f' <span class="note">({html.escape("; ".join(notes))})</span>' if notes else "") + "</span></li>")
     parts.append(f'<ul class="timeline">{"".join(lines)}</ul>' if lines else '<p class="empty">Nothing was seen.</p>')

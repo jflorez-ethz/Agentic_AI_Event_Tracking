@@ -108,3 +108,44 @@ def test_write_leaves_report_md_untouched(tmp_path):
     assert (run / "report.html").read_text().startswith("<!doctype html>")
     assert (run / "report.md").read_bytes() == before
     assert guard_report.main([]) == 2
+
+
+def test_unclear_observation_no_longer_breaks_the_report():
+    """Live run LeftBag_AtChair_live.JKYE8j failed with KeyError: 'insufficient_evidence'."""
+    page = guard_report.render(result("LeftBag_AtChair_live.JKYE8j"))
+    plain = text(page)
+    assert "Unclear activity" in plain and "bends near the seating area next to a dark item" in plain
+    row = re.search(r'<li class="row ([^"]+)">((?:(?!</li>).)*Unclear activity.*?)</li>', page, re.S)
+    assert "seen-not-verified" in row.group(1) and "Reported by the video analysis" in row.group(2)
+
+
+def test_every_perception_category_has_a_title():
+    from security_augmented.workflow import PERCEPTION_CATEGORIES
+
+    assert set(PERCEPTION_CATEGORIES) <= set(guard_report.TITLES)
+    assert guard_report.title("some_future_event") == "Some future event"  # degrade, never crash
+
+
+def test_every_archived_run_renders():
+    runs = [p for p in sorted(RUNS.glob("**/analysis.json")) if "analysis" in json.loads(p.read_text())]
+    assert len(runs) >= 26
+    failures = []
+    for path in runs:
+        try:
+            guard_report.render(json.loads(path.read_text()))
+        except Exception as exc:  # collect every failure, not just the first
+            failures.append(f"{path.relative_to(RUNS)}: {type(exc).__name__}: {exc}")
+    assert not failures, failures
+
+
+def test_report_failure_does_not_fail_a_completed_run(tmp_path, monkeypatch, capsys):
+    from security_augmented import workflow
+
+    def broken(result):
+        raise KeyError("insufficient_evidence")
+
+    monkeypatch.setattr(guard_report, "render", broken)
+    assert workflow._write_guard_report_safely(tmp_path, {"analysis": {}}) is False
+    error = capsys.readouterr().err
+    assert "report.html was not generated (KeyError: 'insufficient_evidence')" in error
+    assert f"python -m security_augmented.guard_report {tmp_path}" in error and not (tmp_path / "report.html").exists()
