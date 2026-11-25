@@ -20,7 +20,8 @@ from .video import _decode, _id, _run, _version, ingest
 
 DEFAULT_MODEL = "gemini-3.6-flash"
 PROMPT_VERSION = "e1-v1"
-POSTURE_PROMPT_VERSION = "floor-v1"
+POSTURE_PROMPT_VERSION = "floor-v2"  # v2: approximate box (w, h) and seat_nearby
+ASSESSMENT_PROMPT_VERSION = "floor-assess-v1"
 ADAPTER_VERSION = "1"
 MAX_INLINE_BYTES = 19_000_000
 USAGE_FIELDS = (
@@ -310,7 +311,8 @@ class GeminiAdapter:
             parts.append({"inline_data": {"mime_type": "image/png", "data": _png(pixels, media.width, media.height)}})
         labels = [f"F{i}" for i in range(1, len(media.inspection.frames) + 1)]
         person = _object({"id": {"type": "string"}, "posture": {"type": "string", "enum": list(request.vocabulary)},
-                          "x": {"type": "number"}, "y": {"type": "number"}})
+                          "x": {"type": "number"}, "y": {"type": "number"}, "w": {"type": "number"},
+                          "h": {"type": "number"}, "seat_nearby": {"type": "boolean"}})
         config = {
             "response_mime_type": "application/json",
             "response_json_schema": _object({"frames": {
@@ -355,6 +357,43 @@ class GeminiAdapter:
         except (ValueError, TypeError, KeyError, VideoError) as exc:
             raise GeminiFailure(f"Invalid Gemini posture output: {exc}", metadata, raw, stage="validation",
                                 diagnostics=completion_diagnostics(response)) from exc
+
+    def floor_assessment(self, prompt: str):
+        """System's assessment of a person-on-floor incident: one sentence from timed postures, text only, no image.
+        Returns (sentence, metadata dict). The sentence is checked by floor_check.check_assessment before display."""
+        if self.client is None:
+            raise VideoError("No authorized Gemini client is configured")
+        config = {
+            "response_mime_type": "application/json",
+            "response_json_schema": _object({"assessment": {"type": "string"}}),
+            "max_output_tokens": 2048,
+            "thinking_config": {"thinking_level": "LOW"},
+        }
+        if self.single_request:
+            config = {**config, "automatic_continuation": False}
+        start = time.monotonic()
+
+        def metadata(response=None):
+            usage = getattr(response, "usage_metadata", None)
+            return {"provider": "google-gemini-developer-api", "model_id": self.model,
+                    "model_version": getattr(response, "model_version", None), "adapter_version": ADAPTER_VERSION,
+                    "prompt_version": ASSESSMENT_PROMPT_VERSION, "thinking_level": "LOW",
+                    "latency_ms": round((time.monotonic() - start) * 1000),
+                    "usage": {key: value for key in USAGE_FIELDS if type(value := getattr(usage, key, None)) is int}}
+        try:
+            response = self.client.models.generate_content(
+                model=self.model, contents=[{"role": "user", "parts": [{"text": prompt}]}], config=config)
+        except Exception as exc:
+            code = getattr(exc, "code", None)
+            raise GeminiFailure(f"Gemini request failed ({type(exc).__name__}{f' HTTP {code}' if type(code) is int else ''})",
+                                metadata()) from None
+        try:
+            data = json.loads(response.text)
+            if not isinstance(data, dict) or data.keys() != {"assessment"} or not isinstance(data["assessment"], str):
+                raise VideoError("Expected one assessment string")
+            return data["assessment"], metadata(response)
+        except (ValueError, TypeError, VideoError) as exc:
+            raise GeminiFailure(f"Invalid Gemini assessment output: {exc}", metadata(response)) from exc
 
     @staticmethod
     def _parse(request, raw, metadata, details):

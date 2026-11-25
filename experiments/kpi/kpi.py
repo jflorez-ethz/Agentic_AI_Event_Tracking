@@ -73,6 +73,12 @@ def human_items(an):
             frames = [f for c in e["citations"] for f in c["frames"]]
             items.append({"kind": "supported", "category": e["category"], "start": _s(e["interval"]["start_us"]),
                           "end": _s(e["interval"]["end_us"]), "seed": e["observation_ids"][0], "frames": frames})
+    # Person-on-the-floor alerts (rules v3+): read directly, never "supported"; kind floor:look_closely / floor:no_doubt_signal.
+    for a in an["review"].get("floor_alerts", []):
+        if a["status"] in ("look_closely", "no_doubt_signal"):
+            items.append({"kind": "floor:" + a["status"], "category": a["category"],
+                          "start": _s(a["interval"]["start_us"]), "end": _s(a["interval"]["end_us"]),
+                          "seed": a["observation_id"], "frames": a["frames"]})
     for a in an["review"]["alerts"]:
         items.append({"kind": "needs_review:" + a["reason_code"], "category": a["category"],
                       "start": _s(a["interval"]["start_us"]), "end": _s(a["interval"]["end_us"]),

@@ -4,10 +4,14 @@
  "video_sha256": "19b32edd0fe6ad0c0243f3c94adc787ffee28d8a74cb8ca73473fdfb996c423a",
  "duration_us": 40559700,
  "aspect": 0.75,
+ "frame_size": [
+  384,
+  288
+ ],
+ "first_look": "reported",
  "anchor_us": 19520000,
  "expected": {
-  "status": "to_review",
-  "reason": "seated"
+  "seen": "seated"
  },
  "transcript": [
   {
@@ -45,7 +49,10 @@
        "id": "P1",
        "posture": "standing",
        "x": 0.1589,
-       "y": 0.4306
+       "y": 0.4306,
+       "w": 0.0703,
+       "h": 0.0556,
+       "seat_nearby": true
       }
      ]
     },
@@ -58,7 +65,10 @@
        "id": "P1",
        "posture": "standing",
        "x": 0.1536,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.0703,
+       "h": 0.066,
+       "seat_nearby": true
       }
      ]
     },
@@ -71,7 +81,10 @@
        "id": "P1",
        "posture": "standing",
        "x": 0.151,
-       "y": 0.4167
+       "y": 0.4167,
+       "w": 0.0703,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -84,7 +97,10 @@
        "id": "P1",
        "posture": "standing",
        "x": 0.1458,
-       "y": 0.4062
+       "y": 0.4062,
+       "w": 0.0677,
+       "h": 0.059,
+       "seat_nearby": true
       }
      ]
     },
@@ -97,7 +113,10 @@
        "id": "P1",
        "posture": "standing",
        "x": 0.1406,
-       "y": 0.4062
+       "y": 0.4062,
+       "w": 0.0573,
+       "h": 0.0486,
+       "seat_nearby": true
       }
      ]
     },
@@ -110,7 +129,10 @@
        "id": "P1",
        "posture": "standing",
        "x": 0.1354,
-       "y": 0.4028
+       "y": 0.4028,
+       "w": 0.0651,
+       "h": 0.0417,
+       "seat_nearby": true
       }
      ]
     },
@@ -123,7 +145,10 @@
        "id": "P1",
        "posture": "bending",
        "x": 0.1276,
-       "y": 0.4028
+       "y": 0.4028,
+       "w": 0.0469,
+       "h": 0.0382,
+       "seat_nearby": true
       }
      ]
     },
@@ -136,7 +161,10 @@
        "id": "P1",
        "posture": "bending",
        "x": 0.125,
-       "y": 0.4062
+       "y": 0.4062,
+       "w": 0.0443,
+       "h": 0.0382,
+       "seat_nearby": true
       }
      ]
     },
@@ -149,7 +177,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1302,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.0339,
+       "h": 0.0451,
+       "seat_nearby": true
       }
      ]
     },
@@ -162,7 +193,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1328,
-       "y": 0.4132
+       "y": 0.4132,
+       "w": 0.0312,
+       "h": 0.066,
+       "seat_nearby": true
       }
      ]
     },
@@ -175,7 +209,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1328,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.026,
+       "h": 0.066,
+       "seat_nearby": true
       }
      ]
     },
@@ -188,7 +225,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1328,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0234,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -201,7 +241,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -214,7 +257,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -227,7 +273,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -240,7 +289,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -253,7 +305,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -266,7 +321,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -279,7 +337,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -292,7 +353,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     }
@@ -318,7 +382,10 @@
        "id": "P1",
        "posture": "standing",
        "x": 0.1589,
-       "y": 0.4306
+       "y": 0.4306,
+       "w": 0.0703,
+       "h": 0.0556,
+       "seat_nearby": true
       }
      ]
     },
@@ -331,7 +398,10 @@
        "id": "P1",
        "posture": "standing",
        "x": 0.1536,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.0703,
+       "h": 0.066,
+       "seat_nearby": true
       }
      ]
     },
@@ -344,7 +414,10 @@
        "id": "P1",
        "posture": "standing",
        "x": 0.151,
-       "y": 0.4167
+       "y": 0.4167,
+       "w": 0.0703,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -357,7 +430,10 @@
        "id": "P1",
        "posture": "standing",
        "x": 0.1458,
-       "y": 0.4062
+       "y": 0.4062,
+       "w": 0.0677,
+       "h": 0.059,
+       "seat_nearby": true
       }
      ]
     },
@@ -370,7 +446,10 @@
        "id": "P1",
        "posture": "standing",
        "x": 0.1406,
-       "y": 0.4062
+       "y": 0.4062,
+       "w": 0.0573,
+       "h": 0.0486,
+       "seat_nearby": true
       }
      ]
     },
@@ -383,7 +462,10 @@
        "id": "P1",
        "posture": "standing",
        "x": 0.1354,
-       "y": 0.4028
+       "y": 0.4028,
+       "w": 0.0651,
+       "h": 0.0417,
+       "seat_nearby": true
       }
      ]
     },
@@ -396,7 +478,10 @@
        "id": "P1",
        "posture": "bending",
        "x": 0.1276,
-       "y": 0.4028
+       "y": 0.4028,
+       "w": 0.0469,
+       "h": 0.0382,
+       "seat_nearby": true
       }
      ]
     },
@@ -409,7 +494,10 @@
        "id": "P1",
        "posture": "bending",
        "x": 0.125,
-       "y": 0.4062
+       "y": 0.4062,
+       "w": 0.0443,
+       "h": 0.0382,
+       "seat_nearby": true
       }
      ]
     },
@@ -422,7 +510,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1302,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.0339,
+       "h": 0.0451,
+       "seat_nearby": true
       }
      ]
     },
@@ -435,7 +526,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1328,
-       "y": 0.4132
+       "y": 0.4132,
+       "w": 0.0312,
+       "h": 0.066,
+       "seat_nearby": true
       }
      ]
     },
@@ -448,7 +542,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1328,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.026,
+       "h": 0.066,
+       "seat_nearby": true
       }
      ]
     },
@@ -461,7 +558,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1328,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0234,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -474,7 +574,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -487,7 +590,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -500,7 +606,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -513,7 +622,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -526,7 +638,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -539,7 +654,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -552,7 +670,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     },
@@ -565,7 +686,10 @@
        "id": "P1",
        "posture": "sitting_on_seat",
        "x": 0.1354,
-       "y": 0.3958
+       "y": 0.3958,
+       "w": 0.0208,
+       "h": 0.0694,
+       "seat_nearby": true
       }
      ]
     }
@@ -575,110 +699,225 @@
     {
      "t_us": 17559711,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1589,
+     "y": 0.4306,
+     "w": 0.0703,
+     "h": 0.0556,
+     "seat_nearby": true
     },
     {
      "t_us": 17799700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1536,
+     "y": 0.4201,
+     "w": 0.0703,
+     "h": 0.066,
+     "seat_nearby": true
     },
     {
      "t_us": 18039700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.151,
+     "y": 0.4167,
+     "w": 0.0703,
+     "h": 0.0694,
+     "seat_nearby": true
     },
     {
      "t_us": 18279700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1458,
+     "y": 0.4062,
+     "w": 0.0677,
+     "h": 0.059,
+     "seat_nearby": true
     },
     {
      "t_us": 18559711,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1406,
+     "y": 0.4062,
+     "w": 0.0573,
+     "h": 0.0486,
+     "seat_nearby": true
     },
     {
      "t_us": 18799700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1354,
+     "y": 0.4028,
+     "w": 0.0651,
+     "h": 0.0417,
+     "seat_nearby": true
     },
     {
      "t_us": 19039700,
      "posture": "bending",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1276,
+     "y": 0.4028,
+     "w": 0.0469,
+     "h": 0.0382,
+     "seat_nearby": true
     },
     {
      "t_us": 19279700,
      "posture": "bending",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.125,
+     "y": 0.4062,
+     "w": 0.0443,
+     "h": 0.0382,
+     "seat_nearby": true
     },
     {
      "t_us": 19559711,
      "posture": "sitting_on_seat",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1302,
+     "y": 0.4201,
+     "w": 0.0339,
+     "h": 0.0451,
+     "seat_nearby": true
     },
     {
      "t_us": 19959711,
      "posture": "sitting_on_seat",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1328,
+     "y": 0.4132,
+     "w": 0.0312,
+     "h": 0.066,
+     "seat_nearby": true
     },
     {
      "t_us": 20399700,
      "posture": "sitting_on_seat",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1328,
+     "y": 0.3958,
+     "w": 0.026,
+     "h": 0.066,
+     "seat_nearby": true
     },
     {
      "t_us": 20799700,
      "posture": "sitting_on_seat",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1328,
+     "y": 0.3958,
+     "w": 0.0234,
+     "h": 0.0694,
+     "seat_nearby": true
     },
     {
      "t_us": 21239700,
      "posture": "sitting_on_seat",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1354,
+     "y": 0.3958,
+     "w": 0.0208,
+     "h": 0.0694,
+     "seat_nearby": true
     },
     {
      "t_us": 21639700,
      "posture": "sitting_on_seat",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1354,
+     "y": 0.3958,
+     "w": 0.0208,
+     "h": 0.0694,
+     "seat_nearby": true
     },
     {
      "t_us": 22079711,
      "posture": "sitting_on_seat",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1354,
+     "y": 0.3958,
+     "w": 0.0208,
+     "h": 0.0694,
+     "seat_nearby": true
     },
     {
      "t_us": 22479700,
      "posture": "sitting_on_seat",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1354,
+     "y": 0.3958,
+     "w": 0.0208,
+     "h": 0.0694,
+     "seat_nearby": true
     },
     {
      "t_us": 22919700,
      "posture": "sitting_on_seat",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1354,
+     "y": 0.3958,
+     "w": 0.0208,
+     "h": 0.0694,
+     "seat_nearby": true
     },
     {
      "t_us": 23319711,
      "posture": "sitting_on_seat",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1354,
+     "y": 0.3958,
+     "w": 0.0208,
+     "h": 0.0694,
+     "seat_nearby": true
     },
     {
      "t_us": 23759700,
      "posture": "sitting_on_seat",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1354,
+     "y": 0.3958,
+     "w": 0.0208,
+     "h": 0.0694,
+     "seat_nearby": true
     },
     {
      "t_us": 24159700,
      "posture": "sitting_on_seat",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.1354,
+     "y": 0.3958,
+     "w": 0.0208,
+     "h": 0.0694,
+     "seat_nearby": true
     }
    ],
-   "status": "to_review",
-   "reason": "seated",
+   "seen": "seated",
    "span_us": [
     19520000,
     19520000
-   ]
+   ],
+   "first_look": "reported",
+   "doubt_signals": [
+    {
+     "code": "disagreement",
+     "value": "reported_nobody_on_floor"
+    },
+    {
+     "code": "no_floor_seen",
+     "value": "seated"
+    },
+    {
+     "code": "seat_nearby",
+     "value": 19559711
+    }
+   ],
+   "status": "look_closely"
   }
  ]
 }

@@ -4,9 +4,13 @@
  "video_sha256": "06bc1d99e6766fd755adc215b3b5753f26d099f45c6578eee9c318e5c9637546",
  "duration_us": 40559700,
  "aspect": 0.75,
+ "frame_size": [
+  384,
+  288
+ ],
+ "first_look": "reported",
  "anchor_us": 28040000,
  "expected": {
-  "status": "verified",
   "arrival_observed": true,
   "via": [
    "bending",
@@ -16,7 +20,8 @@
    "sitting_on_floor",
    "lying_on_floor"
   ],
-  "outcome": "stood_up"
+  "outcome": "stood_up",
+  "seen": "on_floor"
  },
  "transcript": [
   {
@@ -54,7 +59,10 @@
        "id": "P2",
        "posture": "standing",
        "x": 0.4531,
-       "y": 0.3785
+       "y": 0.3785,
+       "w": 0.1172,
+       "h": 0.1319,
+       "seat_nearby": false
       }
      ]
     },
@@ -67,7 +75,10 @@
        "id": "P2",
        "posture": "standing",
        "x": 0.4766,
-       "y": 0.3924
+       "y": 0.3924,
+       "w": 0.1328,
+       "h": 0.1111,
+       "seat_nearby": false
       }
      ]
     },
@@ -80,7 +91,10 @@
        "id": "P2",
        "posture": "bending",
        "x": 0.4922,
-       "y": 0.4271
+       "y": 0.4271,
+       "w": 0.1068,
+       "h": 0.1285,
+       "seat_nearby": false
       }
      ]
     },
@@ -93,7 +107,10 @@
        "id": "P2",
        "posture": "bending",
        "x": 0.4974,
-       "y": 0.4306
+       "y": 0.4306,
+       "w": 0.0911,
+       "h": 0.125,
+       "seat_nearby": false
       }
      ]
     },
@@ -106,7 +123,10 @@
        "id": "P2",
        "posture": "kneeling",
        "x": 0.5,
-       "y": 0.4375
+       "y": 0.4375,
+       "w": 0.0885,
+       "h": 0.1111,
+       "seat_nearby": false
       }
      ]
     },
@@ -119,7 +139,10 @@
        "id": "P2",
        "posture": "kneeling",
        "x": 0.4896,
-       "y": 0.4479
+       "y": 0.4479,
+       "w": 0.1042,
+       "h": 0.1111,
+       "seat_nearby": false
       }
      ]
     },
@@ -132,7 +155,10 @@
        "id": "P2",
        "posture": "sitting_on_floor",
        "x": 0.4844,
-       "y": 0.4306
+       "y": 0.4306,
+       "w": 0.1094,
+       "h": 0.1285,
+       "seat_nearby": false
       }
      ]
     },
@@ -145,7 +171,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.487,
-       "y": 0.4236
+       "y": 0.4236,
+       "w": 0.1016,
+       "h": 0.1562,
+       "seat_nearby": false
       }
      ]
     },
@@ -158,7 +187,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.4948,
-       "y": 0.4097
+       "y": 0.4097,
+       "w": 0.0938,
+       "h": 0.1771,
+       "seat_nearby": false
       }
      ]
     },
@@ -171,7 +203,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5052,
-       "y": 0.4167
+       "y": 0.4167,
+       "w": 0.1016,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -184,7 +219,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5052,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1068,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -197,7 +235,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -210,7 +251,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -223,7 +267,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -236,7 +283,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -249,7 +299,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -262,7 +315,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -275,7 +331,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -288,7 +347,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -301,7 +363,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     }
@@ -329,7 +394,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -342,7 +410,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -355,7 +426,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.4974,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.125,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -368,7 +442,10 @@
        "id": "P2",
        "posture": "kneeling",
        "x": 0.487,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.0885,
+       "h": 0.1007,
+       "seat_nearby": false
       }
      ]
     },
@@ -381,7 +458,10 @@
        "id": "P2",
        "posture": "kneeling",
        "x": 0.5052,
-       "y": 0.4028
+       "y": 0.4028,
+       "w": 0.1146,
+       "h": 0.0868,
+       "seat_nearby": false
       }
      ]
     },
@@ -394,7 +474,10 @@
        "id": "P2",
        "posture": "standing",
        "x": 0.6016,
-       "y": 0.4444
+       "y": 0.4444,
+       "w": 0.1198,
+       "h": 0.1285,
+       "seat_nearby": false
       }
      ]
     },
@@ -407,7 +490,10 @@
        "id": "P2",
        "posture": "standing",
        "x": 0.6797,
-       "y": 0.5729
+       "y": 0.5729,
+       "w": 0.1016,
+       "h": 0.1319,
+       "seat_nearby": false
       }
      ]
     }
@@ -434,7 +520,10 @@
        "id": "P2",
        "posture": "standing",
        "x": 0.4531,
-       "y": 0.3785
+       "y": 0.3785,
+       "w": 0.1172,
+       "h": 0.1319,
+       "seat_nearby": false
       }
      ]
     },
@@ -447,7 +536,10 @@
        "id": "P2",
        "posture": "standing",
        "x": 0.4766,
-       "y": 0.3924
+       "y": 0.3924,
+       "w": 0.1328,
+       "h": 0.1111,
+       "seat_nearby": false
       }
      ]
     },
@@ -460,7 +552,10 @@
        "id": "P2",
        "posture": "bending",
        "x": 0.4922,
-       "y": 0.4271
+       "y": 0.4271,
+       "w": 0.1068,
+       "h": 0.1285,
+       "seat_nearby": false
       }
      ]
     },
@@ -473,7 +568,10 @@
        "id": "P2",
        "posture": "bending",
        "x": 0.4974,
-       "y": 0.4306
+       "y": 0.4306,
+       "w": 0.0911,
+       "h": 0.125,
+       "seat_nearby": false
       }
      ]
     },
@@ -486,7 +584,10 @@
        "id": "P2",
        "posture": "kneeling",
        "x": 0.5,
-       "y": 0.4375
+       "y": 0.4375,
+       "w": 0.0885,
+       "h": 0.1111,
+       "seat_nearby": false
       }
      ]
     },
@@ -499,7 +600,10 @@
        "id": "P2",
        "posture": "kneeling",
        "x": 0.4896,
-       "y": 0.4479
+       "y": 0.4479,
+       "w": 0.1042,
+       "h": 0.1111,
+       "seat_nearby": false
       }
      ]
     },
@@ -512,7 +616,10 @@
        "id": "P2",
        "posture": "sitting_on_floor",
        "x": 0.4844,
-       "y": 0.4306
+       "y": 0.4306,
+       "w": 0.1094,
+       "h": 0.1285,
+       "seat_nearby": false
       }
      ]
     },
@@ -525,7 +632,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.487,
-       "y": 0.4236
+       "y": 0.4236,
+       "w": 0.1016,
+       "h": 0.1562,
+       "seat_nearby": false
       }
      ]
     },
@@ -538,7 +648,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.4948,
-       "y": 0.4097
+       "y": 0.4097,
+       "w": 0.0938,
+       "h": 0.1771,
+       "seat_nearby": false
       }
      ]
     },
@@ -551,7 +664,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5052,
-       "y": 0.4167
+       "y": 0.4167,
+       "w": 0.1016,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -564,7 +680,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5052,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1068,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -577,7 +696,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -590,7 +712,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -603,7 +728,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -616,7 +744,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -629,7 +760,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -642,7 +776,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -655,7 +792,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -668,7 +808,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -681,7 +824,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -694,7 +840,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -707,7 +856,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.5078,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1094,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -720,7 +872,10 @@
        "id": "P2",
        "posture": "lying_on_floor",
        "x": 0.4974,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.125,
+       "h": 0.1632,
+       "seat_nearby": false
       }
      ]
     },
@@ -733,7 +888,10 @@
        "id": "P2",
        "posture": "kneeling",
        "x": 0.487,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.0885,
+       "h": 0.1007,
+       "seat_nearby": false
       }
      ]
     },
@@ -746,7 +904,10 @@
        "id": "P2",
        "posture": "kneeling",
        "x": 0.5052,
-       "y": 0.4028
+       "y": 0.4028,
+       "w": 0.1146,
+       "h": 0.0868,
+       "seat_nearby": false
       }
      ]
     },
@@ -759,7 +920,10 @@
        "id": "P2",
        "posture": "standing",
        "x": 0.6016,
-       "y": 0.4444
+       "y": 0.4444,
+       "w": 0.1198,
+       "h": 0.1285,
+       "seat_nearby": false
       }
      ]
     },
@@ -772,7 +936,10 @@
        "id": "P2",
        "posture": "standing",
        "x": 0.6797,
-       "y": 0.5729
+       "y": 0.5729,
+       "w": 0.1016,
+       "h": 0.1319,
+       "seat_nearby": false
       }
      ]
     }
@@ -782,139 +949,275 @@
     {
      "t_us": 26079711,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4531,
+     "y": 0.3785,
+     "w": 0.1172,
+     "h": 0.1319,
+     "seat_nearby": false
     },
     {
      "t_us": 26319711,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4766,
+     "y": 0.3924,
+     "w": 0.1328,
+     "h": 0.1111,
+     "seat_nearby": false
     },
     {
      "t_us": 26559700,
      "posture": "bending",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4922,
+     "y": 0.4271,
+     "w": 0.1068,
+     "h": 0.1285,
+     "seat_nearby": false
     },
     {
      "t_us": 26799700,
      "posture": "bending",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4974,
+     "y": 0.4306,
+     "w": 0.0911,
+     "h": 0.125,
+     "seat_nearby": false
     },
     {
      "t_us": 27079711,
      "posture": "kneeling",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.5,
+     "y": 0.4375,
+     "w": 0.0885,
+     "h": 0.1111,
+     "seat_nearby": false
     },
     {
      "t_us": 27319711,
      "posture": "kneeling",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4896,
+     "y": 0.4479,
+     "w": 0.1042,
+     "h": 0.1111,
+     "seat_nearby": false
     },
     {
      "t_us": 27559700,
      "posture": "sitting_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4844,
+     "y": 0.4306,
+     "w": 0.1094,
+     "h": 0.1285,
+     "seat_nearby": false
     },
     {
      "t_us": 27799700,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.487,
+     "y": 0.4236,
+     "w": 0.1016,
+     "h": 0.1562,
+     "seat_nearby": false
     },
     {
      "t_us": 28079711,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4948,
+     "y": 0.4097,
+     "w": 0.0938,
+     "h": 0.1771,
+     "seat_nearby": false
     },
     {
      "t_us": 28479700,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.5052,
+     "y": 0.4167,
+     "w": 0.1016,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 28919700,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.5052,
+     "y": 0.4201,
+     "w": 0.1068,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 29319711,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.5078,
+     "y": 0.4201,
+     "w": 0.1094,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 29759700,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.5078,
+     "y": 0.4201,
+     "w": 0.1094,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 30159700,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.5078,
+     "y": 0.4201,
+     "w": 0.1094,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 30599700,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.5078,
+     "y": 0.4201,
+     "w": 0.1094,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 30999700,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.5078,
+     "y": 0.4201,
+     "w": 0.1094,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 31439700,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.5078,
+     "y": 0.4201,
+     "w": 0.1094,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 31839711,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.5078,
+     "y": 0.4201,
+     "w": 0.1094,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 32279700,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.5078,
+     "y": 0.4201,
+     "w": 0.1094,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 32679700,
      "posture": "lying_on_floor",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.5078,
+     "y": 0.4201,
+     "w": 0.1094,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 33679700,
      "posture": "lying_on_floor",
-     "source": "followup"
+     "source": "followup",
+     "x": 0.5078,
+     "y": 0.4201,
+     "w": 0.1094,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 34679700,
      "posture": "lying_on_floor",
-     "source": "followup"
+     "source": "followup",
+     "x": 0.5078,
+     "y": 0.4201,
+     "w": 0.1094,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 35679700,
      "posture": "lying_on_floor",
-     "source": "followup"
+     "source": "followup",
+     "x": 0.4974,
+     "y": 0.4201,
+     "w": 0.125,
+     "h": 0.1632,
+     "seat_nearby": false
     },
     {
      "t_us": 36679700,
      "posture": "kneeling",
-     "source": "followup"
+     "source": "followup",
+     "x": 0.487,
+     "y": 0.4201,
+     "w": 0.0885,
+     "h": 0.1007,
+     "seat_nearby": false
     },
     {
      "t_us": 37679700,
      "posture": "kneeling",
-     "source": "followup"
+     "source": "followup",
+     "x": 0.5052,
+     "y": 0.4028,
+     "w": 0.1146,
+     "h": 0.0868,
+     "seat_nearby": false
     },
     {
      "t_us": 38679700,
      "posture": "standing",
-     "source": "followup"
+     "source": "followup",
+     "x": 0.6016,
+     "y": 0.4444,
+     "w": 0.1198,
+     "h": 0.1285,
+     "seat_nearby": false
     },
     {
      "t_us": 39679700,
      "posture": "standing",
-     "source": "followup"
+     "source": "followup",
+     "x": 0.6797,
+     "y": 0.5729,
+     "w": 0.1016,
+     "h": 0.1319,
+     "seat_nearby": false
     }
    ],
+   "seen": "on_floor",
    "first_floor_us": 27559700,
    "floor_until_us": 35679700,
    "floor_seconds": 8.12,
@@ -946,12 +1249,13 @@
    },
    "max_displacement": 0.0247,
    "followup_still_on_floor": true,
-   "status": "verified",
-   "reason": null,
    "span_us": [
     27559700,
     35679700
-   ]
+   ],
+   "first_look": "reported",
+   "doubt_signals": [],
+   "status": "no_doubt_signal"
   }
  ]
 }

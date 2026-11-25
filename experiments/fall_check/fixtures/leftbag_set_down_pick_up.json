@@ -4,10 +4,14 @@
  "video_sha256": "8f5d1dbf43d58da1bce57ca1b3f9491b8467773cfd66d2846f62f7d38d4a45e7",
  "duration_us": 57839700,
  "aspect": 0.75,
+ "frame_size": [
+  384,
+  288
+ ],
+ "first_look": "reported",
  "anchor_us": 3520000,
  "expected": {
-  "status": "to_review",
-  "reason": "no_floor"
+  "seen": "no_floor"
  },
  "transcript": [
   {
@@ -45,19 +49,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.4557,
-       "y": 0.4583
+       "y": 0.4583,
+       "w": 0.1198,
+       "h": 0.1042,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1875,
-       "y": 0.3056
+       "y": 0.3056,
+       "w": 0.0729,
+       "h": 0.0625,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2057,
-       "y": 0.2569
+       "y": 0.2569,
+       "w": 0.0755,
+       "h": 0.0868,
+       "seat_nearby": false
       }
      ]
     },
@@ -70,19 +83,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.4661,
-       "y": 0.441
+       "y": 0.441,
+       "w": 0.112,
+       "h": 0.1146,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1901,
-       "y": 0.3125
+       "y": 0.3125,
+       "w": 0.0729,
+       "h": 0.0694,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2109,
-       "y": 0.2604
+       "y": 0.2604,
+       "w": 0.0833,
+       "h": 0.0799,
+       "seat_nearby": false
       }
      ]
     },
@@ -95,19 +117,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.474,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1146,
+       "h": 0.1285,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1901,
-       "y": 0.316
+       "y": 0.316,
+       "w": 0.0729,
+       "h": 0.0729,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2135,
-       "y": 0.2639
+       "y": 0.2639,
+       "w": 0.0833,
+       "h": 0.0764,
+       "seat_nearby": false
       }
      ]
     },
@@ -120,19 +151,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.474,
-       "y": 0.4132
+       "y": 0.4132,
+       "w": 0.1146,
+       "h": 0.1181,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1901,
-       "y": 0.3229
+       "y": 0.3229,
+       "w": 0.0755,
+       "h": 0.066,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2135,
-       "y": 0.2674
+       "y": 0.2674,
+       "w": 0.0807,
+       "h": 0.0833,
+       "seat_nearby": false
       }
      ]
     },
@@ -145,19 +185,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.4714,
-       "y": 0.4132
+       "y": 0.4132,
+       "w": 0.112,
+       "h": 0.1146,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1901,
-       "y": 0.3472
+       "y": 0.3472,
+       "w": 0.0755,
+       "h": 0.0833,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2161,
-       "y": 0.2743
+       "y": 0.2743,
+       "w": 0.0807,
+       "h": 0.0868,
+       "seat_nearby": false
       }
      ]
     },
@@ -170,19 +219,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.4635,
-       "y": 0.4132
+       "y": 0.4132,
+       "w": 0.125,
+       "h": 0.1181,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1927,
-       "y": 0.3542
+       "y": 0.3542,
+       "w": 0.0729,
+       "h": 0.0729,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2161,
-       "y": 0.2778
+       "y": 0.2778,
+       "w": 0.0807,
+       "h": 0.0868,
+       "seat_nearby": false
       }
      ]
     },
@@ -195,19 +253,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4557,
-       "y": 0.4028
+       "y": 0.4028,
+       "w": 0.1484,
+       "h": 0.1389,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1901,
-       "y": 0.3576
+       "y": 0.3576,
+       "w": 0.0755,
+       "h": 0.066,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.224,
-       "y": 0.2812
+       "y": 0.2812,
+       "w": 0.0938,
+       "h": 0.0833,
+       "seat_nearby": false
       }
      ]
     },
@@ -220,19 +287,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4401,
-       "y": 0.3819
+       "y": 0.3819,
+       "w": 0.1797,
+       "h": 0.1771,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1953,
-       "y": 0.3681
+       "y": 0.3681,
+       "w": 0.0859,
+       "h": 0.066,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2292,
-       "y": 0.2812
+       "y": 0.2812,
+       "w": 0.0938,
+       "h": 0.0799,
+       "seat_nearby": false
       }
      ]
     },
@@ -245,19 +321,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4323,
-       "y": 0.375
+       "y": 0.375,
+       "w": 0.1953,
+       "h": 0.191,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1953,
-       "y": 0.3785
+       "y": 0.3785,
+       "w": 0.0859,
+       "h": 0.0764,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2292,
-       "y": 0.2882
+       "y": 0.2882,
+       "w": 0.0938,
+       "h": 0.0938,
+       "seat_nearby": false
       }
      ]
     },
@@ -270,19 +355,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4323,
-       "y": 0.375
+       "y": 0.375,
+       "w": 0.1953,
+       "h": 0.191,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1979,
-       "y": 0.4028
+       "y": 0.4028,
+       "w": 0.0807,
+       "h": 0.0903,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2318,
-       "y": 0.3021
+       "y": 0.3021,
+       "w": 0.0885,
+       "h": 0.0938,
+       "seat_nearby": false
       }
      ]
     },
@@ -295,19 +389,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4505,
-       "y": 0.3889
+       "y": 0.3889,
+       "w": 0.1589,
+       "h": 0.1667,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2005,
-       "y": 0.4167
+       "y": 0.4167,
+       "w": 0.0859,
+       "h": 0.0694,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2396,
-       "y": 0.309
+       "y": 0.309,
+       "w": 0.1016,
+       "h": 0.0833,
+       "seat_nearby": false
       }
      ]
     },
@@ -320,19 +423,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4688,
-       "y": 0.4132
+       "y": 0.4132,
+       "w": 0.1224,
+       "h": 0.1146,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2161,
-       "y": 0.4271
+       "y": 0.4271,
+       "w": 0.099,
+       "h": 0.0729,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2448,
-       "y": 0.3194
+       "y": 0.3194,
+       "w": 0.0964,
+       "h": 0.0972,
+       "seat_nearby": false
       }
      ]
     },
@@ -345,19 +457,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.4688,
-       "y": 0.4132
+       "y": 0.4132,
+       "w": 0.1198,
+       "h": 0.1181,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2188,
-       "y": 0.4479
+       "y": 0.4479,
+       "w": 0.0938,
+       "h": 0.0833,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2448,
-       "y": 0.3403
+       "y": 0.3403,
+       "w": 0.0964,
+       "h": 0.1042,
+       "seat_nearby": false
       }
      ]
     },
@@ -370,19 +491,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.4505,
-       "y": 0.375
+       "y": 0.375,
+       "w": 0.1172,
+       "h": 0.1875,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2266,
-       "y": 0.4653
+       "y": 0.4653,
+       "w": 0.099,
+       "h": 0.0833,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2552,
-       "y": 0.3472
+       "y": 0.3472,
+       "w": 0.112,
+       "h": 0.0938,
+       "seat_nearby": false
       }
      ]
     },
@@ -395,19 +525,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4401,
-       "y": 0.3125
+       "y": 0.3125,
+       "w": 0.1354,
+       "h": 0.1736,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2396,
-       "y": 0.4722
+       "y": 0.4722,
+       "w": 0.112,
+       "h": 0.0729,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2604,
-       "y": 0.3611
+       "y": 0.3611,
+       "w": 0.1068,
+       "h": 0.0972,
+       "seat_nearby": false
       }
      ]
     },
@@ -420,19 +559,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4193,
-       "y": 0.2465
+       "y": 0.2465,
+       "w": 0.1068,
+       "h": 0.1389,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2474,
-       "y": 0.4826
+       "y": 0.4826,
+       "w": 0.1042,
+       "h": 0.0729,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2682,
-       "y": 0.3785
+       "y": 0.3785,
+       "w": 0.1068,
+       "h": 0.1076,
+       "seat_nearby": false
       }
      ]
     },
@@ -445,19 +593,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4193,
-       "y": 0.191
+       "y": 0.191,
+       "w": 0.0938,
+       "h": 0.1354,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.263,
-       "y": 0.5104
+       "y": 0.5104,
+       "w": 0.112,
+       "h": 0.0938,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2891,
-       "y": 0.3854
+       "y": 0.3854,
+       "w": 0.125,
+       "h": 0.0972,
+       "seat_nearby": false
       }
      ]
     },
@@ -470,19 +627,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4193,
-       "y": 0.1493
+       "y": 0.1493,
+       "w": 0.0911,
+       "h": 0.1181,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2734,
-       "y": 0.5174
+       "y": 0.5174,
+       "w": 0.1146,
+       "h": 0.0833,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2969,
-       "y": 0.3889
+       "y": 0.3889,
+       "w": 0.1146,
+       "h": 0.1042,
+       "seat_nearby": false
       }
      ]
     },
@@ -495,19 +661,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4297,
-       "y": 0.1215
+       "y": 0.1215,
+       "w": 0.0885,
+       "h": 0.1111,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2891,
-       "y": 0.5208
+       "y": 0.5208,
+       "w": 0.1224,
+       "h": 0.0764,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.3099,
-       "y": 0.3993
+       "y": 0.3993,
+       "w": 0.1172,
+       "h": 0.1111,
+       "seat_nearby": false
       }
      ]
     },
@@ -520,19 +695,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4349,
-       "y": 0.1111
+       "y": 0.1111,
+       "w": 0.0807,
+       "h": 0.1111,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.3073,
-       "y": 0.5417
+       "y": 0.5417,
+       "w": 0.125,
+       "h": 0.1007,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.3307,
-       "y": 0.3993
+       "y": 0.3993,
+       "w": 0.138,
+       "h": 0.1076,
+       "seat_nearby": false
       }
      ]
     }
@@ -558,19 +742,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.4557,
-       "y": 0.4583
+       "y": 0.4583,
+       "w": 0.1198,
+       "h": 0.1042,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1875,
-       "y": 0.3056
+       "y": 0.3056,
+       "w": 0.0729,
+       "h": 0.0625,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2057,
-       "y": 0.2569
+       "y": 0.2569,
+       "w": 0.0755,
+       "h": 0.0868,
+       "seat_nearby": false
       }
      ]
     },
@@ -583,19 +776,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.4661,
-       "y": 0.441
+       "y": 0.441,
+       "w": 0.112,
+       "h": 0.1146,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1901,
-       "y": 0.3125
+       "y": 0.3125,
+       "w": 0.0729,
+       "h": 0.0694,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2109,
-       "y": 0.2604
+       "y": 0.2604,
+       "w": 0.0833,
+       "h": 0.0799,
+       "seat_nearby": false
       }
      ]
     },
@@ -608,19 +810,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.474,
-       "y": 0.4201
+       "y": 0.4201,
+       "w": 0.1146,
+       "h": 0.1285,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1901,
-       "y": 0.316
+       "y": 0.316,
+       "w": 0.0729,
+       "h": 0.0729,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2135,
-       "y": 0.2639
+       "y": 0.2639,
+       "w": 0.0833,
+       "h": 0.0764,
+       "seat_nearby": false
       }
      ]
     },
@@ -633,19 +844,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.474,
-       "y": 0.4132
+       "y": 0.4132,
+       "w": 0.1146,
+       "h": 0.1181,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1901,
-       "y": 0.3229
+       "y": 0.3229,
+       "w": 0.0755,
+       "h": 0.066,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2135,
-       "y": 0.2674
+       "y": 0.2674,
+       "w": 0.0807,
+       "h": 0.0833,
+       "seat_nearby": false
       }
      ]
     },
@@ -658,19 +878,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.4714,
-       "y": 0.4132
+       "y": 0.4132,
+       "w": 0.112,
+       "h": 0.1146,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1901,
-       "y": 0.3472
+       "y": 0.3472,
+       "w": 0.0755,
+       "h": 0.0833,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2161,
-       "y": 0.2743
+       "y": 0.2743,
+       "w": 0.0807,
+       "h": 0.0868,
+       "seat_nearby": false
       }
      ]
     },
@@ -683,19 +912,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.4635,
-       "y": 0.4132
+       "y": 0.4132,
+       "w": 0.125,
+       "h": 0.1181,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1927,
-       "y": 0.3542
+       "y": 0.3542,
+       "w": 0.0729,
+       "h": 0.0729,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2161,
-       "y": 0.2778
+       "y": 0.2778,
+       "w": 0.0807,
+       "h": 0.0868,
+       "seat_nearby": false
       }
      ]
     },
@@ -708,19 +946,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4557,
-       "y": 0.4028
+       "y": 0.4028,
+       "w": 0.1484,
+       "h": 0.1389,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1901,
-       "y": 0.3576
+       "y": 0.3576,
+       "w": 0.0755,
+       "h": 0.066,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.224,
-       "y": 0.2812
+       "y": 0.2812,
+       "w": 0.0938,
+       "h": 0.0833,
+       "seat_nearby": false
       }
      ]
     },
@@ -733,19 +980,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4401,
-       "y": 0.3819
+       "y": 0.3819,
+       "w": 0.1797,
+       "h": 0.1771,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1953,
-       "y": 0.3681
+       "y": 0.3681,
+       "w": 0.0859,
+       "h": 0.066,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2292,
-       "y": 0.2812
+       "y": 0.2812,
+       "w": 0.0938,
+       "h": 0.0799,
+       "seat_nearby": false
       }
      ]
     },
@@ -758,19 +1014,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4323,
-       "y": 0.375
+       "y": 0.375,
+       "w": 0.1953,
+       "h": 0.191,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1953,
-       "y": 0.3785
+       "y": 0.3785,
+       "w": 0.0859,
+       "h": 0.0764,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2292,
-       "y": 0.2882
+       "y": 0.2882,
+       "w": 0.0938,
+       "h": 0.0938,
+       "seat_nearby": false
       }
      ]
     },
@@ -783,19 +1048,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4323,
-       "y": 0.375
+       "y": 0.375,
+       "w": 0.1953,
+       "h": 0.191,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.1979,
-       "y": 0.4028
+       "y": 0.4028,
+       "w": 0.0807,
+       "h": 0.0903,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2318,
-       "y": 0.3021
+       "y": 0.3021,
+       "w": 0.0885,
+       "h": 0.0938,
+       "seat_nearby": false
       }
      ]
     },
@@ -808,19 +1082,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4505,
-       "y": 0.3889
+       "y": 0.3889,
+       "w": 0.1589,
+       "h": 0.1667,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2005,
-       "y": 0.4167
+       "y": 0.4167,
+       "w": 0.0859,
+       "h": 0.0694,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2396,
-       "y": 0.309
+       "y": 0.309,
+       "w": 0.1016,
+       "h": 0.0833,
+       "seat_nearby": false
       }
      ]
     },
@@ -833,19 +1116,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4688,
-       "y": 0.4132
+       "y": 0.4132,
+       "w": 0.1224,
+       "h": 0.1146,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2161,
-       "y": 0.4271
+       "y": 0.4271,
+       "w": 0.099,
+       "h": 0.0729,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2448,
-       "y": 0.3194
+       "y": 0.3194,
+       "w": 0.0964,
+       "h": 0.0972,
+       "seat_nearby": false
       }
      ]
     },
@@ -858,19 +1150,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.4688,
-       "y": 0.4132
+       "y": 0.4132,
+       "w": 0.1198,
+       "h": 0.1181,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2188,
-       "y": 0.4479
+       "y": 0.4479,
+       "w": 0.0938,
+       "h": 0.0833,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2448,
-       "y": 0.3403
+       "y": 0.3403,
+       "w": 0.0964,
+       "h": 0.1042,
+       "seat_nearby": false
       }
      ]
     },
@@ -883,19 +1184,28 @@
        "id": "P0",
        "posture": "bending",
        "x": 0.4505,
-       "y": 0.375
+       "y": 0.375,
+       "w": 0.1172,
+       "h": 0.1875,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2266,
-       "y": 0.4653
+       "y": 0.4653,
+       "w": 0.099,
+       "h": 0.0833,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2552,
-       "y": 0.3472
+       "y": 0.3472,
+       "w": 0.112,
+       "h": 0.0938,
+       "seat_nearby": false
       }
      ]
     },
@@ -908,19 +1218,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4401,
-       "y": 0.3125
+       "y": 0.3125,
+       "w": 0.1354,
+       "h": 0.1736,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2396,
-       "y": 0.4722
+       "y": 0.4722,
+       "w": 0.112,
+       "h": 0.0729,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2604,
-       "y": 0.3611
+       "y": 0.3611,
+       "w": 0.1068,
+       "h": 0.0972,
+       "seat_nearby": false
       }
      ]
     },
@@ -933,19 +1252,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4193,
-       "y": 0.2465
+       "y": 0.2465,
+       "w": 0.1068,
+       "h": 0.1389,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2474,
-       "y": 0.4826
+       "y": 0.4826,
+       "w": 0.1042,
+       "h": 0.0729,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2682,
-       "y": 0.3785
+       "y": 0.3785,
+       "w": 0.1068,
+       "h": 0.1076,
+       "seat_nearby": false
       }
      ]
     },
@@ -958,19 +1286,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4193,
-       "y": 0.191
+       "y": 0.191,
+       "w": 0.0938,
+       "h": 0.1354,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.263,
-       "y": 0.5104
+       "y": 0.5104,
+       "w": 0.112,
+       "h": 0.0938,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2891,
-       "y": 0.3854
+       "y": 0.3854,
+       "w": 0.125,
+       "h": 0.0972,
+       "seat_nearby": false
       }
      ]
     },
@@ -983,19 +1320,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4193,
-       "y": 0.1493
+       "y": 0.1493,
+       "w": 0.0911,
+       "h": 0.1181,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2734,
-       "y": 0.5174
+       "y": 0.5174,
+       "w": 0.1146,
+       "h": 0.0833,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.2969,
-       "y": 0.3889
+       "y": 0.3889,
+       "w": 0.1146,
+       "h": 0.1042,
+       "seat_nearby": false
       }
      ]
     },
@@ -1008,19 +1354,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4297,
-       "y": 0.1215
+       "y": 0.1215,
+       "w": 0.0885,
+       "h": 0.1111,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.2891,
-       "y": 0.5208
+       "y": 0.5208,
+       "w": 0.1224,
+       "h": 0.0764,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.3099,
-       "y": 0.3993
+       "y": 0.3993,
+       "w": 0.1172,
+       "h": 0.1111,
+       "seat_nearby": false
       }
      ]
     },
@@ -1033,19 +1388,28 @@
        "id": "P0",
        "posture": "standing",
        "x": 0.4349,
-       "y": 0.1111
+       "y": 0.1111,
+       "w": 0.0807,
+       "h": 0.1111,
+       "seat_nearby": false
       },
       {
        "id": "P1",
        "posture": "standing",
        "x": 0.3073,
-       "y": 0.5417
+       "y": 0.5417,
+       "w": 0.125,
+       "h": 0.1007,
+       "seat_nearby": false
       },
       {
        "id": "P2",
        "posture": "standing",
        "x": 0.3307,
-       "y": 0.3993
+       "y": 0.3993,
+       "w": 0.138,
+       "h": 0.1076,
+       "seat_nearby": false
       }
      ]
     }
@@ -1055,110 +1419,221 @@
     {
      "t_us": 1559700,
      "posture": "bending",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4557,
+     "y": 0.4583,
+     "w": 0.1198,
+     "h": 0.1042,
+     "seat_nearby": false
     },
     {
      "t_us": 1799700,
      "posture": "bending",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4661,
+     "y": 0.441,
+     "w": 0.112,
+     "h": 0.1146,
+     "seat_nearby": false
     },
     {
      "t_us": 2039700,
      "posture": "bending",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.474,
+     "y": 0.4201,
+     "w": 0.1146,
+     "h": 0.1285,
+     "seat_nearby": false
     },
     {
      "t_us": 2279700,
      "posture": "bending",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.474,
+     "y": 0.4132,
+     "w": 0.1146,
+     "h": 0.1181,
+     "seat_nearby": false
     },
     {
      "t_us": 2559700,
      "posture": "bending",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4714,
+     "y": 0.4132,
+     "w": 0.112,
+     "h": 0.1146,
+     "seat_nearby": false
     },
     {
      "t_us": 2799700,
      "posture": "bending",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4635,
+     "y": 0.4132,
+     "w": 0.125,
+     "h": 0.1181,
+     "seat_nearby": false
     },
     {
      "t_us": 3039700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4557,
+     "y": 0.4028,
+     "w": 0.1484,
+     "h": 0.1389,
+     "seat_nearby": false
     },
     {
      "t_us": 3279700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4401,
+     "y": 0.3819,
+     "w": 0.1797,
+     "h": 0.1771,
+     "seat_nearby": false
     },
     {
      "t_us": 3559700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4323,
+     "y": 0.375,
+     "w": 0.1953,
+     "h": 0.191,
+     "seat_nearby": false
     },
     {
      "t_us": 3959700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4323,
+     "y": 0.375,
+     "w": 0.1953,
+     "h": 0.191,
+     "seat_nearby": false
     },
     {
      "t_us": 4399700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4505,
+     "y": 0.3889,
+     "w": 0.1589,
+     "h": 0.1667,
+     "seat_nearby": false
     },
     {
      "t_us": 4799700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4688,
+     "y": 0.4132,
+     "w": 0.1224,
+     "h": 0.1146,
+     "seat_nearby": false
     },
     {
      "t_us": 5239700,
      "posture": "bending",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4688,
+     "y": 0.4132,
+     "w": 0.1198,
+     "h": 0.1181,
+     "seat_nearby": false
     },
     {
      "t_us": 5639700,
      "posture": "bending",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4505,
+     "y": 0.375,
+     "w": 0.1172,
+     "h": 0.1875,
+     "seat_nearby": false
     },
     {
      "t_us": 6079700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4401,
+     "y": 0.3125,
+     "w": 0.1354,
+     "h": 0.1736,
+     "seat_nearby": false
     },
     {
      "t_us": 6479700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4193,
+     "y": 0.2465,
+     "w": 0.1068,
+     "h": 0.1389,
+     "seat_nearby": false
     },
     {
      "t_us": 6919700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4193,
+     "y": 0.191,
+     "w": 0.0938,
+     "h": 0.1354,
+     "seat_nearby": false
     },
     {
      "t_us": 7319700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4193,
+     "y": 0.1493,
+     "w": 0.0911,
+     "h": 0.1181,
+     "seat_nearby": false
     },
     {
      "t_us": 7759700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4297,
+     "y": 0.1215,
+     "w": 0.0885,
+     "h": 0.1111,
+     "seat_nearby": false
     },
     {
      "t_us": 8159700,
      "posture": "standing",
-     "source": "probe"
+     "source": "probe",
+     "x": 0.4349,
+     "y": 0.1111,
+     "w": 0.0807,
+     "h": 0.1111,
+     "seat_nearby": false
     }
    ],
-   "status": "to_review",
-   "reason": "no_floor",
+   "seen": "no_floor",
    "span_us": [
     3520000,
     3520000
-   ]
+   ],
+   "first_look": "reported",
+   "doubt_signals": [
+    {
+     "code": "disagreement",
+     "value": "reported_nobody_on_floor"
+    },
+    {
+     "code": "no_floor_seen",
+     "value": "no_floor"
+    }
+   ],
+   "status": "look_closely"
   }
  ]
 }

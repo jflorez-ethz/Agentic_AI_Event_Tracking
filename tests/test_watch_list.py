@@ -59,19 +59,21 @@ def test_level_3_is_never_an_alert(box, category):
 
 
 def test_unverified_level_1_floor_report_is_always_a_guard_alert():
-    """Kneeling or a seat after an 'on the floor' report is not level 3: the level-1 claim goes to the guard."""
+    """Kneeling or a seat after an 'on the floor' report is not level 3: the level-1 claim goes to the guard,
+    marked Look closely with what the close check saw."""
     s = 1_000_000
-    for posture, reason in (("kneeling", "kneeling"), ("sitting_on_seat", "seated")):
+    for posture, seen in (("kneeling", "kneeling"), ("sitting_on_seat", "seated")):
         seq = [(8 * s + i * 420_000, "standing" if i < 3 else posture, 0.5, 0.5, "probe") for i in range(15)]
         incident = {**floor_check.describe(seq, 9 * s, aspect=0.75, video_end_us=60 * s), "anchor_us": 9 * s}
-        assert (incident["status"], incident["reason"]) == ("to_review", reason)
+        floor_check.mark(incident, first_look="reported", aspect=0.75)
+        assert (incident["seen"], incident["status"]) == (seen, "look_closely")
         assert floor_check.alerting([incident]) == [incident]
-        assert "à vérifier par le garde" in floor_check.render_markdown([incident])
+        assert "à regarder de près" in floor_check.render_markdown([incident])
 
 
 def test_level_1_person_on_the_floor_is_always_an_alert():
-    for reason in ("upright_throughout", "probe_failed", "budget_exhausted", "not_corroborated"):
-        incident = {"status": "to_review", "reason": reason, "anchor_us": 1}
+    for seen in ("upright_throughout", "probe_failed", "budget_exhausted", "on_floor"):
+        incident = {"seen": seen, "anchor_us": 1, "status": "no_doubt_signal"}
         assert floor_check.alerting([incident]) == [incident]
 
 

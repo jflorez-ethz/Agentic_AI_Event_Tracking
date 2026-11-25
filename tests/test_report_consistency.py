@@ -58,22 +58,26 @@ def section(page, name):
     return page.split(f"<h2>{name}</h2>")[1].split("<h2>")[0]
 
 
-def test_1_every_floor_alert_is_counted_and_visible_in_one_of_the_two_sections(page):
+def test_1_every_floor_report_is_in_one_section_look_closely_first(page):
     result, html = page
-    verified = section(html, "Watch-list events — facts verified")
-    review = section(html, "Needs guard review")
-    assert "None." not in verified and verified.count("Person on the floor · facts verified") == 1
-    assert review.count("Person on the floor · needs guard review") == 1
-    assert len(result.floor_incidents) == 2 and "People on the floor" not in html
+    floor = section(html, "People on the floor — for the guard")
+    assert len(result.floor_incidents) == 2
+    assert floor.count('<section class="card') == 2 and floor.count("Look closely</span>") == 1
+    assert floor.index("Reported on the floor") < floor.index("Person on the floor")  # Look closely first
+    assert "Person on the floor" not in section(html, "Needs guard review")
+    assert section(html, "Watch-list events — facts verified").strip() == '<p class="empty">None.</p>'
 
 
-def test_2_unverified_floor_report_goes_to_the_guard_with_what_the_check_saw(page):
+def test_2_report_with_nobody_on_the_floor_shows_what_the_check_saw_and_why_to_doubt(page):
     result, html = page
-    (seat,) = [i for i in result.floor_incidents if i["status"] != "verified"]
-    assert (seat["status"], seat["reason"]) == ("to_review", "seated")
-    review = section(html, "Needs guard review")
-    assert "the close check shows a person sitting on a seat, nobody on the floor" in review
-    assert "What the close check saw: standing" in review and "sitting on a seat 00:00.80" in review
+    (seat,) = \
+        [i for i in result.floor_incidents if i.get("first_floor_us") is None]
+    assert seat["seen"] == "seated" and seat["status"] == "look_closely"
+    assert [x["code"] for x in seat["doubt_signals"]] == ["disagreement", "no_floor_seen", "seat_nearby"]
+    floor = section(html, "People on the floor — for the guard")
+    assert "the close check shows a person sitting on a seat, nobody on the floor" in floor
+    assert "What the close check saw: standing" in floor and "sitting on a seat 00:00.80" in floor
+    assert "Disagreement: the first look reported someone on the floor" in floor
 
 
 def test_2b_a_report_near_a_seat_check_is_still_checked_not_merged():
@@ -85,7 +89,7 @@ def test_2b_a_report_near_a_seat_check_is_still_checked_not_merged():
     assert [i["observation_ids"] for i in s] == [["seat"], ["floor"]]
 
 
-def test_3_verified_has_one_meaning_and_the_summary_counts_watch_list_events_only(page):
+def test_3_verified_has_one_meaning_and_a_person_on_the_floor_is_never_facts_verified(page):
     _, html = page
     assert guard_report._SHOWN[False]["verified"] == "checked" and guard_report._SHOWN[True]["verified"] == "facts verified"
     for classes, status in re.findall(r'<li class="row ([^"]+)">.*?<span class="status">([^<]+)</span>', html, re.S):
@@ -93,6 +97,9 @@ def test_3_verified_has_one_meaning_and_the_summary_counts_watch_list_events_onl
             assert status in ("checked", "not checked", "needs guard review", "ruled out")
         else:
             assert status in ("facts verified", "needs guard review", "not verified", "ruled out")
+    for item in re.findall(r'<li class="row [^"]+">(.*?)</li>', html, re.S):
+        if "<b>Person on the floor</b>" in item:
+            assert "facts verified" not in item and "needs guard review" in item
     assert "things were seen" not in html
 
 
@@ -108,4 +115,5 @@ def test_5_summary_says_what_the_guard_has_to_do(page):
     _, html = page
     summary = re.search(r'<p class="summary">([^<]+)</p>', html).group(1)
     assert summary == ("The whole video (00:12) was analysed. "
-                       "1 person on the floor (facts verified), 1 unclear case for the guard to review.")
+                       "2 reports of a person on the floor for the guard (1 to look at closely).")
+    assert re.search(r'<p class="headline [^"]+">([^<]+)</p>', html).group(1) == "Reported on the floor at 00:01 — look closely"

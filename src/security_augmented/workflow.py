@@ -669,6 +669,10 @@ def analyze_video(
                                     "frame_id": e["frame_id"], "persons": [dict(person) for person in e["persons"]]}
                                    for e in result.frames]
 
+    floor_assess = None
+    if floor_ask is not None and hasattr(provider, "floor_assessment"):
+        floor_assess = provider.floor_assessment
+
     initial_end = evidence[-1].interval.end_us if evidence else 0
     successful = sum(entry.status == "success" for entry in evidence)
     initial_scan = (
@@ -678,7 +682,7 @@ def analyze_video(
     analysis = _analyze(
         video, evidence, inspect, budget, decide=decide, controller=controller, initial_scan=initial_scan,
         relational_tasks=controller == "langgraph" and not movement_only,
-        adaptive=controller == "langgraph" and adaptive_sampling, floor_ask=floor_ask,
+        adaptive=controller == "langgraph" and adaptive_sampling, floor_ask=floor_ask, floor_assess=floor_assess,
     )
     coverage = _video_coverage(video, evidence, plan, initial_scan, initial_end)
     scan_note = (
@@ -692,7 +696,8 @@ def analyze_video(
     return replace(analysis, coverage=coverage, report=report)
 
 
-def _analyze(video, evidence, inspect, budget, *, decide=None, controller="python", initial_scan=None, relational_tasks=False, adaptive=False, floor_ask=None):
+def _analyze(video, evidence, inspect, budget, *, decide=None, controller="python", initial_scan=None, relational_tasks=False, adaptive=False, floor_ask=None,
+             floor_assess=None):
     _check_controller(controller, decide)
     trace = [
         Decision(
@@ -748,7 +753,7 @@ def _analyze(video, evidence, inspect, budget, *, decide=None, controller="pytho
         completion = run.completion()
     incidents = None
     if floor_ask is not None:
-        incidents, floor_events = _floor_check(video, evidence, floor_candidates, floor_ask, trace)
+        incidents, floor_events = _floor_check(video, evidence, floor_candidates, floor_ask, trace, floor_assess)
         events = tuple(sorted((*events, *floor_events), key=lambda event: event.interval.start_us))
     queue = None
     if decide is not None:
@@ -771,12 +776,14 @@ def _analyze(video, evidence, inspect, budget, *, decide=None, controller="pytho
     )
 
 
-def _floor_check(video, evidence, candidates, ask, trace):
-    """Run the code-side person_on_floor check and turn incidents into events (kneeling-only gives none)."""
-    from .floor_check import FLOOR_CATEGORY, anchor_us, check, facts_lines
+def _floor_check(video, evidence, candidates, ask, trace, assess_call=None):
+    """Run the code-side person_on_floor check. Events are never "supported": the guard judges every incident."""
+    from .floor_check import FLOOR_CATEGORY, anchor_us, assess, check, facts_lines, is_claim
 
     incidents = check([(f.observation.id, anchor_us(f)) for f in candidates], ask,
-                      duration_us=video.duration_us, aspect=video.height / video.width)
+                      duration_us=video.duration_us, aspect=video.height / video.width,
+                      frame_size=(video.width, video.height),
+                      claimed={f.observation.id for f in candidates if is_claim(f.observation)})
     frames = {(e.inspection.id, f.source_time_us): f for e in evidence
               if e.inspection is not None and e.phase in ("floor_probe", "floor_followup") for f in e.inspection.frames}
     by_time = {}
@@ -784,10 +791,13 @@ def _floor_check(video, evidence, candidates, ask, trace):
         by_time.setdefault(t, (inspection_id, frame))
     events = []
     for incident in incidents:
-        trace.append(Decision("workflow", "floor_check", f"{incident['status']}: {incident.get('reason') or 'facts verified'}",
+        if assess_call is not None:
+            incident["assessment"] = assess(incident, assess_call)
+        signals = ", ".join(s["code"] for s in incident["doubt_signals"]) or "none"
+        trace.append(Decision("workflow", "floor_check", f"{incident['status']}: doubt signals {signals}",
                               tuple(incident["observation_ids"]),
                               details={"inspections": incident["inspections"], "status": incident["status"],
-                                       "reason": incident.get("reason")}))
+                                       "seen": incident["seen"], "doubt_signals": [s["code"] for s in incident["doubt_signals"]]}))
         key = [incident.get("arrival", {}).get("upright_us"), incident.get("first_floor_us"),
                incident.get("floor_until_us"), incident.get("outcome", {}).get("at_us")]
         cited = {}
@@ -802,30 +812,58 @@ def _floor_check(video, evidence, candidates, ask, trace):
             for inspection_id, fs in cited.items())
         start = incident.get("first_floor_us", incident["anchor_us"])
         end = max(start, incident.get("floor_until_us", start)) + 1
-        events.append(Event(FLOOR_CATEGORY, Interval(start, end), "supported" if incident["status"] == "verified" else "insufficient",
+        events.append(Event(FLOOR_CATEGORY, Interval(start, end), "insufficient",
                             " ".join(facts_lines(incident, "en")), tuple(incident["observation_ids"]), citations))
     return incidents, tuple(events)
 
 
 def _floor_alerts(video, incidents, floor_events):
-    """One alert per person-on-floor incident (verified or not) for the guard and the labelling sheet."""
-    from .floor_check import alerting, facts_lines
+    """One alert per person-on-floor incident for the guard and the labelling sheet; Look closely first."""
+    from .floor_check import alerting, assessment_text, facts_lines, order, signal_text
 
     events = {e.observation_ids: e for e in floor_events}
     alerts = []
-    for incident in alerting(incidents):
+    for incident in order(alerting(incidents)):
         event = events.get(tuple(incident["observation_ids"]))
         frames = [{"id": f.id, "display_index": f.display_index, "source_time_us": f.source_time_us, "label": None}
                   for c in (event.citations if event else ()) for f in c.frames]
         start = incident.get("first_floor_us", incident["anchor_us"])
+        signals = incident["doubt_signals"]
         alerts.append({
-            "id": _id_floor(video, incident), "status": "facts_verified" if incident["status"] == "verified" else "needs_review",
+            "id": _id_floor(video, incident), "status": incident["status"],
             "category": "person_on_floor", "level": 1, "observation_id": incident["observation_ids"][0],
             "interval": {"start_us": start, "end_us": max(start, incident.get("floor_until_us", start)) + 1},
-            "reason_code": incident.get("reason") or "facts_verified", "frames": sorted(frames, key=lambda f: f["source_time_us"]),
-            "facts_fr": facts_lines(incident, "fr"), "facts_en": facts_lines(incident, "en"), "operator_label": None,
+            "reason_code": ",".join(s["code"] for s in signals) or "no_doubt_signal",
+            "frames": sorted(frames, key=lambda f: f["source_time_us"]),
+            "facts_fr": facts_lines(incident, "fr"), "facts_en": facts_lines(incident, "en"),
+            "doubt_signals_fr": [signal_text(s, "fr") for s in signals], "doubt_signals_en": [signal_text(s, "en") for s in signals],
+            "system_assessment": assessment_text(incident), "operator_label": None,
         })
     return alerts
+
+
+def _floor_answer(analysis, interval):
+    """Questions about people on the floor read the floor incidents directly: facts and doubt signals, no verdict."""
+    from .floor_check import facts_lines, look_closely, order, signal_text
+
+    def span(incident):
+        start = incident.get("first_floor_us", incident["anchor_us"])
+        return Interval(start, max(start, incident.get("floor_until_us", start)) + 1)
+
+    shown = [i for i in order(analysis.floor_incidents) if interval is None or _overlaps(span(i), interval)]
+    if not shown:
+        return Answer("No person was reported on the floor in the selected scope. The available coverage does not "
+                      "establish absence.")
+    lines = [f"{len(shown)} report(s) of a person on the floor, for the guard to judge "
+             f"({sum(look_closely(i) for i in shown)} to look at closely). The system does not decide what happened."]
+    for incident in shown:
+        signals = incident.get("doubt_signals", [])
+        lines.append(f"- {_time(span(incident).start_us)}: " + " ".join(facts_lines(incident, "en"))
+                     + (" Look closely: " + "; ".join(signal_text(x, "en") for x in signals) + "." if signals
+                        else " No doubt signal measured (this does not mean it is true)."))
+    events = tuple(e for e in analysis.unresolved if e.category == "person_on_floor"
+                   and any(_overlaps(e.interval, span(i)) for i in shown))
+    return Answer("\n".join(lines), events)
 
 
 def _id_floor(video, incident):
@@ -994,6 +1032,8 @@ def _answer(analysis: Analysis, question: str, *, inspect_missing: bool) -> Answ
     if times:
         interval = Interval(times[0], times[-1] if len(times) == 2 else times[0] + 1)
     categories = _query_categories(text)
+    if "person_on_floor" in categories and analysis.floor_incidents is not None:
+        return _floor_answer(analysis, interval)
     timeline = _supported_timeline((*analysis.timeline, *analysis.unresolved))
     scoped = tuple(e for e in timeline if interval is None or _overlaps(e.interval, interval))
     if _PERSON_RELATION.search(text):

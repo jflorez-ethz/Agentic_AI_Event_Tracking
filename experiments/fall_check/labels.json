@@ -63,7 +63,6 @@
       "others": "standing",
       "note": "Walks, collapses forward onto the knees, then lies still.",
       "expected_facts": {
-        "status": "verified",
         "arrival_observed": true,
         "via": [
           "bending",
@@ -73,10 +72,12 @@
           "sitting_on_floor",
           "lying_on_floor"
         ],
-        "outcome": "stood_up"
+        "outcome": "stood_up",
+        "seen": "on_floor"
       },
       "anchor_s": 28.04,
-      "seat_nearby_focal": false
+      "seat_nearby_focal": false,
+      "first_look": "reported"
     },
     "wiggle_true": {
       "video": "Rest_WiggleOnFloor_pts.mkv",
@@ -139,7 +140,6 @@
       "others": "standing",
       "note": "Stumbles, goes down, lies and wiggles in place. The XML ends at 47.76 s: after that the person's last XML position is held (they rise in place).",
       "expected_facts": {
-        "status": "verified",
         "arrival_observed": true,
         "via": [
           "bending",
@@ -150,11 +150,13 @@
           "lying_on_floor",
           "sitting_on_floor"
         ],
-        "outcome": "stood_up"
+        "outcome": "stood_up",
+        "seen": "on_floor"
       },
       "anchor_s": 29.0,
       "expected_correction": "2026-11-25, after the first build: the written expectation omitted the second sitting phase (48.25-49.75 s) that these labels contain; the code's description was right.",
-      "seat_nearby_focal": false
+      "seat_nearby_focal": false,
+      "first_look": "reported"
     },
     "fight_true": {
       "video": "Fight_OneManDown.mpg",
@@ -207,17 +209,18 @@
       "others": "standing",
       "note": "Knocked down within about 0.3 s, lies until 19.4 s, gets up from 19.5 s. The attacker and passers-by stay upright.",
       "expected_facts": {
-        "status": "verified",
         "arrival_observed": true,
         "via": [],
         "floor_postures": [
           "sitting_on_floor",
           "lying_on_floor"
         ],
-        "outcome": "stood_up"
+        "outcome": "stood_up",
+        "seen": "on_floor"
       },
       "anchor_s": 14.52,
-      "seat_nearby_focal": false
+      "seat_nearby_focal": false,
+      "first_look": "reported"
     },
     "slump_false": {
       "video": "Rest_SlumpOnFloor.mpg",
@@ -240,11 +243,11 @@
       "others": "standing",
       "note": "REGRESSION CASE. The grey person walks around the stool and armchair; the blue person stretches; the briefcase carrier walks out at the bottom about 3.3 s. Nobody is on the ground.",
       "expected_facts": {
-        "status": "to_review",
-        "reason": "upright_throughout"
+        "seen": "upright_throughout"
       },
       "anchor_s": 3.04,
-      "seat_nearby_focal": true
+      "seat_nearby_focal": true,
+      "first_look": "reported"
     },
     "slump_true_slow": {
       "video": "Rest_SlumpOnFloor.mpg",
@@ -297,16 +300,16 @@
       "others": "standing",
       "note": "Real person on the floor, reached slowly: crouches (labelled kneeling; the vocabulary has no squat) about 2 s, sits on the floor 27.4-32.65 s, then gets up on hands and knees and stands about 35.2 s.",
       "expected_facts": {
-        "status": "to_review",
-        "reason": "not_corroborated",
         "arrival_observed": false,
         "floor_postures": [
           "sitting_on_floor"
         ],
-        "outcome": "stood_up"
+        "outcome": "stood_up",
+        "seen": "on_floor"
       },
       "anchor_s": 27.52,
-      "seat_nearby_focal": false
+      "seat_nearby_focal": false,
+      "first_look": "reported"
     },
     "inchair_seat": {
       "video": "Rest_InChair.mpg",
@@ -339,12 +342,12 @@
       "others": "standing",
       "note": "Sits down in an armchair: a seat, not the floor.",
       "expected_facts": {
-        "status": "to_review",
-        "reason": "seated"
+        "seen": "seated"
       },
       "anchor_s": 19.52,
       "expected_correction": "2026-11-25: a person_on_floor claim that cannot be verified is always an alert to review (watch-list level 1), even when the close check shows a seat.",
-      "seat_nearby_focal": true
+      "seat_nearby_focal": true,
+      "first_look": "reported"
     },
     "browse1_edge": {
       "video": "Browse1.mpg",
@@ -372,11 +375,11 @@
       "others": "standing",
       "note": "Walks out through the bottom image edge.",
       "expected_facts": {
-        "status": "to_review",
-        "reason": "upright_throughout"
+        "seen": "upright_throughout"
       },
       "anchor_s": 8.52,
-      "seat_nearby_focal": false
+      "seat_nearby_focal": false,
+      "first_look": "suspected"
     },
     "leftbag_set_down_pick_up": {
       "video": "LeftBag.mpg",
@@ -419,11 +422,11 @@
       "others": "standing",
       "note": "Stoops to put the bag at the feet, stretches, stoops to pick it up. Bends, does not kneel.",
       "expected_facts": {
-        "status": "to_review",
-        "reason": "no_floor"
+        "seen": "no_floor"
       },
       "anchor_s": 3.52,
-      "seat_nearby_focal": false
+      "seat_nearby_focal": false,
+      "first_look": "reported"
     },
     "leftbag_place": {
       "video": "LeftBag.mpg",
@@ -456,11 +459,11 @@
       "others": "standing",
       "note": "Stoops to leave the bag by the wall.",
       "expected_facts": {
-        "status": "to_review",
-        "reason": "no_floor"
+        "seen": "no_floor"
       },
       "anchor_s": 38.04,
-      "seat_nearby_focal": false
+      "seat_nearby_focal": false,
+      "first_look": "reported"
     },
     "pickedup_place": {
       "video": "LeftBag_PickedUp.mpg",
@@ -493,11 +496,11 @@
       "others": "standing",
       "note": "Stoops to put the bag down.",
       "expected_facts": {
-        "status": "to_review",
-        "reason": "no_floor"
+        "seen": "no_floor"
       },
       "anchor_s": 20.76,
-      "seat_nearby_focal": false
+      "seat_nearby_focal": false,
+      "first_look": "reported"
     },
     "pickedup_pick": {
       "video": "LeftBag_PickedUp.mpg",
@@ -530,12 +533,13 @@
       "others": "standing",
       "note": "Stoops to pick the bag up.",
       "expected_facts": {
-        "status": "to_review",
-        "reason": "no_floor"
+        "seen": "no_floor"
       },
       "anchor_s": 40.76,
-      "seat_nearby_focal": false
+      "seat_nearby_focal": false,
+      "first_look": "reported"
     }
   },
-  "seat_nearby_rule": "2026-11-25, written before computing doubt signals, from the labelling sheets: true when a chair, bench or armchair touches the focal person in the probe window (Slump 0-8 s: the grey walker passes the armchairs and the stool; Rest_InChair: the person sits in an armchair). The dark kiosk next to the Slump real slump is not a seat. Other people get false."
+  "seat_nearby_rule": "2026-11-25, written before computing doubt signals, from the labelling sheets: true when a chair, bench or armchair touches the focal person in the probe window (Slump 0-8 s: the grey walker passes the armchairs and the stool; Rest_InChair: the person sits in an armchair). The dark kiosk next to the Slump real slump is not a seat. Other people get false.",
+  "expected_facts_v3": "2026-11-25, rules v3/v4: the code no longer gives a status from thresholds. Each expected 'status'/'reason' was converted mechanically into 'seen' (what the close check saw): verified and not_corroborated -> on_floor; the other reasons are unchanged. first_look: the Browse1 alert was a suspicion (insufficient_evidence), the other candidates are reports."
 }

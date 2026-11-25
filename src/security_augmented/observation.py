@@ -217,7 +217,8 @@ class PostureRequest:
 @dataclass(frozen=True)
 class PostureResult:
     metadata: InferenceMetadata
-    # One entry per submitted frame, in order: {"frame_id": str, "persons": ({"id", "posture", "x", "y"}, ...)}.
+    # One entry per submitted frame, in order: {"frame_id": str, "persons": ({"id", "posture", "x", "y",
+    # optionally "w", "h", "seat_nearby"}, ...)}.
     frames: tuple[dict, ...]
     raw_response: str | None = None
     schema_version: int = SCHEMA_VERSION
@@ -247,3 +248,7 @@ def validate_postures(request: PostureRequest, result: PostureResult) -> None:
                 raise VideoError("Posture outside the imposed vocabulary")
             if not all(type(person.get(k)) in (int, float) and 0 <= person[k] <= 1 for k in ("x", "y")):
                 raise VideoError("Person position must be within [0, 1]")
+            if not all(type(person[k]) in (int, float) and 0 <= person[k] <= 1 for k in ("w", "h") if k in person):
+                raise VideoError("Person box size must be within [0, 1]")
+            if "seat_nearby" in person and type(person["seat_nearby"]) is not bool:
+                raise VideoError("seat_nearby must be true or false")

@@ -9,7 +9,11 @@ Cases:
     box and no seat field: the seat signal can only come from sitting_on_seat answers).
 In both, the person's size and image-edge distance come from the CAVIAR XML box nearest to the answered position
 (<= 0.15 of the width); live, they would come from Gemini's approximate box.
-The thresholds are read from floor_rules.json v3 (commit 0907be1) and nothing here changes them.
+The thresholds are read from floor_rules.json (v3, commit 0907be1) and nothing here changes them.
+
+Historical record: this script computed the v3 signals before any implementation (result: 7/9 known false
+alerts marked, criterion not met; doubt_offline.json). v4 added no_floor_seen after seeing these results; the
+production code (floor_check.doubt_signals) is re-checked on the same cases by tests/test_floor_check.py.
 """
 import json
 from math import hypot
@@ -22,7 +26,7 @@ from security_augmented.annotations import parse_annotations
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 R = json.loads((ROOT / "src/security_augmented/floor_rules.json").read_text())
-assert R["version"] == 3
+assert R["version"] in (3, 4)  # v4 thresholds are the v3 ones
 D = R["doubt_signals"]
 FLOOR, UPRIGHT = set(R["on_floor"]), set(R["upright"])
 W, H = 384, 288

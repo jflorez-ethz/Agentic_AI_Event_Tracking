@@ -16,7 +16,8 @@ from pydantic import TypeAdapter
 
 from .contracts import VideoError
 from .video import _decode, _run, ingest
-from .floor_check import facts_lines, is_verified, key_times
+from .floor_check import (LEGACY_CATEGORIES, CANDIDATE_CATEGORIES, assessment_text, facts_lines, floor_seen, key_times,
+                          look_closely, marked, order, signal_text)
 from .workflow import PERCEPTION_CATEGORIES, READ_PRIORITY_LABELS as PRIORITY_LABELS, ROUTINE_LABELS, Analysis
 
 TITLES = {
@@ -141,10 +142,9 @@ def timeline_rows(analysis, queue):
     events = (*analysis.timeline, *analysis.unresolved)
     incidents = list(analysis.floor_incidents or ())
     verified = {i for e in events if e.verdict == "supported" for i in e.observation_ids}
-    verified |= {i for inc in incidents if is_verified(inc) for i in inc["observation_ids"]}
     ruled_out = {i for e in events if e.verdict == "unsupported" for i in e.observation_ids}
     review = {a["observation_id"] for a in queue["alerts"]}
-    review |= {i for inc in incidents if not is_verified(inc) for i in inc["observation_ids"]}
+    review |= {i for inc in incidents for i in inc["observation_ids"]}  # every person on the floor goes to the guard
 
     def status(identifier):
         if identifier in verified:
@@ -177,6 +177,8 @@ def timeline_rows(analysis, queue):
         merged = {**members[0], "start_us": start, "end_us": end, "members": [i for r in members for i in r["members"]],
                   "closer_look": any(r["closer_look"] for r in members), "incident": incident, "parts": len(members)}
         rows = [r for r in rows if r not in members] + [merged]
+    floor_ids = {i for inc in incidents for i in inc["observation_ids"]}
+    verified -= floor_ids  # a person on the floor is never "facts verified", whatever an older run stored
     for row in rows:
         row["status"] = min((status(i) for i in row["members"]), key=STATUS_ORDER.index)
         row["security"] = row["category"] in PRIORITY_LABELS
@@ -261,32 +263,64 @@ def _posture_strip(sequence):
             f'<div class="legend">{legend}</div>')
 
 
+def floor_incidents(analysis):
+    """Person-on-the-floor incidents as shown to the guard, Look closely first. Runs stored before rules v3
+    get their doubt signals computed on read (no box or seat answer was asked then)."""
+    if analysis.floor_incidents is None:
+        return None
+    claims = {f.observation.id for e in analysis.evidence for f in e.findings
+              if f.observation.category in CANDIDATE_CATEGORIES + LEGACY_CATEGORIES}
+    video = analysis.video
+    return order([marked(i, first_look="reported" if claims & set(i["observation_ids"]) else "suspected",
+                         frame_size=(video.width, video.height), aspect=video.height / video.width)
+                  for i in analysis.floor_incidents])
+
+
 def _floor_card(thumbs, incident):
-    """One person-on-the-floor alert: measured facts, posture strip and key images."""
-    verified = is_verified(incident)
+    """One person-on-the-floor card: measured facts, the system's assessment, doubt signals, posture strip, images."""
+    closely = look_closely(incident)
     start = incident.get("first_floor_us", incident["anchor_us"])
+    what = "Person on the floor" if floor_seen(incident) else "Reported on the floor"
+    badge = '<span class="badge">Look closely</span>' if closely else ""
+    assessment = assessment_text(incident)
+    signals = incident.get("doubt_signals", [])
     frames = {f["t_us"]: f for f in incident.get("frames", [])}
     picked = [_Frame(frames[t]["display_index"], t) for t in key_times(incident) if t in frames]
-    note = ('<p class="note">"Facts verified" means these measured facts were checked on new images; '
-            "it does not say what happened. You judge.</p>" if verified else "")
-    return (f'<section class="card {"confirmed" if verified else "review"}"><h3>{mmss(start)} · Person on the floor · '
-            f'{"facts verified" if verified else "needs guard review"}</h3>'
-            + "".join(f"<p>{html.escape(line)}</p>" for line in facts_lines(incident, "en")) + note
-            + _posture_strip(incident.get("sequence", [])) + _floor_images(thumbs, picked, incident.get("sequence", []))
+    return (f'<section class="card {"review" if closely else "floor"}"><h3>{mmss(start)} · {what} {badge}</h3>'
+            '<h4>Measured facts</h4>' + "".join(f"<p>{html.escape(line)}</p>" for line in facts_lines(incident, "en"))
+            + "<h4>System's assessment</h4>"
+            + (f'<p class="assessment"><i>{html.escape(assessment)}</i> <span class="note">(the system\'s opinion, not '
+               f'verified)</span></p>' if assessment else '<p class="empty">No system assessment.</p>')
+            + "<h4>Doubt signals</h4>"
+            + ("<ul class=\"signals\">" + "".join(f"<li>{html.escape(signal_text(x, 'en'))}</li>" for x in signals) + "</ul>"
+               if signals else '<p class="empty">No doubt signal measured. This does not mean it is true.</p>')
+            + _posture_strip(incident.get("sequence", [])) + _floor_images(thumbs, picked, incident)
             + "</section>")
 
 
-def _floor_images(thumbs, frames, sequence):
+def _floor_images(thumbs, frames, incident):
+    """Before, during and after: last standing, first and last on the floor, what came next (or what was seen)."""
     if not frames:
         return ""
+    sequence = incident.get("sequence", [])
     posture = {s["t_us"]: s["posture"] for s in sequence}
+    role = {}
+    if floor_seen(incident):
+        outcome = incident.get("outcome", {})
+        role = {outcome.get("at_us"): "After"} if outcome.get("kind") in ("stood_up", "last_seen") else {}
+        role.update({incident.get("arrival", {}).get("upright_us"): "Before", incident["first_floor_us"]: "During",
+                     incident.get("floor_until_us"): "During"})
+
+    def label(f):
+        text = _POSTURE_TEXT.get(posture.get(f.source_time_us), "seen")
+        return f"{role[f.source_time_us]} ({text})" if f.source_time_us in role else text.capitalize()
+
     if thumbs.video is None:
-        cells = [(_POSTURE_TEXT.get(posture.get(f.source_time_us), "seen"), mmss(f.source_time_us), None) for f in frames]
+        cells = [(label(f), mmss(f.source_time_us), None) for f in frames]
     else:
         indices = tuple(sorted({f.display_index for f in frames}))
         pixels = dict(zip(indices, _decode(thumbs.video, indices), strict=True))
-        cells = [(_POSTURE_TEXT.get(posture.get(f.source_time_us), "seen"), mmss(f.source_time_us),
-                  thumbs._jpeg(pixels[f.display_index])) for f in frames]
+        cells = [(label(f), mmss(f.source_time_us), thumbs._jpeg(pixels[f.display_index])) for f in frames]
     return _images(cells, thumbs.problem)
 
 
@@ -320,14 +354,19 @@ def render(result):
         (e.inference.elapsed_ms or 0) for e in analysis.evidence if e.inference is not None)
     model_time = f"{model_ms // 60000} min {model_ms // 1000 % 60:02d} s" if model_ms else "not recorded"
 
-    floor = sorted(analysis.floor_incidents or (), key=lambda i: i.get("first_floor_us", i["anchor_us"]))
-    floor_done = [i for i in floor if is_verified(i)]
-    floor_open = [i for i in floor if not is_verified(i)]
-    verified_items = [(i.get("first_floor_us", i["anchor_us"]), "person_on_floor") for i in floor_done]
-    verified_items += [(e.interval.start_us, e.category) for e in security]
-    review_count = len(floor_open) + len(alerts)
+    floor = floor_incidents(analysis)
+    shown_floor = floor or []
+    closely = sum(look_closely(i) for i in shown_floor)
+    verified_items = [(e.interval.start_us, e.category) for e in security]
+    review_count = len(alerts)
 
-    if verified_items:
+    if shown_floor:
+        first = shown_floor[0]
+        what = "Person on the floor" if floor_seen(first) else "Reported on the floor"
+        headline = f"{what} at {mmss(first.get('first_floor_us', first['anchor_us']))} — " + (
+            "look closely" if look_closely(first) else "for the guard")
+        tone = "review"
+    elif verified_items:
         when, category = min(verified_items, key=lambda v: (SEVERITY.index(v[1]) if v[1] in SEVERITY else 99, v[0]))
         headline = f"{title(category)} at {mmss(when)} (facts verified)"
         tone = "confirmed"
@@ -345,9 +384,12 @@ def render(result):
     for _, category in verified_items:
         counted[category] = counted.get(category, 0) + 1
     pieces = []
+    if shown_floor:
+        n = len(shown_floor)
+        pieces.append(f"{n} report{'s' if n > 1 else ''} of a person on the floor for the guard"
+                      + (f" ({closely} to look at closely)" if closely else ""))
     for category, n in sorted(counted.items(), key=lambda c: SEVERITY.index(c[0]) if c[0] in SEVERITY else 99):
-        name = ("person on the floor" if n == 1 else "people on the floor") if category == "person_on_floor" \
-            else (title(category).lower() if n == 1 else f"× {title(category).lower()}")
+        name = title(category).lower() if n == 1 else f"× {title(category).lower()}"
         pieces.append(f"{n} {name} (facts verified)")
     if review_count:
         pieces.append(f"{review_count} unclear case{'s' if review_count > 1 else ''} for the guard to review")
@@ -356,11 +398,19 @@ def render(result):
              f'<p class="summary">{html.escape(analysed)} {html.escape(watch[0].upper() + watch[1:])}</p>',
              "<h2>Coverage</h2>", _coverage_bar(analysis, duration)]
 
+    if floor is not None:
+        parts.append("<h2>People on the floor — for the guard</h2>")
+        if not floor:
+            parts.append('<p class="empty">No person was reported on the floor.</p>')
+        else:
+            parts.append('<p class="note">The system measures facts and shows what may cast doubt; it does not decide '
+                         'what happened. Every case is for you to judge. "Look closely" cases come first.</p>')
+        for incident in floor:
+            parts.append(_floor_card(thumbs, incident))
+
     parts.append("<h2>Needs guard review</h2>")
     if not review_count:
         parts.append('<p class="empty">Nothing to review.</p>')
-    for incident in floor_open:
-        parts.append(_floor_card(thumbs, incident))
     for alert in alerts:
         frames = [_Frame(f["display_index"], f["source_time_us"]) for f in alert["frames"]]
         why = WHY.get(alert["reason_code"], WHY.get(alert["reason_code"].split("/")[0], "Not confirmed."))
@@ -375,8 +425,6 @@ def render(result):
     parts.append("<h2>Watch-list events — facts verified</h2>")
     if not verified_items:
         parts.append('<p class="empty">None.</p>')
-    for incident in floor_done:
-        parts.append(_floor_card(thumbs, incident))
     for event in security:
         frames = [f for c in event.citations for f in c.frames]
         parts.append(
@@ -442,6 +490,11 @@ h3 {{ font-size:1.05rem; margin:0 0 6px; }}
 .headline.clear {{ background:var(--ok-bg); color:var(--ok); }}
 .card {{ background:var(--card); border:1px solid var(--line); border-left:4px solid var(--line); border-radius:10px; padding:14px 16px; margin:12px 0; }}
 .card.review {{ border-left-color:var(--review); }} .card.confirmed {{ border-left-color:var(--alert); }}
+.card.floor {{ border-left-color:var(--muted); }}
+h4 {{ font-size:.85rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin:12px 0 4px; }}
+.badge {{ display:inline-block; margin-left:6px; font-size:.8rem; font-weight:700; padding:1px 8px; border-radius:999px;
+          background:var(--review-bg); color:var(--review); border:1px solid var(--review); vertical-align:1px; }}
+.signals {{ margin:4px 0; padding-left:20px; }} .assessment {{ margin:4px 0; }}
 .question {{ font-weight:600; }} .why {{ color:var(--muted); }}
 .strip {{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }}
 figure {{ margin:0; flex:1 1 200px; max-width:240px; }} figure img, .noimg {{ width:100%; border-radius:6px; display:block; }}

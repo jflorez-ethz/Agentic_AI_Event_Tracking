@@ -13,6 +13,15 @@ Every alert has one of two statuses:
 - **Needs guard review**: the system is not sure or the case is
   ambiguous. Ambiguous cases always go to the guard.
 
+**Person on the floor (added 2026-11-25, floor rules v4).** The system
+gives no "facts verified" status for a person on the floor. It shows
+the measured facts, objective **doubt signals** with their measured
+values, and at most one sentence labelled "System's assessment" (an
+unverified opinion). Every case goes to the guard; a case with at least
+one doubt signal is marked **Look closely** and comes first. Objects
+still use the two statuses above until the same principle is applied
+to them.
+
 ## Level 1 — Always notify (never dismissed)
 
 | Event | Facts given to the guard | Detectable today |
@@ -41,4 +50,6 @@ person appearing, person sitting on a seat, person kneeling.
 
 Use descriptive labels, without any connotation of a crime:
 "Watch-list event", "Watch-list events — facts verified",
-"Needs guard review". The word "security" may remain in code only.
+"Needs guard review", and for people on the floor "People on the
+floor — for the guard", "Look closely", "Doubt signals", "System's
+assessment". The word "security" may remain in code only.
