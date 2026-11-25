@@ -14,8 +14,13 @@ from .workflow import READ_PRIORITY_LABELS as PRIORITY_LABELS, _time
 
 # Entry into an area needs a configured monitored zone (plan detector C1); none exists yet.
 ZONE_CATEGORIES = frozenset({"person_enters_area"})
+# Watch-list levels (docs/watch-list.md, draft A1): 1 always notify, never dismissed; 2 notify depending on site
+# context (zones, schedules); 3 describe only, never an alert. Categories not listed keep their previous handling.
+WATCH_LEVEL = {"person_on_floor": 1, "person_fell": 1, "object_placed": 1,
+               "person_enters_area": 2, "object_removed": 2,
+               "person_moved": 3, "person_appeared": 3}
 # Never dismissed by the agent, even when verification contradicts the observation.
-NEVER_DISMISSED = frozenset({"person_fell", "person_on_floor"})
+NEVER_DISMISSED = frozenset(c for c, level in WATCH_LEVEL.items() if level == 1)
 # Checked by code and listed in their own section (floor_check.py), never as generic alerts here.
 OWN_SECTION = frozenset({"person_on_floor"})
 MAX_REVIEW_FRAMES = 6
@@ -111,7 +116,8 @@ def review(events, trace, evidence):
     inspections = {entry.inspection.id: entry.inspection for entry in evidence if entry.inspection is not None}
     alerts, not_alerted = [], []
     for event in sorted(events, key=lambda e: (e.interval.start_us, e.category)):
-        if event.category not in PRIORITY_LABELS or event.verdict == "supported" or event.category in OWN_SECTION:
+        if (event.category not in PRIORITY_LABELS or event.verdict == "supported" or event.category in OWN_SECTION
+                or WATCH_LEVEL.get(event.category) == 3):
             continue
         seed = event.observation_ids[0]
         code = reason_code(event, trace)
@@ -128,7 +134,8 @@ def review(events, trace, evidence):
         frames, cited = _frames(event, description, inspections)
         alerts.append({
             "id": _id("alert", event.citations[0].video_id if event.citations else None, seed, event.category),
-            "status": "needs_review", **base, "frames": frames, "cited_frame_count": cited,
+            "status": "needs_review", "level": WATCH_LEVEL.get(event.category), **base, "frames": frames,
+            "cited_frame_count": cited,
             "description": description,
             "model_reason_affirmative": bool(_AFFIRMATIVE.search(event.reason) and not _NEGATION.search(event.reason)),
             "question": _QUESTION[event.category], "operator_label": None,
@@ -167,7 +174,7 @@ def _unclear_alerts(events, alerts, evidence, inspections):
             observation = finding.observation
             suspected = getattr(observation, "possible_category", None)
             if (observation.category != "insufficient_evidence" or suspected not in PRIORITY_LABELS
-                    or suspected in ZONE_CATEGORIES or suspected in OWN_SECTION):
+                    or suspected in ZONE_CATEGORIES or suspected in OWN_SECTION or WATCH_LEVEL.get(suspected) == 3):
                 continue
             cited = finding.citation.interval
             if any(category == suspected and near(cited.start_us, cited.end_us, start, end)
@@ -176,7 +183,8 @@ def _unclear_alerts(events, alerts, evidence, inspections):
             frames, count = _frames(_Cited(finding.citation), observation.description, inspections)
             alert = {
                 "id": _id("alert", finding.citation.video_id, observation.id, "unclear"),
-                "status": "needs_review", "category": suspected, "observation_id": observation.id,
+                "status": "needs_review", "level": WATCH_LEVEL.get(suspected), "category": suspected,
+                "observation_id": observation.id,
                 "interval": {"start_us": cited.start_us, "end_us": cited.end_us},
                 "reason_code": "unclear_observation", "model_reason": observation.uncertainty,
                 "frames": frames, "cited_frame_count": count, "description": observation.description,

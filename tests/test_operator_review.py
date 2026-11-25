@@ -70,8 +70,10 @@ def test_contradicted_fall_is_never_dismissed():
     result = review((fall,), analysis.trace, analysis.evidence)
     (alert,) = result["alerts"]
     assert (alert["category"], alert["reason_code"]) == ("person_fell", "contradicted")
+    # Watch-list level 1 (docs/watch-list.md): an object left is never dismissed either.
     contradicted_object = replace(box, verdict="unsupported", reason="The frames show no placement.")
-    assert not review((contradicted_object,), analysis.trace, analysis.evidence)["alerts"]
+    (alert,) = review((contradicted_object,), analysis.trace, analysis.evidence)["alerts"]
+    assert (alert["category"], alert["reason_code"], alert["level"]) == ("object_placed", "contradicted", 1)
 
 
 def test_unfinished_and_affirmative_reason_flag():

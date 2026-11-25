@@ -334,10 +334,11 @@
       "others": "standing",
       "note": "Sits down in an armchair: a seat, not the floor.",
       "expected_facts": {
-        "status": "to_review",
+        "status": "seated_only",
         "reason": "seated"
       },
-      "anchor_s": 19.52
+      "anchor_s": 19.52,
+      "expected_correction": "2026-11-25, watch-list level 3 (docs/watch-list.md): sitting on a seat is described in the chronology, never an alert (was: to review)."
     },
     "browse1_edge": {
       "video": "Browse1.mpg",

@@ -14,7 +14,7 @@ from security_augmented.floor_check import RULES, check, describe, facts_lines, 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = {f.stem: json.loads(f.read_text()) for f in sorted((ROOT / "experiments/fall_check/fixtures").glob("*.json"))}
 LABELS = json.loads((ROOT / "experiments/fall_check/labels.json").read_text())["cases"]
-NOBODY_DOWN = sorted(n for n, fx in FIXTURES.items() if fx["expected"]["status"] == "to_review" and fx["expected"]["reason"] != "not_corroborated")
+NOBODY_DOWN = sorted(n for n, fx in FIXTURES.items() if fx["expected"]["status"] != "verified" and fx["expected"].get("reason") != "not_corroborated")
 INTERPRETATION = re.compile(r"chut|tomb|fall|fell|brusqu|progressi|sudden|gradual|collaps|accident", re.I)
 S = 1_000_000
 
@@ -188,8 +188,10 @@ def test_kneeling_only_gives_no_alert_but_is_described():
     assert "à genoux" in facts_lines(r, "fr")[0] and "Chronologie (sans alerte)" in render_markdown([{**r, "anchor_us": ANCHOR}])
 
 
-def test_seated_on_a_seat_is_not_the_floor():
-    assert facts(seq(["standing"] * 3 + ["sitting_on_seat"] * 12))["reason"] == "seated"
+def test_seated_on_a_seat_is_described_never_an_alert():
+    r = facts(seq(["standing"] * 3 + ["sitting_on_seat"] * 12))
+    assert (r["status"], r["reason"]) == ("seated_only", "seated") and floor_check.alerting([r]) == []
+    assert "assise sur un siège" in facts_lines(r, "fr")[0]
 
 
 def test_slow_arrival_is_described_not_refused():

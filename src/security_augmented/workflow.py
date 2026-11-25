@@ -788,7 +788,7 @@ def _floor_check(video, evidence, candidates, ask, trace):
                               tuple(incident["observation_ids"]),
                               details={"inspections": incident["inspections"], "status": incident["status"],
                                        "reason": incident.get("reason")}))
-        if incident["status"] == "kneeling_only":
+        if incident["status"] in ("kneeling_only", "seated_only"):  # watch-list level 3: described, no event or alert
             continue
         key = [incident.get("arrival", {}).get("upright_us"), incident.get("first_floor_us"),
                incident.get("floor_until_us"), incident.get("outcome", {}).get("at_us")]
@@ -822,7 +822,7 @@ def _floor_alerts(video, incidents, floor_events):
         start = incident.get("first_floor_us", incident["anchor_us"])
         alerts.append({
             "id": _id_floor(video, incident), "status": "facts_verified" if incident["status"] == "verified" else "needs_review",
-            "category": "person_on_floor", "observation_id": incident["observation_ids"][0],
+            "category": "person_on_floor", "level": 1, "observation_id": incident["observation_ids"][0],
             "interval": {"start_us": start, "end_us": max(start, incident.get("floor_until_us", start)) + 1},
             "reason_code": incident.get("reason") or "facts_verified", "frames": sorted(frames, key=lambda f: f["source_time_us"]),
             "facts_fr": facts_lines(incident, "fr"), "facts_en": facts_lines(incident, "en"), "operator_label": None,

@@ -85,8 +85,8 @@ def describe(seq, anchor, *, aspect, video_end_us, followup_stopped=False, rules
             reason = "no_person"
         elif all(l in upright for l in visible):
             reason = "upright_throughout"
-        elif "sitting_on_seat" in visible:
-            reason = "seated"
+        elif "sitting_on_seat" in visible:  # watch-list level 3: described, never an alert
+            return {**base, "status": "seated_only", "reason": "seated"}
         else:
             reason = "no_floor"
         return {**base, "status": "to_review", "reason": reason}
@@ -300,10 +300,11 @@ def facts_lines(incident, lang="fr"):
     P, fr = _POSTURE[lang], lang == "fr"
     if incident.get("first_floor_us") is None:
         why = _REASON[lang].get(incident["reason"], incident["reason"])
-        if incident["status"] == "kneeling_only":
-            seen = [s for s in incident.get("sequence", []) if s["posture"] == "kneeling"]
+        if incident["status"] in DESCRIBE_ONLY:
+            posture = "kneeling" if incident["status"] == "kneeling_only" else "sitting_on_seat"
+            seen = [s for s in incident.get("sequence", []) if s["posture"] == posture]
             span = f"{clock(seen[0]['t_us'])}–{clock(seen[-1]['t_us'])}" if seen else ""
-            return [f"Une personne à genoux {span}, pas au sol." if fr else f"A person kneeling {span}, not on the floor."]
+            return [f"Une personne {P[posture]} {span}, pas au sol." if fr else f"A person {P[posture]} {span}, not on the floor."]
         return [(f"Signalé par l'analyse vidéo vers {clock(incident['anchor_us'])} ; {why}." if fr
                  else f"Reported by the video analysis at about {clock(incident['anchor_us'])}; {why}.")]
     posture = P[incident["floor_postures"][0]["posture"]]
@@ -345,9 +346,13 @@ def facts_lines(incident, lang="fr"):
     return lines
 
 
+# Watch-list level 3 (docs/watch-list.md): kneeling or sitting on a seat is described, never an alert.
+DESCRIBE_ONLY = ("kneeling_only", "seated_only")
+
+
 def alerting(incidents):
-    """Every incident except kneeling-only becomes an alert for the guard."""
-    return [i for i in incidents if i["status"] != "kneeling_only"]
+    """Every incident becomes an alert for the guard, except the level-3 descriptions."""
+    return [i for i in incidents if i["status"] not in DESCRIBE_ONLY]
 
 
 def render_markdown(incidents):
@@ -364,7 +369,7 @@ def render_markdown(incidents):
         lines.append(f"{n}. **Personne au sol — {status}**")
         lines += [f"   - {line}" for line in facts_lines(incident, "fr")]
         lines.append("")
-    notes = [i for i in incidents if i["status"] == "kneeling_only"]
+    notes = [i for i in incidents if i["status"] in DESCRIBE_ONLY]
     if notes:
         lines += ["### Chronologie (sans alerte)", ""] + [f"- {facts_lines(i, 'fr')[0]}" for i in notes] + [""]
     return "\n".join(lines) + "\n"
