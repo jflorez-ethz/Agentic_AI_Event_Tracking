@@ -334,11 +334,11 @@
       "others": "standing",
       "note": "Sits down in an armchair: a seat, not the floor.",
       "expected_facts": {
-        "status": "seated_only",
+        "status": "to_review",
         "reason": "seated"
       },
       "anchor_s": 19.52,
-      "expected_correction": "2026-11-25, watch-list level 3 (docs/watch-list.md): sitting on a seat is described in the chronology, never an alert (was: to review)."
+      "expected_correction": "2026-11-25: a person_on_floor claim that cannot be verified is always an alert to review (watch-list level 1), even when the close check shows a seat."
     },
     "browse1_edge": {
       "video": "Browse1.mpg",

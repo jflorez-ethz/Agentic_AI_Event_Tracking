@@ -6,7 +6,7 @@
  "aspect": 0.75,
  "anchor_us": 19520000,
  "expected": {
-  "status": "seated_only",
+  "status": "to_review",
   "reason": "seated"
  },
  "transcript": [
@@ -673,11 +673,11 @@
      "source": "probe"
     }
    ],
-   "status": "seated_only",
+   "status": "to_review",
    "reason": "seated",
    "span_us": [
     19520000,
-    24159700
+    19520000
    ]
   }
  ]

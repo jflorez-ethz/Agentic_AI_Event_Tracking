@@ -79,14 +79,16 @@ def describe(seq, anchor, *, aspect, video_end_us, followup_stopped=False, rules
     visible = [l for l in labels if l != "not_visible"]
     base = {"sequence": [{"t_us": t, "posture": p, "source": src} for t, p, _, _, src in seq]}
     if not any(l in floor for l in labels):
-        if "kneeling" in visible:
-            return {**base, "status": "kneeling_only", "reason": "kneeling_only"}
+        # A person_on_floor claim is watch-list level 1: if it cannot be verified it is always an alert to review,
+        # with what the close check saw (kneeling or a seat included).
         if not visible:
             reason = "no_person"
         elif all(l in upright for l in visible):
             reason = "upright_throughout"
-        elif "sitting_on_seat" in visible:  # watch-list level 3: described, never an alert
-            return {**base, "status": "seated_only", "reason": "seated"}
+        elif "kneeling" in visible:
+            reason = "kneeling"
+        elif "sitting_on_seat" in visible:
+            reason = "seated"
         else:
             reason = "no_floor"
         return {**base, "status": "to_review", "reason": reason}
@@ -148,7 +150,7 @@ def describe(seq, anchor, *, aspect, video_end_us, followup_stopped=False, rules
 
 
 _RANK = ["verified", "moving_on_floor", "floor_too_short", "not_corroborated", "not_near_candidate",
-         "kneeling_only", "seated", "no_floor", "upright_throughout", "no_person"]
+         "kneeling", "seated", "no_floor", "upright_throughout", "no_person"]
 
 
 def _rank(facts):
@@ -200,7 +202,10 @@ def check(candidates, ask, *, duration_us, aspect, rules=RULES):
     incidents, used = [], 0
     gap = round(rules["merge_gap_s"] * US)
     for observation_id, anchor in sorted(candidates, key=lambda c: (c[1], c[0])):
-        home = next((i for i in incidents if i["span_us"][0] - gap <= anchor <= i["span_us"][1] + gap), None)
+        # Merge only into time someone was actually seen on the floor; a report near a check that found nobody on
+        # the floor gets its own check.
+        home = next((i for i in incidents if i.get("first_floor_us") is not None and i.get("reason") != "not_near_candidate"
+                     and i["span_us"][0] - gap <= anchor <= i["span_us"][1] + gap), None)
         if home is not None:
             home["observation_ids"].append(observation_id)
             continue
@@ -250,7 +255,9 @@ def check(candidates, ask, *, duration_us, aspect, rules=RULES):
             facts = describe(seq, anchor, aspect=aspect, video_end_us=duration_us, rules=rules)
         facts = describe(seq, anchor, aspect=aspect, video_end_us=duration_us, followup_stopped=stopped, rules=rules)
         incident.update(person=pid, **facts)
-        incident["span_us"] = [facts.get("first_floor_us", anchor), seq[-1][0]]
+        # Later reports merge only into time actually spent on the floor, never into a window where nobody was down.
+        incident["span_us"] = ([facts["first_floor_us"], facts["floor_until_us"]] if facts.get("first_floor_us") is not None
+                               else [anchor, anchor])
     return incidents
 
 
@@ -269,6 +276,7 @@ _REASON = {
         "not_corroborated": "arrivée au sol non observée et pas de suivi la montrant encore au sol",
         "not_near_candidate": "l'inspection fine ne montre personne au sol à ce moment-là",
         "seated": "l'inspection fine montre une personne assise sur un siège, personne au sol",
+        "kneeling": "l'inspection fine montre une personne à genoux, personne au sol",
         "no_floor": "l'inspection fine ne montre personne au sol",
         "upright_throughout": "l'inspection fine montre les personnes debout tout du long",
         "no_person": "l'inspection fine ne montre personne",
@@ -281,6 +289,7 @@ _REASON = {
         "not_corroborated": "reaching the floor was not seen and no follow-up shows the person still on the floor",
         "not_near_candidate": "the close check shows nobody on the floor at that moment",
         "seated": "the close check shows a person sitting on a seat, nobody on the floor",
+        "kneeling": "the close check shows a person kneeling, nobody on the floor",
         "no_floor": "the close check shows nobody on the floor",
         "upright_throughout": "the close check shows the people standing throughout",
         "no_person": "the close check shows nobody",
@@ -295,18 +304,58 @@ def clock(us):
     return f"{minutes:02d}:{rest / US:05.2f}"
 
 
+# Stored by runs made before 2026-11-25 (watch-list fix): read as alerts to review.
+_LEGACY_REASONS = {"kneeling_only": "kneeling"}
+
+
+def is_verified(incident):
+    return incident["status"] == "verified"
+
+
+def seen_segments(sequence):
+    """Consecutive postures of the checked person: [(posture, first_us, last_us)]."""
+    out = []
+    for s in sequence:
+        if out and out[-1][0] == s["posture"]:
+            out[-1] = (s["posture"], out[-1][1], s["t_us"])
+        else:
+            out.append((s["posture"], s["t_us"], s["t_us"]))
+    return out
+
+
+def probe_seen(incident, lang="fr"):
+    """What the close check saw for the checked person, as posture segments with times."""
+    P, fr = _POSTURE[lang], lang == "fr"
+    segments = seen_segments(incident.get("sequence", []))
+    if not segments:
+        return None
+    parts = [f"{P[p]} {clock(a)}" + (f"–{clock(b)}" if b != a else "") for p, a, b in segments]
+    head = "Ce que l'inspection fine a vu" if fr else "What the close check saw"
+    return f"{head} : " + " ; ".join(parts) + "." if fr else f"{head}: " + "; ".join(parts) + "."
+
+
+def key_times(incident, limit=4):
+    """Times of the images to show the guard (arrival, on the floor, until, outcome; or what was seen)."""
+    if incident.get("first_floor_us") is not None:
+        times = [incident.get("arrival", {}).get("upright_us"), incident["first_floor_us"],
+                 incident.get("floor_until_us"), incident.get("outcome", {}).get("at_us")]
+    else:
+        segments = seen_segments(incident.get("sequence", []))
+        times = [a for p, a, _ in segments if p not in ("standing", "not_visible")] or [s[1] for s in segments]
+        times = [segments[0][1], *times, segments[-1][2]] if segments else []
+    return list(dict.fromkeys(t for t in times if t is not None))[:limit]
+
+
 def facts_lines(incident, lang="fr"):
     """Plain-language lines: only measured facts, no interpretation."""
     P, fr = _POSTURE[lang], lang == "fr"
     if incident.get("first_floor_us") is None:
-        why = _REASON[lang].get(incident["reason"], incident["reason"])
-        if incident["status"] in DESCRIBE_ONLY:
-            posture = "kneeling" if incident["status"] == "kneeling_only" else "sitting_on_seat"
-            seen = [s for s in incident.get("sequence", []) if s["posture"] == posture]
-            span = f"{clock(seen[0]['t_us'])}–{clock(seen[-1]['t_us'])}" if seen else ""
-            return [f"Une personne {P[posture]} {span}, pas au sol." if fr else f"A person {P[posture]} {span}, not on the floor."]
-        return [(f"Signalé par l'analyse vidéo vers {clock(incident['anchor_us'])} ; {why}." if fr
-                 else f"Reported by the video analysis at about {clock(incident['anchor_us'])}; {why}.")]
+        reason = _LEGACY_REASONS.get(incident.get("reason"), incident.get("reason"))
+        why = _REASON[lang].get(reason, reason)
+        lines = [(f"Signalé au sol par l'analyse vidéo vers {clock(incident['anchor_us'])} ; {why}." if fr
+                  else f"Reported on the floor by the video analysis at about {clock(incident['anchor_us'])}; {why}.")]
+        seen = probe_seen(incident, lang)
+        return lines + ([seen] if seen else [])
     posture = P[incident["floor_postures"][0]["posture"]]
     lines = [f"Une personne est {posture} à partir de {clock(incident['first_floor_us'])}." if fr
              else f"A person is {posture} from {clock(incident['first_floor_us'])}."]
@@ -346,13 +395,9 @@ def facts_lines(incident, lang="fr"):
     return lines
 
 
-# Watch-list level 3 (docs/watch-list.md): kneeling or sitting on a seat is described, never an alert.
-DESCRIBE_ONLY = ("kneeling_only", "seated_only")
-
-
 def alerting(incidents):
-    """Every incident becomes an alert for the guard, except the level-3 descriptions."""
-    return [i for i in incidents if i["status"] not in DESCRIBE_ONLY]
+    """Every incident is a watch-list level-1 alert for the guard: facts verified or to review."""
+    return list(incidents)
 
 
 def render_markdown(incidents):
@@ -365,11 +410,8 @@ def render_markdown(incidents):
                   "« Faits vérifiés » veut dire que ces faits ont été contrôlés, pas que l'on sait ce qui s'est passé : "
                   "le garde juge.", ""]
     for n, incident in enumerate(shown, 1):
-        status = "faits vérifiés" if incident["status"] == "verified" else "à vérifier"
+        status = "faits vérifiés" if is_verified(incident) else "à vérifier par le garde"
         lines.append(f"{n}. **Personne au sol — {status}**")
         lines += [f"   - {line}" for line in facts_lines(incident, "fr")]
         lines.append("")
-    notes = [i for i in incidents if i["status"] in DESCRIBE_ONLY]
-    if notes:
-        lines += ["### Chronologie (sans alerte)", ""] + [f"- {facts_lines(i, 'fr')[0]}" for i in notes] + [""]
     return "\n".join(lines) + "\n"

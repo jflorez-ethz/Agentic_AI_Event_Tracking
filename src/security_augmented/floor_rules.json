@@ -18,7 +18,7 @@
     "sitting_on_floor",
     "lying_on_floor"
   ],
-  "kneeling_rule": "kneeling is never 'on the floor'. A candidate whose probe shows kneeling and no floor posture gives no alert; it is only described in the chronology.",
+  "kneeling_rule": "kneeling is never 'on the floor'. A person_on_floor claim whose close check shows only kneeling is an alert to review (reason kneeling), with what the check saw.",
   "probe": {
     "anchor": "first cited frame of the person_on_floor observation (Perception is asked to cite the earliest frame first)",
     "before": {
@@ -54,24 +54,24 @@
   ],
   "near_rule": "the first floor frame must lie within this window around the anchor",
   "merge_gap_s": 2.0,
-  "merge_rule": "a candidate whose anchor lies within merge_gap_s of an incident's observed span joins that incident instead of starting a new one",
+  "merge_rule": "a candidate whose anchor lies within merge_gap_s of the time an incident's person was seen on the floor joins that incident; a candidate near a check that found nobody on the floor gets its own check",
   "verified_rule": "facts verified = on the floor for at least min_floor_s, moving at most max_floor_displacement, AND (a standing frame observed before reaching the floor OR a follow-up call showing the person still on the floor). Otherwise: to review. Never dismissed.",
   "statuses": [
     "verified",
-    "to_review",
-    "kneeling_only",
-    "seated_only"
+    "to_review"
   ],
   "to_review_reasons": [
     "moving_on_floor",
     "floor_too_short",
     "not_corroborated",
     "not_near_candidate",
+    "kneeling",
+    "seated",
     "no_floor",
     "upright_throughout",
     "no_person",
     "probe_failed",
     "budget_exhausted"
   ],
-  "watch_list": "docs/watch-list.md (draft A1): person on the floor is level 1 (always an alert, never dismissed). Kneeling or sitting on a seat with no floor posture is level 3: described in the chronology, never an alert. Updated 2026-11-25, before any live run."
+  "watch_list": "docs/watch-list.md (draft A1): a person_on_floor claim is level 1. If its facts cannot be verified it is always an alert to review, with what the close check saw, including kneeling or a seat. Level 3 (kneeling, sitting on a seat) applies only to postures never reported as on the floor. Updated 2026-11-25, before any counted live run (only two demo runs, not counted)."
 }

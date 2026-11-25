@@ -16,6 +16,7 @@ from pydantic import TypeAdapter
 
 from .contracts import VideoError
 from .video import _decode, _run, ingest
+from .floor_check import facts_lines, is_verified, key_times
 from .workflow import PERCEPTION_CATEGORIES, READ_PRIORITY_LABELS as PRIORITY_LABELS, ROUTINE_LABELS, Analysis
 
 TITLES = {
@@ -134,12 +135,16 @@ def review_queue(analysis):
 def timeline_rows(analysis, queue):
     """Every Perception observation (initial and targeted), one row per scene, with a data-derived status.
 
-    A targeted observation joins the initial row of the same category whose citation overlaps it.
+    A targeted observation joins the initial row of the same category whose citation overlaps it. Rows that belong
+    to one person-on-the-floor incident are merged into a single row covering the incident.
     """
     events = (*analysis.timeline, *analysis.unresolved)
+    incidents = list(analysis.floor_incidents or ())
     verified = {i for e in events if e.verdict == "supported" for i in e.observation_ids}
+    verified |= {i for inc in incidents if is_verified(inc) for i in inc["observation_ids"]}
     ruled_out = {i for e in events if e.verdict == "unsupported" for i in e.observation_ids}
     review = {a["observation_id"] for a in queue["alerts"]}
+    review |= {i for inc in incidents if not is_verified(inc) for i in inc["observation_ids"]}
 
     def status(identifier):
         if identifier in verified:
@@ -162,10 +167,31 @@ def timeline_rows(analysis, queue):
         else:
             home["members"].append(finding.observation.id)
             home["closer_look"] = True
+    for incident in incidents:
+        ids = set(incident["observation_ids"])
+        members = [r for r in rows if r["category"] == "person_on_floor" and ids & set(r["members"])]
+        if not members:
+            continue
+        start = min([r["start_us"] for r in members] + ([incident["first_floor_us"]] if incident.get("first_floor_us") is not None else []))
+        end = max([r["end_us"] for r in members] + ([incident["floor_until_us"] + 1] if incident.get("floor_until_us") is not None else []))
+        merged = {**members[0], "start_us": start, "end_us": end, "members": [i for r in members for i in r["members"]],
+                  "closer_look": any(r["closer_look"] for r in members), "incident": incident, "parts": len(members)}
+        rows = [r for r in rows if r not in members] + [merged]
     for row in rows:
         row["status"] = min((status(i) for i in row["members"]), key=STATUS_ORDER.index)
         row["security"] = row["category"] in PRIORITY_LABELS
     return sorted(rows, key=lambda r: (r["start_us"], r["end_us"]))
+
+
+# Words shown to the guard: "facts verified" only for watch-list events; "checked" for routine activity.
+_SHOWN = {True: {"verified": "facts verified", "needs review": "needs guard review", "ruled out": "ruled out",
+                 "seen, not verified": "not verified"},
+          False: {"verified": "checked", "needs review": "needs guard review", "ruled out": "ruled out",
+                  "seen, not verified": "not checked"}}
+
+
+def shown_status(row):
+    return _SHOWN[row["security"]][row["status"]]
 
 
 def _coverage_bar(analysis, duration):
@@ -185,7 +211,7 @@ def _coverage_bar(analysis, duration):
     shapes += [f'<rect x="{x(a)}" y="10" width="{max(x(b) - x(a), 2)}" height="16" class="verified"/>' for a, b in verified]
     shapes += [f'<line x1="{x(t)}" x2="{x(t)}" y1="0" y2="8" class="tick"/>' for t in sampled]
     legend = (f'<span><i class="k tick"></i>{len(sampled)} sampled moments</span>'
-              '<span><i class="k verified"></i>verified</span><span><i class="k analysed"></i>analysed, not verified</span>'
+              '<span><i class="k verified"></i>checked</span><span><i class="k analysed"></i>analysed, not checked</span>'
               '<span><i class="k missing"></i>not analysed</span>')
     return (f'<svg class="coverage" viewBox="0 0 1000 26" preserveAspectRatio="none" role="img" '
             f'aria-label="Coverage of the video">{"".join(shapes)}</svg>'
@@ -235,8 +261,22 @@ def _posture_strip(sequence):
             f'<div class="legend">{legend}</div>')
 
 
-def _floor_images(thumbs, alert, sequence):
-    frames = [_Frame(f["display_index"], f["source_time_us"]) for f in alert["frames"]]
+def _floor_card(thumbs, incident):
+    """One person-on-the-floor alert: measured facts, posture strip and key images."""
+    verified = is_verified(incident)
+    start = incident.get("first_floor_us", incident["anchor_us"])
+    frames = {f["t_us"]: f for f in incident.get("frames", [])}
+    picked = [_Frame(frames[t]["display_index"], t) for t in key_times(incident) if t in frames]
+    note = ('<p class="note">"Facts verified" means these measured facts were checked on new images; '
+            "it does not say what happened. You judge.</p>" if verified else "")
+    return (f'<section class="card {"confirmed" if verified else "review"}"><h3>{mmss(start)} · Person on the floor · '
+            f'{"facts verified" if verified else "needs guard review"}</h3>'
+            + "".join(f"<p>{html.escape(line)}</p>" for line in facts_lines(incident, "en")) + note
+            + _posture_strip(incident.get("sequence", [])) + _floor_images(thumbs, picked, incident.get("sequence", []))
+            + "</section>")
+
+
+def _floor_images(thumbs, frames, sequence):
     if not frames:
         return ""
     posture = {s["t_us"]: s["posture"] for s in sequence}
@@ -270,8 +310,6 @@ def render(result):
     routine = [e for e in events if e.category in ROUTINE_LABELS]
     queue = review_queue(analysis)
     alerts = queue["alerts"]
-    floor_alerts = queue.get("floor_alerts", [])
-    incidents = {tuple(i["observation_ids"]): i for i in (analysis.floor_incidents or ())}
     rows = timeline_rows(analysis, queue)
 
     # Header facts.
@@ -282,56 +320,47 @@ def render(result):
         (e.inference.elapsed_ms or 0) for e in analysis.evidence if e.inference is not None)
     model_time = f"{model_ms // 60000} min {model_ms // 1000 % 60:02d} s" if model_ms else "not recorded"
 
-    if floor_alerts:
-        earliest = min(floor_alerts, key=lambda a: a["interval"]["start_us"])
-        verified = earliest["status"] == "facts_verified"
-        headline = (f"Person on the floor at {mmss(earliest['interval']['start_us'])} "
-                    f"({'facts verified' if verified else 'to review'})")
-        tone = "confirmed" if verified else "review"
-    elif security:
-        top = min(security, key=lambda e: (SEVERITY.index(e.category), e.interval.start_us))
-        headline = f"{title(top.category)} at {mmss(top.interval.start_us)}"
+    floor = sorted(analysis.floor_incidents or (), key=lambda i: i.get("first_floor_us", i["anchor_us"]))
+    floor_done = [i for i in floor if is_verified(i)]
+    floor_open = [i for i in floor if not is_verified(i)]
+    verified_items = [(i.get("first_floor_us", i["anchor_us"]), "person_on_floor") for i in floor_done]
+    verified_items += [(e.interval.start_us, e.category) for e in security]
+    review_count = len(floor_open) + len(alerts)
+
+    if verified_items:
+        when, category = min(verified_items, key=lambda v: (SEVERITY.index(v[1]) if v[1] in SEVERITY else 99, v[0]))
+        headline = f"{title(category)} at {mmss(when)} (facts verified)"
         tone = "confirmed"
-    elif alerts:
-        headline = (f"{len(alerts)} possible watch-list event{'s' if len(alerts) > 1 else ''} "
-                    f"need{'' if len(alerts) > 1 else 's'} guard review")
+    elif review_count:
+        headline = (f"{review_count} possible watch-list event{'s' if review_count > 1 else ''} "
+                    f"need{'' if review_count > 1 else 's'} guard review")
         tone = "review"
     else:
         headline = "No watch-list event found in the analysed part of the video"
         tone = "clear"
 
-    counts = {status: sum(r["status"] == status for r in rows) for status in STATUS_ORDER}
-    analysed = (f"The whole video ({mmss(duration)}) was analysed" if scanned >= duration
-                else f"The first {mmss(scanned)} of {mmss(duration)} were analysed")
-    first = (f"{analysed}: {len(rows)} things were seen, {counts['verified']} verified and "
-             f"{counts['needs review']} needing review.")
-    second = (f"Most important: {headline}." if floor_alerts else
-              f"Most important: {headline} (verified)." if tone == "confirmed" else
-              f"Most important: {headline}." if tone == "review" else "No watch-list event was seen.")
+    analysed = (f"The whole video ({mmss(duration)}) was analysed." if scanned >= duration
+                else f"The first {mmss(scanned)} of {mmss(duration)} were analysed.")
+    counted = {}
+    for _, category in verified_items:
+        counted[category] = counted.get(category, 0) + 1
+    pieces = []
+    for category, n in sorted(counted.items(), key=lambda c: SEVERITY.index(c[0]) if c[0] in SEVERITY else 99):
+        name = ("person on the floor" if n == 1 else "people on the floor") if category == "person_on_floor" \
+            else (title(category).lower() if n == 1 else f"× {title(category).lower()}")
+        pieces.append(f"{n} {name} (facts verified)")
+    if review_count:
+        pieces.append(f"{review_count} unclear case{'s' if review_count > 1 else ''} for the guard to review")
+    watch = (", ".join(pieces) + ".") if pieces else "No watch-list event was seen."
     parts = [f'<p class="headline {tone}">{html.escape(headline)}</p>',
-             f'<p class="summary">{html.escape(first)} {html.escape(second)}</p>',
+             f'<p class="summary">{html.escape(analysed)} {html.escape(watch[0].upper() + watch[1:])}</p>',
              "<h2>Coverage</h2>", _coverage_bar(analysis, duration)]
 
-    if floor_alerts or analysis.floor_incidents is not None:
-        parts.append("<h2>People on the floor</h2>")
-        parts.append('<p class="note">Measured facts from a close check (about 4 images per second) and a follow-up '
-                     '(1 image per second). "Facts verified" means these facts were checked; it does not say what '
-                     'happened. You judge.</p>')
-        if not floor_alerts:
-            parts.append('<p class="empty">Nobody on the floor was reported.</p>')
-    for alert in floor_alerts:
-        incident = next((i for ids, i in incidents.items() if alert["observation_id"] in ids), {})
-        sequence = incident.get("sequence", [])
-        verified = alert["status"] == "facts_verified"
-        parts.append(
-            f'<section class="card {"confirmed" if verified else "review"}"><h3>{mmss(alert["interval"]["start_us"])} · '
-            f'Person on the floor · {"facts verified" if verified else "to review"}</h3>'
-            + "".join(f"<p>{html.escape(line)}</p>" for line in alert["facts_en"])
-            + _posture_strip(sequence) + _floor_images(thumbs, alert, sequence) + "</section>")
-
     parts.append("<h2>Needs guard review</h2>")
-    if not alerts:
+    if not review_count:
         parts.append('<p class="empty">Nothing to review.</p>')
+    for incident in floor_open:
+        parts.append(_floor_card(thumbs, incident))
     for alert in alerts:
         frames = [_Frame(f["display_index"], f["source_time_us"]) for f in alert["frames"]]
         why = WHY.get(alert["reason_code"], WHY.get(alert["reason_code"].split("/")[0], "Not confirmed."))
@@ -344,8 +373,10 @@ def render(result):
             + f'<p class="why">{html.escape(why)}</p>{_images(thumbs.triplet(frames), thumbs.problem)}</section>')
 
     parts.append("<h2>Watch-list events — facts verified</h2>")
-    if not security:
+    if not verified_items:
         parts.append('<p class="empty">None.</p>')
+    for incident in floor_done:
+        parts.append(_floor_card(thumbs, incident))
     for event in security:
         frames = [f for c in event.citations for f in c.frames]
         parts.append(
@@ -361,6 +392,10 @@ def render(result):
         text = (html.escape(described) if status == "verified"
                 else f'Reported by the video analysis: <q>{html.escape(described)}</q>')
         notes = []
+        if row.get("incident") is not None:
+            inc = row["incident"]
+            start = inc.get("first_floor_us", inc["anchor_us"])
+            notes.append(f"one incident from {mmss(start)}" + (f", {row['parts']} reports merged" if row["parts"] > 1 else ""))
         if row["closer_look"]:
             notes.append("also seen in a closer look")
         possibly = next((suspected[i] for i in row["members"] if suspected.get(i)), None)
@@ -373,16 +408,16 @@ def render(result):
             f'<li class="row {"security" if row["security"] else "routine"} {status.replace(", ", "-").replace(" ", "-")}">'
             f'<span class="when">{span(row["start_us"], row["end_us"])}</span>'
             f'<span class="what">{tag}<b>{html.escape(title(row["category"]))}</b>'
-            f'<span class="status">{html.escape(status)}</span><br>{text}'
+            f'<span class="status">{html.escape(shown_status(row))}</span><br>{text}'
             + (f' <span class="note">({html.escape("; ".join(notes))})</span>' if notes else "") + "</span></li>")
     parts.append(f'<ul class="timeline">{"".join(lines)}</ul>' if lines else '<p class="empty">Nothing was seen.</p>')
 
-    unchecked = counts["seen, not verified"]
+    unchecked = sum(r["status"] == "seen, not verified" for r in rows)
     limits = []
     if scanned < duration:
         limits.append(f"{span(scanned, duration)} ({(duration - scanned) // 1_000_000} s) was not analysed")
     if unchecked:
-        limits.append(f"{unchecked} thing{'s' if unchecked > 1 else ''} seen {'were' if unchecked > 1 else 'was'} not verified")
+        limits.append(f"{unchecked} thing{'s' if unchecked > 1 else ''} seen {'were' if unchecked > 1 else 'was'} not checked")
     parts.append("<h2>Limits</h2><p>" + (html.escape("; ".join(limits).capitalize() + ".") if limits else
                  "The whole video was analysed and every observation was checked.") +
                  " Anything not seen in the analysed images may still have happened.</p>")

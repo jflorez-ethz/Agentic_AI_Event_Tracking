@@ -788,8 +788,6 @@ def _floor_check(video, evidence, candidates, ask, trace):
                               tuple(incident["observation_ids"]),
                               details={"inspections": incident["inspections"], "status": incident["status"],
                                        "reason": incident.get("reason")}))
-        if incident["status"] in ("kneeling_only", "seated_only"):  # watch-list level 3: described, no event or alert
-            continue
         key = [incident.get("arrival", {}).get("upright_us"), incident.get("first_floor_us"),
                incident.get("floor_until_us"), incident.get("outcome", {}).get("at_us")]
         cited = {}

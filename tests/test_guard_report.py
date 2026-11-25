@@ -27,7 +27,7 @@ def headline(page):
 
 def test_fall_report_structure_and_images():
     page = guard_report.render(result("fall_live.Q2OExt"))
-    assert headline(page) == "Person down at 00:25"
+    assert headline(page) == "Person down at 00:25 (facts verified)"
     plain = text(page)
     order = [plain.index(h) for h in ("Coverage", "Needs guard review", "Watch-list events — facts verified",
                                       "Everything seen, in order", "Limits")]
@@ -51,8 +51,8 @@ def test_old_run_gets_its_review_queue_and_alert_images():
 
 
 @pytest.mark.parametrize(("run", "expected"), [
-    ("leftbox_live.HwKyEx", "Object left at 00:20"),
-    ("LeftBag_PickedUp_live.kocJd7", "Object left at 00:18"),
+    ("leftbox_live.HwKyEx", "Object left at 00:20 (facts verified)"),
+    ("LeftBag_PickedUp_live.kocJd7", "Object left at 00:18 (facts verified)"),
     ("Walk2_live.m2MsOp", "No watch-list event found in the analysed part of the video"),
 ])
 def test_headline_is_a_security_event_never_routine(run, expected):
@@ -81,7 +81,9 @@ def test_every_perception_observation_reaches_the_guard(run):
         assert ("security" in classes.split()) == ("Watch-list event</span>" in item)  # red is backed by a label
     summary = re.search(r'<p class="summary">([^<]+)</p>', page).group(1)
     assert len(re.findall(r"[.!?](?:\s|$)", summary)) == 2
-    assert f"{len(rows)} things were seen" in summary
+    # The summary counts watch-list events only, never routine activity.
+    assert "things were seen" not in summary and ("facts verified" in summary or "guard to review" in summary
+                                                  or "No watch-list event" in summary)
     assert '<svg class="coverage"' in page and "sampled moments" in page
 
 

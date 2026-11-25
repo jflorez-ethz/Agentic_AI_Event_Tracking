@@ -120,11 +120,12 @@ def test_probe_failure_is_recorded_and_left_to_review():
     assert result.review["floor_alerts"][0]["status"] == "needs_review"
 
 
-def test_kneeling_only_gives_no_alert():
+def test_kneeling_after_an_on_the_floor_report_goes_to_the_guard():
     result, _ = run(Provider(lambda t: "standing" if t < 3 else "kneeling"))
     (incident,) = result.floor_incidents
-    assert incident["status"] == "kneeling_only"
-    assert result.review["floor_alerts"] == [] and "Chronologie (sans alerte)" in result.report
+    assert (incident["status"], incident["reason"]) == ("to_review", "kneeling")
+    (alert,) = result.review["floor_alerts"]
+    assert alert["status"] == "needs_review" and "à genoux" in result.report
 
 
 def test_archived_person_fell_stays_readable():
@@ -181,13 +182,13 @@ def test_guard_report_shows_facts_strip_and_images():
     result, _ = run(Provider(lambda t: "standing" if t < 3 else "lying_on_floor"))
     page = guard_report.render(json.loads(json.dumps({"analysis": asdict(result)})))
     assert "Person on the floor at 00:03 (facts verified)" in page
-    assert "<h2>People on the floor</h2>" in page and 'class="posture"' in page and "p-floor" in page
+    verified = page.split("<h2>Watch-list events — facts verified</h2>")[1].split("<h2>")[0]
+    assert "Person on the floor · facts verified" in verified and 'class="posture"' in verified and "p-floor" in verified
     assert "From standing" in page and "Still on the floor at the end of the video" in page
     assert page.count("data:image/jpeg;base64,") >= 2
     assert "fall" not in page.lower().replace("fallback", "")
-    # A person on the floor is not repeated among generic confirmed events.
-    confirmed = page.split("<h2>Watch-list events — facts verified</h2>")[1].split("<h2>")[0]
-    assert "Person on the floor" not in confirmed
+    # Listed once, in the facts-verified section, never repeated as a generic event.
+    assert verified.count("Person on the floor") == 1
 
 
 def test_question_routing_for_the_floor():

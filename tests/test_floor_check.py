@@ -181,17 +181,17 @@ def test_verified_with_standing_seen_before():
     assert r["status"] == "verified" and r["arrival"]["observed"] and r["floor_postures"][0]["posture"] == "sitting_on_floor"
 
 
-def test_kneeling_only_gives_no_alert_but_is_described():
-    r = facts(seq(["standing"] * 3 + ["kneeling"] * 12))
-    assert r["status"] == "kneeling_only"
-    assert floor_check.alerting([r]) == []
-    assert "à genoux" in facts_lines(r, "fr")[0] and "Chronologie (sans alerte)" in render_markdown([{**r, "anchor_us": ANCHOR}])
+def test_kneeling_after_an_on_the_floor_report_is_an_alert_with_what_was_seen():
+    r = {**facts(seq(["standing"] * 3 + ["kneeling"] * 12)), "anchor_us": ANCHOR}
+    assert (r["status"], r["reason"]) == ("to_review", "kneeling") and floor_check.alerting([r]) == [r]
+    lines = facts_lines(r, "fr")
+    assert "à genoux, personne au sol" in lines[0] and lines[1].startswith("Ce que l'inspection fine a vu : debout")
 
 
-def test_seated_on_a_seat_is_described_never_an_alert():
-    r = facts(seq(["standing"] * 3 + ["sitting_on_seat"] * 12))
-    assert (r["status"], r["reason"]) == ("seated_only", "seated") and floor_check.alerting([r]) == []
-    assert "assise sur un siège" in facts_lines(r, "fr")[0]
+def test_a_seat_after_an_on_the_floor_report_is_an_alert_with_what_was_seen():
+    r = {**facts(seq(["standing"] * 3 + ["sitting_on_seat"] * 12)), "anchor_us": ANCHOR}
+    assert (r["status"], r["reason"]) == ("to_review", "seated") and floor_check.alerting([r]) == [r]
+    assert "assise sur un siège 00:09.26–00:13.88" in facts_lines(r, "fr")[1]
 
 
 def test_slow_arrival_is_described_not_refused():
