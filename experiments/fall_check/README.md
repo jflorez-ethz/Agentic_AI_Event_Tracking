@@ -1,71 +1,79 @@
-# Dense posture check for person_fell (offline prototype)
+# person_on_floor: the system describes, it does not interpret
 
-**Status.** The decision function, its rules, the labelled cases and the regression tests are done, offline. **Nothing is wired into the system yet**: `src/` is unchanged, so the live system can still confirm a fall the old way until the integration step below. No live run, no model call. The frozen KPI tables are untouched.
+**Status (branch `feature/fall-check`, offline only).** The design is integrated in `src/`:
+- `person_fell` is replaced by `person_on_floor`;
+- the code checks the facts with a neutral dense probe and follow-ups;
+- every person on the floor becomes an alert for the guard;
+- the facts appear in `report.md` and `report.html`, with a posture timeline.
 
-## Why
+No live run has been made. The frozen KPI tables are unchanged. Still to do after the check-in: freeze a new version, freeze the truth of new never-seen videos, then the A/B live test.
 
-In the held-out Rest_SlumpOnFloor run, the report confirmed a fall at 2.52–3.04 s while a person was only walking. Verification never sees pixels: its calls are text only. For `person_fell` it could confirm from Perception's own two-frame claim, read back as text. It also ignored two targeted inspections that answered "walking, upright". In the 16 KPI runs, Perception claimed 8 falls; the 2 false ones rested on exactly 2 frames.
+## Principle
 
-## Design (validated)
+Perception reports `person_on_floor` ("a person sitting or lying directly on the floor") and never "a fall". The code then measures:
 
-1. A **neutral probe**. For each `person_fell` candidate, the code itself asks Perception: "for each image, give the posture of each visible person (imposed vocabulary), a stable identifier (P1, P2…) and an approximate position". Perception never receives the original description or the word "fall".
-2. **About 20 frames in one call**: 8 every 250 ms over the 2 s before the candidate's "after" frame, then 12 every 420 ms from it (about 4.6 s). See `probe_times`.
-3. **The code decides** ([decision.py](decision.py), thresholds in [rules.json](rules.json), committed before any live run). The verdict is `supported` only if a person near the candidate in place and time shows:
-   - a last `standing` frame, then a first on-ground frame (`sitting_on_floor` or `lying_on_floor`) at most **2.5 s** later, with any frames in between;
-   - on the ground for at least **2 s**, with at most one isolated non-upright frame in the run; a `standing` frame ends the run;
-   - movement of at most **10 % of the image width** during those 2 s.
-4. **`kneeling` is never the ground** (people putting down or picking up a bag). Persistent kneeling stays "to review".
-5. **Everything else gives `insufficient`**: a person upright throughout, seated, bending, already down when the probe starts, too slow, too short, moving, not near the candidate, or a malformed probe. The alert then goes to review; a fall is never dismissed.
-6. Budget: 1 probe per candidate, at most 3 per video. This is the only path to `supported` for `person_fell`.
-7. The posture sequence is kept in `analysis.json` and shown in `report.html` as a timeline (standing → on the ground, with times). This is part of the integration step.
+| Fact | How |
+|---|---|
+| How the person reached the floor | measured seconds from the last `standing` frame to the first floor frame, with the postures in between. If not seen: "not observed", plus what was seen before. No words such as "sudden" or "gradual". |
+| Posture on the floor | sitting / lying, with every change and its time |
+| Time on the floor | first to last floor frame, measured; "at least" when the observation stops |
+| Then | standing again at a given time (with the postures in between); still on the floor at the end of the video; last seen in a given posture; or follow-up stopped |
 
-## Labelled known cases
+**"Facts verified"** means:
+- on the floor for at least 2 s;
+- moving at most 10 % of the image width;
+- **and** either a standing frame observed before reaching the floor, **or** a follow-up still showing the person on the floor.
 
-Identity and position come from the CAVIAR XML boxes (production reader). Posture was labelled by eye on frames every 250 ms ([labels.json](labels.json), sheets in [evidence/](evidence/)). [build_fixtures.py](build_fixtures.py) turns them into the probe answer a correct Perception would give ([fixtures/](fixtures/)). Expected outcomes were written before running the decision.
+Otherwise the alert is **to review** and is never dismissed. Kneeling is never "on the floor": kneeling with no floor posture gives no alert and is only described in the chronology.
 
-| Case | What the images show | Decision |
+The rules (`src/security_augmented/floor_rules.json`, version 2) were written before any live run.
+
+## Flow (`src/security_augmented/floor_check.py`)
+
+1. `person_on_floor` candidates (and `insufficient_evidence` observations suspecting it) are taken out of the agents' input. **Verification never judges them.**
+2. **Neutral probe** (prompt `floor-v1`), about 20 frames: 8 every 250 ms before the first cited floor frame, 12 every 420 ms after it. The question asks, for each image, the posture of every visible person (imposed vocabulary), an identifier and an approximate position. The candidate's description and the word "fall" are never sent.
+3. **Follow-ups**: while the person is still on the floor at the end of a call, another call of 20 frames at 1 per second. Each follow-up links the person by position, within 15 % of the width.
+4. Limits: at most 3 follow-ups per incident and 6 checks per video. Beyond that, the alert stays to review and the text says "follow-up stopped" or "budget used up".
+5. Candidates within 2 s of an incident's observed span join it, so a person still on the floor in the next window does not create a duplicate alert.
+6. The checks pass through the same HTTP media budget as the other requests: the CLI raises that limit by 6.
+7. Output:
+   - `analysis.floor_incidents`: the postures for each frame and the facts;
+   - `person_on_floor` events (supported only if the facts are verified);
+   - `review.floor_alerts` (verified or to review) and the rows of `alerts.csv`;
+   - a `## Personnes au sol` section at the top of `report.md`;
+   - a "People on the floor" section in `report.html`, with the facts, a posture strip and the key images.
+8. **Archived runs**: `person_fell` remains readable (reports, review queue, KPI) but is no longer requested from Perception and no longer triggers a check.
+
+## Labelled real cases (`labels.json`, `fixtures/`)
+
+Postures were labelled by eye every 250 ms (every 500 ms over the getting-up spans); identity and position come from the CAVIAR XML. [build_fixtures.py](build_fixtures.py) runs the real `check()` against a simulated Perception that answers from these labels, and records every call: requested times and answers. `tests/test_floor_check.py` replays these transcripts without the videos. The expected facts were written before running; one was corrected afterwards and the correction is recorded (Wiggle: my expectation had left out the second sitting phase that the labels contain).
+
+| Case | Facts measured | Status |
 |---|---|---|
-| Rest_FallOnFloor, 25.5–28.0 s | walks, collapses onto the knees, lies still | **confirmed** (upright 26.32 s → ground 27.56 s, moves 0.02) |
-| Rest_WiggleOnFloor, 27.0–29.0 s | stumbles, goes down, wiggles in place | **confirmed** (27.28 → 28.52 s, moves 0.01) |
-| Fight_OneManDown, 12.5–14.5 s | knocked down within about 0.3 s, lies until 19.4 s | **confirmed** (12.80 → 13.04 s, moves **0.089**) |
-| **Rest_SlumpOnFloor, 2.5–3.0 s (the false confirmation)** | 3 people, all upright | **insufficient: upright throughout** |
-| Rest_SlumpOnFloor, real slump at 26 s | crouches about 2 s, then sits on the floor | insufficient: already low when the probe starts; 2.76 s > 2.5 s |
-| Rest_InChair, 19.5 s | sits in an armchair | insufficient: seated |
-| Browse1, 7.5–8.5 s | walks out through the image edge | insufficient: upright throughout |
-| LeftBag 1.5–5.5 s; LeftBag 37.5 s; PickedUp 20.5 s and 40 s | people stoop to put down or pick up a bag | insufficient: no ground |
+| Rest_FallOnFloor | sitting on the floor 00:27.56, then lying; standing → floor in 1.2 s via bending and kneeling; on the floor until 00:35.68 (8.1 s); standing at 00:38.68 | **verified** |
+| Rest_WiggleOnFloor | standing → floor in 1.2 s; lying 20 s, sitting again at 00:48.64; standing at 00:51.64 | **verified** |
+| Fight_OneManDown | standing → floor in 0.24 s; sitting then lying; 6.1 s on the floor; standing at 00:22.16 after kneeling and bending | **verified** |
+| Rest_SlumpOnFloor, real slump | sitting on the floor 00:27.56–00:32.16 (4.6 s); reaching the floor not seen (before: kneeling); standing at 00:36.16 | to review: not corroborated |
+| **Rest_SlumpOnFloor 2.5–3.0 s (former false confirmation)** | the close check shows the people standing throughout | **to review, never verified** |
+| Rest_InChair | sitting on a seat | to review: seated |
+| Browse1 (image-edge exit); LeftBag and PickedUp (4 bag stoops) | standing throughout / nobody on the floor | to review |
 
-## Noise injected into the probe answers (`test_decision.py`, 48 tests)
+## Noise injected into the answers
 
 | Test | Result |
 |---|---|
-| 1 or 2 wrong "on the ground" labels anywhere, on any person, when nobody is down (exhaustive) | 0 false confirmations |
-| Up to 5 consecutive wrong "lying" labels on the person at the candidate | 0 false confirmations |
-| Random label noise at 5 %, 10 % and 20 % when nobody is down (fixed seed) | 0 false confirmations |
-| True falls with one frame wrongly labelled bending, kneeling, seated or not visible | still confirmed, 20/20 positions |
-| True falls with one frame wrongly labelled standing | may lose the confirmation (safe side: stays to review) |
-| Exploration, not asserted: 6 or more consecutive wrong "lying" frames (about 2 s) on a person who barely moves | **can confirm** (slow walker, seated person, person stretching) |
-| Exploration: random noise at 30 % when nobody is down | 1 false confirmation out of 2,800 |
+| 1 or 2 wrong floor labels, any frame and any person, when nobody is down (exhaustive) | 0 verified |
+| Up to 5 consecutive wrong "lying" labels on the person at the candidate | 0 verified |
+| Random label noise at 5–20 % (tested), and 30–40 % (explored) | 0 verified |
+| Real cases with one frame wrongly labelled bending, kneeling or seated | still verified |
+| **Exploration: 6 to 20 consecutive wrong "lying" labels on a person who barely moves** (840 runs) | **343 wrongly verified (41 %)**. Blocked by the 2 s duration: 171; immobility: 116; the prudent rule (reaching the floor not seen and no follow-up): 105; time distance from the candidate: 60 |
+
+**Residual risk.** A false "verified" needs Perception to be wrong in a **consistent** way for about 2 s about a person who barely moves (seated, slow, stretching), right after seeing them standing. Isolated or random errors never produce it.
 
 ## Known limits
 
-- **Residual risk.** A false confirmation now needs Perception to mislabel the same, nearly still person as on the ground for about 2 s, right after an upright frame. The immobility check only protects against people who really move. A seated or slow person misread consistently is not caught.
-- **Slow slumps are not confirmed** (the real Slump case): they stay "to review", never confirmed.
-- **Fight is close to the movement threshold** (0.089 for 0.10). The box centre shifts with spread limbs. Perception's positions will be rougher than the XML boxes, so some real falls may be withheld. The threshold is not tuned here.
-- **One annotator.** There is no real kneeling case in these clips (people stoop), so kneeling is covered by synthetic tests. The fixtures simulate a correct probe: whether Perception answers the posture question well is only known after a live test.
-- **Anchor.** The probe needs the candidate's "after" frame and position. Today only Verification's transition provides a frame pair, and nothing provides a position. Integration must ask Perception for both, the after frame and a position, on `person_fell` candidates. They are used only to know where to look, never to decide.
-
-## Next step (not done here)
-
-Integration in `src/`, then a new frozen version:
-- a neutral probe request with the imposed vocabulary;
-- an automatic trigger and a dedicated budget;
-- Verification validation so that `supported` for `person_fell` requires `decide(...) == supported`;
-- `analysis.json` storage and the `report.html` timeline.
-
-After that comes the paired live test (current version against the new one) on never-seen videos, with frozen truth and the criterion written before running:
-1. no false confirmed fall;
-2. every real fall reaches a person;
-3. at least half of the real falls are confirmed;
-4. added cost and time are reported.
-
-Estimated cost: about $0.03–0.04 per probe at the launch rate, and 15–40 s per candidate.
+- The slow slump stays "to review": the person was already crouched when the probe started, and the first follow-up already showed them kneeling. That is the price of the prudent rule.
+- Follow-ups sample at 1 per second: standing-up times are accurate to about 1 s, and brief intermediate postures can be missed.
+- When several people are on the floor at the same time and place, they are merged into one incident. Link-by-position may mix up two people side by side.
+- One annotator. Nobody kneels for real in these clips (people stoop), so the kneeling rule is tested synthetically. The fixtures simulate a probe that answers correctly: only a live test will show whether Perception answers the posture question well.
+- The KPI tables do not yet read `floor_alerts`; the KPI rules for the new version are part of step e.

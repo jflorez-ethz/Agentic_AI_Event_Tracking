@@ -169,8 +169,8 @@ def test_new_video_to_report_and_query_without_archive(
     expected = (4, 4, 14, 4) if expanded_budget else (2, 2, 6, 3)
     assert tuple(analysis["budget"][name] for name in names) == expected
     assert result["max_physical_role_requests"] == 2 * expected[2]
-    assert result["max_physical_media_requests"] == 2 + expected[1]
-    assert result["max_physical_requests"] == 2 * expected[2] + 2 + expected[1]
+    assert result["max_physical_media_requests"] == 2 + expected[1] + 6  # + person_on_floor checks (floor_rules.json)
+    assert result["max_physical_requests"] == 2 * expected[2] + 2 + expected[1] + 6
     assert analysis["completion"]["investigation"] == "completed"
     assert analysis["completion"]["accounted_observations"] == 1 + false_positive
     assert {"start_us": 7_000_001, "end_us": 8_000_000} in analysis["coverage"]["uninspected"]
@@ -426,12 +426,13 @@ def test_archived_scan_triggers_automatic_investigation_without_question(tmp_pat
     assert result["answers"] == []
     # No --max-initial-windows: "auto" scans the whole 25 s source in three 10 s windows.
     assert analysis["budget"]["max_initial_windows"] == 3
-    assert result["max_physical_media_requests"] == 3 + 4
+    assert result["max_physical_media_requests"] == 3 + 4 + 6  # + person_on_floor checks (floor_rules.json)
     # WalkSplit has no security observation: an empty review queue and a header-only labelling sheet.
     assert analysis["review"]["counts"]["needs_review"] == 0
     assert (output / "alerts.csv").read_text().splitlines() == [
         "alert_id,category,start_s,end_s,frames_to_review,operator_label,operator_note"]
-    assert (output / "report.md").read_text().startswith("## Alertes à vérifier (0)")
+    report_md = (output / "report.md").read_text()
+    assert report_md.startswith("## Personnes au sol (0)") and "## Alertes à vérifier (0)" in report_md
     guard = (output / "report.html").read_text()
     assert guard.startswith("<!doctype html>") and "No security event found" in guard and 'href="report.md"' in guard
     replayed = analysis["observations"]

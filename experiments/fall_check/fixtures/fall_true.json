@@ -2,259 +2,956 @@
  "case": "fall_true",
  "video": "Rest_FallOnFloor.mpg",
  "video_sha256": "06bc1d99e6766fd755adc215b3b5753f26d099f45c6578eee9c318e5c9637546",
- "candidate": {
-  "t_before": 25.52,
-  "t_after": 28.04,
-  "x": 0.4948,
-  "y": 0.4097
- },
+ "duration_us": 40559700,
+ "aspect": 0.75,
+ "anchor_us": 28040000,
  "expected": {
-  "verdict": "supported",
-  "reason": "confirmed"
+  "status": "verified",
+  "arrival_observed": true,
+  "via": [
+   "bending",
+   "kneeling"
+  ],
+  "floor_postures": [
+   "sitting_on_floor",
+   "lying_on_floor"
+  ],
+  "outcome": "stood_up"
  },
- "probe": {
-  "aspect": 0.75,
-  "frames": [
-   {
-    "t": 26.0797,
-    "frame": 646,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "standing",
-      "x": 0.4531,
-      "y": 0.3785
-     }
+ "transcript": [
+  {
+   "phase": "floor_probe",
+   "times_us": [
+    26040000,
+    26290000,
+    26540000,
+    26790000,
+    27040000,
+    27290000,
+    27540000,
+    27790000,
+    28040000,
+    28460000,
+    28880000,
+    29300000,
+    29720000,
+    30140000,
+    30560000,
+    30980000,
+    31400000,
+    31820000,
+    32240000,
+    32660000
+   ],
+   "inspection_id": "sim-0",
+   "frames": [
+    {
+     "t_us": 26079711,
+     "display_index": 646,
+     "frame_id": "frame-646",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.4531,
+       "y": 0.3785
+      }
+     ]
+    },
+    {
+     "t_us": 26319711,
+     "display_index": 652,
+     "frame_id": "frame-652",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.4766,
+       "y": 0.3924
+      }
+     ]
+    },
+    {
+     "t_us": 26559700,
+     "display_index": 658,
+     "frame_id": "frame-658",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "bending",
+       "x": 0.4922,
+       "y": 0.4271
+      }
+     ]
+    },
+    {
+     "t_us": 26799700,
+     "display_index": 664,
+     "frame_id": "frame-664",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "bending",
+       "x": 0.4974,
+       "y": 0.4306
+      }
+     ]
+    },
+    {
+     "t_us": 27079711,
+     "display_index": 671,
+     "frame_id": "frame-671",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "kneeling",
+       "x": 0.5,
+       "y": 0.4375
+      }
+     ]
+    },
+    {
+     "t_us": 27319711,
+     "display_index": 677,
+     "frame_id": "frame-677",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "kneeling",
+       "x": 0.4896,
+       "y": 0.4479
+      }
+     ]
+    },
+    {
+     "t_us": 27559700,
+     "display_index": 683,
+     "frame_id": "frame-683",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "sitting_on_floor",
+       "x": 0.4844,
+       "y": 0.4306
+      }
+     ]
+    },
+    {
+     "t_us": 27799700,
+     "display_index": 689,
+     "frame_id": "frame-689",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.487,
+       "y": 0.4236
+      }
+     ]
+    },
+    {
+     "t_us": 28079711,
+     "display_index": 696,
+     "frame_id": "frame-696",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.4948,
+       "y": 0.4097
+      }
+     ]
+    },
+    {
+     "t_us": 28479700,
+     "display_index": 706,
+     "frame_id": "frame-706",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5052,
+       "y": 0.4167
+      }
+     ]
+    },
+    {
+     "t_us": 28919700,
+     "display_index": 717,
+     "frame_id": "frame-717",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5052,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 29319711,
+     "display_index": 727,
+     "frame_id": "frame-727",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 29759700,
+     "display_index": 738,
+     "frame_id": "frame-738",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 30159700,
+     "display_index": 748,
+     "frame_id": "frame-748",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 30599700,
+     "display_index": 759,
+     "frame_id": "frame-759",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 30999700,
+     "display_index": 769,
+     "frame_id": "frame-769",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 31439700,
+     "display_index": 780,
+     "frame_id": "frame-780",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 31839711,
+     "display_index": 790,
+     "frame_id": "frame-790",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 32279700,
+     "display_index": 801,
+     "frame_id": "frame-801",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 32679700,
+     "display_index": 811,
+     "frame_id": "frame-811",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "phase": "floor_followup",
+   "times_us": [
+    33679700,
+    34679700,
+    35679700,
+    36679700,
+    37679700,
+    38679700,
+    39679700
+   ],
+   "inspection_id": "sim-1",
+   "frames": [
+    {
+     "t_us": 33679700,
+     "display_index": 836,
+     "frame_id": "frame-836",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 34679700,
+     "display_index": 861,
+     "frame_id": "frame-861",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 35679700,
+     "display_index": 886,
+     "frame_id": "frame-886",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.4974,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 36679700,
+     "display_index": 911,
+     "frame_id": "frame-911",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "kneeling",
+       "x": 0.487,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 37679700,
+     "display_index": 936,
+     "frame_id": "frame-936",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "kneeling",
+       "x": 0.5052,
+       "y": 0.4028
+      }
+     ]
+    },
+    {
+     "t_us": 38679700,
+     "display_index": 961,
+     "frame_id": "frame-961",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.6016,
+       "y": 0.4444
+      }
+     ]
+    },
+    {
+     "t_us": 39679700,
+     "display_index": 986,
+     "frame_id": "frame-986",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.6797,
+       "y": 0.5729
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "incidents": [
+  {
+   "observation_ids": [
+    "cand-fall_true"
+   ],
+   "anchor_us": 28040000,
+   "inspections": [
+    "sim-0",
+    "sim-1"
+   ],
+   "frames": [
+    {
+     "t_us": 26079711,
+     "display_index": 646,
+     "frame_id": "frame-646",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.4531,
+       "y": 0.3785
+      }
+     ]
+    },
+    {
+     "t_us": 26319711,
+     "display_index": 652,
+     "frame_id": "frame-652",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.4766,
+       "y": 0.3924
+      }
+     ]
+    },
+    {
+     "t_us": 26559700,
+     "display_index": 658,
+     "frame_id": "frame-658",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "bending",
+       "x": 0.4922,
+       "y": 0.4271
+      }
+     ]
+    },
+    {
+     "t_us": 26799700,
+     "display_index": 664,
+     "frame_id": "frame-664",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "bending",
+       "x": 0.4974,
+       "y": 0.4306
+      }
+     ]
+    },
+    {
+     "t_us": 27079711,
+     "display_index": 671,
+     "frame_id": "frame-671",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "kneeling",
+       "x": 0.5,
+       "y": 0.4375
+      }
+     ]
+    },
+    {
+     "t_us": 27319711,
+     "display_index": 677,
+     "frame_id": "frame-677",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "kneeling",
+       "x": 0.4896,
+       "y": 0.4479
+      }
+     ]
+    },
+    {
+     "t_us": 27559700,
+     "display_index": 683,
+     "frame_id": "frame-683",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "sitting_on_floor",
+       "x": 0.4844,
+       "y": 0.4306
+      }
+     ]
+    },
+    {
+     "t_us": 27799700,
+     "display_index": 689,
+     "frame_id": "frame-689",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.487,
+       "y": 0.4236
+      }
+     ]
+    },
+    {
+     "t_us": 28079711,
+     "display_index": 696,
+     "frame_id": "frame-696",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.4948,
+       "y": 0.4097
+      }
+     ]
+    },
+    {
+     "t_us": 28479700,
+     "display_index": 706,
+     "frame_id": "frame-706",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5052,
+       "y": 0.4167
+      }
+     ]
+    },
+    {
+     "t_us": 28919700,
+     "display_index": 717,
+     "frame_id": "frame-717",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5052,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 29319711,
+     "display_index": 727,
+     "frame_id": "frame-727",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 29759700,
+     "display_index": 738,
+     "frame_id": "frame-738",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 30159700,
+     "display_index": 748,
+     "frame_id": "frame-748",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 30599700,
+     "display_index": 759,
+     "frame_id": "frame-759",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 30999700,
+     "display_index": 769,
+     "frame_id": "frame-769",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 31439700,
+     "display_index": 780,
+     "frame_id": "frame-780",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 31839711,
+     "display_index": 790,
+     "frame_id": "frame-790",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 32279700,
+     "display_index": 801,
+     "frame_id": "frame-801",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 32679700,
+     "display_index": 811,
+     "frame_id": "frame-811",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 33679700,
+     "display_index": 836,
+     "frame_id": "frame-836",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 34679700,
+     "display_index": 861,
+     "frame_id": "frame-861",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.5078,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 35679700,
+     "display_index": 886,
+     "frame_id": "frame-886",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "lying_on_floor",
+       "x": 0.4974,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 36679700,
+     "display_index": 911,
+     "frame_id": "frame-911",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "kneeling",
+       "x": 0.487,
+       "y": 0.4201
+      }
+     ]
+    },
+    {
+     "t_us": 37679700,
+     "display_index": 936,
+     "frame_id": "frame-936",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "kneeling",
+       "x": 0.5052,
+       "y": 0.4028
+      }
+     ]
+    },
+    {
+     "t_us": 38679700,
+     "display_index": 961,
+     "frame_id": "frame-961",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.6016,
+       "y": 0.4444
+      }
+     ]
+    },
+    {
+     "t_us": 39679700,
+     "display_index": 986,
+     "frame_id": "frame-986",
+     "persons": [
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.6797,
+       "y": 0.5729
+      }
+     ]
+    }
+   ],
+   "person": "P2",
+   "sequence": [
+    {
+     "t_us": 26079711,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 26319711,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 26559700,
+     "posture": "bending",
+     "source": "probe"
+    },
+    {
+     "t_us": 26799700,
+     "posture": "bending",
+     "source": "probe"
+    },
+    {
+     "t_us": 27079711,
+     "posture": "kneeling",
+     "source": "probe"
+    },
+    {
+     "t_us": 27319711,
+     "posture": "kneeling",
+     "source": "probe"
+    },
+    {
+     "t_us": 27559700,
+     "posture": "sitting_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 27799700,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 28079711,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 28479700,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 28919700,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 29319711,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 29759700,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 30159700,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 30599700,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 30999700,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 31439700,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 31839711,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 32279700,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 32679700,
+     "posture": "lying_on_floor",
+     "source": "probe"
+    },
+    {
+     "t_us": 33679700,
+     "posture": "lying_on_floor",
+     "source": "followup"
+    },
+    {
+     "t_us": 34679700,
+     "posture": "lying_on_floor",
+     "source": "followup"
+    },
+    {
+     "t_us": 35679700,
+     "posture": "lying_on_floor",
+     "source": "followup"
+    },
+    {
+     "t_us": 36679700,
+     "posture": "kneeling",
+     "source": "followup"
+    },
+    {
+     "t_us": 37679700,
+     "posture": "kneeling",
+     "source": "followup"
+    },
+    {
+     "t_us": 38679700,
+     "posture": "standing",
+     "source": "followup"
+    },
+    {
+     "t_us": 39679700,
+     "posture": "standing",
+     "source": "followup"
+    }
+   ],
+   "first_floor_us": 27559700,
+   "floor_until_us": 35679700,
+   "floor_seconds": 8.12,
+   "floor_postures": [
+    {
+     "posture": "sitting_on_floor",
+     "from_us": 27559700
+    },
+    {
+     "posture": "lying_on_floor",
+     "from_us": 27799700
+    }
+   ],
+   "arrival": {
+    "observed": true,
+    "upright_us": 26319711,
+    "seconds": 1.24,
+    "via": [
+     "bending",
+     "kneeling"
     ]
    },
-   {
-    "t": 26.3197,
-    "frame": 652,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "standing",
-      "x": 0.4766,
-      "y": 0.3924
-     }
+   "outcome": {
+    "kind": "stood_up",
+    "at_us": 38679700,
+    "via": [
+     "kneeling"
     ]
    },
-   {
-    "t": 26.5597,
-    "frame": 658,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "bending",
-      "x": 0.4922,
-      "y": 0.4271
-     }
-    ]
-   },
-   {
-    "t": 26.7997,
-    "frame": 664,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "bending",
-      "x": 0.4974,
-      "y": 0.4306
-     }
-    ]
-   },
-   {
-    "t": 27.0797,
-    "frame": 671,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "kneeling",
-      "x": 0.5,
-      "y": 0.4375
-     }
-    ]
-   },
-   {
-    "t": 27.3197,
-    "frame": 677,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "kneeling",
-      "x": 0.4896,
-      "y": 0.4479
-     }
-    ]
-   },
-   {
-    "t": 27.5597,
-    "frame": 683,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "sitting_on_floor",
-      "x": 0.4844,
-      "y": 0.4306
-     }
-    ]
-   },
-   {
-    "t": 27.7997,
-    "frame": 689,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.487,
-      "y": 0.4236
-     }
-    ]
-   },
-   {
-    "t": 28.0797,
-    "frame": 696,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.4948,
-      "y": 0.4097
-     }
-    ]
-   },
-   {
-    "t": 28.4797,
-    "frame": 706,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.5052,
-      "y": 0.4167
-     }
-    ]
-   },
-   {
-    "t": 28.9197,
-    "frame": 717,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.5052,
-      "y": 0.4201
-     }
-    ]
-   },
-   {
-    "t": 29.3197,
-    "frame": 727,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.5078,
-      "y": 0.4201
-     }
-    ]
-   },
-   {
-    "t": 29.7597,
-    "frame": 738,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.5078,
-      "y": 0.4201
-     }
-    ]
-   },
-   {
-    "t": 30.1597,
-    "frame": 748,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.5078,
-      "y": 0.4201
-     }
-    ]
-   },
-   {
-    "t": 30.5997,
-    "frame": 759,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.5078,
-      "y": 0.4201
-     }
-    ]
-   },
-   {
-    "t": 30.9997,
-    "frame": 769,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.5078,
-      "y": 0.4201
-     }
-    ]
-   },
-   {
-    "t": 31.4397,
-    "frame": 780,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.5078,
-      "y": 0.4201
-     }
-    ]
-   },
-   {
-    "t": 31.8397,
-    "frame": 790,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.5078,
-      "y": 0.4201
-     }
-    ]
-   },
-   {
-    "t": 32.2797,
-    "frame": 801,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.5078,
-      "y": 0.4201
-     }
-    ]
-   },
-   {
-    "t": 32.6797,
-    "frame": 811,
-    "persons": [
-     {
-      "id": "P2",
-      "posture": "lying_on_floor",
-      "x": 0.5078,
-      "y": 0.4201
-     }
-    ]
-   }
-  ]
- }
+   "max_displacement": 0.0247,
+   "followup_still_on_floor": true,
+   "status": "verified",
+   "reason": null,
+   "span_us": [
+    27559700,
+    39679700
+   ]
+  }
+ ]
 }

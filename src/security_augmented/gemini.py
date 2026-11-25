@@ -13,12 +13,14 @@ from .contracts import Interval, VideoError
 from .relations import PERCEPTION_CLAIMS, perception_review
 from .observation import (
     ClipInput, ClipReference, FrameReference, FrameSequenceInput, InferenceMetadata, Observation,
-    ObservationRequest, ObservationResult, validate_request, validate_result,
+    ObservationRequest, ObservationResult, PostureRequest, PostureResult, validate_postures, validate_request,
+    validate_result,
 )
 from .video import _decode, _id, _run, _version, ingest
 
 DEFAULT_MODEL = "gemini-3.6-flash"
 PROMPT_VERSION = "e1-v1"
+POSTURE_PROMPT_VERSION = "floor-v1"
 ADAPTER_VERSION = "1"
 MAX_INLINE_BYTES = 19_000_000
 USAGE_FIELDS = (
@@ -279,7 +281,7 @@ class GeminiAdapter:
                 diagnostics=completion_diagnostics(response),
             ) from exc
 
-    def _metadata(self, prepared, start, response=None):
+    def _metadata(self, prepared, start, response=None, prompt_version=PROMPT_VERSION):
         input_metadata = []
         if isinstance(prepared.request.media, ClipInput):
             fps = prepared.contents[0]["parts"][-1]["video_metadata"]["fps"]
@@ -287,7 +289,7 @@ class GeminiAdapter:
         usage = getattr(response, "usage_metadata", None)
         return InferenceMetadata(
             "google-gemini-developer-api", self.model, getattr(response, "model_version", None),
-            ADAPTER_VERSION, PROMPT_VERSION,
+            ADAPTER_VERSION, prompt_version,
             (("sdk_version", self.sdk_version), ("max_output_tokens", prepared.config.get("max_output_tokens")),
              ("thinking_level", prepared.config.get("thinking_config", {}).get("thinking_level")),
              *input_metadata),
@@ -295,6 +297,64 @@ class GeminiAdapter:
             tuple((key, value) for key in USAGE_FIELDS
                   if type(value := getattr(usage, key, None)) is int),
         )
+
+    def postures(self, request: PostureRequest) -> PostureResult:
+        """Neutral posture probe: per frame, every visible person's posture, identifier and position."""
+        if self.client is None:
+            raise VideoError("No authorized Gemini client is configured")
+        media = request.media
+        validate_request(ObservationRequest(media, request.vocabulary, request.prompt))
+        parts = [{"text": request.prompt + " Use only visible evidence. Do not infer identity, intent or events."}]
+        for i, (frame, pixels) in enumerate(zip(media.inspection.frames, media.rgb24_frames, strict=True), 1):
+            parts.append({"text": f"F{i}: source time {frame.source_time_us} microseconds."})
+            parts.append({"inline_data": {"mime_type": "image/png", "data": _png(pixels, media.width, media.height)}})
+        labels = [f"F{i}" for i in range(1, len(media.inspection.frames) + 1)]
+        person = _object({"id": {"type": "string"}, "posture": {"type": "string", "enum": list(request.vocabulary)},
+                          "x": {"type": "number"}, "y": {"type": "number"}})
+        config = {
+            "response_mime_type": "application/json",
+            "response_json_schema": _object({"frames": {
+                "type": "array", "minItems": len(labels), "maxItems": len(labels),
+                "items": _object({"frame_label": {"type": "string", "enum": labels},
+                                  "persons": {"type": "array", "items": person}})}}),
+            "max_output_tokens": 8192,
+            "thinking_config": {"thinking_level": "HIGH"},
+        }
+        encoded = sum(4 * ((len(p["inline_data"]["data"]) + 2) // 3) if "inline_data" in p else len(p["text"].encode())
+                      for p in parts)
+        if encoded + len(json.dumps(config).encode("utf-8")) > MAX_INLINE_BYTES:
+            raise VideoError("Gemini inline payload exceeds the E1 request size limit")
+        prepared = PreparedGemini(ObservationRequest(media, request.vocabulary, request.prompt),
+                                  [{"role": "user", "parts": parts}], config, {}, single_request=self.single_request)
+        start = time.monotonic()
+        try:
+            response = self.client.models.generate_content(model=self.model, contents=prepared.contents, config=config)
+        except Exception as exc:
+            code = getattr(exc, "code", None)
+            raise GeminiFailure(
+                f"Gemini request failed ({type(exc).__name__}{f' HTTP {code}' if type(code) is int else ''})",
+                self._metadata(prepared, start, prompt_version=POSTURE_PROMPT_VERSION),
+                diagnostics={"error_type": type(exc).__name__, **({"http_status": code} if type(code) is int else {})},
+            ) from None
+        metadata = self._metadata(prepared, start, response, prompt_version=POSTURE_PROMPT_VERSION)
+        raw = None
+        try:
+            raw = response.text
+            candidates = getattr(response, "candidates", None)
+            if candidates is not None and (len(candidates) != 1 or candidates[0].finish_reason != "STOP"):
+                raise VideoError("Gemini did not return one normally completed candidate")
+            data = json.loads(raw)
+            entries = data["frames"] if isinstance(data, dict) and data.keys() == {"frames"} else None
+            if not isinstance(entries, list) or [e.get("frame_label") for e in entries] != labels:
+                raise VideoError("Expected one posture entry per submitted frame, in order")
+            frames = tuple({"frame_id": frame.id, "persons": tuple(entry["persons"])}
+                           for frame, entry in zip(media.inspection.frames, entries, strict=True))
+            result = PostureResult(metadata, frames, raw)
+            validate_postures(request, result)
+            return result
+        except (ValueError, TypeError, KeyError, VideoError) as exc:
+            raise GeminiFailure(f"Invalid Gemini posture output: {exc}", metadata, raw, stage="validation",
+                                diagnostics=completion_diagnostics(response)) from exc
 
     @staticmethod
     def _parse(request, raw, metadata, details):

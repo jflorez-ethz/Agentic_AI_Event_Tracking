@@ -11,7 +11,7 @@ from .contracts import ClipInspection, FrameEvidence, Inspection, Interval, Vide
 from .gemini import GeminiAdapter, GeminiFailure, validate_webm
 from .observation import (
     ClipInput, FrameReference, FrameSequenceInput, InferenceMetadata, Observation, ObservationProvider,
-    ObservationRequest, resolve_clip_reference, validate_result,
+    ObservationRequest, PostureRequest, resolve_clip_reference, validate_postures, validate_result,
 )
 from .relations import RELATION_LABELS, Review
 from .video import _decode, _run, extract_clip, ingest, sample
@@ -19,8 +19,11 @@ from .video import _decode, _run, extract_clip, ingest, sample
 DIRECT_PERSON_LABELS = {
     "person_appeared": "A person became visible.",
     "person_moved": "A person moved within view.",
-    "person_fell": "A person went from upright to lying on the floor.",
 }
+# A state described by measured facts (floor_check.py), never by an interpretation such as "fall".
+FLOOR_LABELS = {"person_on_floor": "A person is on the floor (sitting or lying)."}
+# Archived runs only: older wording of the same candidate, kept readable but never requested from Perception.
+LEGACY_LABELS = {"person_fell": "A person went from upright to lying on the floor."}
 # A person-entry candidate may only be narrowed to these weaker visibility claims.
 ENTRY_REFINEMENT_LABELS = ("person_appeared", "person_moved")
 VISUAL_TRANSITION_LABELS = {
@@ -33,10 +36,12 @@ _ACTION_LABELS = {
     "object_removed": "An object was removed.",
     "person_enters_area": "A person entered the observed area.",
 }
-EVENT_LABELS = _ACTION_LABELS | VISUAL_TRANSITION_LABELS
+EVENT_LABELS = _ACTION_LABELS | VISUAL_TRANSITION_LABELS | FLOOR_LABELS
 # Routine person activity fills candidate slots only after every visible security-relevant observation.
 ROUTINE_LABELS = frozenset({"person_appeared", "person_moved"})
 PRIORITY_LABELS = tuple(label for label in EVENT_LABELS if label not in ROUTINE_LABELS)
+# Security categories as read from saved runs: current ones plus the archived wording.
+READ_PRIORITY_LABELS = (*PRIORITY_LABELS, *LEGACY_LABELS)
 # Every category model-guided Perception may return: the single source for downstream vocabularies.
 PERCEPTION_CATEGORIES = (*EVENT_LABELS, "insufficient_evidence")
 RELATIONAL_TASK_CATEGORY = "relational_task"
@@ -187,6 +192,8 @@ class Analysis:
     coverage: VideoCoverage | None = None
     # Operator review queue (alerts, not_alerted, counts); see review.py. Never used as evidence.
     review: dict | None = None
+    # person_on_floor incidents: probe and follow-up postures and the measured facts (floor_check.py).
+    floor_incidents: tuple[dict, ...] | None = None
 
     def ask(self, question: str, *, inspect_missing: bool = False) -> Answer:
         return _answer(self, question, inspect_missing=inspect_missing)
@@ -408,7 +415,7 @@ def _supported_timeline(events):
 def _event_label(event):
     if event.category == RELATIONAL_TASK_CATEGORY:
         return RELATION_LABELS[event.relation.claim]
-    return EVENT_LABELS[event.category]
+    return EVENT_LABELS.get(event.category) or LEGACY_LABELS[event.category]
 
 
 class ReportingAgent:
@@ -561,9 +568,10 @@ def _observe_video(video, provider, interval, modality, phase, plan, *, model_gu
                 "physical action. Describe the visible before and after states and cite frames for both. "
                 "Use object_placed or object_removed only when the physical action itself is visible. "
                 "Use person_appeared for first visibility and person_moved for motion already within view. "
-                "Use person_fell only when cited frames show the same person upright before and lying on the "
-                "floor after; cite frames for both states. A person sitting, crouching, bending or partly hidden "
-                "is insufficient evidence. Do not infer injury, medical condition or cause. "
+                "Use person_on_floor when a person is sitting or lying directly on the floor in a cited frame; "
+                "cite the frames that show it, earliest first. Describe only posture and position. Do not "
+                "describe a fall, injury, medical condition or cause. A person sitting on a seat, kneeling, "
+                "crouching or bending is not on the floor. "
                 "Use person_enters_area only when a person visibly crosses an identifiable physical boundary. "
                 "Name the boundary and describe the crossing in the observation. The image edge only marks visibility."
                 if model_guided else ""
@@ -633,6 +641,34 @@ def analyze_video(
         )
         return (observe(context, "clip", "targeted"),)
 
+    floor_ask = None
+    if decide is not None and hasattr(provider, "postures"):
+        from .floor_check import RULES as FLOOR_RULES, prompt as floor_prompt
+
+        def floor_ask(times_us, phase):
+            interval = Interval(min(times_us), max(times_us) + 1)
+            inspection, metadata = None, None
+            try:
+                inspection = sample(video, interval, list(times_us))
+                pixels = _decode(video, tuple(f.display_index for f in inspection.frames))
+                request = PostureRequest(FrameSequenceInput(inspection, video.width, video.height, pixels),
+                                         tuple(FLOOR_RULES["vocabulary"]), floor_prompt())
+                result = provider.postures(request)
+                metadata = result.metadata
+                validate_postures(request, result)
+            except VideoError as exc:
+                evidence.append(ArchivedInspection(
+                    "provider", "frames", interval, "failed", error=str(exc), phase=phase, inspection=inspection,
+                    inference=getattr(exc, "metadata", None) or metadata, failure_stage=getattr(exc, "stage", "preparation"),
+                    failure_diagnostics=getattr(exc, "diagnostics", None)))
+                raise
+            evidence.append(ArchivedInspection("provider", "frames", interval, "success", (), coverage=_coverage(inspection),
+                                               phase=phase, inspection=inspection, inference=metadata))
+            by_id = {f.id: f for f in inspection.frames}
+            return inspection.id, [{"t_us": by_id[e["frame_id"]].source_time_us, "display_index": by_id[e["frame_id"]].display_index,
+                                    "frame_id": e["frame_id"], "persons": [dict(person) for person in e["persons"]]}
+                                   for e in result.frames]
+
     initial_end = evidence[-1].interval.end_us if evidence else 0
     successful = sum(entry.status == "success" for entry in evidence)
     initial_scan = (
@@ -642,7 +678,7 @@ def analyze_video(
     analysis = _analyze(
         video, evidence, inspect, budget, decide=decide, controller=controller, initial_scan=initial_scan,
         relational_tasks=controller == "langgraph" and not movement_only,
-        adaptive=controller == "langgraph" and adaptive_sampling,
+        adaptive=controller == "langgraph" and adaptive_sampling, floor_ask=floor_ask,
     )
     coverage = _video_coverage(video, evidence, plan, initial_scan, initial_end)
     scan_note = (
@@ -656,7 +692,7 @@ def analyze_video(
     return replace(analysis, coverage=coverage, report=report)
 
 
-def _analyze(video, evidence, inspect, budget, *, decide=None, controller="python", initial_scan=None, relational_tasks=False, adaptive=False):
+def _analyze(video, evidence, inspect, budget, *, decide=None, controller="python", initial_scan=None, relational_tasks=False, adaptive=False, floor_ask=None):
     _check_controller(controller, decide)
     trace = [
         Decision(
@@ -672,6 +708,14 @@ def _analyze(video, evidence, inspect, budget, *, decide=None, controller="pytho
     initial = tuple({
         f.observation.id: f for entry in evidence if entry.modality == "frames" for f in entry.findings
     }.values())
+    # person_on_floor candidates are checked by code (floor_check.py), never by the Verification model.
+    floor_candidates = ()
+    agent_initial = initial
+    if floor_ask is not None:
+        from .floor_check import is_candidate
+
+        floor_candidates = tuple(f for f in initial if is_candidate(f.observation))
+        agent_initial = tuple(f for f in initial if not is_candidate(f.observation))
     def traced_inspection(interval):
         entries = tuple(inspect(interval, "clip"))
         for entry in entries:
@@ -696,24 +740,100 @@ def _analyze(video, evidence, inspect, budget, *, decide=None, controller="pytho
         if controller == "langgraph":
             from .graph_workflow import run_graph
 
-            events, report = run_graph(run, initial)
+            events, report = run_graph(run, agent_initial)
         else:
-            candidates = sorted(run.investigate(initial), key=lambda f: f.citation.interval.start_us)
+            candidates = sorted(run.investigate(agent_initial), key=lambda f: f.citation.interval.start_us)
             events = run.finalize_events(tuple(run.verify(finding) for finding in candidates))
             report = run.report(events)
         completion = run.completion()
+    incidents = None
+    if floor_ask is not None:
+        incidents, floor_events = _floor_check(video, evidence, floor_candidates, floor_ask, trace)
+        events = tuple(sorted((*events, *floor_events), key=lambda event: event.interval.start_us))
     queue = None
     if decide is not None:
         from .review import render as render_review, review
 
         queue = review(events, trace, evidence)
         report = render_review(queue) + report
+        if incidents is not None:
+            from .floor_check import render_markdown
+
+            queue["floor_alerts"] = _floor_alerts(video, incidents, floor_events)
+            queue["counts"]["floor"] = len(queue["floor_alerts"])
+            report = render_markdown(incidents) + report
     return Analysis(
         video, tuple(evidence), initial,
         _supported_timeline(events),
         tuple(e for e in events if e.verdict != "supported"),
         tuple(trace), report, budget, completion, review=queue,
+        floor_incidents=tuple(incidents) if incidents is not None else None,
     )
+
+
+def _floor_check(video, evidence, candidates, ask, trace):
+    """Run the code-side person_on_floor check and turn incidents into events (kneeling-only gives none)."""
+    from .floor_check import FLOOR_CATEGORY, anchor_us, check, facts_lines
+
+    incidents = check([(f.observation.id, anchor_us(f)) for f in candidates], ask,
+                      duration_us=video.duration_us, aspect=video.height / video.width)
+    frames = {(e.inspection.id, f.source_time_us): f for e in evidence
+              if e.inspection is not None and e.phase in ("floor_probe", "floor_followup") for f in e.inspection.frames}
+    by_time = {}
+    for (inspection_id, t), frame in frames.items():
+        by_time.setdefault(t, (inspection_id, frame))
+    events = []
+    for incident in incidents:
+        trace.append(Decision("workflow", "floor_check", f"{incident['status']}: {incident.get('reason') or 'facts verified'}",
+                              tuple(incident["observation_ids"]),
+                              details={"inspections": incident["inspections"], "status": incident["status"],
+                                       "reason": incident.get("reason")}))
+        if incident["status"] == "kneeling_only":
+            continue
+        key = [incident.get("arrival", {}).get("upright_us"), incident.get("first_floor_us"),
+               incident.get("floor_until_us"), incident.get("outcome", {}).get("at_us")]
+        cited = {}
+        for t in key:
+            if t is not None and t in by_time:
+                inspection_id, frame = by_time[t]
+                cited.setdefault(inspection_id, {})[frame.id] = frame
+        citations = tuple(
+            Citation(video.id, inspection_id, "frames",
+                     Interval(min(f.source_time_us for f in fs.values()), max(f.source_time_us for f in fs.values()) + 1),
+                     tuple(sorted(fs.values(), key=lambda f: f.source_time_us)))
+            for inspection_id, fs in cited.items())
+        start = incident.get("first_floor_us", incident["anchor_us"])
+        end = max(start, incident.get("floor_until_us", start)) + 1
+        events.append(Event(FLOOR_CATEGORY, Interval(start, end), "supported" if incident["status"] == "verified" else "insufficient",
+                            " ".join(facts_lines(incident, "en")), tuple(incident["observation_ids"]), citations))
+    return incidents, tuple(events)
+
+
+def _floor_alerts(video, incidents, floor_events):
+    """One alert per person-on-floor incident (verified or not) for the guard and the labelling sheet."""
+    from .floor_check import alerting, facts_lines
+
+    events = {e.observation_ids: e for e in floor_events}
+    alerts = []
+    for incident in alerting(incidents):
+        event = events.get(tuple(incident["observation_ids"]))
+        frames = [{"id": f.id, "display_index": f.display_index, "source_time_us": f.source_time_us, "label": None}
+                  for c in (event.citations if event else ()) for f in c.frames]
+        start = incident.get("first_floor_us", incident["anchor_us"])
+        alerts.append({
+            "id": _id_floor(video, incident), "status": "facts_verified" if incident["status"] == "verified" else "needs_review",
+            "category": "person_on_floor", "observation_id": incident["observation_ids"][0],
+            "interval": {"start_us": start, "end_us": max(start, incident.get("floor_until_us", start)) + 1},
+            "reason_code": incident.get("reason") or "facts_verified", "frames": sorted(frames, key=lambda f: f["source_time_us"]),
+            "facts_fr": facts_lines(incident, "fr"), "facts_en": facts_lines(incident, "en"), "operator_label": None,
+        })
+    return alerts
+
+
+def _id_floor(video, incident):
+    from .video import _id
+
+    return _id("alert", video.id, *incident["observation_ids"], "person_on_floor")
 
 
 def _clock_us(value: str) -> int:
@@ -737,8 +857,8 @@ def _query_categories(text):
     if re.search(r"\b(person|someone|people)\b", text) and re.search(r"\b(mov\w*|walk\w*)\b", text):
         if "person_enters_area" not in categories:
             categories.add("person_moved")
-    if re.search(r"\b(fall|falls|falling|fell|fallen)\b|\b(lying|lay|lies) on the (floor|ground)\b", text):
-        categories.add("person_fell")
+    if re.search(r"\b(fall|falls|falling|fell|fallen)\b|\b(person|someone|anyone|people) down\b|\bon the (floor|ground)\b", text):
+        categories.update(("person_on_floor", "person_fell"))
     if re.search(r"\bdisappear\w*\b|ceased to be visible", text):
         categories.add("object_disappeared")
     if not categories and _VISUAL_CHANGES.search(text):
@@ -1081,7 +1201,9 @@ def main(argv=None):
             )
             models = AgentModels.from_env(role_default="gemini-3.6-flash")
             physical_limit = budget.max_agent_calls * ROLE_HTTP_ATTEMPTS
-            media_limit = budget.max_initial_windows + budget.max_inspections
+            from .floor_check import RULES as FLOOR_RULES
+
+            media_limit = budget.max_initial_windows + budget.max_inspections + FLOOR_RULES["max_inspections_per_video"]
             decide = GeminiDecider.from_env(
                 authorized=True, models=models, max_physical_requests=physical_limit,
                 max_physical_media_requests=media_limit,
@@ -1109,7 +1231,7 @@ def main(argv=None):
         ]}
         (args.output / "analysis.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
         if analysis.review is not None:
-            _write_alert_sheet(args.output / "alerts.csv", analysis.review["alerts"])
+            _write_alert_sheet(args.output / "alerts.csv", [*analysis.review.get("floor_alerts", []), *analysis.review["alerts"]])
         _write_guard_report_safely(args.output, result)
     except (VideoError, OSError, ValueError, KeyError) as exc:
         parser.exit(1, f"{exc}\n")

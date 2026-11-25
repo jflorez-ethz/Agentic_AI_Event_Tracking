@@ -1,94 +1,528 @@
 {
-  "written": "2026-11-25. Postures labelled by eye on frames every 250 ms (sheets in evidence/). Identity and position come from the CAVIAR XML boxes (production reader). Expected outcomes were written before running decision.py.",
+  "written": "2026-11-25. Postures labelled by eye on frames every 250 ms (and every 500 ms over the getting-up spans); sheets in evidence/. Identity and position come from the CAVIAR XML boxes (production reader). Expected facts (rules v2, person_on_floor) were written before running floor_check.py.",
   "segment_rule": "each segment is [from, to) in PTS seconds of the analysed file; every visible person in a case's probe window must be covered by a segment or by the case's 'others' posture",
   "cases": {
     "fall_true": {
-      "video": "Rest_FallOnFloor.mpg", "xml": "Rest_FallOnFloor.xml", "focal": "2",
-      "pair": [25.52, 28.04], "pair_source": "Verification transition of the dev KPI run (before/after frame)",
-      "segments": {"2": [[0, 26.40, "standing"], [26.40, 26.90, "bending"], [26.90, 27.40, "kneeling"], [27.40, 27.65, "sitting_on_floor"], [27.65, 35.3, "lying_on_floor"]]},
+      "video": "Rest_FallOnFloor.mpg",
+      "xml": "Rest_FallOnFloor.xml",
+      "focal": "2",
+      "pair": [
+        25.52,
+        28.04
+      ],
+      "pair_source": "Verification transition of the dev KPI run (before/after frame)",
+      "segments": {
+        "2": [
+          [
+            0,
+            26.4,
+            "standing"
+          ],
+          [
+            26.4,
+            26.9,
+            "bending"
+          ],
+          [
+            26.9,
+            27.4,
+            "kneeling"
+          ],
+          [
+            27.4,
+            27.65,
+            "sitting_on_floor"
+          ],
+          [
+            27.65,
+            35.8,
+            "lying_on_floor"
+          ],
+          [
+            35.8,
+            36.3,
+            "sitting_on_floor"
+          ],
+          [
+            36.3,
+            37.8,
+            "kneeling"
+          ],
+          [
+            37.8,
+            38.3,
+            "bending"
+          ],
+          [
+            38.3,
+            99,
+            "standing"
+          ]
+        ]
+      },
       "others": "standing",
-      "expected": {"verdict": "supported", "reason": "confirmed"},
-      "note": "Walks, collapses forward onto the knees, then lies still."
+      "note": "Walks, collapses forward onto the knees, then lies still.",
+      "expected_facts": {
+        "status": "verified",
+        "arrival_observed": true,
+        "via": [
+          "bending",
+          "kneeling"
+        ],
+        "floor_postures": [
+          "sitting_on_floor",
+          "lying_on_floor"
+        ],
+        "outcome": "stood_up"
+      },
+      "anchor_s": 28.04
     },
     "wiggle_true": {
-      "video": "Rest_WiggleOnFloor_pts.mkv", "xml": "Rest_WiggleOnFloor.xml", "focal": "2",
-      "pair": [27.0, 29.0], "pair_source": "Verification transition of the held-out run",
-      "segments": {"2": [[0, 27.40, "standing"], [27.40, 27.90, "bending"], [27.90, 28.40, "kneeling"], [28.40, 28.65, "sitting_on_floor"], [28.65, 47.0, "lying_on_floor"]]},
+      "video": "Rest_WiggleOnFloor_pts.mkv",
+      "xml": "Rest_WiggleOnFloor.xml",
+      "focal": "2",
+      "pair": [
+        27.0,
+        29.0
+      ],
+      "pair_source": "Verification transition of the held-out run",
+      "segments": {
+        "2": [
+          [
+            0,
+            27.4,
+            "standing"
+          ],
+          [
+            27.4,
+            27.9,
+            "bending"
+          ],
+          [
+            27.9,
+            28.4,
+            "kneeling"
+          ],
+          [
+            28.4,
+            28.65,
+            "sitting_on_floor"
+          ],
+          [
+            28.65,
+            48.25,
+            "lying_on_floor"
+          ],
+          [
+            48.25,
+            49.75,
+            "sitting_on_floor"
+          ],
+          [
+            49.75,
+            50.75,
+            "kneeling"
+          ],
+          [
+            50.75,
+            51.3,
+            "bending"
+          ],
+          [
+            51.3,
+            99,
+            "standing"
+          ]
+        ]
+      },
       "others": "standing",
-      "expected": {"verdict": "supported", "reason": "confirmed"},
-      "note": "Stumbles, goes down, lies and wiggles in place."
+      "note": "Stumbles, goes down, lies and wiggles in place. The XML ends at 47.76 s: after that the person's last XML position is held (they rise in place).",
+      "expected_facts": {
+        "status": "verified",
+        "arrival_observed": true,
+        "via": [
+          "bending",
+          "kneeling"
+        ],
+        "floor_postures": [
+          "sitting_on_floor",
+          "lying_on_floor",
+          "sitting_on_floor"
+        ],
+        "outcome": "stood_up"
+      },
+      "anchor_s": 29.0,
+      "expected_correction": "2026-11-25, after the first build: the written expectation omitted the second sitting phase (48.25-49.75 s) that these labels contain; the code's description was right."
     },
     "fight_true": {
-      "video": "Fight_OneManDown.mpg", "xml": "Fight_OneManDown_1.xml", "focal": "5",
-      "pair": [12.52, 14.52], "pair_source": "Verification transition of the held-out run",
-      "segments": {"5": [[0, 12.90, "standing"], [12.90, 13.40, "sitting_on_floor"], [13.40, 19.40, "lying_on_floor"], [19.40, 19.65, "sitting_on_floor"], [19.65, 20.65, "kneeling"], [20.65, 21.40, "bending"], [21.40, 99, "standing"]]},
+      "video": "Fight_OneManDown.mpg",
+      "xml": "Fight_OneManDown_1.xml",
+      "focal": "5",
+      "pair": [
+        12.52,
+        14.52
+      ],
+      "pair_source": "Verification transition of the held-out run",
+      "segments": {
+        "5": [
+          [
+            0,
+            12.9,
+            "standing"
+          ],
+          [
+            12.9,
+            13.4,
+            "sitting_on_floor"
+          ],
+          [
+            13.4,
+            19.4,
+            "lying_on_floor"
+          ],
+          [
+            19.4,
+            19.65,
+            "sitting_on_floor"
+          ],
+          [
+            19.65,
+            20.65,
+            "kneeling"
+          ],
+          [
+            20.65,
+            21.4,
+            "bending"
+          ],
+          [
+            21.4,
+            99,
+            "standing"
+          ]
+        ]
+      },
       "others": "standing",
-      "expected": {"verdict": "supported", "reason": "confirmed"},
-      "note": "Knocked down within about 0.3 s, lies until 19.4 s, gets up from 19.5 s. The attacker and passers-by stay upright."
+      "note": "Knocked down within about 0.3 s, lies until 19.4 s, gets up from 19.5 s. The attacker and passers-by stay upright.",
+      "expected_facts": {
+        "status": "verified",
+        "arrival_observed": true,
+        "via": [],
+        "floor_postures": [
+          "sitting_on_floor",
+          "lying_on_floor"
+        ],
+        "outcome": "stood_up"
+      },
+      "anchor_s": 14.52
     },
     "slump_false": {
-      "video": "Rest_SlumpOnFloor.mpg", "xml": "Rest_SlumpOnFloor.xml", "focal": "0",
-      "pair": [2.52, 3.04], "pair_source": "Perception's two cited frames (the false confirmation)",
-      "segments": {"0": [[0, 99, "standing"]]},
+      "video": "Rest_SlumpOnFloor.mpg",
+      "xml": "Rest_SlumpOnFloor.xml",
+      "focal": "0",
+      "pair": [
+        2.52,
+        3.04
+      ],
+      "pair_source": "Perception's two cited frames (the false confirmation)",
+      "segments": {
+        "0": [
+          [
+            0,
+            99,
+            "standing"
+          ]
+        ]
+      },
       "others": "standing",
-      "expected": {"verdict": "insufficient", "reason": "upright_throughout"},
-      "note": "REGRESSION CASE. The grey person walks around the stool and armchair; the blue person stretches; the briefcase carrier walks out at the bottom about 3.3 s. Nobody is on the ground."
+      "note": "REGRESSION CASE. The grey person walks around the stool and armchair; the blue person stretches; the briefcase carrier walks out at the bottom about 3.3 s. Nobody is on the ground.",
+      "expected_facts": {
+        "status": "to_review",
+        "reason": "upright_throughout"
+      },
+      "anchor_s": 3.04
     },
     "slump_true_slow": {
-      "video": "Rest_SlumpOnFloor.mpg", "xml": "Rest_SlumpOnFloor.xml", "focal": "5",
-      "pair": [25.04, 27.52], "pair_source": "Perception description (upright F11, lying F16 of the 20-30 s window)",
-      "segments": {"5": [[0, 24.90, "standing"], [24.90, 25.40, "bending"], [25.40, 27.40, "kneeling"], [27.40, 34.4, "sitting_on_floor"], [34.4, 99, "standing"]]},
+      "video": "Rest_SlumpOnFloor.mpg",
+      "xml": "Rest_SlumpOnFloor.xml",
+      "focal": "5",
+      "pair": [
+        25.04,
+        27.52
+      ],
+      "pair_source": "Perception description (upright F11, lying F16 of the 20-30 s window)",
+      "segments": {
+        "5": [
+          [
+            0,
+            24.9,
+            "standing"
+          ],
+          [
+            24.9,
+            25.4,
+            "bending"
+          ],
+          [
+            25.4,
+            27.4,
+            "kneeling"
+          ],
+          [
+            27.4,
+            32.65,
+            "sitting_on_floor"
+          ],
+          [
+            32.65,
+            34.95,
+            "kneeling"
+          ],
+          [
+            34.95,
+            35.2,
+            "bending"
+          ],
+          [
+            35.2,
+            99,
+            "standing"
+          ]
+        ]
+      },
       "others": "standing",
-      "expected": {"verdict": "insufficient", "reason": "no_upright_before"},
-      "note": "Real person down, but slow: crouches (labelled kneeling; the vocabulary has no squat) for about 2 s, then sits on the floor. Last upright 24.76 s, first ground 27.52 s (2.76 s > 2.5 s), and the probe window starts at 25.52 s while the person is already crouched. Known limit: stays 'to review', never confirmed."
+      "note": "Real person on the floor, reached slowly: crouches (labelled kneeling; the vocabulary has no squat) about 2 s, sits on the floor 27.4-32.65 s, then gets up on hands and knees and stands about 35.2 s.",
+      "expected_facts": {
+        "status": "to_review",
+        "reason": "not_corroborated",
+        "arrival_observed": false,
+        "floor_postures": [
+          "sitting_on_floor"
+        ],
+        "outcome": "stood_up"
+      },
+      "anchor_s": 27.52
     },
     "inchair_seat": {
-      "video": "Rest_InChair.mpg", "xml": "Rest_InChair.xml", "focal": "1",
-      "pair": [18.76, 19.52], "pair_source": "hypothetical candidate at the moment the person sits down",
-      "segments": {"1": [[0, 18.90, "standing"], [18.90, 19.40, "bending"], [19.40, 34.0, "sitting_on_seat"]]},
+      "video": "Rest_InChair.mpg",
+      "xml": "Rest_InChair.xml",
+      "focal": "1",
+      "pair": [
+        18.76,
+        19.52
+      ],
+      "pair_source": "hypothetical candidate at the moment the person sits down",
+      "segments": {
+        "1": [
+          [
+            0,
+            18.9,
+            "standing"
+          ],
+          [
+            18.9,
+            19.4,
+            "bending"
+          ],
+          [
+            19.4,
+            34.0,
+            "sitting_on_seat"
+          ]
+        ]
+      },
       "others": "standing",
-      "expected": {"verdict": "insufficient", "reason": "seated"},
-      "note": "Sits down in an armchair: a seat, not the floor."
+      "note": "Sits down in an armchair: a seat, not the floor.",
+      "expected_facts": {
+        "status": "to_review",
+        "reason": "seated"
+      },
+      "anchor_s": 19.52
     },
     "browse1_edge": {
-      "video": "Browse1.mpg", "xml": "Browse1.xml", "focal": "0",
-      "pair": [7.52, 8.52], "pair_source": "held-out 'possible fall' alert",
-      "segments": {"0": [[0, 7.90, "standing"], [7.90, 99, "not_visible"]]},
+      "video": "Browse1.mpg",
+      "xml": "Browse1.xml",
+      "focal": "0",
+      "pair": [
+        7.52,
+        8.52
+      ],
+      "pair_source": "held-out 'possible fall' alert",
+      "segments": {
+        "0": [
+          [
+            0,
+            7.9,
+            "standing"
+          ],
+          [
+            7.9,
+            99,
+            "not_visible"
+          ]
+        ]
+      },
       "others": "standing",
-      "expected": {"verdict": "insufficient", "reason": "upright_throughout"},
-      "note": "Walks out through the bottom image edge."
+      "note": "Walks out through the bottom image edge.",
+      "expected_facts": {
+        "status": "to_review",
+        "reason": "upright_throughout"
+      },
+      "anchor_s": 8.52
     },
     "leftbag_set_down_pick_up": {
-      "video": "LeftBag.mpg", "xml": "LeftBag.xml", "focal": "0",
-      "pair": [1.52, 3.52], "pair_source": "dev run person_fell claim (2 frames)",
-      "segments": {"0": [[0, 1.40, "standing"], [1.40, 2.90, "bending"], [2.90, 4.90, "standing"], [4.90, 5.65, "bending"], [5.65, 99, "standing"]]},
+      "video": "LeftBag.mpg",
+      "xml": "LeftBag.xml",
+      "focal": "0",
+      "pair": [
+        1.52,
+        3.52
+      ],
+      "pair_source": "dev run person_fell claim (2 frames)",
+      "segments": {
+        "0": [
+          [
+            0,
+            1.4,
+            "standing"
+          ],
+          [
+            1.4,
+            2.9,
+            "bending"
+          ],
+          [
+            2.9,
+            4.9,
+            "standing"
+          ],
+          [
+            4.9,
+            5.65,
+            "bending"
+          ],
+          [
+            5.65,
+            99,
+            "standing"
+          ]
+        ]
+      },
       "others": "standing",
-      "expected": {"verdict": "insufficient", "reason": "no_ground"},
-      "note": "Stoops to put the bag at the feet, stretches, stoops to pick it up. Bends, does not kneel."
+      "note": "Stoops to put the bag at the feet, stretches, stoops to pick it up. Bends, does not kneel.",
+      "expected_facts": {
+        "status": "to_review",
+        "reason": "no_floor"
+      },
+      "anchor_s": 3.52
     },
     "leftbag_place": {
-      "video": "LeftBag.mpg", "xml": "LeftBag.xml", "focal": "3",
-      "pair": [37.52, 38.04], "pair_source": "hypothetical candidate at the bag placement",
-      "segments": {"3": [[0, 37.40, "standing"], [37.40, 38.15, "bending"], [38.15, 99, "standing"]]},
+      "video": "LeftBag.mpg",
+      "xml": "LeftBag.xml",
+      "focal": "3",
+      "pair": [
+        37.52,
+        38.04
+      ],
+      "pair_source": "hypothetical candidate at the bag placement",
+      "segments": {
+        "3": [
+          [
+            0,
+            37.4,
+            "standing"
+          ],
+          [
+            37.4,
+            38.15,
+            "bending"
+          ],
+          [
+            38.15,
+            99,
+            "standing"
+          ]
+        ]
+      },
       "others": "standing",
-      "expected": {"verdict": "insufficient", "reason": "no_ground"},
-      "note": "Stoops to leave the bag by the wall."
+      "note": "Stoops to leave the bag by the wall.",
+      "expected_facts": {
+        "status": "to_review",
+        "reason": "no_floor"
+      },
+      "anchor_s": 38.04
     },
     "pickedup_place": {
-      "video": "LeftBag_PickedUp.mpg", "xml": "lbpugt.xml", "focal": "2",
-      "pair": [20.28, 20.76], "pair_source": "hypothetical candidate at the bag placement",
-      "segments": {"2": [[0, 20.40, "standing"], [20.40, 20.90, "bending"], [20.90, 99, "standing"]]},
+      "video": "LeftBag_PickedUp.mpg",
+      "xml": "lbpugt.xml",
+      "focal": "2",
+      "pair": [
+        20.28,
+        20.76
+      ],
+      "pair_source": "hypothetical candidate at the bag placement",
+      "segments": {
+        "2": [
+          [
+            0,
+            20.4,
+            "standing"
+          ],
+          [
+            20.4,
+            20.9,
+            "bending"
+          ],
+          [
+            20.9,
+            99,
+            "standing"
+          ]
+        ]
+      },
       "others": "standing",
-      "expected": {"verdict": "insufficient", "reason": "no_ground"},
-      "note": "Stoops to put the bag down."
+      "note": "Stoops to put the bag down.",
+      "expected_facts": {
+        "status": "to_review",
+        "reason": "no_floor"
+      },
+      "anchor_s": 20.76
     },
     "pickedup_pick": {
-      "video": "LeftBag_PickedUp.mpg", "xml": "lbpugt.xml", "focal": "2",
-      "pair": [40.04, 40.76], "pair_source": "hypothetical candidate at the bag pickup",
-      "segments": {"2": [[0, 39.90, "standing"], [39.90, 40.65, "bending"], [40.65, 99, "standing"]]},
+      "video": "LeftBag_PickedUp.mpg",
+      "xml": "lbpugt.xml",
+      "focal": "2",
+      "pair": [
+        40.04,
+        40.76
+      ],
+      "pair_source": "hypothetical candidate at the bag pickup",
+      "segments": {
+        "2": [
+          [
+            0,
+            39.9,
+            "standing"
+          ],
+          [
+            39.9,
+            40.65,
+            "bending"
+          ],
+          [
+            40.65,
+            99,
+            "standing"
+          ]
+        ]
+      },
       "others": "standing",
-      "expected": {"verdict": "insufficient", "reason": "no_ground"},
-      "note": "Stoops to pick the bag up."
+      "note": "Stoops to pick the bag up.",
+      "expected_facts": {
+        "status": "to_review",
+        "reason": "no_floor"
+      },
+      "anchor_s": 40.76
     }
   }
 }

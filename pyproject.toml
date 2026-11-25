@@ -19,5 +19,8 @@ tracking = ["torch==2.15.0", "torchvision==0.29.2", "supervision==0.30.9", "rfde
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+security_augmented = ["*.json"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]

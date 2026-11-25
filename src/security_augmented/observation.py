@@ -198,3 +198,52 @@ def validate_result(request: ObservationRequest, result: ObservationResult) -> N
                 raise VideoError("Observation references frames outside the submitted inspection")
         else:
             raise VideoError("Observation evidence modality differs from the submitted input")
+
+
+# ---------- neutral posture probe (person_on_floor facts; see floor_check.py) ----------
+
+@dataclass(frozen=True)
+class PostureRequest:
+    """Ask, for each submitted frame, the posture, a stable identifier and the position of every visible person.
+
+    The prompt never carries an observation's description or an event word: it is a neutral question.
+    """
+    media: FrameSequenceInput
+    vocabulary: tuple[str, ...]
+    prompt: str
+    schema_version: int = SCHEMA_VERSION
+
+
+@dataclass(frozen=True)
+class PostureResult:
+    metadata: InferenceMetadata
+    # One entry per submitted frame, in order: {"frame_id": str, "persons": ({"id", "posture", "x", "y"}, ...)}.
+    frames: tuple[dict, ...]
+    raw_response: str | None = None
+    schema_version: int = SCHEMA_VERSION
+
+
+def validate_postures(request: PostureRequest, result: PostureResult) -> None:
+    """Reject a posture answer that does not describe exactly the submitted frames with the imposed vocabulary."""
+    if not isinstance(request.media, FrameSequenceInput) or not request.vocabulary or not _has_text(request.prompt):
+        raise VideoError("Posture request needs discrete frames, a vocabulary and a prompt")
+    validate_request(ObservationRequest(request.media, request.vocabulary, request.prompt))
+    metadata = result.metadata
+    if result.schema_version != SCHEMA_VERSION or not all(map(_has_text, (
+            metadata.provider, metadata.model_id, metadata.adapter_version, metadata.prompt_version))):
+        raise VideoError("Posture result has invalid schema or metadata")
+    submitted = [frame.id for frame in request.media.inspection.frames]
+    if [entry.get("frame_id") for entry in result.frames] != submitted:
+        raise VideoError("Posture answer must describe each submitted frame once, in order")
+    for entry in result.frames:
+        persons = entry.get("persons")
+        if not isinstance(persons, (list, tuple)):
+            raise VideoError("Posture answer persons must be a list")
+        ids = [p.get("id") if isinstance(p, dict) else None for p in persons]
+        if any(not _has_text(i) for i in ids) or len(set(ids)) != len(ids):
+            raise VideoError("Posture answer needs distinct person identifiers per frame")
+        for person in persons:
+            if person.get("posture") not in request.vocabulary:
+                raise VideoError("Posture outside the imposed vocabulary")
+            if not all(type(person.get(k)) in (int, float) and 0 <= person[k] <= 1 for k in ("x", "y")):
+                raise VideoError("Person position must be within [0, 1]")

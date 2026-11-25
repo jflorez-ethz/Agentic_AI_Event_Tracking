@@ -10,16 +10,18 @@ event anchors and the report lead keep using supported events only.
 import re
 
 from .video import _id
-from .workflow import PRIORITY_LABELS, _time
+from .workflow import READ_PRIORITY_LABELS as PRIORITY_LABELS, _time
 
 # Entry into an area needs a configured monitored zone (plan detector C1); none exists yet.
 ZONE_CATEGORIES = frozenset({"person_enters_area"})
 # Never dismissed by the agent, even when verification contradicts the observation.
-NEVER_DISMISSED = frozenset({"person_fell"})
+NEVER_DISMISSED = frozenset({"person_fell", "person_on_floor"})
+# Checked by code and listed in their own section (floor_check.py), never as generic alerts here.
+OWN_SECTION = frozenset({"person_on_floor"})
 MAX_REVIEW_FRAMES = 6
 
 _WHAT = {
-    "object_placed": "Objet déposé", "object_removed": "Objet retiré", "person_fell": "Personne à terre",
+    "object_placed": "Objet déposé", "object_removed": "Objet retiré", "person_fell": "Personne à terre", "person_on_floor": "Personne au sol",
     "person_enters_area": "Entrée dans une zone", "object_appeared": "Objet apparu",
     "object_disappeared": "Objet disparu",
 }
@@ -27,6 +29,7 @@ _QUESTION = {
     "object_placed": "Un objet est-il posé puis laissé sur place ?",
     "object_removed": "Un objet est-il retiré ?",
     "person_fell": "Une personne est-elle à terre ?",
+    "person_on_floor": "Une personne est-elle au sol ?",
     "person_enters_area": "Une personne entre-t-elle dans la zone surveillée ?",
     "object_appeared": "Un objet apparaît-il vraiment, sans être déjà présent avant ?",
     "object_disappeared": "Un objet disparaît-il vraiment ?",
@@ -108,7 +111,7 @@ def review(events, trace, evidence):
     inspections = {entry.inspection.id: entry.inspection for entry in evidence if entry.inspection is not None}
     alerts, not_alerted = [], []
     for event in sorted(events, key=lambda e: (e.interval.start_us, e.category)):
-        if event.category not in PRIORITY_LABELS or event.verdict == "supported":
+        if event.category not in PRIORITY_LABELS or event.verdict == "supported" or event.category in OWN_SECTION:
             continue
         seed = event.observation_ids[0]
         code = reason_code(event, trace)
@@ -132,7 +135,8 @@ def review(events, trace, evidence):
         })
     alerts.extend(_unclear_alerts(events, alerts, evidence, inspections))
     alerts.sort(key=lambda a: (a["interval"]["start_us"], a["category"]))
-    supported = sum(1 for e in events if e.category in PRIORITY_LABELS and e.verdict == "supported")
+    supported = sum(1 for e in events if e.category in PRIORITY_LABELS and e.verdict == "supported"
+                    and e.category not in OWN_SECTION)
     return {
         "alerts": alerts, "not_alerted": not_alerted,
         "counts": {"needs_review": len(alerts), "supported_security": supported,
@@ -163,7 +167,7 @@ def _unclear_alerts(events, alerts, evidence, inspections):
             observation = finding.observation
             suspected = getattr(observation, "possible_category", None)
             if (observation.category != "insufficient_evidence" or suspected not in PRIORITY_LABELS
-                    or suspected in ZONE_CATEGORIES):
+                    or suspected in ZONE_CATEGORIES or suspected in OWN_SECTION):
                 continue
             cited = finding.citation.interval
             if any(category == suspected and near(cited.start_us, cited.end_us, start, end)

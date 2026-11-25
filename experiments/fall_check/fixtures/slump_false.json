@@ -2,433 +2,1031 @@
  "case": "slump_false",
  "video": "Rest_SlumpOnFloor.mpg",
  "video_sha256": "4ac7d2c63479ce052c0b7e7f8a49aec35f971bcd9b49c78b6687c5f885daf78c",
- "candidate": {
-  "t_before": 2.52,
-  "t_after": 3.04,
-  "x": 0.1849,
-  "y": 0.4861
- },
+ "duration_us": 36719700,
+ "aspect": 0.75,
+ "anchor_us": 3040000,
  "expected": {
-  "verdict": "insufficient",
+  "status": "to_review",
   "reason": "upright_throughout"
  },
- "probe": {
-  "aspect": 0.75,
-  "frames": [
-   {
-    "t": 1.0797,
-    "frame": 21,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.3073,
-      "y": 0.4236
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.5156,
-      "y": 0.6076
-     },
-     {
-      "id": "P2",
-      "posture": "standing",
-      "x": 0.4479,
-      "y": 0.7465
-     }
-    ]
-   },
-   {
-    "t": 1.3197,
-    "frame": 27,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.2839,
-      "y": 0.4306
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4922,
-      "y": 0.5694
-     },
-     {
-      "id": "P2",
-      "posture": "standing",
-      "x": 0.4844,
-      "y": 0.7674
-     }
-    ]
-   },
-   {
-    "t": 1.5597,
-    "frame": 33,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.2708,
-      "y": 0.434
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4896,
-      "y": 0.5486
-     },
-     {
-      "id": "P2",
-      "posture": "standing",
-      "x": 0.4974,
-      "y": 0.7743
-     }
-    ]
-   },
-   {
-    "t": 1.7997,
-    "frame": 39,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.2578,
-      "y": 0.441
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4818,
-      "y": 0.5
-     },
-     {
-      "id": "P2",
-      "posture": "standing",
-      "x": 0.5286,
-      "y": 0.8021
-     }
-    ]
-   },
-   {
-    "t": 2.0797,
-    "frame": 46,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.2396,
-      "y": 0.4583
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4792,
-      "y": 0.4722
-     },
-     {
-      "id": "P2",
-      "posture": "standing",
-      "x": 0.5495,
-      "y": 0.8438
-     }
-    ]
-   },
-   {
-    "t": 2.3197,
-    "frame": 52,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.2214,
-      "y": 0.4653
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4766,
-      "y": 0.4444
-     },
-     {
-      "id": "P2",
-      "posture": "standing",
-      "x": 0.5625,
-      "y": 0.8854
-     }
-    ]
-   },
-   {
-    "t": 2.5597,
-    "frame": 58,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.2083,
-      "y": 0.4653
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4635,
-      "y": 0.4236
-     },
-     {
-      "id": "P2",
-      "posture": "standing",
-      "x": 0.5703,
-      "y": 0.9236
-     }
-    ]
-   },
-   {
-    "t": 2.7997,
-    "frame": 64,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.1953,
-      "y": 0.4722
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4531,
-      "y": 0.4062
-     },
-     {
-      "id": "P2",
-      "posture": "standing",
-      "x": 0.5833,
-      "y": 0.9479
-     }
-    ]
-   },
-   {
-    "t": 3.0797,
-    "frame": 71,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.1849,
-      "y": 0.4861
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4427,
-      "y": 0.4028
-     },
-     {
-      "id": "P2",
-      "posture": "standing",
-      "x": 0.6042,
-      "y": 0.9688
-     }
-    ]
-   },
-   {
-    "t": 3.4797,
-    "frame": 81,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.1615,
-      "y": 0.4965
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4375,
-      "y": 0.3924
-     }
-    ]
-   },
-   {
-    "t": 3.9197,
-    "frame": 92,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.1484,
-      "y": 0.5104
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4193,
-      "y": 0.3681
-     }
-    ]
-   },
-   {
-    "t": 4.3197,
-    "frame": 102,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.138,
-      "y": 0.5278
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4297,
-      "y": 0.3576
-     }
-    ]
-   },
-   {
-    "t": 4.7597,
-    "frame": 113,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.125,
-      "y": 0.5312
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4323,
-      "y": 0.3681
-     }
-    ]
-   },
-   {
-    "t": 5.1597,
-    "frame": 123,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.112,
-      "y": 0.5382
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4323,
-      "y": 0.3681
-     }
-    ]
-   },
-   {
-    "t": 5.5997,
-    "frame": 134,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.1016,
-      "y": 0.5382
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4323,
-      "y": 0.375
-     }
-    ]
-   },
-   {
-    "t": 5.9997,
-    "frame": 144,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.0911,
-      "y": 0.5382
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4453,
-      "y": 0.3924
-     }
-    ]
-   },
-   {
-    "t": 6.4397,
-    "frame": 155,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.0885,
-      "y": 0.5382
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.4661,
-      "y": 0.4549
-     }
-    ]
-   },
-   {
-    "t": 6.8397,
-    "frame": 165,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.0833,
-      "y": 0.5451
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.5078,
-      "y": 0.5
-     }
-    ]
-   },
-   {
-    "t": 7.2797,
-    "frame": 176,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.0781,
-      "y": 0.559
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.5365,
-      "y": 0.566
-     }
-    ]
-   },
-   {
-    "t": 7.6797,
-    "frame": 186,
-    "persons": [
-     {
-      "id": "P0",
-      "posture": "standing",
-      "x": 0.0677,
-      "y": 0.5694
-     },
-     {
-      "id": "P1",
-      "posture": "standing",
-      "x": 0.5677,
-      "y": 0.6146
-     }
-    ]
-   }
-  ]
- }
+ "transcript": [
+  {
+   "phase": "floor_probe",
+   "times_us": [
+    1040000,
+    1290000,
+    1540000,
+    1790000,
+    2040000,
+    2290000,
+    2540000,
+    2790000,
+    3040000,
+    3460000,
+    3880000,
+    4300000,
+    4720000,
+    5140000,
+    5560000,
+    5980000,
+    6400000,
+    6820000,
+    7240000,
+    7660000
+   ],
+   "inspection_id": "sim-0",
+   "frames": [
+    {
+     "t_us": 1079700,
+     "display_index": 21,
+     "frame_id": "frame-21",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.3073,
+       "y": 0.4236
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.5156,
+       "y": 0.6076
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.4479,
+       "y": 0.7465
+      }
+     ]
+    },
+    {
+     "t_us": 1319700,
+     "display_index": 27,
+     "frame_id": "frame-27",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.2839,
+       "y": 0.4306
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4922,
+       "y": 0.5694
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.4844,
+       "y": 0.7674
+      }
+     ]
+    },
+    {
+     "t_us": 1559700,
+     "display_index": 33,
+     "frame_id": "frame-33",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.2708,
+       "y": 0.434
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4896,
+       "y": 0.5486
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.4974,
+       "y": 0.7743
+      }
+     ]
+    },
+    {
+     "t_us": 1799700,
+     "display_index": 39,
+     "frame_id": "frame-39",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.2578,
+       "y": 0.441
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4818,
+       "y": 0.5
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.5286,
+       "y": 0.8021
+      }
+     ]
+    },
+    {
+     "t_us": 2079700,
+     "display_index": 46,
+     "frame_id": "frame-46",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.2396,
+       "y": 0.4583
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4792,
+       "y": 0.4722
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.5495,
+       "y": 0.8438
+      }
+     ]
+    },
+    {
+     "t_us": 2319700,
+     "display_index": 52,
+     "frame_id": "frame-52",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.2214,
+       "y": 0.4653
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4766,
+       "y": 0.4444
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.5625,
+       "y": 0.8854
+      }
+     ]
+    },
+    {
+     "t_us": 2559700,
+     "display_index": 58,
+     "frame_id": "frame-58",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.2083,
+       "y": 0.4653
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4635,
+       "y": 0.4236
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.5703,
+       "y": 0.9236
+      }
+     ]
+    },
+    {
+     "t_us": 2799700,
+     "display_index": 64,
+     "frame_id": "frame-64",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.1953,
+       "y": 0.4722
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4531,
+       "y": 0.4062
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.5833,
+       "y": 0.9479
+      }
+     ]
+    },
+    {
+     "t_us": 3079700,
+     "display_index": 71,
+     "frame_id": "frame-71",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.1849,
+       "y": 0.4861
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4427,
+       "y": 0.4028
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.6042,
+       "y": 0.9688
+      }
+     ]
+    },
+    {
+     "t_us": 3479700,
+     "display_index": 81,
+     "frame_id": "frame-81",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.1615,
+       "y": 0.4965
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4375,
+       "y": 0.3924
+      }
+     ]
+    },
+    {
+     "t_us": 3919700,
+     "display_index": 92,
+     "frame_id": "frame-92",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.1484,
+       "y": 0.5104
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4193,
+       "y": 0.3681
+      }
+     ]
+    },
+    {
+     "t_us": 4319700,
+     "display_index": 102,
+     "frame_id": "frame-102",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.138,
+       "y": 0.5278
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4297,
+       "y": 0.3576
+      }
+     ]
+    },
+    {
+     "t_us": 4759700,
+     "display_index": 113,
+     "frame_id": "frame-113",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.125,
+       "y": 0.5312
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4323,
+       "y": 0.3681
+      }
+     ]
+    },
+    {
+     "t_us": 5159700,
+     "display_index": 123,
+     "frame_id": "frame-123",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.112,
+       "y": 0.5382
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4323,
+       "y": 0.3681
+      }
+     ]
+    },
+    {
+     "t_us": 5599700,
+     "display_index": 134,
+     "frame_id": "frame-134",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.1016,
+       "y": 0.5382
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4323,
+       "y": 0.375
+      }
+     ]
+    },
+    {
+     "t_us": 5999700,
+     "display_index": 144,
+     "frame_id": "frame-144",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.0911,
+       "y": 0.5382
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4453,
+       "y": 0.3924
+      }
+     ]
+    },
+    {
+     "t_us": 6439700,
+     "display_index": 155,
+     "frame_id": "frame-155",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.0885,
+       "y": 0.5382
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4661,
+       "y": 0.4549
+      }
+     ]
+    },
+    {
+     "t_us": 6839700,
+     "display_index": 165,
+     "frame_id": "frame-165",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.0833,
+       "y": 0.5451
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.5078,
+       "y": 0.5
+      }
+     ]
+    },
+    {
+     "t_us": 7279700,
+     "display_index": 176,
+     "frame_id": "frame-176",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.0781,
+       "y": 0.559
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.5365,
+       "y": 0.566
+      }
+     ]
+    },
+    {
+     "t_us": 7679700,
+     "display_index": 186,
+     "frame_id": "frame-186",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.0677,
+       "y": 0.5694
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.5677,
+       "y": 0.6146
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "incidents": [
+  {
+   "observation_ids": [
+    "cand-slump_false"
+   ],
+   "anchor_us": 3040000,
+   "inspections": [
+    "sim-0"
+   ],
+   "frames": [
+    {
+     "t_us": 1079700,
+     "display_index": 21,
+     "frame_id": "frame-21",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.3073,
+       "y": 0.4236
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.5156,
+       "y": 0.6076
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.4479,
+       "y": 0.7465
+      }
+     ]
+    },
+    {
+     "t_us": 1319700,
+     "display_index": 27,
+     "frame_id": "frame-27",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.2839,
+       "y": 0.4306
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4922,
+       "y": 0.5694
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.4844,
+       "y": 0.7674
+      }
+     ]
+    },
+    {
+     "t_us": 1559700,
+     "display_index": 33,
+     "frame_id": "frame-33",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.2708,
+       "y": 0.434
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4896,
+       "y": 0.5486
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.4974,
+       "y": 0.7743
+      }
+     ]
+    },
+    {
+     "t_us": 1799700,
+     "display_index": 39,
+     "frame_id": "frame-39",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.2578,
+       "y": 0.441
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4818,
+       "y": 0.5
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.5286,
+       "y": 0.8021
+      }
+     ]
+    },
+    {
+     "t_us": 2079700,
+     "display_index": 46,
+     "frame_id": "frame-46",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.2396,
+       "y": 0.4583
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4792,
+       "y": 0.4722
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.5495,
+       "y": 0.8438
+      }
+     ]
+    },
+    {
+     "t_us": 2319700,
+     "display_index": 52,
+     "frame_id": "frame-52",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.2214,
+       "y": 0.4653
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4766,
+       "y": 0.4444
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.5625,
+       "y": 0.8854
+      }
+     ]
+    },
+    {
+     "t_us": 2559700,
+     "display_index": 58,
+     "frame_id": "frame-58",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.2083,
+       "y": 0.4653
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4635,
+       "y": 0.4236
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.5703,
+       "y": 0.9236
+      }
+     ]
+    },
+    {
+     "t_us": 2799700,
+     "display_index": 64,
+     "frame_id": "frame-64",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.1953,
+       "y": 0.4722
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4531,
+       "y": 0.4062
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.5833,
+       "y": 0.9479
+      }
+     ]
+    },
+    {
+     "t_us": 3079700,
+     "display_index": 71,
+     "frame_id": "frame-71",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.1849,
+       "y": 0.4861
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4427,
+       "y": 0.4028
+      },
+      {
+       "id": "P2",
+       "posture": "standing",
+       "x": 0.6042,
+       "y": 0.9688
+      }
+     ]
+    },
+    {
+     "t_us": 3479700,
+     "display_index": 81,
+     "frame_id": "frame-81",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.1615,
+       "y": 0.4965
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4375,
+       "y": 0.3924
+      }
+     ]
+    },
+    {
+     "t_us": 3919700,
+     "display_index": 92,
+     "frame_id": "frame-92",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.1484,
+       "y": 0.5104
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4193,
+       "y": 0.3681
+      }
+     ]
+    },
+    {
+     "t_us": 4319700,
+     "display_index": 102,
+     "frame_id": "frame-102",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.138,
+       "y": 0.5278
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4297,
+       "y": 0.3576
+      }
+     ]
+    },
+    {
+     "t_us": 4759700,
+     "display_index": 113,
+     "frame_id": "frame-113",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.125,
+       "y": 0.5312
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4323,
+       "y": 0.3681
+      }
+     ]
+    },
+    {
+     "t_us": 5159700,
+     "display_index": 123,
+     "frame_id": "frame-123",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.112,
+       "y": 0.5382
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4323,
+       "y": 0.3681
+      }
+     ]
+    },
+    {
+     "t_us": 5599700,
+     "display_index": 134,
+     "frame_id": "frame-134",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.1016,
+       "y": 0.5382
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4323,
+       "y": 0.375
+      }
+     ]
+    },
+    {
+     "t_us": 5999700,
+     "display_index": 144,
+     "frame_id": "frame-144",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.0911,
+       "y": 0.5382
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4453,
+       "y": 0.3924
+      }
+     ]
+    },
+    {
+     "t_us": 6439700,
+     "display_index": 155,
+     "frame_id": "frame-155",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.0885,
+       "y": 0.5382
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.4661,
+       "y": 0.4549
+      }
+     ]
+    },
+    {
+     "t_us": 6839700,
+     "display_index": 165,
+     "frame_id": "frame-165",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.0833,
+       "y": 0.5451
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.5078,
+       "y": 0.5
+      }
+     ]
+    },
+    {
+     "t_us": 7279700,
+     "display_index": 176,
+     "frame_id": "frame-176",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.0781,
+       "y": 0.559
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.5365,
+       "y": 0.566
+      }
+     ]
+    },
+    {
+     "t_us": 7679700,
+     "display_index": 186,
+     "frame_id": "frame-186",
+     "persons": [
+      {
+       "id": "P0",
+       "posture": "standing",
+       "x": 0.0677,
+       "y": 0.5694
+      },
+      {
+       "id": "P1",
+       "posture": "standing",
+       "x": 0.5677,
+       "y": 0.6146
+      }
+     ]
+    }
+   ],
+   "person": "P0",
+   "sequence": [
+    {
+     "t_us": 1079700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 1319700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 1559700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 1799700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 2079700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 2319700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 2559700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 2799700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 3079700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 3479700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 3919700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 4319700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 4759700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 5159700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 5599700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 5999700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 6439700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 6839700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 7279700,
+     "posture": "standing",
+     "source": "probe"
+    },
+    {
+     "t_us": 7679700,
+     "posture": "standing",
+     "source": "probe"
+    }
+   ],
+   "status": "to_review",
+   "reason": "upright_throughout",
+   "span_us": [
+    3040000,
+    7679700
+   ]
+  }
+ ]
 }

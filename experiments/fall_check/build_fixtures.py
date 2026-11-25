@@ -1,23 +1,23 @@
-"""Build simulated posture-probe outputs (fixtures/) from labels.json, the CAVIAR XML and the videos' own PTS.
+"""Record what a correct posture probe would answer for each labelled case (fixtures/), by running the real
+floor_check.check() against a simulated Perception built from labels.json, the CAVIAR XML and the videos' PTS.
 
     .venv/bin/python experiments/fall_check/build_fixtures.py
 
-For each case: the 20 probe times of rules.json around the 'after' frame, the first decoded frame at or after each
-time, and for every person box in the XML at that frame (bags and other objects excluded): an opaque id, the labelled
-posture and the box centre as (x, y) in [0, 1]. This is what a correct probe answer would contain. The fixtures are
-committed, so the tests run without the source videos.
+Each fixture holds the candidate anchor, the expected facts (written in labels.json before any run) and the
+transcript of every probe and follow-up call: requested times and the answer (per frame, each person with an
+opaque id, the labelled posture and the XML box centre as x, y in [0, 1]). Bags and other objects are excluded.
+When the XML stops before the video (Rest_WiggleOnFloor), the person's last XML position is held. The tests
+replay these transcripts without the source videos.
 """
 import json
 from pathlib import Path
 
+from security_augmented import floor_check
 from security_augmented.annotations import parse_annotations
 from security_augmented.video import ingest
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
-import sys
-sys.path.insert(0, str(HERE))
-from decision import probe_times  # noqa: E402
 
 
 def posture(segments, t):
@@ -27,43 +27,67 @@ def posture(segments, t):
     raise ValueError(f"no label at {t}")
 
 
-def build(name, case):
-    v = ingest(ROOT / "data/raw" / case["video"])
-    tb = v.time_base_num / v.time_base_den
-    pts = [(p - v.first_display_pts) * tb for p in v.frame_pts]
+def simulator(case):
+    video = ingest(ROOT / "data/raw" / case["video"])
+    tb = video.time_base_num / video.time_base_den
+    pts_us = [round((p - video.first_display_pts) * tb * 1_000_000) for p in video.frame_pts]
     frames = {f.number: f for f in parse_annotations(ROOT / "data/annotations" / case["xml"]).frames}
-    t_before, t_after = case["pair"]
-    out, focal_at_after = [], None
-    for t in probe_times(t_after):
-        n = next(i for i, p in enumerate(pts) if p >= t - 1e-6)
-        persons = []
+    focal, held = case["focal"], None
+    transcript = []
+
+    def boxes(n):
+        out = {}
         for o in (frames[n].objects if n in frames else ()):
             role = " ".join(text for h in o.hypotheses for tag, text, _ in h.fields if tag == "role")
-            if "object" in role:
-                continue
-            label = posture(case["segments"][o.id], pts[n]) if o.id in case["segments"] else case["others"]
-            p = {"id": f"P{o.id}", "posture": label}
-            if label != "not_visible":
-                p.update(x=round(o.box.xc / v.width, 4), y=round(o.box.yc / v.height, 4))
-            persons.append(p)
-        out.append({"t": round(pts[n], 4), "frame": n, "persons": persons})
-    after = min(out, key=lambda f: abs(f["t"] - t_after))
-    focal = next((p for p in after["persons"] if p["id"] == f"P{case['focal']}" and "x" in p), None)
-    if focal is None:  # focal not located at the after frame: take its nearest located frame
-        located = [(abs(f["t"] - t_after), p) for f in out for p in f["persons"] if p["id"] == f"P{case['focal']}" and "x" in p]
-        focal = min(located, key=lambda e: e[0])[1]
-    return {"case": name, "video": case["video"], "video_sha256": v.sha256 if hasattr(v, "sha256") else None,
-            "candidate": {"t_before": t_before, "t_after": t_after, "x": focal["x"], "y": focal["y"]},
-            "expected": case["expected"], "probe": {"aspect": round(v.height / v.width, 4), "frames": out}}
+            if "object" not in role:
+                out[o.id] = (round(o.box.xc / video.width, 4), round(o.box.yc / video.height, 4))
+        return out
+
+    def ask(times_us, phase):
+        nonlocal held
+        answer = []
+        for t in times_us:
+            n = next(i for i, p in enumerate(pts_us) if p >= t)
+            t_frame = pts_us[n] / 1_000_000
+            present = boxes(n)
+            if focal in present:
+                held = present[focal]
+            elif held is not None and n not in frames:  # XML ended: keep the last position of the focal person
+                present[focal] = held
+            persons = []
+            for oid, (x, y) in sorted(present.items()):
+                label = posture(case["segments"][oid], t_frame) if oid in case["segments"] else case["others"]
+                if label != "not_visible":
+                    persons.append({"id": f"P{oid}", "posture": label, "x": x, "y": y})
+            answer.append({"t_us": pts_us[n], "display_index": n, "frame_id": f"frame-{n}", "persons": persons})
+        answer = list({f["display_index"]: f for f in answer}.values())  # same frame requested twice
+        inspection_id = f"sim-{len(transcript)}"
+        transcript.append({"phase": phase, "times_us": list(times_us), "inspection_id": inspection_id, "frames": answer})
+        return inspection_id, answer
+
+    return video, ask, transcript
+
+
+def build(name, case):
+    video, ask, transcript = simulator(case)
+    anchor = round(case["anchor_s"] * 1_000_000)
+    incidents = floor_check.check([(f"cand-{name}", anchor)], ask, duration_us=video.duration_us,
+                                  aspect=video.height / video.width)
+    return {"case": name, "video": case["video"], "video_sha256": video.sha256, "duration_us": video.duration_us,
+            "aspect": round(video.height / video.width, 4), "anchor_us": anchor, "expected": case["expected_facts"],
+            "transcript": transcript, "incidents": incidents}
 
 
 def main():
     labels = json.loads((HERE / "labels.json").read_text())
-    (HERE / "fixtures").mkdir(exist_ok=True)
+    out = HERE / "fixtures"
+    for old in out.glob("*.json"):
+        old.unlink()
     for name, case in labels["cases"].items():
         fx = build(name, case)
-        (HERE / "fixtures" / f"{name}.json").write_text(json.dumps(fx, indent=1) + "\n")
-        print(name, len(fx["probe"]["frames"]), "frames", fx["probe"]["frames"][0]["t"], "->", fx["probe"]["frames"][-1]["t"])
+        (out / f"{name}.json").write_text(json.dumps(fx, indent=1) + "\n")
+        i = fx["incidents"][0]
+        print(f"{name:26s} calls={len(fx['transcript'])} status={i['status']:12s} reason={i.get('reason')}")
 
 
 if __name__ == "__main__":

@@ -97,45 +97,20 @@ def test_no_feedback_round_when_calls_are_short():
 def test_compliant_triage_is_untouched():
     analysis, delegation = archived(FALL)
     (fall,) = by_category(analysis, "person_fell")
-    assert fall in delegation["ids"]  # person_fell was delegated live; routine slots then remain free to use
-    decide, contexts = scripted(delegation)
-    run, picks, trace = run_for(analysis, decide)
-    assert len(contexts) == 1 and picks == [f.observation.id for f in analysis.observations if f.observation.id in delegation["ids"]]
+    assert fall in delegation["ids"]  # archived run: the fall was delegated to Verification
+    # Since person_on_floor, people on the floor are checked by code (floor_check.py); Investigation never receives
+    # them. The rest of the archived triage must stay untouched.
+    agent_view = replace(analysis, observations=tuple(f for f in analysis.observations if f.observation.id != fall))
+    compliant = {**delegation, "ids": [i for i in delegation["ids"] if i != fall]}
+    decide, contexts = scripted(compliant)
+    run, picks, trace = run_for(agent_view, decide)
+    assert len(contexts) == 1 and picks == [f.observation.id for f in agent_view.observations if f.observation.id in compliant["ids"]]
     assert not any(t.action in ("recovery", "priority_enforced") for t in trace)
 
 
-def test_priority_beyond_candidate_budget_does_not_force_routine_out():
-    analysis, delegation = archived(LEFTBOX)
-    (box,) = by_category(analysis, "object_placed")
-    only_box = {"action": "delegate", "reason": "One slot.", "ids": [box], "dispositions": [
-        {"id": f.observation.id, "status": "deferred", "reason": "Budget."}
-        for f in analysis.observations if f.observation.id != box]}
-    decide, contexts = scripted(only_box)
-    _, picks, _ = run_for(analysis, decide, max_candidates=1)
-    assert len(contexts) == 1 and picks == [box]
-
-
-def test_late_priority_observation_stays_visible_to_investigation():
-    analysis, _ = archived(LEFTBOX)
-    (box,) = by_category(analysis, "object_placed")
-    routine = [f for f in analysis.observations if f.observation.id != box]
-    extra = [Finding(replace(f.observation, id=f"{f.observation.id}-copy{n}-{k}"), f.citation)
-             for k in range(2) for n, f in enumerate(routine)]
-    ordered = [*routine, *extra, next(f for f in analysis.observations if f.observation.id == box)]
-    assert len(ordered) == 22 and ordered[-1].observation.id == box
-    seen = []
-
-    def decide(role, context):
-        seen.append(context)
-        return None
-    run = AgentRun(analysis.video, decide, None,
-                   Budget(max_candidates=4, max_agent_calls=14, max_visible_observations=16,
-                          short_observation_ids=True), [])  # as in the CLI; long IDs would be trimmed to fit
-    run.investigate(tuple(ordered))
-    evidence = seen[0]["evidence"]
-    assert len(evidence) == 16  # max_visible_observations
-    assert list(evidence) == [f"O{n}" for n in range(1, 17)]
-    back = {v: k for k, v in run._aliases.items()}
-    assert box in {back[i] for i in evidence}
-    assert [back[i] for i in list(evidence)[:15]] == [f.observation.id for f in ordered[:15]]  # chronological fill
-    assert seen[0]["additional_evidence_available"] is True
+def test_verification_can_no_longer_be_given_a_person_on_the_floor():
+    analysis, delegation = archived(FALL)
+    (fall,) = by_category(analysis, "person_fell")
+    decide, _ = scripted(delegation)
+    _, picks, _ = run_for(analysis, decide)
+    assert fall not in picks

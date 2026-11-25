@@ -16,10 +16,10 @@ from pydantic import TypeAdapter
 
 from .contracts import VideoError
 from .video import _decode, _run, ingest
-from .workflow import PERCEPTION_CATEGORIES, PRIORITY_LABELS, ROUTINE_LABELS, Analysis
+from .workflow import PERCEPTION_CATEGORIES, READ_PRIORITY_LABELS as PRIORITY_LABELS, ROUTINE_LABELS, Analysis
 
 TITLES = {
-    "person_fell": "Person down", "object_placed": "Object left", "object_removed": "Object taken",
+    "person_on_floor": "Person on the floor", "person_fell": "Person down", "object_placed": "Object left", "object_removed": "Object taken",
     "person_enters_area": "Person entered an area", "object_appeared": "Object appeared",
     "object_disappeared": "Object disappeared", "person_moved": "Person walking",
     "person_appeared": "Person came into view", "insufficient_evidence": "Unclear activity",
@@ -30,6 +30,7 @@ def title(category):
     """Display title; an unexpected category degrades to readable text instead of failing the report."""
     return TITLES.get(category) or category.replace("_", " ").capitalize()
 QUESTIONS = {
+    "person_on_floor": "Is a person on the floor?",
     "person_fell": "Is a person lying on the floor?",
     "object_placed": "Was an object put down and left there?",
     "object_removed": "Was an object taken away?",
@@ -48,7 +49,7 @@ WHY = {
     "unclear_observation": "Possible, not confirmed: the video analysis suspects this but could not see it clearly.",
 }
 # Order used to choose the headline among confirmed security events.
-SEVERITY = ("person_fell", "object_placed", "object_removed", "person_enters_area",
+SEVERITY = ("person_on_floor", "person_fell", "object_placed", "object_removed", "person_enters_area",
             "object_appeared", "object_disappeared")
 _TECHNICAL = re.compile(r"\b(?:frame|observation|inspection|video|alert|relational-task)-[0-9a-f]{16,}\b|\b[0-9a-f]{40,}\b")
 _LABEL = re.compile(r"\b(?:(in|at|by|from|until|during|between|across|over|through) )?(?:frames?\s+)?F(\d+)(?:\s*(?:-|–|to|through|and)\s*F?(\d+))?\b")
@@ -208,6 +209,47 @@ def _images(triplet, problem):
     return f'<div class="strip">{"".join(cells)}</div>{note}'
 
 
+_POSTURE_CLASS = {"standing": "up", "bending": "mid", "kneeling": "mid", "sitting_on_seat": "seat",
+                  "sitting_on_floor": "floor", "lying_on_floor": "floor", "not_visible": "gone"}
+_POSTURE_TEXT = {"standing": "standing", "bending": "bending", "kneeling": "kneeling", "sitting_on_seat": "on a seat",
+                 "sitting_on_floor": "sitting on the floor", "lying_on_floor": "lying on the floor", "not_visible": "out of view"}
+
+
+def _posture_strip(sequence):
+    """SVG strip of the measured postures over time (standing, intermediate, on the floor, out of view)."""
+    if not sequence:
+        return ""
+    t0, t1 = sequence[0]["t_us"], sequence[-1]["t_us"]
+    width = max(t1 - t0, 1)
+    x = lambda t: round(1000 * (t - t0) / width, 2)
+    shapes = []
+    for k, s in enumerate(sequence):
+        end = sequence[k + 1]["t_us"] if k + 1 < len(sequence) else t1 + width // 50
+        shapes.append(f'<rect x="{x(s["t_us"])}" y="0" width="{max(x(end) - x(s["t_us"]), 2)}" height="18" '
+                      f'class="p-{_POSTURE_CLASS[s["posture"]]}"><title>{mmss(s["t_us"])} {_POSTURE_TEXT[s["posture"]]}</title></rect>')
+    legend = ('<span><i class="k p-up"></i>standing</span><span><i class="k p-mid"></i>bending or kneeling</span>'
+              '<span><i class="k p-floor"></i>on the floor</span><span><i class="k p-seat"></i>on a seat</span>'
+              '<span><i class="k p-gone"></i>out of view</span>')
+    return (f'<svg class="posture" viewBox="0 0 1000 18" preserveAspectRatio="none" role="img" aria-label="Measured postures">'
+            f'{"".join(shapes)}</svg><div class="axis"><span>{mmss(t0)}</span><span>{mmss(t1)}</span></div>'
+            f'<div class="legend">{legend}</div>')
+
+
+def _floor_images(thumbs, alert, sequence):
+    frames = [_Frame(f["display_index"], f["source_time_us"]) for f in alert["frames"]]
+    if not frames:
+        return ""
+    posture = {s["t_us"]: s["posture"] for s in sequence}
+    if thumbs.video is None:
+        cells = [(_POSTURE_TEXT.get(posture.get(f.source_time_us), "seen"), mmss(f.source_time_us), None) for f in frames]
+    else:
+        indices = tuple(sorted({f.display_index for f in frames}))
+        pixels = dict(zip(indices, _decode(thumbs.video, indices), strict=True))
+        cells = [(_POSTURE_TEXT.get(posture.get(f.source_time_us), "seen"), mmss(f.source_time_us),
+                  thumbs._jpeg(pixels[f.display_index])) for f in frames]
+    return _images(cells, thumbs.problem)
+
+
 def render(result):
     """HTML text for a saved CLI result (the dict written to analysis.json)."""
     analysis = TypeAdapter(Analysis).validate_python(result["analysis"])
@@ -224,10 +266,12 @@ def render(result):
         return _sentence(text, inspections.get(inspection_id))
 
     events = sorted(analysis.timeline, key=lambda e: e.interval.start_us)
-    security = [e for e in events if e.category in PRIORITY_LABELS]
+    security = [e for e in events if e.category in PRIORITY_LABELS and e.category != "person_on_floor"]
     routine = [e for e in events if e.category in ROUTINE_LABELS]
     queue = review_queue(analysis)
     alerts = queue["alerts"]
+    floor_alerts = queue.get("floor_alerts", [])
+    incidents = {tuple(i["observation_ids"]): i for i in (analysis.floor_incidents or ())}
     rows = timeline_rows(analysis, queue)
 
     # Header facts.
@@ -238,7 +282,13 @@ def render(result):
         (e.inference.elapsed_ms or 0) for e in analysis.evidence if e.inference is not None)
     model_time = f"{model_ms // 60000} min {model_ms // 1000 % 60:02d} s" if model_ms else "not recorded"
 
-    if security:
+    if floor_alerts:
+        earliest = min(floor_alerts, key=lambda a: a["interval"]["start_us"])
+        verified = earliest["status"] == "facts_verified"
+        headline = (f"Person on the floor at {mmss(earliest['interval']['start_us'])} "
+                    f"({'facts verified' if verified else 'to review'})")
+        tone = "confirmed" if verified else "review"
+    elif security:
         top = min(security, key=lambda e: (SEVERITY.index(e.category), e.interval.start_us))
         headline = f"{title(top.category)} at {mmss(top.interval.start_us)}"
         tone = "confirmed"
@@ -254,11 +304,29 @@ def render(result):
                 else f"The first {mmss(scanned)} of {mmss(duration)} were analysed")
     first = (f"{analysed}: {len(rows)} things were seen, {counts['verified']} verified and "
              f"{counts['needs review']} needing review.")
-    second = (f"Most important: {headline} (verified)." if tone == "confirmed" else
+    second = (f"Most important: {headline}." if floor_alerts else
+              f"Most important: {headline} (verified)." if tone == "confirmed" else
               f"Most important: {headline}." if tone == "review" else "No security event was seen.")
     parts = [f'<p class="headline {tone}">{html.escape(headline)}</p>',
              f'<p class="summary">{html.escape(first)} {html.escape(second)}</p>',
              "<h2>Coverage</h2>", _coverage_bar(analysis, duration)]
+
+    if floor_alerts or analysis.floor_incidents is not None:
+        parts.append("<h2>People on the floor</h2>")
+        parts.append('<p class="note">Measured facts from a close check (about 4 images per second) and a follow-up '
+                     '(1 image per second). "Facts verified" means these facts were checked; it does not say what '
+                     'happened. You judge.</p>')
+        if not floor_alerts:
+            parts.append('<p class="empty">Nobody on the floor was reported.</p>')
+    for alert in floor_alerts:
+        incident = next((i for ids, i in incidents.items() if alert["observation_id"] in ids), {})
+        sequence = incident.get("sequence", [])
+        verified = alert["status"] == "facts_verified"
+        parts.append(
+            f'<section class="card {"confirmed" if verified else "review"}"><h3>{mmss(alert["interval"]["start_us"])} · '
+            f'Person on the floor · {"facts verified" if verified else "to review"}</h3>'
+            + "".join(f"<p>{html.escape(line)}</p>" for line in alert["facts_en"])
+            + _posture_strip(sequence) + _floor_images(thumbs, alert, sequence) + "</section>")
 
     parts.append("<h2>Needs operator review</h2>")
     if not alerts:
@@ -347,6 +415,11 @@ figcaption {{ font-size:.85rem; color:var(--muted); margin-top:4px; }}
 .summary {{ margin:10px 0 0; }}
 .coverage {{ width:100%; height:34px; display:block; }} .coverage .analysed {{ fill:var(--line); }}
 .coverage .missing {{ fill:var(--muted); opacity:.55; }} .coverage .verified {{ fill:var(--ok); }}
+.posture {{ width:100%; height:22px; display:block; margin-top:8px; }}
+.p-up {{ fill:var(--ok); }} .p-mid {{ fill:var(--review); }} .p-floor {{ fill:var(--alert); }}
+.p-seat {{ fill:var(--muted); }} .p-gone {{ fill:var(--line); }}
+.k.p-up {{ background:var(--ok); }} .k.p-mid {{ background:var(--review); }} .k.p-floor {{ background:var(--alert); }}
+.k.p-seat {{ background:var(--muted); }} .k.p-gone {{ background:var(--line); }}
 .coverage .tick {{ stroke:var(--fg); stroke-width:1; vector-effect:non-scaling-stroke; opacity:.6; }}
 .axis {{ display:flex; justify-content:space-between; color:var(--muted); font-size:.85rem; }}
 .legend {{ display:flex; flex-wrap:wrap; gap:6px 16px; color:var(--muted); font-size:.85rem; margin-top:4px; }}

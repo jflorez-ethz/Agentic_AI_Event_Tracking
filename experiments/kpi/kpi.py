@@ -11,7 +11,9 @@ from pathlib import Path
 from statistics import median
 
 from security_augmented.annotations import parse_annotations
-from security_augmented.workflow import EVENT_LABELS, PRIORITY_LABELS
+# Read archived runs with the categories they were written with (person_fell is kept as a legacy label).
+from security_augmented.workflow import EVENT_LABELS as _CURRENT, LEGACY_LABELS, READ_PRIORITY_LABELS as PRIORITY_LABELS
+EVENT_LABELS = {**_CURRENT, **LEGACY_LABELS}
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]

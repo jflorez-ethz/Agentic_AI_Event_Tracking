@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "written": "2026-11-25, before any live run. Supersedes experiments/fall_check/rules.json (v1, person_fell): the system describes, it does not interpret.",
+  "event": "person_on_floor: a person sitting or lying on the floor, described by measured facts (how they reached the floor, posture, time on the floor, what happened next). The word 'fall' is never used.",
+  "vocabulary": ["standing", "bending", "kneeling", "sitting_on_seat", "sitting_on_floor", "lying_on_floor"],
+  "missing_person": "a person absent from a frame is recorded as not_visible",
+  "upright": ["standing"],
+  "on_floor": ["sitting_on_floor", "lying_on_floor"],
+  "kneeling_rule": "kneeling is never 'on the floor'. A candidate whose probe shows kneeling and no floor posture gives no alert; it is only described in the chronology.",
+  "probe": {
+    "anchor": "first cited frame of the person_on_floor observation (Perception is asked to cite the earliest frame first)",
+    "before": {"count": 8, "step_s": 0.25, "first_offset_s": -2.0},
+    "after": {"count": 12, "step_s": 0.42, "first_offset_s": 0.0},
+    "frame_choice": "first decoded frame at or after each requested time; times outside the video are dropped"
+  },
+  "followup": {
+    "when": "the person is still on the floor at the last frame of the previous call",
+    "first_offset_s": 1.0,
+    "step_s": 1.0,
+    "count": 20,
+    "max_per_incident": 3,
+    "link_max_distance": 0.15,
+    "link_rule": "in a follow-up call, the person is the one nearest to the last known position, within link_max_distance; otherwise not_visible"
+  },
+  "max_inspections_per_video": 6,
+  "min_floor_s": 2.0,
+  "max_floor_displacement": 0.10,
+  "displacement_unit": "fraction of the image width; vertical offsets use the frame's height/width ratio; measured over the first min_floor_s on the floor",
+  "max_glitch_frames_in_floor_run": 1,
+  "glitch_rule": "inside a floor run, at most one isolated frame that is neither upright nor on the floor is tolerated when a floor frame follows; a standing frame ends the run",
+  "near_candidate_s": [-2.5, 1.0],
+  "near_rule": "the first floor frame must lie within this window around the anchor",
+  "merge_gap_s": 2.0,
+  "merge_rule": "a candidate whose anchor lies within merge_gap_s of an incident's observed span joins that incident instead of starting a new one",
+  "verified_rule": "facts verified = on the floor for at least min_floor_s, moving at most max_floor_displacement, AND (a standing frame observed before reaching the floor OR a follow-up call showing the person still on the floor). Otherwise: to review. Never dismissed.",
+  "statuses": ["verified", "to_review", "kneeling_only"],
+  "to_review_reasons": ["moving_on_floor", "floor_too_short", "not_corroborated", "not_near_candidate", "seated", "no_floor", "upright_throughout", "no_person", "probe_failed", "budget_exhausted"]
+}
