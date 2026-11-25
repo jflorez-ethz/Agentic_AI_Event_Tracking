@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "written": "2026-11-25. v3 (before any computation of these signals, before any counted live run): the code no longer decides 'facts verified'. It measures facts and shows objective doubt signals; every person on the floor goes to the guard. Supersedes v2's verified_rule.",
+  "version": 4,
+  "written": "2026-11-25. v3 (before any computation of these signals, before any counted live run): the code no longer decides 'facts verified'. It measures facts and shows objective doubt signals; every person on the floor goes to the guard. Supersedes v2's verified_rule. v4 (2026-11-25, after the offline computation of v3 on the 11 labelled cases and the 2 demo runs, which marked only 7/9 known false alerts): adds the no_floor_seen signal. It was written AFTER seeing those 15 results, so those cases cannot validate it; it must be confirmed on never-seen videos.",
   "event": "person_on_floor: a person sitting or lying on the floor, described by measured facts (how they reached the floor, posture, time on the floor, what happened next). The word 'fall' is never used.",
   "vocabulary": [
     "standing",
@@ -91,7 +91,8 @@
       "max_distance": 0.15,
       "text": "two or more persons within the link distance of the last known position in a follow-up frame"
     },
+    "no_floor_seen": "the close check shows nobody on the floor (added in v4 after seeing the offline results; to be confirmed on never-seen videos)",
     "no_close_check": "the close check failed or the video's check budget was used up"
   },
-  "criterion": "Written 2026-11-25 before computing: on the labelled cases (experiments/fall_check) and the two demo runs, 100 % of the known false alerts (nobody on the floor) are marked Look closely, and at most 1 of the 3 clear real falls (Rest_FallOnFloor, Rest_WiggleOnFloor, Fight_OneManDown) is marked. Also reported, not part of the criterion: the share of all cards marked; if almost every card is marked the badge is useless and this is reported before coding."
+  "criterion": "Written 2026-11-25 before computing: on the labelled cases (experiments/fall_check) and the two demo runs, 100 % of the known false alerts (nobody on the floor) are marked Look closely, and at most 1 of the 3 clear real falls (Rest_FallOnFloor, Rest_WiggleOnFloor, Fight_OneManDown) is marked. Also reported, not part of the criterion: the share of all cards marked; if almost every card is marked the badge is useless and this is reported before coding. v4: same criterion; on the 15 cases it can only be re-checked (they informed the rule), not validated."
 }
