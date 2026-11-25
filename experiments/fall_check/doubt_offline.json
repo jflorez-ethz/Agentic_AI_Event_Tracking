@@ -1,0 +1,189 @@
+[
+ {
+  "source": "sim",
+  "case": "fall_true",
+  "truth": "clear_real",
+  "first_look": "claimed",
+  "floor_seen": true,
+  "look_closely": false,
+  "signals": []
+ },
+ {
+  "source": "sim",
+  "case": "wiggle_true",
+  "truth": "clear_real",
+  "first_look": "claimed",
+  "floor_seen": true,
+  "look_closely": false,
+  "signals": []
+ },
+ {
+  "source": "sim",
+  "case": "fight_true",
+  "truth": "clear_real",
+  "first_look": "claimed",
+  "floor_seen": true,
+  "look_closely": false,
+  "signals": []
+ },
+ {
+  "source": "sim",
+  "case": "slump_false",
+  "truth": "false_alert",
+  "first_look": "claimed",
+  "floor_seen": false,
+  "look_closely": true,
+  "signals": [
+   [
+    "disagreement",
+    "first look: on the floor; close check: nobody on the floor"
+   ],
+   [
+    "seat_nearby",
+    "seat next to the person (simulated answer)"
+   ]
+  ]
+ },
+ {
+  "source": "sim",
+  "case": "slump_true_slow",
+  "truth": "real_unclear",
+  "first_look": "claimed",
+  "floor_seen": true,
+  "look_closely": true,
+  "signals": [
+   [
+    "arrival_not_seen",
+    "not_seen_upright"
+   ]
+  ]
+ },
+ {
+  "source": "sim",
+  "case": "inchair_seat",
+  "truth": "false_alert",
+  "first_look": "claimed",
+  "floor_seen": false,
+  "look_closely": true,
+  "signals": [
+   [
+    "disagreement",
+    "first look: on the floor; close check: nobody on the floor"
+   ],
+   [
+    "seat_nearby",
+    "sitting_on_seat at [19.56, 19.96, 20.4, 20.8, 21.24, 21.64, 22.08, 22.48, 22.92, 23.32, 23.76, 24.16]"
+   ]
+  ]
+ },
+ {
+  "source": "sim",
+  "case": "browse1_edge",
+  "truth": "false_alert",
+  "first_look": "suspected",
+  "floor_seen": false,
+  "look_closely": false,
+  "signals": []
+ },
+ {
+  "source": "sim",
+  "case": "leftbag_set_down_pick_up",
+  "truth": "false_alert",
+  "first_look": "claimed",
+  "floor_seen": false,
+  "look_closely": true,
+  "signals": [
+   [
+    "disagreement",
+    "first look: on the floor; close check: nobody on the floor"
+   ]
+  ]
+ },
+ {
+  "source": "sim",
+  "case": "leftbag_place",
+  "truth": "false_alert",
+  "first_look": "claimed",
+  "floor_seen": false,
+  "look_closely": true,
+  "signals": [
+   [
+    "disagreement",
+    "first look: on the floor; close check: nobody on the floor"
+   ]
+  ]
+ },
+ {
+  "source": "sim",
+  "case": "pickedup_place",
+  "truth": "false_alert",
+  "first_look": "claimed",
+  "floor_seen": false,
+  "look_closely": true,
+  "signals": [
+   [
+    "disagreement",
+    "first look: on the floor; close check: nobody on the floor"
+   ]
+  ]
+ },
+ {
+  "source": "sim",
+  "case": "pickedup_pick",
+  "truth": "false_alert",
+  "first_look": "claimed",
+  "floor_seen": false,
+  "look_closely": true,
+  "signals": [
+   [
+    "disagreement",
+    "first look: on the floor; close check: nobody on the floor"
+   ]
+  ]
+ },
+ {
+  "source": "live",
+  "case": "Rest_FallOnFloor@11.5s",
+  "truth": "false_alert",
+  "first_look": "suspected",
+  "floor_seen": false,
+  "look_closely": false,
+  "signals": []
+ },
+ {
+  "source": "live",
+  "case": "Rest_FallOnFloor@27.5s",
+  "truth": "clear_real",
+  "first_look": "claimed",
+  "floor_seen": true,
+  "look_closely": false,
+  "signals": []
+ },
+ {
+  "source": "live",
+  "case": "Rest_SlumpOnFloor@4.0s",
+  "truth": "false_alert",
+  "first_look": "claimed",
+  "floor_seen": false,
+  "look_closely": true,
+  "signals": [
+   [
+    "disagreement",
+    "first look: on the floor; close check: nobody on the floor"
+   ],
+   [
+    "seat_nearby",
+    "sitting_on_seat at [3.8, 4.04]"
+   ]
+  ]
+ },
+ {
+  "source": "live",
+  "case": "Rest_SlumpOnFloor@26.0s",
+  "truth": "real_unclear",
+  "first_look": "claimed",
+  "floor_seen": true,
+  "look_closely": false,
+  "signals": []
+ }
+]
