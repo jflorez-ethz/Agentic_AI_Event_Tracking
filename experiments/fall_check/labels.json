@@ -75,7 +75,8 @@
         ],
         "outcome": "stood_up"
       },
-      "anchor_s": 28.04
+      "anchor_s": 28.04,
+      "seat_nearby_focal": false
     },
     "wiggle_true": {
       "video": "Rest_WiggleOnFloor_pts.mkv",
@@ -152,7 +153,8 @@
         "outcome": "stood_up"
       },
       "anchor_s": 29.0,
-      "expected_correction": "2026-11-25, after the first build: the written expectation omitted the second sitting phase (48.25-49.75 s) that these labels contain; the code's description was right."
+      "expected_correction": "2026-11-25, after the first build: the written expectation omitted the second sitting phase (48.25-49.75 s) that these labels contain; the code's description was right.",
+      "seat_nearby_focal": false
     },
     "fight_true": {
       "video": "Fight_OneManDown.mpg",
@@ -214,7 +216,8 @@
         ],
         "outcome": "stood_up"
       },
-      "anchor_s": 14.52
+      "anchor_s": 14.52,
+      "seat_nearby_focal": false
     },
     "slump_false": {
       "video": "Rest_SlumpOnFloor.mpg",
@@ -240,7 +243,8 @@
         "status": "to_review",
         "reason": "upright_throughout"
       },
-      "anchor_s": 3.04
+      "anchor_s": 3.04,
+      "seat_nearby_focal": true
     },
     "slump_true_slow": {
       "video": "Rest_SlumpOnFloor.mpg",
@@ -301,7 +305,8 @@
         ],
         "outcome": "stood_up"
       },
-      "anchor_s": 27.52
+      "anchor_s": 27.52,
+      "seat_nearby_focal": false
     },
     "inchair_seat": {
       "video": "Rest_InChair.mpg",
@@ -338,7 +343,8 @@
         "reason": "seated"
       },
       "anchor_s": 19.52,
-      "expected_correction": "2026-11-25: a person_on_floor claim that cannot be verified is always an alert to review (watch-list level 1), even when the close check shows a seat."
+      "expected_correction": "2026-11-25: a person_on_floor claim that cannot be verified is always an alert to review (watch-list level 1), even when the close check shows a seat.",
+      "seat_nearby_focal": true
     },
     "browse1_edge": {
       "video": "Browse1.mpg",
@@ -369,7 +375,8 @@
         "status": "to_review",
         "reason": "upright_throughout"
       },
-      "anchor_s": 8.52
+      "anchor_s": 8.52,
+      "seat_nearby_focal": false
     },
     "leftbag_set_down_pick_up": {
       "video": "LeftBag.mpg",
@@ -415,7 +422,8 @@
         "status": "to_review",
         "reason": "no_floor"
       },
-      "anchor_s": 3.52
+      "anchor_s": 3.52,
+      "seat_nearby_focal": false
     },
     "leftbag_place": {
       "video": "LeftBag.mpg",
@@ -451,7 +459,8 @@
         "status": "to_review",
         "reason": "no_floor"
       },
-      "anchor_s": 38.04
+      "anchor_s": 38.04,
+      "seat_nearby_focal": false
     },
     "pickedup_place": {
       "video": "LeftBag_PickedUp.mpg",
@@ -487,7 +496,8 @@
         "status": "to_review",
         "reason": "no_floor"
       },
-      "anchor_s": 20.76
+      "anchor_s": 20.76,
+      "seat_nearby_focal": false
     },
     "pickedup_pick": {
       "video": "LeftBag_PickedUp.mpg",
@@ -523,7 +533,9 @@
         "status": "to_review",
         "reason": "no_floor"
       },
-      "anchor_s": 40.76
+      "anchor_s": 40.76,
+      "seat_nearby_focal": false
     }
-  }
+  },
+  "seat_nearby_rule": "2026-11-25, written before computing doubt signals, from the labelling sheets: true when a chair, bench or armchair touches the focal person in the probe window (Slump 0-8 s: the grey walker passes the armchairs and the stool; Rest_InChair: the person sits in an armchair). The dark kiosk next to the Slump real slump is not a seat. Other people get false."
 }

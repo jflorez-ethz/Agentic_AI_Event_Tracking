@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "written": "2026-11-25, before any live run. Supersedes experiments/fall_check/rules.json (v1, person_fell): the system describes, it does not interpret.",
+  "version": 3,
+  "written": "2026-11-25. v3 (before any computation of these signals, before any counted live run): the code no longer decides 'facts verified'. It measures facts and shows objective doubt signals; every person on the floor goes to the guard. Supersedes v2's verified_rule.",
   "event": "person_on_floor: a person sitting or lying on the floor, described by measured facts (how they reached the floor, posture, time on the floor, what happened next). The word 'fall' is never used.",
   "vocabulary": [
     "standing",
@@ -55,23 +55,43 @@
   "near_rule": "the first floor frame must lie within this window around the anchor",
   "merge_gap_s": 2.0,
   "merge_rule": "a candidate whose anchor lies within merge_gap_s of the time an incident's person was seen on the floor joins that incident; a candidate near a check that found nobody on the floor gets its own check",
-  "verified_rule": "facts verified = on the floor for at least min_floor_s, moving at most max_floor_displacement, AND (a standing frame observed before reaching the floor OR a follow-up call showing the person still on the floor). Otherwise: to review. Never dismissed.",
   "statuses": [
-    "verified",
-    "to_review"
+    "look_closely",
+    "no_doubt_signal"
   ],
-  "to_review_reasons": [
-    "moving_on_floor",
-    "floor_too_short",
-    "not_corroborated",
-    "not_near_candidate",
-    "kneeling",
-    "seated",
-    "no_floor",
-    "upright_throughout",
-    "no_person",
-    "probe_failed",
-    "budget_exhausted"
-  ],
-  "watch_list": "docs/watch-list.md (draft A1): a person_on_floor claim is level 1. If its facts cannot be verified it is always an alert to review, with what the close check saw, including kneeling or a seat. Level 3 (kneeling, sitting on a seat) applies only to postures never reported as on the floor. Updated 2026-11-25, before any counted live run (only two demo runs, not counted)."
+  "watch_list": "docs/watch-list.md (draft A1): a person_on_floor claim is level 1. If its facts cannot be verified it is always an alert to review, with what the close check saw, including kneeling or a seat. Level 3 (kneeling, sitting on a seat) applies only to postures never reported as on the floor. Updated 2026-11-25, before any counted live run (only two demo runs, not counted).",
+  "vocabulary_probe_fields": "per person: id, posture (vocabulary), x, y (centre), w, h (approximate box as fractions of the image width and height), seat_nearby (true when a chair, bench or other seat touches or is right next to the person)",
+  "doubt_signals": {
+    "rule": "Thresholds only decide whether a signal is shown. Any shown signal marks the card 'Look closely'. No score, no decision: every person on the floor goes to the guard.",
+    "disagreement": "the first look reported person_on_floor but the close check shows nobody on the floor; or the first look only suspected it (insufficient_evidence with possible_category) while the close check shows someone on the floor",
+    "few_floor_frames": {
+      "min_frames": 4,
+      "text": "fewer than 4 close-check frames on the floor"
+    },
+    "short_floor": {
+      "min_s": 2.0,
+      "text": "on the floor less than 2 s (the run ends while the person is visible and not on the floor)"
+    },
+    "arrival_not_seen": "the person was not seen standing before being on the floor",
+    "small_person": {
+      "max_height_px": 30,
+      "text": "person under 30 px tall (median of the person's box heights on the floor frames)"
+    },
+    "image_edge": {
+      "max_px": 8,
+      "text": "box within 8 px of the image border on any floor frame"
+    },
+    "moving_on_floor": {
+      "max_displacement": 0.1,
+      "text": "moves more than 10 % of the image width during the first 2 s on the floor"
+    },
+    "seat_nearby": "seat_nearby true on any floor frame, or a sitting_on_seat answer for the person in the close check",
+    "posture_flicker": "back and forth between floor and not-floor postures (floor, then not floor, then floor again), excluding out of view",
+    "identity_uncertain": {
+      "max_distance": 0.15,
+      "text": "two or more persons within the link distance of the last known position in a follow-up frame"
+    },
+    "no_close_check": "the close check failed or the video's check budget was used up"
+  },
+  "criterion": "Written 2026-11-25 before computing: on the labelled cases (experiments/fall_check) and the two demo runs, 100 % of the known false alerts (nobody on the floor) are marked Look closely, and at most 1 of the 3 clear real falls (Rest_FallOnFloor, Rest_WiggleOnFloor, Fight_OneManDown) is marked. Also reported, not part of the criterion: the share of all cards marked; if almost every card is marked the badge is useless and this is reported before coding."
 }
