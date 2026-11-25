@@ -878,10 +878,10 @@ class AgentRun:
         for i, record in list(dispositions.items()):
             if i in displaced:
                 dispositions[i] = {"id": i, "status": "deferred",
-                                   "reason": "Displaced by the runtime security-priority rule."}
+                                   "reason": "Displaced by the runtime watch-list priority rule."}
             elif record["status"] == "associated" and record["candidate_id"] in displaced:
                 dispositions[i] = {"id": i, "status": "deferred",
-                                   "reason": "Its delegated candidate was displaced by the runtime security-priority rule."}
+                                   "reason": "Its delegated candidate was displaced by the runtime watch-list priority rule."}
         self.log("investigation", "priority_enforced", "Runtime displaced routine candidates for priority ones.",
                  tuple(kept), details={"delegated": kept, "displaced": displaced,
                                        "dropped_relational_tasks": len(violation.tasks) - len(tasks)})

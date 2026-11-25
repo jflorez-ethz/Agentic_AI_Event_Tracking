@@ -81,7 +81,7 @@ def test_repeated_violation_is_enforced_without_losing_checks():
     displaced = [i for i in delegation["ids"] if i not in picks]
     assert len(displaced) == 1
     assert run.dispositions[displaced[0]] == {
-        "id": displaced[0], "status": "deferred", "reason": "Displaced by the runtime security-priority rule."}
+        "id": displaced[0], "status": "deferred", "reason": "Displaced by the runtime watch-list priority rule."}
     (enforced,) = [t for t in trace if t.action == "priority_enforced"]
     assert enforced.details["displaced"] == displaced
 

@@ -293,10 +293,11 @@ def render(result):
         headline = f"{title(top.category)} at {mmss(top.interval.start_us)}"
         tone = "confirmed"
     elif alerts:
-        headline = f"{len(alerts)} possible security event{'s' if len(alerts) > 1 else ''} need{'' if len(alerts) > 1 else 's'} review"
+        headline = (f"{len(alerts)} possible watch-list event{'s' if len(alerts) > 1 else ''} "
+                    f"need{'' if len(alerts) > 1 else 's'} guard review")
         tone = "review"
     else:
-        headline = "No security event found in the analysed part of the video"
+        headline = "No watch-list event found in the analysed part of the video"
         tone = "clear"
 
     counts = {status: sum(r["status"] == status for r in rows) for status in STATUS_ORDER}
@@ -306,7 +307,7 @@ def render(result):
              f"{counts['needs review']} needing review.")
     second = (f"Most important: {headline}." if floor_alerts else
               f"Most important: {headline} (verified)." if tone == "confirmed" else
-              f"Most important: {headline}." if tone == "review" else "No security event was seen.")
+              f"Most important: {headline}." if tone == "review" else "No watch-list event was seen.")
     parts = [f'<p class="headline {tone}">{html.escape(headline)}</p>',
              f'<p class="summary">{html.escape(first)} {html.escape(second)}</p>',
              "<h2>Coverage</h2>", _coverage_bar(analysis, duration)]
@@ -328,7 +329,7 @@ def render(result):
             + "".join(f"<p>{html.escape(line)}</p>" for line in alert["facts_en"])
             + _posture_strip(sequence) + _floor_images(thumbs, alert, sequence) + "</section>")
 
-    parts.append("<h2>Needs operator review</h2>")
+    parts.append("<h2>Needs guard review</h2>")
     if not alerts:
         parts.append('<p class="empty">Nothing to review.</p>')
     for alert in alerts:
@@ -342,7 +343,7 @@ def render(result):
             + (f"<p>{html.escape(what)}</p>" if what else "")
             + f'<p class="why">{html.escape(why)}</p>{_images(thumbs.triplet(frames), thumbs.problem)}</section>')
 
-    parts.append("<h2>Confirmed security events</h2>")
+    parts.append("<h2>Watch-list events — facts verified</h2>")
     if not security:
         parts.append('<p class="empty">None.</p>')
     for event in security:
@@ -367,7 +368,7 @@ def render(result):
             notes.append(f"possibly: {title(possibly).lower()}")
         if row["category"] in ("person_enters_area",) and status != "verified":
             notes.append("entry or exit cannot be confirmed: no zone is configured")
-        tag = '<span class="tag sec">Security</span> ' if row["security"] else ""
+        tag = '<span class="tag sec">Watch-list event</span> ' if row["security"] else ""
         lines.append(
             f'<li class="row {"security" if row["security"] else "routine"} {status.replace(", ", "-").replace(" ", "-")}">'
             f'<span class="when">{span(row["start_us"], row["end_us"])}</span>'
@@ -390,7 +391,7 @@ def render(result):
     name = html.escape(Path(video.source_path).name)
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Security report: {name}</title>
+<title>Guard report: {name}</title>
 <style>
 :root {{ --bg:#ffffff; --fg:#1d1d1f; --muted:#5f6368; --line:#e3e3e8; --card:#f7f7f9;
         --review:#b45309; --review-bg:#fff4e5; --ok:#15803d; --ok-bg:#ecfdf3; --alert:#b91c1c; --alert-bg:#fdecec; }}

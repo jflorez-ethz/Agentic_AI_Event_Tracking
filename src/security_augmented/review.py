@@ -203,12 +203,12 @@ def _span(interval):
 def render(result):
     """Plain-language operator section placed before the confirmed findings."""
     alerts = result["alerts"]
-    lines = [f"## Alertes à vérifier ({len(alerts)})", ""]
+    lines = [f"## À vérifier par le garde ({len(alerts)})", ""]
     if not alerts:
-        lines += ["Aucune alerte de sécurité non confirmée.", ""]
+        lines += ["Aucun événement de la watch-list à vérifier.", ""]
     else:
-        lines += ["Observations de sécurité non confirmées par la vérification automatique. "
-                  "Elles ne comptent pas comme événements confirmés ; un opérateur doit trancher.", ""]
+        lines += ["Événements de la watch-list non confirmés par la vérification automatique. "
+                  "Ils ne comptent pas comme faits vérifiés ; le garde tranche.", ""]
     for number, alert in enumerate(alerts, 1):
         why = _WHY.get(alert["reason_code"], _WHY.get(alert["reason_code"].split("/")[0], alert["reason_code"]))
         model = f" Raison enregistrée : « {alert['model_reason']} »"

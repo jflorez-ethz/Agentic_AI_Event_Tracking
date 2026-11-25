@@ -72,3 +72,23 @@ def test_level_1_person_on_the_floor_is_always_an_alert():
     for reason in ("upright_throughout", "probe_failed", "budget_exhausted", "not_corroborated"):
         incident = {"status": "to_review", "reason": reason, "anchor_us": 1}
         assert floor_check.alerting([incident]) == [incident]
+
+
+def test_reports_use_watch_list_wording_never_security(tmp_path):
+    """report.html and report.md say 'watch-list' and 'guard review'; 'security' stays in code only."""
+    import re
+
+    from security_augmented import guard_report
+    from security_augmented.review import render
+
+    for run in ("leftbox_live.qyrM8F/run", "fall_live.spFaYl/run", "Walk2_live.m2MsOp"):
+        result = json.loads((ROOT / "experiments" / run / "analysis.json").read_text()) if (ROOT / "experiments" / run / "analysis.json").exists() \
+            else json.loads((ROOT / "experiments" / run / "run/analysis.json").read_text())
+        page = guard_report.render(result)
+        visible = re.sub(r"<style>.*?</style>|<[^>]+>|class=\"[^\"]*\"", " ", page, flags=re.S)
+        assert not re.search(r"security", visible, re.I), run
+        assert "Needs guard review" in page and "Watch-list events — facts verified" in page
+    page = guard_report.render(json.loads((ROOT / "experiments/leftbox_live.HwKyEx/run/analysis.json").read_text()))
+    assert '<span class="tag sec">Watch-list event</span>' in page
+    md = render({"alerts": [], "not_alerted": []})
+    assert md.startswith("## À vérifier par le garde (0)") and "sécurité" not in md

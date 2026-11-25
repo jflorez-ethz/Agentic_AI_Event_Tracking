@@ -134,6 +134,6 @@ def test_guard_report_shows_a_possible_event():
     from dataclasses import asdict
     data["analysis"] = json.loads(json.dumps(asdict(replace(analysis, review=None)), default=str))
     page = guard_report.render(data)
-    assert "1 possible security event needs review" in page
+    assert "1 possible watch-list event needs guard review" in page
     assert "Possible: Object taken" in page and "Was an object taken away?" in page
     assert "possibly: object taken" in page

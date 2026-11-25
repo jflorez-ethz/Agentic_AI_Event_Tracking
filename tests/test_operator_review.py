@@ -35,7 +35,7 @@ def test_leftbox_box_is_an_alert_with_short_frame_selection_and_no_routine_alert
     assert result["counts"] == {"needs_review": 1, "supported_security": 0, "unclear": 0,
                                 "not_alerted": {"zone_undefined": 0, "contradicted": 0}}
     text = render(result)
-    assert text.startswith("## Alertes à vérifier (1)")
+    assert text.startswith("## À vérifier par le garde (1)")
     assert "Objet déposé" in text and "6 sur 20 images citées" in text and "Question :" in text
 
 
@@ -122,8 +122,8 @@ def test_end_to_end_report_starts_with_alerts(tmp_path):
                            plan=InspectionPlan(window_us=4_000_000, frame_step_us=500_000),
                            budget=Budget(max_initial_windows=2, max_candidates=2, max_inspections=0,
                                          max_agent_calls=6, max_verification_iterations=2))
-    assert result.report.startswith("## Alertes à vérifier (1)")
-    assert result.report.index("## Alertes à vérifier") < result.report.index("# Video investigation")
+    assert result.report.startswith("## À vérifier par le garde (1)")
+    assert result.report.index("## À vérifier par le garde") < result.report.index("# Video investigation")
     (alert,) = result.review["alerts"]
     assert alert["category"] == "object_placed" and alert["reason_code"] == "missing_corroboration"
     assert result.review["counts"]["needs_review"] == 1

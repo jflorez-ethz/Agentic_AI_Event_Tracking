@@ -29,7 +29,7 @@ def test_fall_report_structure_and_images():
     page = guard_report.render(result("fall_live.Q2OExt"))
     assert headline(page) == "Person down at 00:25"
     plain = text(page)
-    order = [plain.index(h) for h in ("Coverage", "Needs operator review", "Confirmed security events",
+    order = [plain.index(h) for h in ("Coverage", "Needs guard review", "Watch-list events — facts verified",
                                       "Everything seen, in order", "Limits")]
     assert order == sorted(order)
     assert "Duration 00:40" in plain and "Analysed: the whole video" in plain and "Model processing time" in plain
@@ -43,7 +43,7 @@ def test_fall_report_structure_and_images():
 
 def test_old_run_gets_its_review_queue_and_alert_images():
     page = guard_report.render(result("leftbox_live.1iXjTj"))  # saved before analysis.review existed
-    assert headline(page) == "1 possible security event needs review"
+    assert headline(page) == "1 possible watch-list event needs guard review"
     plain = text(page)
     assert "Was an object put down and left there?" in plain and "Object left" in plain
     assert "it had already seen them all" in plain
@@ -53,7 +53,7 @@ def test_old_run_gets_its_review_queue_and_alert_images():
 @pytest.mark.parametrize(("run", "expected"), [
     ("leftbox_live.HwKyEx", "Object left at 00:20"),
     ("LeftBag_PickedUp_live.kocJd7", "Object left at 00:18"),
-    ("Walk2_live.m2MsOp", "No security event found in the analysed part of the video"),
+    ("Walk2_live.m2MsOp", "No watch-list event found in the analysed part of the video"),
 ])
 def test_headline_is_a_security_event_never_routine(run, expected):
     page = guard_report.render(result(run))
@@ -78,7 +78,7 @@ def test_every_perception_observation_reaches_the_guard(run):
     for classes, item in items:
         # Only verified rows are stated as facts; others are attributed to the video analysis.
         assert ("Reported by the video analysis" in item) == ("verified" not in classes.split())
-        assert ("security" in classes.split()) == ("Security</span>" in item)  # red is backed by a label
+        assert ("security" in classes.split()) == ("Watch-list event</span>" in item)  # red is backed by a label
     summary = re.search(r'<p class="summary">([^<]+)</p>', page).group(1)
     assert len(re.findall(r"[.!?](?:\s|$)", summary)) == 2
     assert f"{len(rows)} things were seen" in summary

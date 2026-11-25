@@ -186,7 +186,7 @@ def test_guard_report_shows_facts_strip_and_images():
     assert page.count("data:image/jpeg;base64,") >= 2
     assert "fall" not in page.lower().replace("fallback", "")
     # A person on the floor is not repeated among generic confirmed events.
-    confirmed = page.split("<h2>Confirmed security events</h2>")[1].split("<h2>")[0]
+    confirmed = page.split("<h2>Watch-list events — facts verified</h2>")[1].split("<h2>")[0]
     assert "Person on the floor" not in confirmed
 
 
