@@ -1,0 +1,685 @@
+[
+ {
+  "split": "dev",
+  "video": "LeftBag",
+  "category": "object_placed",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBag",
+  "category": "person_fell",
+  "verdict": null,
+  "completed": false,
+  "path": [
+   "inspect",
+   "inspect",
+   "inspect"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBag",
+  "category": "object_removed",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBag",
+  "category": "object_placed",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBox",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBox",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBox",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBox",
+  "category": "object_placed",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBag_PickedUp",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBag_PickedUp",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBag_PickedUp",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": false,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBag_PickedUp",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBag_AtChair",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBag_AtChair",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBag_AtChair",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "LeftBag_AtChair",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Rest_FallOnFloor",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Rest_FallOnFloor",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Rest_FallOnFloor",
+  "category": "person_fell",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Rest_FallOnFloor",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Walk2",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": false,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Walk2",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Walk2",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Walk2",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "TwoEnterShop1front",
+  "category": "person_appeared",
+  "verdict": null,
+  "completed": false,
+  "path": [
+   "inspect",
+   "inspect",
+   "inspect"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "TwoEnterShop1front",
+  "category": "person_appeared",
+  "verdict": null,
+  "completed": false,
+  "path": [
+   "inspect",
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "TwoEnterShop1front",
+  "category": "person_appeared",
+  "verdict": null,
+  "completed": false,
+  "path": [
+   "inspect",
+   "inspect",
+   "inspect"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "TwoEnterShop1front",
+  "category": "person_enters_area",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Meet_WalkSplit",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Meet_WalkSplit",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Meet_WalkSplit",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Meet_WalkSplit",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Meet_WalkTogether1",
+  "category": "person_appeared",
+  "verdict": null,
+  "completed": false,
+  "path": [
+   "inspect",
+   "inspect",
+   "inspect"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Meet_WalkTogether1",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Meet_WalkTogether1",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "dev",
+  "video": "Meet_WalkTogether1",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Rest_SlumpOnFloor",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Rest_SlumpOnFloor",
+  "category": "person_fell",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "inspect",
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Rest_SlumpOnFloor",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Rest_SlumpOnFloor",
+  "category": "person_fell",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Rest_WiggleOnFloor",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Rest_WiggleOnFloor",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Rest_WiggleOnFloor",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": false,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Rest_WiggleOnFloor",
+  "category": "person_fell",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Fight_OneManDown",
+  "category": "person_appeared",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Fight_OneManDown",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Fight_OneManDown",
+  "category": "person_appeared",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Fight_OneManDown",
+  "category": "person_fell",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "LeftBag_BehindChair",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "LeftBag_BehindChair",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "LeftBag_BehindChair",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "LeftBag_BehindChair",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Rest_InChair",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Rest_InChair",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": false,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Rest_InChair",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Rest_InChair",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Browse1",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Browse1",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Browse1",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Browse1",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Browse2",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Browse2",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Browse2",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "inspect",
+   "inspect",
+   "verdict"
+  ]
+ },
+ {
+  "split": "heldout",
+  "video": "Browse2",
+  "category": "person_moved",
+  "verdict": null,
+  "completed": true,
+  "path": [
+   "verdict"
+  ]
+ }
+]
